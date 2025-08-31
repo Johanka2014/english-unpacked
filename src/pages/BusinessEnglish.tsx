@@ -27,7 +27,7 @@ const BusinessEnglish = () => {
         {/* Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-merriweather">
-            Business English
+            Comprehensive Business English Course
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
             Master professional communication with comprehensive textbooks and interactive learning tools designed for today's business world.
