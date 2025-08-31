@@ -41,7 +41,7 @@ const OnlineLessonsSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-merriweather">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-merriweather">
             Lessons via Google Meet or Teams
           </h2>
         </div>
