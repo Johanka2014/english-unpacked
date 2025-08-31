@@ -46,11 +46,11 @@ const BusinessEnglish = () => {
       {/* Business Textbooks Section */}
       <section id="textbooks" className="py-20 bg-background">
         <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-foreground mb-12 font-merriweather text-center">
+            Comprehensive Business English Textbooks
+          </h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather text-center">
-                Comprehensive Business English Textbooks
-              </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Experience a complete and thorough course with professionally designed Business English textbooks. 
                 Our structured approach ensures systematic learning of business communication, vocabulary, and professional writing skills.
