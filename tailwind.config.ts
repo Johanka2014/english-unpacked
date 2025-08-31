@@ -20,6 +20,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'pacifico': ['Pacifico', 'cursive'],
+				'merriweather': ['Merriweather', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

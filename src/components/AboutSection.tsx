@@ -57,7 +57,7 @@ const AboutSection = () => {
           {/* Content */}
           <div className="space-y-6 animate-fade-in">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4 font-merriweather">
                 Hi, I'm Joanna
               </h2>
               <div className="w-16 h-1 bg-brand-royal mb-6"></div>

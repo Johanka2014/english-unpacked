@@ -20,7 +20,7 @@ const LearningJourneySection = () => {
     <section className="py-20 pb-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-navy">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-navy font-merriweather">
             Your Learning Journey
           </h2>
           
@@ -28,7 +28,7 @@ const LearningJourneySection = () => {
             {steps.map((step, index) => (
               <Card key={index} className="bg-blue-50 border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-2xl font-bold text-brand-royal mb-4">
+                  <h3 className="text-2xl font-bold text-brand-royal mb-4 font-merriweather">
                     {step.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
