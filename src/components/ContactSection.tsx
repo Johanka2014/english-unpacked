@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MessageSquare, Mail, Clock } from "lucide-react";
+import { Calendar, MessageSquare } from "lucide-react";
 
 const ContactSection = () => {
   const contactOptions = [
@@ -20,12 +20,6 @@ const ContactSection = () => {
       link: "mailto:info@englishunpacked.com",
       primary: false
     }
-  ];
-
-  const availability = [
-    { day: "Monday - Friday", time: "9:00 AM - 6:00 PM CET" },
-    { day: "Saturday", time: "10:00 AM - 2:00 PM CET" },
-    { day: "Sunday", time: "Closed" }
   ];
 
   return (
@@ -77,35 +71,6 @@ const ContactSection = () => {
             </Card>
           ))}
         </div>
-
-        {/* Availability */}
-        <Card className="max-w-md mx-auto service-card">
-          <CardHeader className="text-center pb-4">
-            <div className="mx-auto mb-4 p-4 bg-brand-light rounded-full w-fit">
-              <Clock className="w-8 h-8 text-brand-royal" />
-            </div>
-            <CardTitle className="text-xl text-brand-navy">
-              Availability
-            </CardTitle>
-          </CardHeader>
-          
-          <CardContent>
-            <div className="space-y-3">
-              {availability.map((slot, index) => (
-                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-                  <span className="font-medium text-brand-navy">{slot.day}</span>
-                  <span className="text-muted-foreground">{slot.time}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-6 p-4 bg-brand-light/50 rounded-lg">
-              <p className="text-sm text-muted-foreground text-center">
-                All times are in Central European Time (CET). Online lessons available worldwide.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
