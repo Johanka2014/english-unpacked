@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Laptop, CheckCircle, ExternalLink } from "lucide-react";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const BusinessEnglish = () => {
   return (
@@ -11,23 +12,33 @@ const BusinessEnglish = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-brand-royal via-brand-navy to-brand-deep">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-merriweather">
-              Business English
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Master professional communication with comprehensive textbooks and interactive learning tools designed for today's business world.
-            </p>
-            <Button 
-              size="lg" 
-              className="hero-button bg-white text-brand-navy hover:bg-white/90 transition-all duration-300"
-              asChild
-            >
-              <a href="#textbooks">Explore Our Methods</a>
-            </Button>
-          </div>
+      <section 
+        className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
+        style={{
+          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${heroBackground}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Animated background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/20 to-brand-royal/20"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-merriweather">
+            Business English
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            Master professional communication with comprehensive textbooks and interactive learning tools designed for today's business world.
+          </p>
+          <Button 
+            size="lg" 
+            className="hero-button animate-bounce-subtle"
+            asChild
+          >
+            <a href="#textbooks">Explore Our Methods</a>
+          </Button>
         </div>
       </section>
 
@@ -167,8 +178,20 @@ const BusinessEnglish = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-r from-brand-royal to-brand-navy">
-        <div className="container mx-auto px-4 text-center">
+      <section 
+        className="relative py-20 text-white overflow-hidden"
+        style={{
+          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${heroBackground}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Animated background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/20 to-brand-royal/20"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6 font-merriweather">
               Ready to Advance Your Business English?
