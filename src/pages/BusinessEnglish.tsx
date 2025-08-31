@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Laptop, CheckCircle, ExternalLink } from "lucide-react";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
+import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const BusinessEnglish = () => {
@@ -107,56 +108,33 @@ const BusinessEnglish = () => {
       </section>
 
       {/* Interactive Apps Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
-              Interactive Learning Apps
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Enhance your learning experience with our cutting-edge interactive applications. 
-              Practice vocabulary, pronunciation, and business scenarios in an engaging digital environment.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Card className="service-card p-8 text-center">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Laptop className="w-8 h-8 text-brand-royal" />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4 font-merriweather">
-                  Business Benchmark Vocabulary App
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  Master essential business vocabulary through interactive exercises, quizzes, and real-time feedback. 
-                  Our app adapts to your learning pace and tracks your progress automatically.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle className="w-6 h-6 text-brand-royal" />
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-2">Interactive Exercises</h4>
-                  <p className="text-sm text-muted-foreground">Engaging activities that make learning vocabulary fun and memorable</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle className="w-6 h-6 text-brand-royal" />
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
-                  <p className="text-sm text-muted-foreground">Monitor your improvement with detailed analytics and achievements</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle className="w-6 h-6 text-brand-royal" />
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-2">Adaptive Learning</h4>
-                  <p className="text-sm text-muted-foreground">Personalized content that adjusts to your skill level and pace</p>
-                </div>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="order-first lg:order-first">
+              <Card className="service-card overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={businessVocabAppImage} 
+                    alt="Business Benchmark Vocabulary App interface showing interactive learning exercises"
+                    className="w-full h-auto object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
+                Interactive Learning Apps
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Enhance your learning experience with our cutting-edge interactive applications. 
+                Practice vocabulary, pronunciation, and business scenarios in an engaging digital environment.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Master essential business vocabulary through interactive exercises, quizzes, and real-time feedback. 
+                Our app adapts to your learning pace and tracks your progress automatically.
+              </p>
 
               <Button 
                 size="lg" 
@@ -172,6 +150,31 @@ const BusinessEnglish = () => {
                   Try the App Now
                 </a>
               </Button>
+            </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Interactive Exercises</h4>
+              <p className="text-sm text-muted-foreground">Engaging activities that make learning vocabulary fun and memorable</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
+              <p className="text-sm text-muted-foreground">Monitor your improvement with detailed analytics and achievements</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Adaptive Learning</h4>
+              <p className="text-sm text-muted-foreground">Personalized content that adjusts to your skill level and pace</p>
             </Card>
           </div>
         </div>
