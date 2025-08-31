@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Get Started</h4>
             <div className="space-y-3">
               <a 
-                href="https://calendly.com/english-unpacked/sample-lesson" 
+                href="https://calendly.com/english-unpacked/consultation" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block text-white/80 hover:text-white transition-colors duration-200"
