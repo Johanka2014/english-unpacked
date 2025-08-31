@@ -48,7 +48,7 @@ const BusinessEnglish = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather text-center">
                 Comprehensive Business English Textbooks
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
