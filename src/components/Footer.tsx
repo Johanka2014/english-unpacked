@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold italic">English Unpacked</h3>
+            <h3 className="text-2xl font-bold font-pacifico">English Unpacked</h3>
             <p className="text-white/80 leading-relaxed">
               Personalized English lessons designed to help you communicate with confidence. 
               Based in Czech Republic, serving students worldwide.
