@@ -40,7 +40,7 @@ const Navigation = () => {
               className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
               asChild
             >
-              <a href="https://calendly.com/english-unpacked/sample-lesson" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
                 Book Consultation
               </a>
             </Button>
@@ -78,7 +78,7 @@ const Navigation = () => {
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
                 asChild
               >
-                <a href="https://calendly.com/english-unpacked/sample-lesson" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
                   Book Consultation
                 </a>
               </Button>

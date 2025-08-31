@@ -9,7 +9,7 @@ const ContactSection = () => {
       title: "Book a Free Consultation",
       description: "Schedule a 30-minute call to discuss your English learning goals and see if we're a good fit.",
       action: "Schedule Now",
-      link: "https://calendly.com/english-unpacked/sample-lesson",
+      link: "https://calendly.com/english-unpacked/consultation",
       primary: true
     },
     {

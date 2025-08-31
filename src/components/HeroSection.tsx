@@ -28,7 +28,7 @@ const HeroSection = () => {
           className="hero-button animate-bounce-subtle"
           asChild
         >
-          <a href="https://calendly.com/english-unpacked/sample-lesson" target="_blank" rel="noopener noreferrer">
+          <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
             Book a Free Consultation
           </a>
         </Button>
