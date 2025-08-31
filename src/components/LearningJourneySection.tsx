@@ -20,7 +20,7 @@ const LearningJourneySection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-royal font-['Pacifico']">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-brand-royal">
             Your Learning Journey
           </h2>
           
