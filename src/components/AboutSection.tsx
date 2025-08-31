@@ -88,7 +88,7 @@ const AboutSection = () => {
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
               >
-                <a href="https://calendly.com/english-unpacked/sample-lesson" target="_blank" rel="noopener noreferrer">
+                <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
                   Start Your Journey
                 </a>
               </Button>
