@@ -6,7 +6,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Business English", href: "#business" },
+    { name: "Business English", href: "/business-english" },
     { name: "Conversational English", href: "#conversation" },
     { name: "Exam Preparation", href: "#exam-prep" },
     { name: "About", href: "#about" },
