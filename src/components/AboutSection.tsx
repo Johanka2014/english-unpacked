@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Quote, Clock, Award, Heart } from "lucide-react";
-import joannaPortrait from "@/assets/joanna-portrait.jpg";
+import joannaPortrait from "@/assets/joanna-headshot.jpg";
 
 const AboutSection = () => {
   const features = [
