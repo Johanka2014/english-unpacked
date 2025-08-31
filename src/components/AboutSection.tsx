@@ -32,7 +32,7 @@ const AboutSection = () => {
               <img 
                 src={joannaPortrait}
                 alt="Joanna, English tutor"
-                className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto shadow-[var(--shadow-card-hover)] border-4 border-white"
+                className="w-64 h-64 md:w-80 md:h-80 object-cover object-[center_20%] rounded-full mx-auto shadow-[var(--shadow-card-hover)] border-4 border-white"
               />
               <div className="absolute -bottom-4 -right-4 bg-brand-royal text-white p-3 rounded-full shadow-lg">
                 <Quote className="w-6 h-6" />
