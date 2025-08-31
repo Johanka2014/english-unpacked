@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
       style={{
-        background: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://johanka2014.github.io/englishunpacked/london-hero.jpg")',
+        background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${heroBackground}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
