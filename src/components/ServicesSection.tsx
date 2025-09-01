@@ -13,7 +13,7 @@ const ServicesSection = () => {
       title: "Business English",
       description: "Master the language of the corporate world. From meetings and presentations to emails and negotiations, we'll equip you with the skills you need to succeed professionally.",
       image: businessMeeting,
-      link: "https://johanka2014.github.io/englishunpacked/business.html"
+      link: "/business-english"
     },
     {
       id: "conversation",
@@ -21,7 +21,7 @@ const ServicesSection = () => {
       title: "Conversational English",
       description: "Build fluency and confidence for everyday conversations. We focus on practical, real-world scenarios to help you communicate naturally and effectively.",
       image: conversation,
-      link: "https://johanka2014.github.io/englishunpacked/conversation.html"
+      link: "/conversational-english"
     },
     {
       id: "exam-prep",
