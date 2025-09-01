@@ -147,7 +147,7 @@ const BusinessEnglish = () => {
                   rel="noopener noreferrer"
                 >
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  Try the App Now
+                  Try on of the Apps Now
                 </a>
               </Button>
             </div>
