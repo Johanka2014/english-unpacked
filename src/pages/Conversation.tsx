@@ -2,9 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Laptop, CheckCircle, ExternalLink } from "lucide-react";
-import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
-import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
+import { MessageCircle, Globe, Lightbulb, ExternalLink } from "lucide-react";
+import conversationImage from "@/assets/conversation.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const ConversationalEnglish = () => {
@@ -31,51 +30,50 @@ const ConversationalEnglish = () => {
             Conversational English
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-            Connect with confidence through practical lessons and dynamic activities that bring language to life.
+            Build fluency and confidence for everyday conversations. We focus on practical, real-world scenarios to help you communicate naturally and effectively.
           </p>
           <Button 
             size="lg" 
             className="hero-button animate-bounce-subtle"
             asChild
           >
-            <a href="#textbooks">Explore Our Methods</a>
+            <a href="#topics">Explore Topics</a>
           </Button>
         </div>
       </section>
 
-      {/* Business Textbooks Section */}
-      <section id="textbooks" className="py-20 bg-background">
+      {/* Conversational Topics Section */}
+      <section id="topics" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-foreground mb-12 font-merriweather text-center">
-            Comprehensive Business English Textbooks
+            Mastering Real-World Conversations
           </h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Experience a complete and thorough course with professionally designed Business English textbooks. 
-                Our structured approach ensures systematic learning of business communication, vocabulary, and professional writing skills.
+                Our conversational English lessons are designed to get you talking from day one. We move beyond textbooks to explore topics that matter to you, helping you build confidence and express yourself naturally.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
+                  <Globe className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Structured Learning Path</h3>
-                    <p className="text-muted-foreground">Progressive curriculum from basic business vocabulary to advanced communication skills</p>
+                    <h3 className="font-semibold text-foreground mb-1">Practical Scenarios</h3>
+                    <p className="text-muted-foreground">Practice in real-life situations like ordering at a restaurant, traveling, or making new friends.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
+                  <MessageCircle className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Real-World Applications</h3>
-                    <p className="text-muted-foreground">Practice with authentic business scenarios, emails, presentations, and meetings</p>
+                    <h3 className="font-semibold text-foreground mb-1">Dynamic Discussions</h3>
+                    <p className="text-muted-foreground">Engage in lively debates and talks about culture, news, and your personal interests.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
+                  <Lightbulb className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Professional Certification</h3>
-                    <p className="text-muted-foreground">Prepare for Cambridge Business English certificates and other professional qualifications</p>
+                    <h3 className="font-semibold text-foreground mb-1">Idioms and Slang</h3>
+                    <p className="text-muted-foreground">Learn natural-sounding language and common expressions used by native speakers.</p>
                   </div>
                 </div>
               </div>
@@ -86,8 +84,8 @@ const ConversationalEnglish = () => {
                 asChild
               >
                 <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Start Your Course
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Book Your First Conversation
                 </a>
               </Button>
             </div>
@@ -96,86 +94,13 @@ const ConversationalEnglish = () => {
               <Card className="service-card overflow-hidden">
                 <CardContent className="p-0">
                   <img 
-                    src={businessBenchmarkImage} 
-                    alt="Business Benchmark textbooks for comprehensive Business English learning"
+                    src={conversationImage} 
+                    alt="Two people talking animatedly in a cafe."
                     className="w-full h-auto object-cover"
                   />
                 </CardContent>
               </Card>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Apps Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="order-first lg:order-first">
-              <Card className="service-card overflow-hidden">
-                <CardContent className="p-0">
-                  <img 
-                    src={businessVocabAppImage} 
-                    alt="Business Benchmark Vocabulary App interface showing interactive learning exercises"
-                    className="w-full h-auto object-cover"
-                  />
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
-                Interactive Learning Apps
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Enhance your learning experience with our cutting-edge interactive applications. 
-                Practice vocabulary, pronunciation, and business scenarios in an engaging digital environment.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Master essential business vocabulary through interactive exercises, quizzes, and real-time feedback. 
-                Our app adapts to your learning pace and tracks your progress automatically.
-              </p>
-
-              <Button 
-                size="lg" 
-                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-                asChild
-              >
-                <a 
-                  href="https://business-benchmark-vocabulary.lovable.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  Try the App Now
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Interactive Exercises</h4>
-              <p className="text-sm text-muted-foreground">Engaging activities that make learning vocabulary fun and memorable</p>
-            </Card>
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
-              <p className="text-sm text-muted-foreground">Monitor your improvement with detailed analytics and achievements</p>
-            </Card>
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Adaptive Learning</h4>
-              <p className="text-sm text-muted-foreground">Personalized content that adjusts to your skill level and pace</p>
-            </Card>
           </div>
         </div>
       </section>
@@ -197,11 +122,10 @@ const ConversationalEnglish = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold text-white mb-6 font-merriweather">
-              Ready to Advance Your Business English?
+              Start Speaking Confidently Today
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Combine the thoroughness of professional textbooks with the engagement of interactive apps. 
-              Book a consultation to create your personalized Business English learning plan.
+              Don't just learn English, speak it! Our personalized conversational lessons will help you gain fluency and confidence.
             </p>
             <Button 
               size="lg" 
@@ -221,4 +145,4 @@ const ConversationalEnglish = () => {
   );
 };
 
-export default BusinessEnglish;
+export default ConversationalEnglish;
