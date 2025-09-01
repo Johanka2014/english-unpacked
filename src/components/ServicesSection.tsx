@@ -29,7 +29,7 @@ const ServicesSection = () => {
       title: "Exam Preparation",
       description: "Get ready for language exams like FCE, CAE, and IELTS with targeted strategies and practice. We'll help you build the skills and confidence to achieve your best score.",
       image: examPrep,
-      link: "https://johanka2014.github.io/englishunpacked/exam-prep.html"
+      link: "/exam-preparation"
     }
   ];
 
