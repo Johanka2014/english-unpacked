@@ -20,13 +20,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Services</h4>
             <div className="space-y-2">
-              <a href="#business" className="block text-white/80 hover:text-white transition-colors duration-200">
+              <a href="/business-english" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Business English
               </a>
               <a href="#conversation" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Conversational English
               </a>
-              <a href="#exam-prep" className="block text-white/80 hover:text-white transition-colors duration-200">
+              <a href="/conversational-english" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Exam Preparation
               </a>
               <a href="#about" className="block text-white/80 hover:text-white transition-colors duration-200">
