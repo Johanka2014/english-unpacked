@@ -9,8 +9,8 @@ const Navigation = () => {
     { name: "Business English", href: "/business-english" },
     { name: "Conversational English", href: "/conversational-english" },
     { name: "Exam Preparation", href: "/exam-preparation" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" }
+    { name: "About", href: "/#about" },
+    { name: "Contact", href: "/#contact" }
   ];
 
   return (
