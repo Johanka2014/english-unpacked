@@ -36,9 +36,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-3xl font-bold text-brand-navy font-pacifico">
-              English Unpacked
-            </h1>
+            <Link to="/" className="cursor-pointer">
+              <h1 className="text-3xl font-bold text-brand-navy font-pacifico hover:text-brand-royal transition-colors duration-200">
+                English Unpacked
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
