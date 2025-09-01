@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
