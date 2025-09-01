@@ -7,7 +7,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Business English", href: "/business-english" },
-    { name: "Conversational English", href: "/conversation" },
+    { name: "Conversational English", href: "/conversational-english" },
     { name: "Exam Preparation", href: "#exam-prep" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" }
