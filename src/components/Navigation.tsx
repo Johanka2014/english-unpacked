@@ -1,9 +1,26 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false); // Close mobile menu after clicking
+  };
+
+  useEffect(() => {
+    // This useEffect is responsible for scrolling to the anchor link after a route change.
+    if (location.hash) {
+      handleScroll(location.hash.substring(1));
+    }
+  }, [location]);
 
   const navItems = [
     { name: "Business English", href: "/business-english" },
