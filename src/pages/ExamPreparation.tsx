@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, CheckCircle, ExternalLink, Timer, Target } from "lucide-react";
-import examPrepTextbooks from "https://johanka2014.github.io/englishunpacked/textbooks.png";
+import examPrepTextbooks from @assets/textbooks.png";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const ExamPreparation = () => {
