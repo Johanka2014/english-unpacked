@@ -23,10 +23,10 @@ const Footer = () => {
               <a href="/business-english" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Business English
               </a>
-              <a href="#conversation" className="block text-white/80 hover:text-white transition-colors duration-200">
+              <a href="/conversational-english" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Conversational English
               </a>
-              <a href="/conversational-english" className="block text-white/80 hover:text-white transition-colors duration-200">
+              <a href="/exam-preparation" className="block text-white/80 hover:text-white transition-colors duration-200">
                 Exam Preparation
               </a>
               <a href="#about" className="block text-white/80 hover:text-white transition-colors duration-200">
