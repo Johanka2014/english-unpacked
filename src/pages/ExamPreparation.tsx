@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, CheckCircle, ExternalLink, Timer, Target } from "lucide-react";
 import examPrepTextbooks from "@/assets/textbooks.png";
+import onlineExamPractice from "@/assets/online-exam-practice.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const ExamPreparation = () => {
@@ -113,8 +114,8 @@ const ExamPreparation = () => {
               <Card className="service-card overflow-hidden">
                 <CardContent className="p-0">
                   <img 
-                    src={examPrepTextbooks} 
-                    alt="Interactive CAE exam practice interface"
+                    src={onlineExamPractice} 
+                    alt="Student using interactive online CAE exam practice platform"
                     className="w-full h-auto object-cover"
                   />
                 </CardContent>
