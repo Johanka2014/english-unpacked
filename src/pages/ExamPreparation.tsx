@@ -135,20 +135,16 @@ const ExamPreparation = () => {
                 Our interactive platform adapts to your learning needs and provides detailed explanations for each question.
               </p>
 
-              <Button 
-                size="lg" 
-                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-                asChild
-              >
-                <a 
-                  href="https://johanka2014.github.io/cae_result/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  Try Interactive Practice
-                </a>
-              </Button>
+            <Button 
+              size="lg" 
+              className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+              asChild
+            >
+              <a href="/exam-practice">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Try Interactive Practice
+              </a>
+            </Button>
             </div>
           </div>
 

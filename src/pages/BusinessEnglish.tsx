@@ -85,7 +85,7 @@ const BusinessEnglish = () => {
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
               >
-                <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
+                <a href="/booking">
                   <BookOpen className="w-5 h-5 mr-2" />
                   Start Your Course
                 </a>
@@ -141,13 +141,9 @@ const BusinessEnglish = () => {
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
               >
-                <a 
-                  href="https://business-benchmark-vocabulary.lovable.app/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+                <a href="/business-vocabulary-app">
                   <ExternalLink className="w-5 h-5 mr-2" />
-                  Try on of the Apps Now
+                  Try one of the Apps Now
                 </a>
               </Button>
             </div>
@@ -208,7 +204,7 @@ const BusinessEnglish = () => {
               className="hero-button bg-white text-brand-navy hover:bg-white/90 transition-all duration-300"
               asChild
             >
-              <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
+              <a href="/booking">
                 Book Your Consultation
               </a>
             </Button>

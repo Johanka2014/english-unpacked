@@ -42,14 +42,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Get Started</h4>
             <div className="space-y-3">
-              <a 
-                href="https://calendly.com/english-unpacked/consultation" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/booking"
                 className="block text-white/80 hover:text-white transition-colors duration-200"
               >
                 📅 Book Free Consultation
-              </a>
+              </Link>
               <a 
                 href="mailto:info@englishunpacked.com"
                 className="block text-white/80 hover:text-white transition-colors duration-200"
