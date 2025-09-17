@@ -125,7 +125,7 @@ const BusinessEnglish = () => {
             
             <div>
               <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
-                Interactive Learning Apps
+                Interactive Learning Activities
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Enhance your learning experience with our cutting-edge interactive applications. 
