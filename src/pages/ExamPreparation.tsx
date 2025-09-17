@@ -30,7 +30,7 @@ const ExamPreparation = () => {
             Exam Preparation
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-            Achieve your best score with our specialized programs for FCE, CAE, and IELTS exams.
+            Achieve your best score with our specialized programs for FCE, CAE, and CPE exams.
           </p>
           <Button 
             size="lg" 
