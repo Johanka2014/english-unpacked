@@ -104,6 +104,79 @@ const ExamPreparation = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Practice Section */}
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="order-first lg:order-first">
+              <Card className="service-card overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={examPrepTextbooks} 
+                    alt="Interactive CAE exam practice interface"
+                    className="w-full h-auto object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
+                Interactive Online Practice
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Take your exam preparation to the next level with our interactive online practice platform. 
+                Experience exam-style questions and get immediate feedback on your performance.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Practice with authentic CAE exam formats, track your progress, and identify areas that need improvement. 
+                Our interactive platform adapts to your learning needs and provides detailed explanations for each question.
+              </p>
+
+              <Button 
+                size="lg" 
+                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                asChild
+              >
+                <a 
+                  href="https://johanka2014.github.io/cae_result/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Try Interactive Practice
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Exam-Style Questions</h4>
+              <p className="text-sm text-muted-foreground">Practice with questions that mirror the actual CAE exam format and difficulty</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Timer className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Instant Feedback</h4>
+              <p className="text-sm text-muted-foreground">Get immediate results and detailed explanations for every answer</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Target className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
+              <p className="text-sm text-muted-foreground">Monitor your improvement and focus on areas that need more practice</p>
+            </Card>
+          </div>
+        </div>
+      </section>
       
       {/* Call to Action Section */}
       <section 
