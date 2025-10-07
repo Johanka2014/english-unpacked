@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Laptop, CheckCircle, ExternalLink } from "lucide-react";
+import { BookOpen, Laptop, CheckCircle, ExternalLink, Plane } from "lucide-react";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -78,9 +78,17 @@ const BusinessEnglish = () => {
                     <p className="text-muted-foreground">Prepare for Cambridge Business English certificates and other professional qualifications</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <Plane className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Business Travel English</h3>
+                    <p className="text-muted-foreground">Essential phrases and strategies for handling travel disruptions, emergencies, and challenging situations abroad</p>
+                  </div>
+                </div>
               </div>
 
-              <Button 
+              <div className="flex gap-4 flex-wrap">
+                <Button
                 size="lg" 
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
@@ -90,6 +98,18 @@ const BusinessEnglish = () => {
                   Start Your Course
                 </a>
               </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-brand-royal text-brand-royal hover:bg-brand-royal/10"
+                asChild
+              >
+                <a href="/business-travel">
+                  <Plane className="w-5 h-5 mr-2" />
+                  Explore Travel Scenarios
+                </a>
+              </Button>
+              </div>
             </div>
             
             <div className="order-first lg:order-last">
