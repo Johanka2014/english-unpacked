@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Laptop, CheckCircle, ExternalLink, Plane } from "lucide-react";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
+import businessMeetingImage from "@/assets/business-meeting.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const BusinessEnglish = () => {
@@ -78,17 +79,9 @@ const BusinessEnglish = () => {
                     <p className="text-muted-foreground">Prepare for Cambridge Business English certificates and other professional qualifications</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Plane className="w-6 h-6 text-brand-royal mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Business Travel English</h3>
-                    <p className="text-muted-foreground">Essential phrases and strategies for handling travel disruptions, emergencies, and challenging situations abroad</p>
-                  </div>
-                </div>
               </div>
 
-              <div className="flex gap-4 flex-wrap">
-                <Button
+              <Button
                 size="lg" 
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
@@ -98,18 +91,6 @@ const BusinessEnglish = () => {
                   Start Your Course
                 </a>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="border-brand-royal text-brand-royal hover:bg-brand-royal/10"
-                asChild
-              >
-                <a href="/business-travel">
-                  <Plane className="w-5 h-5 mr-2" />
-                  Explore Travel Scenarios
-                </a>
-              </Button>
-              </div>
             </div>
             
             <div className="order-first lg:order-last">
@@ -127,8 +108,50 @@ const BusinessEnglish = () => {
         </div>
       </section>
 
-      {/* Interactive Apps Section */}
+      {/* Business Travel English Section */}
       <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-first lg:order-first">
+              <Card className="service-card overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={businessMeetingImage} 
+                    alt="Business professionals in meeting discussing travel scenarios and emergency situations"
+                    className="w-full h-auto object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
+                Business Travel English
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Prepare for any travel challenge with confidence. Master essential phrases and communication strategies for handling disruptions, emergencies, and unexpected situations abroad.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                From flight delays to lost luggage, car rental disputes to hotel room issues—learn how to navigate challenging situations professionally and effectively in English.
+              </p>
+
+              <Button 
+                size="lg" 
+                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                asChild
+              >
+                <a href="/business-travel">
+                  <Plane className="w-5 h-5 mr-2" />
+                  Explore Travel Scenarios
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Apps Section */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-first lg:order-first">
