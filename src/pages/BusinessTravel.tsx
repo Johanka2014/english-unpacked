@@ -159,37 +159,8 @@ const BusinessTravel = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section 
-        className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
-        style={{
-          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${heroBackground}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/20 to-brand-royal/20"></div>
-        
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-merriweather">
-            Business Travel English
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-            Navigate any travel challenge with confidence. Master essential phrases for handling disruptions, emergencies, and challenging situations abroad.
-          </p>
-          <Button 
-            size="lg" 
-            className="hero-button animate-bounce-subtle"
-            asChild
-          >
-            <a href="#scenarios">Explore Travel Scenarios</a>
-          </Button>
-        </div>
-      </section>
-
       {/* Scenarios Grid Section */}
-      <section id="scenarios" className="py-20 bg-background">
+      <section id="scenarios" className="py-20 bg-background pt-32">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather text-center">
             Essential Travel Scenarios
