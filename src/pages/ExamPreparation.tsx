@@ -127,24 +127,36 @@ const ExamPreparation = () => {
                 Interactive Online Practice
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Take your exam preparation to the next level with our interactive online practice platform. 
+                Take your exam preparation to the next level with our interactive online practice platforms. 
                 Experience exam-style questions and get immediate feedback on your performance.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Practice with authentic CAE exam formats, track your progress, and identify areas that need improvement. 
-                Our interactive platform adapts to your learning needs and provides detailed explanations for each question.
+                Practice with authentic exam formats, track your progress, and identify areas that need improvement. 
+                Our interactive platforms adapt to your learning needs and provide detailed explanations for each question.
               </p>
 
-            <Button 
-              size="lg" 
-              className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-              asChild
-            >
-              <a href="/exam-practice">
-                <ExternalLink className="w-5 h-5 mr-2" />
-                Try Interactive Practice
-              </a>
-            </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                  asChild
+                >
+                  <a href="/exam-practice">
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    CAE Exam Practice
+                  </a>
+                </Button>
+                <Button 
+                  size="lg" 
+                  className="bg-teal-600 hover:bg-teal-700 transition-colors duration-200"
+                  asChild
+                >
+                  <a href="/fce-vocab-practice">
+                    <ExternalLink className="w-5 h-5 mr-2" />
+                    FCE Vocabulary Practice
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
 
