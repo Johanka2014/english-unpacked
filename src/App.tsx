@@ -12,6 +12,7 @@ import BookingWrapper from "./pages/BookingWrapper";
 import BusinessVocabAppWrapper from "./pages/BusinessVocabAppWrapper";
 import CaeExamPracticeWrapper from "./pages/CaeExamPracticeWrapper";
 import FceVocabPracticeWrapper from "./pages/FceVocabPracticeWrapper";
+import EverydayConversations from "./pages/EverydayConversations";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/business-vocabulary-app" element={<BusinessVocabAppWrapper />} />
           <Route path="/exam-practice" element={<CaeExamPracticeWrapper />} />
           <Route path="/fce-vocab-practice" element={<FceVocabPracticeWrapper />} />
+          <Route path="/everyday-conversations" element={<EverydayConversations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
