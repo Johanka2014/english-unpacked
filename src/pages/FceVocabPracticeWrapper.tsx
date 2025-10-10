@@ -12,6 +12,7 @@ import sortingImg from "@/assets/word-sorting.jpg";
 import sentenceImg from "@/assets/sentence-completion.jpg";
 import confusingImg from "@/assets/confusing-words.jpg";
 import mdtImg from "@/assets/make-do-take.jpg";
+import examPrepImg from "@/assets/exam-prep.jpg";
 
 type ActivityKey = 'hub' | 'mc' | 'gap' | 'sort' | 'sentence' | 'confusing' | 'mdt';
 
@@ -437,21 +438,33 @@ const FceVocabPracticeWrapper = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
 
       {currentActivity === 'hub' && (
-        <section className="py-20 bg-background pt-32">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-merriweather text-center">
-                FCE Vocabulary Practice
-              </h2>
-              <p className="text-lg text-muted-foreground mb-16 text-center max-w-3xl mx-auto">
+        <main className="flex-1">
+          <section className="relative py-20 bg-brand-navy text-white overflow-hidden">
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage: `url(${examPrepImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            />
+            <div className="container mx-auto px-4 relative z-10">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 font-merriweather">FCE Vocabulary Practice</h1>
+              <p className="text-xl text-white/90 max-w-2xl">
                 Master essential FCE vocabulary through six interactive exercises designed to build your confidence and language skills.
               </p>
+            </div>
+          </section>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-8 text-center font-merriweather">Practice Activities</h2>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                 <Card 
                   className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => switchActivity('mc')}
@@ -573,8 +586,8 @@ const FceVocabPracticeWrapper = () => {
                 </Card>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
       )}
 
       {currentActivity === 'mc' && (
