@@ -16,9 +16,9 @@ const BusinessVocabAppWrapper = () => {
               <p className="text-white/80">Interactive learning exercises for business English vocabulary</p>
             </div>
             <Button 
-              variant="outline" 
+              variant="secondary" 
               size="sm"
-              className="border-white text-white hover:bg-white hover:text-brand-royal"
+              className="bg-white/10 text-white border border-white/20 hover:bg-white hover:text-brand-royal transition-colors duration-200"
               asChild
             >
               <a href="https://business-benchmark-vocabulary.lovable.app/" target="_blank" rel="noopener noreferrer">
