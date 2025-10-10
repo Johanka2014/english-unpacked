@@ -1,7 +1,17 @@
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { BookOpen, Shuffle, ArrowDownUp, FileText, HelpCircle, Target, ArrowLeft } from "lucide-react";
+
+// Import activity images
+import multipleChoiceImg from "@/assets/multiple-choice-practice.jpg";
+import unscrambleImg from "@/assets/unscramble-words.jpg";
+import sortingImg from "@/assets/word-sorting.jpg";
+import sentenceImg from "@/assets/sentence-completion.jpg";
+import confusingImg from "@/assets/confusing-words.jpg";
+import mdtImg from "@/assets/make-do-take.jpg";
 
 type ActivityKey = 'hub' | 'mc' | 'gap' | 'sort' | 'sentence' | 'confusing' | 'mdt';
 
@@ -166,7 +176,6 @@ const FceVocabPracticeWrapper = () => {
     }
   }, [currentActivity]);
 
-  // Initialize MDT inputs when question loads
   useEffect(() => {
     if (currentActivity === 'mdt' && !mdtComplete) {
       const blanksCount = (mdtQuestions[mdtIndex].q.match(/___/g) || []).length;
@@ -216,7 +225,6 @@ const FceVocabPracticeWrapper = () => {
     setMcComplete(false);
   };
 
-  // Unscramble Handlers
   const handleGapCheck = () => {
     if (!gapInput.trim()) {
       setGapFeedback("Please type an answer.");
@@ -250,7 +258,6 @@ const FceVocabPracticeWrapper = () => {
     setGapComplete(false);
   };
 
-  // Sorting Handlers
   const handleDragStart = (word: string) => {
     const elem = document.querySelector(`[data-word="${word}"]`) as HTMLElement;
     setDraggedItem(elem);
@@ -294,7 +301,6 @@ const FceVocabPracticeWrapper = () => {
     setSortFeedback("");
   };
 
-  // Sentence Handlers
   const handleSentenceCheck = () => {
     if (!sentenceInput.trim()) {
       setSentenceFeedback("Please type an answer.");
@@ -328,7 +334,6 @@ const FceVocabPracticeWrapper = () => {
     setSentenceComplete(false);
   };
 
-  // Confusing Words Handlers
   const handleConfusingAnswer = (answer: string) => {
     const correct = confusingQuestions[confusingIndex].a;
     if (answer === correct) {
@@ -358,7 +363,6 @@ const FceVocabPracticeWrapper = () => {
     setConfusingComplete(false);
   };
 
-  // MDT Handlers
   const handleMdtCheck = () => {
     const correctAnswers = mdtQuestions[mdtIndex].a;
     let allCorrect = true;
@@ -417,12 +421,12 @@ const FceVocabPracticeWrapper = () => {
                   setMdtInputs(newInputs);
                 }}
                 disabled={mdtChecked}
-                className={`border-b-2 outline-none text-center w-28 mx-1 ${
+                className={`border-b-2 outline-none text-center w-28 mx-1 transition-colors ${
                   mdtChecked
                     ? mdtInputs[idx]?.trim().toLowerCase() === correctAnswers[idx].toLowerCase()
                       ? 'border-green-500 text-green-600'
                       : 'border-red-500 text-red-600'
-                    : 'border-gray-400 focus:border-indigo-500'
+                    : 'border-muted-foreground focus:border-primary'
                 }`}
               />
             )}
@@ -433,104 +437,195 @@ const FceVocabPracticeWrapper = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-background">
       <Navigation />
-      
-      <header className="bg-white shadow-md sticky top-0 z-20">
-        <div className="container mx-auto px-6 py-4 text-center">
-          <h1 className="text-3xl font-bold text-teal-600">FCE Vocab Tester</h1>
-        </div>
-      </header>
 
-      <main className="container mx-auto p-6 flex-1">
-        {/* Activity Hub */}
-        {currentActivity === 'hub' && (
-          <section className="animate-fade-in">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-800">Welcome!</h2>
-              <p className="text-lg text-gray-600 mt-2">Choose an activity below to start practicing.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-8">
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-pink-600 mb-4">Multiple Choice Challenge</h3>
-                <p className="text-gray-600 mb-6">Test your knowledge by choosing the word that best completes each sentence. A classic way to build your vocabulary.</p>
-                <Button onClick={() => switchActivity('mc')} className="bg-pink-500 hover:bg-pink-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-purple-600 mb-4">Unscramble the Words</h3>
-                <p className="text-gray-600 mb-6">Put your brain to the test! Rearrange the jumbled letters to form the correct word or phrase related to likes and dislikes.</p>
-                <Button onClick={() => switchActivity('gap')} className="bg-purple-500 hover:bg-purple-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-sky-600 mb-4">Action Word Sorting</h3>
-                <p className="text-gray-600 mb-6">Drag and drop action words into the correct categories based on which part of the body performs them. A fun, interactive challenge!</p>
-                <Button onClick={() => switchActivity('sort')} className="bg-sky-500 hover:bg-sky-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-orange-600 mb-4">Sentence Completion</h3>
-                <p className="text-gray-600 mb-6">Complete the sentences with the correct form of an action word. This will test your grammar and vocabulary in context.</p>
-                <Button onClick={() => switchActivity('sentence')} className="bg-orange-500 hover:bg-orange-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-green-600 mb-4">Confusing Words</h3>
-                <p className="text-gray-600 mb-6">Choose the correct word from the pair of commonly confused words to complete the sentence.</p>
-                <Button onClick={() => switchActivity('confusing')} className="bg-green-500 hover:bg-green-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-              
-              <div className="bg-white p-8 rounded-xl shadow-lg w-full md:w-2/5 lg:w-[30%] text-center transition transform hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-indigo-600 mb-4">Make, Do & Take</h3>
-                <p className="text-gray-600 mb-6">Complete the sentences with the correct form of 'make', 'do', or 'take'. A common challenge for FCE students!</p>
-                <Button onClick={() => switchActivity('mdt')} className="bg-indigo-500 hover:bg-indigo-600 w-full">
-                  Start Activity
-                </Button>
-              </div>
-            </div>
-          </section>
-        )}
+      {currentActivity === 'hub' && (
+        <section className="py-20 bg-background pt-32">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 font-merriweather text-center">
+                FCE Vocabulary Practice
+              </h2>
+              <p className="text-lg text-muted-foreground mb-16 text-center max-w-3xl mx-auto">
+                Master essential FCE vocabulary through six interactive exercises designed to build your confidence and language skills.
+              </p>
 
-        {/* Multiple Choice Activity */}
-        {currentActivity === 'mc' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-pink-600">Multiple Choice Challenge</h2>
-              <h3 className="text-xl font-semibold text-center text-gray-700 mb-4">Comparison & Contrast</h3>
-              <p className="text-center text-gray-500 mb-6">Choose the word that best completes the sentence.</p>
-              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('mc')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={multipleChoiceImg} 
+                      alt="Multiple Choice Practice" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <BookOpen className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Multiple Choice Challenge</CardTitle>
+                    <CardDescription>Test your knowledge of comparison & contrast vocabulary</CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('gap')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={unscrambleImg} 
+                      alt="Unscramble Words" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <Shuffle className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Unscramble the Words</CardTitle>
+                    <CardDescription>Rearrange letters to form likes & dislikes phrases</CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('sort')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={sortingImg} 
+                      alt="Word Sorting" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <ArrowDownUp className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Action Word Sorting</CardTitle>
+                    <CardDescription>Drag and drop body parts to match action verbs</CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('sentence')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={sentenceImg} 
+                      alt="Sentence Completion" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <FileText className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Sentence Completion</CardTitle>
+                    <CardDescription>Fill in the blanks with the correct action words</CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('confusing')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={confusingImg} 
+                      alt="Confusing Words" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <HelpCircle className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Confusing Words</CardTitle>
+                    <CardDescription>Master commonly confused word pairs in context</CardDescription>
+                  </CardHeader>
+                </Card>
+
+                <Card 
+                  className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => switchActivity('mdt')}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={mdtImg} 
+                      alt="Make Do Take Collocations" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-start p-6">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-brand-navy font-merriweather">Make, Do & Take</CardTitle>
+                    <CardDescription>Practice collocations with make, do, and take</CardDescription>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {currentActivity === 'mc' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
+
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <BookOpen className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Multiple Choice Challenge</h2>
+              </div>
+
               {!mcComplete ? (
                 <>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-                    <div className="bg-teal-500 h-2.5 rounded-full" style={{ width: `${(mcIndex / mcQuestions.length) * 100}%` }}></div>
+                  <div className="w-full bg-secondary rounded-full h-2.5 mb-4">
+                    <div className="bg-primary h-2.5 rounded-full transition-all" style={{ width: `${(mcIndex / mcQuestions.length) * 100}%` }}></div>
                   </div>
-                  <div className="flex justify-between mb-4 text-sm font-medium text-gray-600">
+                  <div className="flex justify-between mb-6 text-sm font-medium text-muted-foreground">
                     <span>Question {mcIndex + 1}/{mcQuestions.length}</span>
                     <span>Score: {mcScore}</span>
                   </div>
                   
-                  <p className="text-lg mb-4 text-center">{mcQuestions[mcIndex].q}</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <p className="text-lg mb-6 text-center font-medium">{mcQuestions[mcIndex].q}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     {mcQuestions[mcIndex].options.map((option, idx) => (
                       <button
                         key={idx}
                         onClick={() => !mcShowNext && setMcSelectedOption(option)}
                         disabled={mcShowNext}
-                        className={`p-3 border rounded-lg text-left hover:bg-amber-100 transition focus:outline-none focus:ring-2 focus:ring-amber-400 ${
-                          mcSelectedOption === option ? 'bg-amber-300 ring-2 ring-amber-500' : ''
-                        } ${mcShowNext && mcSelectedOption === option && option === mcQuestions[mcIndex].a ? 'bg-green-200' : ''} ${
-                          mcShowNext && mcSelectedOption === option && option !== mcQuestions[mcIndex].a ? 'bg-red-200' : ''
+                        className={`p-4 border-2 rounded-lg text-left transition-all ${
+                          mcSelectedOption === option 
+                            ? 'border-primary bg-primary/10' 
+                            : 'border-border hover:border-primary/50'
+                        } ${
+                          mcShowNext && mcSelectedOption === option && option === mcQuestions[mcIndex].a 
+                            ? 'bg-green-50 border-green-500' 
+                            : ''
+                        } ${
+                          mcShowNext && mcSelectedOption === option && option !== mcQuestions[mcIndex].a 
+                            ? 'bg-red-50 border-red-500' 
+                            : ''
                         }`}
                       >
                         {option}
@@ -539,113 +634,132 @@ const FceVocabPracticeWrapper = () => {
                   </div>
                   
                   {mcFeedback && (
-                    <div className={`mt-6 text-center font-bold ${mcFeedback.includes('Correct') ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`mb-6 text-center font-semibold ${mcFeedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
                       {mcFeedback}
                     </div>
                   )}
                   
-                  <div className="flex justify-center mt-6 space-x-4">
+                  <div className="flex justify-center gap-4">
                     {!mcShowNext && (
-                      <Button onClick={handleMcCheck} className="bg-pink-500 hover:bg-pink-600">
-                        Check
+                      <Button onClick={handleMcCheck} size="lg">
+                        Check Answer
                       </Button>
                     )}
                     {mcShowNext && (
-                      <Button onClick={handleMcNext} className="bg-teal-500 hover:bg-teal-600">
-                        Next
+                      <Button onClick={handleMcNext} size="lg">
+                        Next Question
                       </Button>
                     )}
                   </div>
                 </>
               ) : (
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold">Quiz Complete!</h3>
-                  <p className="text-lg mt-2">Your final score is <span className="font-bold text-teal-600">{mcScore}/{mcQuestions.length}</span>.</p>
-                  <Button onClick={handleMcRestart} className="mt-4 bg-amber-400 text-gray-800 hover:bg-amber-500">
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold mb-4">Quiz Complete!</h3>
+                  <p className="text-lg mb-6">Your final score: <span className="font-bold text-primary text-2xl">{mcScore}/{mcQuestions.length}</span></p>
+                  <Button onClick={handleMcRestart} size="lg">
                     Restart Quiz
                   </Button>
                 </div>
               )}
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+      )}
 
-        {/* Unscramble Activity */}
-        {currentActivity === 'gap' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-purple-600">Unscramble the Words</h2>
-              <h3 className="text-xl font-semibold text-center text-gray-700 mb-4">Likes & Dislikes</h3>
-              <p className="text-center text-gray-500 mb-6">Unscramble the letters and type the correct word or phrase to complete the sentence.</p>
-              
+      {currentActivity === 'gap' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
+
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Shuffle className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Unscramble the Words</h2>
+              </div>
+
               {!gapComplete ? (
                 <>
-                  <p className="text-lg mb-4 text-center leading-relaxed">
-                    {gapQuestions[gapIndex].q.replace('______', '______')} <br />
-                    <span className="text-sm text-gray-500">Unscramble:</span> <strong className="text-purple-600">{gapQuestions[gapIndex].hint}</strong>
+                  <p className="text-lg mb-2 text-center font-medium leading-relaxed">
+                    {gapQuestions[gapIndex].q}
                   </p>
-                  <div className="flex justify-center">
+                  <p className="text-sm text-muted-foreground mb-6 text-center">
+                    Unscramble: <strong className="text-primary">{gapQuestions[gapIndex].hint}</strong>
+                  </p>
+                  <div className="flex justify-center mb-6">
                     <input
                       type="text"
                       value={gapInput}
                       onChange={(e) => setGapInput(e.target.value)}
                       disabled={gapShowNext}
-                      className="border-2 border-gray-300 p-2 rounded-lg w-1/2 text-center focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition"
+                      className="border-2 border-border p-3 rounded-lg w-full max-w-md text-center focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+                      placeholder="Type your answer here"
                     />
                   </div>
                   
                   {gapFeedback && (
-                    <div className={`mt-6 text-center font-bold ${gapFeedback.includes('Correct') ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`mb-6 text-center font-semibold ${gapFeedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
                       {gapFeedback}
                     </div>
                   )}
                   
-                  <div className="flex justify-center mt-6 space-x-4">
+                  <div className="flex justify-center gap-4">
                     {!gapShowNext && (
-                      <Button onClick={handleGapCheck} className="bg-purple-500 hover:bg-purple-600">
-                        Check
+                      <Button onClick={handleGapCheck} size="lg">
+                        Check Answer
                       </Button>
                     )}
                     {gapShowNext && (
-                      <Button onClick={handleGapNext} className="bg-teal-500 hover:bg-teal-600">
-                        Next
+                      <Button onClick={handleGapNext} size="lg">
+                        Next Question
                       </Button>
                     )}
                   </div>
                 </>
               ) : (
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold">Activity Complete!</h3>
-                  <p>Great work on the unscramble exercise.</p>
-                  <Button onClick={handleGapRestart} className="mt-4 bg-amber-400 text-gray-800 hover:bg-amber-500">
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold mb-4">Activity Complete!</h3>
+                  <p className="text-lg mb-6">Great work on the unscramble exercise.</p>
+                  <Button onClick={handleGapRestart} size="lg">
                     Start Over
                   </Button>
                 </div>
               )}
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+      )}
 
-        {/* Sorting Activity */}
-        {currentActivity === 'sort' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-6xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-sky-600">Action Word Sorting</h2>
-              <p className="text-center text-gray-500 mb-6">Drag the words from the bank into the correct category boxes below.</p>
+      {currentActivity === 'sort' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
 
-              <div className="bg-gray-50 p-4 rounded-lg border mb-8">
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <ArrowDownUp className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Action Word Sorting</h2>
+              </div>
+              <p className="text-center text-muted-foreground mb-8">Drag words from the bank into the correct category boxes below.</p>
+
+              <div className="bg-secondary/50 p-6 rounded-lg border mb-8">
                 <h3 className="font-bold text-lg mb-4 text-center">Word Bank</h3>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {sortWords.map((word) => (
@@ -654,7 +768,7 @@ const FceVocabPracticeWrapper = () => {
                       draggable
                       data-word={word}
                       onDragStart={() => handleDragStart(word)}
-                      className="p-2 bg-gray-200 border border-gray-300 rounded-lg cursor-move"
+                      className="p-2 bg-card border-2 border-border rounded-lg cursor-move hover:border-primary transition-colors"
                     >
                       {word}
                     </div>
@@ -662,36 +776,36 @@ const FceVocabPracticeWrapper = () => {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {[
-                  { key: 'arms_hands', title: 'Arms & Hands', color: 'blue' },
-                  { key: 'mouth_nose', title: 'Mouth & Nose', color: 'green' },
-                  { key: 'feet_legs', title: 'Feet & Legs', color: 'yellow' },
-                  { key: 'eyes', title: 'Eyes', color: 'red' }
+                  { key: 'arms_hands', title: 'Arms & Hands' },
+                  { key: 'mouth_nose', title: 'Mouth & Nose' },
+                  { key: 'feet_legs', title: 'Feet & Legs' },
+                  { key: 'eyes', title: 'Eyes' }
                 ].map((cat) => (
                   <div
                     key={cat.key}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={() => handleDrop(cat.key)}
-                    className={`p-4 bg-${cat.color}-50 rounded-lg border-2 border-${cat.color}-200 min-h-[150px]`}
+                    className="p-6 bg-secondary/30 rounded-lg border-2 border-dashed border-border min-h-[200px] hover:border-primary transition-colors"
                   >
-                    <h3 className={`font-bold text-lg mb-3 text-center text-${cat.color}-800`}>{cat.title}</h3>
+                    <h3 className="font-bold text-lg mb-4 text-center">{cat.title}</h3>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {sortCategories[cat.key as keyof typeof sortCategories].map((word) => (
                         <div
                           key={word}
-                          className={`p-2 bg-gray-100 border rounded-lg relative ${
+                          className={`p-2 bg-card border-2 rounded-lg ${
                             sortChecked
                               ? sortCorrectCategories[cat.key as keyof typeof sortCorrectCategories].includes(word)
                                 ? 'border-green-500 text-green-600'
                                 : 'border-red-500 text-red-600'
-                              : 'border-gray-300'
+                              : 'border-border'
                           }`}
                         >
                           {word}
                           {sortChecked && (
                             <span className="ml-1">
-                              {sortCorrectCategories[cat.key as keyof typeof sortCorrectCategories].includes(word) ? '✔' : '✖'}
+                              {sortCorrectCategories[cat.key as keyof typeof sortCorrectCategories].includes(word) ? '✓' : '✗'}
                             </span>
                           )}
                         </div>
@@ -702,205 +816,236 @@ const FceVocabPracticeWrapper = () => {
               </div>
 
               {sortFeedback && (
-                <div className="mt-8 text-center font-bold text-lg">{sortFeedback}</div>
+                <div className="text-center font-bold text-lg mb-6">{sortFeedback}</div>
               )}
 
-              <div className="text-center mt-8">
+              <div className="text-center">
                 {!sortChecked ? (
-                  <Button onClick={handleSortCheck} className="bg-sky-500 hover:bg-sky-600 py-3 px-8 text-lg">
+                  <Button onClick={handleSortCheck} size="lg">
                     Check My Answers
                   </Button>
                 ) : (
-                  <Button onClick={handleSortRestart} className="bg-amber-400 text-gray-800 hover:bg-amber-500 py-3 px-8 text-lg">
+                  <Button onClick={handleSortRestart} size="lg" variant="secondary">
                     Play Again
                   </Button>
                 )}
               </div>
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+      )}
 
-        {/* Sentence Completion Activity */}
-        {currentActivity === 'sentence' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-orange-600">Sentence Completion</h2>
-              <p className="text-center text-gray-500 mb-6">Complete the sentence with the most appropriate action word, changing the form if necessary.</p>
-              
+      {currentActivity === 'sentence' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
+
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Sentence Completion</h2>
+              </div>
+
               {!sentenceComplete ? (
                 <>
-                  <p className="text-lg mb-4 text-center leading-relaxed">
-                    {sentenceQuestions[sentenceIndex].q.replace('______', '______')}
+                  <p className="text-lg mb-6 text-center font-medium leading-relaxed">
+                    {sentenceQuestions[sentenceIndex].q}
                   </p>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mb-6">
                     <input
                       type="text"
                       value={sentenceInput}
                       onChange={(e) => setSentenceInput(e.target.value)}
                       disabled={sentenceShowNext}
-                      className="border-2 border-gray-300 p-2 rounded-lg w-1/2 text-center focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition"
+                      className="border-2 border-border p-3 rounded-lg w-full max-w-md text-center focus:border-primary focus:ring-2 focus:ring-primary/20 transition"
+                      placeholder="Type your answer here"
                     />
                   </div>
                   
                   {sentenceFeedback && (
-                    <div className={`mt-6 text-center font-bold ${sentenceFeedback.includes('Correct') ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`mb-6 text-center font-semibold ${sentenceFeedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
                       {sentenceFeedback}
                     </div>
                   )}
                   
-                  <div className="flex justify-center mt-6 space-x-4">
+                  <div className="flex justify-center gap-4">
                     {!sentenceShowNext && (
-                      <Button onClick={handleSentenceCheck} className="bg-orange-500 hover:bg-orange-600">
-                        Check
+                      <Button onClick={handleSentenceCheck} size="lg">
+                        Check Answer
                       </Button>
                     )}
                     {sentenceShowNext && (
-                      <Button onClick={handleSentenceNext} className="bg-teal-500 hover:bg-teal-600">
-                        Next
+                      <Button onClick={handleSentenceNext} size="lg">
+                        Next Question
                       </Button>
                     )}
                   </div>
                 </>
               ) : (
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold">Activity Complete!</h3>
-                  <p>Excellent work with the sentences.</p>
-                  <Button onClick={handleSentenceRestart} className="mt-4 bg-amber-400 text-gray-800 hover:bg-amber-500">
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold mb-4">Activity Complete!</h3>
+                  <p className="text-lg mb-6">Excellent work completing all the sentences.</p>
+                  <Button onClick={handleSentenceRestart} size="lg">
                     Start Over
                   </Button>
                 </div>
               )}
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+      )}
 
-        {/* Confusing Words Activity */}
-        {currentActivity === 'confusing' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-green-600">Confusing Words</h2>
-              <p className="text-center text-gray-500 mb-6">Choose the correct word to complete the sentence.</p>
-              
+      {currentActivity === 'confusing' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
+
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <HelpCircle className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Confusing Words</h2>
+              </div>
+
               {!confusingComplete ? (
                 <>
-                  <p className="text-lg mb-6 text-center leading-relaxed">
-                    {confusingQuestions[confusingIndex].q_start} <span className="font-bold text-gray-400">[...]</span> {confusingQuestions[confusingIndex].q_end}
+                  <div className="w-full bg-secondary rounded-full h-2.5 mb-4">
+                    <div className="bg-primary h-2.5 rounded-full transition-all" style={{ width: `${(confusingIndex / confusingQuestions.length) * 100}%` }}></div>
+                  </div>
+                  <div className="flex justify-between mb-6 text-sm font-medium text-muted-foreground">
+                    <span>Question {confusingIndex + 1}/{confusingQuestions.length}</span>
+                    <span>Score: {confusingScore}</span>
+                  </div>
+                  
+                  <p className="text-lg mb-6 text-center font-medium leading-relaxed">
+                    {confusingQuestions[confusingIndex].q_start} <strong className="text-primary">______</strong> {confusingQuestions[confusingIndex].q_end}
                   </p>
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-4 mb-6">
                     {confusingQuestions[confusingIndex].options.map((option, idx) => (
-                      <button
+                      <Button
                         key={idx}
                         onClick={() => !confusingShowNext && handleConfusingAnswer(option)}
                         disabled={confusingShowNext}
-                        className={`p-3 border rounded-lg hover:bg-amber-100 transition focus:outline-none focus:ring-2 focus:ring-amber-400 w-40 ${
-                          confusingShowNext && option === confusingQuestions[confusingIndex].a ? 'bg-green-200' : ''
-                        } ${confusingShowNext && option !== confusingQuestions[confusingIndex].a && confusingFeedback ? 'bg-red-200' : ''}`}
+                        variant="outline"
+                        size="lg"
+                        className="min-w-[150px]"
                       >
                         {option}
-                      </button>
+                      </Button>
                     ))}
                   </div>
                   
                   {confusingFeedback && (
-                    <div className={`mt-6 text-center font-bold ${confusingFeedback.includes('Correct') ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`mb-6 text-center font-semibold ${confusingFeedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
                       {confusingFeedback}
                     </div>
                   )}
                   
-                  <div className="flex justify-center mt-6">
-                    {confusingShowNext && (
-                      <Button onClick={handleConfusingNext} className="bg-teal-500 hover:bg-teal-600">
-                        Next
+                  {confusingShowNext && (
+                    <div className="flex justify-center">
+                      <Button onClick={handleConfusingNext} size="lg">
+                        Next Question
                       </Button>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </>
               ) : (
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold">Activity Complete!</h3>
-                  <p className="text-lg mt-2">Your final score is <span className="font-bold text-teal-600">{confusingScore}/{confusingQuestions.length}</span>.</p>
-                  <Button onClick={handleConfusingRestart} className="mt-4 bg-amber-400 text-gray-800 hover:bg-amber-500">
-                    Start Over
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold mb-4">Quiz Complete!</h3>
+                  <p className="text-lg mb-6">Your final score: <span className="font-bold text-primary text-2xl">{confusingScore}/{confusingQuestions.length}</span></p>
+                  <Button onClick={handleConfusingRestart} size="lg">
+                    Restart Quiz
                   </Button>
                 </div>
               )}
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </div>
+      )}
 
-        {/* Make, Do & Take Activity */}
-        {currentActivity === 'mdt' && (
-          <section className="animate-fade-in">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-2 text-indigo-600">Make, Do & Take</h2>
-              <p className="text-center text-gray-500 mb-6">Complete the sentences with the correct form of 'make', 'do', or 'take'.</p>
-              
+      {currentActivity === 'mdt' && (
+        <div className="pt-32 pb-20 px-4 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <Button 
+              onClick={() => switchActivity('hub')}
+              variant="outline"
+              className="mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Activities
+            </Button>
+
+            <div className="bg-card rounded-xl shadow-lg p-8 md:p-12 border">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground font-merriweather">Make, Do & Take</h2>
+              </div>
+
               {!mdtComplete ? (
                 <>
-                  <div className="mb-4">
+                  <div className="w-full bg-secondary rounded-full h-2.5 mb-4">
+                    <div className="bg-primary h-2.5 rounded-full transition-all" style={{ width: `${(mdtIndex / mdtQuestions.length) * 100}%` }}></div>
+                  </div>
+                  <div className="flex justify-between mb-6 text-sm font-medium text-muted-foreground">
+                    <span>Question {mdtIndex + 1}/{mdtQuestions.length}</span>
+                    <span>Score: {mdtScore}</span>
+                  </div>
+                  
+                  <div className="mb-8">
                     {renderMdtQuestion()}
                   </div>
                   
                   {mdtFeedback && (
-                    <div className={`mt-6 text-center font-bold ${mdtFeedback.includes('Correct') ? 'text-green-500' : 'text-red-500'}`}>
+                    <div className={`mb-6 text-center font-semibold ${mdtFeedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
                       {mdtFeedback}
                     </div>
                   )}
                   
-                  <div className="flex justify-center mt-6 space-x-4">
+                  <div className="flex justify-center gap-4">
                     {!mdtShowNext && (
-                      <Button onClick={handleMdtCheck} className="bg-indigo-500 hover:bg-indigo-600">
-                        Check
+                      <Button onClick={handleMdtCheck} size="lg">
+                        Check Answer
                       </Button>
                     )}
                     {mdtShowNext && (
-                      <Button onClick={handleMdtNext} className="bg-teal-500 hover:bg-teal-600">
-                        Next
+                      <Button onClick={handleMdtNext} size="lg">
+                        Next Question
                       </Button>
                     )}
                   </div>
                 </>
               ) : (
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold">Activity Complete!</h3>
-                  <p className="text-lg mt-2">Your final score is <span className="font-bold text-teal-600">{mdtScore}/{mdtQuestions.length}</span>.</p>
-                  <Button onClick={handleMdtRestart} className="mt-4 bg-amber-400 text-gray-800 hover:bg-amber-500">
-                    Start Over
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold mb-4">Quiz Complete!</h3>
+                  <p className="text-lg mb-6">Your final score: <span className="font-bold text-primary text-2xl">{mdtScore}/{mdtQuestions.length}</span></p>
+                  <Button onClick={handleMdtRestart} size="lg">
+                    Restart Quiz
                   </Button>
                 </div>
               )}
-              
-              <div className="border-t mt-8 pt-4 text-center">
-                <button onClick={() => switchActivity('hub')} className="text-gray-600 hover:text-teal-600 font-semibold">
-                  ‹ Back to Menu
-                </button>
-              </div>
             </div>
-          </section>
-        )}
-      </main>
-
-      <footer className="text-center py-6 mt-8 bg-white">
-        <p className="text-gray-500">&copy; 2025 FCE Vocabulary Tester. Happy learning!</p>
-      </footer>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
