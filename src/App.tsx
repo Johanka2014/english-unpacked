@@ -10,7 +10,7 @@ import ConversationalEnglish from "./pages/Conversation";
 import ExamPreparation from "./pages/ExamPreparation";
 import BookingWrapper from "./pages/BookingWrapper";
 import BusinessVocabAppWrapper from "./pages/BusinessVocabAppWrapper";
-import ExamPracticeWrapper from "./pages/ExamPracticeWrapper";
+import CaeExamPracticeWrapper from "./pages/CaeExamPracticeWrapper";
 import FceVocabPracticeWrapper from "./pages/FceVocabPracticeWrapper";
 import NotFound from "./pages/NotFound";
 
@@ -30,7 +30,7 @@ const App = () => (
           <Route path="/exam-preparation" element={<ExamPreparation />} />
           <Route path="/booking" element={<BookingWrapper />} />
           <Route path="/business-vocabulary-app" element={<BusinessVocabAppWrapper />} />
-          <Route path="/exam-practice" element={<ExamPracticeWrapper />} />
+          <Route path="/exam-practice" element={<CaeExamPracticeWrapper />} />
           <Route path="/fce-vocab-practice" element={<FceVocabPracticeWrapper />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
