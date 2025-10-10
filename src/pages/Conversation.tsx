@@ -2,8 +2,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, Globe, Lightbulb, ExternalLink } from "lucide-react";
+import { MessageCircle, Globe, Lightbulb, ExternalLink, BookOpen } from "lucide-react";
 import conversationImage from "@/assets/conversation.jpg";
+import smallTalkImage from "@/assets/small-talk.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const ConversationalEnglish = () => {
@@ -100,6 +101,48 @@ const ConversationalEnglish = () => {
                   />
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Everyday Conversations Practice Section */}
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-first lg:order-first">
+              <Card className="service-card overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={smallTalkImage} 
+                    alt="People having everyday conversations in various situations"
+                    className="w-full h-auto object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
+                Everyday Conversation Practice
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                Master essential everyday situations with confidence. Practice realistic dialogues and learn key phrases for common scenarios you'll encounter in daily life.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                From visiting the dentist to booking a restaurant, renting a flat to making small talk—build your confidence with detailed lesson plans featuring essential phrases, sample conversations, and practical tips.
+              </p>
+
+              <Button 
+                size="lg" 
+                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                asChild
+              >
+                <a href="/everyday-conversations">
+                  <BookOpen className="w-5 h-5 mr-2" />
+                  Explore Everyday Scenarios
+                </a>
+              </Button>
             </div>
           </div>
         </div>
