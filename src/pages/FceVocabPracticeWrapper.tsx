@@ -1047,6 +1047,20 @@ const FceVocabPracticeWrapper = () => {
         </div>
       )}
 
+      <section className="py-12 bg-secondary/30 border-t">
+        <div className="container mx-auto px-4 text-center">
+          <Button 
+            onClick={() => window.location.href = '/exam-preparation'}
+            variant="outline"
+            size="lg"
+            className="gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Return to Exam Preparation
+          </Button>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
