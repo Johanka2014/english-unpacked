@@ -154,7 +154,7 @@ const BusinessEnglish = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="order-first lg:order-first">
+            <div className="order-first lg:order-last">
               <Card className="service-card overflow-hidden">
                 <CardContent className="p-0">
                   <img 
