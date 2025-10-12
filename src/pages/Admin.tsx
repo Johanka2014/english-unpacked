@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import Navigation from '@/components/Navigation';
@@ -29,6 +29,7 @@ interface WebLink {
 
 const Admin = () => {
   const { isAdmin } = useAuth();
+  const navigate = useNavigate();
   const [students, setStudents] = useState<Student[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -78,13 +79,13 @@ const Admin = () => {
     }
 
     try {
-      const { error } = await supabase.from('lessons').insert({
+      const { data, error } = await supabase.from('lessons').insert({
         student_id: selectedStudent,
         lesson_date: lessonDate,
         lesson_title: lessonTitle,
         teacher_notes: teacherNotes,
         web_links: JSON.stringify(webLinks.filter(link => link.title && link.url)) as any,
-      });
+      }).select().single();
 
       if (error) throw error;
 
@@ -99,6 +100,11 @@ const Admin = () => {
       setTeacherNotes('');
       setWebLinks([]);
       setIsDialogOpen(false);
+
+      // Navigate to the newly created lesson
+      if (data?.id) {
+        navigate(`/dashboard/lessons/${data.id}`);
+      }
     } catch (error: any) {
       toast({
         title: 'Error',
