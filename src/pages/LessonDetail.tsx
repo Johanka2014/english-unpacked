@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
 import { format } from 'date-fns';
-import { ArrowLeft, Calendar, Save, Plus, Trash2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, Save, Plus, Trash2, ExternalLink, BookOpen } from 'lucide-react';
 
 interface WebLink {
   title: string;
@@ -143,7 +143,7 @@ const LessonDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-accent/30 via-background to-background">
       <Navigation />
       <main className="container mx-auto px-4 py-20">
         <Button asChild variant="ghost" className="mb-6">
@@ -153,13 +153,13 @@ const LessonDetail = () => {
           </Link>
         </Button>
 
-        <Card>
-          <CardHeader>
+        <Card className="border-primary/20 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/20">
             <div className="flex items-start justify-between">
               <div>
-                <CardTitle className="text-3xl mb-4">{lesson.lesson_title}</CardTitle>
+                <CardTitle className="text-3xl mb-4 text-foreground">{lesson.lesson_title}</CardTitle>
                 <div className="flex items-center text-muted-foreground">
-                  <Calendar className="mr-2 h-4 w-4" />
+                  <Calendar className="mr-2 h-4 w-4 text-primary" />
                   {format(new Date(lesson.lesson_date), 'EEEE, MMMM d, yyyy')}
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -167,32 +167,40 @@ const LessonDetail = () => {
                 </p>
               </div>
               {!isEditing && (
-                <Button onClick={() => setIsEditing(true)}>Edit</Button>
+                <Button onClick={() => setIsEditing(true)} className="bg-primary hover:bg-primary/90">Edit</Button>
               )}
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <Label className="text-lg font-semibold mb-2 block">Teacher Notes</Label>
+              <Label className="text-lg font-semibold mb-3 block flex items-center gap-2 text-primary">
+                <BookOpen className="h-5 w-5" />
+                Teacher Notes
+              </Label>
               {isEditing ? (
                 <Textarea
                   value={teacherNotes}
                   onChange={(e) => setTeacherNotes(e.target.value)}
                   placeholder="Add notes about this lesson..."
-                  className="min-h-[200px]"
+                  className="min-h-[200px] border-primary/20"
                 />
               ) : (
-                <p className="whitespace-pre-wrap bg-muted p-4 rounded-lg">
-                  {teacherNotes || 'No notes yet'}
-                </p>
+                <div className="bg-accent/30 p-6 rounded-lg border border-primary/10">
+                  <p className="whitespace-pre-wrap text-foreground">
+                    {teacherNotes || 'No notes yet'}
+                  </p>
+                </div>
               )}
             </div>
 
             <div>
               <div className="flex items-center justify-between mb-4">
-                <Label className="text-lg font-semibold">Web Links</Label>
+                <Label className="text-lg font-semibold flex items-center gap-2 text-primary">
+                  <ExternalLink className="h-5 w-5" />
+                  Web Links
+                </Label>
                 {isEditing && (
-                  <Button onClick={addWebLink} size="sm" variant="outline">
+                  <Button onClick={addWebLink} size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary/10">
                     <Plus className="mr-2 h-4 w-4" />
                     Add Link
                   </Button>
@@ -202,36 +210,39 @@ const LessonDetail = () => {
               {isEditing ? (
                 <div className="space-y-4">
                   {webLinks.map((link, index) => (
-                    <div key={index} className="flex gap-2 items-start">
+                    <div key={index} className="flex gap-2 items-start p-4 bg-accent/20 rounded-lg border border-primary/10">
                       <div className="flex-1 space-y-2">
                         <Input
                           placeholder="Link title"
                           value={link.title}
                           onChange={(e) => updateWebLink(index, 'title', e.target.value)}
+                          className="border-primary/20"
                         />
                         <Input
                           placeholder="https://..."
                           value={link.url}
                           onChange={(e) => updateWebLink(index, 'url', e.target.value)}
+                          className="border-primary/20"
                         />
                       </div>
                       <Button
                         variant="ghost"
                         size="icon"
                         onClick={() => removeWebLink(index)}
+                        className="text-destructive hover:bg-destructive/10"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
                   ))}
                   {webLinks.length === 0 && (
-                    <p className="text-muted-foreground text-sm">No links added yet</p>
+                    <p className="text-muted-foreground text-sm text-center py-4 bg-accent/20 rounded-lg">No links added yet</p>
                   )}
                 </div>
               ) : (
                 <div className="space-y-2">
                   {webLinks.length === 0 ? (
-                    <p className="text-muted-foreground">No links available</p>
+                    <p className="text-muted-foreground text-center py-6 bg-accent/20 rounded-lg">No links available</p>
                   ) : (
                     webLinks.map((link, index) => (
                       <a
@@ -239,10 +250,10 @@ const LessonDetail = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 p-3 bg-muted rounded-lg hover:bg-accent transition-colors"
+                        className="flex items-center gap-3 p-4 bg-accent/30 rounded-lg hover:bg-primary/10 hover:border-primary/30 transition-all duration-200 border border-primary/10"
                       >
-                        <ExternalLink className="h-4 w-4" />
-                        <span>{link.title || link.url}</span>
+                        <ExternalLink className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-foreground font-medium">{link.title || link.url}</span>
                       </a>
                     ))
                   )}
@@ -251,8 +262,8 @@ const LessonDetail = () => {
             </div>
 
             {isEditing && (
-              <div className="flex gap-2 pt-4">
-                <Button onClick={handleSave}>
+              <div className="flex gap-2 pt-4 border-t border-primary/10">
+                <Button onClick={handleSave} className="bg-primary hover:bg-primary/90">
                   <Save className="mr-2 h-4 w-4" />
                   Save Changes
                 </Button>
@@ -266,6 +277,7 @@ const LessonDetail = () => {
                       : (lesson.web_links || []);
                     setWebLinks(parsedLinks);
                   }}
+                  className="border-primary/30"
                 >
                   Cancel
                 </Button>

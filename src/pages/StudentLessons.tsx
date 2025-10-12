@@ -106,7 +106,7 @@ const StudentLessons = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-accent/30 via-background to-background">
       <Navigation />
       <main className="container mx-auto px-4 py-20">
         <Button asChild variant="ghost" className="mb-6">
@@ -116,24 +116,29 @@ const StudentLessons = () => {
           </Link>
         </Button>
 
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">{student.full_name}</h1>
-          <p className="text-muted-foreground">{student.email}</p>
-        </div>
-
-        <Card>
+        <Card className="mb-8 bg-gradient-to-r from-primary/10 to-accent/20 border-primary/20">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BookOpen className="h-5 w-5" />
+            <h1 className="text-4xl font-bold text-foreground mb-2">{student.full_name}</h1>
+            <p className="text-muted-foreground">{student.email}</p>
+          </CardHeader>
+        </Card>
+
+        <Card className="border-primary/20 shadow-lg">
+          <CardHeader className="bg-accent/50">
+            <CardTitle className="flex items-center gap-2 text-primary">
+              <BookOpen className="h-5 w-5 text-primary" />
               Lesson History
             </CardTitle>
             <CardDescription>
               {lessons.length} {lessons.length === 1 ? 'lesson' : 'lessons'} completed
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             {lessons.length === 0 ? (
-              <p className="text-center text-muted-foreground py-8">No lessons yet</p>
+              <div className="text-center py-12 bg-accent/30 rounded-lg">
+                <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary/50" />
+                <p className="text-muted-foreground">No lessons yet</p>
+              </div>
             ) : (
               <div className="space-y-4">
                 {lessons.map((lesson) => (
@@ -142,13 +147,13 @@ const StudentLessons = () => {
                     to={`/dashboard/lessons/${lesson.id}`}
                     className="block"
                   >
-                    <Card className="hover:bg-accent transition-colors cursor-pointer">
+                    <Card className="bg-accent/30 hover:bg-accent hover:shadow-md transition-all duration-200 cursor-pointer border-primary/10">
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <div className="space-y-1">
-                            <CardTitle className="text-xl">{lesson.lesson_title}</CardTitle>
+                            <CardTitle className="text-xl text-foreground">{lesson.lesson_title}</CardTitle>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Calendar className="h-4 w-4" />
+                              <Calendar className="h-4 w-4 text-primary" />
                               {format(new Date(lesson.lesson_date), 'MMMM d, yyyy')}
                             </div>
                           </div>
