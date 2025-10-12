@@ -6,10 +6,32 @@ import { MessageCircle, Globe, Lightbulb, ExternalLink, BookOpen } from "lucide-
 import conversationImage from "@/assets/conversation.jpg";
 import smallTalkImage from "@/assets/small-talk.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
+import SEO from "@/components/SEO";
 
 const ConversationalEnglish = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Conversational English Lessons",
+    "description": "Build fluency and confidence for everyday English conversations with practical real-world scenarios, idioms, and natural expressions",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "English Unpacked",
+      "url": "https://english-unpacked.lovable.app"
+    },
+    "courseMode": "online",
+    "educationalLevel": "All levels",
+    "teaches": "Conversational fluency, everyday English, idioms, slang, practical communication"
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Conversational English Lessons - Build Fluency & Confidence"
+        description="Master everyday English conversations with personalized one-on-one lessons. Learn idioms, natural expressions, and speak confidently in real-world situations. Start today."
+        canonical="https://english-unpacked.lovable.app/conversational-english"
+        schema={schema}
+      />
       <Navigation />
       
       {/* Hero Section */}

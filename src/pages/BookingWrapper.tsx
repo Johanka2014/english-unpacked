@@ -2,10 +2,16 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const BookingWrapper = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO 
+        title="Book Free Consultation - Schedule Your English Lesson"
+        description="Book a free consultation to discuss your English learning goals. Personalized lessons for Business English, exam prep, and conversational practice. Start your journey today."
+        canonical="https://english-unpacked.lovable.app/booking"
+      />
       <Navigation />
       
       <main className="flex-1 flex flex-col">

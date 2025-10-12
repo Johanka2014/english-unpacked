@@ -9,6 +9,7 @@ import caeRevisionImg from "@/assets/cae-revision.jpg";
 import caePoliceImg from "@/assets/cae-police.jpg";
 import caeCarImg from "@/assets/cae-car.jpg";
 import caeCrimesImg from "@/assets/cae-crimes.png";
+import SEO from "@/components/SEO";
 
 type ActivityType = 
   | "home"
@@ -354,6 +355,11 @@ const CaeExamPracticeWrapper = () => {
   if (currentActivity === "home") {
     return (
       <div className="min-h-screen bg-background flex flex-col">
+        <SEO 
+          title="CAE Exam Practice - Interactive Cambridge Advanced English Exercises"
+          description="Practice CAE exam vocabulary, phrasal verbs, and word formation with interactive exercises. Master legal terms, crime vocabulary, and advanced English grammar for Cambridge C1 Advanced."
+          canonical="https://english-unpacked.lovable.app/exam-practice"
+        />
         <Navigation />
         
         <main className="flex-1">

@@ -13,6 +13,7 @@ import carRentalImg from "@/assets/car-rental-desk.jpg";
 import pharmacyImg from "@/assets/pharmacy.jpg";
 import jobInterviewImg from "@/assets/job-interview.jpg";
 import smallTalkImg from "@/assets/small-talk.jpg";
+import SEO from "@/components/SEO";
 
 const scenarios = [
   {
@@ -408,8 +409,27 @@ const EverydayConversations = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": scenarios.slice(0, 5).map(scenario => ({
+      "@type": "Question",
+      "name": `How do I handle ${scenario.title.toLowerCase()}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": scenario.description
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Everyday English Conversations - Real-Life Scenarios & Practice"
+        description="Master everyday English with practical scenarios: doctor visits, restaurant bookings, job interviews, and more. Learn essential phrases and build confidence for real-life situations."
+        canonical="https://english-unpacked.lovable.app/everyday-conversations"
+        schema={schema}
+      />
       <Navigation />
 
       {/* Hero Section */}

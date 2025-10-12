@@ -7,10 +7,32 @@ import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
 import businessMeetingImage from "@/assets/business-meeting.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
+import SEO from "@/components/SEO";
 
 const BusinessEnglish = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Business English Lessons",
+    "description": "Master professional communication with comprehensive Business English training including meetings, presentations, emails, and negotiations",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "English Unpacked",
+      "url": "https://english-unpacked.lovable.app"
+    },
+    "courseMode": "online",
+    "educationalLevel": "Intermediate to Advanced",
+    "teaches": "Business English communication, professional writing, corporate vocabulary, presentation skills"
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Business English Lessons - Professional Communication Training"
+        description="Master business English with one-on-one lessons. Learn professional communication for meetings, presentations, emails & negotiations. Interactive apps + textbooks. Book consultation."
+        canonical="https://english-unpacked.lovable.app/business-english"
+        schema={schema}
+      />
       <Navigation />
       
       {/* Hero Section */}

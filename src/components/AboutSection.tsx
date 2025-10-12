@@ -31,7 +31,7 @@ const AboutSection = () => {
             <div className="relative">
               <img 
                 src={joannaPortrait}
-                alt="Joanna, English tutor"
+                alt="Joanna - experienced TEFL-qualified English teacher with 13+ years teaching Business and conversational English"
                 className="w-64 h-64 md:w-80 md:h-80 object-cover object-[center_20%] rounded-full mx-auto shadow-[var(--shadow-card-hover)] border-4 border-white"
               />
               <div className="absolute -bottom-4 -right-4 bg-brand-royal text-white p-3 rounded-full shadow-lg">

@@ -2,10 +2,16 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 const BusinessVocabAppWrapper = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO 
+        title="Business Vocabulary App - Interactive Learning Exercises"
+        description="Practice business English vocabulary with interactive exercises and quizzes. Track your progress and master essential corporate communication skills online."
+        canonical="https://english-unpacked.lovable.app/business-vocabulary-app"
+      />
       <Navigation />
       
       <main className="flex-1 flex flex-col">

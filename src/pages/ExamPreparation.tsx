@@ -6,10 +6,32 @@ import { BookOpen, CheckCircle, ExternalLink, Timer, Target } from "lucide-react
 import examPrepTextbooks from "@/assets/textbooks.png";
 import onlineExamPractice from "@/assets/online-exam-practice.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
+import SEO from "@/components/SEO";
 
 const ExamPreparation = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Cambridge Exam Preparation - FCE, CAE, CPE",
+    "description": "Comprehensive exam preparation for Cambridge English exams including FCE, CAE, CPE, and IELTS with targeted strategies and practice tests",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "English Unpacked",
+      "url": "https://english-unpacked.lovable.app"
+    },
+    "courseMode": "online",
+    "educationalLevel": "Intermediate to Advanced",
+    "teaches": "Cambridge exam strategies, test-taking skills, Reading, Writing, Listening, and Speaking sections"
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Cambridge Exam Preparation - FCE, CAE, CPE & IELTS"
+        description="Achieve your best exam score with specialized FCE, CAE, CPE, and IELTS preparation. Expert strategies, practice tests, and one-on-one tutoring. Book free consultation today."
+        canonical="https://english-unpacked.lovable.app/exam-preparation"
+        schema={schema}
+      />
       <Navigation />
       
       {/* Hero Section */}

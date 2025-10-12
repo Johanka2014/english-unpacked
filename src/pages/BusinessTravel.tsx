@@ -11,8 +11,24 @@ import lostLuggageImage from "@/assets/lost-luggage.jpg";
 import carRentalImage from "@/assets/car-rental.jpg";
 import hotelRoomImage from "@/assets/hotel-room-issue.jpg";
 import stolenDocsImage from "@/assets/stolen-documents.jpg";
+import SEO from "@/components/SEO";
 
 const BusinessTravel = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Business Travel English",
+    "description": "Master English for business travel emergencies and challenging situations including flight delays, lost luggage, car rental issues, and hotel problems",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "English Unpacked",
+      "url": "https://english-unpacked.lovable.app"
+    },
+    "courseMode": "online",
+    "educationalLevel": "Intermediate to Advanced",
+    "teaches": "Travel emergency English, professional problem-solving, business travel vocabulary, complaint writing"
+  };
+
   const scenarios = [
     {
       id: "flight-delays",
@@ -157,6 +173,12 @@ const BusinessTravel = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Business Travel English - Handle Emergencies & Travel Disruptions"
+        description="Master English for business travel challenges: flight delays, lost luggage, car rental issues, hotel problems. Learn essential phrases and complaint writing. Practical scenarios."
+        canonical="https://english-unpacked.lovable.app/business-travel"
+        schema={schema}
+      />
       <Navigation />
       
       {/* Scenarios Grid Section */}

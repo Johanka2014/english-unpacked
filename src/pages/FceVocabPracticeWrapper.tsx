@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { BookOpen, Shuffle, ArrowDownUp, FileText, HelpCircle, Target, ArrowLeft } from "lucide-react";
+import SEO from "@/components/SEO";
 
 // Import activity images
 import multipleChoiceImg from "@/assets/multiple-choice-practice.jpg";
@@ -439,6 +440,11 @@ const FceVocabPracticeWrapper = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <SEO 
+        title="FCE Vocabulary Practice - Interactive First Certificate Exercises"
+        description="Master FCE vocabulary with interactive exercises: multiple choice, word sorting, confusing words, and sentence completion. Practice for Cambridge B2 First exam success."
+        canonical="https://english-unpacked.lovable.app/fce-vocab-practice"
+      />
       <Navigation />
 
       {currentActivity === 'hub' && (

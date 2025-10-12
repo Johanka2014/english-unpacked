@@ -56,7 +56,7 @@ const ServicesSection = () => {
               <div className="relative overflow-hidden rounded-t-xl">
                 <img 
                   src={service.image} 
-                  alt={service.title}
+                  alt={`${service.title} - ${service.description.substring(0, 80)}`}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
