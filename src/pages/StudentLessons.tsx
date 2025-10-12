@@ -106,7 +106,7 @@ const StudentLessons = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent/30 via-background to-background">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <main className="container mx-auto px-4 py-20">
         <Button asChild variant="ghost" className="mb-6">
@@ -116,17 +116,17 @@ const StudentLessons = () => {
           </Link>
         </Button>
 
-        <Card className="mb-8 bg-gradient-to-r from-primary/10 to-accent/20 border-primary/20">
+        <Card className="mb-8 bg-blue-50">
           <CardHeader>
             <h1 className="text-4xl font-bold text-foreground mb-2">{student.full_name}</h1>
             <p className="text-muted-foreground">{student.email}</p>
           </CardHeader>
         </Card>
 
-        <Card className="border-primary/20 shadow-lg">
-          <CardHeader className="bg-accent/50">
-            <CardTitle className="flex items-center gap-2 text-primary">
-              <BookOpen className="h-5 w-5 text-primary" />
+        <Card>
+          <CardHeader className="bg-blue-50">
+            <CardTitle className="flex items-center gap-2">
+              <BookOpen className="h-5 w-5 text-blue-600" />
               Lesson History
             </CardTitle>
             <CardDescription>
@@ -135,8 +135,8 @@ const StudentLessons = () => {
           </CardHeader>
           <CardContent className="pt-6">
             {lessons.length === 0 ? (
-              <div className="text-center py-12 bg-accent/30 rounded-lg">
-                <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary/50" />
+              <div className="text-center py-12 bg-blue-50/50 rounded-lg">
+                <BookOpen className="h-12 w-12 mx-auto mb-4 text-blue-600/50" />
                 <p className="text-muted-foreground">No lessons yet</p>
               </div>
             ) : (
@@ -147,13 +147,13 @@ const StudentLessons = () => {
                     to={`/dashboard/lessons/${lesson.id}`}
                     className="block"
                   >
-                    <Card className="bg-accent/30 hover:bg-accent hover:shadow-md transition-all duration-200 cursor-pointer border-primary/10">
+                    <Card className="bg-blue-50 hover:bg-blue-100 transition-colors cursor-pointer">
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <div className="space-y-1">
                             <CardTitle className="text-xl text-foreground">{lesson.lesson_title}</CardTitle>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Calendar className="h-4 w-4 text-primary" />
+                              <Calendar className="h-4 w-4 text-blue-600" />
                               {format(new Date(lesson.lesson_date), 'MMMM d, yyyy')}
                             </div>
                           </div>

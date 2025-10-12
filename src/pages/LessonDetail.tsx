@@ -143,7 +143,7 @@ const LessonDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent/30 via-background to-background">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <main className="container mx-auto px-4 py-20">
         <Button asChild variant="ghost" className="mb-6">
@@ -153,13 +153,13 @@ const LessonDetail = () => {
           </Link>
         </Button>
 
-        <Card className="border-primary/20 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/20">
+        <Card>
+          <CardHeader className="bg-blue-50">
             <div className="flex items-start justify-between">
               <div>
                 <CardTitle className="text-3xl mb-4 text-foreground">{lesson.lesson_title}</CardTitle>
                 <div className="flex items-center text-muted-foreground">
-                  <Calendar className="mr-2 h-4 w-4 text-primary" />
+                  <Calendar className="mr-2 h-4 w-4 text-blue-600" />
                   {format(new Date(lesson.lesson_date), 'EEEE, MMMM d, yyyy')}
                 </div>
                 <p className="text-xs text-muted-foreground mt-2">
@@ -167,14 +167,14 @@ const LessonDetail = () => {
                 </p>
               </div>
               {!isEditing && (
-                <Button onClick={() => setIsEditing(true)} className="bg-primary hover:bg-primary/90">Edit</Button>
+                <Button onClick={() => setIsEditing(true)}>Edit</Button>
               )}
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <Label className="text-lg font-semibold mb-3 block flex items-center gap-2 text-primary">
-                <BookOpen className="h-5 w-5" />
+              <Label className="text-lg font-semibold mb-3 block flex items-center gap-2">
+                <BookOpen className="h-5 w-5 text-blue-600" />
                 Teacher Notes
               </Label>
               {isEditing ? (
@@ -182,10 +182,10 @@ const LessonDetail = () => {
                   value={teacherNotes}
                   onChange={(e) => setTeacherNotes(e.target.value)}
                   placeholder="Add notes about this lesson..."
-                  className="min-h-[200px] border-primary/20"
+                  className="min-h-[200px]"
                 />
               ) : (
-                <div className="bg-accent/30 p-6 rounded-lg border border-primary/10">
+                <div className="bg-blue-50/50 p-6 rounded-lg">
                   <p className="whitespace-pre-wrap text-foreground">
                     {teacherNotes || 'No notes yet'}
                   </p>
@@ -195,12 +195,12 @@ const LessonDetail = () => {
 
             <div>
               <div className="flex items-center justify-between mb-4">
-                <Label className="text-lg font-semibold flex items-center gap-2 text-primary">
-                  <ExternalLink className="h-5 w-5" />
+                <Label className="text-lg font-semibold flex items-center gap-2">
+                  <ExternalLink className="h-5 w-5 text-blue-600" />
                   Web Links
                 </Label>
                 {isEditing && (
-                  <Button onClick={addWebLink} size="sm" variant="outline" className="border-primary/30 text-primary hover:bg-primary/10">
+                  <Button onClick={addWebLink} size="sm" variant="outline">
                     <Plus className="mr-2 h-4 w-4" />
                     Add Link
                   </Button>
@@ -210,19 +210,17 @@ const LessonDetail = () => {
               {isEditing ? (
                 <div className="space-y-4">
                   {webLinks.map((link, index) => (
-                    <div key={index} className="flex gap-2 items-start p-4 bg-accent/20 rounded-lg border border-primary/10">
+                    <div key={index} className="flex gap-2 items-start p-4 bg-blue-50/30 rounded-lg">
                       <div className="flex-1 space-y-2">
                         <Input
                           placeholder="Link title"
                           value={link.title}
                           onChange={(e) => updateWebLink(index, 'title', e.target.value)}
-                          className="border-primary/20"
                         />
                         <Input
                           placeholder="https://..."
                           value={link.url}
                           onChange={(e) => updateWebLink(index, 'url', e.target.value)}
-                          className="border-primary/20"
                         />
                       </div>
                       <Button
@@ -236,13 +234,13 @@ const LessonDetail = () => {
                     </div>
                   ))}
                   {webLinks.length === 0 && (
-                    <p className="text-muted-foreground text-sm text-center py-4 bg-accent/20 rounded-lg">No links added yet</p>
+                    <p className="text-muted-foreground text-sm text-center py-4 bg-blue-50/30 rounded-lg">No links added yet</p>
                   )}
                 </div>
               ) : (
                 <div className="space-y-2">
                   {webLinks.length === 0 ? (
-                    <p className="text-muted-foreground text-center py-6 bg-accent/20 rounded-lg">No links available</p>
+                    <p className="text-muted-foreground text-center py-6 bg-blue-50/30 rounded-lg">No links available</p>
                   ) : (
                     webLinks.map((link, index) => (
                       <a
@@ -250,9 +248,9 @@ const LessonDetail = () => {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 p-4 bg-accent/30 rounded-lg hover:bg-primary/10 hover:border-primary/30 transition-all duration-200 border border-primary/10"
+                        className="flex items-center gap-3 p-4 bg-blue-50/30 rounded-lg hover:bg-blue-50 transition-colors"
                       >
-                        <ExternalLink className="h-5 w-5 text-primary flex-shrink-0" />
+                        <ExternalLink className="h-5 w-5 text-blue-600 flex-shrink-0" />
                         <span className="text-foreground font-medium">{link.title || link.url}</span>
                       </a>
                     ))
@@ -262,8 +260,8 @@ const LessonDetail = () => {
             </div>
 
             {isEditing && (
-              <div className="flex gap-2 pt-4 border-t border-primary/10">
-                <Button onClick={handleSave} className="bg-primary hover:bg-primary/90">
+              <div className="flex gap-2 pt-4 border-t">
+                <Button onClick={handleSave}>
                   <Save className="mr-2 h-4 w-4" />
                   Save Changes
                 </Button>
@@ -277,7 +275,6 @@ const LessonDetail = () => {
                       : (lesson.web_links || []);
                     setWebLinks(parsedLinks);
                   }}
-                  className="border-primary/30"
                 >
                   Cancel
                 </Button>
