@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, isAdmin, signOut } = useAuth();
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -29,6 +31,12 @@ const Navigation = () => {
     { name: "About", href: "/#about" },
     { name: "Contact", href: "/#contact" }
   ];
+
+  const memberNavItems = user ? [
+    { name: "Dashboard", href: "/dashboard" },
+    { name: "Practice", href: "/members/activities" },
+    ...(isAdmin ? [{ name: "Admin", href: "/admin" }] : []),
+  ] : [];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
@@ -54,15 +62,43 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button 
-              variant="default" 
-              className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-              asChild
-            >
-              <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
-                Book Consultation
-              </a>
-            </Button>
+            {memberNavItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="nav-link"
+              >
+                {item.name}
+              </Link>
+            ))}
+            {user ? (
+              <Button 
+                variant="default" 
+                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                onClick={signOut}
+              >
+                Logout
+              </Button>
+            ) : (
+              <>
+                <Button 
+                  variant="default" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                  asChild
+                >
+                  <Link to="/auth">Login</Link>
+                </Button>
+                <Button 
+                  variant="default" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                  asChild
+                >
+                  <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
+                    Book Consultation
+                  </a>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,15 +128,47 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button 
-                variant="default" 
-                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
-                asChild
-              >
-                <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
-                  Book Consultation
-                </a>
-              </Button>
+              {memberNavItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="nav-link text-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              {user ? (
+                <Button 
+                  variant="default" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
+                  onClick={() => {
+                    signOut();
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  Logout
+                </Button>
+              ) : (
+                <>
+                  <Button 
+                    variant="default" 
+                    className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
+                    asChild
+                  >
+                    <Link to="/auth" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                  </Button>
+                  <Button 
+                    variant="default" 
+                    className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
+                    asChild
+                  >
+                    <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
+                      Book Consultation
+                    </a>
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
