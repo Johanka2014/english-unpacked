@@ -165,7 +165,7 @@ const ExamPreparation = () => {
                 >
                   <a href="/exam-practice">
                     <ExternalLink className="w-5 h-5 mr-2" />
-                    CAE Exam Practice
+                    CAE Vocabulary Practice
                   </a>
                 </Button>
                 <Button 
