@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, GraduationCap, Languages } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield } from 'lucide-react';
 
 const activities = [
   {
@@ -12,6 +12,13 @@ const activities = [
     icon: BookOpen,
     path: '/business-vocab-app',
     color: 'text-blue-600',
+  },
+  {
+    title: 'Insurance Vocabulary',
+    description: 'Master essential insurance terminology for business and travel',
+    icon: Shield,
+    path: '/insurance-vocabulary',
+    color: 'text-orange-600',
   },
   {
     title: 'CAE Exam Practice',
