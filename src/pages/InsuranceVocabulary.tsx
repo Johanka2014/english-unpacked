@@ -17,57 +17,129 @@ interface VocabTerm {
 
 const vocabularyData: VocabTerm[] = [
   {
-    term: 'Insurance',
-    definition: 'Protection against financial loss by paying a company to cover potential risks',
-    exampleSentence: 'I booked the flights 6 months ago and bought the extra insurance.',
+    term: 'Actuary',
+    definition: 'A person who calculates risks for insurance companies',
+    exampleSentence: 'The actuary analyzed the data to determine appropriate premium rates.',
+    category: 'advanced'
+  },
+  {
+    term: 'Assessor',
+    definition: 'A person who calculates the value of something (e.g., a building, car, etc.)',
+    exampleSentence: 'The assessor came to evaluate the damage to my property.',
+    category: 'advanced'
+  },
+  {
+    term: 'Claim',
+    definition: 'An application for payment under an insurance policy',
+    exampleSentence: 'I need to make a claim for the damage to my vehicle.',
     category: 'basic'
   },
   {
-    term: 'Assurance',
-    definition: 'Confidence or certainty that something will be covered or protected',
-    exampleSentence: 'Insurance gives me assurance that if anything goes wrong I can claim money for lost time or luggage.',
+    term: 'Comprehensive',
+    definition: 'All-inclusive insurance providing complete protection',
+    exampleSentence: 'I opted for comprehensive coverage to ensure I am fully protected.',
+    category: 'advanced'
+  },
+  {
+    term: 'Consequential Loss',
+    definition: 'A loss that happens as a consequence of or as a result of another',
+    exampleSentence: 'The fire caused consequential losses including lost business revenue.',
+    category: 'advanced'
+  },
+  {
+    term: 'Cover (UK)',
+    definition: 'The protection given by an insurance policy (e.g., public liability cover)',
+    exampleSentence: 'I am not sure if my insurance will cover that.',
+    category: 'uk-specific'
+  },
+  {
+    term: "Employer's Liability",
+    definition: 'Liability or responsibility of a firm for damage caused to one of its employees',
+    exampleSentence: "Employers must have employer's liability insurance by law in the UK.",
+    category: 'advanced'
+  },
+  {
+    term: 'Goods in Transit',
+    definition: 'Property, merchandise or any goods in the process of being transported',
+    exampleSentence: 'The goods in transit insurance covered the shipment during delivery.',
+    category: 'advanced'
+  },
+  {
+    term: 'Insurance Broker',
+    definition: 'Agent who arranges insurance; middleman between insurer and policyholder',
+    exampleSentence: 'Go to an insurance broker and see if you can get a better deal.',
     category: 'basic'
+  },
+  {
+    term: 'Liability',
+    definition: 'The state of being liable; anything for which a person is liable',
+    exampleSentence: 'His insurance company told him not to admit liability, even though it was clearly his fault.',
+    category: 'basic'
+  },
+  {
+    term: 'Liable',
+    definition: 'Legally obliged to pay for damage, injury etc; responsible',
+    exampleSentence: 'The company was found liable for the accident.',
+    category: 'advanced'
+  },
+  {
+    term: 'Loss',
+    definition: 'Death, injury, damage etc that is the basis for a claim',
+    exampleSentence: 'The policy covers loss of personal belongings during travel.',
+    category: 'basic'
+  },
+  {
+    term: 'Loss Adjuster',
+    definition: 'A person who assesses the amount of compensation arising from a claim',
+    exampleSentence: 'The loss adjuster will inspect the damage before approving the payout.',
+    category: 'advanced'
   },
   {
     term: 'Policy',
-    definition: 'A written contract between you and an insurance company that outlines the terms of coverage',
+    definition: 'A contract of insurance (e.g., a product liability policy)',
     exampleSentence: 'I have an independent annual travel insurance policy.',
     category: 'basic'
   },
   {
-    term: 'Cover / Will Cover',
-    definition: 'What the insurance protects or pays for when something goes wrong',
-    exampleSentence: 'I am not sure if my insurance will cover that.',
+    term: 'Policyholder',
+    definition: 'The person to whom an insurance policy is issued',
+    exampleSentence: 'As the policyholder, you have certain rights and responsibilities.',
+    category: 'basic'
+  },
+  {
+    term: 'Premium',
+    definition: 'A payment, usually monthly, yearly etc, for an insurance policy',
+    exampleSentence: "You're allowed 30 days' grace for the payment of the renewal premium.",
+    category: 'basic'
+  },
+  {
+    term: 'Product Liability',
+    definition: 'Liability or responsibility of a firm for damage caused by one of its products',
+    exampleSentence: 'The manufacturer has product liability insurance for any defects.',
+    category: 'advanced'
+  },
+  {
+    term: 'Public Liability',
+    definition: 'Responsibility of a firm for damage caused to a member of the public',
+    exampleSentence: 'My insurance company offers a wide range of public liability cover.',
+    category: 'advanced'
+  },
+  {
+    term: 'Reinsurance',
+    definition: 'The insuring of a risk by one insurance company with another',
+    exampleSentence: 'Large insurers use reinsurance to spread their risk.',
+    category: 'advanced'
+  },
+  {
+    term: 'Risk',
+    definition: 'Chance or possibility of injury, loss etc; person or thing causing risk',
+    exampleSentence: 'Insurance companies can be considered as professional risk takers.',
     category: 'basic'
   },
   {
     term: 'Excess (UK) / Deductible (US)',
     definition: 'The amount you have to pay before the insurance company pays the rest of a claim',
     exampleSentence: 'If you have a £250 excess in your policy, you pay the first £250 and then the insurance company will pay the rest.',
-    category: 'uk-specific'
-  },
-  {
-    term: 'Make a Claim',
-    definition: 'To officially request money back from insurance to pay for damage, delays, or losses',
-    exampleSentence: 'When you make a claim, you pay the first £250 and then the insurance company will pay the rest.',
-    category: 'advanced'
-  },
-  {
-    term: 'Get Out Of (paying a claim)',
-    definition: 'When an insurance company tries to avoid paying what they owe by using technical reasons or loopholes',
-    exampleSentence: 'They will try to get out of paying a claim any way they can.',
-    category: 'advanced'
-  },
-  {
-    term: 'Cancelled',
-    definition: 'When a scheduled service (like a flight) is officially stopped and will not happen',
-    exampleSentence: 'When the flight is cancelled and it wasn\'t my fault, they will offer me a hotel room.',
-    category: 'basic'
-  },
-  {
-    term: 'Statutory Sick Pay (SSP)',
-    definition: 'The legal minimum amount UK employers must pay employees who are off work sick for 4+ consecutive days',
-    exampleSentence: 'In the UK, there is a system of Statutory Sick Pay (SSP) for absences of four or more consecutive days, up to 28 weeks.',
     category: 'uk-specific'
   },
   {
@@ -80,12 +152,6 @@ const vocabularyData: VocabTerm[] = [
     term: 'Annual',
     definition: 'Happening once a year or valid for one year',
     exampleSentence: 'I have an independent annual travel insurance policy.',
-    category: 'basic'
-  },
-  {
-    term: 'Delay',
-    definition: 'When something happens later than scheduled or expected',
-    exampleSentence: 'I wasn\'t sure if there would be any delays.',
     category: 'basic'
   }
 ];
