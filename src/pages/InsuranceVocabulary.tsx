@@ -149,12 +149,101 @@ const multipleChoiceQuestions = [
   }
 ];
 
+const advancedVocabQuestions = [
+  {
+    sentence: 'Insurance companies can be considered as professional _______ takers.',
+    options: ['life', 'risk', 'chance', 'misfortune'],
+    correctAnswer: 'risk',
+    explanation: 'Insurance companies are professional "risk takers" - they assess and take on financial risks in exchange for premiums.'
+  },
+  {
+    sentence: 'Some of the language in insurance _______ is incomprehensible to most ordinary people.',
+    options: ['premiums', 'policies', 'rates', 'invoices'],
+    correctAnswer: 'policies',
+    explanation: 'Insurance policies (the written contracts) often contain complex legal language that can be difficult for ordinary people to understand.'
+  },
+  {
+    sentence: 'The company will _______ the policy-holder against loss of or damage to the insured vehicle.',
+    options: ['identify', 'respect', 'indemnify', 'engage'],
+    correctAnswer: 'indemnify',
+    explanation: 'To "indemnify" means to compensate for harm or loss. Insurance companies indemnify policyholders by covering their losses.'
+  },
+  {
+    sentence: 'Insurance companies like you to _______ your claim as soon as possible.',
+    options: ['process', 'submit', 'assure', 'proceed'],
+    correctAnswer: 'submit',
+    explanation: 'To "submit" a claim means to officially send your claim to the insurance company for review and processing.'
+  },
+  {
+    sentence: 'Go to an insurance _______ and see if you can get a better deal.',
+    options: ['breaker', 'broker', 'speculator', 'merchant'],
+    correctAnswer: 'broker',
+    explanation: 'An insurance broker is a professional who helps you find and compare insurance policies from different companies.'
+  },
+  {
+    sentence: 'In these inflationary times it is important to keep the value of your policy closely _______ to the value of your property.',
+    options: ['adapted', 'linked', 'indicated', 'dependent'],
+    correctAnswer: 'linked',
+    explanation: 'Your policy value should be "linked" (connected) to your property value to ensure adequate coverage as prices rise.'
+  },
+  {
+    sentence: 'My insurance company offers a wide _______ of cover.',
+    options: ['range', 'branch', 'rank', 'standard'],
+    correctAnswer: 'range',
+    explanation: 'A "range" of cover means the insurance company offers many different types of coverage options.'
+  },
+  {
+    sentence: 'His insurance company had told him not to admit _______, even though it was clearly his fault.',
+    options: ['legality', 'likelihood', 'liability', 'crime'],
+    correctAnswer: 'liability',
+    explanation: '"Liability" means legal responsibility. Admitting liability means accepting legal responsibility for an accident or damage.'
+  },
+  {
+    sentence: 'My endowment policy will _______ when I\'m sixty-five.',
+    options: ['ripen', 'mature', 'flourish', 'break'],
+    correctAnswer: 'mature',
+    explanation: 'An insurance or investment policy "matures" when it reaches the end of its term and pays out the agreed amount.'
+  },
+  {
+    sentence: '_______ insurance originated in the fifteenth century.',
+    options: ['Boat', 'Sea', 'Navy', 'Marine'],
+    correctAnswer: 'Marine',
+    explanation: 'Marine insurance covers ships, cargo, and related maritime risks. It was one of the earliest forms of insurance.'
+  },
+  {
+    sentence: 'The _______ form you fill in is the basis of your contract with the insurance company.',
+    options: ['proposition', 'application', 'enrolment', 'proposal'],
+    correctAnswer: 'application',
+    explanation: 'The application form contains your information and becomes the basis of your legal contract with the insurer.'
+  },
+  {
+    sentence: 'The insurance will be _______ if you omit any relevant information.',
+    options: ['void', 'valid', 'invaluable', 'priceless'],
+    correctAnswer: 'void',
+    explanation: '"Void" means the insurance becomes invalid and worthless. Not disclosing relevant information can cancel your coverage.'
+  },
+  {
+    sentence: 'You\'re allowed 30 days\' _______ for the payment of the renewal premium.',
+    options: ['grace', 'favour', 'way', 'permission'],
+    correctAnswer: 'grace',
+    explanation: 'A "grace period" is extra time allowed to make a payment before the policy is cancelled.'
+  },
+  {
+    sentence: 'Make sure all this equipment is insured _______ accidental damage.',
+    options: ['over', 'against', 'with', 'from'],
+    correctAnswer: 'against',
+    explanation: 'We insure "against" risks or damages - meaning the insurance protects you from those specific events.'
+  }
+];
+
 const InsuranceVocabulary = () => {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
   const [fillInAnswers, setFillInAnswers] = useState<{ [key: number]: string }>({});
   const [fillInResults, setFillInResults] = useState<{ [key: number]: boolean | null }>({});
   const [quizAnswers, setQuizAnswers] = useState<{ [key: number]: number }>({});
   const [showQuizResults, setShowQuizResults] = useState(false);
+  const [advancedAnswers, setAdvancedAnswers] = useState<{ [key: number]: string }>({});
+  const [showAdvancedResults, setShowAdvancedResults] = useState(false);
 
   const toggleCard = (index: number) => {
     const newFlipped = new Set(flippedCards);
@@ -187,6 +276,21 @@ const InsuranceVocabulary = () => {
   const quizScore = showQuizResults
     ? multipleChoiceQuestions.reduce((score, q, index) => {
         return score + (quizAnswers[index] === q.correctAnswer ? 1 : 0);
+      }, 0)
+    : 0;
+
+  const submitAdvancedQuiz = () => {
+    setShowAdvancedResults(true);
+  };
+
+  const resetAdvancedQuiz = () => {
+    setAdvancedAnswers({});
+    setShowAdvancedResults(false);
+  };
+
+  const advancedScore = showAdvancedResults
+    ? advancedVocabQuestions.reduce((score, q, index) => {
+        return score + (advancedAnswers[index]?.toLowerCase() === q.correctAnswer.toLowerCase() ? 1 : 0);
       }, 0)
     : 0;
 
@@ -453,6 +557,121 @@ const InsuranceVocabulary = () => {
                           )}
                         </div>
                         <Button onClick={resetQuiz} variant="outline">
+                          <RotateCcw className="w-4 h-4 mr-2" />
+                          Try Again
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Advanced Vocabulary Practice Section */}
+            <section className="mb-16">
+              <div className="flex items-center gap-2 mb-6">
+                <Target className="w-5 h-5 text-brand-royal" />
+                <h2 className="text-2xl font-bold text-brand-navy font-merriweather">
+                  Advanced Vocabulary Practice
+                </h2>
+                <Badge variant="secondary" className="ml-2">
+                  Professional Level
+                </Badge>
+              </div>
+              
+              <Card className="bg-white">
+                <CardHeader>
+                  <CardTitle>Choose the Best Alternative</CardTitle>
+                  <CardDescription>
+                    Complete each sentence with the most appropriate word
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    {advancedVocabQuestions.map((question, qIndex) => (
+                      <div key={qIndex} className="pb-6 border-b last:border-0">
+                        <p className="text-base mb-3 text-brand-navy">
+                          <span className="font-semibold">{qIndex + 1}.</span>{' '}
+                          {question.sentence.split('_______')[0]}
+                          <span className="font-bold text-brand-royal">_______</span>
+                          {question.sentence.split('_______')[1]}
+                        </p>
+                        
+                        <div className="grid grid-cols-2 gap-2">
+                          {question.options.map((option, oIndex) => (
+                            <label
+                              key={oIndex}
+                              className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer transition-colors text-sm ${
+                                showAdvancedResults && option.toLowerCase() === question.correctAnswer.toLowerCase()
+                                  ? 'bg-green-50 border-green-300'
+                                  : showAdvancedResults && advancedAnswers[qIndex]?.toLowerCase() === option.toLowerCase()
+                                  ? 'bg-red-50 border-red-300'
+                                  : 'hover:bg-blue-50'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name={`advanced-${qIndex}`}
+                                value={option}
+                                checked={advancedAnswers[qIndex] === option}
+                                onChange={() =>
+                                  setAdvancedAnswers({ ...advancedAnswers, [qIndex]: option })
+                                }
+                                disabled={showAdvancedResults}
+                                className="w-4 h-4"
+                              />
+                              <span className="font-mono">
+                                {String.fromCharCode(97 + oIndex)}.
+                              </span>
+                              <span>{option}</span>
+                              
+                              {showAdvancedResults && option.toLowerCase() === question.correctAnswer.toLowerCase() && (
+                                <CheckCircle className="w-4 h-4 text-green-600 ml-auto" />
+                              )}
+                              {showAdvancedResults &&
+                                advancedAnswers[qIndex]?.toLowerCase() === option.toLowerCase() &&
+                                option.toLowerCase() !== question.correctAnswer.toLowerCase() && (
+                                  <XCircle className="w-4 h-4 text-red-600 ml-auto" />
+                                )}
+                            </label>
+                          ))}
+                        </div>
+                        
+                        {showAdvancedResults && (
+                          <div className="mt-3 p-3 bg-blue-50 rounded-lg">
+                            <p className="text-sm text-brand-navy">
+                              <strong>Explanation:</strong> {question.explanation}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-6 flex items-center gap-4">
+                    {!showAdvancedResults ? (
+                      <Button
+                        onClick={submitAdvancedQuiz}
+                        disabled={
+                          Object.keys(advancedAnswers).length !== advancedVocabQuestions.length
+                        }
+                      >
+                        Submit Answers
+                      </Button>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-semibold text-brand-navy">
+                            Score: {advancedScore} / {advancedVocabQuestions.length}
+                          </span>
+                          {advancedScore === advancedVocabQuestions.length && (
+                            <Badge className="bg-green-600">Perfect!</Badge>
+                          )}
+                          {advancedScore >= advancedVocabQuestions.length * 0.8 && advancedScore < advancedVocabQuestions.length && (
+                            <Badge className="bg-blue-600">Excellent!</Badge>
+                          )}
+                        </div>
+                        <Button onClick={resetAdvancedQuiz} variant="outline">
                           <RotateCcw className="w-4 h-4 mr-2" />
                           Try Again
                         </Button>
