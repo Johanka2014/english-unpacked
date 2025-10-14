@@ -302,6 +302,58 @@ const advancedVocabQuestions = [
   }
 ];
 
+interface PassiveVoiceQuestion {
+  number: number;
+  text: string;
+  verb: string;
+  correctAnswer: string;
+}
+
+const passiveVoiceQuestions: PassiveVoiceQuestion[] = [
+  { number: 1, text: "Virtually anything", verb: "can / insure", correctAnswer: "can be insured" },
+  { number: 2, text: "most celebrated insurance company", verb: "ask", correctAnswer: "has been asked" },
+  { number: 3, text: "the very first car", verb: "insure", correctAnswer: "to be insured" },
+  { number: 4, text: "", verb: "cover", correctAnswer: "was covered" },
+  { number: 5, text: "motor policies", verb: "write", correctAnswer: "were written" },
+  { number: 6, text: "her famous legs", verb: "might / injure", correctAnswer: "might be injured" },
+  { number: 7, text: "", verb: "insure", correctAnswer: "were insured" },
+  { number: 8, text: "Bruce Springsteen's", verb: "believe", correctAnswer: "is believed" }
+];
+
+const passiveVoiceText = {
+  title: "Lloyd's: Insuring the famous and the bizarre",
+  paragraphs: [
+    {
+      before: "Virtually anything (1) ",
+      blank: 1,
+      after: " at Lloyd's. In fact, over the last hundred years London's most celebrated insurance company (2) ",
+      blank2: 2,
+      after2: " to issue some of the most bizarre policies ever! Here are just a few."
+    },
+    {
+      before: "Car insurance is big business these days. But the very first car (3) ",
+      blank: 3,
+      after: " at Lloyd's (4) ",
+      blank2: 4,
+      after2: " by a marine policy. Cars were such a novelty in those days, motor policies (5) ",
+      blank3: 5,
+      after3: " on the basis that cars were just ships that sailed on the land!"
+    },
+    {
+      before: "Actors have always been paranoid. Hollywood film idol, Betty Grable, was so worried her famous legs (6) ",
+      blank: 6,
+      after: " during filming, they (7) ",
+      blank2: 7,
+      after2: " by Lloyd's for a million dollars."
+    },
+    {
+      before: "Multi-millionaire rock stars worry too. Bob Dylan, Eric Clapton, Michael Jackson, Elton John, Rod Stewart and the Rolling Stones have all insured their voices. Bruce Springsteen's (8) ",
+      blank: 8,
+      after: " to be worth £3.5 million."
+    }
+  ]
+};
+
 const InsuranceVocabulary = () => {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
   const [fillInAnswers, setFillInAnswers] = useState<{ [key: number]: string }>({});
@@ -310,6 +362,8 @@ const InsuranceVocabulary = () => {
   const [showQuizResults, setShowQuizResults] = useState(false);
   const [advancedAnswers, setAdvancedAnswers] = useState<{ [key: number]: string }>({});
   const [showAdvancedResults, setShowAdvancedResults] = useState(false);
+  const [passiveAnswers, setPassiveAnswers] = useState<{ [key: number]: string }>({});
+  const [showPassiveResults, setShowPassiveResults] = useState(false);
 
   const toggleCard = (index: number) => {
     const newFlipped = new Set(flippedCards);
@@ -357,6 +411,23 @@ const InsuranceVocabulary = () => {
   const advancedScore = showAdvancedResults
     ? advancedVocabQuestions.reduce((score, q, index) => {
         return score + (advancedAnswers[index]?.toLowerCase() === q.correctAnswer.toLowerCase() ? 1 : 0);
+      }, 0)
+    : 0;
+
+  const submitPassiveQuiz = () => {
+    setShowPassiveResults(true);
+  };
+
+  const resetPassiveQuiz = () => {
+    setPassiveAnswers({});
+    setShowPassiveResults(false);
+  };
+
+  const passiveScore = showPassiveResults
+    ? passiveVoiceQuestions.reduce((score, q) => {
+        const userAnswer = passiveAnswers[q.number]?.toLowerCase().trim();
+        const correctAnswer = q.correctAnswer.toLowerCase();
+        return score + (userAnswer === correctAnswer ? 1 : 0);
       }, 0)
     : 0;
 
@@ -738,6 +809,219 @@ const InsuranceVocabulary = () => {
                           )}
                         </div>
                         <Button onClick={resetAdvancedQuiz} variant="outline">
+                          <RotateCcw className="w-4 h-4 mr-2" />
+                          Try Again
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Passive Voice Practice Section */}
+            <section className="mb-16">
+              <div className="flex items-center gap-2 mb-6">
+                <Target className="w-5 h-5 text-brand-royal" />
+                <h2 className="text-2xl font-bold text-brand-navy font-merriweather">
+                  Practice 3: Passive Voice
+                </h2>
+              </div>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle>{passiveVoiceText.title}</CardTitle>
+                  <CardDescription>
+                    Complete the article using the correct passive form of the verbs in brackets
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Paragraph 1 */}
+                  <div className="space-y-4 p-4 bg-slate-50 rounded-lg">
+                    <p className="leading-relaxed text-brand-navy">
+                      Virtually anything (1)
+                      <input
+                        type="text"
+                        placeholder="(can / insure)"
+                        value={passiveAnswers[1] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 1: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[1]?.toLowerCase().trim() === passiveVoiceQuestions[0].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      at Lloyd's. In fact, over the last hundred years London's most celebrated insurance company (2)
+                      <input
+                        type="text"
+                        placeholder="(ask)"
+                        value={passiveAnswers[2] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 2: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[2]?.toLowerCase().trim() === passiveVoiceQuestions[1].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      to issue some of the most bizarre policies ever! Here are just a few.
+                    </p>
+                  </div>
+
+                  {/* Paragraph 2 */}
+                  <div className="space-y-4 p-4 bg-slate-50 rounded-lg">
+                    <p className="leading-relaxed text-brand-navy">
+                      Car insurance is big business these days. But the very first car (3)
+                      <input
+                        type="text"
+                        placeholder="(insure)"
+                        value={passiveAnswers[3] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 3: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[3]?.toLowerCase().trim() === passiveVoiceQuestions[2].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      at Lloyd's (4)
+                      <input
+                        type="text"
+                        placeholder="(cover)"
+                        value={passiveAnswers[4] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 4: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[4]?.toLowerCase().trim() === passiveVoiceQuestions[3].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      by a marine policy. Cars were such a novelty in those days, motor policies (5)
+                      <input
+                        type="text"
+                        placeholder="(write)"
+                        value={passiveAnswers[5] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 5: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[5]?.toLowerCase().trim() === passiveVoiceQuestions[4].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      on the basis that cars were just ships that sailed on the land!
+                    </p>
+                  </div>
+
+                  {/* Paragraph 3 */}
+                  <div className="space-y-4 p-4 bg-slate-50 rounded-lg">
+                    <p className="leading-relaxed text-brand-navy">
+                      Actors have always been paranoid. Hollywood film idol, Betty Grable, was so worried her famous legs (6)
+                      <input
+                        type="text"
+                        placeholder="(might / injure)"
+                        value={passiveAnswers[6] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 6: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[6]?.toLowerCase().trim() === passiveVoiceQuestions[5].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      during filming, they (7)
+                      <input
+                        type="text"
+                        placeholder="(insure)"
+                        value={passiveAnswers[7] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 7: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[7]?.toLowerCase().trim() === passiveVoiceQuestions[6].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      by Lloyd's for a million dollars.
+                    </p>
+                  </div>
+
+                  {/* Paragraph 4 */}
+                  <div className="space-y-4 p-4 bg-slate-50 rounded-lg">
+                    <p className="leading-relaxed text-brand-navy">
+                      Multi-millionaire rock stars worry too. Bob Dylan, Eric Clapton, Michael Jackson, Elton John, Rod Stewart and the Rolling Stones have all insured their voices. Bruce Springsteen's (8)
+                      <input
+                        type="text"
+                        placeholder="(believe)"
+                        value={passiveAnswers[8] || ''}
+                        onChange={(e) => setPassiveAnswers({ ...passiveAnswers, 8: e.target.value })}
+                        className={`mx-2 px-3 py-1 border rounded-md w-48 ${
+                          showPassiveResults
+                            ? passiveAnswers[8]?.toLowerCase().trim() === passiveVoiceQuestions[7].correctAnswer.toLowerCase()
+                              ? 'border-green-500 bg-green-50'
+                              : 'border-red-500 bg-red-50'
+                            : 'border-border'
+                        }`}
+                        disabled={showPassiveResults}
+                      />
+                      to be worth £3.5 million.
+                    </p>
+                  </div>
+
+                  {/* Answer Key (shown after submission) */}
+                  {showPassiveResults && (
+                    <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <h3 className="font-semibold text-brand-navy mb-3">Answer Key:</h3>
+                      <div className="grid md:grid-cols-2 gap-2 text-sm">
+                        {passiveVoiceQuestions.map((q) => (
+                          <div key={q.number} className="flex items-center gap-2">
+                            <span className="font-semibold">({q.number})</span>
+                            <span className="text-muted-foreground">{q.verb}:</span>
+                            <span className="font-semibold text-brand-royal">{q.correctAnswer}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="mt-6 flex items-center gap-4">
+                    {!showPassiveResults ? (
+                      <Button
+                        onClick={submitPassiveQuiz}
+                        disabled={Object.keys(passiveAnswers).length !== passiveVoiceQuestions.length}
+                      >
+                        Check Answers
+                      </Button>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-semibold text-brand-navy">
+                            Score: {passiveScore} / {passiveVoiceQuestions.length}
+                          </span>
+                          {passiveScore === passiveVoiceQuestions.length && (
+                            <Badge className="bg-green-600">Perfect!</Badge>
+                          )}
+                          {passiveScore >= passiveVoiceQuestions.length * 0.7 && passiveScore < passiveVoiceQuestions.length && (
+                            <Badge className="bg-blue-600">Great Job!</Badge>
+                          )}
+                        </div>
+                        <Button onClick={resetPassiveQuiz} variant="outline">
                           <RotateCcw className="w-4 h-4 mr-2" />
                           Try Again
                         </Button>
