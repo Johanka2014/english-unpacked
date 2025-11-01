@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>Monthly Invoice - English Unpacked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    table { border-collapse: collapse; border-spacing: 0; }
+    img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    @media only screen and (max-width: 600px) {
+      .mobile-padding { padding: 16px !important; }
+      .mobile-stack { display: block !important; width: 100% !important; padding: 12px 0 !important; }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f5f9;">
+    <tr>
+      <td align="center" style="padding: 20px 0;">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; background-color: #ffffff;">
+          
+          <!-- Header -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #1e3a5f;">
+                <tr>
+                  <td style="padding: 24px 20px; text-align: center;">
+                    <h1 style="margin: 0; font-family: 'Pacifico', cursive; font-size: 32px; color: #ffffff;">English Unpacked</h1>
+                    <p style="margin: 8px 0 0; font-family: 'Merriweather', Georgia, serif; font-size: 14px; color: #f1f5f9;">Unlock Your English Potential</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding: 40px 32px;" class="mobile-padding">
+              
+              <h2 style="margin: 0 0 8px; font-family: 'Merriweather', Georgia, serif; font-size: 28px; color: #1e3a5f; font-weight: 600;">
+                Monthly Invoice
+              </h2>
+              
+              <p style="margin: 0 0 32px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #64748b;">
+                Invoice #{{invoice_number}} | {{invoice_date}}
+              </p>
+
+              <p style="margin: 0 0 24px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #1e293b; line-height: 1.6;">
+                Hi {{student_name}},
+              </p>
+
+              <p style="margin: 0 0 32px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #1e293b; line-height: 1.6;">
+                Thank you for another great month of learning together! Here's a summary of your lessons for <strong>{{billing_month}}</strong>.
+              </p>
+
+              <!-- Lessons Table -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 32px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
+                <thead>
+                  <tr style="background-color: #1e3a5f;">
+                    <th style="padding: 12px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff;">Date</th>
+                    <th style="padding: 12px; text-align: left; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff;">Topic</th>
+                    <th style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff;">Duration</th>
+                    <th style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff;">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{lessons_table}}
+                  <!-- Example row structure:
+                  <tr style="border-bottom: 1px solid #e2e8f0;">
+                    <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">Nov 5</td>
+                    <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">Business Writing</td>
+                    <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">60 min</td>
+                    <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">£45.00</td>
+                  </tr>
+                  -->
+                </tbody>
+                <tfoot>
+                  <tr style="background-color: #f1f5f9;">
+                    <td colspan="3" style="padding: 16px; text-align: right; font-family: 'Merriweather', Georgia, serif; font-size: 18px; font-weight: 600; color: #1e3a5f;">Total:</td>
+                    <td style="padding: 16px; text-align: right; font-family: 'Merriweather', Georgia, serif; font-size: 18px; font-weight: 600; color: #1e3a5f;">{{total_amount}}</td>
+                  </tr>
+                </tfoot>
+              </table>
+
+              <!-- Payment Deadline -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom: 32px;">
+                <tr>
+                  <td style="padding: 16px; background-color: #fef3c7; border-radius: 8px; border-left: 4px solid #f97316;">
+                    <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #92400e; line-height: 1.5;">
+                      <strong>Payment Due:</strong> {{payment_deadline}}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+              <h3 style="margin: 0 0 24px; font-family: 'Merriweather', Georgia, serif; font-size: 22px; color: #1e3a5f; text-align: center;">
+                Choose Your Payment Method
+              </h3>
+
+              <!-- Payment Methods Grid -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <!-- mBank -->
+                  <td width="32%" class="mobile-stack" style="vertical-align: top; padding-right: 8px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 8px;">
+                      <tr>
+                        <td style="padding: 20px; text-align: center;">
+                          <div style="width: 48px; height: 48px; margin: 0 auto 12px; background-color: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            🏦
+                          </div>
+                          <h4 style="margin: 0 0 12px; font-family: 'Merriweather', Georgia, serif; font-size: 16px; color: #1e3a5f; font-weight: 600;">mBank</h4>
+                          <p style="margin: 0 0 8px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #64748b; line-height: 1.5;">
+                            <strong style="color: #1e293b;">Account:</strong><br>
+                            {{mbank_account}}
+                          </p>
+                          <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #64748b; line-height: 1.5;">
+                            <strong style="color: #1e293b;">Reference:</strong><br>
+                            {{mbank_reference}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  
+                  <!-- Revolut -->
+                  <td width="32%" class="mobile-stack" style="vertical-align: top; padding: 0 4px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 8px;">
+                      <tr>
+                        <td style="padding: 20px; text-align: center;">
+                          <div style="width: 48px; height: 48px; margin: 0 auto 12px; background-color: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            💳
+                          </div>
+                          <h4 style="margin: 0 0 12px; font-family: 'Merriweather', Georgia, serif; font-size: 16px; color: #1e3a5f; font-weight: 600;">Revolut</h4>
+                          <p style="margin: 0 0 12px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #64748b; line-height: 1.5;">
+                            Send to:<br>
+                            <strong style="color: #1e293b;">{{revolut_tag}}</strong>
+                          </p>
+                          <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #64748b; line-height: 1.4;">
+                            Instant transfer via Revolut app
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  
+                  <!-- PayPal -->
+                  <td width="32%" class="mobile-stack" style="vertical-align: top; padding-left: 8px;">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f5f9; border: 2px solid #e2e8f0; border-radius: 8px;">
+                      <tr>
+                        <td style="padding: 20px; text-align: center;">
+                          <div style="width: 48px; height: 48px; margin: 0 auto 12px; background-color: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                            💰
+                          </div>
+                          <h4 style="margin: 0 0 12px; font-family: 'Merriweather', Georgia, serif; font-size: 16px; color: #1e3a5f; font-weight: 600;">PayPal</h4>
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 12px auto 0;">
+                            <tr>
+                              <td style="border-radius: 6px; background-color: #f97316;">
+                                <a href="{{paypal_link}}" target="_blank" style="display: inline-block; padding: 10px 20px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 600; color: #ffffff; text-decoration: none; border-radius: 6px;">
+                                  Pay Now
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin: 32px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #64748b; line-height: 1.6; text-align: center;">
+                Once you've made the payment, it will be automatically confirmed. If you have any questions, just reply to this email!
+              </p>
+
+              <p style="margin: 24px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #1e293b; line-height: 1.6;">
+                Thank you for your continued trust in English Unpacked!
+              </p>
+
+              <p style="margin: 16px 0 0; font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #1e293b; line-height: 1.6;">
+                Best regards,<br>
+                <strong style="font-family: 'Merriweather', Georgia, serif; color: #1e3a5f;">Joanna</strong>
+              </p>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f1f5f9; border-top: 2px solid #2563eb;">
+                <tr>
+                  <td style="padding: 32px 20px; text-align: center;">
+                    <p style="margin: 0 0 8px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b; font-weight: 600;">Joanna - English Unpacked</p>
+                    <p style="margin: 0 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #64748b;">Professional English Teacher & Coach</p>
+                    <p style="margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #64748b;">© 2025 English Unpacked. All rights reserved.</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

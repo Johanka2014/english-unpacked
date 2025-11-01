@@ -21,6 +21,7 @@ import Lessons from "./pages/Lessons";
 import LessonDetail from "./pages/LessonDetail";
 import Admin from "./pages/Admin";
 import StudentLessons from "./pages/StudentLessons";
+import EmailManagement from "./pages/EmailManagement";
 import MembersActivities from "./pages/MembersActivities";
 import InsuranceVocabulary from "./pages/InsuranceVocabulary";
 import NotFound from "./pages/NotFound";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/dashboard/lessons/:id" element={<ProtectedRoute><LessonDetail /></ProtectedRoute>} />
             <Route path="/admin" element={<ProtectedRoute adminOnly><Admin /></ProtectedRoute>} />
             <Route path="/admin/students/:studentId" element={<ProtectedRoute adminOnly><StudentLessons /></ProtectedRoute>} />
+            <Route path="/email-management" element={<ProtectedRoute adminOnly><EmailManagement /></ProtectedRoute>} />
             <Route path="/members/activities" element={<ProtectedRoute><MembersActivities /></ProtectedRoute>} />
             <Route path="/business-vocab-app" element={<ProtectedRoute><BusinessVocabAppWrapper /></ProtectedRoute>} />
             <Route path="/cae-exam-practice" element={<ProtectedRoute><CaeExamPracticeWrapper /></ProtectedRoute>} />
