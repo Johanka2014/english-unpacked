@@ -1,11 +1,12 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@4.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.75.0";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
 interface EmailRequest {
@@ -33,30 +34,6 @@ const defaultSubjects: Record<string, string> = {
   newsletter: "English Unpacked Newsletter",
 };
 
-async function loadTemplate(templateName: string): Promise<string> {
-  try {
-    const templatePath = templates[templateName];
-    if (!templatePath) {
-      throw new Error(`Template "${templateName}" not found`);
-    }
-
-    // In production, load from file system or use embedded templates
-    // For now, return placeholder to demonstrate structure
-    const response = await fetch(
-      `https://raw.githubusercontent.com/yourusername/yourrepo/main/email-templates/${templatePath}`
-    );
-    
-    if (!response.ok) {
-      throw new Error(`Failed to load template: ${response.statusText}`);
-    }
-    
-    return await response.text();
-  } catch (error) {
-    console.error("Error loading template:", error);
-    throw error;
-  }
-}
-
 function replaceVariables(html: string, variables: Record<string, string>): string {
   let result = html;
   
@@ -68,17 +45,6 @@ function replaceVariables(html: string, variables: Record<string, string>): stri
   return result;
 }
 
-function generateLessonsTableHTML(lessons: Array<{ date: string; topic: string; duration: string; price: string }>): string {
-  return lessons.map(lesson => `
-    <tr style="border-bottom: 1px solid #e2e8f0;">
-      <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${lesson.date}</td>
-      <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${lesson.topic}</td>
-      <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${lesson.duration}</td>
-      <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${lesson.price}</td>
-    </tr>
-  `).join('');
-}
-
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -86,12 +52,87 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Verify authentication
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader?.startsWith('Bearer ')) {
+      return new Response(
+        JSON.stringify({ error: 'Missing or invalid authorization header' }),
+        { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY');
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      throw new Error('Missing Supabase configuration');
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: authHeader } }
+    });
+
+    // Verify the JWT token and get user claims
+    const token = authHeader.replace('Bearer ', '');
+    const { data: claimsData, error: claimsError } = await supabase.auth.getClaims(token);
+
+    if (claimsError || !claimsData?.claims) {
+      console.error('Auth error:', claimsError);
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized - Invalid token' }),
+        { status: 401, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    const userId = claimsData.claims.sub;
+
+    // Check if user has admin role
+    const { data: roleData, error: roleError } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', userId)
+      .eq('role', 'admin')
+      .maybeSingle();
+
+    if (roleError) {
+      console.error('Role check error:', roleError);
+      return new Response(
+        JSON.stringify({ error: 'Error checking permissions' }),
+        { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    if (!roleData) {
+      console.log(`Access denied for user ${userId} - not an admin`);
+      return new Response(
+        JSON.stringify({ error: 'Admin access required' }),
+        { status: 403, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    // User is authenticated and is an admin - proceed with email
     const { to, template, variables, subject }: EmailRequest = await req.json();
 
-    console.log(`Sending ${template} email to ${to}`);
+    // Validate input
+    if (!to || !template) {
+      return new Response(
+        JSON.stringify({ error: 'Missing required fields: to, template' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
 
-    // For demonstration, using a simple HTML template
-    // In production, you would load actual template files
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(to)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid email address' }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
+    }
+
+    console.log(`Admin ${userId} sending ${template} email to ${to}`);
+
+    // Email templates
     const simpleTemplates: Record<string, string> = {
       welcome: `
         <!DOCTYPE html>
@@ -279,11 +320,14 @@ const handler = async (req: Request): Promise<Response> => {
     let htmlTemplate = simpleTemplates[template];
     
     if (!htmlTemplate) {
-      throw new Error(`Template "${template}" not found`);
+      return new Response(
+        JSON.stringify({ error: `Template "${template}" not found` }),
+        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+      );
     }
 
     // Replace variables in template
-    htmlTemplate = replaceVariables(htmlTemplate, variables);
+    htmlTemplate = replaceVariables(htmlTemplate, variables || {});
 
     const emailSubject = subject || defaultSubjects[template] || "Email from English Unpacked";
 
@@ -299,7 +343,7 @@ const handler = async (req: Request): Promise<Response> => {
       throw error;
     }
 
-    console.log("Email sent successfully:", data);
+    console.log("Email sent successfully by admin", userId, ":", data);
 
     return new Response(JSON.stringify({ success: true, data }), {
       status: 200,
