@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, GraduationCap, Languages, Shield } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock } from 'lucide-react';
 
 const activities = [
   {
@@ -33,6 +33,13 @@ const activities = [
     icon: Languages,
     path: '/fce-vocab-practice',
     color: 'text-green-600',
+  },
+  {
+    title: 'TenseMaster Grammar Course',
+    description: 'Master English tenses with interactive quizzes covering Present, Past, and Perfect forms',
+    icon: Clock,
+    path: '/tense-master',
+    color: 'text-indigo-600',
   },
 ];
 

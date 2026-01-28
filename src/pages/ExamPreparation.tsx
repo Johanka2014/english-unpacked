@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, CheckCircle, ExternalLink, Timer, Target } from "lucide-react";
+import { BookOpen, CheckCircle, ExternalLink, Timer, Target, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import examPrepTextbooks from "@/assets/textbooks.png";
 import onlineExamPractice from "@/assets/online-exam-practice.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -204,6 +205,70 @@ const ExamPreparation = () => {
               </div>
               <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
               <p className="text-sm text-muted-foreground">Monitor your improvement and focus on areas that need more practice</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Grammar Practice Activities Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4 font-merriweather">
+              Grammar Practice Activities
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Master English grammar with interactive exercises
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="service-card overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-lg bg-brand-royal/10">
+                      <Clock className="w-8 h-8 text-brand-royal" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 font-merriweather">
+                    TenseMaster - Grammar Course
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Master English tenses with interactive quizzes. Practice Present, Past, Present Perfect, and Past Perfect forms with over 120 targeted exercises.
+                  </p>
+                  <Button 
+                    size="lg" 
+                    className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-fit"
+                    asChild
+                  >
+                    <Link to="/tense-master">
+                      <BookOpen className="w-5 h-5 mr-2" />
+                      Start Learning
+                    </Link>
+                  </Button>
+                </div>
+                <div className="bg-gradient-to-br from-brand-royal/10 to-purple-100 p-8 flex items-center justify-center">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="bg-white/80 rounded-xl p-4 shadow-sm">
+                      <div className="text-3xl font-bold text-brand-royal">120+</div>
+                      <div className="text-sm text-muted-foreground">Questions</div>
+                    </div>
+                    <div className="bg-white/80 rounded-xl p-4 shadow-sm">
+                      <div className="text-3xl font-bold text-brand-royal">4</div>
+                      <div className="text-sm text-muted-foreground">Tense Types</div>
+                    </div>
+                    <div className="bg-white/80 rounded-xl p-4 shadow-sm">
+                      <div className="text-3xl font-bold text-brand-royal">16</div>
+                      <div className="text-sm text-muted-foreground">Quiz Categories</div>
+                    </div>
+                    <div className="bg-white/80 rounded-xl p-4 shadow-sm">
+                      <div className="text-3xl font-bold text-brand-royal">∞</div>
+                      <div className="text-sm text-muted-foreground">Practice</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
         </div>
