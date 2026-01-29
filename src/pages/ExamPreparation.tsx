@@ -183,6 +183,30 @@ const ExamPreparation = () => {
             </div>
           </div>
 
+          {/* Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16">
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <CheckCircle className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Exam-Style Questions</h4>
+              <p className="text-sm text-muted-foreground">Practice with questions that mirror the actual CAE exam format and difficulty</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Timer className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Instant Feedback</h4>
+              <p className="text-sm text-muted-foreground">Get immediate results and detailed explanations for every answer</p>
+            </Card>
+            <Card className="service-card p-6 text-center">
+              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                <Target className="w-6 h-6 text-brand-royal" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
+              <p className="text-sm text-muted-foreground">Monitor your improvement and focus on areas that need more practice</p>
+            </Card>
+          </div>
         </div>
       </section>
 
