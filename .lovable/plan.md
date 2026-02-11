@@ -1,137 +1,74 @@
 
-
-# TenseMaster Integration Plan
+# Maturita Speaking Practice -- Environment Topic
 
 ## Overview
+Add a new "Maturita Speaking Practice" section to the Exam Preparation page, positioned above the three horizontal feature cards. This section links to a new dedicated page (`/maturita-speaking`) that is publicly accessible (no login required). The page will list all 28 maturita topics as clickable cards, with the Environment topic fully built out as a working example. Other topics will show as "coming soon."
 
-Integrate the TenseMaster grammar practice activity into the English Unpacked website, converting it from a standalone HTML file to a React component that matches the website's design system.
+## What the user will see
 
-## What I Discovered
+### On the Exam Preparation page
+- A new section titled "Maturita Speaking Practice" between the Interactive Online Practice content and the three feature cards
+- Brief description and a button linking to the new Maturita Speaking page
 
-### TenseMaster Features:
-- Interactive grammar course covering Present, Past, Present Perfect, and Past Perfect tenses
-- Multiple quiz categories with 10+ questions each
-- Uses Tailwind CSS with a purple/pink/indigo color scheme
-- Single-page application with vanilla JavaScript navigation
-- Glassmorphism design with animated blob backgrounds
+### On the Maturita Speaking page (`/maturita-speaking`)
+- Hero section with title "Maturita Speaking Practice"
+- Grid of 28 topic cards (from the PDF). Only "Environment" is active; the rest show "Coming Soon"
+- Clicking "Environment" opens a dedicated topic page
 
-### Current Website Patterns:
-- React components with TypeScript
-- Brand colors: Navy (#1e3a5f), Royal Blue (#2563eb), Light (#f1f5f9), Accent Orange (#f97316)
-- Fonts: Merriweather for headings, system sans-serif for body
-- Uses Lucide React icons (not Phosphor)
-- Card-based layouts with service-card styling
-- Toast notifications for feedback
+### On the Environment topic page (`/maturita-speaking/environment`)
+Three tabbed sections using the existing Accordion and Tabs components:
 
-## Implementation Steps
+1. **Learn** -- Key information broken into sub-topics using accordions:
+   - What is an ecosystem?
+   - Environmental problems in your region
+   - Global warming and the Greenhouse Effect
+   - The ozone layer
+   - Rainforests
+   - Extreme weather
+   - Chemicals at home
+   - Environmentally friendly products
+   - Personal contribution to the environment
+   - Recycling terminology
+   - Alternative energy
 
-### Step 1: Create the TenseMaster React Component
+2. **Practice Sentences** -- Sample Q&A pairs from the Bridge PDF, displayed as expandable cards where students can read a question and reveal a model answer
 
-Create a new file `src/pages/TenseMasterWrapper.tsx` that:
-- Converts the HTML/JS logic to a React component with hooks
-- Replaces Phosphor icons with Lucide React equivalents
-- Applies the English Unpacked brand styling
-- Maintains all quiz functionality (120+ questions across tense categories)
-
-### Step 2: Add Route and Navigation
-
-Update `src/App.tsx`:
-- Add import for TenseMasterWrapper
-- Add protected route `/tense-master`
-
-### Step 3: Update Exam Preparation Page
-
-Modify `src/pages/ExamPreparation.tsx`:
-- Add a new section called "Grammar Practice Activities" between the Interactive Practice section and the Call to Action
-- Include a card linking to TenseMaster with description
-- Style to match existing practice activity buttons
-
-### Step 4: Update Members Activities Page
-
-Modify `src/pages/MembersActivities.tsx`:
-- Add TenseMaster to the activities array
-- Use Clock or BookText icon to represent grammar tenses
-
-## CSS/Styling Updates
-
-### Color Mapping (TenseMaster to English Unpacked):
-
-| TenseMaster Original | English Unpacked Replacement |
-|---------------------|------------------------------|
-| fuchsia-400/600 | brand-royal |
-| slate-900 background | brand-navy |
-| purple-600 blobs | brand-royal (subtle) |
-| pink-500 blobs | brand-accent (subtle) |
-| indigo accent | brand-royal |
-| emerald | teal-600 (keep for variety) |
-
-### Component Styling:
-- Replace glassmorphism cards with `service-card` class
-- Use existing Card, Button components from shadcn/ui
-- Apply `font-merriweather` to headings
-- Use toast notifications for quiz results
-- Remove blob animations (simpler, cleaner look)
-
-## Component Structure
-
-```text
-TenseMasterWrapper.tsx
-+-- Navigation
-+-- TenseMasterHome (landing with 4 tense category cards)
-    +-- TenseCategory (Present/Past/Perfect/PastPerfect)
-        +-- TenseUnit (Simple/Continuous explanations)
-        +-- PracticeHub (quiz category selection)
-            +-- QuizView (individual quiz with questions)
-                +-- QuestionCard (multiple choice)
-                +-- ResultsSummary
-+-- Footer
-```
-
-## Quiz Data Preservation
-
-All 120+ questions will be preserved across:
-- **Present Simple**: Habits, Facts, Schedules, State Verbs (40 questions)
-- **Present Continuous**: Now, Temporary, Future Arrangements, Changes (40 questions)
-- **Past Simple**: Completed Actions, Series, Duration, Habits (40 questions)
-- **Past Continuous**: Interrupted, Parallel, Atmosphere (30 questions)
-- **Present Perfect**: Simple vs Continuous, Experience, Duration (40+ questions)
-- **Past Perfect**: Simple vs Continuous, Narrative (40+ questions)
+3. **Exam Practice** -- The official exam task format from the third PDF:
+   - The task description and prompt points
+   - The 6 images (3A-3F) displayed in a grid
+   - The follow-up questions listed for self-practice
 
 ## Technical Details
 
-### State Management:
-- useState for current view/navigation
-- useState for quiz answers and scores
-- useToast for feedback
+### New files to create
+- `src/pages/MaturitaSpeaking.tsx` -- Topic listing page with 28 topic cards
+- `src/pages/MaturitaSpeakingTopic.tsx` -- Individual topic page with Learn/Practice/Exam tabs
+- `src/data/maturitaTopics.ts` -- Data file with all 28 topic titles/descriptions and full Environment content
 
-### Key UI Components:
-- Card (shadcn) for tense category cards
-- Button (shadcn) for navigation and quiz options
-- Badge for labels
-- Progress bar for quiz progress
+### Files to modify
+- `src/App.tsx` -- Add two new public routes: `/maturita-speaking` and `/maturita-speaking/:topicId`
+- `src/pages/ExamPreparation.tsx` -- Add the new "Maturita Speaking Practice" section above the feature cards
 
-### Responsive Design:
-- Mobile-first approach
-- Grid layouts: 1 column mobile, 2 columns tablet, 4 columns desktop
-- Touch-friendly quiz buttons
+### Images
+- Copy the 6 exam practice images from the parsed Environment PDF into `src/assets/` for use on the exam practice tab
 
-## Files to Create/Modify
+### Routing
+- Both new routes are public (no `ProtectedRoute` wrapper), matching the requirement that no login is needed
 
-| File | Action |
-|------|--------|
-| `src/pages/TenseMasterWrapper.tsx` | Create (new component) |
-| `src/App.tsx` | Modify (add route) |
-| `src/pages/ExamPreparation.tsx` | Modify (add activities section) |
-| `src/pages/MembersActivities.tsx` | Modify (add TenseMaster activity) |
+### Component patterns
+- Reuses existing UI components: Card, Tabs, Accordion, Button
+- Follows the same page layout pattern as EverydayConversations (Navigation + hero + content + Footer)
+- Topic data is stored in a TypeScript data file, making it easy to add more topics later
 
-## New Exam Preparation Section Preview
-
-The new "Grammar Practice Activities" section will include:
-- Section heading: "Grammar Practice Activities"
-- Subheading: "Master English grammar with interactive exercises"
-- TenseMaster card with:
-  - Clock icon
-  - Title: "TenseMaster - Grammar Course"
-  - Description: "Master English tenses with interactive quizzes. Practice Present, Past, Present Perfect, and Past Perfect forms."
-  - Button: "Start Learning"
-
+### Content structure for Environment topic data
+```text
+Topic: Environment
+  Learn:
+    - Accordion items for each sub-topic with explanatory content
+  Practice:
+    - 15+ Q&A pairs from Bridge PDF
+  Exam:
+    - Task description
+    - 6 images in grid
+    - 13 follow-up questions
+```
