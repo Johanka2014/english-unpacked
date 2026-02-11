@@ -13,7 +13,13 @@ import { maturitaTopics, type WarmUpCategory } from "@/data/maturitaTopics";
 const warmUpQuestions: WarmUpCategory[] = [
   {
     category: "School and Education",
-    questions: ["Was it easy to choose the secondary school?"]
+    questions: [
+      "Was it easy to choose the secondary school?",
+      "What subject is most interesting to you and why?",
+      "Do you have any difficulties with any subject at school?",
+      "What was your best school memory?",
+      "How do you feel about exams?"
+    ]
   },
   {
     category: "Family and Relationships",
@@ -32,7 +38,10 @@ const warmUpQuestions: WarmUpCategory[] = [
     category: "Pets and Nature",
     questions: [
       "Do you think children should keep a pet?",
-      "What are some disadvantages of having plants at home?"
+      "What are some disadvantages of having plants at home?",
+      "Do you have a pet? What is it?",
+      "What is your favourite animal and why?",
+      "How important is nature to you?"
     ]
   },
   {
@@ -67,7 +76,8 @@ const warmUpQuestions: WarmUpCategory[] = [
       "Have you ever bought anything online?",
       "What would you do if someone stopped you in the street and asked you for money?",
       "Have you ever borrowed money from your friend?",
-      "Would you ever give money to a charity?"
+      "Would you ever give money to a charity?",
+      "What is the last thing you bought and why?"
     ]
   },
   {
@@ -86,7 +96,8 @@ const warmUpQuestions: WarmUpCategory[] = [
       "Would you like to share a flat with a friend?",
       "Do you walk at night in your town?",
       "Where can tourists stay overnight in your town?",
-      "If you could change anything about the services in your hometown, what would it be?"
+      "If you could change anything about the services in your hometown, what would it be?",
+      "Describe your dream home."
     ]
   },
   {
@@ -94,7 +105,9 @@ const warmUpQuestions: WarmUpCategory[] = [
     questions: [
       "What do you personally do to protect your health?",
       "Have you ever felt frightened before seeing a doctor/dentist?",
-      "What should people do against stress?"
+      "What should people do against stress?",
+      "How often do you exercise?",
+      "What is your idea of a healthy lifestyle?"
     ]
   },
   {
@@ -111,14 +124,20 @@ const warmUpQuestions: WarmUpCategory[] = [
     category: "Weather and Seasons",
     questions: [
       "Can you imagine living in a country where there is no snow in winter?",
-      "Why do you think so many people like talking about the weather?"
+      "Why do you think so many people like talking about the weather?",
+      "What is your favourite season and why?",
+      "How does weather affect your mood?",
+      "What weather is most common in your country?"
     ]
   },
   {
     category: "Personal Qualities",
     questions: [
       "What are your good and bad qualities?",
-      "Have you ever tried to change anything about yourself?"
+      "Have you ever tried to change anything about yourself?",
+      "What makes you happy?",
+      "What is your biggest weakness?",
+      "What are you proud of?"
     ]
   }
 ];
