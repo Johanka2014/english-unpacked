@@ -112,7 +112,7 @@ const MaturitaSpeakingTopic = () => {
               </div>
               <Accordion type="single" collapsible className="space-y-2">
                 {topic.learn?.map((item, index) => (
-                  <AccordionItem key={index} value={`learn-${index}`} className="bg-accent/30 border border-accent rounded-lg px-4">
+                  <AccordionItem key={index} value={`learn-${index}`} className={`border rounded-lg px-4 ${index % 2 !== 0 ? 'bg-accent/30 border-accent' : ''}`}>
                     <AccordionTrigger className="text-left font-semibold">
                       {item.title}
                     </AccordionTrigger>
