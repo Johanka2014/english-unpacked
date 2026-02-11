@@ -176,15 +176,15 @@ const MaturitaSpeaking = () => {
             <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="section1" className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
-                Section 1
+                Part 1
               </TabsTrigger>
               <TabsTrigger value="section2" className="flex items-center gap-2">
                 <ClipboardCheck className="w-4 h-4" />
-                Section 2
+                Part 2
               </TabsTrigger>
               <TabsTrigger value="section3" className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4" />
-                Section 3
+                Part 3
               </TabsTrigger>
             </TabsList>
 
