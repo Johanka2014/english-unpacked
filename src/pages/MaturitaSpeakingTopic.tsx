@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff, Clock } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
@@ -143,17 +143,89 @@ const MaturitaSpeakingTopic = () => {
 
             {/* Exam Practice Tab */}
             <TabsContent value="exam">
-              {topic.exam && (
-                <>
-                  <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-foreground mb-2 font-merriweather">
-                      Official Exam Practice
-                    </h2>
-                    <Card className="bg-accent/30 border-accent mb-6">
-                      <CardHeader>
-                        <CardTitle className="text-lg text-foreground">Task Instructions</CardTitle>
-                      </CardHeader>
-                      <CardContent>
+              <div className="space-y-8">
+                {/* Introduction */}
+                <Card className="border-2 border-accent">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-royal text-white font-bold text-sm shrink-0">1</span>
+                      <CardTitle className="text-xl font-merriweather">Introduction</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground italic leading-relaxed">
+                      {topic.interlocutorIntro || "The interlocutor will greet you and ask you to introduce yourself."}
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Section 1 – Warm-Up */}
+                <Card className="border-2 border-accent">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-royal text-white font-bold text-sm shrink-0">2</span>
+                      <div>
+                        <CardTitle className="text-xl font-merriweather">Section 1 – Warm-Up</CardTitle>
+                        <CardDescription className="flex items-center gap-1 mt-1">
+                          <Clock className="w-3.5 h-3.5" /> 2–5 minutes · The examiner will ask 3–5 questions
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground italic mb-6 leading-relaxed">
+                      {topic.interlocutorPart1 || "The interlocutor will ask you warm-up questions."}
+                    </p>
+                    {topic.warmUpQuestions && topic.warmUpQuestions.length > 0 && (
+                      <Accordion type="single" collapsible className="space-y-2">
+                        {topic.warmUpQuestions.map((cat, index) => (
+                          <AccordionItem key={index} value={`warmup-${index}`} className="border rounded-lg px-4">
+                            <AccordionTrigger className="text-left font-semibold">
+                              {cat.category}
+                            </AccordionTrigger>
+                            <AccordionContent>
+                              <ul className="space-y-2 pl-1">
+                                {cat.questions.map((q, qi) => (
+                                  <li key={qi} className="text-muted-foreground flex items-start gap-2">
+                                    <span className="text-brand-royal mt-0.5">•</span>
+                                    {q}
+                                  </li>
+                                ))}
+                              </ul>
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    )}
+                  </CardContent>
+                </Card>
+
+                {/* Section 2 – Placeholder */}
+                <Card className="border-2 border-dashed border-muted">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-muted text-muted-foreground font-bold text-sm shrink-0">3</span>
+                      <CardTitle className="text-xl font-merriweather text-muted-foreground">Section 2</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-center py-4">Coming soon</p>
+                  </CardContent>
+                </Card>
+
+                {/* Section 3 – Topic Presentation & Follow-Up */}
+                {topic.exam && (
+                  <Card className="border-2 border-accent">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-royal text-white font-bold text-sm shrink-0">4</span>
+                        <CardTitle className="text-xl font-merriweather">Section 3 – Topic Presentation & Follow-Up</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      {/* Task Instructions */}
+                      <div className="bg-accent/30 rounded-lg p-4 border border-accent">
+                        <h3 className="font-semibold text-foreground mb-2">Task Instructions</h3>
                         <p className="text-muted-foreground mb-4">{topic.exam.taskDescription}</p>
                         <p className="font-semibold text-foreground mb-2">The following ideas may help you:</p>
                         <ul className="list-disc pl-5 space-y-1">
@@ -161,48 +233,44 @@ const MaturitaSpeakingTopic = () => {
                             <li key={i} className="text-muted-foreground">{point}</li>
                           ))}
                         </ul>
-                      </CardContent>
-                    </Card>
-                  </div>
+                      </div>
 
-                  {/* Image Grid */}
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                    {topic.exam.images.map((img) => (
-                      <Card key={img.label} className="overflow-hidden">
-                        <CardContent className="p-0">
-                          <img
-                            src={img.src}
-                            alt={img.description}
-                            className="w-full h-48 object-cover"
-                            loading="lazy"
-                          />
-                          <div className="p-3">
-                            <p className="font-semibold text-foreground">{img.label}</p>
-                            <p className="text-sm text-muted-foreground">{img.description}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-
-                  {/* Follow-up Questions */}
-                  <Card className="service-card">
-                    <CardHeader>
-                      <CardTitle className="text-lg">Follow-up Questions</CardTitle>
-                      <CardDescription>
-                        The examiner may ask you these questions after your presentation. Practise answering them aloud.
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <ol className="list-decimal pl-5 space-y-2">
-                        {topic.exam.followUpQuestions.map((q, i) => (
-                          <li key={i} className="text-foreground">{q}</li>
+                      {/* Image Grid */}
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {topic.exam.images.map((img) => (
+                          <Card key={img.label} className="overflow-hidden">
+                            <CardContent className="p-0">
+                              <img
+                                src={img.src}
+                                alt={img.description}
+                                className="w-full h-48 object-cover"
+                                loading="lazy"
+                              />
+                              <div className="p-3">
+                                <p className="font-semibold text-foreground">{img.label}</p>
+                                <p className="text-sm text-muted-foreground">{img.description}</p>
+                              </div>
+                            </CardContent>
+                          </Card>
                         ))}
-                      </ol>
+                      </div>
+
+                      {/* Follow-up Questions */}
+                      <div>
+                        <h3 className="font-semibold text-foreground mb-2">Follow-up Questions</h3>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          The examiner may ask you these questions after your presentation. Practise answering them aloud.
+                        </p>
+                        <ol className="list-decimal pl-5 space-y-2">
+                          {topic.exam.followUpQuestions.map((q, i) => (
+                            <li key={i} className="text-foreground">{q}</li>
+                          ))}
+                        </ol>
+                      </div>
                     </CardContent>
                   </Card>
-                </>
-              )}
+                )}
+              </div>
             </TabsContent>
           </Tabs>
         </div>
