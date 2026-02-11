@@ -11,11 +11,11 @@ import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics } from "@/data/maturitaTopics";
 
-const PracticeCard = ({ question, answer }: { question: string; answer: string }) => {
+const PracticeCard = ({ question, answer, index }: { question: string; answer: string; index: number }) => {
   const [revealed, setRevealed] = useState(false);
 
   return (
-    <Card className="service-card">
+    <Card className={`service-card ${index % 2 !== 0 ? 'bg-accent/30 border-accent border' : ''}`}>
       <CardHeader className="pb-3">
         <CardTitle className="text-base font-semibold text-foreground">{question}</CardTitle>
       </CardHeader>
@@ -134,11 +134,11 @@ const MaturitaSpeakingTopic = () => {
                   Read each question, think of your own answer, then reveal the model answer to compare.
                 </p>
               </div>
-              <div className="space-y-4">
-                {topic.practice?.map((qa, index) => (
-                  <PracticeCard key={index} question={qa.question} answer={qa.answer} />
-                ))}
-              </div>
+               <div className="space-y-4">
+                 {topic.practice?.map((qa, index) => (
+                   <PracticeCard key={index} question={qa.question} answer={qa.answer} index={index} />
+                 ))}
+               </div>
             </TabsContent>
 
             {/* Exam Practice Tab */}
