@@ -6,6 +6,7 @@ import { BookOpen, CheckCircle, ExternalLink, Timer, Target, Clock } from "lucid
 import { Link } from "react-router-dom";
 import examPrepTextbooks from "@/assets/textbooks.png";
 import onlineExamPractice from "@/assets/online-exam-practice.jpg";
+import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
 import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
 
@@ -184,17 +185,18 @@ const ExamPreparation = () => {
           </div>
 
           {/* Maturita Speaking Practice */}
-          <div className="max-w-4xl mx-auto mt-16 mb-16">
-            <Card className="service-card p-8 text-center">
-              <div className="w-14 h-14 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpen className="w-7 h-7 text-brand-royal" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3 font-merriweather">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mt-16 mb-16">
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
                 Maturita Speaking Practice
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Preparing for the maturita speaking exam? Explore all 28 topics with structured learning materials, 
                 sample questions and answers, and official exam practice tasks.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Each topic includes vocabulary, model answers, and realistic exam simulations to help you feel 
+                confident and prepared on exam day.
               </p>
               <Button
                 size="lg"
@@ -202,10 +204,23 @@ const ExamPreparation = () => {
                 asChild
               >
                 <Link to="/maturita-speaking">
+                  <BookOpen className="w-5 h-5 mr-2" />
                   Explore Maturita Topics
                 </Link>
               </Button>
-            </Card>
+            </div>
+
+            <div>
+              <Card className="service-card overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={maturitaExamHall} 
+                    alt="Students sitting in examination hall doing their exams"
+                    className="w-full h-auto object-cover"
+                  />
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           {/* Feature Cards */}
