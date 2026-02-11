@@ -1,74 +1,63 @@
 
-# Maturita Speaking Practice -- Environment Topic
+# Restructure Exam Practice Tab into 4 Sections with Empty Section 2
 
 ## Overview
-Add a new "Maturita Speaking Practice" section to the Exam Preparation page, positioned above the three horizontal feature cards. This section links to a new dedicated page (`/maturita-speaking`) that is publicly accessible (no login required). The page will list all 28 maturita topics as clickable cards, with the Environment topic fully built out as a working example. Other topics will show as "coming soon."
+Update the "Exam Practice" tab in `MaturitaSpeakingTopic.tsx` to organize content into 4 distinct sections instead of 3. This mirrors the official maturita exam structure:
+1. **Introduction** - Static opening script from interlocutor
+2. **Section 1** - Warm-up questions organized by topic category
+3. **Section 2** - Empty placeholder (to be built later)
+4. **Section 3** - Topic presentation (images + task) and follow-up questions combined
 
-## What the user will see
+## Changes Required
 
-### On the Exam Preparation page
-- A new section titled "Maturita Speaking Practice" between the Interactive Online Practice content and the three feature cards
-- Brief description and a button linking to the new Maturita Speaking page
+### Data Structure (`src/data/maturitaTopics.ts`)
+Add new optional fields to `MaturitaTopic` interface:
+- `interlocutorIntro: string` - The greeting script ("Hello. Sit down, please...")
+- `interlocutorPart1: string` - The warm-up introduction script
+- `warmUpQuestions: { category: string; questions: string[] }[]` - Array of question categories with grouped questions
 
-### On the Maturita Speaking page (`/maturita-speaking`)
-- Hero section with title "Maturita Speaking Practice"
-- Grid of 28 topic cards (from the PDF). Only "Environment" is active; the rest show "Coming Soon"
-- Clicking "Environment" opens a dedicated topic page
+Add these fields to the Environment topic data with:
+- All 50 warm-up questions organized into 12 categories (Family/Relationships, Technology, Travel/Transport, Daily Life, Health, etc.)
 
-### On the Environment topic page (`/maturita-speaking/environment`)
-Three tabbed sections using the existing Accordion and Tabs components:
+### UI Layout (`src/pages/MaturitaSpeakingTopic.tsx`)
+Replace the current single exam practice content with a 4-step structure displayed as numbered cards/sections within the tab:
 
-1. **Learn** -- Key information broken into sub-topics using accordions:
-   - What is an ecosystem?
-   - Environmental problems in your region
-   - Global warming and the Greenhouse Effect
-   - The ozone layer
-   - Rainforests
-   - Extreme weather
-   - Chemicals at home
-   - Environmentally friendly products
-   - Personal contribution to the environment
-   - Recycling terminology
-   - Alternative energy
+**Structure:**
+- Card 1: "Introduction" - Shows `interlocutorIntro` text in a read-only card
+- Card 2: "Section 1 – Warm-Up" - Shows `interlocutorPart1` script + accordion of warm-up question categories
+- Card 3: "Section 2" - Empty placeholder with message "Coming soon"
+- Card 4: "Section 3 – Topic Presentation & Follow-Up" - Combines current task description + image grid + follow-up questions
 
-2. **Practice Sentences** -- Sample Q&A pairs from the Bridge PDF, displayed as expandable cards where students can read a question and reveal a model answer
+**Visual approach:**
+- Each section appears as a numbered card (1/2/3/4) with clear visual separation
+- Accordions within Section 1 to collapse/expand question categories
+- Section 2 shows a simple placeholder message
+- Section 3 displays images and follow-up questions (current content)
 
-3. **Exam Practice** -- The official exam task format from the third PDF:
-   - The task description and prompt points
-   - The 6 images (3A-3F) displayed in a grid
-   - The follow-up questions listed for self-practice
+### Rendering Logic
+- All 4 cards render within the single "Exam Practice" tab
+- No routing changes needed - stays on same page
+- Use Accordion component for Section 1 question grouping
+- Use Card component for section wrappers
+- Follow existing styling patterns from Learn and Practice tabs
 
-## Technical Details
+## Technical Implementation Order
+1. Update `MaturitaTopic` interface to include new fields
+2. Add data for Environment topic (interlocutor scripts + 50 warm-up questions in 12 categories)
+3. Create new UI components/layout for 4-section structure in exam tab
+4. Ensure responsive design works on mobile (grid layout may need adjustment)
 
-### New files to create
-- `src/pages/MaturitaSpeaking.tsx` -- Topic listing page with 28 topic cards
-- `src/pages/MaturitaSpeakingTopic.tsx` -- Individual topic page with Learn/Practice/Exam tabs
-- `src/data/maturitaTopics.ts` -- Data file with all 28 topic titles/descriptions and full Environment content
-
-### Files to modify
-- `src/App.tsx` -- Add two new public routes: `/maturita-speaking` and `/maturita-speaking/:topicId`
-- `src/pages/ExamPreparation.tsx` -- Add the new "Maturita Speaking Practice" section above the feature cards
-
-### Images
-- Copy the 6 exam practice images from the parsed Environment PDF into `src/assets/` for use on the exam practice tab
-
-### Routing
-- Both new routes are public (no `ProtectedRoute` wrapper), matching the requirement that no login is needed
-
-### Component patterns
-- Reuses existing UI components: Card, Tabs, Accordion, Button
-- Follows the same page layout pattern as EverydayConversations (Navigation + hero + content + Footer)
-- Topic data is stored in a TypeScript data file, making it easy to add more topics later
-
-### Content structure for Environment topic data
-```text
-Topic: Environment
-  Learn:
-    - Accordion items for each sub-topic with explanatory content
-  Practice:
-    - 15+ Q&A pairs from Bridge PDF
-  Exam:
-    - Task description
-    - 6 images in grid
-    - 13 follow-up questions
-```
+## Content Organization for Warm-Up Questions
+The 50+ questions will be grouped into these categories:
+- School and Education
+- Family and Relationships
+- Pets and Nature
+- Technology and Internet
+- Travel and Transport
+- Shopping and Money
+- Daily Life and Leisure
+- Home and Housing
+- Health and Wellbeing
+- Culture and Media
+- Weather and Seasons
+- Personal Qualities
