@@ -211,7 +211,7 @@ const MaturitaSpeaking = () => {
             <TabsContent value="section1">
               <div className="space-y-8">
                 {/* Introduction */}
-                <Card className="border-2 border-accent">
+                <Card className="border-2 border-accent bg-accent/30">
                   <CardHeader className="pb-3">
                     <div className="flex items-center gap-3">
                       <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand-royal text-white font-bold text-sm shrink-0">1</span>
