@@ -54,6 +54,26 @@ export const maturitaTopics: MaturitaTopic[] = [
     available: true,
     learn: [
       {
+        title: "Water Pollution",
+        content: "Water pollution happens when harmful substances like chemicals, waste, and plastics enter rivers, lakes, and oceans. Factories often release toxic waste into waterways. Farms use pesticides and fertilisers that wash into streams when it rains. Plastic waste is a huge problem – millions of tonnes end up in the ocean every year, harming marine life. Oil spills from ships and drilling platforms cause massive environmental damage. Even household products like detergents can pollute water. Clean water is essential for all life, so protecting our water sources is critical."
+      },
+      {
+        title: "Nuclear Power",
+        content: "Nuclear power is a controversial source of energy. On one hand, it produces large amounts of electricity without directly releasing carbon dioxide into the atmosphere, which helps fight climate change. On the other hand, it creates radioactive waste that remains dangerous for thousands of years and must be stored very carefully. Nuclear accidents, like Chernobyl (1986) and Fukushima (2011), showed how devastating failures can be. Many people debate whether nuclear energy is worth the risks, or whether we should focus entirely on renewable sources like solar and wind power."
+      },
+      {
+        title: "Air Pollution and Heavy Traffic",
+        content: "Air pollution is one of the most serious environmental problems, especially in big cities. Heavy traffic is a major cause – cars, buses, and lorries release exhaust fumes containing carbon monoxide, nitrogen oxides, and fine particles. These pollutants can cause respiratory diseases like asthma and bronchitis. Smog, a thick layer of polluted air, is common in cities with heavy traffic. Solutions include using public transport, cycling, driving electric cars, and creating low-emission zones in city centres. Many cities are now investing in better public transport to reduce the number of cars on the road."
+      },
+      {
+        title: "Bio Farms and Bio Products",
+        content: "Bio (organic) farming is a method of agriculture that avoids using synthetic chemicals like pesticides and artificial fertilisers. Instead, bio farmers use natural methods to keep soil healthy and control pests – for example, crop rotation, composting, and encouraging natural predators. Bio products are considered healthier because they contain fewer chemical residues. They are also better for the environment because organic farming protects soil quality, biodiversity, and water sources. However, bio products are usually more expensive and organic farms often produce less food per hectare than conventional farms."
+      },
+      {
+        title: "Climate Change",
+        content: "Climate change refers to long-term shifts in global temperatures and weather patterns. While some changes are natural, human activities – especially burning fossil fuels like coal, oil, and gas – have been the main driver since the 1800s. The effects include rising sea levels, more frequent extreme weather events (hurricanes, droughts, heatwaves), melting glaciers, and loss of biodiversity. The Paris Agreement (2015) aims to limit global warming to 1.5°C above pre-industrial levels. Individuals can help by reducing energy use, eating less meat, using public transport, and supporting renewable energy."
+      },
+      {
         title: "What is an ecosystem?",
         content: "An ecosystem is a group of living things and the whole place where they live. They all live together and need each other. For example, one kind of ecosystem is a desert. It has special plants that can live only there, lizards, snakes, vultures, and special insects."
       },
