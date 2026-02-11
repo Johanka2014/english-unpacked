@@ -25,6 +25,8 @@ import StudentLessons from "./pages/StudentLessons";
 import EmailManagement from "./pages/EmailManagement";
 import MembersActivities from "./pages/MembersActivities";
 import InsuranceVocabulary from "./pages/InsuranceVocabulary";
+import MaturitaSpeaking from "./pages/MaturitaSpeaking";
+import MaturitaSpeakingTopic from "./pages/MaturitaSpeakingTopic";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +47,8 @@ const App = () => (
             <Route path="/exam-preparation" element={<ExamPreparation />} />
             <Route path="/booking" element={<BookingWrapper />} />
             <Route path="/everyday-conversations" element={<EverydayConversations />} />
+            <Route path="/maturita-speaking" element={<MaturitaSpeaking />} />
+            <Route path="/maturita-speaking/:topicId" element={<MaturitaSpeakingTopic />} />
             
             {/* Protected Routes */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
