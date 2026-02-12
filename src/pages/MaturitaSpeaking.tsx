@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
-import { BookOpen, Lock, Clock, MessageSquare, ClipboardCheck } from "lucide-react";
+import { BookOpen, Lock, Clock, MessageSquare, ClipboardCheck, Image } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics, type WarmUpCategory } from "@/data/maturitaTopics";
@@ -266,16 +266,139 @@ const MaturitaSpeaking = () => {
               </div>
             </TabsContent>
 
-            {/* Section 2 – Placeholder */}
+            {/* Section 2 – Describing & Comparing Images */}
             <TabsContent value="section2">
-              <Card className="border-2 border-dashed border-muted">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-xl font-merriweather text-muted-foreground">Section 2</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center py-8">Coming soon</p>
-                </CardContent>
-              </Card>
+              <div className="space-y-8">
+                {/* Useful Phrases */}
+                <div>
+                  <h2 className="text-3xl font-bold text-foreground mb-2 font-merriweather text-center">
+                    Describing & Comparing Images
+                  </h2>
+                  <p className="text-muted-foreground text-center mb-6">
+                    Learn useful phrases before practising with your topic.
+                  </p>
+                  <Accordion type="multiple" className="space-y-2 mb-10">
+                    <AccordionItem value="describing" className="border rounded-lg px-4 bg-accent/30 border-accent">
+                      <AccordionTrigger className="text-left font-semibold">
+                        📸 Useful Phrases for Describing Images
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">Location</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "In the background..."</li>
+                              <li>• "In the foreground..."</li>
+                              <li>• "On the left / On the right..."</li>
+                              <li>• "In the corner..."</li>
+                              <li>• "In the centre..."</li>
+                              <li>• "At the top / At the bottom..."</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">People</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "There is / There are..."</li>
+                              <li>• "I can see..."</li>
+                              <li>• "The person is wearing..."</li>
+                              <li>• "They seem to be..."</li>
+                              <li>• "He/She looks about ... years old"</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">Actions</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "He/She is doing..."</li>
+                              <li>• "It looks like they are..."</li>
+                              <li>• "They appear to be..."</li>
+                              <li>• "The person seems to be..."</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">Atmosphere</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "It looks..."</li>
+                              <li>• "The atmosphere seems..."</li>
+                              <li>• "It gives the impression of..."</li>
+                              <li>• "The mood of the picture is..."</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="comparing" className="border rounded-lg px-4">
+                      <AccordionTrigger className="text-left font-semibold">
+                        🔄 Useful Phrases for Comparing Images
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">Similarities</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "Both pictures show..."</li>
+                              <li>• "In both pictures, we can see..."</li>
+                              <li>• "The main similarity is..."</li>
+                              <li>• "They both have in common..."</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-2">Differences</h4>
+                            <ul className="space-y-1 text-muted-foreground text-sm">
+                              <li>• "In picture 1... whereas in picture 2..."</li>
+                              <li>• "Unlike picture 1, picture 2..."</li>
+                              <li>• "The main difference is..."</li>
+                              <li>• "Compared to picture 1, picture 2..."</li>
+                              <li>• "While the first picture shows..., the second one..."</li>
+                              <li>• "On the other hand..."</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                {/* Topic Grid – same style as Part 3 */}
+                <h2 className="text-3xl font-bold text-foreground mb-8 font-merriweather text-center">
+                  Choose a Topic
+                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                  {maturitaTopics.map((topic) =>
+                    topic.available ? (
+                      <Link key={topic.id} to={`/maturita-speaking/${topic.id}?tab=part2`}>
+                        <Card className="service-card h-full cursor-pointer group">
+                          <CardHeader className="pb-2">
+                            <div className="flex items-center gap-2 mb-1">
+                              <Image className="w-5 h-5 text-brand-royal" />
+                              <Badge className="bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                            </div>
+                            <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
+                              {topic.title}
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <CardDescription>{topic.description}</CardDescription>
+                          </CardContent>
+                        </Card>
+                      </Link>
+                    ) : (
+                      <Card key={topic.id} className="h-full opacity-60 cursor-default">
+                        <CardHeader className="pb-2">
+                          <div className="flex items-center gap-2 mb-1">
+                            <Lock className="w-4 h-4 text-muted-foreground" />
+                            <Badge variant="secondary">Coming Soon</Badge>
+                          </div>
+                          <CardTitle className="text-lg">{topic.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription>{topic.description}</CardDescription>
+                        </CardContent>
+                      </Card>
+                    )
+                  )}
+                </div>
+              </div>
             </TabsContent>
 
             {/* Section 3 – Choose a Topic */}

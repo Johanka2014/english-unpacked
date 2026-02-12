@@ -1,44 +1,22 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate, Link, useSearchParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff, Image, Clock } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics } from "@/data/maturitaTopics";
-
-const PracticeCard = ({ question, answer, index }: { question: string; answer: string; index: number }) => {
-  const [revealed, setRevealed] = useState(false);
-
-  return (
-    <Card className={`service-card ${index % 2 !== 0 ? 'bg-accent/30 border-accent border' : ''}`}>
-      <CardHeader className="pb-3">
-        <CardTitle className="text-base font-semibold text-foreground">{question}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setRevealed(!revealed)}
-          className="mb-3"
-        >
-          {revealed ? <EyeOff className="w-4 h-4 mr-2" /> : <Eye className="w-4 h-4 mr-2" />}
-          {revealed ? "Hide Answer" : "Show Answer"}
-        </Button>
-        {revealed && (
-          <p className="text-muted-foreground leading-relaxed animate-fade-in">{answer}</p>
-        )}
-      </CardContent>
-    </Card>
-  );
-};
+import Part2Tab from "@/components/maturita/Part2Tab";
+import PracticeCard from "@/components/maturita/PracticeCard";
 
 const MaturitaSpeakingTopic = () => {
   const { topicId } = useParams<{ topicId: string }>();
+  const [searchParams] = useSearchParams();
+  const defaultTab = searchParams.get("tab") === "part2" ? "part2" : "learn";
   const topic = maturitaTopics.find((t) => t.id === topicId);
 
   if (!topic || !topic.available) {
@@ -84,19 +62,23 @@ const MaturitaSpeakingTopic = () => {
             Back to All Topics
           </Link>
 
-          <Tabs defaultValue="learn" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+          <Tabs defaultValue={defaultTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="learn" className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4" />
-                Learn
+                <span className="hidden sm:inline">Learn</span>
               </TabsTrigger>
               <TabsTrigger value="practice" className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
-                Practice
+                <span className="hidden sm:inline">Practice</span>
+              </TabsTrigger>
+              <TabsTrigger value="part2" className="flex items-center gap-2">
+                <Image className="w-4 h-4" />
+                <span className="hidden sm:inline">Part 2</span>
               </TabsTrigger>
               <TabsTrigger value="exam" className="flex items-center gap-2">
                 <ClipboardCheck className="w-4 h-4" />
-                Exam Practice
+                <span className="hidden sm:inline">Part 3</span>
               </TabsTrigger>
             </TabsList>
 
@@ -141,7 +123,12 @@ const MaturitaSpeakingTopic = () => {
                </div>
             </TabsContent>
 
-            {/* Exam Practice Tab */}
+            {/* Part 2 Tab */}
+            <TabsContent value="part2">
+              <Part2Tab topic={topic} />
+            </TabsContent>
+
+            {/* Exam Practice (Part 3) Tab */}
             <TabsContent value="exam">
               {topic.exam ? (
                 <Card className="border-2 border-accent">
