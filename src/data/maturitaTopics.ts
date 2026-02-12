@@ -1,4 +1,6 @@
 import env3a from "@/assets/maturita-env-3a.jpg";
+import topicEnvironment from "@/assets/topic-environment.jpg";
+import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
 import env3b from "@/assets/maturita-env-3b.jpg";
 import env3c from "@/assets/maturita-env-3c.jpg";
 import env3d from "@/assets/maturita-env-3d.jpg";
@@ -61,6 +63,7 @@ export interface MaturitaTopic {
   title: string;
   description: string;
   available: boolean;
+  thumbnail?: string;
   interlocutorIntro?: string;
   interlocutorPart1?: string;
   warmUpQuestions?: WarmUpCategory[];
@@ -76,6 +79,7 @@ export const maturitaTopics: MaturitaTopic[] = [
     title: "Environment",
     description: "Nature, weather, seasons, environmental protection, pollution, and your personal contribution",
     available: true,
+    thumbnail: topicEnvironment,
     learn: [
       {
         title: "Water Pollution",

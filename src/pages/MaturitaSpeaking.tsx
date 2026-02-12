@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { BookOpen, Lock, Clock, MessageSquare, ClipboardCheck, Image } from "lucide-react";
 import { useEffect } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
+import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics, type WarmUpCategory } from "@/data/maturitaTopics";
 
@@ -375,16 +376,25 @@ const MaturitaSpeaking = () => {
                 <h2 className="text-3xl font-bold text-foreground mb-8 font-merriweather text-center">
                   Choose a Topic
                 </h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {maturitaTopics.map((topic) =>
                     topic.available ? (
                       <Link key={topic.id} to={`/maturita-speaking/${topic.id}?tab=part2`}>
-                        <Card className="service-card h-full cursor-pointer group">
-                          <CardHeader className="pb-2">
-                            <div className="flex items-center gap-2 mb-1">
-                              <Image className="w-5 h-5 text-brand-royal" />
-                              <Badge className="bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                        <Card className="service-card h-full cursor-pointer group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                          <div className="relative h-48 overflow-hidden">
+                            <img
+                              src={topic.thumbnail || maturitaExamHall}
+                              alt={topic.title}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                            <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
+                              <Image className="w-5 h-5 text-white" />
                             </div>
+                            <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                          </div>
+                          <CardHeader className="pb-2">
                             <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
                               {topic.title}
                             </CardTitle>
@@ -395,12 +405,21 @@ const MaturitaSpeaking = () => {
                         </Card>
                       </Link>
                     ) : (
-                      <Card key={topic.id} className="h-full opacity-60 cursor-default">
-                        <CardHeader className="pb-2">
-                          <div className="flex items-center gap-2 mb-1">
-                            <Lock className="w-4 h-4 text-muted-foreground" />
-                            <Badge variant="secondary">Coming Soon</Badge>
+                      <Card key={topic.id} className="h-full opacity-60 cursor-default overflow-hidden">
+                        <div className="relative h-48 overflow-hidden bg-muted">
+                          <img
+                            src={topic.thumbnail || maturitaExamHall}
+                            alt={topic.title}
+                            className="w-full h-full object-cover opacity-50"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                          <div className="absolute top-4 left-4 bg-muted-foreground/50 p-3 rounded-full">
+                            <Lock className="w-5 h-5 text-white" />
                           </div>
+                          <Badge variant="secondary" className="absolute top-4 right-4">Coming Soon</Badge>
+                        </div>
+                        <CardHeader className="pb-2">
                           <CardTitle className="text-lg">{topic.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
@@ -418,16 +437,25 @@ const MaturitaSpeaking = () => {
               <h2 className="text-3xl font-bold text-foreground mb-8 font-merriweather text-center">
                 Choose a Topic
               </h2>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {maturitaTopics.map((topic) =>
                   topic.available ? (
                     <Link key={topic.id} to={`/maturita-speaking/${topic.id}`}>
-                      <Card className="service-card h-full cursor-pointer group">
-                        <CardHeader className="pb-2">
-                          <div className="flex items-center gap-2 mb-1">
-                            <BookOpen className="w-5 h-5 text-brand-royal" />
-                            <Badge className="bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                      <Card className="service-card h-full cursor-pointer group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                        <div className="relative h-48 overflow-hidden">
+                          <img
+                            src={topic.thumbnail || maturitaExamHall}
+                            alt={topic.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                          <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
+                            <BookOpen className="w-5 h-5 text-white" />
                           </div>
+                          <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                        </div>
+                        <CardHeader className="pb-2">
                           <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
                             {topic.title}
                           </CardTitle>
@@ -438,12 +466,21 @@ const MaturitaSpeaking = () => {
                       </Card>
                     </Link>
                   ) : (
-                    <Card key={topic.id} className="h-full opacity-60 cursor-default">
-                      <CardHeader className="pb-2">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Lock className="w-4 h-4 text-muted-foreground" />
-                          <Badge variant="secondary">Coming Soon</Badge>
+                    <Card key={topic.id} className="h-full opacity-60 cursor-default overflow-hidden">
+                      <div className="relative h-48 overflow-hidden bg-muted">
+                        <img
+                          src={topic.thumbnail || maturitaExamHall}
+                          alt={topic.title}
+                          className="w-full h-full object-cover opacity-50"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute top-4 left-4 bg-muted-foreground/50 p-3 rounded-full">
+                          <Lock className="w-5 h-5 text-white" />
                         </div>
+                        <Badge variant="secondary" className="absolute top-4 right-4">Coming Soon</Badge>
+                      </div>
+                      <CardHeader className="pb-2">
                         <CardTitle className="text-lg">{topic.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
