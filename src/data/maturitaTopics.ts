@@ -33,6 +33,25 @@ export interface WarmUpCategory {
   questions: string[];
 }
 
+export interface Part2Task1 {
+  followUpQuestions: string[];
+  images?: { label: string; src: string; description: string }[];
+}
+
+export interface Part2Task2 {
+  comparisonQuestions: string[];
+}
+
+export interface Part2Task3 {
+  question: string;
+}
+
+export interface Part2Data {
+  task1: Part2Task1;
+  task2: Part2Task2;
+  task3: Part2Task3;
+}
+
 export interface MaturitaTopic {
   id: string;
   title: string;
@@ -44,6 +63,7 @@ export interface MaturitaTopic {
   learn?: LearnItem[];
   practice?: PracticeQA[];
   exam?: ExamPractice;
+  part2?: Part2Data;
 }
 
 export const maturitaTopics: MaturitaTopic[] = [
@@ -213,34 +233,54 @@ export const maturitaTopics: MaturitaTopic[] = [
         "Can you think of any environmental problems in the place you live / your neighbourhood?",
         "Do you think some things should be banned to help the environment? Which ones?"
       ]
+    },
+    part2: {
+      task1: {
+        followUpQuestions: [
+          "What's the season or weather like in this picture?",
+          "What environmental problem can you see?",
+          "How does this scene make you feel?",
+          "Would you like to live in a place like this? Why or why not?"
+        ]
+      },
+      task2: {
+        comparisonQuestions: [
+          "Which picture shows a bigger environmental problem?",
+          "How are the two places different in terms of nature?",
+          "Which place would you prefer to visit and why?"
+        ]
+      },
+      task3: {
+        question: "What can individuals do to help protect the environment?"
+      }
     }
   },
-  { id: "course-of-life", title: "Course of Life", description: "Key points in human lives, legal age, generation gap", available: false },
-  { id: "social-issues", title: "Social Issues", description: "Drug abuse, terrorism, crime, bullying, homelessness", available: false },
-  { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false },
-  { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false },
-  { id: "medical-care", title: "Medical Care, Health and Diseases", description: "Healthcare, illnesses, vaccination, first aid", available: false },
-  { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false },
-  { id: "shopping-services", title: "Shopping and Services", description: "Shopping centres, banking, financial terms", available: false },
-  { id: "food-meals", title: "Food, Meals, Restaurants", description: "Typical meals, table manners, eating disorders", available: false },
-  { id: "nature-weather", title: "Nature, Weather, Environmental Protection", description: "Climate, natural beauties, pollution, personal contribution", available: false },
-  { id: "arts", title: "Arts: Fine Arts, Music, Theatre, Cinema", description: "Cultural life, fine arts, Oscar awards, theatre", available: false },
-  { id: "education", title: "Education", description: "Education systems, home schooling, tuition fees", available: false },
-  { id: "ostrava", title: "Ostrava, Town and Region", description: "Geography, history, transport, culture of Ostrava", available: false },
-  { id: "czech-republic", title: "The Czech Republic", description: "Geography, political system, cities, natural beauties", available: false },
-  { id: "prague", title: "Prague, Czech History", description: "Capital city, sights, key historical events", available: false },
-  { id: "mass-media", title: "Mass Media", description: "Press, TV, advertising, power of mass media", available: false },
-  { id: "home-housing", title: "Home and Housing", description: "Types of houses, mortgages, architecture", available: false },
-  { id: "united-kingdom", title: "The United Kingdom", description: "Geography, political system, places of interest", available: false },
-  { id: "london-washington", title: "London, Washington D.C.", description: "Historical sights, culture, entertainment", available: false },
-  { id: "english-speaking-countries", title: "English-Speaking Countries", description: "Commonwealth, Canada, Australia, New Zealand, Ireland", available: false },
-  { id: "english-lit-early", title: "English Literature – up to 1800", description: "Shakespeare, Chaucer, Defoe, Swift, Austen", available: false },
-  { id: "english-lit-modern", title: "English Literature – 19th & 20th Century", description: "Dickens, Wilde, Orwell, Tolkien, Rowling", available: false },
-  { id: "american-lit-early", title: "American Literature – up to 1900", description: "Poe, Twain, Whitman, London", available: false },
-  { id: "american-lit-modern", title: "American Literature – 20th Century", description: "Hemingway, Fitzgerald, Steinbeck, Kerouac", available: false },
-  { id: "usa-geography", title: "The USA, Geography, Political System", description: "Geography, cities, national parks, presidential system", available: false },
-  { id: "british-history-early", title: "History of Great Britain – up to 1800", description: "Celts, Romans, Magna Charta, Shakespeare era", available: false },
-  { id: "british-history-modern", title: "History of Great Britain – 19th & 20th Century", description: "Industrial Revolution, Victorian era, World Wars", available: false },
-  { id: "us-history-early", title: "History of the USA – up to 1900", description: "Columbus, Pilgrim Fathers, Independence, Civil War", available: false },
-  { id: "us-history-modern", title: "History of the USA – 20th Century", description: "World Wars, Cold War, Civil Rights, modern presidents", available: false }
+  { id: "course-of-life", title: "Course of Life", description: "Key points in human lives, legal age, generation gap", available: false, part2: { task1: { followUpQuestions: ["What stage of life does this picture show?", "How old do you think the people are?"] }, task2: { comparisonQuestions: ["How are the stages of life different in these pictures?"] }, task3: { question: "What do you think is the most important stage of life?" } } },
+  { id: "social-issues", title: "Social Issues", description: "Drug abuse, terrorism, crime, bullying, homelessness", available: false, part2: { task1: { followUpQuestions: ["What social issue can you see?", "How does this affect people?"] }, task2: { comparisonQuestions: ["Which picture shows a more serious problem?"] }, task3: { question: "What social problem concerns you the most?" } } },
+  { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false, part2: { task1: { followUpQuestions: ["What holiday or tradition is shown?", "What are the people celebrating?"] }, task2: { comparisonQuestions: ["How are the celebrations different?"] }, task3: { question: "Which holiday is most important to you and why?" } } },
+  { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false, part2: { task1: { followUpQuestions: ["What type of transport can you see?", "Where might these people be travelling?"] }, task2: { comparisonQuestions: ["Which means of transport is more practical?"] }, task3: { question: "What will transport look like in the future?" } } },
+  { id: "medical-care", title: "Medical Care, Health and Diseases", description: "Healthcare, illnesses, vaccination, first aid", available: false, part2: { task1: { followUpQuestions: ["What medical situation is shown?", "How are the people feeling?"] }, task2: { comparisonQuestions: ["How are the healthcare situations different?"] }, task3: { question: "How important is a healthy lifestyle to you?" } } },
+  { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false, part2: { task1: { followUpQuestions: ["What sport is being played?", "Where is the event taking place?"] }, task2: { comparisonQuestions: ["Which sport requires more physical effort?"] }, task3: { question: "Should sport be compulsory at school?" } } },
+  { id: "shopping-services", title: "Shopping and Services", description: "Shopping centres, banking, financial terms", available: false, part2: { task1: { followUpQuestions: ["What kind of shop or service can you see?", "What are the people buying?"] }, task2: { comparisonQuestions: ["Which shopping experience looks more enjoyable?"] }, task3: { question: "Do you prefer shopping online or in shops?" } } },
+  { id: "food-meals", title: "Food, Meals, Restaurants", description: "Typical meals, table manners, eating disorders", available: false, part2: { task1: { followUpQuestions: ["What kind of food can you see?", "Is this a healthy meal?"] }, task2: { comparisonQuestions: ["Which meal is healthier?"] }, task3: { question: "What does a healthy diet mean to you?" } } },
+  { id: "nature-weather", title: "Nature, Weather, Environmental Protection", description: "Climate, natural beauties, pollution, personal contribution", available: false, part2: { task1: { followUpQuestions: ["What's the weather like?", "What season is it?"] }, task2: { comparisonQuestions: ["How is the weather different in these pictures?"] }, task3: { question: "How does weather affect your daily life?" } } },
+  { id: "arts", title: "Arts: Fine Arts, Music, Theatre, Cinema", description: "Cultural life, fine arts, Oscar awards, theatre", available: false, part2: { task1: { followUpQuestions: ["What form of art is shown?", "What is the atmosphere like?"] }, task2: { comparisonQuestions: ["Which artistic event looks more interesting?"] }, task3: { question: "How important is art in everyday life?" } } },
+  { id: "education", title: "Education", description: "Education systems, home schooling, tuition fees", available: false, part2: { task1: { followUpQuestions: ["What type of school or classroom is this?", "What are the students doing?"] }, task2: { comparisonQuestions: ["How are the learning environments different?"] }, task3: { question: "What would you change about the education system?" } } },
+  { id: "ostrava", title: "Ostrava, Town and Region", description: "Geography, history, transport, culture of Ostrava", available: false, part2: { task1: { followUpQuestions: ["What part of the city can you see?", "What is happening in this place?"] }, task2: { comparisonQuestions: ["How are these two places in the region different?"] }, task3: { question: "What do you like most about living in your region?" } } },
+  { id: "czech-republic", title: "The Czech Republic", description: "Geography, political system, cities, natural beauties", available: false, part2: { task1: { followUpQuestions: ["What place in the Czech Republic is this?", "What makes it special?"] }, task2: { comparisonQuestions: ["How are these two Czech locations different?"] }, task3: { question: "What makes the Czech Republic unique?" } } },
+  { id: "prague", title: "Prague, Czech History", description: "Capital city, sights, key historical events", available: false, part2: { task1: { followUpQuestions: ["What famous Prague landmark can you see?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two views of Prague different?"] }, task3: { question: "Why is Prague important for Czech history?" } } },
+  { id: "mass-media", title: "Mass Media", description: "Press, TV, advertising, power of mass media", available: false, part2: { task1: { followUpQuestions: ["What type of media is shown?", "How are people consuming information?"] }, task2: { comparisonQuestions: ["Which form of media is more influential?"] }, task3: { question: "How do social media influence young people?" } } },
+  { id: "home-housing", title: "Home and Housing", description: "Types of houses, mortgages, architecture", available: false, part2: { task1: { followUpQuestions: ["What type of home is this?", "Would you like to live here?"] }, task2: { comparisonQuestions: ["Which home would you prefer to live in?"] }, task3: { question: "What is your idea of a perfect home?" } } },
+  { id: "united-kingdom", title: "The United Kingdom", description: "Geography, political system, places of interest", available: false, part2: { task1: { followUpQuestions: ["What British location or tradition is shown?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two aspects of British life different?"] }, task3: { question: "What do you find most interesting about British culture?" } } },
+  { id: "london-washington", title: "London, Washington D.C.", description: "Historical sights, culture, entertainment", available: false, part2: { task1: { followUpQuestions: ["What famous landmark can you see?", "What is the atmosphere like?"] }, task2: { comparisonQuestions: ["How are these two cities different?"] }, task3: { question: "Which city would you prefer to visit and why?" } } },
+  { id: "english-speaking-countries", title: "English-Speaking Countries", description: "Commonwealth, Canada, Australia, New Zealand, Ireland", available: false, part2: { task1: { followUpQuestions: ["Which country does this picture represent?", "What is typical about this place?"] }, task2: { comparisonQuestions: ["How are these two countries different?"] }, task3: { question: "Which English-speaking country would you most like to visit?" } } },
+  { id: "english-lit-early", title: "English Literature – up to 1800", description: "Shakespeare, Chaucer, Defoe, Swift, Austen", available: false, part2: { task1: { followUpQuestions: ["What literary period does this image suggest?", "What can you say about the setting?"] }, task2: { comparisonQuestions: ["How do these two images relate to literature?"] }, task3: { question: "Why is it important to read classic literature?" } } },
+  { id: "english-lit-modern", title: "English Literature – 19th & 20th Century", description: "Dickens, Wilde, Orwell, Tolkien, Rowling", available: false, part2: { task1: { followUpQuestions: ["What literary work might this picture relate to?", "What period is shown?"] }, task2: { comparisonQuestions: ["How are the settings in these pictures different?"] }, task3: { question: "Which modern author do you find most interesting?" } } },
+  { id: "american-lit-early", title: "American Literature – up to 1900", description: "Poe, Twain, Whitman, London", available: false, part2: { task1: { followUpQuestions: ["What aspect of American life is shown?", "What time period does this suggest?"] }, task2: { comparisonQuestions: ["How are these two scenes from American history different?"] }, task3: { question: "How does literature reflect a country's history?" } } },
+  { id: "american-lit-modern", title: "American Literature – 20th Century", description: "Hemingway, Fitzgerald, Steinbeck, Kerouac", available: false, part2: { task1: { followUpQuestions: ["What 20th-century American theme is shown?", "What is the mood of this picture?"] }, task2: { comparisonQuestions: ["How do these two images reflect different aspects of American culture?"] }, task3: { question: "Which American novel would you recommend?" } } },
+  { id: "usa-geography", title: "The USA, Geography, Political System", description: "Geography, cities, national parks, presidential system", available: false, part2: { task1: { followUpQuestions: ["What American landscape or city is shown?", "What makes this place interesting?"] }, task2: { comparisonQuestions: ["How are these two American locations different?"] }, task3: { question: "What interests you most about the USA?" } } },
+  { id: "british-history-early", title: "History of Great Britain – up to 1800", description: "Celts, Romans, Magna Charta, Shakespeare era", available: false, part2: { task1: { followUpQuestions: ["What historical period is shown?", "What can you see in the picture?"] }, task2: { comparisonQuestions: ["How are these two historical periods different?"] }, task3: { question: "Which period of British history fascinates you most?" } } },
+  { id: "british-history-modern", title: "History of Great Britain – 19th & 20th Century", description: "Industrial Revolution, Victorian era, World Wars", available: false, part2: { task1: { followUpQuestions: ["What historical event or period is shown?", "What impact did this have?"] }, task2: { comparisonQuestions: ["How did Britain change between these two periods?"] }, task3: { question: "How did the World Wars change Britain?" } } },
+  { id: "us-history-early", title: "History of the USA – up to 1900", description: "Columbus, Pilgrim Fathers, Independence, Civil War", available: false, part2: { task1: { followUpQuestions: ["What period of American history is shown?", "What is happening in this scene?"] }, task2: { comparisonQuestions: ["How are these two events in American history different?"] }, task3: { question: "What was the most important event in early American history?" } } },
+  { id: "us-history-modern", title: "History of the USA – 20th Century", description: "World Wars, Cold War, Civil Rights, modern presidents", available: false, part2: { task1: { followUpQuestions: ["What 20th-century event is shown?", "Why was this significant?"] }, task2: { comparisonQuestions: ["How did America change between these two events?"] }, task3: { question: "How has the USA changed in the last 50 years?" } } }
 ];
