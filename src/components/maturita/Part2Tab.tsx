@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Clock, Image } from "lucide-react";
 import type { MaturitaTopic } from "@/data/maturitaTopics";
 
-const promptPoints = ["People", "Place", "Clothes", "Activities", "Atmosphere", "Other"];
+const defaultPromptPoints = ["People", "Place", "Clothes", "Activities", "Atmosphere", "Other"];
 
 interface Part2TabProps {
   topic: MaturitaTopic;
@@ -10,6 +10,8 @@ interface Part2TabProps {
 
 const Part2Tab = ({ topic }: Part2TabProps) => {
   const part2 = topic.part2;
+  const task1PromptPoints = part2?.task1.promptPoints || defaultPromptPoints;
+  const task2PromptPoints = part2?.task2.promptPoints || defaultPromptPoints;
 
   if (!part2) {
     return (
@@ -55,7 +57,7 @@ const Part2Tab = ({ topic }: Part2TabProps) => {
           <div>
             <p className="font-semibold text-foreground mb-2">Prompt points:</p>
             <div className="flex flex-wrap gap-2">
-              {promptPoints.map((point) => (
+              {task1PromptPoints.map((point) => (
                 <span key={point} className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm font-medium">
                   {point}
                 </span>
@@ -133,7 +135,7 @@ const Part2Tab = ({ topic }: Part2TabProps) => {
           <div>
             <p className="font-semibold text-foreground mb-2">Prompt points:</p>
             <div className="flex flex-wrap gap-2">
-              {promptPoints.map((point) => (
+              {task2PromptPoints.map((point) => (
                 <span key={point} className="px-3 py-1 bg-background text-foreground rounded-full text-sm font-medium border">
                   {point}
                 </span>

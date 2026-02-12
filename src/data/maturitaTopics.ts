@@ -36,11 +36,13 @@ export interface WarmUpCategory {
 }
 
 export interface Part2Task1 {
+  promptPoints?: string[];
   followUpQuestions: string[];
   images?: { label: string; src: string; description: string }[];
 }
 
 export interface Part2Task2 {
+  promptPoints?: string[];
   comparisonQuestions: string[];
 }
 
@@ -238,6 +240,7 @@ export const maturitaTopics: MaturitaTopic[] = [
     },
     part2: {
       task1: {
+        promptPoints: ["Trees & Vegetation", "Energy Source", "Environmental Impact", "Landscape", "Human Activity", "Season & Colors"],
         followUpQuestions: [
           "What's the season or weather like in this picture?",
           "What environmental problem can you see?",
@@ -250,6 +253,7 @@ export const maturitaTopics: MaturitaTopic[] = [
         ]
       },
       task2: {
+        promptPoints: ["Trees & Vegetation", "Energy Source", "Environmental Impact", "Landscape", "Human Activity", "Season & Colors"],
         comparisonQuestions: [
           "Which picture shows a bigger environmental problem?",
           "How are the two places different in terms of nature?",
