@@ -186,7 +186,7 @@ const ExamPreparation = () => {
 
           {/* Maturita Speaking Practice */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mt-16 mb-16">
-            <div>
+            <div className="order-last lg:order-first">
               <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
                 Maturita Speaking Practice
               </h2>
