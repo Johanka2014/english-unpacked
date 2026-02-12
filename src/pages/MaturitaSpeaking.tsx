@@ -1,11 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { BookOpen, Lock, Clock, MessageSquare, ClipboardCheck, Image } from "lucide-react";
+import { useEffect } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics, type WarmUpCategory } from "@/data/maturitaTopics";
@@ -143,6 +145,9 @@ const warmUpQuestions: WarmUpCategory[] = [
 ];
 
 const MaturitaSpeaking = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -169,9 +174,9 @@ const MaturitaSpeaking = () => {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-[50vh] flex items-center justify-center text-white overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("${heroBackground}")`,
+          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("${heroBackground}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed"
@@ -179,17 +184,24 @@ const MaturitaSpeaking = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/20 to-brand-royal/20" />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 font-merriweather">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-merriweather">
             Maturita Speaking Practice
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
             Master all 28 topics with structured learning, sample sentences, and official exam practice.
           </p>
+          <Button 
+            size="lg" 
+            className="hero-button animate-bounce-subtle"
+            asChild
+          >
+            <a href="#topics">Explore Topics</a>
+          </Button>
         </div>
       </section>
 
       {/* Tabs Section */}
-      <section className="py-16 bg-background">
+      <section id="topics" className="py-16 bg-background">
         <div className="container mx-auto px-4 max-w-5xl">
           <Tabs defaultValue="section1" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8">
