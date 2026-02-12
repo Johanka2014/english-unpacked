@@ -1,131 +1,89 @@
 
 
-# Part 2 - Image Description and Comparison Section
+# Medical Care, Health and Diseases - Maturita Topic
 
 ## Overview
 
-Build out the Part 2 (Section 2) tab on the Maturita Speaking page (`/maturita-speaking`). This section focuses on describing and comparing images, broken into three tasks that mirror the actual exam format. It will also include helpful phrase banks for students.
+Populate the "Medical Care, Health and Diseases" topic (`id: "medical-care"`) with full content across all four tabs (Learn, Practice, Part 2, Part 3), matching the structure and styling of the existing Environment topic. Content will be sourced from the uploaded PDF and the fetched website.
 
-## What Will Be Built
+## Content Sources
 
-### 1. Useful Phrases Section (top of Part 2)
+**PDF (Bridge - 08 Health):** Covers symptoms, GP visits, hospital reasons, serious diseases, medical specialists, and pharmacy/prescription vocabulary. Also contains 14 medical images (emergency sign, pharmacy, doctor visits, X-ray, eye exam, bandaged arm, wheelchair, boy with cast, wound, nurse with patient, ambulance, doctor with equipment, surgery).
 
-Two collapsible phrase banks displayed before the tasks:
+**Website (statnimaturita-anglictina.cz):** Covers hospital overview, departments, healthcare professionals, patient admission/discharge, emergency care, ICU, infection control, hospital technology, patient rights, and the future of hospitals. Also includes 15 follow-up questions with model answers.
 
-**Describing Images phrases** -- grouped phrases such as:
-- Location: "In the background...", "In the foreground...", "On the left/right...", "In the corner...", "In the centre...", "At the top/bottom..."
-- People: "There is/are...", "I can see...", "The person is wearing...", "They seem to be..."
-- Actions: "He/She is doing...", "It looks like they are..."
-- Atmosphere: "It looks...", "The atmosphere seems...", "It gives the impression of..."
+## What Will Be Created
 
-**Comparing Images phrases** -- such as:
-- "In picture 1... whereas in picture 2..."
-- "Both pictures show..."
-- "Unlike picture 1, picture 2..."
-- "The main difference/similarity is..."
-- "Compared to picture 1, picture 2..."
+### 1. Thumbnail Image
+- Copy one of the PDF images (the emergency sign - img 01) to `src/assets/topic-medical-care.jpg` for use as the topic tile thumbnail.
 
-### 2. Three Tasks (per topic)
+### 2. Part 3 Images (6 images for the exam grid)
+Copy 6 representative images from the PDF to `src/assets/`:
+- `maturita-health-3a.jpg` - Emergency department entrance (img 01)
+- `maturita-health-3b.jpg` - Pharmacy/medication (img 02)
+- `maturita-health-3c.jpg` - Doctor examining patient (img 03)
+- `maturita-health-3d.jpg` - X-ray image (img 05)
+- `maturita-health-3e.jpg` - Ambulance/emergency care (img 12)
+- `maturita-health-3f.jpg` - Surgery/operating room (img 14)
 
-Each of the 28 maturita topics will get Part 2 data. The layout will use the same card grid style as Part 3 (topic cards with title, description, available/coming-soon badges).
+### 3. Part 2 Images (2 images for describe & compare)
+- `maturita-health-part2-a.jpg` - Nurse with patient in hospital bed (img 11)
+- `maturita-health-part2-b.jpg` - GP examining patient's throat (img 04)
 
-Clicking an available topic opens its Part 2 content with three task cards:
+### 4. Learn Tab Content (accordion items)
+Built from both sources, covering these sub-topics:
+- Common Symptoms and When to See a Doctor (PDF)
+- What the Doctor Does During a Visit (PDF)
+- Reasons to Go to Hospital (PDF)
+- Serious Diseases and Conditions (PDF)
+- Medical Specialists (PDF)
+- Pharmacy and Prescriptions (PDF)
+- Overview of a Hospital (website)
+- Hospital Departments (website)
+- Healthcare Professionals (website)
+- Emergency Care (website)
+- Intensive Care Unit (website)
+- Hospital Technology (website)
+- Patient Rights (website)
 
-**Task 1 (1.5 min) -- Describe a Picture**
-- Instruction: "Which picture would you like to talk about? Describe it, please. Are you ready?"
-- Prompt points: People, Place, Clothes, Activities, Atmosphere, Other
-- Topic-specific follow-up questions (e.g. for Environment: "What's the season/weather like?", "What environmental problem can you see?")
-- Display the topic's images (placeholder for now; you will upload images later)
+### 5. Practice Tab Content (Q&A cards)
+Combined from both sources - approximately 15+ questions covering:
+- Symptoms descriptions (PDF)
+- GP visit procedures (PDF)
+- Hospital departments (website)
+- Emergency care (website)
+- ICU differences (website)
+- Infection control (website)
+- Technology in hospitals (website)
+- Patient rights (website)
+- Future of hospitals (website)
 
-**Task 2 (1 min) -- Compare Pictures**
-- Instruction: "Have a look at both pictures once more and compare them. Are you ready?"
-- Same prompt points: People, Place, Clothes, Activities, Atmosphere, Other
-- Topic-specific comparison questions
+### 6. Part 2 Tab Content (3 tasks)
+Following the exact same structure as Environment:
+- **Task 1 - Describe a Picture:** Custom prompt points (Medical Equipment, People, Setting, Activity, Mood, Other), 2 images, 4 follow-up questions
+- **Task 2 - Compare Pictures:** Custom prompt points, 3 comparison questions
+- **Task 3 - Topic Discussion:** A discussion question about healthcare
 
-**Task 3 (1.5 min) -- Topic Discussion**
-- Instruction: "Now, please start talking about [topic]. Are you ready?"
-- A relevant question for each topic (e.g., Environment: "What can individuals do to help protect the environment?")
+### 7. Part 3 Tab Content (exam practice)
+- Task description about presenting on medical care and hospitals
+- 6 prompt points (e.g., Hospital departments, Emergency care, Medical specialists, Technology, Patient rights, Other)
+- 6-image grid with labels 3A-3F
+- 13 follow-up questions sourced from the website
 
-### 3. Data Structure Changes
+## Files to Modify
 
-Add a new `part2` field to the `MaturitaTopic` interface in `src/data/maturitaTopics.ts`:
+1. **`src/data/maturitaTopics.ts`** - The main change: expand the `medical-care` entry from a stub to a fully populated topic with `available: true`, `thumbnail`, `learn`, `practice`, `part2`, and `exam` data. Add image imports at the top.
 
-```text
-interface Part2Task1 {
-  followUpQuestions: string[];
-  images?: { label: string; src: string; description: string }[];
-}
-
-interface Part2Task2 {
-  comparisonQuestions: string[];
-}
-
-interface Part2Task3 {
-  question: string;
-}
-
-interface Part2Data {
-  task1: Part2Task1;
-  task2: Part2Task2;
-  task3: Part2Task3;
-}
-```
-
-For the Environment topic, populate fully. For all other topics, add a `part2` object with a relevant Task 3 question and placeholder Task 1/2 questions so they show as "Coming Soon" or basic content.
-
-### 4. Page Structure Changes
-
-**`src/pages/MaturitaSpeaking.tsx`** -- Replace the Part 2 placeholder with:
-1. Useful phrases section (two accordion items: Describing / Comparing)
-2. Topic grid identical to Part 3 style (cards with Ready/Coming Soon badges)
-
-**`src/pages/MaturitaSpeakingTopic.tsx`** -- Add a Part 2 tab (expanding from 3 tabs to 4: Learn, Practice, Part 2, Exam Practice). The Part 2 tab displays the three tasks in styled cards matching the existing exam card design.
-
-### 5. Environment Topic Images
-
-The uploaded environment image sheet is reference only (showing 5 exam images: deforestation, wind turbines, factory pollution, recycling bins, nature scene). These will be uploaded by the user later. For now, placeholder image slots will be shown for Environment, and no images for other topics.
+2. **New image assets** (9 files total):
+   - `src/assets/topic-medical-care.jpg`
+   - `src/assets/maturita-health-3a.jpg` through `3f.jpg`
+   - `src/assets/maturita-health-part2-a.jpg`
+   - `src/assets/maturita-health-part2-b.jpg`
 
 ## Technical Details
 
-### Files to modify:
-- `src/data/maturitaTopics.ts` -- Add Part2 interfaces and data for all topics
-- `src/pages/MaturitaSpeaking.tsx` -- Replace Part 2 placeholder with phrase banks and topic grid
-- `src/pages/MaturitaSpeakingTopic.tsx` -- Add Part 2 tab with 3 tasks
-
-### Tab structure in MaturitaSpeakingTopic:
-- Current: Learn | Practice | Exam Practice (3 tabs)
-- New: Learn | Practice | Part 2 | Exam Practice (4 tabs, rename "Exam Practice" to "Part 3" for consistency with the exam structure)
-
-Actually, to keep things clear and aligned with the exam: the topic page tabs should map to the exam parts. Since Part 2 content is topic-specific (images + tasks), it belongs on the topic page. The main MaturitaSpeaking page Part 2 tab will have the phrase banks plus the topic selector grid.
-
-### Topic-specific Task 3 questions (examples for all topics):
-- Environment: "What can individuals do to help protect the environment?"
-- Course of Life: "What do you think is the most important stage of life?"
-- Social Issues: "What social problem concerns you the most?"
-- Holidays: "Which holiday is most important to you and why?"
-- Transport: "What will transport look like in the future?"
-- Medical Care: "How important is a healthy lifestyle to you?"
-- Sports: "Should sport be compulsory at school?"
-- Shopping: "Do you prefer shopping online or in shops?"
-- Food: "What does a healthy diet mean to you?"
-- Nature/Weather: "How does weather affect your daily life?"
-- Arts: "How important is art in everyday life?"
-- Education: "What would you change about the education system?"
-- Ostrava: "What do you like most about living in your region?"
-- Czech Republic: "What makes the Czech Republic unique?"
-- Prague: "Why is Prague important for Czech history?"
-- Mass Media: "How do social media influence young people?"
-- Home/Housing: "What is your idea of a perfect home?"
-- UK: "What do you find most interesting about British culture?"
-- London/Washington: "Which city would you prefer to visit and why?"
-- English-speaking countries: "Which English-speaking country would you most like to visit?"
-- English Lit (early): "Why is it important to read classic literature?"
-- English Lit (modern): "Which modern author do you find most interesting?"
-- American Lit (early): "How does literature reflect a country's history?"
-- American Lit (modern): "Which American novel would you recommend?"
-- USA Geography: "What interests you most about the USA?"
-- British History (early): "Which period of British history fascinates you most?"
-- British History (modern): "How did the World Wars change Britain?"
-- US History (early): "What was the most important event in early American history?"
-- US History (modern): "How has the USA changed in the last 50 years?"
+- The `medical-care` topic already exists at line 276 of `maturitaTopics.ts` as a stub with `available: false`. It will be replaced with a fully populated object matching the Environment topic's structure.
+- All images will be imported as ES6 modules at the top of the file (same pattern as the Environment topic's imports).
+- The existing `MaturitaTopic` interface already supports all needed fields -- no schema changes required.
+- No changes needed to any page components (`MaturitaSpeaking.tsx`, `MaturitaSpeakingTopic.tsx`, `Part2Tab.tsx`, `PracticeCard.tsx`) since they already handle the full data structure.
 
