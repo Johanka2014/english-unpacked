@@ -4,6 +4,8 @@ import env3c from "@/assets/maturita-env-3c.jpg";
 import env3d from "@/assets/maturita-env-3d.jpg";
 import env3e from "@/assets/maturita-env-3e.jpg";
 import env3f from "@/assets/maturita-env-3f.jpg";
+import envPart2a from "@/assets/maturita-env-part2-a.jpg";
+import envPart2b from "@/assets/maturita-env-part2-b.jpg";
 
 export interface LearnItem {
   title: string;
@@ -241,6 +243,10 @@ export const maturitaTopics: MaturitaTopic[] = [
           "What environmental problem can you see?",
           "How does this scene make you feel?",
           "Would you like to live in a place like this? Why or why not?"
+        ],
+        images: [
+          { label: "Picture A", src: envPart2a, description: "Deforestation – fallen trees and cleared rainforest" },
+          { label: "Picture B", src: envPart2b, description: "Wind turbines in a green field – renewable energy" }
         ]
       },
       task2: {
