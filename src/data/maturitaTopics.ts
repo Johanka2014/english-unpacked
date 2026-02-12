@@ -9,6 +9,17 @@ import env3f from "@/assets/maturita-env-3f.jpg";
 import envPart2a from "@/assets/maturita-env-part2-a.jpg";
 import envPart2b from "@/assets/maturita-env-part2-b.jpg";
 
+// Medical Care images
+import topicMedicalCare from "@/assets/topic-medical-care.jpg";
+import health3a from "@/assets/maturita-health-3a.jpg";
+import health3b from "@/assets/maturita-health-3b.jpg";
+import health3c from "@/assets/maturita-health-3c.jpg";
+import health3d from "@/assets/maturita-health-3d.jpg";
+import health3e from "@/assets/maturita-health-3e.jpg";
+import health3f from "@/assets/maturita-health-3f.jpg";
+import healthPart2a from "@/assets/maturita-health-part2-a.jpg";
+import healthPart2b from "@/assets/maturita-health-part2-b.jpg";
+
 export interface LearnItem {
   title: string;
   content: string;
@@ -273,7 +284,189 @@ export const maturitaTopics: MaturitaTopic[] = [
   { id: "social-issues", title: "Social Issues", description: "Drug abuse, terrorism, crime, bullying, homelessness", available: false, part2: { task1: { followUpQuestions: ["What social issue can you see?", "How does this affect people?"] }, task2: { comparisonQuestions: ["Which picture shows a more serious problem?"] }, task3: { question: "What social problem concerns you the most?" } } },
   { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false, part2: { task1: { followUpQuestions: ["What holiday or tradition is shown?", "What are the people celebrating?"] }, task2: { comparisonQuestions: ["How are the celebrations different?"] }, task3: { question: "Which holiday is most important to you and why?" } } },
   { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false, part2: { task1: { followUpQuestions: ["What type of transport can you see?", "Where might these people be travelling?"] }, task2: { comparisonQuestions: ["Which means of transport is more practical?"] }, task3: { question: "What will transport look like in the future?" } } },
-  { id: "medical-care", title: "Medical Care, Health and Diseases", description: "Healthcare, illnesses, vaccination, first aid", available: false, part2: { task1: { followUpQuestions: ["What medical situation is shown?", "How are the people feeling?"] }, task2: { comparisonQuestions: ["How are the healthcare situations different?"] }, task3: { question: "How important is a healthy lifestyle to you?" } } },
+  {
+    id: "medical-care",
+    title: "Medical Care, Health and Diseases",
+    description: "Healthcare systems, illnesses, hospitals, medical specialists, pharmacy, and patient rights",
+    available: true,
+    thumbnail: topicMedicalCare,
+    learn: [
+      {
+        title: "Common Symptoms and When to See a Doctor",
+        content: "When you feel unwell, you may experience a variety of symptoms. Common ones include a headache, sore throat, runny nose, cough, fever, stomachache, nausea, dizziness, fatigue, or a rash. If symptoms are mild – such as a slight cold or a small cut – you can usually treat them at home with rest, fluids, and over-the-counter medicine. However, you should see a doctor if you have a high fever that lasts more than two days, severe or persistent pain, difficulty breathing, unexplained weight loss, or if symptoms keep getting worse. It is always better to see a doctor early rather than wait until a condition becomes serious."
+      },
+      {
+        title: "What the Doctor Does During a Visit",
+        content: "When you visit your GP (general practitioner), the doctor first asks about your symptoms – when they started, how severe they are, and whether anything makes them better or worse. Then the doctor examines you: they may check your temperature, blood pressure, and pulse. They listen to your heart and lungs with a stethoscope, look into your throat and ears, and feel your lymph nodes. If needed, the doctor may order blood tests, urine tests, or an X-ray. Based on the examination, the doctor makes a diagnosis and prescribes treatment – this could be medication, rest, a special diet, or a referral to a specialist."
+      },
+      {
+        title: "Reasons to Go to Hospital",
+        content: "People go to hospital for many reasons. Some are admitted for planned operations (surgery), such as removing the appendix or repairing a broken bone. Others arrive at the emergency department (A&E) after an accident, a heart attack, or a stroke. Pregnant women go to the maternity ward to give birth. People with serious infections, high fevers, or conditions that need constant monitoring are also hospitalised. Some patients need specialised tests like MRI or CT scans that are only available in hospitals. A hospital stay can range from a few hours to several weeks, depending on the condition."
+      },
+      {
+        title: "Serious Diseases and Conditions",
+        content: "Some of the most serious diseases include cancer, heart disease, stroke, diabetes, and respiratory diseases like pneumonia and tuberculosis. Cancer occurs when abnormal cells grow uncontrollably and can affect almost any part of the body. Heart disease includes conditions like heart attacks and heart failure, often caused by high blood pressure, high cholesterol, and an unhealthy lifestyle. Diabetes is a condition where the body cannot properly regulate blood sugar levels. Infectious diseases such as HIV/AIDS, hepatitis, and influenza can spread between people. Modern medicine has made great progress in treating many of these conditions, but prevention through a healthy lifestyle remains the best approach."
+      },
+      {
+        title: "Medical Specialists",
+        content: "When your GP cannot treat a condition, they refer you to a specialist. Common medical specialists include: a cardiologist (heart), a neurologist (brain and nervous system), a dermatologist (skin), an ophthalmologist (eyes), an orthopaedist (bones and joints), a paediatrician (children), a gynaecologist (women's health), a psychiatrist (mental health), an oncologist (cancer), a surgeon (operations), an ENT specialist (ear, nose, and throat), and a dentist (teeth and gums). Each specialist has extra training and equipment for their specific area of medicine."
+      },
+      {
+        title: "Pharmacy and Prescriptions",
+        content: "A pharmacy (also called a chemist's or drugstore) is where you buy medicines. Some medicines are available over the counter (OTC) – you can buy them without a prescription. These include painkillers like paracetamol and ibuprofen, cough syrup, throat lozenges, nasal sprays, and antihistamines for allergies. For stronger medicines, especially antibiotics, you need a prescription from your doctor. The pharmacist checks your prescription, prepares the medicine, and explains how to take it – the dosage, how often, and any side effects to watch for. Pharmacists can also give general health advice and recommend suitable OTC products."
+      },
+      {
+        title: "Overview of a Hospital",
+        content: "A hospital is a large medical institution that provides diagnosis, treatment, and care for patients with various illnesses and injuries. Hospitals can be divided into general hospitals, which treat a wide range of conditions, and specialised hospitals, which focus on specific areas such as children's hospitals, psychiatric hospitals, or cancer centres. A typical hospital has inpatient wards (where patients stay overnight), outpatient clinics (where patients visit for appointments), operating theatres, laboratories, and diagnostic departments. Hospitals employ hundreds of staff including doctors, nurses, technicians, and administrative workers."
+      },
+      {
+        title: "Hospital Departments",
+        content: "A modern hospital is divided into many departments, each specialising in a different area of medicine. Key departments include: the Emergency Department (A&E) for urgent cases; the Surgery Department with operating theatres; the Internal Medicine Department for diseases of internal organs; the Maternity Ward for births; the Paediatric Department for children; the Oncology Department for cancer treatment; the Cardiology Department for heart conditions; the Neurology Department for brain and nerve disorders; the Orthopaedic Department for bones and joints; the Radiology Department for X-rays, CT scans, and MRIs; and the Intensive Care Unit (ICU) for critically ill patients."
+      },
+      {
+        title: "Healthcare Professionals",
+        content: "Hospitals employ a wide variety of healthcare professionals. Doctors (physicians) diagnose illnesses and prescribe treatment. Surgeons perform operations. Nurses provide day-to-day patient care, administer medications, and monitor patients' conditions. Midwives assist with childbirth. Paramedics provide emergency care and transport patients by ambulance. Physiotherapists help patients recover movement after injuries or operations. Radiographers operate imaging equipment like X-ray machines. Laboratory technicians analyse blood and tissue samples. Pharmacists prepare and dispense medications. Psychologists and psychiatrists support patients' mental health. All these professionals work together as a team to provide comprehensive patient care."
+      },
+      {
+        title: "Emergency Care",
+        content: "The Emergency Department (also called A&E – Accident and Emergency) is the part of the hospital that deals with urgent and life-threatening conditions. Patients arrive by ambulance or on their own. A triage nurse assesses each patient on arrival and assigns a priority level – the most critical cases are seen first. Common emergencies include heart attacks, strokes, severe injuries from accidents, breathing difficulties, allergic reactions, and poisoning. Emergency departments are open 24 hours a day, 7 days a week. They are equipped with advanced life-saving equipment including defibrillators, ventilators, and trauma surgery facilities."
+      },
+      {
+        title: "Intensive Care Unit (ICU)",
+        content: "The Intensive Care Unit (ICU) provides the highest level of medical care for critically ill patients who need constant monitoring and life support. ICU patients may be unconscious, on ventilators (breathing machines), or recovering from major surgery. The unit has a very high ratio of nurses to patients – often one nurse per one or two patients. Equipment in the ICU includes heart monitors, ventilators, infusion pumps, and dialysis machines. Patients in the ICU are monitored around the clock for vital signs such as heart rate, blood pressure, oxygen levels, and brain activity. Visiting hours are usually restricted to protect patients."
+      },
+      {
+        title: "Hospital Technology",
+        content: "Modern hospitals rely heavily on advanced technology. Diagnostic imaging includes X-rays, CT scans (computed tomography), MRI (magnetic resonance imaging), and ultrasound. These allow doctors to see inside the body without surgery. Robotic surgery systems allow surgeons to perform very precise operations through tiny incisions. Electronic health records (EHR) store patient information digitally, making it accessible to all authorised medical staff. Telemedicine allows patients to consult doctors remotely via video calls. Automated laboratory systems can analyse blood samples quickly and accurately. Hospital information systems manage everything from patient admissions to medication schedules."
+      },
+      {
+        title: "Patient Rights",
+        content: "Patients in hospitals have important rights that must be respected. These include: the right to receive clear information about their diagnosis and treatment options; the right to give informed consent before any procedure; the right to refuse treatment; the right to privacy and confidentiality of their medical records; the right to a second opinion from another doctor; the right to complain if they are unhappy with their care; and the right to be treated with dignity and respect regardless of their age, gender, ethnicity, or social status. In many countries, these rights are protected by law, and hospitals have patient advocates or ombudsmen to help resolve any issues."
+      }
+    ],
+    practice: [
+      {
+        question: "What are common symptoms of illness and when should you see a doctor?",
+        answer: "Common symptoms include headache, sore throat, runny nose, cough, fever, stomachache, nausea, and fatigue. You should see a doctor if you have a high fever lasting more than two days, severe pain, difficulty breathing, unexplained weight loss, or if symptoms keep getting worse."
+      },
+      {
+        question: "What happens during a typical visit to the GP?",
+        answer: "The GP asks about your symptoms, examines you by checking temperature, blood pressure, and pulse, listens to your heart and lungs with a stethoscope, and may look into your throat and ears. If needed, they order tests like blood work or X-rays, then make a diagnosis and prescribe treatment."
+      },
+      {
+        question: "What are some reasons people are admitted to hospital?",
+        answer: "People go to hospital for planned operations, emergency treatment after accidents or heart attacks, childbirth in the maternity ward, treatment of serious infections, and specialised tests like MRI or CT scans that are only available in hospitals."
+      },
+      {
+        question: "Can you name some serious diseases and explain one of them?",
+        answer: "Serious diseases include cancer, heart disease, stroke, diabetes, and infectious diseases like HIV/AIDS. For example, cancer occurs when abnormal cells grow uncontrollably in the body. Modern medicine has made great progress in treatment, but prevention through a healthy lifestyle is still the best approach."
+      },
+      {
+        question: "What is the difference between over-the-counter and prescription medicine?",
+        answer: "Over-the-counter medicines like painkillers, cough syrup, and antihistamines can be bought without a prescription. Prescription medicines, especially antibiotics and stronger drugs, require a doctor's prescription. The pharmacist explains the dosage, frequency, and any side effects."
+      },
+      {
+        question: "What are the main departments in a hospital?",
+        answer: "Key departments include the Emergency Department for urgent cases, Surgery for operations, Internal Medicine for organ diseases, Maternity Ward for births, Paediatrics for children, Oncology for cancer, Cardiology for heart conditions, Radiology for imaging like X-rays and MRI, and the Intensive Care Unit for critically ill patients."
+      },
+      {
+        question: "What happens in the Emergency Department?",
+        answer: "The Emergency Department deals with urgent and life-threatening conditions 24/7. A triage nurse assesses each patient and assigns priority – the most critical cases are seen first. Common emergencies include heart attacks, strokes, severe injuries, breathing difficulties, and allergic reactions."
+      },
+      {
+        question: "How is the Intensive Care Unit different from a regular hospital ward?",
+        answer: "The ICU provides the highest level of care for critically ill patients. It has a much higher nurse-to-patient ratio, often one nurse per one or two patients. Patients may be on ventilators or life support, and they are monitored around the clock for heart rate, blood pressure, and oxygen levels."
+      },
+      {
+        question: "What healthcare professionals work in a hospital?",
+        answer: "Hospitals employ doctors, surgeons, nurses, midwives, paramedics, physiotherapists, radiographers, laboratory technicians, pharmacists, and psychologists. Each professional has a specific role, and they all work together as a team to provide comprehensive patient care."
+      },
+      {
+        question: "How do hospitals prevent the spread of infections?",
+        answer: "Hospitals prevent infections through strict hygiene protocols including hand washing, use of gloves and masks, sterilisation of surgical instruments, isolation of patients with infectious diseases, and regular cleaning and disinfection of all surfaces and equipment."
+      },
+      {
+        question: "What role does technology play in modern hospitals?",
+        answer: "Modern hospitals use diagnostic imaging like X-rays, CT scans, and MRI to see inside the body. They use robotic surgery systems for precise operations, electronic health records for digital patient data, telemedicine for remote consultations, and automated laboratory systems for quick analysis."
+      },
+      {
+        question: "What rights do patients have in a hospital?",
+        answer: "Patients have the right to clear information about their diagnosis and treatment, informed consent before any procedure, the right to refuse treatment, privacy of medical records, the right to a second opinion, the right to complain, and the right to be treated with dignity regardless of age, gender, or background."
+      },
+      {
+        question: "What medical specialists might a GP refer you to?",
+        answer: "A GP can refer you to specialists such as a cardiologist for heart problems, neurologist for brain issues, dermatologist for skin conditions, ophthalmologist for eyes, orthopaedist for bones, paediatrician for children, psychiatrist for mental health, or oncologist for cancer treatment."
+      },
+      {
+        question: "How do you think hospitals will change in the future?",
+        answer: "Hospitals will likely use more artificial intelligence for diagnosis, robotic surgery will become more common, telemedicine will allow more remote consultations, personalised medicine based on genetics will improve treatment, and electronic records will make healthcare more efficient and coordinated."
+      },
+      {
+        question: "Why is it important for patients to be well informed about their health?",
+        answer: "Well-informed patients can make better decisions about their treatment, understand the importance of following medical advice, recognise warning symptoms early, and take preventive steps like maintaining a healthy lifestyle. Informed consent is also a basic patient right protected by law."
+      }
+    ],
+    exam: {
+      taskDescription: "Give a short presentation about medical care, health, and diseases. Talk about healthcare systems, hospitals, and how medicine helps people. Use pictures 3A–3F to illustrate your speech.",
+      promptPoints: [
+        "Hospital departments and their functions",
+        "Emergency care and first aid",
+        "Medical specialists and their roles",
+        "Technology in modern medicine",
+        "Patient rights and responsibilities",
+        "Other"
+      ],
+      images: [
+        { label: "3A", src: health3a, description: "Emergency department entrance" },
+        { label: "3B", src: health3b, description: "Pharmacy – medicines and prescriptions" },
+        { label: "3C", src: health3c, description: "Doctor examining a patient" },
+        { label: "3D", src: health3d, description: "X-ray – medical imaging and diagnosis" },
+        { label: "3E", src: health3e, description: "Ambulance – emergency medical services" },
+        { label: "3F", src: health3f, description: "Surgery – operating room" }
+      ],
+      followUpQuestions: [
+        "What should you do if you feel unwell but it's not an emergency?",
+        "What is the role of a GP in the healthcare system?",
+        "What are the advantages and disadvantages of public vs private healthcare?",
+        "How can people maintain a healthy lifestyle to prevent diseases?",
+        "What is the role of vaccination in preventing diseases?",
+        "Do you think healthcare should be free for everyone? Why or why not?",
+        "What are the biggest health challenges facing society today?",
+        "How has technology changed the way doctors diagnose and treat patients?",
+        "What would you do in a medical emergency before the ambulance arrives?",
+        "Do you think people rely too much on medicine instead of natural remedies?",
+        "What are the benefits of telemedicine and online consultations?",
+        "How important is mental health compared to physical health?",
+        "What changes would you make to improve the healthcare system in your country?"
+      ]
+    },
+    part2: {
+      task1: {
+        promptPoints: ["Medical Equipment", "People", "Setting", "Activity", "Mood", "Other"],
+        followUpQuestions: [
+          "What medical situation can you see in this picture?",
+          "How do you think the patient is feeling?",
+          "What kind of healthcare professional is shown?",
+          "Would you feel comfortable in this situation? Why or why not?"
+        ],
+        images: [
+          { label: "Picture A", src: healthPart2a, description: "Nurse caring for a patient in a hospital ward" },
+          { label: "Picture B", src: healthPart2b, description: "GP examining a patient's throat in a medical office" }
+        ]
+      },
+      task2: {
+        promptPoints: ["Medical Equipment", "People", "Setting", "Activity", "Mood", "Other"],
+        comparisonQuestions: [
+          "How are the two healthcare settings different?",
+          "Which situation looks more serious and why?",
+          "In which picture does the patient seem more comfortable?"
+        ]
+      },
+      task3: {
+        question: "How important is access to quality healthcare for everyone in society?"
+      }
+    }
+  },
   { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false, part2: { task1: { followUpQuestions: ["What sport is being played?", "Where is the event taking place?"] }, task2: { comparisonQuestions: ["Which sport requires more physical effort?"] }, task3: { question: "Should sport be compulsory at school?" } } },
   { id: "shopping-services", title: "Shopping and Services", description: "Shopping centres, banking, financial terms", available: false, part2: { task1: { followUpQuestions: ["What kind of shop or service can you see?", "What are the people buying?"] }, task2: { comparisonQuestions: ["Which shopping experience looks more enjoyable?"] }, task3: { question: "Do you prefer shopping online or in shops?" } } },
   { id: "food-meals", title: "Food, Meals, Restaurants", description: "Typical meals, table manners, eating disorders", available: false, part2: { task1: { followUpQuestions: ["What kind of food can you see?", "Is this a healthy meal?"] }, task2: { comparisonQuestions: ["Which meal is healthier?"] }, task3: { question: "What does a healthy diet mean to you?" } } },
