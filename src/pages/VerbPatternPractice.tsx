@@ -71,18 +71,18 @@ const VerbPatternPractice = () => {
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl mx-auto">
-            {verbPatternModules.map(mod => (
+            {verbPatternModules.map((mod, idx) => (
               <Card
                 key={mod.id}
-                className="cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+                className="cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-200 bg-gradient-to-br from-card to-blue-50 dark:to-blue-950/20 border-primary/20 hover:border-primary/40"
                 onClick={() => openUnit(mod)}
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between mb-1">
-                    <Badge variant="outline" className="text-xs">Unit {mod.id}</Badge>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground" />
+                    <Badge className={`text-xs ${idx % 3 === 0 ? 'bg-brand-navy text-white' : idx % 3 === 1 ? 'bg-brand-royal text-white' : 'bg-brand-accent text-white'}`}>Unit {mod.id}</Badge>
+                    <ArrowRight className="h-4 w-4 text-primary" />
                   </div>
-                  <CardTitle className="text-lg">{mod.title}</CardTitle>
+                  <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">{mod.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{mod.subtitle}</p>
@@ -119,13 +119,13 @@ const VerbPatternPractice = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-          {/* Explanation panel */}
+           {/* Explanation panel */}
           <div className="lg:col-span-3">
-            <Card>
-              <CardHeader>
+            <Card className="bg-gradient-to-br from-card via-blue-50 dark:via-blue-950/20 to-card border-primary/20">
+              <CardHeader className="border-b border-primary/10">
                 <div className="flex items-center gap-3 mb-1">
-                  <Badge>Unit {selectedUnit.id}</Badge>
-                  <CardTitle className="text-2xl">{selectedUnit.title}</CardTitle>
+                  <Badge className="bg-brand-navy text-white">Unit {selectedUnit.id}</Badge>
+                  <CardTitle className="text-2xl text-brand-navy dark:text-brand-royal">{selectedUnit.title}</CardTitle>
                 </div>
                 <p className="text-muted-foreground">{selectedUnit.subtitle}</p>
               </CardHeader>
@@ -151,23 +151,23 @@ const VerbPatternPractice = () => {
             </Card>
           </div>
 
-          {/* Quiz panel */}
+           {/* Quiz panel */}
           <div className="lg:col-span-2">
-            <Card className="sticky top-24">
-              <CardHeader className="pb-3">
+            <Card className="sticky top-24 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+              <CardHeader className="pb-3 border-b border-brand-accent/20">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <PenLine className="h-5 w-5 text-primary" />
-                    <CardTitle className="text-lg">Practice</CardTitle>
+                    <PenLine className="h-5 w-5 text-brand-accent" />
+                    <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">Practice</CardTitle>
                   </div>
-                  <Badge variant="outline">Quiz</Badge>
+                  <Badge className="bg-brand-accent text-white">Quiz</Badge>
                 </div>
               </CardHeader>
               <CardContent className="space-y-5">
                 {selectedUnit.questions.map((q, i) => (
                   <div key={i}>
                     <p className="text-sm font-medium text-foreground mb-1.5">
-                      {i + 1}. {q.q}
+                      <span className="text-brand-royal font-bold">{i + 1}.</span> {q.q}
                     </p>
                     <Input
                       value={answers[i]}
@@ -182,7 +182,7 @@ const VerbPatternPractice = () => {
                         results[i]
                           ? 'border-green-500 bg-green-50 dark:bg-green-950/20'
                           : 'border-red-500 bg-red-50 dark:bg-red-950/20'
-                      ) : ''}
+                      ) : 'border-primary/30 focus:border-primary/60'}
                     />
                     {checked && (
                       <div className={`flex items-center gap-1 mt-1 text-xs font-medium ${
@@ -198,20 +198,20 @@ const VerbPatternPractice = () => {
                   </div>
                 ))}
 
-                <div className="border-t pt-4 space-y-3">
+                <div className="border-t border-primary/10 pt-4 space-y-3">
                   {!checked ? (
-                    <Button className="w-full" onClick={checkAnswers}>
+                    <Button className="w-full bg-brand-royal hover:bg-brand-navy text-white font-semibold" onClick={checkAnswers}>
                       Check Answers
                     </Button>
                   ) : (
                     <>
-                      <div className="text-center">
-                        <p className={`text-sm font-bold ${score === total ? 'text-green-600' : 'text-primary'}`}>
+                      <div className="text-center bg-primary/5 p-3 rounded-lg border border-primary/20">
+                        <p className={`text-sm font-bold ${score === total ? 'text-green-600' : 'text-brand-royal'}`}>
                           You got {score} out of {total} correct!
                         </p>
                         <Progress value={(score / total) * 100} className="mt-2" />
                       </div>
-                      <Button variant="outline" className="w-full" onClick={resetQuiz}>
+                      <Button variant="outline" className="w-full border-brand-royal text-brand-royal hover:bg-brand-royal hover:text-white" onClick={resetQuiz}>
                         Try Again
                       </Button>
                     </>
