@@ -15,6 +15,7 @@ import BusinessVocabAppWrapper from "./pages/BusinessVocabAppWrapper";
 import CaeExamPracticeWrapper from "./pages/CaeExamPracticeWrapper";
 import FceVocabPracticeWrapper from "./pages/FceVocabPracticeWrapper";
 import TenseMasterWrapper from "./pages/TenseMasterWrapper";
+import VerbPatternPractice from "./pages/VerbPatternPractice";
 import EverydayConversations from "./pages/EverydayConversations";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="/fce-vocab-practice" element={<ProtectedRoute><FceVocabPracticeWrapper /></ProtectedRoute>} />
             <Route path="/insurance-vocabulary" element={<ProtectedRoute><InsuranceVocabulary /></ProtectedRoute>} />
             <Route path="/tense-master" element={<ProtectedRoute><TenseMasterWrapper /></ProtectedRoute>} />
+            <Route path="/verb-pattern-practice" element={<ProtectedRoute><VerbPatternPractice /></ProtectedRoute>} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
