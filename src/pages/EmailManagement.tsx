@@ -62,7 +62,7 @@ const EmailManagement = () => {
 
       await fetchStudents();
     } catch (error) {
-      console.error("Error checking admin status:", error);
+      if (import.meta.env.DEV) console.error("Error checking admin status:", error);
       navigate("/");
     } finally {
       setLoading(false);
@@ -192,7 +192,7 @@ const EmailManagement = () => {
       setSubject("");
       setCustomVariables("");
     } catch (error: any) {
-      console.error("Error sending email:", error);
+      if (import.meta.env.DEV) console.error("Error sending email:", error);
       toast({
         title: "Error",
         description: error.message || "Failed to send email",

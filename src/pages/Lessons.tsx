@@ -38,7 +38,7 @@ const Lessons = () => {
       if (error) throw error;
       setLessons(data || []);
     } catch (error: any) {
-      console.error('Error fetching lessons:', error);
+      if (import.meta.env.DEV) console.error('Error fetching lessons:', error);
     } finally {
       setIsLoading(false);
     }
