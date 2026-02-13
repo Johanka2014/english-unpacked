@@ -77,7 +77,7 @@ const Dashboard = () => {
       if (error) throw error;
       setRecentLessons(data || []);
     } catch (error: any) {
-      console.error('Error fetching lessons:', error);
+      if (import.meta.env.DEV) console.error('Error fetching lessons:', error);
     }
   };
 
