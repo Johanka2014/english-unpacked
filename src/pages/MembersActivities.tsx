@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -47,6 +47,13 @@ const grammarActivities = [
     icon: Clock,
     path: '/tense-master',
     color: 'text-indigo-600',
+  },
+  {
+    title: 'Verb Pattern Practice',
+    description: 'Master verb patterns: -ing forms, infinitives, preferences and more (Units 53-68)',
+    icon: PenLine,
+    path: '/verb-pattern-practice',
+    color: 'text-emerald-600',
   },
 ];
 
