@@ -3,9 +3,10 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BookOpen, GraduationCap, Languages, Shield, Clock } from 'lucide-react';
 
-const activities = [
+const vocabularyActivities = [
   {
     title: 'Business Vocabulary Practice',
     description: 'Master essential business English vocabulary with interactive exercises',
@@ -20,6 +21,9 @@ const activities = [
     path: '/insurance-vocabulary',
     color: 'text-orange-600',
   },
+];
+
+const cambridgeActivities = [
   {
     title: 'CAE Exam Practice',
     description: 'Prepare for Cambridge Advanced English with targeted practice',
@@ -34,6 +38,9 @@ const activities = [
     path: '/fce-vocab-practice',
     color: 'text-green-600',
   },
+];
+
+const grammarActivities = [
   {
     title: 'TenseMaster Grammar Course',
     description: 'Master English tenses with interactive quizzes covering Present, Past, and Perfect forms',
@@ -42,6 +49,33 @@ const activities = [
     color: 'text-indigo-600',
   },
 ];
+
+const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
+  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    {activities.map((activity) => {
+      const Icon = activity.icon;
+      return (
+        <Link key={activity.path} to={activity.path}>
+          <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <div className={`p-2 rounded-lg bg-muted ${activity.color}`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+              </div>
+              <CardTitle className="text-xl">{activity.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-base">
+                {activity.description}
+              </CardDescription>
+            </CardContent>
+          </Card>
+        </Link>
+      );
+    })}
+  </div>
+);
 
 const MembersActivities = () => {
   return (
@@ -58,30 +92,22 @@ const MembersActivities = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          {activities.map((activity) => {
-            const Icon = activity.icon;
-            return (
-              <Link key={activity.path} to={activity.path}>
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className={`p-2 rounded-lg bg-muted ${activity.color}`}>
-                        <Icon className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <CardTitle className="text-xl">{activity.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {activity.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
+        <Tabs defaultValue="vocabulary" className="max-w-6xl mx-auto">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsTrigger value="vocabulary">Vocabulary Practice</TabsTrigger>
+            <TabsTrigger value="cambridge">Cambridge Exams</TabsTrigger>
+            <TabsTrigger value="grammar">Grammar Practice</TabsTrigger>
+          </TabsList>
+          <TabsContent value="vocabulary">
+            <ActivityGrid activities={vocabularyActivities} />
+          </TabsContent>
+          <TabsContent value="cambridge">
+            <ActivityGrid activities={cambridgeActivities} />
+          </TabsContent>
+          <TabsContent value="grammar">
+            <ActivityGrid activities={grammarActivities} />
+          </TabsContent>
+        </Tabs>
       </main>
       <Footer />
     </div>
