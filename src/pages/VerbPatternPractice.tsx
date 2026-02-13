@@ -118,9 +118,9 @@ const VerbPatternPractice = () => {
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <div className="space-y-8 max-w-6xl mx-auto">
            {/* Explanation panel */}
-          <div className="lg:col-span-3">
+          <div>
             <Card className="bg-gradient-to-br from-card via-blue-50 dark:via-blue-950/20 to-card border-primary/20">
               <CardHeader className="border-b border-primary/10">
                 <div className="flex items-center gap-3 mb-1">
@@ -152,8 +152,8 @@ const VerbPatternPractice = () => {
           </div>
 
            {/* Quiz panel */}
-          <div className="lg:col-span-2">
-            <Card className="sticky top-24 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+          <div>
+            <Card className="bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
               <CardHeader className="pb-3 border-b border-brand-accent/20">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
