@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, ArrowRight, Home, CheckCircle, XCircle, PenLine, BookOpen, AlertTriangle, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { verbPatternModules, type VerbPatternModule } from '@/data/verbPatternData';
 
 const VerbPatternPractice = () => {
@@ -63,6 +64,13 @@ const VerbPatternPractice = () => {
       <div className="min-h-screen bg-background">
         <Navigation />
         <main className="container mx-auto px-4 py-20">
+          <div className="mb-4 max-w-6xl mx-auto">
+            <Link to="/members/activities?tab=grammar">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
+              </Button>
+            </Link>
+          </div>
           <div className="mb-10 text-center">
             <Badge className="mb-4" variant="secondary">Grammar Practice</Badge>
             <h1 className="text-4xl font-bold text-foreground mb-2">Verb Pattern Practice</h1>
@@ -104,7 +112,14 @@ const VerbPatternPractice = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-4 py-20">
+        <main className="container mx-auto px-4 py-20">
+          <div className="mb-4 max-w-6xl mx-auto">
+            <Link to="/members/activities?tab=grammar">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
+              </Button>
+            </Link>
+          </div>
         {/* Navigation bar */}
         <div className="flex items-center justify-between mb-6 max-w-6xl mx-auto">
           <Button variant="ghost" size="sm" disabled={!hasPrev} onClick={() => navigateUnit(-1)}>

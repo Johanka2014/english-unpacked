@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -85,6 +85,9 @@ const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities 
 );
 
 const MembersActivities = () => {
+  const [searchParams] = useSearchParams();
+  const defaultTab = searchParams.get('tab') || 'vocabulary';
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -99,7 +102,7 @@ const MembersActivities = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="vocabulary" className="max-w-6xl mx-auto">
+        <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="vocabulary">Vocabulary Practice</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge Exams</TabsTrigger>
