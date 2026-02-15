@@ -116,6 +116,77 @@ const presentSimplePractice: QuizCategory[] = [
   }
 ];
 
+const presentSimpleVsContinuousPractice: QuizCategory[] = [
+  {
+    id: 'choosing',
+    title: "Choosing the Right Tense",
+    desc: "Decide if the sentence needs Present Simple or Present Continuous.",
+    questions: [
+      { q: "Look! It ______ (rain).", options: ["rains", "is raining", "rain"], correct: 1, feedback: "Correct! 'Look!' signals something happening right now → Present Continuous." },
+      { q: "Be quiet! The film ______ (start).", options: ["starts", "is starting", "start"], correct: 1, feedback: "Correct! Something happening at this moment → Present Continuous." },
+      { q: "He ______ (sell) second-hand cars for a living.", options: ["is selling", "sells", "sell"], correct: 1, feedback: "Correct! A regular job/permanent situation → Present Simple." },
+      { q: "The sun ______ (rise) in the east.", options: ["is rising", "rises", "rise"], correct: 1, feedback: "Correct! A general fact → Present Simple." },
+      { q: "I'm not happy at work. I ______ (look) for a new job.", options: ["look", "am looking", "looks"], correct: 1, feedback: "Correct! A temporary situation in progress around now → Present Continuous." },
+      { q: "They ______ (live) in London.", options: ["are living", "live", "lives"], correct: 1, feedback: "Correct! A permanent situation → Present Simple." },
+      { q: "We ______ (meet) at 8.30 this evening.", options: ["meet", "are meeting", "meets"], correct: 1, feedback: "Correct! A future arrangement → Present Continuous." },
+      { q: "He ______ (study) maths at college.", options: ["studies", "is studying", "study"], correct: 1, feedback: "Correct! A present situation (course in progress) → Present Continuous." },
+      { q: "They often ______ (come) late.", options: ["are coming", "come", "comes"], correct: 1, feedback: "Correct! 'Often' signals a repeated action → Present Simple." },
+      { q: "You ______ (not listen) to me. You ______ (read) the paper.", options: ["don't listen / read", "aren't listening / 're reading", "not listen / are reading"], correct: 1, feedback: "Correct! Actions happening right now → Present Continuous." }
+    ]
+  },
+  {
+    id: 'police_call',
+    title: "The Phone Call to the Police",
+    desc: "Fill in the gaps with Present Simple or Present Continuous based on context.",
+    questions: [
+      { q: "I ______ (ring) to complain about the noise.", options: ["ring", "am ringing", "rings"], correct: 1, feedback: "Correct! The action is happening right now → Present Continuous." },
+      { q: "The noise ______ (come) from the flat above me.", options: ["comes", "is coming", "come"], correct: 1, feedback: "Correct! Happening at the time of speaking → Present Continuous." },
+      { q: "They ______ (have) a party.", options: ["have", "are having", "has"], correct: 1, feedback: "Correct! An activity happening now → Present Continuous." },
+      { q: "They ______ (play) music very loudly.", options: ["play", "are playing", "plays"], correct: 1, feedback: "Correct! Happening right now → Present Continuous." },
+      { q: "The man who ______ (live) there has a party every weekend.", options: ["is living", "lives", "live"], correct: 1, feedback: "Correct! A permanent situation → Present Simple." },
+      { q: "He ______ (have) a party every weekend.", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! 'Every weekend' signals a repeated action → Present Simple." },
+      { q: "Every weekend I ______ (ask) him to turn the music down.", options: ["am asking", "ask", "asks"], correct: 1, feedback: "Correct! A repeated action → Present Simple." },
+      { q: "He ______ (not take) any notice.", options: ["isn't taking", "doesn't take", "don't take"], correct: 1, feedback: "Correct! A habitual response → Present Simple." },
+      { q: "They ______ (not leave) until 2 or 3 in the morning.", options: ["aren't leaving", "don't leave", "doesn't leave"], correct: 1, feedback: "Correct! What usually happens → Present Simple." },
+      { q: "Tonight the noise is awful and it ______ (keep) me awake.", options: ["keeps", "is keeping", "keep"], correct: 1, feedback: "Correct! Happening right now, tonight → Present Continuous." }
+    ]
+  },
+  {
+    id: 'state_action',
+    title: "State vs Action Verbs",
+    desc: "Some verbs (think, have, be, see, smell, taste) change meaning between state and action.",
+    questions: [
+      { q: "She ______ she's beautiful. (= opinion)", options: ["is thinking", "thinks", "think"], correct: 1, feedback: "Correct! 'Think' as opinion = state verb → Present Simple." },
+      { q: "What ______ you ______ about? (= mental activity)", options: ["do / think", "are / thinking", "does / think"], correct: 1, feedback: "Correct! 'Think about' = mental process/action → Present Continuous." },
+      { q: "This car ______ a sun-roof. (= possession)", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! 'Have' = possession → Present Simple." },
+      { q: "She ______ a shower. (= activity)", options: ["has", "is having", "have"], correct: 1, feedback: "Correct! 'Have a shower' = action → Present Continuous." },
+      { q: "This egg ______ bad. (= state)", options: ["is being", "is", "are"], correct: 1, feedback: "Correct! 'Be' describing a state → Present Simple." },
+      { q: "You ______ very silly. (= behaviour)", options: ["are", "are being", "is being"], correct: 1, feedback: "Correct! 'Be' describing temporary behaviour → Present Continuous." },
+      { q: "I ______ what you mean. (= understanding)", options: ["am seeing", "see", "sees"], correct: 1, feedback: "Correct! 'See' = understand → state verb → Present Simple." },
+      { q: "I ______ the doctor at 10. (= appointment)", options: ["see", "am seeing", "sees"], correct: 1, feedback: "Correct! 'See' = meeting/appointment → action → Present Continuous." },
+      { q: "This soup ______ wonderful. (= perception)", options: ["is tasting", "tastes", "taste"], correct: 1, feedback: "Correct! 'Taste' as perception = state → Present Simple." },
+      { q: "She ______ the sauce to check if it needs salt. (= action)", options: ["tastes", "is tasting", "taste"], correct: 1, feedback: "Correct! 'Taste' as deliberate action → Present Continuous." }
+    ]
+  },
+  {
+    id: 'error_correction',
+    title: "Spot the Error",
+    desc: "Choose the correct version of each sentence.",
+    questions: [
+      { q: "Which is correct? The girl works in the accounts department.", options: ["The girl is working in the accounts department.", "The girl works in the accounts department. ✓", "The girl work in the accounts department."], correct: 1, feedback: "Correct! Her permanent job → Present Simple." },
+      { q: "Which is correct? She's going out with that boy.", options: ["She goes out with that boy.", "She's going out with that boy. ✓", "She go out with that boy."], correct: 1, feedback: "Correct! A current/temporary relationship → Present Continuous." },
+      { q: "Which is correct? He's working in the accounts department this week.", options: ["He works in the accounts department this week.", "He's working in the accounts department this week. ✓", "He work in the accounts department this week."], correct: 1, feedback: "Correct! 'This week' = temporary situation → Present Continuous." },
+      { q: "He's the sales manager. He ______ a lot.", options: ["is travelling", "travels", "travel"], correct: 1, feedback: "Correct! General description of his job → Present Simple." },
+      { q: "She starts work at 7.30 and ______ leave till 8 PM.", options: ["isn't", "doesn't", "don't"], correct: 1, feedback: "Correct! A daily routine → Present Simple." },
+      { q: "Which is correct about someone smoking 60 cigarettes daily?", options: ["He is smoking 60 cigarettes a day.", "He smokes 60 cigarettes a day. ✓", "He smoke 60 cigarettes a day."], correct: 1, feedback: "Correct! A habitual action → Present Simple." },
+      { q: "He ______ of giving up smoking. (considering it)", options: ["thinks", "is thinking", "think"], correct: 1, feedback: "Correct! 'Think of' = considering = action → Present Continuous." },
+      { q: "He ______ married next month. (arranged)", options: ["gets", "is getting", "get"], correct: 1, feedback: "Correct! Future arrangement → Present Continuous." },
+      { q: "He ______ his own space in the car park. (permanent)", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! Permanent possession → Present Simple." },
+      { q: "He ______ to become managing director. (desire)", options: ["is wanting", "wants", "want"], correct: 1, feedback: "Correct! 'Want' is a state verb → Present Simple." }
+    ]
+  }
+];
+
 const presentContinuousPractice: QuizCategory[] = [
   {
     id: 'now',
@@ -455,6 +526,25 @@ const tenseContent: Record<string, TenseData> = {
           "Look! It <strong>is raining</strong>."
         ],
         icon: "spinner"
+      },
+      {
+        title: "Present Simple vs Continuous",
+        subtitle: "I do vs I am doing",
+        formula: "Choose the right tense based on context",
+        explanation: "Many learners confuse these two tenses. The key is understanding whether you're talking about a <strong>permanent/repeated</strong> situation or something <strong>temporary/in progress</strong>.",
+        practiceLink: "present_simple_vs_continuous_hub",
+        detailedUses: [
+          { title: "1. State vs Action Verbs", desc: "Some verbs (think, have, be, see, taste) change meaning depending on the tense." },
+          { title: "2. Permanent vs Temporary", desc: "'I live in London' (permanent) vs 'I'm living with friends' (temporary)." },
+          { title: "3. Habit vs Now", desc: "'I smoke' (habit) vs 'I'm smoking' (right now)." },
+          { title: "4. Fact vs Current Activity", desc: "'What do you do?' (job) vs 'What are you doing?' (right now)." }
+        ],
+        examples: [
+          "<strong>I smoke</strong> 20 cigarettes a day. (habit) vs <strong>I'm smoking</strong> a lot nowadays. (temporary increase)",
+          "She <strong>thinks</strong> she's beautiful. (opinion) vs What <strong>are</strong> you <strong>thinking</strong> about? (mental activity)",
+          "He <strong>has</strong> a sun-roof. (possession) vs She <strong>is having</strong> a shower. (activity)"
+        ],
+        icon: "shuffle"
       }
     ]
   },
@@ -590,7 +680,7 @@ const tenseContent: Record<string, TenseData> = {
 
 // Navigation views
 type ViewType = 'home' | 'present' | 'past' | 'perfect' | 'pastPerfect' | 
-  'present_simple_hub' | 'present_continuous_hub' | 
+  'present_simple_hub' | 'present_continuous_hub' | 'present_simple_vs_continuous_hub' |
   'past_simple_hub' | 'past_continuous_hub' |
   'present_perfect_hub' | 'past_perfect_hub' | 
   'quiz' | 'general_quiz';
@@ -649,6 +739,7 @@ const TenseMasterWrapper = () => {
     switch (view) {
       case 'present_simple_hub': return presentSimplePractice;
       case 'present_continuous_hub': return presentContinuousPractice;
+      case 'present_simple_vs_continuous_hub': return presentSimpleVsContinuousPractice;
       case 'past_simple_hub': return pastSimplePractice;
       case 'past_continuous_hub': return pastContinuousPractice;
       case 'present_perfect_hub': return presentPerfectPractice;
@@ -999,6 +1090,8 @@ const TenseMasterWrapper = () => {
         return renderPracticeHub('Present Simple Practice', presentSimplePractice, 'present', 'border-brand-royal');
       case 'present_continuous_hub':
         return renderPracticeHub('Present Continuous Practice', presentContinuousPractice, 'present', 'border-blue-500');
+      case 'present_simple_vs_continuous_hub':
+        return renderPracticeHub('Present Simple vs Continuous', presentSimpleVsContinuousPractice, 'present', 'border-indigo-500');
       case 'past_simple_hub':
         return renderPracticeHub('Past Simple Practice', pastSimplePractice, 'past', 'border-rose-500');
       case 'past_continuous_hub':
