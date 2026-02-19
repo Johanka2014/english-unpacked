@@ -1,9 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Briefcase, MessageCircle, GraduationCap } from "lucide-react";
-import businessMeeting from "@/assets/business-meeting.jpg";
-import conversation from "@/assets/conversation.jpg";
-import examPrep from "@/assets/exam-prep.jpg";
+import businessMeeting from "@/assets/business-meeting.webp";
+import conversation from "@/assets/conversation.webp";
+import examPrep from "@/assets/exam-prep.webp";
 
 const ServicesSection = () => {
   const services = [
@@ -58,6 +58,10 @@ const ServicesSection = () => {
                   src={service.image} 
                   alt={`${service.title} - ${service.description.substring(0, 80)}`}
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
+                  width={400}
+                  height={192}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

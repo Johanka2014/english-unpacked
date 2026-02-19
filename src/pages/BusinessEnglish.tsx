@@ -5,8 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Laptop, CheckCircle, ExternalLink, Plane } from "lucide-react";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
-import businessMeetingImage from "@/assets/business-meeting.jpg";
-import heroBackground from "@/assets/hero-background.jpg";
+import businessMeetingImage from "@/assets/business-meeting.webp";
+import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 
 const BusinessEnglish = () => {

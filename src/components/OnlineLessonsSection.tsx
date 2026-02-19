@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Monitor, Smartphone, Calendar, Headphones } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 
 const OnlineLessonsSection = () => {
   const features = [

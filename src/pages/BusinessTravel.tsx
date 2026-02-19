@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Plane, Car, Luggage, Hotel, AlertCircle, MapPin } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import flightDelayImage from "@/assets/flight-delay.jpg";
 import groundTransportImage from "@/assets/ground-transportation.jpg";
 import lostLuggageImage from "@/assets/lost-luggage.jpg";

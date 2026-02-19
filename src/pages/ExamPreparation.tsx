@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import examPrepTextbooks from "@/assets/textbooks.png";
 import onlineExamPractice from "@/assets/online-exam-practice.jpg";
 import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 
 const ExamPreparation = () => {

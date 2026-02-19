@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Quote, Clock, Award, Heart } from "lucide-react";
-import joannaPortrait from "@/assets/joanna-profile-new.jpg";
+import joannaPortrait from "@/assets/joanna-profile-new.webp";
 
 const AboutSection = () => {
   const features = [
@@ -33,6 +33,10 @@ const AboutSection = () => {
                 src={joannaPortrait}
                 alt="Joanna - experienced TEFL-qualified English teacher with 13+ years teaching Business and conversational English"
                 className="w-64 h-64 md:w-80 md:h-80 object-cover object-[center_20%] rounded-full mx-auto shadow-[var(--shadow-card-hover)] border-4 border-white"
+                loading="lazy"
+                decoding="async"
+                width={320}
+                height={320}
               />
               <div className="absolute -bottom-4 -right-4 bg-brand-royal text-white p-3 rounded-full shadow-lg">
                 <Quote className="w-6 h-6" />
