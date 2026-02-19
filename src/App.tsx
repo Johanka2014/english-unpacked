@@ -31,6 +31,7 @@ const MembersActivities = lazy(() => import("./pages/MembersActivities"));
 const InsuranceVocabulary = lazy(() => import("./pages/InsuranceVocabulary"));
 const MaturitaSpeaking = lazy(() => import("./pages/MaturitaSpeaking"));
 const MaturitaSpeakingTopic = lazy(() => import("./pages/MaturitaSpeakingTopic"));
+const PresentationSkills = lazy(() => import("./pages/PresentationSkills"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -69,6 +70,7 @@ const App = () => (
               <Route path="/insurance-vocabulary" element={<ProtectedRoute><InsuranceVocabulary /></ProtectedRoute>} />
               <Route path="/tense-master" element={<ProtectedRoute><TenseMasterWrapper /></ProtectedRoute>} />
               <Route path="/verb-pattern-practice" element={<ProtectedRoute><VerbPatternPractice /></ProtectedRoute>} />
+              <Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

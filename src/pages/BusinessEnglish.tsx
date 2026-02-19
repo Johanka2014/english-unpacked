@@ -172,16 +172,16 @@ const BusinessEnglish = () => {
         </div>
       </section>
 
-      {/* Interactive Apps Section */}
+      {/* English for Presentations Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-first lg:order-last">
               <Card className="service-card overflow-hidden">
                 <CardContent className="p-0">
                   <img 
                     src={businessVocabAppImage} 
-                    alt="Business Benchmark Vocabulary App interface showing interactive learning exercises"
+                    alt="English for Presentations interactive learning exercises"
                     className="w-full h-auto object-cover"
                   />
                 </CardContent>
@@ -190,15 +190,16 @@ const BusinessEnglish = () => {
             
             <div>
               <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
-                Interactive Learning Activities
+                English for Presentations
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Enhance your learning experience with our cutting-edge interactive applications. 
-                Practice vocabulary, pronunciation, and business scenarios in an engaging digital environment.
+                Master the art of presenting in English. From welcoming your audience and structuring your talk 
+                to creating attention-grabbing openings and dealing with nervousness — build the confidence to 
+                deliver impactful business presentations.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Master essential business vocabulary through interactive exercises, quizzes, and real-time feedback. 
-                Our app adapts to your learning pace and tracks your progress automatically.
+                Practice with interactive exercises including fill-in-the-blanks, drag-and-drop activities, 
+                matching exercises, listening tasks, and more — all designed around real presentation scenarios.
               </p>
 
               <Button 
@@ -206,37 +207,12 @@ const BusinessEnglish = () => {
                 className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
                 asChild
               >
-                <a href="/business-vocabulary-app">
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  Try one of the Apps Now
+                <a href="/presentations">
+                  <Laptop className="w-5 h-5 mr-2" />
+                  Start Presentation Practice
                 </a>
               </Button>
             </div>
-          </div>
-
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Interactive Exercises</h4>
-              <p className="text-sm text-muted-foreground">Engaging activities that make learning vocabulary fun and memorable</p>
-            </Card>
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Progress Tracking</h4>
-              <p className="text-sm text-muted-foreground">Monitor your improvement with detailed analytics and achievements</p>
-            </Card>
-            <Card className="service-card p-6 text-center">
-              <div className="w-12 h-12 bg-brand-royal/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                <CheckCircle className="w-6 h-6 text-brand-royal" />
-              </div>
-              <h4 className="font-semibold text-foreground mb-2">Adaptive Learning</h4>
-              <p className="text-sm text-muted-foreground">Personalized content that adjusts to your skill level and pace</p>
-            </Card>
           </div>
         </div>
       </section>
