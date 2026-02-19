@@ -1,42 +1,113 @@
-
-
-# Verb Pattern Practice Module
+# English for Presentations - Implementation Plan
 
 ## Overview
-Convert the uploaded HTML-based "English Grammar Course (Units 53-68)" into a React component and integrate it into the Practice Activities page under the Grammar Practice tab, alongside the existing TenseMaster module.
 
-## What Will Be Built
+This plan covers two changes:
 
-A new interactive **Verb Pattern Practice** page where students can:
-- Browse 16 grammar units (Units 53-68) covering verb patterns like "Verb + -ing", "Verb + to...", "Prefer and Would Rather", etc.
-- View grammar explanations for each unit
-- Complete fill-in-the-blank quizzes with instant feedback
-- Navigate between units with Previous/Next buttons
+1. Replace the "Interactive Learning Activities" banner on the Business English page with a new "English for Presentations" banner
+2. Create a new `/presentations` page by converting your uploaded HTML into a React component that follows the color scheme of the English Unpacked and the layout conventions
 
-## Changes
+---
 
-### 1. New Data File: `src/data/verbPatternData.ts`
-- Extract all 16 grammar modules (Units 53-68) from the uploaded file into a typed TypeScript data file
-- Each module contains: id, title, subtitle, explanation (as plain text/structured data rather than HTML strings), and 10 questions with answers
+## Part 1: Update the Business English Page
 
-### 2. New Page Component: `src/pages/VerbPatternPractice.tsx`
-- Follow the same structural pattern as TenseMasterWrapper (Navigation, Footer, state management)
-- **Dashboard view**: Grid of 16 unit cards showing unit number, title, and subtitle
-- **Unit view**: Two-column layout with explanation panel (left/top) and interactive quiz panel (right/bottom)
-- Quiz uses text inputs where students type answers, with a "Check Answers" button that shows correct/incorrect feedback
-- Previous/Next navigation between units, plus a back-to-dashboard button
-- Styled consistently with the site's existing card, badge, and button components
+Replace the current "Interactive Learning Activities" section (lines 175-241 in `BusinessEnglish.tsx`) with an "English for Presentations" section:
 
-### 3. Update `src/pages/MembersActivities.tsx`
-- Add "Verb Pattern Practice" to the `grammarActivities` array with an appropriate icon (e.g., `Pen` or `PenLine` from lucide-react) and path `/verb-pattern-practice`
+- New heading: "English for Presentations"
+- New description text about mastering presentation skills (welcoming audiences, structuring talks, attention-grabbing openings, dealing with nervousness)
+- Button linking to `/presentations` with a "Presentation" icon
+- Keep the same two-column layout with image on one side, text on the other
+  &nbsp;
+- Use the existing `businessVocabAppImage` as a placeholder or reference one of the presentation images from the external source
 
-### 4. Update `src/App.tsx`
-- Add a new protected route: `/verb-pattern-practice` pointing to the new VerbPatternPractice component
+---
 
-## Technical Details
+## Part 2: Create the Presentations Page
 
-- The TenseMaster pattern will be followed: single-file page component with inline data or imported data, using existing UI components (Card, Button, Badge, Input, Progress)
-- Explanation content will be rendered using structured React JSX rather than raw HTML `dangerouslySetInnerHTML`
-- Answer checking will be case-insensitive string comparison
-- The component will use `useState` for view state (dashboard vs. unit detail) and quiz answers/feedback
+Create a new page at `src/pages/PresentationSkills.tsx` as a protected route at `/presentations`.
 
+### Structure
+
+The page will follow the same pattern as `BusinessTravel.tsx`:
+
+- Navigation + Footer wrapper
+- Hero section with the site's hero background image
+- SEO component with structured data
+- All 20+ activity sections converted from vanilla HTML/JS to React components
+
+### Activity Types to Convert
+
+The uploaded HTML contains these interactive exercises, all converted to React with `useState`/`useRef`:
+
+1. **Starter** - Discussion questions with image (static content)
+2. **Fill-in-the-Blanks** - Text inputs with audio players, check answers button
+3. **Drag-and-Drop Categorization** - Phrases dragged into category zones
+4. **Formal vs. Informal Matching** - Click-to-match two columns
+5. **Ordering an Introduction** - Drag sentences into correct order
+6. **Structuring Info (1)** - Static reference content (grammar patterns)
+7. **Sentence Completion** - Click-to-match sentence starts with ends
+8. **Structuring Info (2)** - Static reference content with image
+9. **Structuring Activity (3)** - Drag words into sentence gaps
+10. **Prepositions Practice** - Drag prepositions into gaps
+11. **Listening and Ordering** - Audio + drag to reorder
+12. **Point Ordering** - Drag points into order
+13. **Replacing Phrases** - Drag replacement words into gaps
+14. **Organization Info** - Static reference (timing, handouts, questions)
+15. **Matching Sentences** - Click-to-match sentence halves
+16. **Listening Completion** - Audio + fill-in-the-blank inputs
+17. **Attention-Grabbing Openings** - Three-column matching
+18. **Attention Grabbers Quiz** - Multiple choice radio buttons
+19. **Word Order Practice** - Drag words to form sentences
+20. **Checklist** - Static checklist for introductions
+21. **Dealing with Nervousness** - Reading comprehension + discussion questions
+
+### Design Adaptation
+
+All activities will use the site's design system:
+
+- `Card` and `CardContent` components for activity containers (replacing the brown `activity-card` style)
+- Brand colors: `brand-royal`, `brand-navy` instead of brown tones
+- `Button` component with `bg-brand-royal hover:bg-brand-navy` for check buttons
+- Correct answers: green borders/backgrounds
+- Incorrect answers: red borders/backgrounds
+- Alternating section backgrounds: white and `bg-gradient-to-b from-blue-50 to-white`
+- `font-merriweather` for headings
+- Audio players reference the external GitHub-hosted MP3 files
+- Images reference the external GitHub-hosted PNG files
+
+### File Structure
+
+Due to the complexity (20+ activities), the code will be split:
+
+```text
+src/
+  pages/
+    PresentationSkills.tsx          -- Main page with hero, nav, layout
+  data/
+    presentationActivitiesData.ts   -- All exercise data (fill-in-blanks, matching pairs, ordering, etc.)
+  components/
+    presentations/
+      FillInBlanks.tsx              -- Fill-in-the-blank with audio
+      DragDropCategorize.tsx        -- Drag phrases into categories  
+      MatchingExercise.tsx          -- Click-to-match two columns
+      OrderingExercise.tsx          -- Drag-to-reorder sentences
+      DragFillGaps.tsx              -- Drag words into sentence gaps
+      MultipleChoiceQuiz.tsx        -- Radio button quiz
+      WordOrderExercise.tsx         -- Drag words to form sentences
+      InfoSection.tsx               -- Static reference content sections
+```
+
+### Routing
+
+- Add lazy import in `App.tsx`: `const PresentationSkills = lazy(() => import("./pages/PresentationSkills"));`
+- Add protected route: `<Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />`
+
+---
+
+## Technical Notes
+
+- All exercise data (answers, phrases, sentence pairs) is extracted from the uploaded HTML's JavaScript and placed in a dedicated data file
+- Drag-and-drop will use the HTML5 Drag and Drop API (same approach as the source HTML), implemented via React event handlers
+- The hamburger navigation menu from the source HTML will be replaced by the site's existing `Navigation` component
+- External audio files (`https://johanka2014.github.io/presentations/*.mp3`) and images (`https://johanka2014.github.io/presentations/*.png`) will be referenced directly via URL
+- No new dependencies required
