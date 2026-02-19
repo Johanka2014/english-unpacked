@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Stethoscope, Heart, UtensilsCrossed, Home, Car, Pill, Briefcase, MessageCircle } from "lucide-react";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import dentistImg from "@/assets/dentist-visit.jpg";
 import doctorImg from "@/assets/doctor-appointment.jpg";
 import restaurantImg from "@/assets/restaurant-booking.jpg";

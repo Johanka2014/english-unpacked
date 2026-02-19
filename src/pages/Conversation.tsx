@@ -3,9 +3,9 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, Globe, Lightbulb, ExternalLink, BookOpen } from "lucide-react";
-import conversationImage from "@/assets/conversation.jpg";
+import conversationImage from "@/assets/conversation.webp";
 import smallTalkImage from "@/assets/small-talk.jpg";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 
 const ConversationalEnglish = () => {

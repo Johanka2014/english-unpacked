@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import { BookOpen, Lock, Clock, MessageSquare, ClipboardCheck, Image } from "lucide-react";
 import { useEffect } from "react";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
 import SEO from "@/components/SEO";
 import { maturitaTopics, type WarmUpCategory } from "@/data/maturitaTopics";

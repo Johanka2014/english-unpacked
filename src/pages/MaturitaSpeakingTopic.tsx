@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff, Image, Clock } from "lucide-react";
 import { useState } from "react";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 import { maturitaTopics } from "@/data/maturitaTopics";
 import Part2Tab from "@/components/maturita/Part2Tab";
