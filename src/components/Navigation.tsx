@@ -28,6 +28,7 @@ const Navigation = () => {
     { name: "Business English", href: "/business-english" },
     { name: "Conversational English", href: "/conversational-english" },
     { name: "Exam Preparation", href: "/exam-preparation" },
+    { name: "English for Kids", href: "/english-for-kids", isKids: true },
     { name: "About", href: "/#about" },
     { name: "Contact", href: "/#contact" }
   ];
@@ -57,7 +58,10 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="nav-link"
+                className={item.isKids 
+                  ? "bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-fredoka font-semibold px-4 py-1.5 rounded-full hover:from-yellow-500 hover:to-orange-500 transition-all duration-200 shadow-sm"
+                  : "nav-link"
+                }
               >
                 {item.name}
               </a>
@@ -122,7 +126,10 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="nav-link text-sm"
+                  className={item.isKids 
+                    ? "bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-fredoka font-semibold px-4 py-1.5 rounded-full text-center hover:from-yellow-500 hover:to-orange-500 transition-all duration-200 shadow-sm"
+                    : "nav-link text-sm"
+                  }
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

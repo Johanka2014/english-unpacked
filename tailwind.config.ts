@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				'pacifico': ['Pacifico', 'cursive'],
 				'merriweather': ['Merriweather', 'serif'],
+				'fredoka': ['Fredoka', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
