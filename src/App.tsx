@@ -20,6 +20,8 @@ const FceVocabPracticeWrapper = lazy(() => import("./pages/FceVocabPracticeWrapp
 const TenseMasterWrapper = lazy(() => import("./pages/TenseMasterWrapper"));
 const VerbPatternPractice = lazy(() => import("./pages/VerbPatternPractice"));
 const PrepositionsOfTimePractice = lazy(() => import("./pages/PrepositionsOfTimePractice"));
+const Prepositions = lazy(() => import("./pages/Prepositions"));
+const VerbAdjectivePrepositions = lazy(() => import("./pages/VerbAdjectivePrepositions"));
 const EverydayConversations = lazy(() => import("./pages/EverydayConversations"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -74,6 +76,8 @@ const App = () => (
               <Route path="/tense-master" element={<ProtectedRoute><TenseMasterWrapper /></ProtectedRoute>} />
               <Route path="/verb-pattern-practice" element={<ProtectedRoute><VerbPatternPractice /></ProtectedRoute>} />
               <Route path="/prepositions-of-time" element={<ProtectedRoute><PrepositionsOfTimePractice /></ProtectedRoute>} />
+              <Route path="/prepositions" element={<ProtectedRoute><Prepositions /></ProtectedRoute>} />
+              <Route path="/verb-adjective-prepositions" element={<ProtectedRoute><VerbAdjectivePrepositions /></ProtectedRoute>} />
               <Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
