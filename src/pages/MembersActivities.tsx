@@ -55,6 +55,13 @@ const grammarActivities = [
     path: '/verb-pattern-practice',
     color: 'text-emerald-600',
   },
+  {
+    title: 'Prepositions of Time',
+    description: 'Practice prepositions of time: on, in, at, from, to, past, till, by, since, for, ago and before',
+    icon: Clock,
+    path: '/prepositions-of-time',
+    color: 'text-amber-600',
+  },
 ];
 
 const maturitaActivities = [

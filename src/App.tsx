@@ -19,6 +19,7 @@ const CaeExamPracticeWrapper = lazy(() => import("./pages/CaeExamPracticeWrapper
 const FceVocabPracticeWrapper = lazy(() => import("./pages/FceVocabPracticeWrapper"));
 const TenseMasterWrapper = lazy(() => import("./pages/TenseMasterWrapper"));
 const VerbPatternPractice = lazy(() => import("./pages/VerbPatternPractice"));
+const PrepositionsOfTimePractice = lazy(() => import("./pages/PrepositionsOfTimePractice"));
 const EverydayConversations = lazy(() => import("./pages/EverydayConversations"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -72,6 +73,7 @@ const App = () => (
               <Route path="/insurance-vocabulary" element={<ProtectedRoute><InsuranceVocabulary /></ProtectedRoute>} />
               <Route path="/tense-master" element={<ProtectedRoute><TenseMasterWrapper /></ProtectedRoute>} />
               <Route path="/verb-pattern-practice" element={<ProtectedRoute><VerbPatternPractice /></ProtectedRoute>} />
+              <Route path="/prepositions-of-time" element={<ProtectedRoute><PrepositionsOfTimePractice /></ProtectedRoute>} />
               <Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
