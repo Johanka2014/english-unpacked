@@ -9,6 +9,7 @@ import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, ArrowRight, Home, CheckCircle, XCircle, PenLine, AlertTriangle, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { prepositionModules, type PrepositionModule } from '@/data/prepositionsOfTimeData';
+import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
 
 const PrepositionsOfTimePractice = () => {
   const [selectedUnit, setSelectedUnit] = useState<PrepositionModule | null>(null);
@@ -97,6 +98,12 @@ const PrepositionsOfTimePractice = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Interactive Dropdown Exercise */}
+          <div className="mt-12 max-w-6xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-4 text-center">Interactive Exercises</h2>
+            <PrepositionDropdownExercise />
           </div>
         </main>
         <Footer />
