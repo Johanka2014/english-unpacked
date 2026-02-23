@@ -99,12 +99,6 @@ const PrepositionsOfTimePractice = () => {
               </Card>
             ))}
           </div>
-
-          {/* Interactive Dropdown Exercise */}
-          <div className="mt-12 max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-foreground mb-4 text-center">Interactive Exercises</h2>
-            <PrepositionDropdownExercise />
-          </div>
         </main>
         <Footer />
       </div>
@@ -238,6 +232,9 @@ const PrepositionsOfTimePractice = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Extra dropdown exercise for Unit 1 (On, In, At) */}
+          {selectedUnit.id === 1 && <PrepositionDropdownExercise />}
         </div>
       </main>
       <Footer />
