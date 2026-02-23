@@ -68,7 +68,7 @@ const PrepositionsOfTimePractice = () => {
           <div className="mb-4 max-w-6xl mx-auto">
             <Link to="/prepositions">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
+                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Prepositions
               </Button>
             </Link>
           </div>
@@ -117,7 +117,7 @@ const PrepositionsOfTimePractice = () => {
         <div className="mb-4 max-w-6xl mx-auto">
           <Link to="/prepositions">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-              <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
+              <ArrowLeft className="h-4 w-4 mr-1" /> Back to Prepositions
             </Button>
           </Link>
         </div>
