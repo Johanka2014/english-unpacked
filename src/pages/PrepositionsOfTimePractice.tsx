@@ -10,6 +10,7 @@ import { ArrowLeft, ArrowRight, Home, CheckCircle, XCircle, PenLine, AlertTriang
 import { Link } from 'react-router-dom';
 import { prepositionModules, type PrepositionModule } from '@/data/prepositionsOfTimeData';
 import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
+import VerbPrepositionDropdownExercise from '@/components/VerbPrepositionDropdownExercise';
 
 const PrepositionsOfTimePractice = () => {
   const [selectedUnit, setSelectedUnit] = useState<PrepositionModule | null>(null);
@@ -235,6 +236,7 @@ const PrepositionsOfTimePractice = () => {
 
           {/* Extra dropdown exercise for Unit 1 (On, In, At) */}
           {selectedUnit.id === 1 && <PrepositionDropdownExercise />}
+          {selectedUnit.id === 8 && <VerbPrepositionDropdownExercise />}
         </div>
       </main>
       <Footer />
