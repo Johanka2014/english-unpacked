@@ -56,10 +56,10 @@ const grammarActivities = [
     color: 'text-emerald-600',
   },
   {
-    title: 'Prepositions of Time',
-    description: 'Practice prepositions of time: on, in, at, from, to, past, till, by, since, for, ago and before',
+    title: 'Prepositions',
+    description: 'Practice prepositions of time, and verb & adjective + preposition combinations',
     icon: Clock,
-    path: '/prepositions-of-time',
+    path: '/prepositions',
     color: 'text-amber-600',
   },
 ];

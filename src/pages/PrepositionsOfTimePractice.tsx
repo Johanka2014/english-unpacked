@@ -10,7 +10,6 @@ import { ArrowLeft, ArrowRight, Home, CheckCircle, XCircle, PenLine, AlertTriang
 import { Link } from 'react-router-dom';
 import { prepositionModules, type PrepositionModule } from '@/data/prepositionsOfTimeData';
 import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
-import VerbPrepositionDropdownExercise from '@/components/VerbPrepositionDropdownExercise';
 
 const PrepositionsOfTimePractice = () => {
   const [selectedUnit, setSelectedUnit] = useState<PrepositionModule | null>(null);
@@ -67,7 +66,7 @@ const PrepositionsOfTimePractice = () => {
         <Navigation />
         <main className="container mx-auto px-4 py-20">
           <div className="mb-4 max-w-6xl mx-auto">
-            <Link to="/members/activities?tab=grammar">
+            <Link to="/prepositions">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
               </Button>
@@ -116,7 +115,7 @@ const PrepositionsOfTimePractice = () => {
       <Navigation />
       <main className="container mx-auto px-4 py-20">
         <div className="mb-4 max-w-6xl mx-auto">
-          <Link to="/members/activities?tab=grammar">
+          <Link to="/prepositions">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               <ArrowLeft className="h-4 w-4 mr-1" /> Back to Practice Activities
             </Button>
@@ -236,7 +235,6 @@ const PrepositionsOfTimePractice = () => {
 
           {/* Extra dropdown exercise for Unit 1 (On, In, At) */}
           {selectedUnit.id === 1 && <PrepositionDropdownExercise />}
-          {selectedUnit.id === 8 && <VerbPrepositionDropdownExercise />}
         </div>
       </main>
       <Footer />
