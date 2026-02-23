@@ -57,6 +57,16 @@ const grammarActivities = [
   },
 ];
 
+const maturitaActivities = [
+  {
+    title: 'Maturita Speaking Practice',
+    description: 'Master all 28 maturita speaking topics with structured learning, sample sentences, and official exam practice',
+    icon: GraduationCap,
+    path: '/maturita-speaking',
+    color: 'text-red-600',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
@@ -103,10 +113,11 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="vocabulary">Vocabulary Practice</TabsTrigger>
-            <TabsTrigger value="cambridge">Cambridge Exams</TabsTrigger>
-            <TabsTrigger value="grammar">Grammar Practice</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
+            <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
+            <TabsTrigger value="grammar">Grammar</TabsTrigger>
+            <TabsTrigger value="maturita">Maturita</TabsTrigger>
           </TabsList>
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
@@ -116,6 +127,9 @@ const MembersActivities = () => {
           </TabsContent>
           <TabsContent value="grammar">
             <ActivityGrid activities={grammarActivities} />
+          </TabsContent>
+          <TabsContent value="maturita">
+            <ActivityGrid activities={maturitaActivities} />
           </TabsContent>
         </Tabs>
       </main>

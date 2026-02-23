@@ -1,14 +1,19 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, CheckCircle, ExternalLink, Timer, Target, Clock } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { BookOpen, CheckCircle, ExternalLink, Timer, Target, Clock, Lock, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import examPrepTextbooks from "@/assets/textbooks.png";
 import onlineExamPractice from "@/assets/online-exam-practice.jpg";
 import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
 import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
+import { maturitaTopics } from "@/data/maturitaTopics";
+
+const PREVIEW_TOPIC_IDS = ["environment", "medical-care", "course-of-life", "social-issues"];
+const previewTopics = maturitaTopics.filter(t => PREVIEW_TOPIC_IDS.includes(t.id));
 
 const ExamPreparation = () => {
   const schema = {
@@ -191,23 +196,13 @@ const ExamPreparation = () => {
                 Maturita Speaking Practice
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Preparing for the maturita speaking exam? Explore all 28 topics with structured learning materials, 
+                Preparing for the maturita speaking exam? Explore selected topics with structured learning materials, 
                 sample questions and answers, and official exam practice tasks.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 Each topic includes vocabulary, model answers, and realistic exam simulations to help you feel 
                 confident and prepared on exam day.
               </p>
-              <Button
-                size="lg"
-                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-                asChild
-              >
-                <Link to="/maturita-speaking">
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Explore Maturita Topics
-                </Link>
-              </Button>
             </div>
 
             <div>
@@ -220,6 +215,79 @@ const ExamPreparation = () => {
                   />
                 </CardContent>
               </Card>
+            </div>
+          </div>
+
+          {/* Filtered Topic Preview Grid */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6 font-merriweather text-center">
+              Preview Topics
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {previewTopics.map((topic) =>
+                topic.available ? (
+                  <Link key={topic.id} to={`/maturita-speaking/${topic.id}`}>
+                    <Card className="service-card h-full cursor-pointer group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={topic.thumbnail || maturitaExamHall}
+                          alt={topic.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
+                          <BookOpen className="w-5 h-5 text-white" />
+                        </div>
+                        <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
+                      </div>
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
+                          {topic.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription>{topic.description}</CardDescription>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ) : (
+                  <Card key={topic.id} className="h-full opacity-60 cursor-default overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-muted">
+                      <img
+                        src={topic.thumbnail || maturitaExamHall}
+                        alt={topic.title}
+                        className="w-full h-full object-cover opacity-50"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute top-4 left-4 bg-muted-foreground/50 p-3 rounded-full">
+                        <Lock className="w-5 h-5 text-white" />
+                      </div>
+                      <Badge variant="secondary" className="absolute top-4 right-4">Coming Soon</Badge>
+                    </div>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-lg">{topic.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>{topic.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                )
+              )}
+            </div>
+
+            <div className="text-center mt-8">
+              <Button
+                size="lg"
+                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                asChild
+              >
+                <Link to="/auth">
+                  <LogIn className="w-5 h-5 mr-2" />
+                  Login to see more topics
+                </Link>
+              </Button>
             </div>
           </div>
 
