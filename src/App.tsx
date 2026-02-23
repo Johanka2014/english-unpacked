@@ -32,6 +32,7 @@ const InsuranceVocabulary = lazy(() => import("./pages/InsuranceVocabulary"));
 const MaturitaSpeaking = lazy(() => import("./pages/MaturitaSpeaking"));
 const MaturitaSpeakingTopic = lazy(() => import("./pages/MaturitaSpeakingTopic"));
 const PresentationSkills = lazy(() => import("./pages/PresentationSkills"));
+const EnglishForKids = lazy(() => import("./pages/EnglishForKids"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => (
               <Route path="/everyday-conversations" element={<EverydayConversations />} />
               <Route path="/maturita-speaking" element={<MaturitaSpeaking />} />
               <Route path="/maturita-speaking/:topicId" element={<MaturitaSpeakingTopic />} />
+              <Route path="/english-for-kids" element={<EnglishForKids />} />
               
               {/* Protected Routes */}
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
