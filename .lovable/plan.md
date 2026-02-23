@@ -1,113 +1,85 @@
-# English for Presentations - Implementation Plan
+
+
+# English for Kids - New Section
 
 ## Overview
 
-This plan covers two changes:
-
-1. Replace the "Interactive Learning Activities" banner on the Business English page with a new "English for Presentations" banner
-2. Create a new `/presentations` page by converting your uploaded HTML into a React component that follows the color scheme of the English Unpacked and the layout conventions
+Add a new "English for Kids" section to the website with a child-friendly font, a colourful navigation item, a dedicated page with hero section, Cambridge Starters/Movers/Flyers information, and three horizontal tiles for Speaking, Reading, and Listening.
 
 ---
 
-## Part 1: Update the Business English Page
+## Part 1: Add a Child-Friendly Font
 
-Replace the current "Interactive Learning Activities" section (lines 175-241 in `BusinessEnglish.tsx`) with an "English for Presentations" section:
-
-- New heading: "English for Presentations"
-- New description text about mastering presentation skills (welcoming audiences, structuring talks, attention-grabbing openings, dealing with nervousness)
-- Button linking to `/presentations` with a "Presentation" icon
-- Keep the same two-column layout with image on one side, text on the other
-  &nbsp;
-- Use the existing `businessVocabAppImage` as a placeholder or reference one of the presentation images from the external source
+Add the Google Font **"Fredoka"** (a rounded, playful font ideal for children's content) to the existing font loading in `index.html` and register it in `tailwind.config.ts` as `font-fredoka`.
 
 ---
 
-## Part 2: Create the Presentations Page
+## Part 2: Update Navigation
 
-Create a new page at `src/pages/PresentationSkills.tsx` as a protected route at `/presentations`.
-
-### Structure
-
-The page will follow the same pattern as `BusinessTravel.tsx`:
-
-- Navigation + Footer wrapper
-- Hero section with the site's hero background image
-- SEO component with structured data
-- All 20+ activity sections converted from vanilla HTML/JS to React components
-
-### Activity Types to Convert
-
-The uploaded HTML contains these interactive exercises, all converted to React with `useState`/`useRef`:
-
-1. **Starter** - Discussion questions with image (static content)
-2. **Fill-in-the-Blanks** - Text inputs with audio players, check answers button
-3. **Drag-and-Drop Categorization** - Phrases dragged into category zones
-4. **Formal vs. Informal Matching** - Click-to-match two columns
-5. **Ordering an Introduction** - Drag sentences into correct order
-6. **Structuring Info (1)** - Static reference content (grammar patterns)
-7. **Sentence Completion** - Click-to-match sentence starts with ends
-8. **Structuring Info (2)** - Static reference content with image
-9. **Structuring Activity (3)** - Drag words into sentence gaps
-10. **Prepositions Practice** - Drag prepositions into gaps
-11. **Listening and Ordering** - Audio + drag to reorder
-12. **Point Ordering** - Drag points into order
-13. **Replacing Phrases** - Drag replacement words into gaps
-14. **Organization Info** - Static reference (timing, handouts, questions)
-15. **Matching Sentences** - Click-to-match sentence halves
-16. **Listening Completion** - Audio + fill-in-the-blank inputs
-17. **Attention-Grabbing Openings** - Three-column matching
-18. **Attention Grabbers Quiz** - Multiple choice radio buttons
-19. **Word Order Practice** - Drag words to form sentences
-20. **Checklist** - Static checklist for introductions
-21. **Dealing with Nervousness** - Reading comprehension + discussion questions
-
-### Design Adaptation
-
-All activities will use the site's design system:
-
-- `Card` and `CardContent` components for activity containers (replacing the brown `activity-card` style)
-- Brand colors: `brand-royal`, `brand-navy` instead of brown tones
-- `Button` component with `bg-brand-royal hover:bg-brand-navy` for check buttons
-- Correct answers: green borders/backgrounds
-- Incorrect answers: red borders/backgrounds
-- Alternating section backgrounds: white and `bg-gradient-to-b from-blue-50 to-white`
-- `font-merriweather` for headings
-- Audio players reference the external GitHub-hosted MP3 files
-- Images reference the external GitHub-hosted PNG files
-
-### File Structure
-
-Due to the complexity (20+ activities), the code will be split:
-
-```text
-src/
-  pages/
-    PresentationSkills.tsx          -- Main page with hero, nav, layout
-  data/
-    presentationActivitiesData.ts   -- All exercise data (fill-in-blanks, matching pairs, ordering, etc.)
-  components/
-    presentations/
-      FillInBlanks.tsx              -- Fill-in-the-blank with audio
-      DragDropCategorize.tsx        -- Drag phrases into categories  
-      MatchingExercise.tsx          -- Click-to-match two columns
-      OrderingExercise.tsx          -- Drag-to-reorder sentences
-      DragFillGaps.tsx              -- Drag words into sentence gaps
-      MultipleChoiceQuiz.tsx        -- Radio button quiz
-      WordOrderExercise.tsx         -- Drag words to form sentences
-      InfoSection.tsx               -- Static reference content sections
-```
-
-### Routing
-
-- Add lazy import in `App.tsx`: `const PresentationSkills = lazy(() => import("./pages/PresentationSkills"));`
-- Add protected route: `<Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />`
+Add a new nav item "English for Kids" to `Navigation.tsx` with special styling:
+- A colourful background pill/badge (e.g., a warm yellow/orange gradient: `bg-gradient-to-r from-yellow-400 to-orange-400`) with rounded corners and white text
+- Use the `font-fredoka` font for this specific nav item to make it visually distinct
+- The same treatment applies in both desktop and mobile navigation
+- Links to `/english-for-kids`
 
 ---
 
-## Technical Notes
+## Part 3: Create the English for Kids Page
 
-- All exercise data (answers, phrases, sentence pairs) is extracted from the uploaded HTML's JavaScript and placed in a dedicated data file
-- Drag-and-drop will use the HTML5 Drag and Drop API (same approach as the source HTML), implemented via React event handlers
-- The hamburger navigation menu from the source HTML will be replaced by the site's existing `Navigation` component
-- External audio files (`https://johanka2014.github.io/presentations/*.mp3`) and images (`https://johanka2014.github.io/presentations/*.png`) will be referenced directly via URL
-- No new dependencies required
+Create `src/pages/EnglishForKids.tsx` following the same layout pattern as `BusinessEnglish.tsx` and `ExamPreparation.tsx`:
+
+### Hero Section
+- Same full-screen hero with the existing `hero-background.webp` image
+- Title "English for Kids" using `font-fredoka` instead of `font-merriweather`
+- Subtitle about making learning English fun and exciting for young learners
+- "Book a Free Consultation" CTA button
+
+### Cambridge Young Learners Section
+- Two-column layout (image left, text right) matching the site's pattern
+- Image from `https://johanka2014.github.io/get_ready_for_starters/cambridge_levels_kids.jpg`
+- Heading: "Cambridge Starters, Movers & Flyers"
+- Description text about preparing children for Cambridge Young Learners exams across all three levels
+- CTA button to book a consultation
+
+### Three Horizontal Tiles
+Following the same card pattern as `ServicesSection.tsx` (three `service-card` tiles in a grid):
+
+1. **Speaking** - Icon + title + description about building confidence in spoken English through games, role-plays, and interactive activities
+2. **Reading** - Icon + title + description about developing reading skills with age-appropriate stories and exercises
+3. **Listening** - Icon + title + description about improving listening comprehension through songs, stories, and audio activities
+
+Each tile uses the existing `Card`/`service-card` styling with `brand-royal` icons.
+
+### Call to Action Section
+- Same dark hero-background CTA section used on other pages
+- "Ready to Start Your Child's English Journey?" heading
+- Book consultation button
+
+---
+
+## Part 4: Routing
+
+- Add lazy import in `App.tsx`: `const EnglishForKids = lazy(() => import("./pages/EnglishForKids"));`
+- Add public route: `<Route path="/english-for-kids" element={<EnglishForKids />} />`
+
+---
+
+## Files to Create/Edit
+
+| File | Action |
+|---|---|
+| `index.html` | Add Fredoka font to the Google Fonts preload URL |
+| `tailwind.config.ts` | Register `font-fredoka` in fontFamily |
+| `src/components/Navigation.tsx` | Add "English for Kids" nav item with colourful badge styling |
+| `src/pages/EnglishForKids.tsx` | New page with hero, Cambridge section, three tiles, CTA |
+| `src/App.tsx` | Add lazy import and route for `/english-for-kids` |
+
+---
+
+## Design Details
+
+- The "English for Kids" nav item will stand out with a colourful gradient background (`from-yellow-400 to-orange-400`), rounded-full padding, white bold text, and `font-fredoka`
+- On the Kids page itself, headings use `font-fredoka` instead of `font-merriweather` to maintain the playful feel
+- All other styling (cards, buttons, colours, layout) follows the existing site design system
+- The Cambridge levels image is loaded from the external URL, not downloaded as a local asset
+
