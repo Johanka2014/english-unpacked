@@ -1,70 +1,56 @@
 
 
-# Prepositions of Time Practice - Implementation Plan
+# Add Verbs and Adjectives + Prepositions Section
 
 ## Overview
 
-Add a new "Prepositions of Time" grammar practice module following the exact same pattern as the Verb Pattern Practice (data file + practice page + tile + route).
+Add a new Unit 8 to the Prepositions practice module covering verb/adjective + preposition combinations, with both a fill-in-the-blank quiz (existing pattern) and a dropdown exercise.
 
 ---
 
-## Part 1: Create the Data File
+## Changes
 
-**New file: `src/data/prepositionsOfTimeData.ts`**
+### 1. Add Unit 8 to Data File
 
-A data file with the same structure as `verbPatternData.ts` containing modules for each preposition group:
+**File: `src/data/prepositionsOfTimeData.ts`**
 
-| Module | Title | Subtitle | Content |
-|---|---|---|---|
-| 1 | On, In, At | days, months, times | on Monday, in June, at 6 o'clock, at night, at the weekend |
-| 2 | From ... To / Till / Until | time ranges | from Monday to Friday, until 5 o'clock |
-| 3 | Past | after a point in time | past midnight, half past two |
-| 4 | By | no later than | by Friday, by 6 o'clock, by the time... |
-| 5 | Since and For | duration vs. starting point | since 2010, for three years |
-| 6 | Ago | looking back from now | two days ago, a long time ago |
-| 7 | Before / Prior To | earlier than | before lunch, prior to the meeting |
+Add a new module to the `prepositionModules` array:
 
-Each module will have:
-- An `explanation` array with rules and examples
-- An optional `tip` (info/warning)
-- 10 fill-in-the-blank `questions` with correct answers
+- **id**: 8
+- **title**: "Verbs & Adjectives + Prepositions"
+- **subtitle**: "talk about/to, wait for, agree with, work in/for/as, apply for/to"
+- **explanation**: Rules covering all the verb + preposition combinations the user listed:
+  - talk about (topics) vs talk to (people)
+  - wait for, agree with, ask for, borrow from
+  - write for (purpose) vs write to (person)
+  - listen to, pay for
+  - work in (inside a company) vs work for (employed by) vs work as (role)
+  - apply for (a job) vs apply to (a company)
+- **tip**: Info tip highlighting the most common confusions
+- **questions**: 10 fill-in-the-blank sentences testing all the prepositions (about, to, for, with, from, in, as)
 
----
+### 2. Add Dropdown Exercise for Unit 8
 
-## Part 2: Create the Practice Page
+**New file: `src/components/VerbPrepositionDropdownExercise.tsx`**
 
-**New file: `src/pages/PrepositionsOfTimePractice.tsx`**
+A dropdown exercise component (same structure as `PrepositionDropdownExercise.tsx`) with:
 
-A direct copy of the `VerbPatternPractice.tsx` structure:
-- Dashboard view: grid of module cards, each showing the preposition group title and subtitle
-- Unit detail view: explanation panel + quiz panel with text inputs, check/reset, score display
-- "Back to Practice Activities" link pointing to `/members/activities?tab=grammar`
-- Badge label: "Grammar Practice"
-- Heading: "Prepositions of Time"
-- Same styling (gradients, brand colours, progress bar)
+- **OPTIONS**: `['about', 'to', 'for', 'with', 'from', 'in', 'as']`
+- **10 sentences** using the verb+preposition combinations, e.g.:
+  - "Can we talk ______ the project?" (about)
+  - "I need to talk ______ my manager." (to)
+  - "She works ______ a large company." (for)
+  - "He works ______ a software engineer." (as)
+  - "I applied ______ the marketing position." (for)
+  - "She applied ______ that university." (to)
+  - etc.
 
----
+### 3. Show Dropdown Exercise in Unit 8
 
-## Part 3: Add Tile to Grammar Section
+**File: `src/pages/PrepositionsOfTimePractice.tsx`**
 
-**Edit: `src/pages/MembersActivities.tsx`**
-
-Add a third entry to the `grammarActivities` array:
-
-- Title: "Prepositions of Time"
-- Description: "Practice prepositions of time: on, in, at, from, to, past, till, by, since, for, ago and before"
-- Icon: `Clock` (already imported) or a new icon like `CalendarClock`
-- Path: `/prepositions-of-time`
-- Colour: `text-amber-600`
-
----
-
-## Part 4: Add Route
-
-**Edit: `src/App.tsx`**
-
-- Add lazy import: `const PrepositionsOfTimePractice = lazy(() => import("./pages/PrepositionsOfTimePractice"));`
-- Add protected route: `<Route path="/prepositions-of-time" element={<ProtectedRoute><PrepositionsOfTimePractice /></ProtectedRoute>} />`
+- Import the new `VerbPrepositionDropdownExercise` component
+- Add conditional rendering: `{selectedUnit.id === 8 && <VerbPrepositionDropdownExercise />}` alongside the existing Unit 1 condition
 
 ---
 
@@ -72,10 +58,9 @@ Add a third entry to the `grammarActivities` array:
 
 | File | Action |
 |---|---|
-| `src/data/prepositionsOfTimeData.ts` | Create - all exercise data |
-| `src/pages/PrepositionsOfTimePractice.tsx` | Create - practice page (mirrors VerbPatternPractice) |
-| `src/pages/MembersActivities.tsx` | Edit - add tile to grammarActivities array |
-| `src/App.tsx` | Edit - add lazy import and protected route |
+| `src/data/prepositionsOfTimeData.ts` | Edit - add module 8 |
+| `src/components/VerbPrepositionDropdownExercise.tsx` | Create - dropdown exercise |
+| `src/pages/PrepositionsOfTimePractice.tsx` | Edit - import and render new dropdown for unit 8 |
 
-No new dependencies required.
+No new dependencies or routes needed.
 
