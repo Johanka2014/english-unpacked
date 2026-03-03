@@ -195,6 +195,140 @@ const topic1Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 2 content ────────────────────────────────────────────────────
+
+const topic2Theory: TheorySection[] = [
+  {
+    heading: 'A – Old and new ways',
+    content: `<em>'I'm an office worker in an insurance company. It's a <strong>nine-to-five job</strong> with <strong>regular working hours</strong>. The work isn't very interesting, but I like to be able to go home at a reasonable time.'</em>
+
+<em>'We all have to <strong>clock in</strong> and <strong>clock out</strong> every day. In this company, even the managers have to, which is unusual!'</em>
+<br/><small>Note: You also say <strong>clock on</strong> and <strong>clock off</strong>.</small>
+
+<em>'I'm in computer programming. There's a system of <strong>flexitime</strong> in my company, which means we can work when we want, within certain limits. We can start at any time before eleven, and finish as early as three, as long as we do enough hours each month. It's ideal for me as I have two young children.'</em>
+
+<em>'I work in a car plant. I <strong>work in shifts</strong>. I may be on the <strong>day shift</strong> one week and the <strong>night shift</strong> the next week. It's difficult changing from one shift to another.'</em>
+
+<em>'I'm a commercial artist in an advertising agency. I work in a big city, but I prefer living in the country, so I <strong>commute</strong> to work every day, like thousands of other <strong>commuters</strong>. Working from home using a computer and the Internet is called <strong>teleworking</strong> or <strong>telecommuting</strong>.'</em>`,
+  },
+  {
+    heading: 'B – Nice work if you can get it',
+    content: `All these words are used in front of <strong>'job'</strong> and <strong>'work'</strong>:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>satisfying, stimulating, fascinating, exciting</strong> – the work is interesting and gives you positive feelings.</li>
+<li><strong>dull, boring, uninteresting, unstimulating</strong> – the work is not interesting.</li>
+<li><strong>repetitive, routine</strong> – the work involves doing the same things again and again.</li>
+<li><strong>tiring, tough, hard, demanding</strong> – the work is difficult and makes you tired.</li>
+</ul>`,
+  },
+  {
+    heading: 'C – Nature of work',
+    content: `You can describe what your work involves using: <strong>My work involves...</strong>
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li>human contact</li>
+<li>long hours</li>
+<li>team work</li>
+<li>solving problems</li>
+<li>travelling a lot</li>
+<li>dealing with customers</li>
+</ul>`,
+  },
+];
+
+const topic2Practice: PracticeExercise[] = [
+  {
+    id: '2.1',
+    title: 'Exercise 2.1 – Match people to work patterns',
+    instruction: 'Which person (1–5) is most likely to do each of the five things (a–e)? Write the letter.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'A software designer in an Internet company. Has to be in the office. → works under a ___ system', answer: 'flexitime', hint: '1 → b' },
+      { id: 2, prompt: 'An office worker in a large, traditional manufacturing company. → clocks ___ and off at the same time every day', answer: 'on', hint: '2 → e' },
+      { id: 3, prompt: 'A manager in a department store in a large city. Lives in the country. → ___ to work', answer: 'commutes', hint: '3 → d' },
+      { id: 4, prompt: 'A construction worker on a building site where work goes on 24 hours a day. → works in ___', answer: 'shifts', hint: '4 → a' },
+      { id: 5, prompt: 'A technical writer for a city computer company. Lives in the country. → ___', answer: 'telecommutes', hint: '5 → c' },
+    ],
+  },
+  {
+    id: '2.2',
+    title: 'Exercise 2.2 – Correct grammatical forms',
+    instruction: 'Put the words in brackets into the correct grammatical form for each person describing their job.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Flight attendant: "My work involves (travel) a lot." →', answer: 'travelling' },
+      { id: 2, prompt: 'Flight attendant: "It can be quite physically (tire)." →', answer: 'tiring' },
+      { id: 3, prompt: 'Flight attendant: "I enjoy (deal) with customers." →', answer: 'dealing' },
+      { id: 4, prompt: 'Accountant: "I like (work) with figures." →', answer: 'working' },
+      { id: 5, prompt: 'Accountant: "My job is much less (bore) than people think." →', answer: 'boring' },
+      { id: 6, prompt: 'Accountant: "The work (involve) a lot of human contact." →', answer: 'involves' },
+      { id: 7, prompt: 'Software developer: "The work can be mentally (tire)." →', answer: 'tiring' },
+      { id: 8, prompt: 'Teacher: "It is very (stimulate) and not at all (repeat)." → stimulating and', answer: 'repetitive' },
+    ],
+  },
+];
+
+const topic2Test: TestExercise[] = [
+  {
+    id: '2.1',
+    title: 'Test 2.1 – Make word pairs',
+    instruction: 'Match each word on the left with a word on the right to make a common word pair.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'physically ___', answer: 'demanding' },
+      { id: 2, prompt: 'human ___', answer: 'contact' },
+      { id: 3, prompt: 'problem ___', answer: 'solving' },
+      { id: 4, prompt: 'day ___', answer: 'shift' },
+      { id: 5, prompt: 'team ___', answer: 'work' },
+      { id: 6, prompt: 'clock ___', answer: 'on' },
+      { id: 7, prompt: 'working ___', answer: 'hours' },
+    ],
+  },
+  {
+    id: '2.2',
+    title: 'Test 2.2 – Classify the work type',
+    instruction: 'Decide whether each statement describes regular office work (OW), teleworking (TW) or shift work (SW).',
+    type: 'classify',
+    items: [
+      { id: 1, prompt: 'I work from 10 at night till 6 in the morning for four weeks, then I switch to days.', answer: 'SW' },
+      { id: 2, prompt: "We turned one of the bedrooms into an office and that's where I do all my work.", answer: 'TW' },
+      { id: 3, prompt: "When I'm working nights, it's really difficult to sleep during the day.", answer: 'SW' },
+      { id: 4, prompt: 'Some people find the 9-to-5 routine boring, but I like working with other people.', answer: 'OW' },
+      { id: 5, prompt: "I clock in at 8.55 every day and I'm at my desk till 5 pm.", answer: 'OW' },
+      { id: 6, prompt: "The difficult thing is that my home is my office so I'm there 24 hours a day.", answer: 'TW' },
+    ],
+  },
+  {
+    id: '2.3',
+    title: 'Test 2.3 – Choose the best word',
+    instruction: 'Choose the best word from the options to fill each gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'We have a ___ system, but everyone must be here between 10 and 2.', answer: 'flexitime' },
+      { id: 2, prompt: 'I work from ___ and simply send my work over the Internet.', answer: 'home' },
+      { id: 3, prompt: 'I just sit in front of a computer all day, but this work is mentally ___.', answer: 'tiring' },
+      { id: 4, prompt: 'This is the most ___ job I have ever had. There is never a boring minute.', answer: 'stimulating' },
+      { id: 5, prompt: 'We all look forward to 5.30 because then we can ___ off for the day.', answer: 'clock' },
+      { id: 6, prompt: 'The 7.30 train to London is always full of ___.', answer: 'commuters' },
+    ],
+  },
+  {
+    id: '2.4',
+    title: 'Test 2.4 – Write the opposite',
+    instruction: 'For each word, write one word which means the opposite.',
+    type: 'word-form',
+    items: [
+      { id: 1, prompt: 'easy → ___', answer: 'hard' },
+      { id: 2, prompt: 'interesting → ___', answer: 'boring' },
+      { id: 3, prompt: 'varied → ___', answer: 'routine' },
+      { id: 4, prompt: 'dull → ___', answer: 'exciting' },
+      { id: 5, prompt: 'unstimulating → ___', answer: 'fascinating' },
+      { id: 6, prompt: 'undemanding → ___', answer: 'tough' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -206,7 +340,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
     image: jobInterviewImg,
     topics: [
       { id: 'work-and-jobs', number: 1, title: 'Work and Jobs', subtopics: ['A What do you do?', 'B Word combinations with "work"', 'C Types of job and types of work'], theory: topic1Theory, practice: topic1Practice, test: topic1Test },
-      { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Teleworking', 'C Flexibility'] },
+      { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Nice work if you can get it', 'C Nature of work'], theory: topic2Theory, practice: topic2Practice, test: topic2Test },
       { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'] },
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'] },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Salaries and wages', 'B Benefits', 'C Compensation'] },
