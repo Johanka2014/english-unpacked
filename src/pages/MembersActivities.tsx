@@ -8,10 +8,10 @@ import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine } from 'luci
 
 const vocabularyActivities = [
   {
-    title: 'Business Vocabulary Practice',
-    description: 'Master essential business English vocabulary with interactive exercises',
+    title: 'Business Vocabulary',
+    description: 'Master essential business English vocabulary across 47 topics with theory, practice and tests',
     icon: BookOpen,
-    path: '/business-vocab-app',
+    path: '/business-vocabulary',
     color: 'text-blue-600',
   },
   {
