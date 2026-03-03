@@ -1,67 +1,104 @@
 
 
-# Restructure: Prepositions Hub Page
+# Business Vocabulary Section -- Framework Plan
 
 ## Overview
 
-Replace the current "Prepositions of Time" tile in the Grammar tab with a single "Prepositions" tile that links to a new hub page. The hub page contains two cards: one for Prepositions of Time (units 1-7) and one for Verbs & Adjectives + Prepositions. Unit 8 and its dropdown exercise are removed from the Prepositions of Time page and placed in their own dedicated page.
+Build a new "Business Vocabulary" section behind the login wall, structured as a three-level hierarchy:
+
+1. **Hub page** (`/business-vocabulary`) -- Section tiles (e.g. "People and Work", "Marketing", etc.)
+2. **Section page** (`/business-vocabulary/:sectionId`) -- Topic tiles within that section (e.g. "Work and Jobs", "Ways of Working")
+3. **Topic page** (`/business-vocabulary/:sectionId/:topicId`) -- Three tiles: "Theory", "Practice", "Tests"
+
+Each level uses the Everyday Conversations card style: image with gradient overlay, hover-zoom, icon badge.
+
+For the initial framework, we will build out the full structure with placeholder content for all sections/topics, and fully flesh out Topic 1 ("Work and Jobs") with the Theory, Practice, and Test content from the uploaded PDFs.
 
 ---
 
-## Changes
+## Textbook Structure (from contents page)
 
-### 1. Replace Grammar tile
+Based on the contents, the book groups into these sections:
 
-**File: `src/pages/MembersActivities.tsx`**
-
-- Change the existing "Prepositions of Time" entry in `grammarActivities` to:
-  - Title: "Prepositions"
-  - Description: "Practice prepositions of time, and verb & adjective + preposition combinations"
-  - Path: `/prepositions` (new hub page)
-  - Keep `Clock` icon and `text-amber-600` colour
-
-### 2. Create Prepositions hub page
-
-**New file: `src/pages/Prepositions.tsx`**
-
-A simple page with Navigation, Footer, a "Back to Practice Activities" link (to `/members/activities?tab=grammar`), and two activity cards:
-
-| Card | Path |
+| Section | Topics |
 |---|---|
-| Prepositions of Time | `/prepositions-of-time` |
-| Verbs & Adjectives + Prepositions | `/verb-adjective-prepositions` |
+| **People and Work** | 1 Work and jobs, 2 Ways of working, 3 Recruitment and selection, 4 Skills and qualifications, 5 Pay and benefits, 6 People and workplaces, 7 The career ladder, 8 Problems at work, 9 Businesspeople and business leaders |
+| **Company Structure** | 10 Organizations 1, 11 Organizations 2, 12 Manufacturing and services |
+| **Production** | 13 Innovation and invention, 14 Making things, 15 Materials and suppliers, 16 Business philosophies |
+| **Marketing** | 17 Buyers, sellers and the market, 18 Markets and competitors, 19 Marketing and market orientation, 20 Products and brands, 21 Price, 22 Place, 23 Promotion, 24 The Internet and e-commerce |
+| **Money** | 25 Sales and costs, 26 Profitability and unprofitability, 27 Getting paid, 28 Assets, liabilities and the balance sheet, 29 The bottom line, 30 Share capital and debt, 31 Personal finance, 32 Financial centres, 33 Trading, 34 Indicators 1, 35 Indicators 2 |
+| **Doing the Right Thing** | 36 Wrongdoing and corruption, 37 Ethics |
+| **Business Skills** | 38 Time and time management, 39 Stress and stress management, 40 Leadership and management styles, 41 Culture |
+| **Communication** | 42 Telephoning 1-3, 43 Emails, 44 Faxes, 45 Meetings 1-5, 46 Presentations 1-2, 47 Negotiations 1-5 |
 
-### 3. Separate Unit 8 data
+---
 
-**File: `src/data/prepositionsOfTimeData.ts`**
+## Technical Plan
 
-- Remove module with `id: 8` from the `prepositionModules` array
-- Export it separately as `verbAdjectivePrepositionModule`
+### 1. Data file: `src/data/businessVocabularyData.ts`
 
-### 4. Clean up Prepositions of Time page
+Export a typed structure:
 
-**File: `src/pages/PrepositionsOfTimePractice.tsx`**
+```typescript
+interface BusinessVocabTopic {
+  id: string;
+  number: number;
+  title: string;
+  subtopics: string[];  // e.g. ["A What do you do?", "B Word combinations with 'work'"]
+  theory?: { ... };     // content for Theory tab (populated per topic)
+  practice?: { ... };   // content for Practice tab
+  test?: { ... };       // content for Test tab
+}
 
-- Remove the `VerbPrepositionDropdownExercise` import
-- Remove the `{selectedUnit.id === 8 && <VerbPrepositionDropdownExercise />}` line
-- Change "Back to Practice Activities" link from `/members/activities?tab=grammar` to `/prepositions`
+interface BusinessVocabSection {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;         // lucide icon name
+  image: string;        // placeholder initially
+  topics: BusinessVocabTopic[];
+}
+```
 
-### 5. Create Verb & Adjective Prepositions page
+All sections and topics defined with metadata. Only Topic 1 (Work and Jobs) will have full theory/practice/test content initially.
 
-**New file: `src/pages/VerbAdjectivePrepositions.tsx`**
+### 2. Hub page: `src/pages/BusinessVocabulary.tsx`
 
-A single-unit practice page (no dashboard grid needed since there is only one unit) showing:
-- Explanation panel with rules from `verbAdjectivePrepositionModule`
-- Fill-in-the-blank quiz (same pattern as PrepositionsOfTimePractice unit detail)
-- The `VerbPrepositionDropdownExercise` dropdown exercise below the quiz
-- "Back" link pointing to `/prepositions`
+- Navigation + Footer
+- Hero banner (similar to Everyday Conversations style)
+- Grid of section cards with images, gradient overlays, hover-zoom
+- Each card links to `/business-vocabulary/:sectionId`
+- Back link to `/members/activities?tab=vocabulary`
 
-### 6. Add routes
+### 3. Section page: `src/pages/BusinessVocabularySection.tsx`
 
-**File: `src/App.tsx`**
+- Reads `:sectionId` from URL params
+- Displays topic tiles in the same card style
+- Each card links to `/business-vocabulary/:sectionId/:topicId`
+- Back link to `/business-vocabulary`
 
-- Add lazy imports for `Prepositions` and `VerbAdjectivePrepositions`
-- Add two protected routes: `/prepositions` and `/verb-adjective-prepositions`
+### 4. Topic page: `src/pages/BusinessVocabularyTopic.tsx`
+
+- Reads `:sectionId` and `:topicId` from URL params
+- Shows three large tiles: "Theory", "Practice", "Tests"
+- Each tile opens an expandable section or tab on the same page
+- For Topic 1, includes:
+  - **Theory**: The textbook explanations (sections A, B, C) formatted as styled content
+  - **Practice**: Exercises 1.1, 1.2, 1.3 as interactive fill-in-the-blank
+  - **Tests**: Exercises 1.1-1.4 from the test book as interactive quizzes
+- For other topics: "Coming soon" placeholder
+- Back link to the section page
+
+### 5. Routes: `src/App.tsx`
+
+Add three lazy-loaded protected routes:
+- `/business-vocabulary`
+- `/business-vocabulary/:sectionId`
+- `/business-vocabulary/:sectionId/:topicId`
+
+### 6. Members Activities: `src/pages/MembersActivities.tsx`
+
+Update the existing "Business Vocabulary Practice" tile in `vocabularyActivities` to point to `/business-vocabulary` instead of `/business-vocab-app`.
 
 ---
 
@@ -69,12 +106,12 @@ A single-unit practice page (no dashboard grid needed since there is only one un
 
 | File | Action |
 |---|---|
-| `src/pages/MembersActivities.tsx` | Edit - change tile to "Prepositions" pointing to `/prepositions` |
-| `src/pages/Prepositions.tsx` | Create - hub page with two cards |
-| `src/data/prepositionsOfTimeData.ts` | Edit - extract Unit 8 into separate export |
-| `src/pages/PrepositionsOfTimePractice.tsx` | Edit - remove Unit 8 references, update back link |
-| `src/pages/VerbAdjectivePrepositions.tsx` | Create - dedicated practice page for verb/adjective prepositions |
-| `src/App.tsx` | Edit - add two new routes |
+| `src/data/businessVocabularyData.ts` | Create -- all sections/topics structure + Topic 1 content |
+| `src/pages/BusinessVocabulary.tsx` | Create -- hub page with section tiles |
+| `src/pages/BusinessVocabularySection.tsx` | Create -- section page with topic tiles |
+| `src/pages/BusinessVocabularyTopic.tsx` | Create -- topic detail with Theory/Practice/Tests |
+| `src/App.tsx` | Edit -- add 3 new protected routes |
+| `src/pages/MembersActivities.tsx` | Edit -- update vocabulary tile path |
 
-No new dependencies required.
+No new dependencies needed. Existing images from `src/assets/` (e.g. `business-meeting.webp`) will be reused as placeholder section images initially.
 
