@@ -229,6 +229,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Tenses',
     description: 'Present, past and perfect tenses',
     icon: Clock,
+    image: tensesImg,
     modules: [
       {
         id: 'present-tenses',
@@ -261,6 +262,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Nouns & Determiners',
     description: 'Nouns, articles, pronouns and determiners',
     icon: FileText,
+    image: nounsDeterminersImg,
     modules: [
       {
         id: 'nouns',
@@ -293,6 +295,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Future & Modals',
     description: 'Future forms, obligation, permission and ability',
     icon: Megaphone,
+    image: futureModalsImg,
     modules: [
       {
         id: 'the-future',
@@ -325,6 +328,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Questions & Prepositions',
     description: 'Question forms, prepositions of place, time and expressions',
     icon: HelpCircle,
+    image: questionsPrepImg,
     modules: [
       {
         id: 'questions-answers',
@@ -357,6 +361,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Verb Patterns',
     description: 'The -ing form and infinitives',
     icon: Pen,
+    image: verbPatternsImg,
     modules: [
       {
         id: 'the-ing-form',
@@ -377,6 +382,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Conditionals',
     description: 'Zero, first and second conditionals; wishes',
     icon: GitBranch,
+    image: conditionalsImg,
     modules: [
       {
         id: 'conditionals-1',
@@ -397,6 +403,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Advanced Structures',
     description: 'Passive, reported speech, relative clauses and linking words',
     icon: Layers,
+    image: advancedImg,
     modules: [
       {
         id: 'the-passive',
