@@ -1,5 +1,13 @@
 import { BookOpen, Clock, FileText, Megaphone, HelpCircle, Pen, GitBranch, Layers } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import describingImg from '@/assets/b1-describing-things.jpg';
+import tensesImg from '@/assets/b1-tenses.jpg';
+import nounsDeterminersImg from '@/assets/b1-nouns-determiners.jpg';
+import futureModalsImg from '@/assets/b1-future-modals.jpg';
+import questionsPrepImg from '@/assets/b1-questions-prepositions.jpg';
+import verbPatternsImg from '@/assets/b1-verb-patterns.jpg';
+import conditionalsImg from '@/assets/b1-conditionals.jpg';
+import advancedImg from '@/assets/b1-advanced-structures.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -41,6 +49,7 @@ export interface B1GrammarSection {
   title: string;
   description: string;
   icon: LucideIcon;
+  image: string;
   modules: B1GrammarModule[];
 }
 
@@ -190,6 +199,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Describing Things',
     description: 'Adjectives, adverbs and comparisons',
     icon: BookOpen,
+    image: describingImg,
     modules: [
       {
         id: 'adjectives',
@@ -219,6 +229,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Tenses',
     description: 'Present, past and perfect tenses',
     icon: Clock,
+    image: tensesImg,
     modules: [
       {
         id: 'present-tenses',
@@ -251,6 +262,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Nouns & Determiners',
     description: 'Nouns, articles, pronouns and determiners',
     icon: FileText,
+    image: nounsDeterminersImg,
     modules: [
       {
         id: 'nouns',
@@ -283,6 +295,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Future & Modals',
     description: 'Future forms, obligation, permission and ability',
     icon: Megaphone,
+    image: futureModalsImg,
     modules: [
       {
         id: 'the-future',
@@ -315,6 +328,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Questions & Prepositions',
     description: 'Question forms, prepositions of place, time and expressions',
     icon: HelpCircle,
+    image: questionsPrepImg,
     modules: [
       {
         id: 'questions-answers',
@@ -347,6 +361,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Verb Patterns',
     description: 'The -ing form and infinitives',
     icon: Pen,
+    image: verbPatternsImg,
     modules: [
       {
         id: 'the-ing-form',
@@ -367,6 +382,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Conditionals',
     description: 'Zero, first and second conditionals; wishes',
     icon: GitBranch,
+    image: conditionalsImg,
     modules: [
       {
         id: 'conditionals-1',
@@ -387,6 +403,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Advanced Structures',
     description: 'Passive, reported speech, relative clauses and linking words',
     icon: Layers,
+    image: advancedImg,
     modules: [
       {
         id: 'the-passive',

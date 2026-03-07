@@ -54,14 +54,17 @@ const B1Grammar = () => {
               return (
                 <Link key={section.id} to={`/b1-grammar/${section.id}`}>
                   <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-royal flex items-center justify-center">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                      <div className="absolute top-4 left-4 bg-white/20 p-3 rounded-full">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={section.image}
+                        alt={section.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
-                      <span className="text-6xl font-bold text-white/10 font-merriweather">
-                        {section.modules.length}
-                      </span>
                     </div>
                     <CardHeader>
                       <CardTitle className="font-merriweather">{section.title}</CardTitle>
