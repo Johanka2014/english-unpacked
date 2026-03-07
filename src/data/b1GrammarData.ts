@@ -1,5 +1,13 @@
 import { BookOpen, Clock, FileText, Megaphone, HelpCircle, Pen, GitBranch, Layers } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import describingImg from '@/assets/b1-describing-things.jpg';
+import tensesImg from '@/assets/b1-tenses.jpg';
+import nounsDeterminersImg from '@/assets/b1-nouns-determiners.jpg';
+import futureModalsImg from '@/assets/b1-future-modals.jpg';
+import questionsPrepImg from '@/assets/b1-questions-prepositions.jpg';
+import verbPatternsImg from '@/assets/b1-verb-patterns.jpg';
+import conditionalsImg from '@/assets/b1-conditionals.jpg';
+import advancedImg from '@/assets/b1-advanced-structures.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -41,6 +49,7 @@ export interface B1GrammarSection {
   title: string;
   description: string;
   icon: LucideIcon;
+  image: string;
   modules: B1GrammarModule[];
 }
 
@@ -190,6 +199,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
     title: 'Describing Things',
     description: 'Adjectives, adverbs and comparisons',
     icon: BookOpen,
+    image: describingImg,
     modules: [
       {
         id: 'adjectives',
