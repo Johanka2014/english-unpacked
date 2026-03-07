@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -61,6 +61,13 @@ const grammarActivities = [
     icon: Clock,
     path: '/prepositions',
     color: 'text-amber-600',
+  },
+  {
+    title: 'B1 Grammar',
+    description: 'Master B1-level grammar across 30 modules — adjectives, tenses, modals, conditionals and more',
+    icon: FileText,
+    path: '/b1-grammar',
+    color: 'text-rose-600',
   },
 ];
 
