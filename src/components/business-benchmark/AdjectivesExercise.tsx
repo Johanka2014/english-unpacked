@@ -122,10 +122,10 @@ const AdjectivesExercise = () => {
                 </span>
               </div>
               {results[sentence.id] === "correct" && (
-                <span className="text-green-700 text-sm mt-1 ml-7">✓ Correct!</span>
+                <span className="text-green-500 text-sm mt-1 ml-7">✓ Correct!</span>
               )}
               {results[sentence.id] === "incorrect" && (
-                <span className="text-red-700 text-sm mt-1 ml-7">
+                <span className="text-red-500 text-sm mt-1 ml-7">
                   ✗ Incorrect. Possible answer(s): {sentence.correctAnswers.join(", ")}
                 </span>
               )}
