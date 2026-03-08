@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { ArrowLeft } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
-import examPrepImg from '@/assets/exam-prep.webp';
+import heroBackground from '@/assets/hero-background.webp';
 
 const B1Grammar = () => {
   return (
@@ -21,7 +21,7 @@ const B1Grammar = () => {
       <section
         className="relative min-h-[50vh] flex items-center justify-center text-white overflow-hidden"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${examPrepImg}")`,
+          background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${heroBackground}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
