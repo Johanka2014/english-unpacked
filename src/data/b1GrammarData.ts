@@ -176,8 +176,26 @@ const module1Exercises: GrammarExercise[] = [
   {
     id: 'm1-c4',
     title: 'Exercise C4 — Noun Compounds',
-    instruction: 'Match a noun from group A with a noun from group B, then complete the sentences.',
-    type: 'fill-blank',
+    instruction: 'Match a noun in A with each noun in B then complete the sentences below.',
+    type: 'noun-compound',
+    compoundGroups: {
+      groupA: ['address', 'alarm', 'bus', 'city', 'credit', 'football', 'evening', 'film', 'fire', 'police', 'traffic', 'wedding'],
+      groupB: ['book', 'boots', 'car', 'card', 'centre', 'clock', 'engine', 'invitation', 'jam', 'performance', 'star', 'stop'],
+      compounds: [
+        { a: 'address', b: 'book' },
+        { a: 'alarm', b: 'clock' },
+        { a: 'bus', b: 'stop' },
+        { a: 'city', b: 'centre' },
+        { a: 'credit', b: 'card' },
+        { a: 'football', b: 'boots' },
+        { a: 'evening', b: 'performance' },
+        { a: 'film', b: 'star' },
+        { a: 'fire', b: 'engine' },
+        { a: 'police', b: 'car' },
+        { a: 'traffic', b: 'jam' },
+        { a: 'wedding', b: 'invitation' },
+      ],
+    },
     items: [
       { id: 1, prompt: 'Everyone was looking at the ___ as she came into the hotel.', answer: 'film star' },
       { id: 2, prompt: 'The café wouldn\'t accept my ___ so I paid cash.', answer: 'credit card' },
