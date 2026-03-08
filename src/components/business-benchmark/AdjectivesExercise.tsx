@@ -90,10 +90,10 @@ const AdjectivesExercise = () => {
           Complete the following sentences with an appropriate adjective from the box. Note that in some sentences, more than one adjective is possible.
         </p>
 
-        <div className="bg-slate-100 p-4 rounded-lg mb-8">
+        <div className="bg-muted p-4 rounded-lg mb-8">
           <div className="flex flex-wrap gap-3">
             {adjectives.map((adj) => (
-              <span key={adj} className="px-3 py-1 bg-white rounded font-medium text-foreground">
+              <span key={adj} className="px-3 py-1 bg-card rounded font-medium text-foreground">
                 {adj}
               </span>
             ))}
