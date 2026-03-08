@@ -7,6 +7,7 @@ import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
 import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResponsibilitiesExercise';
+import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
