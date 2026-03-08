@@ -55,6 +55,10 @@ export interface B1GrammarModule {
   examPractice?: {
     description: string;
     type: string;
+    intro?: string;
+    people?: { id: number; name: string; description: string }[];
+    options?: { letter: string; title: string; description: string }[];
+    answers?: Record<number, string>;
   };
 }
 
