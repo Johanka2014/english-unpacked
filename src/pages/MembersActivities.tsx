@@ -147,6 +147,9 @@ const MembersActivities = () => {
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
           </TabsContent>
+          <TabsContent value="business">
+            <ActivityGrid activities={businessActivities} />
+          </TabsContent>
           <TabsContent value="cambridge">
             <ActivityGrid activities={cambridgeActivities} />
           </TabsContent>
