@@ -59,6 +59,10 @@ export interface B1GrammarModule {
     people?: { id: number; name: string; description: string }[];
     options?: { letter: string; title: string; description: string }[];
     answers?: Record<number, string>;
+    grammarFocusTask?: {
+      instruction: string;
+      items: { id: number; sentence: string; adjectives: string[]; answer: string }[];
+    };
   };
 }
 
