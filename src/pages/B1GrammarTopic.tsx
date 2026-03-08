@@ -195,6 +195,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
         if (ex.type === 'matching') {
           return <MatchingDragDropExercise key={ex.id} exercise={ex} />;
         }
+        if (ex.type === 'noun-compound') {
+          return <NounCompoundExercise key={ex.id} exercise={ex} />;
+        }
 
         return (
         <Card key={ex.id} className="service-card">
