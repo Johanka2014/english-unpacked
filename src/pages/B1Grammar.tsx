@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { ArrowLeft } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
-import examPrepImg from '@/assets/exam-prep.webp';
+import heroBackground from '@/assets/hero-background.webp';
 
 const B1Grammar = () => {
   return (
