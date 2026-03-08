@@ -71,6 +71,16 @@ const grammarActivities = [
   },
 ];
 
+const businessActivities = [
+  {
+    title: 'Business Benchmark Pre-Int to Int',
+    description: 'Master B1 business English across 24 modules with reading, listening, writing, speaking, vocabulary and grammar',
+    icon: Briefcase,
+    path: '/business-benchmark',
+    color: 'text-teal-600',
+  },
+];
+
 const maturitaActivities = [
   {
     title: 'Maturita Speaking Practice',
