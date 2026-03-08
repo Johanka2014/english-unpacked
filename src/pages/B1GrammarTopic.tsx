@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
-import type { GrammarExercise } from '@/data/b1GrammarData';
+import type { GrammarExercise, EmailSegment } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 
