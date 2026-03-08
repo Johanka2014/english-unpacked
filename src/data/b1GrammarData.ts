@@ -284,6 +284,17 @@ export const b1GrammarSections: B1GrammarSection[] = [
             { letter: 'H', title: 'Fendwich Restaurant', description: 'Only half an hour\'s ride away at Fendwich, is a popular new restaurant with amazing views across the beach. Eat a delicious lunch and watch the birds on the cliffs, then look round the souvenir shops before cycling back along the coast. An excellent trip if you don\'t have a whole day available.' },
           ],
           answers: { 1: 'G', 2: 'E', 3: 'F', 4: 'D', 5: 'A' },
+          grammarFocusTask: {
+            instruction: 'Put the two adjectives in each sentence into the correct order. Check your answers by finding them in the text.',
+            items: [
+              { id: 1, sentence: 'He told us about the ___ snakes in the jungle.', adjectives: ['black', 'dangerous'], answer: 'dangerous black' },
+              { id: 2, sentence: 'There was a ___ tree in the middle of the field.', adjectives: ['beautiful', 'old'], answer: 'beautiful old' },
+              { id: 3, sentence: 'We followed a ___ path beside the river.', adjectives: ['flat', 'pleasant'], answer: 'pleasant flat' },
+              { id: 4, sentence: 'The model wore a ___ hat which matched her coat.', adjectives: ['little', 'pretty'], answer: 'pretty little' },
+              { id: 5, sentence: 'The old couple employed two ___ students to tidy their garden.', adjectives: ['active', 'young'], answer: 'active young' },
+              { id: 6, sentence: 'We went to a concert by a ___ band.', adjectives: ['new', 'popular'], answer: 'popular new' },
+            ],
+          },
         },
       },
       {
