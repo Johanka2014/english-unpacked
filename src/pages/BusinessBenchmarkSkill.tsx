@@ -24,6 +24,7 @@ const BusinessBenchmarkSkill = () => {
         <DepartmentMatchingExercise />
         <JobResponsibilitiesExercise />
         <WorkPrepositionsExercise />
+        <AdjectivesExercise />
       </div>
     );
     return (
