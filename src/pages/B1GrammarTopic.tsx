@@ -177,6 +177,94 @@ const MatchingDragDropExercise = ({ exercise }: { exercise: GrammarExercise }) =
   );
 };
 
+// ── Error Correction Email Exercise ───────────────────────────────────
+
+const ErrorCorrectionEmailExercise = ({ exercise }: { exercise: GrammarExercise }) => {
+  const segments = exercise.emailSegments || [];
+  const errorIndices = segments.reduce<number[]>((acc, seg, i) => {
+    if (seg.error) acc.push(i);
+    return acc;
+  }, []);
+
+  const [edits, setEdits] = useState<Record<number, string>>(() => {
+    const init: Record<number, string> = {};
+    errorIndices.forEach((i) => { init[i] = segments[i].error!; });
+    return init;
+  });
+  const [checked, setChecked] = useState(false);
+
+  const score = checked
+    ? errorIndices.filter((i) => edits[i]?.trim().toLowerCase() === segments[i].correction!.toLowerCase()).length
+    : 0;
+
+  return (
+    <Card className="service-card">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{exercise.title}</h3>
+        <p className="text-muted-foreground mb-6">{exercise.instruction}</p>
+
+        <div className="bg-background border border-border rounded-lg p-6 shadow-inner">
+          {/* Email header */}
+          <div className="border-b border-border pb-3 mb-4 space-y-1 text-sm text-muted-foreground">
+            <p><span className="font-semibold text-foreground">From:</span> Duncan</p>
+            <p><span className="font-semibold text-foreground">To:</span> Marta</p>
+            <p><span className="font-semibold text-foreground">Subject:</span> Great news!</p>
+          </div>
+
+          {/* Email body */}
+          <div className="text-sm leading-relaxed text-foreground whitespace-pre-wrap">
+            {segments.map((seg, i) => {
+              if (seg.text != null) {
+                return <span key={i}>{seg.text}</span>;
+              }
+              // Error segment — editable input
+              const val = edits[i] || '';
+              const isCorrect = checked && val.trim().toLowerCase() === seg.correction!.toLowerCase();
+              const isWrong = checked && !isCorrect;
+
+              return (
+                <span key={i} className="inline-block mx-0.5 align-baseline">
+                  <input
+                    type="text"
+                    value={val}
+                    onChange={(e) => !checked && setEdits((prev) => ({ ...prev, [i]: e.target.value }))}
+                    disabled={checked}
+                    className={`border-b-2 bg-transparent outline-none text-sm px-1 py-0.5 min-w-[80px] transition-colors ${
+                      checked
+                        ? isCorrect
+                          ? 'border-green-500 text-green-700 dark:text-green-400 font-semibold'
+                          : 'border-red-500 text-red-600 dark:text-red-400 line-through'
+                        : 'border-primary/40 text-primary font-medium focus:border-primary'
+                    }`}
+                    style={{ width: `${Math.max(val.length, 8)}ch` }}
+                  />
+                  {isWrong && (
+                    <span className="text-xs text-green-600 dark:text-green-400 ml-1 font-semibold">
+                      ({seg.correction})
+                    </span>
+                  )}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+
+        {!checked ? (
+          <Button onClick={() => setChecked(true)} className="mt-6">
+            Check Answers
+          </Button>
+        ) : (
+          <div className="mt-4 p-3 bg-muted rounded-lg">
+            <p className="text-sm font-medium text-foreground">
+              Score: {score} / {errorIndices.length}
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
 // ── Exercises View ─────────────────────────────────────────────────────
 
 const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
