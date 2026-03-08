@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
+import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -12,6 +13,18 @@ const BusinessBenchmarkSkill = () => {
   const skill = mod?.skills.find((s) => s.id === skillId);
 
   if (!mod || !skill) return <Navigate to="/business-benchmark" replace />;
+
+  const renderContent = () => {
+    const contentType = skill.content?.type;
+    if (contentType === 'department-matching') return <DepartmentMatchingExercise />;
+    return (
+      <div className="max-w-3xl mx-auto text-center py-16">
+        <p className="text-lg text-muted-foreground">
+          Content for this skill is coming soon. Check back later!
+        </p>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -40,11 +53,7 @@ const BusinessBenchmarkSkill = () => {
           </Link>
         </div>
 
-        <div className="max-w-3xl mx-auto text-center py-16">
-          <p className="text-lg text-muted-foreground">
-            Content for this skill is coming soon. Check back later!
-          </p>
-        </div>
+        {renderContent()}
       </main>
 
       <Footer />
