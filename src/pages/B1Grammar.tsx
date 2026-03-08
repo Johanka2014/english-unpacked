@@ -24,6 +24,7 @@ const B1Grammar = () => {
           background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${heroBackground}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/30 to-brand-royal/30" />
