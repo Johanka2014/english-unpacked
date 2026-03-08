@@ -9,6 +9,7 @@ import DepartmentMatchingExercise from '@/components/business-benchmark/Departme
 import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResponsibilitiesExercise';
 import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
 import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExercise';
+import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
