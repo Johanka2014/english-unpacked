@@ -23,6 +23,12 @@ export interface CompoundGroups {
   compounds: { a: string; b: string }[];
 }
 
+export interface EmailSegment {
+  text?: string;
+  error?: string;
+  correction?: string;
+}
+
 export interface GrammarExercise {
   id: string;
   title: string;
@@ -36,6 +42,7 @@ export interface GrammarExercise {
     hint?: string;
   }[];
   compoundGroups?: CompoundGroups;
+  emailSegments?: EmailSegment[];
 }
 
 export interface B1GrammarModule {
