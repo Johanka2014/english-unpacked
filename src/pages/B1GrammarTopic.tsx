@@ -374,7 +374,92 @@ interface ExamPracticeData {
   people: { id: number; name: string; description: string }[];
   options: { letter: string; title: string; description: string }[];
   answers: Record<number, string>;
+  grammarFocusTask?: {
+    instruction: string;
+    items: { id: number; sentence: string; adjectives: string[]; answer: string }[];
+  };
 }
+
+// ── Grammar Focus Task ─────────────────────────────────────────────────
+
+const GrammarFocusTask = ({ task }: { task: NonNullable<ExamPracticeData['grammarFocusTask']> }) => {
+  const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  const score = checked
+    ? task.items.filter((item) => userAnswers[item.id]?.trim().toLowerCase() === item.answer.toLowerCase()).length
+    : 0;
+
+  return (
+    <Card className="service-card mt-8">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Grammar Focus Task</h3>
+        <p className="text-muted-foreground text-sm mb-6">{task.instruction}</p>
+
+        <div className="space-y-4">
+          {task.items.map((item) => {
+            const isCorrect = checked && userAnswers[item.id]?.trim().toLowerCase() === item.answer.toLowerCase();
+            const isWrong = checked && !isCorrect;
+            const parts = item.sentence.split('___');
+
+            return (
+              <div key={item.id} className="flex items-start gap-3">
+                <span className="text-sm font-bold text-primary mt-2 shrink-0">{item.id}.</span>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-1 text-sm text-foreground">
+                    <span>{parts[0]}</span>
+                    <span className="italic text-muted-foreground font-medium">
+                      {item.adjectives.join(' / ')}
+                    </span>
+                    <span>{parts[1]}</span>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Type the adjectives in order…"
+                    value={userAnswers[item.id] || ''}
+                    onChange={(e) => !checked && setUserAnswers((prev) => ({ ...prev, [item.id]: e.target.value }))}
+                    disabled={checked}
+                    className={`mt-2 w-full max-w-xs border rounded-lg px-3 py-2 text-sm bg-card text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors ${
+                      checked
+                        ? isCorrect
+                          ? 'border-green-500 bg-green-50 dark:bg-green-950/30'
+                          : 'border-red-500 bg-red-50 dark:bg-red-950/30'
+                        : 'border-border focus:border-primary'
+                    }`}
+                  />
+                  {isWrong && (
+                    <p className="text-xs text-red-600 mt-1">Correct: <strong>{item.answer}</strong></p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {!checked ? (
+          <Button
+            onClick={() => setChecked(true)}
+            className="mt-6"
+            disabled={Object.keys(userAnswers).length < task.items.length}
+          >
+            Check Answers
+          </Button>
+        ) : (
+          <div className="mt-6 flex items-center gap-4">
+            <div className="p-3 bg-muted rounded-lg">
+              <p className="text-sm font-medium text-foreground">
+                Score: {score} / {task.items.length}
+              </p>
+            </div>
+            <Button variant="outline" onClick={() => { setChecked(false); setUserAnswers({}); }}>
+              Try Again
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
 
 const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPracticeData }) => {
   const { people, options, answers, intro } = examPractice;
