@@ -21,7 +21,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
       { id: 'reading', title: 'Reading', description: 'Changing places: job swapping at work' },
       { id: 'listening', title: 'Listening', description: 'Being a PA' },
       { id: 'speaking', title: 'Speaking', description: 'Talking about your job; Asking about other people\'s jobs' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Job titles and describing jobs; Names of company departments' },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Job titles and describing jobs; Names of company departments', content: { type: 'department-matching' } },
       { id: 'grammar', title: 'Grammar', description: 'Present simple and present continuous; Time expressions' },
     ],
   },
