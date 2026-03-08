@@ -22,6 +22,7 @@ const BusinessBenchmarkSkill = () => {
       <div className="space-y-8">
         <DepartmentMatchingExercise />
         <JobResponsibilitiesExercise />
+        <WorkPrepositionsExercise />
       </div>
     );
     return (
