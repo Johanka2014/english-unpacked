@@ -8,6 +8,7 @@ import SEO from '@/components/SEO';
 import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
 import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResponsibilitiesExercise';
 import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
+import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -23,6 +24,7 @@ const BusinessBenchmarkSkill = () => {
         <DepartmentMatchingExercise />
         <JobResponsibilitiesExercise />
         <WorkPrepositionsExercise />
+        <AdjectivesExercise />
       </div>
     );
     return (
