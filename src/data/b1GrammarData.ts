@@ -17,6 +17,12 @@ export interface GrammarTheorySection {
   notes?: string[];
 }
 
+export interface CompoundGroups {
+  groupA: string[];
+  groupB: string[];
+  compounds: { a: string; b: string }[];
+}
+
 export interface GrammarExercise {
   id: string;
   title: string;
@@ -29,6 +35,7 @@ export interface GrammarExercise {
     options?: string[];
     hint?: string;
   }[];
+  compoundGroups?: CompoundGroups;
 }
 
 export interface B1GrammarModule {
