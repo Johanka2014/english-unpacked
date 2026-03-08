@@ -21,7 +21,7 @@ const B1Grammar = () => {
       <section
         className="relative min-h-[50vh] flex items-center justify-center text-white overflow-hidden"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${examPrepImg}")`,
+          background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url("${heroBackground}")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
