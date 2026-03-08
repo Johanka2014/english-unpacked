@@ -39,6 +39,9 @@ const EnglishForKids = lazy(() => import("./pages/EnglishForKids"));
 const BusinessVocabulary = lazy(() => import("./pages/BusinessVocabulary"));
 const BusinessVocabularySection = lazy(() => import("./pages/BusinessVocabularySection"));
 const BusinessVocabularyTopic = lazy(() => import("./pages/BusinessVocabularyTopic"));
+const BusinessBenchmark = lazy(() => import("./pages/BusinessBenchmark"));
+const BusinessBenchmarkModule = lazy(() => import("./pages/BusinessBenchmarkModule"));
+const BusinessBenchmarkSkill = lazy(() => import("./pages/BusinessBenchmarkSkill"));
 const B1Grammar = lazy(() => import("./pages/B1Grammar"));
 const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
@@ -88,6 +91,9 @@ const App = () => (
               <Route path="/business-vocabulary" element={<ProtectedRoute><BusinessVocabulary /></ProtectedRoute>} />
               <Route path="/business-vocabulary/:sectionId" element={<ProtectedRoute><BusinessVocabularySection /></ProtectedRoute>} />
               <Route path="/business-vocabulary/:sectionId/:topicId" element={<ProtectedRoute><BusinessVocabularyTopic /></ProtectedRoute>} />
+              <Route path="/business-benchmark" element={<ProtectedRoute><BusinessBenchmark /></ProtectedRoute>} />
+              <Route path="/business-benchmark/:moduleId" element={<ProtectedRoute><BusinessBenchmarkModule /></ProtectedRoute>} />
+              <Route path="/business-benchmark/:moduleId/:skillId" element={<ProtectedRoute><BusinessBenchmarkSkill /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
