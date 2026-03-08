@@ -602,6 +602,10 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
           })}
         </div>
       </div>
+
+      {examPractice.grammarFocusTask && (
+        <GrammarFocusTask task={examPractice.grammarFocusTask} />
+      )}
     </div>
   );
 };
