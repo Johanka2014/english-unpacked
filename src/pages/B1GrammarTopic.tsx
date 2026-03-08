@@ -144,7 +144,7 @@ const MatchingDragDropExercise = ({ exercise }: { exercise: GrammarExercise }) =
           })}
         </div>
 
-        {isWrong && checked && (
+        {checked && (
           <div className="mt-2 space-y-1">
             {exercise.items
               .filter((item) => assignments[item.id]?.toLowerCase() !== item.answer.toLowerCase())
