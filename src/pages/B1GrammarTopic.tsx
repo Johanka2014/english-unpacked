@@ -365,6 +365,162 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
   );
 };
 
+// ── Exam Practice: Reading Part 2 ─────────────────────────────────────
+
+interface ExamPracticeData {
+  description: string;
+  type: string;
+  intro: string;
+  people: { id: number; name: string; description: string }[];
+  options: { letter: string; title: string; description: string }[];
+  answers: Record<number, string>;
+}
+
+const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPracticeData }) => {
+  const { people, options, answers, intro } = examPractice;
+  const [assignments, setAssignments] = useState<Record<number, string>>({});
+  const [draggedLetter, setDraggedLetter] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  const usedLetters = new Set(Object.values(assignments));
+
+  const handleDrop = useCallback((personId: number) => {
+    if (!draggedLetter) return;
+    setAssignments((prev) => {
+      const next = { ...prev };
+      // Remove letter from any other person
+      for (const key of Object.keys(next)) {
+        if (next[Number(key)] === draggedLetter) delete next[Number(key)];
+      }
+      next[personId] = draggedLetter;
+      return next;
+    });
+    setDraggedLetter(null);
+  }, [draggedLetter]);
+
+  const handleRemove = (personId: number) => {
+    if (checked) return;
+    setAssignments((prev) => {
+      const next = { ...prev };
+      delete next[personId];
+      return next;
+    });
+  };
+
+  const score = checked
+    ? people.filter((p) => assignments[p.id] === answers[p.id]).length
+    : 0;
+
+  return (
+    <div className="space-y-6">
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Reading Part 2</h3>
+          <p className="text-muted-foreground text-sm">{intro}</p>
+        </CardContent>
+      </Card>
+
+      <div className="grid lg:grid-cols-2 gap-6">
+        {/* Left: People with drop zones */}
+        <div className="space-y-4">
+          <h4 className="font-semibold text-foreground text-sm uppercase tracking-wider">People</h4>
+          {people.map((person) => {
+            const assigned = assignments[person.id];
+            const isCorrect = checked && assigned === answers[person.id];
+            const isWrong = checked && assigned && !isCorrect;
+
+            return (
+              <div
+                key={person.id}
+                className="border border-border rounded-lg p-4 bg-card"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={() => handleDrop(person.id)}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="text-sm font-bold text-primary mt-0.5">{person.id}.</span>
+                  <div className="flex-1">
+                    <p className="text-sm text-foreground mb-3">{person.description}</p>
+                    <div
+                      className={`min-h-[40px] rounded-lg border-2 border-dashed px-3 py-2 text-sm flex items-center gap-2 transition-colors cursor-pointer ${
+                        assigned
+                          ? isCorrect
+                            ? 'border-green-500 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400'
+                            : isWrong
+                            ? 'border-red-500 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400'
+                            : 'border-primary/40 bg-primary/5 text-foreground'
+                          : 'border-muted-foreground/30 bg-muted/30 text-muted-foreground'
+                      }`}
+                      onClick={() => !checked && handleRemove(person.id)}
+                    >
+                      {assigned ? (
+                        <>
+                          <span className="font-bold text-lg">{assigned}</span>
+                          <span>— {options.find((o) => o.letter === assigned)?.title}</span>
+                        </>
+                      ) : (
+                        <span className="italic text-muted-foreground/50">Drop answer here</span>
+                      )}
+                    </div>
+                    {isWrong && (
+                      <p className="text-xs text-red-600 mt-1">
+                        Correct: {answers[person.id]} — {options.find((o) => o.letter === answers[person.id])?.title}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {!checked ? (
+            <Button
+              onClick={() => setChecked(true)}
+              className="mt-2"
+              disabled={Object.keys(assignments).length < people.length}
+            >
+              Check Answers
+            </Button>
+          ) : (
+            <div className="mt-2 p-3 bg-muted rounded-lg">
+              <p className="text-sm font-medium text-foreground">
+                Score: {score} / {people.length}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Right: Cycle trip options (draggable) */}
+        <div className="space-y-3">
+          <h4 className="font-semibold text-foreground text-sm uppercase tracking-wider">Recommended Cycle Rides from Ailsea</h4>
+          {options.map((opt) => {
+            const isUsed = usedLetters.has(opt.letter);
+            return (
+              <div
+                key={opt.letter}
+                draggable={!isUsed && !checked}
+                onDragStart={() => setDraggedLetter(opt.letter)}
+                className={`border rounded-lg p-4 transition-all select-none ${
+                  isUsed
+                    ? 'opacity-30 cursor-default border-border bg-muted'
+                    : 'cursor-grab active:cursor-grabbing border-primary/30 bg-card hover:border-primary/50 hover:shadow-md'
+                }`}
+              >
+                <div className="flex items-start gap-3">
+                  <span className="font-bold text-lg text-primary shrink-0">{opt.letter}</span>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground mb-1">{opt.title}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{opt.description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ── Main Page ──────────────────────────────────────────────────────────
 
 const B1GrammarTopic = () => {
