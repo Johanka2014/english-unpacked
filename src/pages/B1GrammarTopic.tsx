@@ -451,11 +451,15 @@ const B1GrammarTopic = () => {
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'exam' && mod.examPractice && (
-                <div className="text-center py-20 max-w-md mx-auto">
-                  <ClipboardCheck className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
-                  <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Exam Practice</h2>
-                  <p className="text-muted-foreground">{mod.examPractice.description} — coming soon.</p>
-                </div>
+                mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
+                  ? <ExamPracticeReadingPart2 examPractice={mod.examPractice as ExamPracticeData} />
+                  : (
+                    <div className="text-center py-20 max-w-md mx-auto">
+                      <ClipboardCheck className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
+                      <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Exam Practice</h2>
+                      <p className="text-muted-foreground">{mod.examPractice.description} — coming soon.</p>
+                    </div>
+                  )
               )}
             </div>
           )}
