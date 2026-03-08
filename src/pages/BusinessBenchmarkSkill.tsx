@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
+import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResponsibilitiesExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -16,7 +17,12 @@ const BusinessBenchmarkSkill = () => {
 
   const renderContent = () => {
     const contentType = skill.content?.type;
-    if (contentType === 'department-matching') return <DepartmentMatchingExercise />;
+    if (contentType === 'department-matching') return (
+      <div className="space-y-8">
+        <DepartmentMatchingExercise />
+        <JobResponsibilitiesExercise />
+      </div>
+    );
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
