@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -32,6 +32,150 @@ const TheoryView = ({ sections }: { sections: NonNullable<typeof b1GrammarSectio
   </div>
 );
 
+// ── Matching Drag-Drop Exercise ────────────────────────────────────────
+
+const MatchingDragDropExercise = ({ exercise }: { exercise: GrammarExercise }) => {
+  const shuffledRight = useMemo(
+    () => [...exercise.items].sort(() => Math.random() - 0.5),
+    [exercise.items]
+  );
+
+  const [assignments, setAssignments] = useState<Record<number, string>>({});
+  const [draggedAnswer, setDraggedAnswer] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  const usedAnswers = new Set(Object.values(assignments));
+
+  const handleDragStart = (answer: string) => {
+    setDraggedAnswer(answer);
+  };
+
+  const handleDrop = useCallback((itemId: number) => {
+    if (!draggedAnswer) return;
+    // Remove the answer from any other slot first
+    setAssignments((prev) => {
+      const next = { ...prev };
+      for (const key of Object.keys(next)) {
+        if (next[Number(key)] === draggedAnswer) delete next[Number(key)];
+      }
+      next[itemId] = draggedAnswer;
+      return next;
+    });
+    setDraggedAnswer(null);
+  }, [draggedAnswer]);
+
+  const handleRemove = (itemId: number) => {
+    if (checked) return;
+    setAssignments((prev) => {
+      const next = { ...prev };
+      delete next[itemId];
+      return next;
+    });
+  };
+
+  const score = checked
+    ? exercise.items.filter((item) => assignments[item.id]?.toLowerCase() === item.answer.toLowerCase()).length
+    : 0;
+
+  return (
+    <Card className="service-card">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{exercise.title}</h3>
+        <p className="text-muted-foreground mb-6">{exercise.instruction}</p>
+
+        {/* Draggable answer bank */}
+        <div className="mb-6">
+          <p className="text-sm font-medium text-muted-foreground mb-2">Drag the sentence endings to match:</p>
+          <div className="flex flex-wrap gap-2">
+            {shuffledRight.map((item, idx) => {
+              const letterLabel = String.fromCharCode(97 + idx);
+              const isUsed = usedAnswers.has(item.answer);
+              return (
+                <div
+                  key={item.id}
+                  draggable={!isUsed && !checked}
+                  onDragStart={() => handleDragStart(item.answer)}
+                  className={`px-3 py-2 rounded-lg border text-sm transition-all select-none ${
+                    isUsed
+                      ? 'opacity-30 cursor-default border-border bg-muted'
+                      : 'cursor-grab active:cursor-grabbing border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/50'
+                  }`}
+                >
+                  <span className="font-bold mr-1.5 text-primary">{letterLabel}</span>
+                  {item.answer}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Drop targets */}
+        <div className="space-y-3">
+          {exercise.items.map((item) => {
+            const assigned = assignments[item.id];
+            const isCorrect = checked && assigned?.toLowerCase() === item.answer.toLowerCase();
+            const isWrong = checked && assigned && !isCorrect;
+
+            return (
+              <div
+                key={item.id}
+                className="flex items-center gap-3"
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={() => handleDrop(item.id)}
+              >
+                <span className="text-sm font-bold text-muted-foreground w-6 shrink-0">{item.id}</span>
+                <span className="text-sm text-foreground whitespace-nowrap">{item.prompt}</span>
+                <div
+                  className={`flex-1 min-h-[40px] rounded-lg border-2 border-dashed px-3 py-2 text-sm flex items-center transition-colors ${
+                    assigned
+                      ? isCorrect
+                        ? 'border-green-500 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400'
+                        : isWrong
+                        ? 'border-red-500 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400'
+                        : 'border-primary/40 bg-primary/5 text-foreground cursor-pointer'
+                      : 'border-muted-foreground/30 bg-muted/30 text-muted-foreground'
+                  }`}
+                  onClick={() => !checked && handleRemove(item.id)}
+                >
+                  {assigned || <span className="italic text-muted-foreground/50">Drop answer here</span>}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {checked && (
+          <div className="mt-2 space-y-1">
+            {exercise.items
+              .filter((item) => assignments[item.id]?.toLowerCase() !== item.answer.toLowerCase())
+              .map((item) => (
+                <p key={item.id} className="text-xs text-red-600">
+                  {item.id}. Correct: {item.answer}
+                </p>
+              ))}
+          </div>
+        )}
+
+        {!checked ? (
+          <Button
+            onClick={() => setChecked(true)}
+            className="mt-6"
+            disabled={Object.keys(assignments).length < exercise.items.length}
+          >
+            Check Answers
+          </Button>
+        ) : (
+          <div className="mt-4 p-3 bg-muted rounded-lg">
+            <p className="text-sm font-medium text-foreground">
+              Score: {score} / {exercise.items.length}
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
 // ── Exercises View ─────────────────────────────────────────────────────
 
 const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
@@ -46,7 +190,12 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
 
   return (
     <div className="space-y-8">
-      {exercises.map((ex) => (
+      {exercises.map((ex) => {
+        if (ex.type === 'matching') {
+          return <MatchingDragDropExercise key={ex.id} exercise={ex} />;
+        }
+
+        return (
         <Card key={ex.id} className="service-card">
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
@@ -115,7 +264,8 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
             )}
           </CardContent>
         </Card>
-      ))}
+        );
+      })}
     </div>
   );
 };
