@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
+import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResponsibilitiesExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
