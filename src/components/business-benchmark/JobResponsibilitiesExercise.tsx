@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 
 const jobs = [
   { id: 1, text: "I'm a nurse." },
@@ -27,101 +26,121 @@ const responsibilities = [
 ];
 
 const correctAnswers: Record<number, string> = {
-  1: 'F',
-  2: 'D',
-  3: 'H',
-  4: 'G',
-  5: 'C',
-  6: 'A',
-  7: 'E',
-  8: 'B',
+  1: 'F', 2: 'D', 3: 'H', 4: 'G', 5: 'C', 6: 'A', 7: 'E', 8: 'B',
 };
 
 const JobResponsibilitiesExercise = () => {
-  const [answers, setAnswers] = useState<Record<number, string>>({});
-  const [checked, setChecked] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<number | null>(null);
+  const [matched, setMatched] = useState<Map<number, string>>(new Map());
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const [feedbackType, setFeedbackType] = useState<'correct' | 'incorrect' | null>(null);
 
-  const handleSelect = (id: number, value: string) => {
-    setAnswers((prev) => ({ ...prev, [id]: value }));
-    setChecked(false);
+  const shuffledResponsibilities = useMemo(
+    () => [...responsibilities].sort(() => Math.random() - 0.5),
+    []
+  );
+
+  const matchedLetters = new Set(matched.values());
+
+  const handleJobClick = (id: number) => {
+    if (matched.has(id)) return;
+    setSelectedJob(id);
+    setFeedback(null);
   };
 
-  const handleCheck = () => setChecked(true);
-  const handleReset = () => { setAnswers({}); setChecked(false); };
+  const handleResponsibilityClick = (letter: string) => {
+    if (matchedLetters.has(letter) || selectedJob === null) return;
 
-  const allFilled = jobs.every((j) => answers[j.id]);
-  const score = checked ? jobs.filter((j) => answers[j.id] === correctAnswers[j.id]).length : 0;
+    if (correctAnswers[selectedJob] === letter) {
+      setMatched((prev) => new Map([...prev, [selectedJob, letter]]));
+      setSelectedJob(null);
+      setFeedback('Correct!');
+      setFeedbackType('correct');
+      if (matched.size + 1 === jobs.length) {
+        setFeedback('Excellent! You matched all jobs to their responsibilities.');
+      }
+    } else {
+      setFeedback('Not quite — try again.');
+      setFeedbackType('incorrect');
+      setSelectedJob(null);
+    }
+  };
+
+  const handleReset = () => {
+    setMatched(new Map());
+    setSelectedJob(null);
+    setFeedback(null);
+    setFeedbackType(null);
+  };
 
   return (
     <Card>
       <CardHeader>
         <CardTitle className="text-xl">Job Responsibilities</CardTitle>
         <p className="text-sm text-muted-foreground">
-          Match the sentences on the left with their corresponding responsibilities on the right.
+          Click a job on the left, then click its matching responsibility on the right.
         </p>
       </CardHeader>
-      <CardContent className="space-y-6">
-        {/* Responsibilities reference */}
-        <div className="grid gap-2 sm:grid-cols-2">
-          {responsibilities.map((r) => (
-            <div key={r.letter} className="rounded-lg border bg-muted/40 p-3">
-              <p className="text-sm text-foreground">
-                <span className="font-semibold">{r.letter}</span>{' '}
-                <span className="italic">{r.text}</span>
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Matching */}
-        <div className="space-y-3">
-          {jobs.map((j) => {
-            const isCorrect = checked && answers[j.id] === correctAnswers[j.id];
-            const isWrong = checked && answers[j.id] && answers[j.id] !== correctAnswers[j.id];
-
-            return (
-              <div
-                key={j.id}
-                className={`flex flex-col sm:flex-row sm:items-center gap-3 rounded-lg border-2 p-3 transition-colors ${
-                  isCorrect
-                    ? 'border-green-500 bg-green-50 dark:bg-green-950/30'
-                    : isWrong
-                    ? 'border-red-400 bg-red-50 dark:bg-red-950/30'
-                    : 'border-border bg-card'
-                }`}
-              >
-                <span className="text-sm font-bold text-muted-foreground w-5 shrink-0">{j.id}</span>
-                <p className="text-sm text-foreground flex-1">{j.text}</p>
-                <div className="flex items-center gap-2 shrink-0">
-                  <Select value={answers[j.id] || ''} onValueChange={(v) => handleSelect(j.id, v)}>
-                    <SelectTrigger className="h-8 w-16 text-sm">
-                      <SelectValue placeholder="..." />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {responsibilities.map((r) => (
-                        <SelectItem key={r.letter} value={r.letter}>{r.letter}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {isCorrect && <CheckCircle2 className="h-4 w-4 text-green-600" />}
-                  {isWrong && <XCircle className="h-4 w-4 text-red-500" />}
+      <CardContent className="space-y-4">
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Jobs column */}
+          <div className="w-full md:w-1/3">
+            <h4 className="font-semibold mb-2 text-center text-sm text-muted-foreground">Jobs</h4>
+            <div className="space-y-2">
+              {jobs.map((j) => (
+                <div
+                  key={j.id}
+                  onClick={() => handleJobClick(j.id)}
+                  className={`p-3 rounded-lg border cursor-pointer transition-all text-sm ${
+                    matched.has(j.id)
+                      ? 'bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 border-green-500 cursor-default'
+                      : selectedJob === j.id
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-card border-border hover:border-primary/50 hover:bg-accent/30'
+                  }`}
+                >
+                  <span className="font-semibold mr-2">{j.id}</span>
+                  {j.text}
                 </div>
-                {isWrong && (
-                  <p className="text-xs text-red-600 sm:ml-8">Correct: {correctAnswers[j.id]}</p>
-                )}
-              </div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
+
+          {/* Responsibilities column */}
+          <div className="w-full md:w-2/3">
+            <h4 className="font-semibold mb-2 text-center text-sm text-muted-foreground">Responsibilities</h4>
+            <div className="space-y-2">
+              {shuffledResponsibilities.map((r) => (
+                <div
+                  key={r.letter}
+                  onClick={() => handleResponsibilityClick(r.letter)}
+                  className={`p-3 rounded-lg border cursor-pointer transition-all text-sm ${
+                    matchedLetters.has(r.letter)
+                      ? 'bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 border-green-500 cursor-default'
+                      : 'bg-card border-border hover:border-primary/50 hover:bg-accent/30'
+                  }`}
+                >
+                  <span className="font-semibold mr-2">{r.letter}</span>
+                  <span className="italic">{r.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
+        {/* Feedback & controls */}
         <div className="flex items-center gap-4">
-          <Button onClick={handleCheck} disabled={!allFilled || checked}>Check Answers</Button>
           <Button variant="outline" onClick={handleReset} className="gap-2">
             <RotateCcw className="h-4 w-4" /> Reset
           </Button>
-          {checked && (
-            <span className="text-sm font-medium text-muted-foreground">Score: {score}/{jobs.length}</span>
+          {feedback && (
+            <span className={`text-sm font-semibold ${feedbackType === 'correct' ? 'text-green-600' : 'text-red-600'}`}>
+              {feedback}
+            </span>
           )}
+          <span className="text-sm text-muted-foreground ml-auto">
+            {matched.size}/{jobs.length} matched
+          </span>
         </div>
       </CardContent>
     </Card>
