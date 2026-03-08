@@ -1,117 +1,79 @@
 
 
-# Business Vocabulary Section -- Framework Plan
+## Plan: Business Benchmark Section Framework
 
-## Overview
+### Structure from the Textbook
 
-Build a new "Business Vocabulary" section behind the login wall, structured as a three-level hierarchy:
+The book has **24 modules**, each containing up to 6 skills: Reading, Listening, Writing, Speaking, Vocabulary, Grammar. The hierarchy will be:
 
-1. **Hub page** (`/business-vocabulary`) -- Section tiles (e.g. "People and Work", "Marketing", etc.)
-2. **Section page** (`/business-vocabulary/:sectionId`) -- Topic tiles within that section (e.g. "Work and Jobs", "Ways of Working")
-3. **Topic page** (`/business-vocabulary/:sectionId/:topicId`) -- Three tiles: "Theory", "Practice", "Tests"
+```text
+Practice Activities
+  └─ "Business" tab (new)
+       └─ "Business Benchmark Pre-Int to Int" tile
+            └─ Hub page: 24 module tiles
+                 └─ Module page: skill tiles (Reading, Listening, etc.)
+                      └─ Skill page: content (placeholder for now)
+```
 
-Each level uses the Everyday Conversations card style: image with gradient overlay, hover-zoom, icon badge.
+### Modules (from contents)
 
-For the initial framework, we will build out the full structure with placeholder content for all sections/topics, and fully flesh out Topic 1 ("Work and Jobs") with the Theory, Practice, and Test content from the uploaded PDFs.
+| # | Module | # | Module |
+|---|--------|---|--------|
+| 1 | The Working Day | 13 | Developing a Network |
+| 2 | Corporate Culture | 14 | Cultural Issues |
+| 3 | Company History | 15 | Teamwork |
+| 4 | The Internet | 16 | Entertaining |
+| 5 | Describing Equipment | 17 | Describing Trends |
+| 6 | Processes and Procedures | 18 | Company Finances |
+| 7 | Distribution and Delivery | 19 | Investments |
+| 8 | Advertising and Marketing | 20 | Starting Up |
+| 9 | Making Arrangements | 21 | Job Applications |
+| 10 | Transport | 22 | Recruitment |
+| 11 | Business Accommodation | 23 | Staff Development |
+| 12 | Out of the Office | 24 | Staff Facts and Figures |
 
----
+### Files to Create/Edit
 
-## Textbook Structure (from contents page)
+| File | Action |
+|------|--------|
+| `src/data/businessBenchmarkData.ts` | **Create** -- all 24 modules with their skill descriptions from the contents page, typed interfaces |
+| `src/pages/BusinessBenchmark.tsx` | **Create** -- hub page with hero (standard hero-background.webp, parallax), 24 module tiles with gradient overlays, hover-zoom, icons |
+| `src/pages/BusinessBenchmarkModule.tsx` | **Create** -- module page showing skill tiles (Reading, Listening, Writing, Speaking, Vocabulary, Grammar) with "Coming soon" badges on empty ones |
+| `src/pages/BusinessBenchmarkSkill.tsx` | **Create** -- skill detail page, placeholder for now, will be fleshed out per module |
+| `src/pages/MembersActivities.tsx` | **Edit** -- add new "Business" tab with a tile for "Business Benchmark Pre-Intermediate to Intermediate" |
+| `src/App.tsx` | **Edit** -- add 3 new protected routes: `/business-benchmark`, `/business-benchmark/:moduleId`, `/business-benchmark/:moduleId/:skillId` |
 
-Based on the contents, the book groups into these sections:
-
-| Section | Topics |
-|---|---|
-| **People and Work** | 1 Work and jobs, 2 Ways of working, 3 Recruitment and selection, 4 Skills and qualifications, 5 Pay and benefits, 6 People and workplaces, 7 The career ladder, 8 Problems at work, 9 Businesspeople and business leaders |
-| **Company Structure** | 10 Organizations 1, 11 Organizations 2, 12 Manufacturing and services |
-| **Production** | 13 Innovation and invention, 14 Making things, 15 Materials and suppliers, 16 Business philosophies |
-| **Marketing** | 17 Buyers, sellers and the market, 18 Markets and competitors, 19 Marketing and market orientation, 20 Products and brands, 21 Price, 22 Place, 23 Promotion, 24 The Internet and e-commerce |
-| **Money** | 25 Sales and costs, 26 Profitability and unprofitability, 27 Getting paid, 28 Assets, liabilities and the balance sheet, 29 The bottom line, 30 Share capital and debt, 31 Personal finance, 32 Financial centres, 33 Trading, 34 Indicators 1, 35 Indicators 2 |
-| **Doing the Right Thing** | 36 Wrongdoing and corruption, 37 Ethics |
-| **Business Skills** | 38 Time and time management, 39 Stress and stress management, 40 Leadership and management styles, 41 Culture |
-| **Communication** | 42 Telephoning 1-3, 43 Emails, 44 Faxes, 45 Meetings 1-5, 46 Presentations 1-2, 47 Negotiations 1-5 |
-
----
-
-## Technical Plan
-
-### 1. Data file: `src/data/businessVocabularyData.ts`
-
-Export a typed structure:
+### Data Model
 
 ```typescript
-interface BusinessVocabTopic {
+interface BusinessBenchmarkSkill {
+  id: string;           // 'reading', 'listening', etc.
+  title: string;
+  description: string;  // from contents (e.g. "Changing places: job swapping at work")
+  content?: any;        // populated later
+}
+
+interface BusinessBenchmarkModule {
   id: string;
   number: number;
   title: string;
-  subtopics: string[];  // e.g. ["A What do you do?", "B Word combinations with 'work'"]
-  theory?: { ... };     // content for Theory tab (populated per topic)
-  practice?: { ... };   // content for Practice tab
-  test?: { ... };       // content for Test tab
-}
-
-interface BusinessVocabSection {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;         // lucide icon name
-  image: string;        // placeholder initially
-  topics: BusinessVocabTopic[];
+  skills: BusinessBenchmarkSkill[];
+  image?: string;       // reuse existing assets initially
 }
 ```
 
-All sections and topics defined with metadata. Only Topic 1 (Work and Jobs) will have full theory/practice/test content initially.
+### Visual Style
 
-### 2. Hub page: `src/pages/BusinessVocabulary.tsx`
+- Follows the Everyday Conversations / Business Vocabulary card pattern: image with gradient overlay, hover-zoom, icon badge
+- Hub hero uses `hero-background.webp` with `backgroundAttachment: 'fixed'` for parallax
+- Module tiles show the module number as a large watermark and a relevant lucide icon
+- Skill tiles use distinct icons (BookOpen for Reading, Headphones for Listening, PenLine for Writing, MessageCircle for Speaking, Languages for Vocabulary, FileText for Grammar)
+- "Coming soon" badge on skills without content
 
-- Navigation + Footer
-- Hero banner (similar to Everyday Conversations style)
-- Grid of section cards with images, gradient overlays, hover-zoom
-- Each card links to `/business-vocabulary/:sectionId`
-- Back link to `/members/activities?tab=vocabulary`
+### Navigation Flow
 
-### 3. Section page: `src/pages/BusinessVocabularySection.tsx`
-
-- Reads `:sectionId` from URL params
-- Displays topic tiles in the same card style
-- Each card links to `/business-vocabulary/:sectionId/:topicId`
-- Back link to `/business-vocabulary`
-
-### 4. Topic page: `src/pages/BusinessVocabularyTopic.tsx`
-
-- Reads `:sectionId` and `:topicId` from URL params
-- Shows three large tiles: "Theory", "Practice", "Tests"
-- Each tile opens an expandable section or tab on the same page
-- For Topic 1, includes:
-  - **Theory**: The textbook explanations (sections A, B, C) formatted as styled content
-  - **Practice**: Exercises 1.1, 1.2, 1.3 as interactive fill-in-the-blank
-  - **Tests**: Exercises 1.1-1.4 from the test book as interactive quizzes
-- For other topics: "Coming soon" placeholder
-- Back link to the section page
-
-### 5. Routes: `src/App.tsx`
-
-Add three lazy-loaded protected routes:
-- `/business-vocabulary`
-- `/business-vocabulary/:sectionId`
-- `/business-vocabulary/:sectionId/:topicId`
-
-### 6. Members Activities: `src/pages/MembersActivities.tsx`
-
-Update the existing "Business Vocabulary Practice" tile in `vocabularyActivities` to point to `/business-vocabulary` instead of `/business-vocab-app`.
-
----
-
-## Files Summary
-
-| File | Action |
-|---|---|
-| `src/data/businessVocabularyData.ts` | Create -- all sections/topics structure + Topic 1 content |
-| `src/pages/BusinessVocabulary.tsx` | Create -- hub page with section tiles |
-| `src/pages/BusinessVocabularySection.tsx` | Create -- section page with topic tiles |
-| `src/pages/BusinessVocabularyTopic.tsx` | Create -- topic detail with Theory/Practice/Tests |
-| `src/App.tsx` | Edit -- add 3 new protected routes |
-| `src/pages/MembersActivities.tsx` | Edit -- update vocabulary tile path |
-
-No new dependencies needed. Existing images from `src/assets/` (e.g. `business-meeting.webp`) will be reused as placeholder section images initially.
+- Members Activities "Business" tab -> tile links to `/business-benchmark`
+- Hub back link -> `/members/activities?tab=business`
+- Module page back link -> `/business-benchmark`
+- Skill page back link -> `/business-benchmark/:moduleId`
 
