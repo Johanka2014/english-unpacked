@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, BookOpen, Headphones, PenLine, MessageCircle, Languages, FileText, Lock } from 'lucide-react';
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
+import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
 
 const skillIcons: Record<string, React.ElementType> = {
   reading: BookOpen,
