@@ -8,6 +8,7 @@ import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
+import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 
 // ── Theory View ────────────────────────────────────────────────────────
 
@@ -193,6 +194,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
       {exercises.map((ex) => {
         if (ex.type === 'matching') {
           return <MatchingDragDropExercise key={ex.id} exercise={ex} />;
+        }
+        if (ex.type === 'noun-compound') {
+          return <NounCompoundExercise key={ex.id} exercise={ex} />;
         }
 
         return (
