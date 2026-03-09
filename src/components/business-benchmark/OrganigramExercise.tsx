@@ -75,7 +75,7 @@ const OrganigramExercise = () => {
       </CardHeader>
       <CardContent className="space-y-8">
         {/* People introductions */}
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
           {people.map((p) => (
             <div
               key={p.name}
