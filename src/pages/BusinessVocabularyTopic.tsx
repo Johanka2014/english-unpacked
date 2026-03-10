@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Lightbulb } from 'lucide-react';
 import { businessVocabSections } from '@/data/businessVocabularyData';
 import type { PracticeExercise, TestExercise } from '@/data/businessVocabularyData';
+import DragDropMatching from '@/components/presentations/DragDropMatching';
 import SEO from '@/components/SEO';
 
 // ── Sub-components ─────────────────────────────────────────────────────
@@ -180,20 +181,33 @@ const TestView = ({ exercises }: { exercises: TestExercise[] }) => {
 
   return (
     <div className="space-y-8">
-      {exercises.map((ex) => (
+      {exercises.map((ex) => {
+        if (ex.type === 'matching' && ex.pairs) {
+          return (
+            <DragDropMatching
+              key={ex.id}
+              title={ex.title}
+              instruction={ex.instruction}
+              pairs={ex.pairs}
+              extraWords={ex.extraWords}
+            />
+          );
+        }
+
+        return (
         <Card key={ex.id} className="service-card">
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
             <p className="text-muted-foreground mb-6">{ex.instruction}</p>
             <div className="space-y-4">
-              {ex.items.map((item) => {
+              {(ex.items || []).map((item) => {
                 const userAnswer = answers[ex.id]?.[item.id] || '';
                 const isChecked = checked[ex.id];
                 const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
                 const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
 
                 if (ex.type === 'classify') {
-                  const allAnswers = ex.items.map(i => i.answer);
+                  const allAnswers = (ex.items || []).map(i => i.answer);
                   const options = [...new Set(allAnswers)].sort();
                   return (
                     <div key={item.id} className="p-3 border border-border rounded-lg">
@@ -249,12 +263,13 @@ const TestView = ({ exercises }: { exercises: TestExercise[] }) => {
             )}
             {checked[ex.id] && (
               <p className="mt-4 text-sm text-muted-foreground">
-                Score: {ex.items.filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {ex.items.length}
+                Score: {(ex.items || []).filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {(ex.items || []).length}
               </p>
             )}
           </CardContent>
         </Card>
-      ))}
+        );
+      })}
     </div>
   );
 };

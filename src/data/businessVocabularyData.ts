@@ -25,18 +25,26 @@ export interface PracticeExercise {
   }[];
 }
 
+export interface MatchingPair {
+  id: number;
+  left: string;
+  right: string;
+}
+
 export interface TestExercise {
   id: string;
   title: string;
   instruction: string;
-  type: 'fill-blank' | 'classify' | 'gap-fill' | 'word-form';
-  items: {
+  type: 'fill-blank' | 'classify' | 'gap-fill' | 'word-form' | 'matching';
+  items?: {
     id: number;
     prompt: string;
     answer: string;
     options?: string[];
     hint?: string;
   }[];
+  pairs?: MatchingPair[];
+  extraWords?: string[];
 }
 
 export interface BusinessVocabTopic {
@@ -419,15 +427,16 @@ const topic3Test: TestExercise[] = [
   {
     id: '3.1',
     title: 'Test 3.1 – Make word pairs',
-    instruction: 'Match each word on the left with a word on the right to make a common word pair. There is one extra word you don\'t need.',
-    type: 'fill-blank',
-    items: [
-      { id: 1, prompt: 'covering ___', answer: 'letter', hint: 'Options: agency, references, test, letter, form, vitae' },
-      { id: 2, prompt: 'employment ___', answer: 'agency' },
-      { id: 3, prompt: 'application ___', answer: 'form' },
-      { id: 4, prompt: 'curriculum ___', answer: 'vitae' },
-      { id: 5, prompt: 'psychometric ___', answer: 'test' },
+    instruction: 'Drag each word on the right to match with a word on the left to make a common word pair. There is one extra word you don\'t need.',
+    type: 'matching',
+    pairs: [
+      { id: 1, left: 'covering', right: 'letter' },
+      { id: 2, left: 'employment', right: 'agency' },
+      { id: 3, left: 'application', right: 'form' },
+      { id: 4, left: 'curriculum', right: 'vitae' },
+      { id: 5, left: 'psychometric', right: 'test' },
     ],
+    extraWords: ['references'],
   },
   {
     id: '3.2',
