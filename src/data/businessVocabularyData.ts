@@ -329,6 +329,149 @@ const topic2Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 3 content ────────────────────────────────────────────────────
+
+const topic3Theory: TheorySection[] = [
+  {
+    heading: 'A – Recruitment',
+    content: `The process of finding people for particular jobs is <strong>recruitment</strong> or, especially in American English, <strong>hiring</strong>. Someone who has been recruited is a <strong>recruit</strong> or, in American English, a <strong>hire</strong>. The company <strong>employs</strong> or <strong>hires</strong> them; they <strong>join</strong> the company.
+
+A company may recruit employees directly or use outside <strong>recruiters</strong>, <strong>recruitment agencies</strong> or <strong>employment agencies</strong>. Outside specialists called <strong>headhunters</strong> may be called on to <strong>headhunt</strong> people for very important jobs, persuading them to leave the organizations they already work for. This process is called <strong>headhunting</strong>.`,
+  },
+  {
+    heading: 'B – Applying for a job',
+    content: `Fred is a van driver, but he was fed up with long trips. He looked in the <strong>situations vacant</strong> pages of his local newspaper, where a local supermarket was <strong>advertising for</strong> van drivers for a new delivery service. He <strong>applied for</strong> the job by completing an <strong>application form</strong> and sending it in.
+
+Harry is a building engineer. He saw a job in the <strong>appointments</strong> pages of one of the national papers. He made an <strong>application</strong>, sending in his <strong>CV</strong> (curriculum vitae – the 'story' of his working life) and a <strong>covering letter</strong> explaining why he wanted the job and why he was the right person for it.`,
+    notes: [
+      '<strong>Situation</strong>, <strong>post</strong> and <strong>position</strong> are formal words for "job".',
+      'BrE: <strong>CV</strong>; AmE: <strong>résumé</strong> or <strong>resume</strong>',
+      'BrE: <strong>covering letter</strong>; AmE: <strong>cover letter</strong>',
+    ],
+  },
+  {
+    heading: 'C – Selection procedures',
+    content: `Dagmar Schmidt is the head of recruitment at a German telecommunications company. She talks about the <strong>selection process</strong>:
+
+<em>'We <strong>advertise</strong> in national newspapers. We look at the <strong>backgrounds</strong> of <strong>applicants</strong>: their <strong>experience</strong> of different jobs and their educational <strong>qualifications</strong>. We don't ask for handwritten letters of application as people usually apply by email.</em>
+
+<em>We invite the most interesting <strong>candidates</strong> to a group discussion. Then we have individual <strong>interviews</strong> with each candidate. We also ask the candidates to do written <strong>psychometric tests</strong> to assess their intelligence and personality.</em>
+
+<em>After this, we <strong>shortlist</strong> three or four candidates. We check their <strong>references</strong> by writing to their <strong>referees</strong>: previous employers or teachers that candidates have named in their applications. If the references are OK, we ask the candidates to come back for more interviews. Finally, we <strong>offer the job</strong> to someone, and if they <strong>turn it down</strong> we have to think again. If they <strong>accept</strong> it, we <strong>hire</strong> them. We only <strong>appoint</strong> someone if we find the right person.'</em>`,
+  },
+];
+
+const topic3Practice: PracticeExercise[] = [
+  {
+    id: '3.1',
+    title: 'Exercise 3.1 – Key vocabulary',
+    instruction: 'Complete each sentence with the correct word from sections A, B and C.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'They__(e)d her for the Paris office but she didn\'t want to go.', answer: 'recruited' },
+      { id: 2, prompt: 'The company is ___ing for experienced sales staff.', answer: 'advertis' },
+      { id: 3, prompt: 'I phoned to check on my application, but they said they\'d already ___ someone.', answer: 'recruited' },
+      { id: 4, prompt: 'This job is so important that I think we need to ___ someone.', answer: 'headhunt' },
+      { id: 5, prompt: 'The selection process has lasted three months, but we\'re going to ___ someone next week.', answer: 'appoint' },
+      { id: 6, prompt: 'We\'ll have to start looking again because she has ___ the job ___.', answer: 'turned down', hint: 'Two words: turned ___' },
+      { id: 7, prompt: 'They\'re looking ___ a new receptionist. Only those with experience should ___.', answer: 'for, apply', hint: 'Two answers separated by comma' },
+    ],
+  },
+  {
+    id: '3.2',
+    title: 'Exercise 3.2 – Classify the actions',
+    instruction: 'Decide whether each action is something a company does (C) or something a person looking for work does (P).',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'recruit', answer: 'C' },
+      { id: 2, prompt: 'headhunt', answer: 'C' },
+      { id: 3, prompt: 'appoint', answer: 'C' },
+      { id: 4, prompt: 'offer a job', answer: 'C' },
+      { id: 5, prompt: 'hire', answer: 'C' },
+      { id: 6, prompt: 'accept a job', answer: 'P' },
+      { id: 7, prompt: 'turn down a job', answer: 'P' },
+      { id: 8, prompt: 'apply for a job', answer: 'P' },
+    ],
+  },
+  {
+    id: '3.3',
+    title: 'Exercise 3.3 – Replace the underlined phrases',
+    instruction: 'Replace each underlined phrase with the correct word or expression from the text. Type the correct vocabulary term.',
+    type: 'correction',
+    items: [
+      { id: 1, prompt: 'Fred had already *refused two job offers* when he went for a discussion.', answer: 'turned down' },
+      { id: 2, prompt: 'He went for *a discussion to see if he was suitable for the job*.', answer: 'an interview' },
+      { id: 3, prompt: 'They contacted *previous employers Fred had mentioned in his application*.', answer: 'his referees' },
+      { id: 4, prompt: 'The supermarket *asked him if he would like the job*.', answer: 'offered him the job' },
+      { id: 5, prompt: 'Fred *said yes*.', answer: 'accepted' },
+      { id: 6, prompt: 'They had received a lot of *requests for the job*.', answer: 'applications' },
+      { id: 7, prompt: 'After looking at the *life stories* of the people…', answer: 'CVs' },
+      { id: 8, prompt: '…of the *people asking for the job*…', answer: 'applicants' },
+      { id: 9, prompt: '…and looking at *what exams they had passed during their education*…', answer: 'their qualifications' },
+      { id: 10, prompt: 'The company had *chosen six people to interview, done tests on their personality and intelligence* and then given someone the job.', answer: 'shortlisted' },
+    ],
+  },
+];
+
+const topic3Test: TestExercise[] = [
+  {
+    id: '3.1',
+    title: 'Test 3.1 – Make word pairs',
+    instruction: 'Match each word on the left with a word on the right to make a common word pair. There is one extra word you don\'t need.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'covering ___', answer: 'letter', hint: 'Options: agency, references, test, letter, form, vitae' },
+      { id: 2, prompt: 'employment ___', answer: 'agency' },
+      { id: 3, prompt: 'application ___', answer: 'form' },
+      { id: 4, prompt: 'curriculum ___', answer: 'vitae' },
+      { id: 5, prompt: 'psychometric ___', answer: 'test' },
+    ],
+  },
+  {
+    id: '3.2',
+    title: 'Test 3.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'We are using a recruitment ___ to find them for us. (agency / headhunter)', answer: 'agency' },
+      { id: 2, prompt: 'They advertised the ___ in the local newspaper last week. (positions / applicants)', answer: 'positions' },
+      { id: 3, prompt: 'So far, over 60 people have applied for the ___ (works / posts)', answer: 'posts' },
+      { id: 4, prompt: 'We are going to look at all the letters of ___ over the weekend. (application / situation)', answer: 'application' },
+      { id: 5, prompt: 'On Monday, we will draw up a ___ of 10 or 11 people. (reference / shortlist)', answer: 'shortlist' },
+      { id: 6, prompt: "Then we'll invite them all to come for an ___ (interview / appointment)", answer: 'interview' },
+      { id: 7, prompt: 'We hope to ___ the successful applicants by the end of the month. (apply / appoint)', answer: 'appoint' },
+    ],
+  },
+  {
+    id: '3.3',
+    title: 'Test 3.3 – Classify the sentences',
+    instruction: 'Decide whether each sentence would appear in a Situations Vacant ad (SV), in an applicant\'s CV, or in a covering letter (CL).',
+    type: 'classify',
+    items: [
+      { id: 1, prompt: 'I enclose my résumé for your consideration.', answer: 'CL' },
+      { id: 2, prompt: '1997–2000 University of Maryland, MBA (Marketing and Public Relations).', answer: 'CV' },
+      { id: 3, prompt: 'I am looking for a more stimulating environment and your company offers this.', answer: 'CL' },
+      { id: 4, prompt: 'Training will be given but basic word-processing skills would be an advantage.', answer: 'SV' },
+      { id: 5, prompt: '1994–1997: The Biscuit Company, London – Manager responsible for 22 staff.', answer: 'CV' },
+      { id: 6, prompt: 'The successful applicant will be expected to take up the post in January.', answer: 'SV' },
+    ],
+  },
+  {
+    id: '3.4',
+    title: 'Test 3.4 – Find the word',
+    instruction: 'Find the correct word for each clue.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Certificates from school and university → q___', answer: 'qualifications' },
+      { id: 2, prompt: "Where you've worked and what you've achieved → e___", answer: 'experience' },
+      { id: 3, prompt: 'Hire a good person who is working for another company → h___', answer: 'headhunt' },
+      { id: 4, prompt: 'People you can contact to find out about an applicant → r___', answer: 'referees' },
+      { id: 5, prompt: 'Process to find the right person for a job → s___', answer: 'selection' },
+      { id: 6, prompt: 'An applicant who has a good chance of getting the job → c___', answer: 'candidate' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -341,7 +484,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
     topics: [
       { id: 'work-and-jobs', number: 1, title: 'Work and Jobs', subtopics: ['A What do you do?', 'B Word combinations with "work"', 'C Types of job and types of work'], theory: topic1Theory, practice: topic1Practice, test: topic1Test },
       { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Nice work if you can get it', 'C Nature of work'], theory: topic2Theory, practice: topic2Practice, test: topic2Test },
-      { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'] },
+      { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'], theory: topic3Theory, practice: topic3Practice, test: topic3Test },
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'] },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Salaries and wages', 'B Benefits', 'C Compensation'] },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Offices', 'B Factories', 'C Types of company'] },
