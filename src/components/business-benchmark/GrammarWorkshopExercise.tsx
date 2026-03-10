@@ -76,22 +76,25 @@ const interviewLines: InterviewLine[] = [
 
 /* ── Exercise 2: Time phrases categorisation ── */
 const timePhraseCategories = [
-  {
-    id: "present-simple",
-    title: "Present Simple",
-    items: ["always", "every month", "every week", "generally", "never", "often", "sometimes", "usually"],
-  },
-  {
-    id: "present-continuous",
-    title: "Present Continuous",
-    items: ["at the moment", "currently", "now", "this month", "today", "this week"],
-  },
+  { id: "present-simple", title: "Present Simple" },
+  { id: "present-continuous", title: "Present Continuous" },
 ];
 
-const allTimePhrases = [
-  "always", "at the moment", "currently", "every month", "every week",
-  "generally", "never", "now", "often", "sometimes",
-  "this month", "this week", "today", "usually",
+const timePhrasePhrases = [
+  { id: "always", text: "always", category: "present-simple" },
+  { id: "every-month", text: "every month", category: "present-simple" },
+  { id: "every-week", text: "every week", category: "present-simple" },
+  { id: "generally", text: "generally", category: "present-simple" },
+  { id: "never", text: "never", category: "present-simple" },
+  { id: "often", text: "often", category: "present-simple" },
+  { id: "sometimes", text: "sometimes", category: "present-simple" },
+  { id: "usually", text: "usually", category: "present-simple" },
+  { id: "at-the-moment", text: "at the moment", category: "present-continuous" },
+  { id: "currently", text: "currently", category: "present-continuous" },
+  { id: "now", text: "now", category: "present-continuous" },
+  { id: "this-month", text: "this month", category: "present-continuous" },
+  { id: "today", text: "today", category: "present-continuous" },
+  { id: "this-week", text: "this week", category: "present-continuous" },
 ];
 
 /* ── Component ── */
