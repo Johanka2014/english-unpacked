@@ -216,7 +216,6 @@ const GrammarWorkshopExercise = () => {
         title="2. Categorise time phrases"
         description="Drag each time phrase into the correct category: Present Simple or Present Continuous."
         categories={timePhraseCategories}
-        allItems={allTimePhrases}
       />
 
       {/* Exercise 3 – Writing sentences */}
