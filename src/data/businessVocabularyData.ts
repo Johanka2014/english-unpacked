@@ -25,18 +25,26 @@ export interface PracticeExercise {
   }[];
 }
 
+export interface MatchingPair {
+  id: number;
+  left: string;
+  right: string;
+}
+
 export interface TestExercise {
   id: string;
   title: string;
   instruction: string;
-  type: 'fill-blank' | 'classify' | 'gap-fill' | 'word-form';
-  items: {
+  type: 'fill-blank' | 'classify' | 'gap-fill' | 'word-form' | 'matching';
+  items?: {
     id: number;
     prompt: string;
     answer: string;
     options?: string[];
     hint?: string;
   }[];
+  pairs?: MatchingPair[];
+  extraWords?: string[];
 }
 
 export interface BusinessVocabTopic {
