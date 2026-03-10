@@ -77,11 +77,13 @@ const interviewLines: InterviewLine[] = [
 /* ── Exercise 2: Time phrases categorisation ── */
 const timePhraseCategories = [
   {
-    name: "Present Simple",
+    id: "present-simple",
+    title: "Present Simple",
     items: ["always", "every month", "every week", "generally", "never", "often", "sometimes", "usually"],
   },
   {
-    name: "Present Continuous",
+    id: "present-continuous",
+    title: "Present Continuous",
     items: ["at the moment", "currently", "now", "this month", "today", "this week"],
   },
 ];
