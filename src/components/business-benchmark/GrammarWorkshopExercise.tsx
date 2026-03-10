@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle, XCircle } from "lucide-react";
+import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
 import DragDropCategorize from "@/components/presentations/DragDropCategorize";
 
 /* ── Exercise 1: Complete the interview ── */
@@ -252,6 +253,15 @@ const GrammarWorkshopExercise = () => {
           </p>
         </CardContent>
       </Card>
+
+      {/* Further Practice link */}
+      <div className="flex justify-center pt-4">
+        <Link to="/tense-master">
+          <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90 text-lg px-8">
+            Further Practice <ArrowRight className="h-5 w-5" />
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
