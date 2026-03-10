@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Lightbulb } from 'lucide-react';
 import { businessVocabSections } from '@/data/businessVocabularyData';
 import type { PracticeExercise, TestExercise } from '@/data/businessVocabularyData';
+import DragDropMatching from '@/components/presentations/DragDropMatching';
 import SEO from '@/components/SEO';
 
 // ── Sub-components ─────────────────────────────────────────────────────
