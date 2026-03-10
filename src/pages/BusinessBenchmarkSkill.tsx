@@ -12,6 +12,7 @@ import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExerci
 import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
 import ListeningPAExercise from '@/components/business-benchmark/ListeningPAExercise';
 import ReadingChangingPlacesExercise from '@/components/business-benchmark/ReadingChangingPlacesExercise';
+import GrammarWorkshopExercise from '@/components/business-benchmark/GrammarWorkshopExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -33,6 +34,7 @@ const BusinessBenchmarkSkill = () => {
     );
     if (contentType === 'listening-pa') return <ListeningPAExercise />;
     if (contentType === 'reading-changing-places') return <ReadingChangingPlacesExercise />;
+    if (contentType === 'grammar-workshop') return <GrammarWorkshopExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
