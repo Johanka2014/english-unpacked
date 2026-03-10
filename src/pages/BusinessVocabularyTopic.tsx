@@ -57,6 +57,34 @@ const PracticeView = ({ exercises }: { exercises: PracticeExercise[] }) => {
           const isChecked = checked[ex.id];
           const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
           const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
+
+          if (ex.type === 'classify') {
+            const allAnswers = ex.items.map(i => i.answer);
+            const options = [...new Set(allAnswers)].sort();
+            return (
+              <div key={item.id} className="flex items-center gap-3 p-3 border border-border rounded-lg">
+                <span className="text-sm font-medium text-muted-foreground w-6">{item.id}.</span>
+                <p className="text-sm text-foreground flex-1">{item.prompt}</p>
+                <select
+                  value={userAnswer}
+                  onChange={(e) => handleChange(ex.id, item.id, e.target.value)}
+                  disabled={isChecked}
+                  className={`border rounded-md px-3 py-1.5 text-sm transition-colors min-w-[80px] ${
+                    isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                    isWrong ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
+                    'border-border bg-background'
+                  }`}
+                >
+                  <option value="">—</option>
+                  {options.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+                {isWrong && <span className="text-xs text-red-600">{item.answer}</span>}
+              </div>
+            );
+          }
+
           return (
             <div key={item.id} className="flex items-start gap-3">
               <span className="text-sm font-medium text-muted-foreground mt-2 w-6">{item.id}.</span>
