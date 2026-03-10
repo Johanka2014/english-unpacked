@@ -107,6 +107,40 @@ const ListeningPAExercise = () => {
           <audio controls src={AUDIO_URL} className="w-full" />
         </CardContent>
       </Card>
+
+      {/* Transcript */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="transcript" className="border-none">
+              <AccordionTrigger className="text-2xl font-semibold font-merriweather text-foreground hover:no-underline">
+                📄 Transcript
+              </AccordionTrigger>
+              <AccordionContent>
+                <p className="text-sm italic text-muted-foreground mb-4">I = Interviewer; S = Sally</p>
+                <div className="space-y-4 text-foreground leading-relaxed">
+                  <p><strong>I:</strong> Sally, I'm not sure many people are clear about what the job of PA really is. So, what exactly do you do?</p>
+                  <p><strong>S:</strong> Well, normally I arrive at the office at about half past nine. My first job is to check my email. Every day there are lots of requests for meetings with Richard from producers, directors, lots of people. I prioritise these and I fit them into Richard's diary around his other appointments. Before any meeting, Richard needs background information, so I often do research or look up information. During meetings, I take notes and then afterwards I type the minutes and file them. And I deal with correspondence, take phone calls, and welcome visitors to the office.</p>
+                  <p><strong>I:</strong> What kind of atmosphere do you work in?</p>
+                  <p><strong>S:</strong> Oh, it's very busy. There are all kinds of people, producers, directors, actors, coming and going all the time. And sometimes it seems like the phone never stops ringing.</p>
+                  <p><strong>I:</strong> What do you like best about your job?</p>
+                  <p><strong>S:</strong> The people I work with. They're very positive and helpful.</p>
+                  <p><strong>I:</strong> And what do you like least?</p>
+                  <p><strong>S:</strong> Well, you can be under a lot of pressure to meet deadlines. There are always so many things happening. It can be quite manic sometimes.</p>
+                  <p><strong>I:</strong> Do you have a good working relationship with your boss?</p>
+                  <p><strong>S:</strong> Oh yes, we get on very well. He has a hectic schedule and he's out of the office a lot of the time so trust is very important. He relies on me to work efficiently if he's not there.</p>
+                  <p><strong>I:</strong> What kind of qualities do you think a PA needs?</p>
+                  <p><strong>S:</strong> Organisation is the most important thing, definitely. You need to be quite meticulous when you're planning your employer's appointments.</p>
+                  <p><strong>I:</strong> Anything else?</p>
+                  <p><strong>S:</strong> Yes, you need to stay calm, even in a difficult situation. And you need a good telephone manner and good communication skills.</p>
+                  <p><strong>I:</strong> Do you have any words of encouragement for anyone who is thinking of becoming a PA?</p>
+                  <p><strong>S:</strong> Being a PA is a valuable career. It gives you a really good idea of how an organisation works and how people make decisions. And it can be an ideal springboard for a career in many other business areas, from marketing to finance.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
     </div>
   );
 };
