@@ -4,7 +4,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Lightbulb } from 'lucide-react';
 import { businessVocabSections } from '@/data/businessVocabularyData';
 import type { PracticeExercise, TestExercise } from '@/data/businessVocabularyData';
 import SEO from '@/components/SEO';
@@ -46,55 +47,90 @@ const PracticeView = ({ exercises }: { exercises: PracticeExercise[] }) => {
     setChecked((prev) => ({ ...prev, [exId]: true }));
   };
 
+  const renderExerciseContent = (ex: PracticeExercise) => (
+    <>
+      <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
+      <p className="text-muted-foreground mb-6">{ex.instruction}</p>
+      <div className="space-y-4">
+        {ex.items.map((item) => {
+          const userAnswer = answers[ex.id]?.[item.id] || '';
+          const isChecked = checked[ex.id];
+          const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
+          const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
+          return (
+            <div key={item.id} className="flex items-start gap-3">
+              <span className="text-sm font-medium text-muted-foreground mt-2 w-6">{item.id}.</span>
+              <div className="flex-1">
+                <p className="text-sm text-foreground mb-1" dangerouslySetInnerHTML={{ __html: item.prompt }} />
+                <input
+                  type="text"
+                  value={userAnswer}
+                  onChange={(e) => handleChange(ex.id, item.id, e.target.value)}
+                  className={`w-full max-w-xs border rounded-md px-3 py-1.5 text-sm transition-colors ${
+                    isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                    isWrong ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
+                    'border-border bg-background'
+                  }`}
+                  disabled={isChecked}
+                />
+                {isWrong && (
+                  <p className="text-xs text-red-600 mt-1">Correct answer: {item.answer}</p>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {!checked[ex.id] && (
+        <Button onClick={() => checkExercise(ex.id)} className="mt-6 bg-brand-royal hover:bg-brand-navy">
+          Check Answers
+        </Button>
+      )}
+      {checked[ex.id] && (
+        <p className="mt-4 text-sm text-muted-foreground">
+          Score: {ex.items.filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {ex.items.length}
+        </p>
+      )}
+    </>
+  );
+
   return (
     <div className="space-y-8">
       {exercises.map((ex) => (
-        <Card key={ex.id} className="service-card">
-          <CardContent className="p-6">
-            <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
-            <p className="text-muted-foreground mb-6">{ex.instruction}</p>
-            <div className="space-y-4">
-              {ex.items.map((item) => {
-                const userAnswer = answers[ex.id]?.[item.id] || '';
-                const isChecked = checked[ex.id];
-                const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
-                const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
-                return (
-                  <div key={item.id} className="flex items-start gap-3">
-                    <span className="text-sm font-medium text-muted-foreground mt-2 w-6">{item.id}.</span>
-                    <div className="flex-1">
-                      <p className="text-sm text-foreground mb-1" dangerouslySetInnerHTML={{ __html: item.prompt }} />
-                      <input
-                        type="text"
-                        value={userAnswer}
-                        onChange={(e) => handleChange(ex.id, item.id, e.target.value)}
-                        className={`w-full max-w-xs border rounded-md px-3 py-1.5 text-sm transition-colors ${
-                          isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
-                          isWrong ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
-                          'border-border bg-background'
-                        }`}
-                        disabled={isChecked}
-                      />
-                      {isWrong && (
-                        <p className="text-xs text-red-600 mt-1">Correct answer: {item.answer}</p>
-                      )}
-                    </div>
+        ex.wordBank ? (
+          <div key={ex.id} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="service-card md:col-span-2">
+              <CardContent className="p-6">
+                {renderExerciseContent(ex)}
+              </CardContent>
+            </Card>
+            <div className="md:sticky md:top-28 h-fit order-first md:order-last">
+              <Card className="border-brand-royal/20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base font-merriweather flex items-center gap-2">
+                    <Lightbulb className="w-4 h-4 text-brand-royal" />
+                    Key Vocabulary
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className="flex flex-wrap gap-1.5">
+                    {ex.wordBank.map((word) => (
+                      <Badge key={word} variant="secondary" className="text-xs font-normal bg-background/80 text-foreground border border-border">
+                        {word}
+                      </Badge>
+                    ))}
                   </div>
-                );
-              })}
+                </CardContent>
+              </Card>
             </div>
-            {!checked[ex.id] && (
-              <Button onClick={() => checkExercise(ex.id)} className="mt-6 bg-brand-royal hover:bg-brand-navy">
-                Check Answers
-              </Button>
-            )}
-            {checked[ex.id] && (
-              <p className="mt-4 text-sm text-muted-foreground">
-                Score: {ex.items.filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {ex.items.length}
-              </p>
-            )}
-          </CardContent>
-        </Card>
+          </div>
+        ) : (
+          <Card key={ex.id} className="service-card">
+            <CardContent className="p-6">
+              {renderExerciseContent(ex)}
+            </CardContent>
+          </Card>
+        )
       ))}
     </div>
   );
