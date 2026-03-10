@@ -126,8 +126,8 @@ const PracticeView = ({ exercises }: { exercises: PracticeExercise[] }) => {
     <div className="space-y-8">
       {exercises.map((ex) => (
         ex.wordBank ? (
-          <div key={ex.id} className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="service-card md:col-span-2">
+          <div key={ex.id} className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            <Card className="service-card md:col-span-3">
               <CardContent className="p-6">
                 {renderExerciseContent(ex)}
               </CardContent>
