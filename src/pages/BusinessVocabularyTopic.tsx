@@ -207,7 +207,7 @@ const TestView = ({ exercises }: { exercises: TestExercise[] }) => {
                 const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
 
                 if (ex.type === 'classify') {
-                  const allAnswers = ex.items.map(i => i.answer);
+                  const allAnswers = (ex.items || []).map(i => i.answer);
                   const options = [...new Set(allAnswers)].sort();
                   return (
                     <div key={item.id} className="p-3 border border-border rounded-lg">
