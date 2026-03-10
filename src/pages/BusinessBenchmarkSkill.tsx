@@ -10,6 +10,7 @@ import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResp
 import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
 import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExercise';
 import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
+import ListeningPAExercise from '@/components/business-benchmark/ListeningPAExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -29,6 +30,7 @@ const BusinessBenchmarkSkill = () => {
         <YourTurnExercise />
       </div>
     );
+    if (contentType === 'listening-pa') return <ListeningPAExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
