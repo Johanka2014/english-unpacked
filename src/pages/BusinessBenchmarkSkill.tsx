@@ -72,6 +72,14 @@ const BusinessBenchmarkSkill = () => {
         </div>
 
         {renderContent()}
+
+        <div className="mt-12 mb-4">
+          <Link to={`/business-benchmark/${mod.id}`}>
+            <Button variant="ghost" className="gap-2">
+              <ArrowLeft className="h-4 w-4" /> Back to {mod.title}
+            </Button>
+          </Link>
+        </div>
       </main>
 
       <Footer />
