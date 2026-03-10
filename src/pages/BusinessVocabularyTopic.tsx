@@ -181,13 +181,26 @@ const TestView = ({ exercises }: { exercises: TestExercise[] }) => {
 
   return (
     <div className="space-y-8">
-      {exercises.map((ex) => (
+      {exercises.map((ex) => {
+        if (ex.type === 'matching' && ex.pairs) {
+          return (
+            <DragDropMatching
+              key={ex.id}
+              title={ex.title}
+              instruction={ex.instruction}
+              pairs={ex.pairs}
+              extraWords={ex.extraWords}
+            />
+          );
+        }
+
+        return (
         <Card key={ex.id} className="service-card">
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
             <p className="text-muted-foreground mb-6">{ex.instruction}</p>
             <div className="space-y-4">
-              {ex.items.map((item) => {
+              {(ex.items || []).map((item) => {
                 const userAnswer = answers[ex.id]?.[item.id] || '';
                 const isChecked = checked[ex.id];
                 const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
