@@ -12,6 +12,7 @@ import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExerci
 import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
 import ListeningPAExercise from '@/components/business-benchmark/ListeningPAExercise';
 import ReadingChangingPlacesExercise from '@/components/business-benchmark/ReadingChangingPlacesExercise';
+import GrammarWorkshopExercise from '@/components/business-benchmark/GrammarWorkshopExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();

@@ -22,7 +22,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
       { id: 'listening', title: 'Listening', description: 'Being a PA', content: { type: 'listening-pa' } },
       
       { id: 'vocabulary', title: 'Vocabulary', description: 'Job titles and describing jobs; Names of company departments', content: { type: 'department-matching' } },
-      { id: 'grammar', title: 'Grammar', description: 'Present simple and present continuous; Time expressions' },
+      { id: 'grammar', title: 'Grammar', description: 'Present simple and present continuous; Time expressions', content: { type: 'grammar-workshop' } },
     ],
   },
   {
