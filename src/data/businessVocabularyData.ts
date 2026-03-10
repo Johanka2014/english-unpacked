@@ -383,7 +383,7 @@ const topic3Practice: PracticeExercise[] = [
     id: '3.2',
     title: 'Exercise 3.2 – Classify the actions',
     instruction: 'Decide whether each action is something a company does (C) or something a person looking for work does (P).',
-    type: 'fill-blank',
+    type: 'classify',
     items: [
       { id: 1, prompt: 'recruit', answer: 'C' },
       { id: 2, prompt: 'headhunt', answer: 'C' },
