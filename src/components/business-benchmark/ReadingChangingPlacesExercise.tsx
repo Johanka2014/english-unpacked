@@ -212,7 +212,7 @@ const ReadingChangingPlacesExercise = () => {
       {/* Activity 6 - Discussion */}
       <Card className="service-card">
         <CardContent className="p-6">
-          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">5. Discussion</h3>
+          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">6. Discussion</h3>
           <p className="text-foreground font-medium mb-2">Discuss these questions in small groups:</p>
           <ul className="list-disc list-inside space-y-2 text-foreground">
             <li>What do you think about having a Changing Places day?</li>
