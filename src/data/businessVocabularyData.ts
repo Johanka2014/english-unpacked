@@ -16,6 +16,7 @@ export interface PracticeExercise {
   title: string;
   instruction: string;
   type: 'correction' | 'fill-blank' | 'rewrite';
+  wordBank?: string[];
   items: {
     id: number;
     prompt: string;
