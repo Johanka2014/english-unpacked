@@ -263,12 +263,13 @@ const TestView = ({ exercises }: { exercises: TestExercise[] }) => {
             )}
             {checked[ex.id] && (
               <p className="mt-4 text-sm text-muted-foreground">
-                Score: {ex.items.filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {ex.items.length}
+                Score: {(ex.items || []).filter((item) => (answers[ex.id]?.[item.id] || '').trim().toLowerCase() === item.answer.toLowerCase()).length} / {(ex.items || []).length}
               </p>
             )}
           </CardContent>
         </Card>
-      ))}
+        );
+      })}
     </div>
   );
 };
