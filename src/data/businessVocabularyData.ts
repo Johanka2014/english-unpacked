@@ -368,6 +368,7 @@ const topic3Practice: PracticeExercise[] = [
     title: 'Exercise 3.1 – Key vocabulary',
     instruction: 'Complete each sentence with the correct word from sections A, B and C.',
     type: 'fill-blank',
+    wordBank: ['recruited', 'hiring', 'recruit', 'hire', 'employs', 'headhunters', 'headhunt', 'headhunting', 'situations vacant', 'advertising for', 'applied for', 'application form', 'application', 'CV', 'covering letter', 'advertise', 'applicants', 'candidates', 'interviews', 'psychometric tests', 'shortlist', 'references', 'referees', 'offer the job', 'turn it down', 'accept', 'appoint'],
     items: [
       { id: 1, prompt: 'They__(e)d her for the Paris office but she didn\'t want to go.', answer: 'recruited' },
       { id: 2, prompt: 'The company is ___ing for experienced sales staff.', answer: 'advertis' },
