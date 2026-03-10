@@ -196,7 +196,20 @@ const ReadingChangingPlacesExercise = () => {
         </CardContent>
       </Card>
 
-      {/* Activity 5 - Discussion */}
+      {/* Activity 5 - Word Order */}
+      <WordOrderExercise
+        title="5. Word Order"
+        description="These sentences come from the article. Drag and drop the words into the correct order. Tip: Start with the subject, then the verb, then add objects and extra information."
+        items={[
+          { id: 1, words: ["dislike", "many", "reality", "critics", "TV"], answer: "many critics dislike reality TV" },
+          { id: 2, words: ["for", "hotel", "have", "his", "owners", "family", "been", "three", "generations"], answer: "his family have been hotel owners for three generations" },
+          { id: 3, words: ["demanding", "he", "a", "reputation", "has", "for", "quality"], answer: "he has a reputation for demanding quality" },
+          { id: 4, words: ["makes", "his", "redo", "him", "supervisor", "the", "steaks"], answer: "his supervisor makes him redo the steaks" },
+          { id: 5, words: ["carried", "we", "several", "have", "out", "changes"], answer: "we have carried out several changes" },
+        ]}
+      />
+
+      {/* Activity 6 - Discussion */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">5. Discussion</h3>
