@@ -253,6 +253,15 @@ const GrammarWorkshopExercise = () => {
           </p>
         </CardContent>
       </Card>
+
+      {/* Further Practice link */}
+      <div className="flex justify-center pt-4">
+        <Link to="/tense-master">
+          <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90 text-lg px-8">
+            Further Practice <ArrowRight className="h-5 w-5" />
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };
