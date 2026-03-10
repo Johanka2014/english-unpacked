@@ -20,7 +20,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     skills: [
       { id: 'reading', title: 'Reading', description: 'Changing places: job swapping at work', content: { type: 'reading-changing-places' } },
       { id: 'listening', title: 'Listening', description: 'Being a PA', content: { type: 'listening-pa' } },
-      { id: 'speaking', title: 'Speaking', description: 'Talking about your job; Asking about other people\'s jobs' },
+      
       { id: 'vocabulary', title: 'Vocabulary', description: 'Job titles and describing jobs; Names of company departments', content: { type: 'department-matching' } },
       { id: 'grammar', title: 'Grammar', description: 'Present simple and present continuous; Time expressions' },
     ],
