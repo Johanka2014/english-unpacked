@@ -153,11 +153,13 @@ const PracticeView = ({ exercises }: { exercises: PracticeExercise[] }) => {
             </div>
           </div>
         ) : (
-          <Card key={ex.id} className="service-card">
-            <CardContent className="p-6">
-              {renderExerciseContent(ex)}
-            </CardContent>
-          </Card>
+          <div key={ex.id} className={ex.type === 'classify' ? 'md:w-3/5 md:mx-auto' : ''}>
+            <Card className="service-card">
+              <CardContent className="p-6">
+                {renderExerciseContent(ex)}
+              </CardContent>
+            </Card>
+          </div>
         )
       ))}
     </div>
