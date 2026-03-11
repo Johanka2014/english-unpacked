@@ -87,6 +87,27 @@ const TalkingPointUnit10 = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* Audio script accordion */}
+      <Accordion type="single" collapsible>
+        <AccordionItem value="transcript" className="border rounded-lg">
+          <AccordionTrigger className="px-6 hover:no-underline">
+            <span className="flex items-center gap-2 text-foreground font-semibold">
+              📝 Audio Script
+            </span>
+          </AccordionTrigger>
+          <AccordionContent className="px-6 pb-6">
+            <div className="prose prose-sm dark:prose-invert max-w-none">
+              <p className="text-muted-foreground mb-3">
+                <strong className="text-foreground">Interviewer:</strong> What do you think is important when looking for finance for a start-up?
+              </p>
+              <p className="text-muted-foreground mb-3">
+                <strong className="text-foreground">Lewis:</strong> The first thing I'd say is you've got to have a really good idea. I mean, a genuinely good idea that solves a real problem. And the second thing is you need to be passionate about it — investors can tell if you really believe in what you're doing. The third thing is you need to be realistic about how much money you need, and be able to show that you understand your costs and your market. And finally, I'd say keep your overheads as low as possible in the early days. Don't rent fancy offices, don't hire too many people too soon. Keep it lean and prove the concept first, and then scale up when you know it works.
+              </p>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };
