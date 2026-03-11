@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
+import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
