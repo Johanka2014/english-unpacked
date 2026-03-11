@@ -218,6 +218,7 @@ const GrammarWorkshopUnit10 = () => {
         ]}
       />
     </div>
+  );
 };
 
 export default GrammarWorkshopUnit10;
