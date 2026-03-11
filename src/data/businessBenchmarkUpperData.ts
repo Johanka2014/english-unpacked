@@ -149,7 +149,7 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 10,
     title: 'Financing the Start-Up',
     skills: [
-      { id: 'getting-started', title: 'Getting Started', description: 'Match statements with people; Discussion: If you started your own business...', type: 'speaking' },
+      { id: 'getting-started', title: 'Getting Started', description: 'Match statements with people; Discussion: If you started your own business...', type: 'speaking', content: true },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Start-up opportunities: raise, borrow, carry out, launch, cover, write, repay + business collocations', type: 'vocabulary' },
       { id: 'listening-1', title: 'Listening: Food Consultancy', description: 'Jane Milton talks about setting up notjustfood consultancy — complete the notes', type: 'listening', audioTrack: '' },
       { id: 'reading', title: 'Reading: Raising Finance', description: 'Bank loans, friends & family, venture capital — match statements to paragraphs', type: 'reading' },
