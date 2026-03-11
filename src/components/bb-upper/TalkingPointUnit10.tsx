@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { MessageSquare, Headphones, PenLine } from "lucide-react";
 
 const AUDIO_SRC = "https://johanka2014.github.io/bus_bench/mod_10/19_Unit_10.mp3";
