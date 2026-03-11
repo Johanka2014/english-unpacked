@@ -41,11 +41,15 @@ const BBUpperSkill = () => {
           </Link>
         </div>
 
-        <div className="bg-muted/50 rounded-xl p-12 text-center">
-          <p className="text-lg text-muted-foreground">
-            Content for this section is being prepared. Check back soon!
-          </p>
-        </div>
+        {moduleId === 'financing-the-start-up' && skillId === 'getting-started' ? (
+          <GettingStartedUnit10 />
+        ) : (
+          <div className="bg-muted/50 rounded-xl p-12 text-center">
+            <p className="text-lg text-muted-foreground">
+              Content for this section is being prepared. Check back soon!
+            </p>
+          </div>
+        )}
       </main>
 
       <Footer />
