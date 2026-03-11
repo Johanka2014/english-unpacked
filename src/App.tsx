@@ -42,6 +42,9 @@ const BusinessVocabularyTopic = lazy(() => import("./pages/BusinessVocabularyTop
 const BusinessBenchmark = lazy(() => import("./pages/BusinessBenchmark"));
 const BusinessBenchmarkModule = lazy(() => import("./pages/BusinessBenchmarkModule"));
 const BusinessBenchmarkSkill = lazy(() => import("./pages/BusinessBenchmarkSkill"));
+const BBUpperIntermediate = lazy(() => import("./pages/BBUpperIntermediate"));
+const BBUpperModule = lazy(() => import("./pages/BBUpperModule"));
+const BBUpperSkill = lazy(() => import("./pages/BBUpperSkill"));
 const B1Grammar = lazy(() => import("./pages/B1Grammar"));
 const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
