@@ -131,16 +131,9 @@ const Listening2Unit10 = () => {
             answers.
           </div>
 
-          {/* Audio players */}
-          <div className="space-y-2 mb-6">
-            <div>
-              <p className="text-xs font-medium text-muted-foreground mb-1">Track 18</p>
-              <audio controls src={AUDIO_1} className="w-full" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground mb-1">Track 19</p>
-              <audio controls src={AUDIO_2} className="w-full" />
-            </div>
+          {/* Audio player */}
+          <div className="mb-6">
+            <audio controls src={AUDIO_1} className="w-full" />
           </div>
 
           {/* Multiple choice questions */}
