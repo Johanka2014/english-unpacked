@@ -79,6 +79,13 @@ const businessActivities = [
     path: '/business-benchmark',
     color: 'text-teal-600',
   },
+  {
+    title: 'Business Benchmark Upper Intermediate',
+    description: 'Master B2 business English across 24 units with reading, listening, writing, speaking, vocabulary and grammar workshops',
+    icon: Briefcase,
+    path: '/bb-upper',
+    color: 'text-sky-600',
+  },
 ];
 
 const maturitaActivities = [

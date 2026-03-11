@@ -42,6 +42,9 @@ const BusinessVocabularyTopic = lazy(() => import("./pages/BusinessVocabularyTop
 const BusinessBenchmark = lazy(() => import("./pages/BusinessBenchmark"));
 const BusinessBenchmarkModule = lazy(() => import("./pages/BusinessBenchmarkModule"));
 const BusinessBenchmarkSkill = lazy(() => import("./pages/BusinessBenchmarkSkill"));
+const BBUpperIntermediate = lazy(() => import("./pages/BBUpperIntermediate"));
+const BBUpperModule = lazy(() => import("./pages/BBUpperModule"));
+const BBUpperSkill = lazy(() => import("./pages/BBUpperSkill"));
 const B1Grammar = lazy(() => import("./pages/B1Grammar"));
 const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
@@ -94,6 +97,9 @@ const App = () => (
               <Route path="/business-benchmark" element={<ProtectedRoute><BusinessBenchmark /></ProtectedRoute>} />
               <Route path="/business-benchmark/:moduleId" element={<ProtectedRoute><BusinessBenchmarkModule /></ProtectedRoute>} />
               <Route path="/business-benchmark/:moduleId/:skillId" element={<ProtectedRoute><BusinessBenchmarkSkill /></ProtectedRoute>} />
+              <Route path="/bb-upper" element={<ProtectedRoute><BBUpperIntermediate /></ProtectedRoute>} />
+              <Route path="/bb-upper/:moduleId" element={<ProtectedRoute><BBUpperModule /></ProtectedRoute>} />
+              <Route path="/bb-upper/:moduleId/:skillId" element={<ProtectedRoute><BBUpperSkill /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
