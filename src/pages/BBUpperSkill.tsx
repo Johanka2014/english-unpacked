@@ -7,6 +7,7 @@ import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
 import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
 import VocabularyUnit10 from '@/components/bb-upper/VocabularyUnit10';
+import ListeningUnit10 from '@/components/bb-upper/ListeningUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -46,6 +47,8 @@ const BBUpperSkill = () => {
           <GettingStartedUnit10 />
         ) : moduleId === 'financing-the-start-up' && skillId === 'vocabulary' ? (
           <VocabularyUnit10 />
+        ) : moduleId === 'financing-the-start-up' && skillId === 'listening-1' ? (
+          <ListeningUnit10 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
