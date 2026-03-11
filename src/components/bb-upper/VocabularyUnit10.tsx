@@ -291,12 +291,137 @@ const GapFillExercise = () => {
   );
 };
 
+/* ── Exercise 3: Petpals multiple-choice cloze ── */
+
+interface ClozeGap {
+  options: { label: string; text: string }[];
+  answer: string;
+}
+
+const clozeGaps: ClozeGap[] = [
+  { options: [{ label: "A", text: "stopped" }, { label: "B", text: "threw" }, { label: "C", text: "went" }, { label: "D", text: "quit" }], answer: "D" },
+  { options: [{ label: "A", text: "leaving" }, { label: "B", text: "giving" }, { label: "C", text: "throwing" }, { label: "D", text: "stopping" }], answer: "B" },
+  { options: [{ label: "A", text: "growing" }, { label: "B", text: "doing" }, { label: "C", text: "looking" }, { label: "D", text: "working" }], answer: "A" },
+  { options: [{ label: "A", text: "arrived" }, { label: "B", text: "reached" }, { label: "C", text: "rose" }, { label: "D", text: "met" }], answer: "B" },
+  { options: [{ label: "A", text: "complete" }, { label: "B", text: "large" }, { label: "C", text: "gross" }, { label: "D", text: "top" }], answer: "C" },
+  { options: [{ label: "A", text: "pay up" }, { label: "B", text: "pay in" }, { label: "C", text: "pay out" }, { label: "D", text: "pay off" }], answer: "D" },
+  { options: [{ label: "A", text: "employs" }, { label: "B", text: "contracts" }, { label: "C", text: "engages" }, { label: "D", text: "hires" }], answer: "A" },
+  { options: [{ label: "A", text: "amount" }, { label: "B", text: "percentage" }, { label: "C", text: "number" }, { label: "D", text: "rate" }], answer: "D" },
+  { options: [{ label: "A", text: "work" }, { label: "B", text: "run" }, { label: "C", text: "do" }, { label: "D", text: "make" }], answer: "B" },
+  { options: [{ label: "A", text: "sending" }, { label: "B", text: "paying" }, { label: "C", text: "providing" }, { label: "D", text: "renting" }], answer: "C" },
+  { options: [{ label: "A", text: "hand" }, { label: "B", text: "paper" }, { label: "C", text: "reach" }, { label: "D", text: "side" }], answer: "A" },
+];
+
+const clozeParts = [
+  "Brendan Humphrey of Petpals Winchester says, 'I ",
+  " my £40,000-a-year job as a surveyor to join the franchise, ",
+  " up all the associated stress, and have not missed a single moment of the old job. It was hard work for the first year, as I was ",
+  " my business and we had to be careful with money, but what a great year! I could not believe it; in our first year, our turnover ",
+  " just over £35,000, producing around £10,000 ",
+  " profit, and we even managed to ",
+  " most of our finance. No more stresses and strains of the old life, I have lost weight, have peace of mind, sanity and probably the best job in the world.' Petpals Winchester now ",
+  " four part-time assistants and is growing at a controlled ",
+  " of around 20% a quarter. Part of a famous rock band that started back in the sixties, Richard Herd, of Petpals Saffron Walden wanted a business that he could ",
+  " with his wife, Pauline. That would allow them to work together in harmony while ",
+  " a rewarding service to busy pet owners. Richard and Pauline say, 'We enjoy being very much part of the franchise. Support is always on ",
+  " if we need it.'",
+];
+
+const PetpalsClozeExercise = () => {
+  const [selections, setSelections] = useState<Record<number, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  const handleSelect = (gapIdx: number, label: string) => {
+    if (checked) return;
+    setSelections((prev) => ({ ...prev, [gapIdx]: label }));
+  };
+
+  const allSelected = clozeGaps.every((_, i) => selections[i]);
+  const correctCount = checked ? clozeGaps.filter((g, i) => selections[i] === g.answer).length : 0;
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Exercise 3: Petpals franchise</CardTitle>
+        <p className="text-muted-foreground text-sm">
+          Read this story about someone who joined a franchise called Petpals, which looks after
+          people's domestic animals while they are working or on holiday. Choose the best answer,
+          A, B, C or D, to fill each space.
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {/* Cloze text */}
+        <div className="bg-muted/30 border border-border rounded-lg p-5 text-sm leading-relaxed text-foreground">
+          {clozeParts.map((part, i) => (
+            <span key={i}>
+              {part}
+              {i < clozeGaps.length && (
+                <span className="inline-flex items-center mx-0.5 align-baseline">
+                  <select
+                    value={selections[i] || ""}
+                    onChange={(e) => handleSelect(i, e.target.value)}
+                    disabled={checked}
+                    className={`border rounded px-1.5 py-0.5 text-sm min-w-[100px] bg-background mx-0.5
+                      ${checked && selections[i] === clozeGaps[i].answer ? "border-green-500 bg-green-50 dark:bg-green-950/20" : ""}
+                      ${checked && selections[i] && selections[i] !== clozeGaps[i].answer ? "border-red-500 bg-red-50 dark:bg-red-950/20" : ""}
+                      ${!checked ? "border-border" : ""}
+                    `}
+                  >
+                    <option value="">({i + 1})</option>
+                    {clozeGaps[i].options.map((opt) => (
+                      <option key={opt.label} value={opt.label}>
+                        {opt.label} {opt.text}
+                      </option>
+                    ))}
+                  </select>
+                  {checked && selections[i] === clozeGaps[i].answer && (
+                    <CheckCircle className="h-3.5 w-3.5 text-green-600 ml-0.5 inline" />
+                  )}
+                  {checked && selections[i] && selections[i] !== clozeGaps[i].answer && (
+                    <span className="text-xs text-green-600 dark:text-green-400 ml-1">
+                      {clozeGaps[i].answer}
+                    </span>
+                  )}
+                </span>
+              )}
+            </span>
+          ))}
+        </div>
+
+        {checked && (
+          <div
+            className={`p-4 rounded-lg text-center font-semibold ${
+              correctCount === clozeGaps.length
+                ? "bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800"
+                : "bg-muted/50 text-foreground"
+            }`}
+          >
+            {correctCount === clozeGaps.length
+              ? "🎉 All correct! Well done!"
+              : `You got ${correctCount} out of ${clozeGaps.length} correct.`}
+          </div>
+        )}
+
+        <div className="flex items-center gap-3">
+          <Button onClick={() => setChecked(true)} disabled={!allSelected || checked}>
+            Check Answers
+          </Button>
+          <Button variant="outline" onClick={() => { setSelections({}); setChecked(false); }} className="gap-1">
+            <RotateCcw className="h-4 w-4" /> Reset
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 /* ── Main ── */
 
 const VocabularyUnit10 = () => (
   <div className="space-y-8">
     <MatchingExercise />
     <GapFillExercise />
+    <PetpalsClozeExercise />
   </div>
 );
 
