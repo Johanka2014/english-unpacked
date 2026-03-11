@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
 import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
+import VocabularyUnit10 from '@/components/bb-upper/VocabularyUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -43,6 +44,8 @@ const BBUpperSkill = () => {
 
         {moduleId === 'financing-the-start-up' && skillId === 'getting-started' ? (
           <GettingStartedUnit10 />
+        ) : moduleId === 'financing-the-start-up' && skillId === 'vocabulary' ? (
+          <VocabularyUnit10 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
