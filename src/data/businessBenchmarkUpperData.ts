@@ -154,7 +154,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'listening-1', title: 'Listening: Food Consultancy', description: 'Jane Milton talks about setting up notjustfood consultancy — complete the notes', type: 'listening', audioTrack: '', content: true },
       { id: 'reading', title: 'Reading: Raising Finance', description: 'Bank loans, friends & family, venture capital — match statements to paragraphs', type: 'reading', content: true },
       { id: 'speaking', title: 'Role-play: Business Advice', description: 'Entrepreneurs consult business advisors on financing a small printing business', type: 'speaking', content: true },
-      { id: 'listening-2', title: 'Listening: Multimedia Company', description: 'Lewis Bronze on setting up Espresso Ltd — multiple-choice questions', type: 'listening', audioTrack: '' },
+      { id: 'listening-2', title: 'Listening: Multimedia Company', description: 'Lewis Bronze on setting up Espresso Ltd — multiple-choice questions', type: 'listening', audioTrack: '', content: true },
       { id: 'talking-point', title: 'Talking Point', description: 'What is important when looking for finance to start a business?', type: 'speaking' },
     ],
   },
