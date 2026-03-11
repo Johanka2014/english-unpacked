@@ -72,6 +72,12 @@ const BBUpperSkill = () => {
             </p>
           </div>
         )}
+
+        <SkillNavigation
+          moduleId={mod.id}
+          skills={mod.skills}
+          currentSkillId={skill.id}
+        />
       </main>
 
       <Footer />
