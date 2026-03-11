@@ -9,6 +9,7 @@ import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
 import VocabularyUnit10 from '@/components/bb-upper/VocabularyUnit10';
 import ListeningUnit10 from '@/components/bb-upper/ListeningUnit10';
 import ReadingUnit10 from '@/components/bb-upper/ReadingUnit10';
+import SpeakingUnit10 from '@/components/bb-upper/SpeakingUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -52,6 +53,8 @@ const BBUpperSkill = () => {
           <ListeningUnit10 />
         ) : moduleId === 'financing-the-start-up' && skillId === 'reading' ? (
           <ReadingUnit10 />
+        ) : moduleId === 'financing-the-start-up' && skillId === 'speaking' ? (
+          <SpeakingUnit10 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
