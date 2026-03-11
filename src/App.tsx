@@ -97,6 +97,9 @@ const App = () => (
               <Route path="/business-benchmark" element={<ProtectedRoute><BusinessBenchmark /></ProtectedRoute>} />
               <Route path="/business-benchmark/:moduleId" element={<ProtectedRoute><BusinessBenchmarkModule /></ProtectedRoute>} />
               <Route path="/business-benchmark/:moduleId/:skillId" element={<ProtectedRoute><BusinessBenchmarkSkill /></ProtectedRoute>} />
+              <Route path="/bb-upper" element={<ProtectedRoute><BBUpperIntermediate /></ProtectedRoute>} />
+              <Route path="/bb-upper/:moduleId" element={<ProtectedRoute><BBUpperModule /></ProtectedRoute>} />
+              <Route path="/bb-upper/:moduleId/:skillId" element={<ProtectedRoute><BBUpperSkill /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
