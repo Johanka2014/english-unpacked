@@ -200,8 +200,24 @@ const GrammarWorkshopUnit10 = () => {
           </div>
         </CardContent>
       </Card>
+      {/* Exercise 2: Match sentence halves */}
+      <MatchingExercise
+        title="Match the sentence halves"
+        description="Match the beginnings of the sentences to the correct endings to make logical conditional sentences."
+        leftLabel="Sentence beginning"
+        rightLabel="Sentence ending"
+        pairs={[
+          { id: 1, left: "1. If I were taller,", right: "… I wouldn't have to wear high heeled shoes." },
+          { id: 2, left: "2. I'd buy a new computer…", right: "… if I had enough money." },
+          { id: 3, left: "3. How would you feel if…", right: "… you lost your job?" },
+          { id: 4, left: "4. If you could visit any country in the world,", right: "… where would you go?" },
+          { id: 5, left: "5. He'd be really upset…", right: "… if he knew about the theft." },
+          { id: 6, left: "6. I'd marry him tomorrow…", right: "… if I thought he really loved me." },
+          { id: 7, left: "7. I'd forgive you…", right: "… if you apologized." },
+          { id: 8, left: "8. If I didn't feel so ill,", right: "… I'd come to the party with you." },
+        ]}
+      />
     </div>
-  );
 };
 
 export default GrammarWorkshopUnit10;
