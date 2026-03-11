@@ -7,6 +7,7 @@ import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
 import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
 import VocabularyUnit10 from '@/components/bb-upper/VocabularyUnit10';
+import ListeningUnit10 from '@/components/bb-upper/ListeningUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
