@@ -12,6 +12,7 @@ import ReadingUnit10 from '@/components/bb-upper/ReadingUnit10';
 import SpeakingUnit10 from '@/components/bb-upper/SpeakingUnit10';
 import Listening2Unit10 from '@/components/bb-upper/Listening2Unit10';
 import TalkingPointUnit10 from '@/components/bb-upper/TalkingPointUnit10';
+import GrammarWorkshopUnit10 from '@/components/bb-upper/GrammarWorkshopUnit10';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
