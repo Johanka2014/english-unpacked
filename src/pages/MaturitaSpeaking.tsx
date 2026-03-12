@@ -377,34 +377,36 @@ const MaturitaSpeaking = () => {
                   Choose a Topic
                 </h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {maturitaTopics.map((topic) =>
-                    topic.available ? (
-                      <Link key={topic.id} to={`/maturita-speaking/${topic.id}?tab=part2`}>
-                        <Card className="service-card h-full cursor-pointer group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                          <div className="relative h-48 overflow-hidden">
-                            <img
-                              src={topic.thumbnail || maturitaExamHall}
-                              alt={topic.title}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                            <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
-                              <Image className="w-5 h-5 text-white" />
+{maturitaTopics
+                    .filter((topic) => topic.id !== "ernest-hemingway")
+                    .map((topic) =>
+                      topic.available ? (
+                        <Link key={topic.id} to={`/maturita-speaking/${topic.id}?tab=part2`}>
+                          <Card className="service-card h-full cursor-pointer group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="relative h-48 overflow-hidden">
+                              <img
+                                src={topic.thumbnail || maturitaExamHall}
+                                alt={topic.title}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                              <div className="absolute top-4 left-4 bg-brand-royal/90 p-3 rounded-full">
+                                <Image className="w-5 h-5 text-white" />
+                              </div>
+                              <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
                             </div>
-                            <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">Ready</Badge>
-                          </div>
-                          <CardHeader className="pb-2">
-                            <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
-                              {topic.title}
-                            </CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <CardDescription>{topic.description}</CardDescription>
-                          </CardContent>
-                        </Card>
-                      </Link>
-                    ) : (
+                            <CardHeader className="pb-2">
+                              <CardTitle className="text-lg group-hover:text-brand-royal transition-colors">
+                                {topic.title}
+                              </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <CardDescription>{topic.description}</CardDescription>
+                            </CardContent>
+                          </Card>
+                        </Link>
+                      ) : (
                       <Card key={topic.id} className="h-full opacity-60 cursor-default overflow-hidden">
                         <div className="relative h-48 overflow-hidden bg-muted">
                           <img
