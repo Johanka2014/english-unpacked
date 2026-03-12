@@ -11,6 +11,15 @@ import envPart2b from "@/assets/maturita-env-part2-b.jpg";
 
 // Medical Care images
 import topicMedicalCare from "@/assets/topic-medical-care.jpg";
+
+// Hemingway images
+import hemingwayThumbnail from "@/assets/maturita-hemingway-thumbnail.jpg";
+import hemingway3a from "@/assets/maturita-hemingway-3a.jpg";
+import hemingway3b from "@/assets/maturita-hemingway-3b.jpg";
+import hemingway3c from "@/assets/maturita-hemingway-3c.jpg";
+import hemingway3d from "@/assets/maturita-hemingway-3d.jpg";
+import hemingway3e from "@/assets/maturita-hemingway-3e.jpg";
+import hemingway3f from "@/assets/maturita-hemingway-3f.jpg";
 import health3a from "@/assets/maturita-health-3a.jpg";
 import health3b from "@/assets/maturita-health-3b.jpg";
 import health3c from "@/assets/maturita-health-3c.jpg";
@@ -347,6 +356,139 @@ export const maturitaTopics: MaturitaTopic[] = [
         { label: "3F", src: health3f, description: "Surgery and operating room" }
       ],
       followUpQuestions: ["What are the main reasons people go to hospital?", "Can you describe the typical layout and departments of a modern hospital?", "Who are the main healthcare professionals working in hospitals?", "What are the differences between emergency care and planned hospital admission?", "How has hospital technology improved patient care?", "What are some patient rights in hospitals?", "Describe the intensive care unit (ICU) and what patients need ICU care?", "How do hospitals maintain cleanliness and prevent infections?", "What role does each picture play in representing aspects of healthcare?", "How would you describe your own experiences with healthcare?", "What do you think will change in hospitals in the future?", "How important is good communication between doctors and patients?", "What qualities should a good healthcare professional have?"]
+    }
+  },
+  {
+    id: "ernest-hemingway",
+    title: "Ernest Hemingway",
+    description: "Life and lifestyle, major works, awards, main themes, writing style, and The Old Man and the Sea",
+    available: true,
+    thumbnail: hemingwayThumbnail,
+    learn: [
+      {
+        title: "Life and Lifestyle",
+        content: "Ernest Hemingway (1899–1961) was born in Oak Park, Illinois, USA. He started his career as a journalist for the Kansas City Star. During World War I, he served as an ambulance driver in Italy, where he was seriously wounded. After the war, he lived in Paris as part of the 'Lost Generation' – a group of American writers disillusioned by the war. Hemingway was known for his adventurous lifestyle: he was passionate about big-game hunting in Africa, deep-sea fishing in the Caribbean, and bullfighting in Spain. He lived in Key West, Florida, and later in Cuba for over 20 years. His personal life was turbulent – he married four times. He won the Nobel Prize in Literature in 1954."
+      },
+      {
+        title: "Major Works",
+        content: "Hemingway's most famous works include: 'The Sun Also Rises' (1926) – about American and British expatriates travelling from Paris to Pamplona for the running of the bulls; 'A Farewell to Arms' (1929) – a semi-autobiographical novel about an American soldier and a British nurse during WWI; 'For Whom the Bell Tolls' (1940) – set during the Spanish Civil War, about an American volunteer fighting with guerrillas; 'The Old Man and the Sea' (1952) – a novella about an old Cuban fisherman's epic battle with a giant marlin; and many acclaimed short stories including 'The Snows of Kilimanjaro' and 'Hills Like White Elephants'."
+      },
+      {
+        title: "Awards and Recognition",
+        content: "Hemingway received several major literary awards during his career. He won the Pulitzer Prize for Fiction in 1953 for 'The Old Man and the Sea'. In 1954, he was awarded the Nobel Prize in Literature 'for his mastery of the art of narrative, most recently demonstrated in The Old Man and the Sea, and for the influence that he has exerted on contemporary style.' He was unable to attend the Nobel ceremony in Stockholm due to injuries from two successive plane crashes in Africa. His work has had an enormous influence on 20th-century fiction and he is considered one of the greatest American writers."
+      },
+      {
+        title: "Main Themes",
+        content: "Hemingway's writing explores several recurring themes: war and its effects on individuals – many of his characters are soldiers or war veterans dealing with physical and psychological wounds; courage and grace under pressure – his heroes face danger and suffering with dignity; masculinity and adventure – hunting, fishing, bullfighting, and combat feature prominently; love and loss – his romantic relationships are often doomed by circumstances; death and mortality – characters frequently confront their own mortality; and the concept of the 'Hemingway hero' or 'code hero' – a man who lives correctly, following certain ideals of honour, courage, and endurance in a world that is essentially chaotic and meaningless."
+      },
+      {
+        title: "Writing Style",
+        content: "Hemingway is famous for his distinctive writing style, often called the 'Iceberg Theory' or 'Theory of Omission'. He used short, simple sentences and plain language, avoiding unnecessary adjectives and adverbs. His dialogue is natural and realistic. He believed that the deeper meaning of a story should not be visible on the surface – like an iceberg, only the tip is visible while the real substance lies beneath. His plain writing style became so famous that it was frequently parodied. He learned his economical use of language from his early career as a journalist. This minimalist approach was revolutionary and influenced countless writers after him."
+      },
+      {
+        title: "The Lost Generation",
+        content: "The term 'The Lost Generation' refers to a group of American writers who came of age during World War I. The war left them feeling disillusioned with traditional values and the idea of progress. Key members included Hemingway, F. Scott Fitzgerald, and Gertrude Stein (who actually coined the term). These writers often lived as expatriates in Paris during the 1920s. Their works reflect themes of disillusionment, aimlessness, and a search for meaning in the post-war world. Hemingway's 'The Sun Also Rises' is considered the quintessential Lost Generation novel."
+      },
+      {
+        title: "The Old Man and the Sea – Plot Summary",
+        content: "The Old Man and the Sea (1952) tells the story of Santiago, an ageing Cuban fisherman who has gone 84 days without catching a fish. His young apprentice Manolin is forced by his parents to fish with a more successful boat, but the boy still cares for Santiago. On the 85th day, Santiago sails far out into the Gulf Stream and hooks a giant marlin. For two days and nights, the old man battles the enormous fish, which pulls his small skiff further out to sea. Santiago admires the fish's strength and nobility. Finally, he manages to kill the marlin with his harpoon and lashes it to the side of his boat. On the journey home, sharks attack and devour the marlin's flesh. Santiago fights them off but arrives back in harbour with only the fish's skeleton. Despite his loss, the other fishermen marvel at the skeleton's size, and Manolin pledges to fish with Santiago again."
+      },
+      {
+        title: "The Old Man and the Sea – Themes and Symbols",
+        content: "The novella explores themes of perseverance, human dignity in defeat, and the relationship between man and nature. Santiago represents the 'code hero' – he endures suffering with grace and never gives up. The marlin symbolises a worthy opponent and the ultimate challenge. The sharks represent the destructive forces that can take away a person's achievements. The skeleton at the end shows that even in defeat, there is evidence of greatness. The famous line 'A man can be destroyed but not defeated' captures the central message. The relationship between Santiago and Manolin represents the passing of knowledge between generations."
+      },
+      {
+        title: "Excerpt from The Old Man and the Sea",
+        content: "\"He is two feet longer than the boat,\" the old man said. The line was going out fast but steadily and the fish was not panicked. The old man was trying with both hands to keep the line just inside the breaking strength. He knew that if he could not slow the fish with a steady pressure the fish could take out all the line and break it. He is a great fish and I must convince him, he thought. I must never let him learn his strength nor what he could do if he made his run. If I were him, I would put in everything and go until something broke. But, thank God, they are not as intelligent as we who kill them, although they are more noble and able."
+      },
+      {
+        title: "Hemingway's Connection to Cuba",
+        content: "Hemingway lived in Cuba for over 20 years, from 1939 to 1960, at his estate called Finca Vigía ('Lookout Farm') near Havana. Cuba had a profound influence on his writing – The Old Man and the Sea is set in Cojímar, a small fishing village east of Havana where Hemingway kept his fishing boat, the Pilar. He was a regular at the famous bars El Floridita and La Bodeguita del Medio in Havana. The Cuban people embraced him, and his home is now a museum. His deep-sea fishing experiences off the Cuban coast directly inspired the story of Santiago."
+      }
+    ],
+    practice: [
+      {
+        question: "What was Hemingway's original occupation before becoming a novelist?",
+        answer: "Hemingway started out as a journalist. He worked for the Kansas City Star newspaper, where he learned to write in short, direct sentences – a style that would later define his fiction. He also worked as a war correspondent during WWI and the Spanish Civil War."
+      },
+      {
+        question: "What historical events did Hemingway describe in his books?",
+        answer: "Hemingway drew heavily on historical events he personally experienced. 'A Farewell to Arms' is based on his experiences as an ambulance driver in World War I in Italy. 'For Whom the Bell Tolls' is set during the Spanish Civil War. 'The Sun Also Rises' reflects the post-WWI disillusionment of the Lost Generation in 1920s Paris and Spain."
+      },
+      {
+        question: "How would you describe Hemingway's writing style?",
+        answer: "Hemingway's style is characterised by short, simple sentences and plain, economical language. He used the 'Iceberg Theory' – showing only the surface of the story while the deeper meaning lies beneath. He avoided unnecessary adjectives and adverbs, preferring strong nouns and verbs. His dialogue is natural and realistic. His plain style was so distinctive that it was frequently parodied."
+      },
+      {
+        question: "What major awards did Hemingway win for his writing?",
+        answer: "Hemingway won the Pulitzer Prize for Fiction in 1953 for 'The Old Man and the Sea'. He was awarded the Nobel Prize in Literature in 1954 for his mastery of narrative art and his influence on contemporary style. He could not attend the Nobel ceremony due to injuries from plane crashes in Africa."
+      },
+      {
+        question: "What is the name of the novella featured in the excerpt? Who are the main characters?",
+        answer: "The novella is 'The Old Man and the Sea'. The main characters are Santiago, an old Cuban fisherman, and Manolin, his young apprentice. The giant marlin could also be considered a character – Santiago speaks to it and respects it as a worthy opponent."
+      },
+      {
+        question: "What is the old man doing in the excerpt and why?",
+        answer: "In the excerpt, Santiago is trying to control the fishing line with both hands to keep it 'just inside the breaking strength'. He has hooked a giant marlin and is trying to slow the fish down with steady pressure. If he cannot slow it, the fish will take out all the line and break free."
+      },
+      {
+        question: "How does the old man communicate with the fish?",
+        answer: "Santiago communicates with the fish through his thoughts and by speaking aloud to it. He thinks about the fish's greatness and what he must do to 'convince' it. He admires the fish, calling it 'great' and 'noble and able'. He talks to the fish as though it were a worthy rival, showing respect and even affection."
+      },
+      {
+        question: "How does the story of The Old Man and the Sea end?",
+        answer: "After finally killing the marlin with his harpoon and lashing it to his boat, Santiago begins the journey home. Sharks smell the blood and attack the dead marlin. Santiago fights them off with his harpoon, a knife, and even a club, but they devour all the flesh. He arrives back in harbour exhausted, with only the marlin's enormous skeleton. Despite losing the fish, the other fishermen are amazed by the skeleton's size, and Manolin pledges to fish with Santiago again."
+      },
+      {
+        question: "What is the main theme or message of The Old Man and the Sea?",
+        answer: "The main theme is perseverance and human dignity in the face of defeat. Santiago's famous words 'A man can be destroyed but not defeated' capture the central message. Even though the sharks destroy his catch, Santiago's courage, endurance, and skill are not diminished. The novella shows that true victory lies not in the outcome but in the struggle itself."
+      },
+      {
+        question: "How would you characterise Santiago?",
+        answer: "Santiago is the perfect example of Hemingway's 'code hero'. He is old, poor, and unlucky – 84 days without a fish – but he never loses his dignity or determination. He is humble yet proud, physically weakened by age but mentally strong. He respects nature and his opponents. He endures pain and exhaustion without complaint. He represents the human spirit that refuses to give in."
+      },
+      {
+        question: "What is the relationship between Santiago and Manolin?",
+        answer: "Santiago and Manolin have a deep, loving relationship like that of a grandfather and grandson, or a master and apprentice. Manolin learned to fish from Santiago and still cares for him deeply – bringing him food and bait, despite being forced by his parents to fish on another boat. Their bond represents the passing of knowledge and values between generations. At the end, Manolin's decision to fish with Santiago again shows loyalty and love."
+      },
+      {
+        question: "What does the photo of Hemingway say about him?",
+        answer: "The photo shows a man of adventure and action – with his characteristic beard, rugged appearance, and outdoor clothing. It reflects Hemingway's lifestyle: he was not just a writer but a man who lived intensely, participating in big-game hunting, deep-sea fishing, bullfighting, and war. His appearance matches the tough, masculine characters he created in his fiction."
+      }
+    ],
+    exam: {
+      taskDescription: "Give a short presentation about Ernest Hemingway. Use pictures 3A–3F to illustrate your speech. In the second part, read the excerpt from The Old Man and the Sea and answer questions about the novella.",
+      promptPoints: [
+        "Life and lifestyle",
+        "Major works",
+        "Awards",
+        "Main themes",
+        "Writing style",
+        "Other"
+      ],
+      images: [
+        { label: "3A", src: hemingway3a, description: "Hemingway – life and lifestyle of an adventurer-writer" },
+        { label: "3B", src: hemingway3b, description: "Hemingway's major works – novels and short stories" },
+        { label: "3C", src: hemingway3c, description: "Cuba – the setting of The Old Man and the Sea" },
+        { label: "3D", src: hemingway3d, description: "Santiago – the old fisherman alone at sea" },
+        { label: "3E", src: hemingway3e, description: "The marlin – Santiago's great opponent" },
+        { label: "3F", src: hemingway3f, description: "Sharks and the fish's skeleton – the price of the struggle" }
+      ],
+      followUpQuestions: [
+        "What was Hemingway's original occupation?",
+        "What historical events did Hemingway describe in his books?",
+        "How would you describe his writing style?",
+        "What is your opinion of Ernest Hemingway's books?",
+        "What have you read by Ernest Hemingway?",
+        "What does the photo say about Ernest Hemingway?",
+        "What major awards did Hemingway win for his writing?",
+        "What is the main theme or message of The Old Man and the Sea?",
+        "How would you characterise Santiago?",
+        "What is the relationship between Santiago and Manolin, Santiago's apprentice?",
+        "How does the story end?",
+        "What does 'A man can be destroyed but not defeated' mean to you?",
+        "Why do you think Hemingway chose an old fisherman as his hero?"
+      ]
     }
   },
   
