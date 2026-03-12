@@ -23,6 +23,16 @@ const MaturitaSpeakingTopic = () => {
     return <Navigate to="/maturita-speaking" replace />;
   }
 
+  // Determine which tabs to show based on available content
+  const availableTabs = [
+    { id: "learn", label: "Learn", icon: BookOpen },
+    { id: "practice", label: "Practice", icon: MessageSquare },
+    ...(topic.part2 ? [{ id: "part2" as const, label: "Part 2", icon: Image }] : []),
+    { id: "exam", label: "Part 3", icon: ClipboardCheck }
+  ];
+
+  const gridColsClass = availableTabs.length === 3 ? "grid-cols-3" : "grid-cols-4";
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
