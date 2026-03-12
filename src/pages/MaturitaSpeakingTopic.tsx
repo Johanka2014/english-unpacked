@@ -23,6 +23,16 @@ const MaturitaSpeakingTopic = () => {
     return <Navigate to="/maturita-speaking" replace />;
   }
 
+  // Determine which tabs to show based on available content
+  const availableTabs = [
+    { id: "learn", label: "Learn", icon: BookOpen },
+    { id: "practice", label: "Practice", icon: MessageSquare },
+    ...(topic.part2 ? [{ id: "part2" as const, label: "Part 2", icon: Image }] : []),
+    { id: "exam", label: "Part 3", icon: ClipboardCheck }
+  ];
+
+  const gridColsClass = availableTabs.length === 3 ? "grid-cols-3" : "grid-cols-4";
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -63,23 +73,13 @@ const MaturitaSpeakingTopic = () => {
           </Link>
 
           <Tabs defaultValue={defaultTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="learn" className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
-                <span className="hidden sm:inline">Learn</span>
-              </TabsTrigger>
-              <TabsTrigger value="practice" className="flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
-                <span className="hidden sm:inline">Practice</span>
-              </TabsTrigger>
-              <TabsTrigger value="part2" className="flex items-center gap-2">
-                <Image className="w-4 h-4" />
-                <span className="hidden sm:inline">Part 2</span>
-              </TabsTrigger>
-              <TabsTrigger value="exam" className="flex items-center gap-2">
-                <ClipboardCheck className="w-4 h-4" />
-                <span className="hidden sm:inline">Part 3</span>
-              </TabsTrigger>
+            <TabsList className={`grid w-full ${gridColsClass} mb-8`}>
+              {availableTabs.map((tab) => (
+                <TabsTrigger key={tab.id} value={tab.id} className="flex items-center gap-2">
+                  <tab.icon className="w-4 h-4" />
+                  <span className="hidden sm:inline">{tab.label}</span>
+                </TabsTrigger>
+              ))}
             </TabsList>
 
             {/* Learn Tab */}
