@@ -11,6 +11,15 @@ import envPart2b from "@/assets/maturita-env-part2-b.jpg";
 
 // Medical Care images
 import topicMedicalCare from "@/assets/topic-medical-care.jpg";
+
+// Hemingway images
+import hemingwayThumbnail from "@/assets/maturita-hemingway-thumbnail.jpg";
+import hemingway3a from "@/assets/maturita-hemingway-3a.jpg";
+import hemingway3b from "@/assets/maturita-hemingway-3b.jpg";
+import hemingway3c from "@/assets/maturita-hemingway-3c.jpg";
+import hemingway3d from "@/assets/maturita-hemingway-3d.jpg";
+import hemingway3e from "@/assets/maturita-hemingway-3e.jpg";
+import hemingway3f from "@/assets/maturita-hemingway-3f.jpg";
 import health3a from "@/assets/maturita-health-3a.jpg";
 import health3b from "@/assets/maturita-health-3b.jpg";
 import health3c from "@/assets/maturita-health-3c.jpg";
