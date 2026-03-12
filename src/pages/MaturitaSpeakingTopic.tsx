@@ -72,15 +72,6 @@ const MaturitaSpeakingTopic = () => {
             Back to All Topics
           </Link>
 
-          const availableTabs = [
-            { id: "learn", label: "Learn", icon: BookOpen },
-            { id: "practice", label: "Practice", icon: MessageSquare },
-            topic.part2 && { id: "part2", label: "Part 2", icon: Image },
-            { id: "exam", label: "Part 3", icon: ClipboardCheck }
-          ].filter(Boolean) as { id: string; label: string; icon: React.ElementType }[];
-
-          const gridColsClass = availableTabs.length === 3 ? "grid-cols-3" : "grid-cols-4";
-
           <Tabs defaultValue={defaultTab} className="w-full">
             <TabsList className={`grid w-full ${gridColsClass} mb-8`}>
               {availableTabs.map((tab) => (
