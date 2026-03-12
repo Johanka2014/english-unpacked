@@ -12,7 +12,7 @@ import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 import { maturitaTopics } from "@/data/maturitaTopics";
 
-const PREVIEW_TOPIC_IDS = ["environment", "medical-care", "course-of-life", "social-issues"];
+const PREVIEW_TOPIC_IDS = ["environment", "medical-care", "social-issues"];
 const previewTopics = maturitaTopics.filter(t => PREVIEW_TOPIC_IDS.includes(t.id));
 
 const ExamPreparation = () => {
