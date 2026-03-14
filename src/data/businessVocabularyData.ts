@@ -652,6 +652,124 @@ const topic4Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 5 content ────────────────────────────────────────────────────
+
+const topic5Theory: TheorySection[] = [
+  {
+    heading: 'A – Wages, salary and benefits',
+    content: `<em>'I'm Ivan and I work as a waiter in Prague. I like my job even if I don't earn very much: I get paid <strong>wages</strong> every week by the restaurant. We get the <strong>minimum wage</strong>: the lowest amount allowed by law. But we also get <strong>tips</strong>, money that customers leave for us in addition to the bill. Some tourists are very generous!'</em>
+
+<em>'My name's Luigi and I'm a hotel manager in Venice. I get paid a <strong>salary</strong> every month. In summer we're very busy, so we work a lot of extra hours, or <strong>overtime</strong>; the money for this is quite good. Working in a hotel, we also get nice <strong>perks</strong>, for example free meals!'</em>
+
+<em>'I'm Catherine and I'm a saleswoman based in Paris. I get a basic <strong>salary</strong>, plus <strong>commission</strong>: a percentage on everything I sell. If I sell more than a particular amount in a year, I also get extra money – a <strong>bonus</strong>, which is nice. There are some good <strong>fringe benefits</strong> with this job: I get a <strong>company car</strong>, and they make payments for my <strong>pension</strong>, money that I'll get regularly after I stop working. All that makes a good <strong>benefits package</strong>.'</em>`,
+    notes: [
+      '<strong>wages</strong> = paid weekly (often for manual/hourly work); <strong>salary</strong> = paid monthly (often for professional work)',
+      '<strong>overtime</strong> = extra hours worked beyond the normal schedule',
+      '<strong>commission</strong> = a percentage of each sale, paid on top of basic salary',
+      '<strong>perks</strong> and <strong>fringe benefits</strong> are similar: non-cash extras provided by the employer',
+    ],
+  },
+  {
+    heading: 'B – Compensation 1',
+    content: `<strong>Compensation</strong> and <strong>remuneration</strong> are formal words used to talk about pay and benefits, especially those of senior managers.
+
+<strong>Compensation package</strong> and <strong>remuneration package</strong> are used especially in the US to talk about all the pay and benefits that employees receive.
+
+For a senior executive, this may include <strong>share options</strong> (BrE) or <strong>stock options</strong> (AmE): the right to buy the company's shares at low prices.
+
+There may be <strong>performance-related bonuses</strong> if the manager reaches particular objectives for the company.`,
+    notes: [
+      'BrE: <strong>share options</strong>; AmE: <strong>stock options</strong>',
+      '<strong>performance-related</strong> = linked to how well someone does their job',
+    ],
+  },
+  {
+    heading: 'C – Compensation 2',
+    content: `<strong>Compensation</strong> is also used to talk about money a manager (or any employee) receives if they are forced to leave the organization, perhaps after a boardroom row.
+
+This money is in the form of a <strong>compensation payment</strong>, or <strong>severance payment</strong>. If the manager also receives benefits, the payment and the benefits form a <strong>severance package</strong>.
+
+In Britain, executives with very high pay and good benefits may be referred to as <strong>fat cats</strong>, implying that they do not deserve this level of remuneration.`,
+  },
+];
+
+const topic5Practice: PracticeExercise[] = [
+  {
+    id: '5.1',
+    title: 'Exercise 5.1 – Complete the conversation',
+    instruction: "Xavier and Yvonne are talking about Xavier's new job as a photocopier salesman. Complete each of Yvonne's replies with the correct word from section A.",
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "X: I usually have to work late; I don't get paid for it, but I get a percentage for every photocopier I sell. Y: So you don't get ___, but you do get commission.", answer: 'overtime' },
+      { id: 2, prompt: 'X: The people in production get extra money if they reach their targets. Y: Oh right. They get a ___.', answer: 'bonus' },
+      { id: 3, prompt: "X: The company pays for medical treatment too, and the company restaurant is fantastic. Y: Wow! The ___ sound very nice.", answer: 'perks' },
+      { id: 4, prompt: "X: And they've given me a ___ to go and visit clients.", answer: 'company car' },
+      { id: 5, prompt: "X: What's more, the company pays money for us to get when we retire. Y: Yes, it's important to get a good ___.", answer: 'pension' },
+      { id: 6, prompt: 'X: The total ___ is brilliant. Y: Yes, all that extra stuff is really worth having.', answer: 'benefits package' },
+    ],
+  },
+  {
+    id: '5.2',
+    title: 'Exercise 5.2 – Classify the expressions',
+    instruction: 'Match each newspaper scenario to the most appropriate expression from sections B and C.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "Failed airline boss gets massive payout despite very poor results. Shareholders are angry. This sort of payment is a ___.", answer: 'severance payment' },
+      { id: 2, prompt: "Megafone CEO gets £10 million 'thank you' after negotiating a takeover. The directors referred to this as a ___.", answer: 'performance-related bonus' },
+      { id: 3, prompt: "Multilever's head earns $22m basic salary with stock options worth $10m. Other payments bring his total to $35m. This is his ___.", answer: 'compensation package' },
+      { id: 4, prompt: "National Energy shareholders attack directors for paying themselves too much while profits fell 30%. They call these executives ___.", answer: 'fat cats' },
+    ],
+  },
+];
+
+const topic5Test: TestExercise[] = [
+  {
+    id: '5.1',
+    title: 'Test 5.1 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "I work in a small hotel in Amsterdam. I ___ €8 an hour. (earn / paid)", answer: 'earn' },
+      { id: 2, prompt: "It's not a lot, but it's more than the ___ wage. (maximum / minimum)", answer: 'minimum' },
+      { id: 3, prompt: 'Some customers leave me ___ and that is a great help. (perks / tips)', answer: 'tips' },
+      { id: 4, prompt: 'My sister works in a bank and her ___ is €3,000 a month. (salary / wages)', answer: 'salary' },
+      { id: 5, prompt: 'The bank also provides her with a good ___ package. (bonus / benefits)', answer: 'benefits' },
+      { id: 6, prompt: 'Next year she thinks she will get a ___ car. (company / business)', answer: 'company' },
+      { id: 7, prompt: 'When she is 55 she will be able to give up work and live on her ___. (package / pension)', answer: 'pension' },
+    ],
+  },
+  {
+    id: '5.2',
+    title: 'Test 5.2 – Complete the job adverts',
+    instruction: 'Write one word in each gap to complete the sentences. The first letter of each word is given.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'In this job, the w___ are £224 for 37 hours.', answer: 'wages' },
+      { id: 2, prompt: 'Workers get £10 an hour for any o___ they do.', answer: 'overtime' },
+      { id: 3, prompt: 'Benefits include a company p___ scheme and free meals.', answer: 'pension' },
+      { id: 4, prompt: 'This job offers a basic s___ of £1,000 a month.', answer: 'salary' },
+      { id: 5, prompt: 'You get 10% c___ on everything you sell.', answer: 'commission' },
+      { id: 6, prompt: 'When you sell enough you get a b___ of £400.', answer: 'bonus' },
+      { id: 7, prompt: 'There are some f___ benefits including a pension.', answer: 'fringe' },
+    ],
+  },
+  {
+    id: '5.3',
+    title: 'Test 5.3 – Match statements to terms',
+    instruction: 'Drag each term on the right to match its definition on the left. There is one extra term you don\'t need.',
+    type: 'matching',
+    pairs: [
+      { id: 1, left: 'Payment for those who have stopped working, especially due to age', right: 'pension' },
+      { id: 2, left: 'Benefit that lets employees buy company shares at a low price', right: 'share options' },
+      { id: 3, left: 'Bonuses given for reaching objectives set by the company', right: 'performance-related' },
+      { id: 4, left: 'Money paid to an employee who is asked to leave', right: 'severance payment' },
+      { id: 5, left: 'Formal word for all the pay that an employee receives', right: 'remuneration' },
+      { id: 6, left: 'Director paid a huge salary but doesn\'t deserve it', right: 'fat cat' },
+    ],
+    extraWords: ['compensation package'],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -666,7 +784,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Nice work if you can get it', 'C Nature of work'], theory: topic2Theory, practice: topic2Practice, test: topic2Test },
       { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'], theory: topic3Theory, practice: topic3Practice, test: topic3Test },
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
-      { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Salaries and wages', 'B Benefits', 'C Compensation'] },
+      { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Wages, salary and benefits', 'B Compensation 1', 'C Compensation 2'], theory: topic5Theory, practice: topic5Practice, test: topic5Test },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Offices', 'B Factories', 'C Types of company'] },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
       { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Industrial disputes', 'C Discrimination'] },
