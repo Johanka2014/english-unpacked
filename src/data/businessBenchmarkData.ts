@@ -33,7 +33,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
       { id: 'reading', title: 'Reading', description: 'What kind of company culture would suit you? Reading and answering a quiz; A company culture statement', content: { type: 'reading-corporate-culture' } },
       { id: 'listening', title: 'Listening', description: 'Company culture: a conversation between two employees' },
       { id: 'speaking', title: 'Speaking', description: 'Asking questions about companies' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations' },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations', content: { type: 'vocab-corporate-culture' } },
     ],
   },
   {
