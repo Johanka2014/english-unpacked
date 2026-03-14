@@ -1181,7 +1181,7 @@ const topic8Test: TestExercise[] = [
     id: '8.3',
     title: 'Test 8.3 – Correct the mistakes',
     instruction: 'Each sentence contains one wrong word. Type the correct word.',
-    type: 'correction',
+    type: 'fill-blank',
     items: [
       { id: 1, prompt: 'My last manager was a terrible *bull*. He shouted at us all the time.', answer: 'bully' },
       { id: 2, prompt: 'He was sacked for sexual *harass* because of his remarks to women.', answer: 'harassment' },
