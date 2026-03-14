@@ -143,6 +143,18 @@ const VocabCorporateCultureExercise = () => {
   const [compoundInputs, setCompoundInputs] = useState<string[]>(["", "", "", "", "", ""]);
   const [compoundChecked, setCompoundChecked] = useState(false);
 
+  /* Activity 9 state - Dictionary classification */
+  const [dictSelections, setDictSelections] = useState<Record<number, string>>({});
+  const [dictChecked, setDictChecked] = useState(false);
+
+  /* Activity 10 state - Challenge/Promote collocations */
+  const [collocationInputs, setCollocationInputs] = useState<Record<string, string>>({});
+  const [collocationChecked, setCollocationChecked] = useState(false);
+
+  /* Activity 11 state - Definitions */
+  const [defSelections, setDefSelections] = useState<Record<number, string>>({});
+  const [defChecked, setDefChecked] = useState(false);
+
   const isCorrectAdj = (id: number) => {
     const item = adjNounFinds.find((i) => i.id === id);
     if (!item) return false;
