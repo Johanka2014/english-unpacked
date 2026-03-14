@@ -72,6 +72,10 @@ const SpeakingCorporateCultureExercise = () => {
   const [reasonSelections, setReasonSelections] = useState<Record<number, string>>({});
   const [reasonsChecked, setReasonsChecked] = useState(false);
 
+  // Exercise 4 state - word reordering
+  const [wordOrderAnswers, setWordOrderAnswers] = useState<Record<number, string>>({});
+  const [wordOrderChecked, setWordOrderChecked] = useState(false);
+
   const checkPairs = () => setPairsChecked(true);
   const checkReasons = () => setReasonsChecked(true);
 
