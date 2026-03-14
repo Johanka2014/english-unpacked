@@ -770,6 +770,145 @@ const topic5Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 6 content ────────────────────────────────────────────────────
+
+const topic6Theory: TheorySection[] = [
+  {
+    heading: 'A – Employees and management',
+    content: `The people who work for a company, all the people on its <strong>payroll</strong>, are its <strong>employees</strong>, <strong>personnel</strong>, <strong>staff</strong>, <strong>workers</strong> or <strong>workforce</strong>. But these words can mean just the people carrying out the work of a company, rather than those leading it and organizing it: the <strong>management</strong>.
+
+<ul class="list-disc list-inside space-y-1 mt-3">
+<li><strong>White-collar workers</strong> work in offices.</li>
+<li><strong>Blue-collar workers</strong> do manual work in factories, etc.</li>
+<li>The place in a factory where things are made is the <strong>shop floor</strong>.</li>
+</ul>`,
+    notes: [
+      '<strong>workforce</strong>, <strong>work-force</strong> and <strong>work force</strong> are all possible spellings.',
+      '<strong>staff</strong> can be singular or plural: "The staff is/are very experienced."',
+    ],
+  },
+  {
+    heading: 'B – Management and administration',
+    content: `A company's activities may be spread over different <strong>sites</strong>. A company's most senior managers usually work in its <strong>head office</strong> or <strong>headquarters</strong> (HQ).
+
+Some managers have their own individual offices, but in many businesses, most employees work in <strong>open-plan offices</strong>: large areas where many people work together.
+
+<strong>Administration</strong> or, informally, <strong>admin</strong>, the everyday work supporting a company's activities, is often done in offices like these by <strong>administrative staff</strong> or <strong>support staff</strong>.
+
+For example, those giving technical help to buyers of the company's products are in <strong>technical support</strong>.`,
+  },
+  {
+    heading: 'C – Labour',
+    content: `<strong>Labour</strong> is spelled <strong>labor</strong> in AmE. <strong>Labor unions</strong>, organizations defending the interests of workers (AmE) are called <strong>trade unions</strong> in BrE.
+
+When workers are not happy with pay or conditions, they may take <strong>industrial action</strong>:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>a strike, stoppage or walk-out</strong>: workers stop working for a time.</li>
+<li><strong>a go-slow</strong>: workers continue to work, but more slowly than usual.</li>
+<li><strong>an overtime ban</strong>: workers refuse to work more than the normal number of hours.</li>
+</ul>`,
+    notes: [
+      'BrE: <strong>trade unions</strong>; AmE: <strong>labor unions</strong>',
+      '<strong>industrial action</strong> is the general term for all forms of worker protest',
+    ],
+  },
+  {
+    heading: 'D – Personnel and human resources',
+    content: `In larger organizations there is a <strong>human resources department</strong> (HRD) that deals with pay, recruitment, etc. This area is called <strong>human resources</strong> (HR) or <strong>human resource management</strong> (HRM).
+
+Another name for this department is the <strong>personnel department</strong>.`,
+  },
+];
+
+const topic6Practice: PracticeExercise[] = [
+  {
+    id: '6.1',
+    title: 'Exercise 6.1 – Key vocabulary crossword clues',
+    instruction: 'Use the clues to type the correct word from sections A, B and C.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Everyone working for a company is on this. → p___', answer: 'payroll' },
+      { id: 2, prompt: 'Office workers may wear this type of collar. → w___', answer: 'white' },
+      { id: 3, prompt: 'All the people working for a company. → s___', answer: 'staff' },
+      { id: 4, prompt: 'Manual workers may wear this type of collar. → b___', answer: 'blue' },
+      { id: 5, prompt: '… workers use their hands. → m___', answer: 'manual' },
+      { id: 6, prompt: 'When people stop working to protest. → s___', answer: 'strike' },
+      { id: 7, prompt: 'One of the people working for an organization. → e___', answer: 'employee' },
+      { id: 8, prompt: 'Occasions when workers stop working to protest: walk-___', answer: 'outs' },
+      { id: 9, prompt: 'When people stop work to complain about something. → s___', answer: 'stoppage' },
+      { id: 10, prompt: 'The place in a factory where the production lines are. → shop f___', answer: 'floor' },
+      { id: 11, prompt: 'Organizations defending the interests of workers (BrE). → trade u___', answer: 'unions' },
+      { id: 12, prompt: 'When workers intentionally produce less. → go-s___', answer: 'slow' },
+      { id: 13, prompt: 'Department dealing with pay and recruitment. → p___', answer: 'personnel' },
+      { id: 14, prompt: 'Another word for workers who do physical work. → l___', answer: 'labour' },
+      { id: 15, prompt: '___ action: the general term for worker protests.', answer: 'industrial' },
+    ],
+  },
+  {
+    id: '6.2',
+    title: 'Exercise 6.2 – Complete the company description',
+    instruction: 'Manuel Ortiz describes his Spanish computer sales company. Complete his description with words from sections B and D.',
+    type: 'fill-blank',
+    wordBank: ['office', 'head office', 'headquarters', 'open-plan', 'administrative staff', 'support', 'human resources', 'HRD'],
+    items: [
+      { id: 1, prompt: 'We started with a small ___ in Madrid.', answer: 'office' },
+      { id: 2, prompt: 'Our ___, our HQ, is still here.', answer: 'head office' },
+      { id: 3, prompt: 'Many of the offices are ___: everyone works together.', answer: 'open-plan' },
+      { id: 4, prompt: 'From managers to ___, everyone shares the space.', answer: 'administrative staff' },
+      { id: 5, prompt: 'People giving help to customers over the phone work in technical ___.', answer: 'support' },
+      { id: 6, prompt: 'Recruitment is taken care of by the ___ department.', answer: 'human resources' },
+    ],
+  },
+];
+
+const topic6Test: TestExercise[] = [
+  {
+    id: '6.1',
+    title: 'Test 6.1 – Make word pairs',
+    instruction: 'Drag each word on the right to match with a word on the left to make a common word pair. There is one extra word you don\'t need.',
+    type: 'matching',
+    pairs: [
+      { id: 1, left: 'technical', right: 'support' },
+      { id: 2, left: 'shop', right: 'floor' },
+      { id: 3, left: 'open', right: 'plan' },
+      { id: 4, left: 'head', right: 'office' },
+      { id: 5, left: 'blue', right: 'collar' },
+      { id: 6, left: 'work', right: 'force' },
+    ],
+    extraWords: ['union'],
+  },
+  {
+    id: '6.2',
+    title: 'Test 6.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'The CEO is the head of the ___ team. (administration / management / organization)', answer: 'management' },
+      { id: 2, prompt: 'We have 200 people on our ___. (recruitment / business / payroll)', answer: 'payroll' },
+      { id: 3, prompt: 'Our ___ department is responsible for recruitment. (personnel / employee / worker)', answer: 'personnel' },
+      { id: 4, prompt: 'Our main office is in London but we have ___ all over the country. (places / companies / sites)', answer: 'sites' },
+      { id: 5, prompt: 'I supervise all the ___ workers on the production line. (manual / white-collar / labour)', answer: 'manual' },
+      { id: 6, prompt: 'I am in charge of training in the human ___ department. (support / resources / staff)', answer: 'resources' },
+      { id: 7, prompt: 'We have a ___ of 65 in London and about 30 in Paris. (staff / union / headquarters)', answer: 'staff' },
+      { id: 8, prompt: "You haven't been paid this month? I'll put you through to the ___ department. (pay / salary / finance)", answer: 'finance' },
+    ],
+  },
+  {
+    id: '6.3',
+    title: 'Test 6.3 – Complete the conversation',
+    instruction: 'Complete the conversation about industrial action with the correct words.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: "I'm calling for a w___. All workers should stop work immediately.", answer: 'walk-out' },
+      { id: 2, prompt: "All workers who are in the u___ should stop work.", answer: 'union' },
+      { id: 3, prompt: "If there is a s___, we won't get paid.", answer: 'strike' },
+      { id: 4, prompt: 'We should refuse to work more than 35 hours a week. An o___ ban would make management listen.', answer: 'overtime' },
+      { id: 5, prompt: "We should also stage a g___. If we don't work quickly, the company will lose money.", answer: 'go-slow' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -785,7 +924,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'], theory: topic3Theory, practice: topic3Practice, test: topic3Test },
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Wages, salary and benefits', 'B Compensation 1', 'C Compensation 2'], theory: topic5Theory, practice: topic5Practice, test: topic5Test },
-      { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Offices', 'B Factories', 'C Types of company'] },
+      { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Employees and management', 'B Management and administration', 'C Labour', 'D Personnel and human resources'], theory: topic6Theory, practice: topic6Practice, test: topic6Test },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
       { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Industrial disputes', 'C Discrimination'] },
       { id: 'businesspeople-and-business-leaders', number: 9, title: 'Businesspeople and Business Leaders', subtopics: ['A Entrepreneurs', 'B Leaders', 'C Tycoons'] },
