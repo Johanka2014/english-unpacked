@@ -1342,7 +1342,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Employees and management', 'B Management and administration', 'C Labour', 'D Personnel and human resources'], theory: topic6Theory, practice: topic6Practice, test: topic6Test },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A A job for life', 'B A job for now', 'C In-house staff or freelancers?', 'D Losing your job'], theory: topic7Theory, practice: topic7Practice, test: topic7Test },
       { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Bullying and harassment', 'C Discrimination'], theory: topic8Theory, practice: topic8Practice, test: topic8Test },
-      { id: 'businesspeople-and-business-leaders', number: 9, title: 'Businesspeople and Business Leaders', subtopics: ['A Entrepreneurs', 'B Leaders', 'C Tycoons'] },
+      { id: 'businesspeople-and-business-leaders', number: 9, title: 'Managers, Executives and Directors', subtopics: ['A Managers and executives: UK', 'B Managers and executives: US'], theory: topic9Theory, practice: topic9Practice, test: topic9Test },
     ],
   },
   {
