@@ -909,6 +909,168 @@ const topic6Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 7 content ────────────────────────────────────────────────────
+
+const topic7Theory: TheorySection[] = [
+  {
+    heading: 'A – A job for life',
+    content: `Many people used to work for the same organization until they reached <strong>retirement</strong>: the age at which people <strong>retire</strong>, or end their working life.
+
+<strong>Career paths</strong> were clear: you could work your way up the <strong>career ladder</strong>, getting <strong>promotion</strong> to jobs that were more <strong>senior</strong>, with greater responsibility.
+
+You would probably not be <strong>demoted</strong>: moved to a less senior job.
+
+To leave the company, you could <strong>resign</strong> or <strong>hand in your notice</strong>.`,
+  },
+  {
+    heading: 'B – A job for now',
+    content: `Modco has <strong>downsized</strong> and <strong>delayered</strong>. The number of management levels in the company hierarchy has been reduced from five to three, and many managers have lost their jobs.
+
+Modco has <strong>reorganized</strong> and <strong>restructured</strong> in order to become <strong>flatter</strong> (with fewer layers of management) and <strong>leaner</strong> (with fewer, more productive employees). They did this to reduce costs, and increase <strong>efficiency</strong> and <strong>profits</strong>.
+
+Employees said the company used words like 'restructure' to make the situation sound positive and acceptable.`,
+    notes: [
+      '<strong>downsize</strong> = reduce the number of employees',
+      '<strong>delayer</strong> = remove levels of management',
+      '<strong>flatter</strong> = fewer layers of management; <strong>leaner</strong> = fewer, more productive employees',
+    ],
+  },
+  {
+    heading: 'C – In-house staff or freelancers?',
+    content: `Modco has <strong>outsourced</strong> many jobs previously done by <strong>in-house</strong> personnel: outside companies clean the offices, transport goods and collect money from customers. This allows Modco to concentrate on its main business activities.
+
+Modco uses more <strong>freelancers</strong>, independent people who may work for several different companies, and they employ people for short periods on <strong>temporary contracts</strong>.
+
+Modco expects <strong>flexibility</strong>, with people moving to different jobs when necessary, but for many employees, this means <strong>job insecurity</strong>, the feeling that they may not be in their job for long.
+
+The way that they are doing their job is discussed at <strong>performance reviews</strong>: regular meetings with their manager.`,
+    notes: [
+      'You say <strong>freelancers</strong> or <strong>freelances</strong>.',
+      '<strong>outsource</strong> = pay an outside company to do work previously done internally',
+    ],
+  },
+  {
+    heading: 'D – Losing your job',
+    content: `<table class="w-full border-collapse mt-3 mb-3">
+<thead><tr class="border-b border-border">
+<th class="text-left p-2 text-sm font-semibold">If you do something wrong, you are…</th>
+<th class="text-left p-2 text-sm font-semibold">If you've done nothing wrong, you are…</th>
+</tr></thead>
+<tbody>
+<tr><td class="p-2 text-sm">dismissed</td><td class="p-2 text-sm">laid off</td></tr>
+<tr><td class="p-2 text-sm">fired</td><td class="p-2 text-sm">made redundant</td></tr>
+<tr><td class="p-2 text-sm">sacked</td><td class="p-2 text-sm">offered early retirement</td></tr>
+<tr><td class="p-2 text-sm">terminated</td><td class="p-2 text-sm"></td></tr>
+</tbody>
+</table>
+
+Employees who are made redundant may get advice about finding another job, retraining, etc. This is called <strong>outplacement advice</strong>.`,
+  },
+];
+
+const topic7Practice: PracticeExercise[] = [
+  {
+    id: '7.1',
+    title: 'Exercise 7.1 – Word forms',
+    instruction: 'Complete each gap with the correct noun, verb or adjective form of the word.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Noun: demotion → Verb: ___', answer: 'demote' },
+      { id: 2, prompt: 'Verb: retire → Noun: ___', answer: 'retirement' },
+      { id: 3, prompt: 'Noun: lay-off → Verb: ___ off', answer: 'lay' },
+      { id: 4, prompt: 'Noun: ___ → Verb: dismiss', answer: 'dismissal' },
+      { id: 5, prompt: 'Noun: ___ → Verb: terminate', answer: 'termination' },
+      { id: 6, prompt: 'Noun: seniority → Adjective: ___', answer: 'senior' },
+      { id: 7, prompt: 'Noun: redundancy → Adjective: ___', answer: 'redundant' },
+      { id: 8, prompt: 'Adjective: insecure → Noun: ___', answer: 'insecurity' },
+      { id: 9, prompt: 'Adjective: flexible → Noun: ___', answer: 'flexibility' },
+    ],
+  },
+  {
+    id: '7.2',
+    title: 'Exercise 7.2 – Match sentence halves',
+    instruction: 'Match each sentence beginning with the correct ending. Type the letter (a–e).',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "Career paths aren't what they used to be; → ___", answer: 'b', hint: 'a) and they will be replaced by temporary workers. b) companies won\'t take care of us for life any more. c) but now we outsource it. d) factory worker to factory manager. e) reducing five management levels to three.' },
+      { id: 2, prompt: 'He worked his way up from → ___', answer: 'd', hint: 'a–e as above' },
+      { id: 3, prompt: 'The new management have delayered the company, → ___', answer: 'e', hint: 'a–e as above' },
+      { id: 4, prompt: 'We used to do printing in-house, → ___', answer: 'c', hint: 'a–e as above' },
+      { id: 5, prompt: "Workers are afraid their organizations will be downsized → ___", answer: 'a', hint: 'a–e as above' },
+    ],
+  },
+  {
+    id: '7.3',
+    title: 'Exercise 7.3 – Complete the story',
+    instruction: "Carla talks about how she lost her job at a magazine publishing company. Complete the text with the correct words.",
+    type: 'fill-blank',
+    wordBank: ['reviews', 'off', 'contracts', 'freelancers', 'laying', 'flatter', 'leaner', 'redundant', 'outplacement'],
+    items: [
+      { id: 1, prompt: 'We had to have regular performance ___ with one of the new managers.', answer: 'reviews' },
+      { id: 2, prompt: 'After a few months they started laying staff ___.', answer: 'off' },
+      { id: 3, prompt: 'Our own journalists were put on temporary ___.', answer: 'contracts' },
+      { id: 4, prompt: 'They were replaced by ___.', answer: 'freelancers' },
+      { id: 5, prompt: 'Then they started ___ off more senior people like me.', answer: 'laying' },
+      { id: 6, prompt: 'The new owners said they wanted to make the company ___.', answer: 'flatter' },
+      { id: 7, prompt: 'And ___ too – with fewer, more productive employees.', answer: 'leaner' },
+      { id: 8, prompt: 'So I was made ___.', answer: 'redundant' },
+      { id: 9, prompt: 'They offered to help me find another job with ___ advice.', answer: 'outplacement' },
+    ],
+  },
+];
+
+const topic7Test: TestExercise[] = [
+  {
+    id: '7.1',
+    title: 'Test 7.1 – Match statements to concepts',
+    instruction: 'Drag each concept on the right to match the statement on the left. There is one extra word you don\'t need.',
+    type: 'matching',
+    pairs: [
+      { id: 1, left: 'I am an independent software designer, working for three companies.', right: 'freelance' },
+      { id: 2, left: "I don't know whether my job is safe. I could be out of work next month.", right: 'insecurity' },
+      { id: 3, left: 'In 1999 we had 430 employees. Now there are only 280.', right: 'downsize' },
+      { id: 4, left: "We used to do printing in-house, but now it's done in Hong Kong.", right: 'outsource' },
+      { id: 5, left: 'I was a shop floor supervisor but then they made me manager.', right: 'promotion' },
+      { id: 6, left: 'Our company has been completely reorganized to be more efficient.', right: 'restructure' },
+      { id: 7, left: 'Now that we have reduced our costs, we are making much more money.', right: 'profit' },
+    ],
+    extraWords: ['dismiss'],
+  },
+  {
+    id: '7.2',
+    title: 'Test 7.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "I didn't like the way the company was being run so I ___. (resigned / sacked / terminated)", answer: 'resigned' },
+      { id: 2, prompt: 'They laid ___ 200 people in March and 50 more in September. (on / off / out)', answer: 'off' },
+      { id: 3, prompt: 'I joined this company because the career ___ is excellent. (path / way / contract)', answer: 'path' },
+      { id: 4, prompt: 'I have regular performance ___ with my manager. (advice / support / reviews)', answer: 'reviews' },
+      { id: 5, prompt: 'We now have fewer employees and so the company is much ___. (efficient / leaner / fatter)', answer: 'leaner' },
+      { id: 6, prompt: 'I have worked my way up and now I am a ___ manager. (main / old / senior)', answer: 'senior' },
+      { id: 7, prompt: 'She was ___ for breaking company rules. (fired / promoted / retired)', answer: 'fired' },
+      { id: 8, prompt: "I was appointed on a ___ contract so my job isn't very safe. (permanent / full-time / temporary)", answer: 'temporary' },
+      { id: 9, prompt: "When you join a company now you can't expect a ___ for life. (job / work / career)", answer: 'job' },
+      { id: 10, prompt: 'If you break the safety rules you can be ___ immediately. (downsized / dismissed / delayered)', answer: 'dismissed' },
+    ],
+  },
+  {
+    id: '7.3',
+    title: 'Test 7.3 – Complete the restructuring speech',
+    instruction: 'Complete the managing director\'s speech about restructuring with the correct words.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'We will have a fla___ structure with only two levels of management.', answer: 'flatter' },
+      { id: 2, prompt: "We don't want to make anyone red___.", answer: 'redundant' },
+      { id: 3, prompt: 'Some of our senior people will take early ret___.', answer: 'retirement' },
+      { id: 4, prompt: 'No one likes to be dem___ but it is better than being out of work.', answer: 'demoted' },
+      { id: 5, prompt: 'We hope people will be fle___ and move to different jobs.', answer: 'flexible' },
+      { id: 6, prompt: 'If anyone decides to hand in their not___ we will help.', answer: 'notice' },
+      { id: 7, prompt: 'We will offer out___ advice to help people find new jobs.', answer: 'outplacement' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -925,7 +1087,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Wages, salary and benefits', 'B Compensation 1', 'C Compensation 2'], theory: topic5Theory, practice: topic5Practice, test: topic5Test },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Employees and management', 'B Management and administration', 'C Labour', 'D Personnel and human resources'], theory: topic6Theory, practice: topic6Practice, test: topic6Test },
-      { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
+      { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A A job for life', 'B A job for now', 'C In-house staff or freelancers?', 'D Losing your job'], theory: topic7Theory, practice: topic7Practice, test: topic7Test },
       { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Industrial disputes', 'C Discrimination'] },
       { id: 'businesspeople-and-business-leaders', number: 9, title: 'Businesspeople and Business Leaders', subtopics: ['A Entrepreneurs', 'B Leaders', 'C Tycoons'] },
     ],
