@@ -665,7 +665,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'work-and-jobs', number: 1, title: 'Work and Jobs', subtopics: ['A What do you do?', 'B Word combinations with "work"', 'C Types of job and types of work'], theory: topic1Theory, practice: topic1Practice, test: topic1Test },
       { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Nice work if you can get it', 'C Nature of work'], theory: topic2Theory, practice: topic2Practice, test: topic2Test },
       { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'], theory: topic3Theory, practice: topic3Practice, test: topic3Test },
-      { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'] },
+      { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Salaries and wages', 'B Benefits', 'C Compensation'] },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Offices', 'B Factories', 'C Types of company'] },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
