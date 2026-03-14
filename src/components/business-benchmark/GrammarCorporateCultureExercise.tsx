@@ -28,6 +28,16 @@ const questionWordItems = [
   { id: 8, blank: "", after: " does your boss earn?", answer: "How much" },
 ];
 
+/* ── Exercise B: Write the questions ── */
+const writeQuestionItems = [
+  { id: 1, before: "How many Formula 1 world championships ", after: "?", hint: "(Ayrton Senna / win)", answer: "did Ayrton Senna win" },
+  { id: 2, before: "Which US president ", after: " the Nobel Peace Prize in 1990?", hint: "(win)", answer: "won" },
+  { id: 3, before: "Who ", after: " the film Reservoir Dogs?", hint: "(direct)", answer: "directed" },
+  { id: 4, before: "When ", after: " president of South Africa?", hint: "(Nelson Mandela / become)", answer: "did Nelson Mandela become" },
+  { id: 5, before: "Who ", after: " The Lord of the Rings?", hint: "(write)", answer: "wrote" },
+  { id: 6, before: "What ", after: " before he became a singer?", hint: "(Sting / do)", answer: "did Sting do" },
+];
+
 /* ── Exercise D: Word order ── */
 const wordOrderItems = [
   { id: 1, scrambled: "enjoy / do / most / what / about / you / your job", answer: "What do you enjoy most about your job?" },
