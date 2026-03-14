@@ -288,6 +288,152 @@ const GrammarCorporateCultureExercise = () => {
           </Button>
         </CardContent>
       </Card>
+
+      {/* ── WORKBOOK EXERCISES ── */}
+      <div className="pt-4">
+        <h2 className="text-2xl font-bold font-merriweather text-foreground mb-6 border-b border-border pb-3">Workbook Exercises</h2>
+      </div>
+
+      {/* Exercise C: Question words */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
+            Exercise C: Complete with question words
+          </h3>
+          <p className="text-muted-foreground mb-6">
+            Complete these questions with the correct question word or phrase. You will not need all the options.
+          </p>
+          <div className="space-y-4">
+            {questionWordItems.map((item) => {
+              const selected = qWordSelections[item.id];
+              const isCorrect = qWordChecked && selected === item.answer;
+              const isWrong = qWordChecked && selected && selected !== item.answer;
+              return (
+                <div key={item.id} className={`p-4 rounded-lg border transition-colors ${
+                  isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                  isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                  "border-border bg-card"
+                }`}>
+                  <div className="flex items-center flex-wrap gap-2 text-foreground">
+                    <span className="font-bold text-primary">{item.id}.</span>
+                    <Select
+                      value={selected || ""}
+                      onValueChange={(val) => setQWordSelections((p) => ({ ...p, [item.id]: val }))}
+                      disabled={qWordChecked}
+                    >
+                      <SelectTrigger className="w-36">
+                        <SelectValue placeholder="..." />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {questionWordOptions.map((w) => (
+                          <SelectItem key={w} value={w}>{w}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <span>{item.after}</span>
+                  </div>
+                  {qWordChecked && isWrong && (
+                    <p className="text-sm text-muted-foreground mt-2">Answer: <strong>{item.answer}</strong></p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <Button onClick={() => setQWordChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={qWordChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Exercise D: Word order */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
+            Exercise D: Put the words in the correct order
+          </h3>
+          <p className="text-muted-foreground mb-6">
+            Rearrange the words to form correct questions.
+          </p>
+          <div className="space-y-5">
+            {wordOrderItems.map((item) => {
+              const userVal = wordOrderAnswers[item.id]?.trim().toLowerCase().replace(/[?]/g, "") || "";
+              const correctVal = item.answer.toLowerCase().replace(/[?]/g, "");
+              const isCorrect = wordOrderChecked && userVal === correctVal;
+              const isWrong = wordOrderChecked && userVal !== correctVal;
+              return (
+                <div key={item.id} className={`p-4 rounded-lg border transition-colors ${
+                  isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                  isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                  "border-border bg-card"
+                }`}>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <span className="font-bold text-primary mr-1">{item.id}.</span>
+                    <span className="italic">{item.scrambled}</span>
+                  </p>
+                  <Input
+                    value={wordOrderAnswers[item.id] || ""}
+                    onChange={(e) => setWordOrderAnswers((p) => ({ ...p, [item.id]: e.target.value }))}
+                    placeholder="Write the question..."
+                    disabled={wordOrderChecked}
+                    className="max-w-lg"
+                  />
+                  {wordOrderChecked && isWrong && (
+                    <p className="text-sm text-muted-foreground mt-2">Answer: <strong>{item.answer}</strong></p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <Button onClick={() => setWordOrderChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={wordOrderChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Exercise E: Correct the mistakes */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
+            Exercise E: Correct the mistakes
+          </h3>
+          <p className="text-muted-foreground mb-6">
+            Each of these questions has a mistake. Write the corrected version.
+          </p>
+          <div className="space-y-5">
+            {correctMistakeItems.map((item) => {
+              const userVal = mistakeAnswers[item.id]?.trim().toLowerCase().replace(/[?]/g, "") || "";
+              const correctVal = item.answer.toLowerCase().replace(/[?]/g, "");
+              const isCorrect = mistakeChecked && userVal === correctVal;
+              const isWrong = mistakeChecked && userVal !== correctVal;
+              return (
+                <div key={item.id} className={`p-4 rounded-lg border transition-colors ${
+                  isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                  isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                  "border-border bg-card"
+                }`}>
+                  <p className="text-foreground mb-2">
+                    <span className="font-bold text-primary mr-1">{item.id}.</span>
+                    <span className="line-through text-muted-foreground">{item.wrong}</span>
+                  </p>
+                  <Input
+                    value={mistakeAnswers[item.id] || ""}
+                    onChange={(e) => setMistakeAnswers((p) => ({ ...p, [item.id]: e.target.value }))}
+                    placeholder="Write the corrected question..."
+                    disabled={mistakeChecked}
+                    className="max-w-lg"
+                  />
+                  {mistakeChecked && isWrong && (
+                    <p className="text-sm text-muted-foreground mt-2">Answer: <strong>{item.answer}</strong></p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <Button onClick={() => setMistakeChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={mistakeChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 };
