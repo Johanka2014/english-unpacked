@@ -483,6 +483,175 @@ const topic3Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 4 content ────────────────────────────────────────────────────
+
+const topic4Theory: TheorySection[] = [
+  {
+    heading: 'A – Education and training',
+    content: `<em>Margareta: 'The trouble with <strong>graduates</strong>, people who've just left university, is that their <strong>paper qualifications</strong> are good, but they have no <strong>work experience</strong>. They just don't know how business works.'</em>
+
+<em>Nils: 'I disagree. <strong>Education</strong> should teach people how to think, not prepare them for a particular job. One of last year's <strong>recruits</strong> had <strong>graduated</strong> from Oxford in philosophy and she's doing very well!'</em>
+
+<em>Margareta: 'Philosophy's an interesting subject, but for our company, it's more useful if you <strong>train</strong> as a scientist and <strong>qualify</strong> as a biologist or chemist; <strong>training</strong> for a specific job is better.'</em>
+
+<em>Nils: 'Yes, but we don't just need scientists. We also need good managers, which we can achieve through <strong>in-house training courses</strong> within the company. You know we have put a lot of money into <strong>management development</strong> and <strong>management training</strong> because they are very important. You need to have some <strong>management experience</strong> for that. It's not the sort of thing you can learn when you're 20!'</em>`,
+    notes: [
+      '<strong>graduate</strong> (verb) = successfully complete a degree; <strong>graduate</strong> (noun) = a person who has completed a degree',
+      '<strong>paper qualifications</strong> = certificates and diplomas from formal education',
+      '<strong>qualify</strong> as + profession (e.g. qualify as an accountant)',
+      '<strong>train</strong> as + profession (e.g. train as a scientist)',
+      '<strong>in-house</strong> = within the company (opposite: external)',
+    ],
+  },
+  {
+    heading: 'B – Skilled and unskilled',
+    content: `A <strong>skill</strong> is the ability to do something well, especially because you have learned how to do it and practised it. Jobs, and the people who do them, can be described as:
+
+<table class="w-full border-collapse mt-3 mb-3">
+<thead><tr class="border-b border-border">
+<th class="text-left p-2 text-sm font-semibold">highly skilled</th>
+<th class="text-left p-2 text-sm font-semibold">skilled</th>
+<th class="text-left p-2 text-sm font-semibold">semi-skilled</th>
+<th class="text-left p-2 text-sm font-semibold">unskilled</th>
+</tr></thead>
+<tbody><tr>
+<td class="p-2 text-sm text-muted-foreground">e.g. car designer</td>
+<td class="p-2 text-sm text-muted-foreground">e.g. car production manager</td>
+<td class="p-2 text-sm text-muted-foreground">e.g. taxi driver</td>
+<td class="p-2 text-sm text-muted-foreground">e.g. car cleaner</td>
+</tr></tbody>
+</table>
+
+You can say that someone is:
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>skilled at</strong> + noun (e.g. skilled at customer care, electronics)</li>
+<li><strong>skilled in</strong> + -ing (e.g. skilled in communicating, using PCs, working with large groups)</li>
+<li><strong>good with</strong> + noun (e.g. good with figures, people)</li>
+</ul>`,
+  },
+  {
+    heading: 'C – The right person',
+    content: `These words are often used in job advertisements. Companies look for people who are:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>self-starters, proactive, self-motivated, self-driven</strong> – good at working on their own.</li>
+<li><strong>methodical, systematic, organized</strong> – can work in a planned, orderly way.</li>
+<li><strong>computer-literate</strong> – good with computers.</li>
+<li><strong>numerate</strong> – good with numbers.</li>
+<li><strong>motivated</strong> – very keen to do well in their job.</li>
+<li><strong>talented</strong> – naturally very good at what they do.</li>
+<li><strong>team players</strong> – people who work well with other people.</li>
+</ul>`,
+  },
+];
+
+const topic4Practice: PracticeExercise[] = [
+  {
+    id: '4.1',
+    title: 'Exercise 4.1 – Correct the mistakes',
+    instruction: 'Correct the sentences about Ravi. One word is wrong in each item. Type the correct word.',
+    type: 'correction',
+    items: [
+      { id: 1, prompt: 'At 18, Ravi decided to stay in full-time *training* and went to Mumbai University.', answer: 'education' },
+      { id: 2, prompt: 'Ravi *qualified* three years later with a degree in philosophy and politics.', answer: 'graduated' },
+      { id: 3, prompt: "He taught for a while, but didn't like it. He decided to *educate* as an accountant at evening classes.", answer: 'train' },
+      { id: 4, prompt: 'He qualified *for* an accountant and joined a big accountancy firm in its Mumbai office.', answer: 'as' },
+      { id: 5, prompt: 'When he started, he needed to develop other skills, which would come through *experiments*.', answer: 'experience' },
+      { id: 6, prompt: "He received *managers'* training to help him develop these skills.", answer: 'management' },
+    ],
+  },
+  {
+    id: '4.2',
+    title: 'Exercise 4.2 – Classify the skill level',
+    instruction: 'Are these jobs generally considered to be highly skilled (HS), skilled (S), semi-skilled (SS), or unskilled (U)?',
+    type: 'classify',
+    items: [
+      { id: 1, prompt: 'teacher', answer: 'S' },
+      { id: 2, prompt: 'brain surgeon', answer: 'HS' },
+      { id: 3, prompt: 'car worker on a production line', answer: 'SS' },
+      { id: 4, prompt: 'airline pilot', answer: 'HS' },
+      { id: 5, prompt: 'labourer (someone doing basic work on a building site)', answer: 'U' },
+      { id: 6, prompt: 'bus driver', answer: 'SS' },
+      { id: 7, prompt: 'office manager', answer: 'S' },
+    ],
+  },
+  {
+    id: '4.3',
+    title: 'Exercise 4.3 – Complete the job adverts',
+    instruction: 'Complete these extracts from job advertisements using words from section C.',
+    type: 'fill-blank',
+    wordBank: ['numerate', 'self-motivated', 'self-driven', 'methodical', 'organized', 'talented', 'motivated', 'computer-literate', 'team player'],
+    items: [
+      { id: 1, prompt: "You'll need to be ___, as you'll be working on financial budgets.", answer: 'numerate' },
+      { id: 2, prompt: "As part of our sales team, you'll be working independently, so you have to be self-___ and self-___.", answer: 'motivated', hint: 'First blank: self-___' },
+      { id: 3, prompt: "We're looking for someone who can work on ten projects at once. You must be ___ and ___.", answer: 'methodical', hint: 'First blank' },
+      { id: 4, prompt: 'We need ___ journalists who are very good at their job and extremely ___ to find out as much as they can.', answer: 'talented', hint: 'First blank' },
+      { id: 5, prompt: "You'll be researching developments on the Internet, so you have to be ___.", answer: 'computer-literate' },
+      { id: 6, prompt: 'But as part of a team of researchers, you need to be a good ___ too.', answer: 'team player' },
+    ],
+  },
+];
+
+const topic4Test: TestExercise[] = [
+  {
+    id: '4.1',
+    title: 'Test 4.1 – Fill in the prepositions',
+    instruction: 'Write one word from the box in each gap to complete the text. You may use some words more than once.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'I graduated ___ Edinburgh University last year with a degree in Business and Management.', answer: 'from' },
+      { id: 2, prompt: 'Now I am going to train ___ an accountant.', answer: 'as' },
+      { id: 3, prompt: 'I think I will do well because I am good ___ figures.', answer: 'with' },
+      { id: 4, prompt: 'I am skilled ___ using computers.', answer: 'in' },
+      { id: 5, prompt: 'I think that training ___ a specific job will be more interesting than the general education I got at university.', answer: 'for' },
+    ],
+  },
+  {
+    id: '4.2',
+    title: 'Test 4.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Everyone should stay in full-time ___ until they are at least 18. (school / education)', answer: 'education' },
+      { id: 2, prompt: 'Of course ___ are important, but they\'re not everything. (qualifications / printed)', answer: 'qualifications' },
+      { id: 3, prompt: 'I look for people with lots of relevant ___ experience. (job / work)', answer: 'work' },
+      { id: 4, prompt: 'Our company runs some very good in-house ___ courses. (training / skilled)', answer: 'training' },
+      { id: 5, prompt: 'Last year we spent over £50,000 on management ___. (experience / development)', answer: 'development' },
+      { id: 6, prompt: 'We value people who are highly ___ and want to get on. (motivated / graduated)', answer: 'motivated' },
+      { id: 7, prompt: 'Tom gets on well with everyone. He is a great team ___. (person / player)', answer: 'player' },
+    ],
+  },
+  {
+    id: '4.3',
+    title: 'Test 4.3 – Classify the skill level',
+    instruction: 'Are these job descriptions highly skilled (HS), skilled (S), semi-skilled (SS), or unskilled (U)?',
+    type: 'classify',
+    items: [
+      { id: 1, prompt: 'Experience of managing a modern production plant is essential.', answer: 'S' },
+      { id: 2, prompt: 'Wanted – Early morning cleaners for office block in the centre of town.', answer: 'U' },
+      { id: 3, prompt: 'Eastern Buses now recruiting drivers. Competitive salary plus benefits.', answer: 'SS' },
+      { id: 4, prompt: 'Building labourers required. Good money for hard workers.', answer: 'U' },
+      { id: 5, prompt: 'Pilot with experience of flying 747s required for new cargo carrier.', answer: 'HS' },
+      { id: 6, prompt: 'Local electrical company requires production line workers now.', answer: 'SS' },
+      { id: 7, prompt: 'Black Box Games needs an experienced software developer. Good salary.', answer: 'HS' },
+    ],
+  },
+  {
+    id: '4.4',
+    title: 'Test 4.4 – Find the word',
+    instruction: 'Find a word related to each clue.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Good at working on his/her own → pro___', answer: 'proactive' },
+      { id: 2, prompt: 'Works in a systematic, orderly way → meth___', answer: 'methodical' },
+      { id: 3, prompt: 'Good with figures → num___', answer: 'numerate' },
+      { id: 4, prompt: 'Naturally very good at what they do → tal___', answer: 'talented' },
+      { id: 5, prompt: "Someone who is good with PCs is 'computer-___'", answer: 'literate' },
+      { id: 6, prompt: 'Works well on his/her own → self-d___', answer: 'driven' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
@@ -496,7 +665,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'work-and-jobs', number: 1, title: 'Work and Jobs', subtopics: ['A What do you do?', 'B Word combinations with "work"', 'C Types of job and types of work'], theory: topic1Theory, practice: topic1Practice, test: topic1Test },
       { id: 'ways-of-working', number: 2, title: 'Ways of Working', subtopics: ['A Old and new ways', 'B Nice work if you can get it', 'C Nature of work'], theory: topic2Theory, practice: topic2Practice, test: topic2Test },
       { id: 'recruitment-and-selection', number: 3, title: 'Recruitment and Selection', subtopics: ['A Recruitment', 'B Applying for a job', 'C Selection procedures'], theory: topic3Theory, practice: topic3Practice, test: topic3Test },
-      { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'] },
+      { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Salaries and wages', 'B Benefits', 'C Compensation'] },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Offices', 'B Factories', 'C Types of company'] },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
