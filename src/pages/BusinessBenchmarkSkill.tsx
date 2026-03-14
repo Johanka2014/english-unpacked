@@ -38,6 +38,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'reading-changing-places') return <ReadingChangingPlacesExercise />;
     if (contentType === 'grammar-workshop') return <GrammarWorkshopExercise />;
     if (contentType === 'reading-corporate-culture') return <ReadingCorporateCultureExercise />;
+    if (contentType === 'vocab-corporate-culture') return <VocabCorporateCultureExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
