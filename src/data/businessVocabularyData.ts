@@ -1071,6 +1071,130 @@ const topic7Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 8 content ────────────────────────────────────────────────────
+
+const topic8Theory: TheorySection[] = [
+  {
+    heading: 'A – Health and safety',
+    content: `Here are some health and safety issues for people at work:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>Temperature</strong> – too hot or too cold</li>
+<li><strong>Passive smoking</strong> – breathing in other people's cigarette smoke</li>
+<li><strong>Repetitive strain injury (RSI)</strong> – pain from doing the same movement repeatedly, e.g. data entry</li>
+<li><strong>Dangerous machinery</strong> – machines without proper safety guards</li>
+<li><strong>Hazardous substances</strong> – dangerous chemicals, acids, etc.</li>
+<li><strong>Fire hazards</strong> – things that could cause a fire, e.g. waste paper without fire extinguishers</li>
+</ul>
+
+All these things contribute to a bad <strong>working environment</strong>. The government sends officials called <strong>health and safety inspectors</strong> to make sure that factories and offices are safe places to work. They check things like:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>heating and air-conditioning</strong></li>
+<li><strong>first aid</strong></li>
+<li><strong>fire precautions</strong></li>
+</ul>`,
+  },
+  {
+    heading: 'B – Bullying and harassment',
+    content: `If someone such as a manager <strong>bullies</strong> an employee, they use their position of power to hurt or threaten them, for example verbally. Someone who does this is a <strong>bully</strong>.
+
+<strong>Sexual harassment</strong> is when an employee behaves sexually towards another in a way that they find unwelcome and unacceptable. The related verb is <strong>harass</strong>.`,
+  },
+  {
+    heading: 'C – Discrimination',
+    content: `If people are treated differently from others in an unfair way, they are <strong>discriminated against</strong>.
+
+If a woman is unfairly treated just because she is a woman, she is a victim of <strong>sex discrimination</strong>. In many organizations, women complain about the <strong>glass ceiling</strong> that allows them to get to a particular level but no further.
+
+If someone is treated unfairly because of their race, they are a victim of <strong>racial discrimination</strong> or <strong>racism</strong>. Offensive remarks about someone's race are <strong>racist</strong> and the person making them is a <strong>racist</strong>.
+
+In the US, <strong>affirmative action</strong> is when help is given in education and employment to groups who were previously discriminated against. In Britain, affirmative action is known as <strong>equal opportunities</strong>.
+
+Some companies have a <strong>dignity at work policy</strong> covering all the issues described in B and C.`,
+  },
+];
+
+const topic8Practice: PracticeExercise[] = [
+  {
+    id: '8.1',
+    title: 'Exercise 8.1 – Match complaints to issues',
+    instruction: 'Match each employee complaint to the correct health and safety issue. Type the letter (a–f).',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "My doctor says there's something wrong with my lungs, but I've never smoked. → ___", answer: 'b', hint: 'a) temperature  b) passive smoking  c) RSI  d) dangerous machinery  e) hazardous substances  f) fire hazards' },
+      { id: 2, prompt: "I do a lot of data entry, and I've started getting really bad pains in my wrists. → ___", answer: 'c', hint: 'a–f as above' },
+      { id: 3, prompt: "It's either too cold and we freeze, or too hot and we all fall asleep. → ___", answer: 'a', hint: 'a–f as above' },
+      { id: 4, prompt: "There's all this waste paper but there are no fire extinguishers in the building. → ___", answer: 'f', hint: 'a–f as above' },
+      { id: 5, prompt: 'The containers are leaking; one day someone is going to get acid burns. → ___', answer: 'e', hint: 'a–f as above' },
+      { id: 6, prompt: 'There are no safety guards on the machines; you could easily get your hand caught. → ___', answer: 'd', hint: 'a–f as above' },
+    ],
+  },
+  {
+    id: '8.2',
+    title: 'Exercise 8.2 – Complete the headlines',
+    instruction: 'Complete these headlines and articles with the correct words from sections B and C.',
+    type: 'fill-blank',
+    wordBank: ['bullying', 'sexual harassment', 'harassed', 'glass ceiling', 'sex discrimination', 'racial discrimination', 'racist', 'discriminated', 'affirmative action'],
+    items: [
+      { id: 1, prompt: 'Office manager accused of ___: he shouted at staff, criticised work in front of others and tore up their work.', answer: 'bullying' },
+      { id: 2, prompt: 'Shop manageress claims her boss made ___ remarks and sacked her when she objected.', answer: 'racist' },
+      { id: 3, prompt: 'She claims the company has racially ___ against her.', answer: 'discriminated' },
+      { id: 4, prompt: 'Four waitresses claim they were repeatedly ___ by male bosses and subjected to sexist remarks.', answer: 'harassed' },
+      { id: 5, prompt: '___ abolished at Texas law school: supporters say it has been "a disaster".', answer: 'affirmative action' },
+      { id: 6, prompt: 'Japanese woman complained about the ___ and did not want to be a "counter lady".', answer: 'glass ceiling' },
+      { id: 7, prompt: 'She said she was a victim of ___ in her workplace.', answer: 'sex discrimination' },
+    ],
+  },
+];
+
+const topic8Test: TestExercise[] = [
+  {
+    id: '8.1',
+    title: 'Test 8.1 – Classify the hazards',
+    instruction: 'Match each statement to the correct hazard type: Hazardous substances (HS), Passive smoking (PS), Dangerous machinery (DM), Temperature (T), RSI (RSI), or Fire hazard (FH).',
+    type: 'classify',
+    items: [
+      { id: 1, prompt: 'That bottle of acid should be locked in the store room. If it gets on your skin it will burn you.', answer: 'HS' },
+      { id: 2, prompt: 'Only two people smoke in our office, but even that makes it difficult for me to breathe.', answer: 'PS' },
+      { id: 3, prompt: 'This safety guard MUST be in place at all times. Anyone who removes a guard will be sacked.', answer: 'DM' },
+      { id: 4, prompt: 'Last winter it got so cold that we all had to go home until the heating was fixed.', answer: 'T' },
+      { id: 5, prompt: "I've got a pain in my fingers and wrists. It must be due to all that data entry we did last month.", answer: 'RSI' },
+      { id: 6, prompt: 'Caution! This machine must only be used by a trained operator.', answer: 'DM' },
+    ],
+  },
+  {
+    id: '8.2',
+    title: 'Test 8.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "I've cut my finger. Can you get the ___ aid kit for me? (health / injury / first)", answer: 'first' },
+      { id: 2, prompt: 'That pile of waste paper is a fire ___. (precaution / hazard / exit)', answer: 'hazard' },
+      { id: 3, prompt: 'This special keyboard reduces the risk of repetitive ___ injury. (strain / stress / stroke)', answer: 'strain' },
+      { id: 4, prompt: 'There is no smoking here because of the dangers of ___ smoking. (passive / passionate / personal)', answer: 'passive' },
+      { id: 5, prompt: 'I reported the missing fire extinguisher to the health and ___ inspector. (danger / hazards / safety)', answer: 'safety' },
+      { id: 6, prompt: 'The poor air-conditioning system makes it a bad working ___. (environment / place / zone)', answer: 'environment' },
+    ],
+  },
+  {
+    id: '8.3',
+    title: 'Test 8.3 – Correct the mistakes',
+    instruction: 'Each sentence contains one wrong word. Type the correct word.',
+    type: 'correction',
+    items: [
+      { id: 1, prompt: 'My last manager was a terrible *bull*. He shouted at us all the time.', answer: 'bully' },
+      { id: 2, prompt: 'He was sacked for sexual *harass* because of his remarks to women.', answer: 'harassment' },
+      { id: 3, prompt: 'The judge said the company had discriminated *about* Mary Chambers.', answer: 'against' },
+      { id: 4, prompt: 'There was a *wooden* ceiling which prevented her from being promoted.', answer: 'glass' },
+      { id: 5, prompt: 'This was obviously a case of serious *woman* discrimination.', answer: 'sex' },
+      { id: 6, prompt: 'The company said it had an equal *opportune* policy but I don\'t believe it.', answer: 'opportunities' },
+      { id: 7, prompt: 'I was the only black employee and I was a victim of *racism discrimination*.', answer: 'racial' },
+      { id: 8, prompt: 'We need some affirmative *activation* here like they have in America.', answer: 'action' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
