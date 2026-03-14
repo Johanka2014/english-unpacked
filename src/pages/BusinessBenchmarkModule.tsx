@@ -6,6 +6,7 @@ import { ArrowLeft, BookOpen, Headphones, PenLine, MessageCircle, Languages, Fil
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
+import CorporateCultureGettingStarted from '@/components/business-benchmark/CorporateCultureGettingStarted';
 
 const skillIcons: Record<string, React.ElementType> = {
   reading: BookOpen,
@@ -57,6 +58,7 @@ const BusinessBenchmarkModule = () => {
         </div>
 
         {moduleId === 'the-working-day' && <OrganigramExercise />}
+        {moduleId === 'corporate-culture' && <CorporateCultureGettingStarted />}
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {mod.skills.map((skill) => {
