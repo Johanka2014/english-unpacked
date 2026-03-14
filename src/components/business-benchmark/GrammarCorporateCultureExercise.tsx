@@ -15,14 +15,39 @@ const crossOutItems = [
   { id: 6, optionA: "said the teacher", optionB: "did the teacher say", correctWrong: "A", sentence: "What ___?", full: ["What ", "?"] },
 ];
 
-/* ── Exercise B: Write the questions ── */
-const writeQuestionItems = [
-  { id: 1, before: "How many Formula 1 world championships ", after: "?", hint: "(Ayrton Senna / win)", answer: "did Ayrton Senna win" },
-  { id: 2, before: "Which US president ", after: " the Nobel Peace Prize in 1990?", hint: "(win)", answer: "won" },
-  { id: 3, before: "Who ", after: " the film Reservoir Dogs?", hint: "(direct)", answer: "directed" },
-  { id: 4, before: "When ", after: " president of South Africa?", hint: "(Nelson Mandela / become)", answer: "did Nelson Mandela become" },
-  { id: 5, before: "Who ", after: " The Lord of the Rings?", hint: "(write)", answer: "wrote" },
-  { id: 6, before: "What ", after: " before he became a singer?", hint: "(Sting / do)", answer: "did Sting do" },
+/* ── Exercise C: Complete with question words ── */
+const questionWordOptions = ["Who", "How long", "Which", "Where", "When", "What", "How many", "How much", "How often", "Why"];
+const questionWordItems = [
+  { id: 1, blank: "", after: " is your boss?", answer: "Who" },
+  { id: 2, blank: "", after: " have you worked for this company?", answer: "How long" },
+  { id: 3, blank: "", after: " office would you prefer to work in: company headquarters or a regional office?", answer: "Which" },
+  { id: 4, blank: "", after: " did you go to school — in this country or abroad?", answer: "Where" },
+  { id: 5, blank: "", after: " does your HR department carry out formal appraisals — every six months, or more often?", answer: "When" },
+  { id: 6, blank: "", after: " job would you like to be doing in ten years' time?", answer: "What" },
+  { id: 7, blank: "", after: " people work in your office?", answer: "How many" },
+  { id: 8, blank: "", after: " does your boss earn?", answer: "How much" },
+];
+
+/* ── Exercise D: Word order ── */
+const wordOrderItems = [
+  { id: 1, scrambled: "enjoy / do / most / what / about / you / your job", answer: "What do you enjoy most about your job?" },
+  { id: 2, scrambled: "anything / is / dislike / there / about / you / your job", answer: "Is there anything you dislike about your job?" },
+  { id: 3, scrambled: "how / do / often / you / have to / discipline / workers", answer: "How often do you have to discipline workers?" },
+  { id: 4, scrambled: "how / many / are / people / there / in / your / store", answer: "How many people are there in your store?" },
+  { id: 5, scrambled: "how / did / get / you / into / this / line of work", answer: "How did you get into this line of work?" },
+  { id: 6, scrambled: "what / do / think / you / you / will be doing / in ten years' time", answer: "What do you think you will be doing in ten years' time?" },
+];
+
+/* ── Exercise E: Correct the mistakes ── */
+const correctMistakeItems = [
+  { id: 1, wrong: "How long you have worked for this company?", answer: "How long have you worked for this company?" },
+  { id: 2, wrong: "When you left school?", answer: "When did you leave school?" },
+  { id: 3, wrong: "How much do you earn in your actually job?", answer: "How much do you earn in your present job?" },
+  { id: 4, wrong: "If we give you the job, when you can start?", answer: "If we give you the job, when can you start?" },
+  { id: 5, wrong: "What you studied at university?", answer: "What did you study at university?" },
+  { id: 6, wrong: "How long do you expect stay with us?", answer: "How long do you expect to stay with us?" },
+  { id: 7, wrong: "Do you need speak English in your present job?", answer: "Do you need to speak English in your present job?" },
+  { id: 8, wrong: "What do you find more challenging in your job?", answer: "What do you find most challenging in your job?" },
 ];
 
 const GrammarCorporateCultureExercise = () => {
@@ -31,6 +56,15 @@ const GrammarCorporateCultureExercise = () => {
 
   const [writeAnswers, setWriteAnswers] = useState<Record<number, string>>({});
   const [writeChecked, setWriteChecked] = useState(false);
+
+  const [qWordSelections, setQWordSelections] = useState<Record<number, string>>({});
+  const [qWordChecked, setQWordChecked] = useState(false);
+
+  const [wordOrderAnswers, setWordOrderAnswers] = useState<Record<number, string>>({});
+  const [wordOrderChecked, setWordOrderChecked] = useState(false);
+
+  const [mistakeAnswers, setMistakeAnswers] = useState<Record<number, string>>({});
+  const [mistakeChecked, setMistakeChecked] = useState(false);
 
   return (
     <div className="space-y-8">
