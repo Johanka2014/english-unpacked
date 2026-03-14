@@ -1195,6 +1195,135 @@ const topic8Test: TestExercise[] = [
   },
 ];
 
+// ── Topic 9 content ────────────────────────────────────────────────────
+
+const topic9Theory: TheorySection[] = [
+  {
+    heading: 'A – Managers and executives: UK',
+    content: `In a typical UK company, the management structure looks like this:
+
+<ul class="list-disc list-inside space-y-1 mt-2">
+<li><strong>Chairman / Chairwoman</strong> – heads the board of directors</li>
+<li><strong>Chief Executive / Managing Director</strong> – runs the company day-to-day</li>
+<li><strong>Senior executives / Top executives / Executive directors</strong> – e.g. Chief Financial Officer, Marketing Director, Human Resources Director, IT Director, Research Director</li>
+<li><strong>Middle managers</strong> – e.g. Accounts Department Manager, Sales Manager, Customer Services Manager</li>
+</ul>
+
+All the directors together are the <strong>board</strong>. They meet in the <strong>boardroom</strong>.
+
+<strong>Non-executive directors</strong> are not managers of the company; they are outsiders, often directors of other companies who have particular knowledge of the industry or of particular areas.
+
+The marketing director is the <strong>head of</strong> marketing, the IT director is the <strong>head of</strong> IT, etc. These people <strong>head</strong> or <strong>head up</strong> their departments. Informally, the head of an activity, a department or an organization is its <strong>boss</strong>.
+
+An <strong>executive</strong> or, informally, an <strong>exec</strong>, is usually a manager at quite a high level (e.g. a senior executive).`,
+    notes: [
+      '"Executive" can be used in other contexts to suggest luxury, e.g. "executive coach", "executive home".',
+    ],
+  },
+  {
+    heading: 'B – Managers and executives: US',
+    content: `In the US, the top position may be that of <strong>chairman</strong>, <strong>chairwoman</strong> or <strong>president</strong>. This job is often combined with the position of <strong>chief executive officer</strong> or <strong>CEO</strong>.
+
+Some companies have a <strong>chief operating officer (COO)</strong> to take care of the day-to-day running of the company. The finance director may be called the <strong>chief financial officer (CFO)</strong>.
+
+In the US, senior managers in charge of particular areas are often called <strong>vice presidents (VPs)</strong>.
+
+<table class="w-full border-collapse mt-3 mb-3">
+<thead><tr class="border-b border-border">
+<th class="text-left p-2 text-sm font-semibold">Level</th>
+<th class="text-left p-2 text-sm font-semibold">Titles</th>
+</tr></thead>
+<tbody>
+<tr><td class="p-2 text-sm">Top</td><td class="p-2 text-sm">President / CEO</td></tr>
+<tr><td class="p-2 text-sm">Operations</td><td class="p-2 text-sm">COO</td></tr>
+<tr><td class="p-2 text-sm">Finance</td><td class="p-2 text-sm">CFO</td></tr>
+<tr><td class="p-2 text-sm">Departments</td><td class="p-2 text-sm">VP Marketing, VP Human Resources, VP Research</td></tr>
+</tbody>
+</table>`,
+    notes: [
+      'BrE: <strong>Managing Director</strong>; AmE: <strong>CEO</strong>',
+      'BrE: <strong>Finance Director</strong>; AmE: <strong>CFO</strong>',
+    ],
+  },
+];
+
+const topic9Practice: PracticeExercise[] = [
+  {
+    id: '9.1',
+    title: 'Exercise 9.1 – Match tasks to managers',
+    instruction: 'Which manager from section A would most likely be responsible for each task? Type the job title.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "Meet with advertising agency to discuss new advertisements for the company's holidays.", answer: 'marketing director' },
+      { id: 2, prompt: 'Study possible new holiday destinations in detail.', answer: 'research director' },
+      { id: 3, prompt: 'See the research director to discuss new holiday destinations.', answer: 'marketing director' },
+      { id: 4, prompt: 'Contact newspapers to advertise new jobs.', answer: 'human resources director' },
+      { id: 5, prompt: 'Deal with complaints from customers.', answer: 'customer services manager' },
+      { id: 6, prompt: 'Discuss sales figures with sales team.', answer: 'sales manager' },
+    ],
+  },
+  {
+    id: '9.2',
+    title: 'Exercise 9.2 – Complete the organigram',
+    instruction: "Read the descriptions and type the correct job title for each person. Use titles from section B.",
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: "Montebello: 'I'm president and CEO.'", answer: 'president and CEO' },
+      { id: 2, prompt: "Gomi and Jones: 'We are not involved in the day-to-day running of the company.'", answer: 'non-executive directors' },
+      { id: 3, prompt: "Smith: 'I work closely with Chang and Roberts, allocating them an annual budget.'", answer: 'CFO' },
+      { id: 4, prompt: "Chang: 'I need marketing resources from Smith.'", answer: 'VP Marketing' },
+      { id: 5, prompt: "Roberts: 'I need research resources from Smith.'", answer: 'VP Research' },
+      { id: 6, prompt: "Dawes: 'I head up personnel, on the same level as Chang and Roberts.'", answer: 'VP Human Resources' },
+    ],
+  },
+];
+
+const topic9Test: TestExercise[] = [
+  {
+    id: '9.1',
+    title: 'Test 9.1 – Match people to positions',
+    instruction: 'Drag each position on the right to match with the person\'s description on the left. There is one extra position you don\'t need.',
+    type: 'matching',
+    pairs: [
+      { id: 1, left: "I'm the director responsible for the company budgets and accounts.", right: 'Director of Finance' },
+      { id: 2, left: "I'm not actually a manager, but I do sit on the board.", right: 'Non-Executive Director' },
+      { id: 3, left: "I'm the CEO and I also chair the board.", right: 'Chairperson' },
+      { id: 4, left: "I'm in charge of the company's information systems.", right: 'IT Director' },
+      { id: 5, left: 'My team develops new products and tests them.', right: 'Director of Research' },
+      { id: 6, left: 'My team deals with calls from the public and complaints.', right: 'Customer Services Manager' },
+      { id: 7, left: "I'm responsible for company recruitment and staff development.", right: 'Human Resources Director' },
+      { id: 8, left: 'I report to the CFO.', right: 'Accounts Manager' },
+    ],
+    extraWords: ['Production Manager'],
+  },
+  {
+    id: '9.2',
+    title: 'Test 9.2 – Choose the best word',
+    instruction: 'Choose the best word from the brackets to fill the gap.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Our sales manager heads ___ a department of 40 people. (out / off / up)', answer: 'up' },
+      { id: 2, prompt: 'I work in accounts and Tina is my ___ manager. (line / head / over)', answer: 'line' },
+      { id: 3, prompt: "I work for Franz and I think he is the best ___ I've ever had. (boss / executive / director)", answer: 'boss' },
+      { id: 4, prompt: 'I was in ___ management for 10 years before I became a director. (medium / middle / vice)', answer: 'middle' },
+      { id: 5, prompt: 'Tanya Minelli is ___ Marketing at Global Foods in New York. (VP / COO / CFO)', answer: 'VP' },
+      { id: 6, prompt: "She's the only woman here who has a ___ executive position. (higher / chief / senior)", answer: 'senior' },
+    ],
+  },
+  {
+    id: '9.3',
+    title: 'Test 9.3 – Find the word',
+    instruction: 'Find the correct word for each clue.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'Where company directors hold their meetings → b___', answer: 'boardroom' },
+      { id: 2, prompt: 'Head of a company in the US → p___', answer: 'president' },
+      { id: 3, prompt: "What 'F' stands for in CFO → F___", answer: 'Financial' },
+      { id: 4, prompt: 'Another term for the chief executive: Managing ___ → D___', answer: 'Director' },
+    ],
+  },
+];
+
 // ── All sections ───────────────────────────────────────────────────────
 
 export const businessVocabSections: BusinessVocabSection[] = [
