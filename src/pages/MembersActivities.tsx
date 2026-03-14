@@ -8,13 +8,6 @@ import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, B
 
 const vocabularyActivities = [
   {
-    title: 'Business Vocabulary',
-    description: 'Master essential business English vocabulary across 47 topics with theory, practice and tests',
-    icon: BookOpen,
-    path: '/business-vocabulary',
-    color: 'text-blue-600',
-  },
-  {
     title: 'Insurance Vocabulary',
     description: 'Master essential insurance terminology for business and travel',
     icon: Shield,
@@ -72,6 +65,13 @@ const grammarActivities = [
 ];
 
 const businessActivities = [
+  {
+    title: 'Business Vocabulary',
+    description: 'Master essential business English vocabulary across 47 topics with theory, practice and tests',
+    icon: BookOpen,
+    path: '/business-vocabulary',
+    color: 'text-blue-600',
+  },
   {
     title: 'Business Benchmark Pre-Int to Int',
     description: 'Master B1 business English across 24 modules with reading, listening, writing, speaking, vocabulary and grammar',
