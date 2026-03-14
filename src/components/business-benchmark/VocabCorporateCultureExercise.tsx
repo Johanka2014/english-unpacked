@@ -553,6 +553,215 @@ const VocabCorporateCultureExercise = () => {
           </Button>
         </CardContent>
       </Card>
+
+      {/* ── TEACHER'S BOOK ACTIVITIES ── */}
+      <div className="pt-4">
+        <h2 className="text-2xl font-bold font-merriweather text-foreground mb-6 border-b border-border pb-3">Dictionary & Collocation Skills</h2>
+      </div>
+
+      {/* Activity 9: Dictionary classification */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">9. Using Your Dictionary</h3>
+          <p className="text-muted-foreground mb-4">
+            The following information (1–14) appears in a dictionary for the words <strong>corporation</strong> and <strong>achieve</strong>. Classify each item under the correct heading.
+          </p>
+          <div className="space-y-3">
+            {[
+              { id: 1, text: "to succeed in finishing something or reaching an aim, especially after a lot of work or effort", answer: "achieve", category: "definition" },
+              { id: 2, text: "She finally achieved her ambition to visit South Africa.", answer: "achieve", category: "example" },
+              { id: 3, text: "[C] (countable noun)", answer: "corporation", category: "grammar" },
+              { id: 4, text: "achieve an objective", answer: "achieve", category: "collocation" },
+              { id: 5, text: "achieve an ambition", answer: "achieve", category: "collocation" },
+              { id: 6, text: "/əˈtʃiːv/", answer: "achieve", category: "pronunciation" },
+              { id: 7, text: "She didn't want to work for a big corporation where everything was so impersonal.", answer: "corporation", category: "example" },
+              { id: 8, text: "/ˌkɔːpəˈreɪʃn/", answer: "corporation", category: "pronunciation" },
+              { id: 9, text: "[V] (verb)", answer: "achieve", category: "grammar" },
+              { id: 10, text: "The government's training policy, he claimed, was achieving its objectives.", answer: "achieve", category: "example" },
+              { id: 11, text: "multinational corporation", answer: "corporation", category: "collocation" },
+              { id: 12, text: "A large company or group of companies that is controlled together as a single organisation.", answer: "corporation", category: "definition" },
+              { id: 13, text: "a multinational corporation", answer: "corporation", category: "collocation" },
+              { id: 14, text: "achieve + goal / target / objective", answer: "achieve", category: "collocation" },
+            ].map((item) => {
+              const selected = dictSelections[item.id];
+              const isCorrect = dictChecked && selected === item.answer;
+              const isWrong = dictChecked && selected && selected !== item.answer;
+              return (
+                <div key={item.id} className={`p-3 rounded-lg border transition-colors flex flex-col sm:flex-row sm:items-center gap-3 ${
+                  isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                  isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                  "border-border bg-card"
+                }`}>
+                  <span className="font-bold text-primary w-6 shrink-0">{item.id}.</span>
+                  <span className="text-foreground flex-1 text-sm">{item.text}</span>
+                  <div className="flex gap-2 shrink-0">
+                    <button
+                      onClick={() => !dictChecked && setDictSelections((p) => ({ ...p, [item.id]: "corporation" }))}
+                      disabled={dictChecked}
+                      className={`px-3 py-1 rounded-md border text-xs transition-colors ${
+                        selected === "corporation" ? "border-primary bg-primary/10 text-foreground font-medium" : "border-border bg-card text-foreground hover:border-primary/50"
+                      }`}
+                    >
+                      Corporation
+                    </button>
+                    <button
+                      onClick={() => !dictChecked && setDictSelections((p) => ({ ...p, [item.id]: "achieve" }))}
+                      disabled={dictChecked}
+                      className={`px-3 py-1 rounded-md border text-xs transition-colors ${
+                        selected === "achieve" ? "border-primary bg-primary/10 text-foreground font-medium" : "border-border bg-card text-foreground hover:border-primary/50"
+                      }`}
+                    >
+                      Achieve
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <Button onClick={() => setDictChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={dictChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Activity 10: Challenge/Promote collocations */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">10. Collocation Building</h3>
+          <p className="text-muted-foreground mb-6">
+            Write verbs or nouns that commonly collocate with the following words. Use a dictionary if necessary.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-semibold text-foreground mb-3">Collocations with "challenge"</h4>
+              <p className="text-sm text-muted-foreground mb-3">Write two verb + noun collocations using "challenge":</p>
+              <div className="space-y-2">
+                {["challenge1", "challenge2"].map((key, i) => (
+                  <div key={key} className="flex items-center gap-2">
+                    <span className="text-foreground font-medium w-6">{i + 1}.</span>
+                    <Input
+                      value={collocationInputs[key] || ""}
+                      onChange={(e) => setCollocationInputs((p) => ({ ...p, [key]: e.target.value }))}
+                      placeholder="e.g. face the challenge"
+                      disabled={collocationChecked}
+                      className={`max-w-xs ${
+                        collocationChecked
+                          ? ["face the challenge", "face a challenge", "rise to the challenge", "rise to a challenge"].some(
+                              (a) => collocationInputs[key]?.trim().toLowerCase() === a
+                            )
+                            ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+                            : collocationInputs[key]?.trim()
+                              ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                              : ""
+                          : ""
+                      }`}
+                    />
+                  </div>
+                ))}
+              </div>
+              {collocationChecked && (
+                <p className="text-sm text-muted-foreground mt-2">Answers: <strong>face the/a challenge</strong>, <strong>rise to the challenge</strong></p>
+              )}
+            </div>
+
+            <div>
+              <h4 className="font-semibold text-foreground mb-3">Collocations with "promote"</h4>
+              <p className="text-sm text-muted-foreground mb-3">Write three things you can "promote":</p>
+              <div className="space-y-2">
+                {["promote1", "promote2", "promote3"].map((key, i) => (
+                  <div key={key} className="flex items-center gap-2">
+                    <span className="text-foreground font-medium w-6">{i + 1}.</span>
+                    <span className="text-foreground">promote</span>
+                    <Input
+                      value={collocationInputs[key] || ""}
+                      onChange={(e) => setCollocationInputs((p) => ({ ...p, [key]: e.target.value }))}
+                      placeholder="e.g. products"
+                      disabled={collocationChecked}
+                      className="max-w-xs"
+                    />
+                  </div>
+                ))}
+              </div>
+              {collocationChecked && (
+                <p className="text-sm text-muted-foreground mt-2">Answers: <strong>promote products/a product</strong>, <strong>promote an understanding</strong>, <strong>promote awareness</strong></p>
+              )}
+            </div>
+          </div>
+
+          <Button onClick={() => setCollocationChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={collocationChecked}>
+            Show Answers
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Activity 11: Definition guessing */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">11. Choose the Correct Definition</h3>
+          <p className="text-muted-foreground mb-6">
+            Choose the correct definition for each business word. Only one is correct — the others are false!
+          </p>
+
+          {[
+            {
+              id: 1,
+              word: "EMBEZZLE",
+              options: [
+                { id: "A", text: "(verb) to lose value over a period of time (like factory machinery)" },
+                { id: "B", text: "(verb) to steal money from the company that you work for" },
+                { id: "C", text: "(noun) a special party for an employee who is leaving" },
+              ],
+              answer: "B",
+            },
+            {
+              id: 2,
+              word: "WINDFALL",
+              options: [
+                { id: "A", text: "(noun) a sum of money that you receive when you are not expecting it" },
+                { id: "B", text: "(noun) an illegal copy of another company's product (e.g. false designer clothes)" },
+                { id: "C", text: "(noun) a sudden fall in value of a currency" },
+              ],
+              answer: "A",
+            },
+          ].map((q) => {
+            const selected = defSelections[q.id];
+            return (
+              <div key={q.id} className="mb-6">
+                <h4 className="text-lg font-bold text-foreground mb-3">{q.id}. {q.word}</h4>
+                <div className="space-y-2">
+                  {q.options.map((opt) => {
+                    const isSelected = selected === opt.id;
+                    const isCorrectAnswer = opt.id === q.answer;
+                    const showCorrect = defChecked && isSelected && isCorrectAnswer;
+                    const showWrong = defChecked && isSelected && !isCorrectAnswer;
+                    return (
+                      <button
+                        key={opt.id}
+                        onClick={() => !defChecked && setDefSelections((p) => ({ ...p, [q.id]: opt.id }))}
+                        disabled={defChecked}
+                        className={`w-full text-left p-3 rounded-lg border transition-colors text-sm ${
+                          showCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                          showWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                          isSelected ? "border-primary bg-primary/10" :
+                          defChecked && isCorrectAnswer ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                          "border-border bg-card hover:border-primary/50"
+                        }`}
+                      >
+                        <span className="font-medium text-foreground">{opt.id}</span> {opt.text}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+
+          <Button onClick={() => setDefChecked(true)} className="bg-primary hover:bg-primary/90" disabled={defChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 };
