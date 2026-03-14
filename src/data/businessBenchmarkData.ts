@@ -34,6 +34,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
       { id: 'listening', title: 'Listening', description: 'Company culture: a conversation between two employees', content: { type: 'listening-corporate-culture' } },
       { id: 'speaking', title: 'Speaking', description: 'Asking questions about companies', content: { type: 'speaking-corporate-culture' } },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations', content: { type: 'vocab-corporate-culture' } },
+      { id: 'grammar', title: 'Grammar', description: 'Questions with and without auxiliaries', content: { type: 'grammar-corporate-culture' } },
     ],
   },
   {
