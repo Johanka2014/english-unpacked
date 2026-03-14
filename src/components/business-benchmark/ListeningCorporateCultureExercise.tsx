@@ -289,6 +289,34 @@ const ListeningCorporateCultureExercise = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* Transcript */}
+      <Collapsible>
+        <Card className="service-card">
+          <CollapsibleTrigger className="w-full">
+            <CardContent className="p-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <FileText className="h-5 w-5 text-primary" />
+                <span className="text-lg font-semibold font-merriweather text-foreground">Audio Transcript</span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
+            </CardContent>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <CardContent className="px-6 pb-6 pt-0">
+              <div className="bg-muted/50 rounded-lg p-5 border border-border space-y-4 text-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground italic mb-2">M = Man; W = Woman</p>
+                <p><strong>M:</strong> Did you understand that memo about changes in the pension scheme?</p>
+                <p><strong>W:</strong> No. Andrew just has to <u>call a meeting</u> about this. He can't just send a document round. We need to know exactly what's happening and why.</p>
+                <p><strong>M:</strong> He just won't deal with people face to face, that's the problem. <u>I mean, the idea that we have regular communication meetings is a joke. When did we have the last one?</u> All he does is shut himself in his office and send emails.</p>
+                <p><strong>W:</strong> <u>I know. So much for open-door management.</u> I think we should talk to other Olympus offices to see what they've heard about this.</p>
+                <p><strong>M:</strong> Could you do that? And for now I'll send yet another email to Andrew and try to get him to <u>set up a meeting</u> about this. We could all be affected if they've changed where they've invested the fund. I don't believe for a moment that they're doing it for our benefit. This must be a way of trying to save money.</p>
+                <p><strong>W:</strong> That's the thing, isn't it? OK, I'll find out what other offices are doing about this and get back to you. And good luck with our dear director. I hope he doesn't agree and then <u>call off the meeting</u> at the last minute like last time.</p>
+              </div>
+            </CardContent>
+          </CollapsibleContent>
+        </Card>
+      </Collapsible>
     </div>
   );
 };
