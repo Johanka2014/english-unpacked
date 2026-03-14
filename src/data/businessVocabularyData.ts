@@ -1212,7 +1212,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Wages, salary and benefits', 'B Compensation 1', 'C Compensation 2'], theory: topic5Theory, practice: topic5Practice, test: topic5Test },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Employees and management', 'B Management and administration', 'C Labour', 'D Personnel and human resources'], theory: topic6Theory, practice: topic6Practice, test: topic6Test },
       { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A A job for life', 'B A job for now', 'C In-house staff or freelancers?', 'D Losing your job'], theory: topic7Theory, practice: topic7Practice, test: topic7Test },
-      { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Industrial disputes', 'C Discrimination'] },
+      { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Bullying and harassment', 'C Discrimination'], theory: topic8Theory, practice: topic8Practice, test: topic8Test },
       { id: 'businesspeople-and-business-leaders', number: 9, title: 'Businesspeople and Business Leaders', subtopics: ['A Entrepreneurs', 'B Leaders', 'C Tycoons'] },
     ],
   },
