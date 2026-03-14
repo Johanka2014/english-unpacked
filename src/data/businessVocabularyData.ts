@@ -1087,7 +1087,7 @@ export const businessVocabSections: BusinessVocabSection[] = [
       { id: 'skills-and-qualifications', number: 4, title: 'Skills and Qualifications', subtopics: ['A Education and training', 'B Skilled and unskilled', 'C The right person'], theory: topic4Theory, practice: topic4Practice, test: topic4Test },
       { id: 'pay-and-benefits', number: 5, title: 'Pay and Benefits', subtopics: ['A Wages, salary and benefits', 'B Compensation 1', 'C Compensation 2'], theory: topic5Theory, practice: topic5Practice, test: topic5Test },
       { id: 'people-and-workplaces', number: 6, title: 'People and Workplaces', subtopics: ['A Employees and management', 'B Management and administration', 'C Labour', 'D Personnel and human resources'], theory: topic6Theory, practice: topic6Practice, test: topic6Test },
-      { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A Getting a job', 'B Doing well', 'C Leaving a job'] },
+      { id: 'the-career-ladder', number: 7, title: 'The Career Ladder', subtopics: ['A A job for life', 'B A job for now', 'C In-house staff or freelancers?', 'D Losing your job'], theory: topic7Theory, practice: topic7Practice, test: topic7Test },
       { id: 'problems-at-work', number: 8, title: 'Problems at Work', subtopics: ['A Health and safety', 'B Industrial disputes', 'C Discrimination'] },
       { id: 'businesspeople-and-business-leaders', number: 9, title: 'Businesspeople and Business Leaders', subtopics: ['A Entrepreneurs', 'B Leaders', 'C Tycoons'] },
     ],
