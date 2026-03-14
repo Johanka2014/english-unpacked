@@ -6,6 +6,7 @@ import { ArrowLeft, BookOpen, Headphones, PenLine, MessageCircle, Languages, Fil
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
+import CorporateCultureGettingStarted from '@/components/business-benchmark/CorporateCultureGettingStarted';
 
 const skillIcons: Record<string, React.ElementType> = {
   reading: BookOpen,
