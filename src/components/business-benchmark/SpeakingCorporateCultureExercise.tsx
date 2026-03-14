@@ -249,6 +249,165 @@ const SpeakingCorporateCultureExercise = () => {
           </Button>
         </CardContent>
       </Card>
+
+      {/* ── PHOTOCOPIABLE ACTIVITIES ── */}
+      <div className="pt-4">
+        <h2 className="text-2xl font-bold font-merriweather text-foreground mb-6 border-b border-border pb-3">Describing Companies</h2>
+      </div>
+
+      {/* Exercise 4: Word reordering - company questions */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h4 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
+            Exercise 4: Form the questions
+          </h4>
+          <p className="text-muted-foreground mb-6">
+            Rearrange the words to make questions about companies.
+          </p>
+          <div className="space-y-4">
+            {[
+              { id: 1, scrambled: "do / produce / what / you", answer: "what do you produce" },
+              { id: 2, scrambled: "services / provide / do / what / you", answer: "what services do you provide" },
+              { id: 3, scrambled: "is / based / where / the company", answer: "where is the company based" },
+              { id: 4, scrambled: "many / how / the company / does / people / employ", answer: "how many people does the company employ" },
+              { id: 5, scrambled: "are / main / who / competitors / your", answer: "who are your main competitors" },
+              { id: 6, scrambled: "a / is / dress code / there / for employees", answer: "is there a dress code for employees" },
+              { id: 7, scrambled: "products / new / are / what / developing / you / at the moment", answer: "what new products are you developing at the moment" },
+              { id: 8, scrambled: "project / are / what / on / you / working / at the moment", answer: "what project are you working on at the moment" },
+              { id: 9, scrambled: "registered / are / you / with / any / governing bodies", answer: "are you registered with any governing bodies" },
+            ].map((item) => {
+              const userVal = wordOrderAnswers[item.id]?.trim().toLowerCase().replace(/[?]/g, "") || "";
+              const isCorrect = wordOrderChecked && userVal === item.answer;
+              const isWrong = wordOrderChecked && userVal !== item.answer;
+              return (
+                <div key={item.id} className={`p-4 rounded-lg border transition-colors ${
+                  isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/30" :
+                  isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/30" :
+                  "border-border bg-card"
+                }`}>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <span className="font-bold text-primary mr-1">{item.id}.</span>
+                    <span className="italic">{item.scrambled}</span>
+                  </p>
+                  <Input
+                    value={wordOrderAnswers[item.id] || ""}
+                    onChange={(e) => setWordOrderAnswers((p) => ({ ...p, [item.id]: e.target.value }))}
+                    placeholder="Write the question..."
+                    disabled={wordOrderChecked}
+                    className="max-w-lg"
+                  />
+                  {wordOrderChecked && isWrong && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Answer: <strong>{item.answer.charAt(0).toUpperCase() + item.answer.slice(1)}?</strong>
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <Button onClick={() => setWordOrderChecked(true)} className="mt-6 bg-primary hover:bg-primary/90" disabled={wordOrderChecked}>
+            Check Answers
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Exercise 5: Role-play - Company information gap */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <Building2 className="h-6 w-6 text-primary" />
+            <h4 className="text-xl font-semibold font-merriweather text-foreground">
+              Exercise 5: Role-Play — Describing Companies
+            </h4>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            Work in pairs. Each student takes one role card. Use the questions from Exercise 4 to ask your partner about their company and complete the missing information. Spell out any names if necessary.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Student A */}
+            <Collapsible>
+              <Card className="border-primary/30">
+                <CollapsibleTrigger className="w-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="text-lg font-semibold text-foreground">Student A — Proteger</span>
+                    <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                  </CardContent>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <CardContent className="px-4 pb-4 pt-0">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm border-collapse">
+                        <tbody>
+                          {[
+                            ["Name of company", "Proteger"],
+                            ["Services", "(Ask your partner)"],
+                            ["Products", "CCTV security cameras"],
+                            ["Location", "São Paulo, Brazil, with another branch in Rio de Janeiro"],
+                            ["Number of employees", "About 80 full-time, about 20 part-time (technical support)"],
+                            ["Customers", "Small businesses, chiefly in Brazil"],
+                            ["Competitors", "Spyall, based in Belo Horizonte, Brazil. Some USA companies"],
+                            ["New products", "Mini indoor camera (2cm × 2cm) for hidden use"],
+                          ].map(([label, value]) => (
+                            <tr key={label} className="border-b border-border">
+                              <td className="p-2 font-medium text-foreground w-40">{label}</td>
+                              <td className={`p-2 ${value.includes("Ask") ? "text-primary italic" : "text-foreground"}`}>{value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </CardContent>
+                </CollapsibleContent>
+              </Card>
+            </Collapsible>
+
+            {/* Student B */}
+            <Collapsible>
+              <Card className="border-primary/30">
+                <CollapsibleTrigger className="w-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="text-lg font-semibold text-foreground">Student B — Oakwood</span>
+                    <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                  </CardContent>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <CardContent className="px-4 pb-4 pt-0">
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm border-collapse">
+                        <tbody>
+                          {[
+                            ["Name of company", "Oakwood"],
+                            ["Services", "Arranging personal loans, mortgages and pensions"],
+                            ["Products", "(Ask your partner)"],
+                            ["Location", "Head office in Manchester, UK"],
+                            ["Number of employees", "25"],
+                            ["Dress code", "Suit and tie when dealing with clients"],
+                            ["Current projects", "Developing Internet guide to UK financial services"],
+                            ["Registered with", "The Office of Fair Trading"],
+                          ].map(([label, value]) => (
+                            <tr key={label} className="border-b border-border">
+                              <td className="p-2 font-medium text-foreground w-40">{label}</td>
+                              <td className={`p-2 ${value.includes("Ask") ? "text-primary italic" : "text-foreground"}`}>{value}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </CardContent>
+                </CollapsibleContent>
+              </Card>
+            </Collapsible>
+          </div>
+
+          <div className="mt-6 bg-muted/50 rounded-lg p-4 border border-border">
+            <p className="text-sm text-foreground font-medium mb-1">💬 Talking Point</p>
+            <p className="text-sm text-muted-foreground">
+              Tell your partner about your company, or a company that you know, answering at least six of the questions from the exercises above.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
