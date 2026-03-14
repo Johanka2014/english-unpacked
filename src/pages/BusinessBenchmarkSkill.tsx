@@ -42,6 +42,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'reading-corporate-culture') return <ReadingCorporateCultureExercise />;
     if (contentType === 'vocab-corporate-culture') return <VocabCorporateCultureExercise />;
     if (contentType === 'listening-corporate-culture') return <ListeningCorporateCultureExercise />;
+    if (contentType === 'speaking-corporate-culture') return <SpeakingCorporateCultureExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
