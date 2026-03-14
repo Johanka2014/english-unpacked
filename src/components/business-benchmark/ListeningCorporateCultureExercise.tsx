@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { CheckCircle2, XCircle, Volume2 } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { CheckCircle2, XCircle, Volume2, FileText, ChevronDown } from "lucide-react";
 
 const AUDIO_URL = "https://johanka2014.github.io/Bus_Bench_pre_inter/Mod_2/03.mp3";
 
