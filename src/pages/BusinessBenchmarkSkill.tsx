@@ -15,6 +15,7 @@ import ReadingChangingPlacesExercise from '@/components/business-benchmark/Readi
 import GrammarWorkshopExercise from '@/components/business-benchmark/GrammarWorkshopExercise';
 import ReadingCorporateCultureExercise from '@/components/business-benchmark/ReadingCorporateCultureExercise';
 import VocabCorporateCultureExercise from '@/components/business-benchmark/VocabCorporateCultureExercise';
+import ListeningCorporateCultureExercise from '@/components/business-benchmark/ListeningCorporateCultureExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();

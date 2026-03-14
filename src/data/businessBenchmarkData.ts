@@ -31,7 +31,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     title: 'Corporate Culture',
     skills: [
       { id: 'reading', title: 'Reading', description: 'What kind of company culture would suit you? Reading and answering a quiz; A company culture statement', content: { type: 'reading-corporate-culture' } },
-      { id: 'listening', title: 'Listening', description: 'Company culture: a conversation between two employees' },
+      { id: 'listening', title: 'Listening', description: 'Company culture: a conversation between two employees', content: { type: 'listening-corporate-culture' } },
       { id: 'speaking', title: 'Speaking', description: 'Asking questions about companies' },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations', content: { type: 'vocab-corporate-culture' } },
     ],
