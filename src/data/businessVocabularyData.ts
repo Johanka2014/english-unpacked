@@ -530,6 +530,7 @@ const topic3Practice: PracticeExercise[] = [
     instruction:
       "Decide whether each action is something a company does (C) or something a person looking for work does (P).",
     type: "classify",
+    wordBank: ["recruit", "hiring", "hire", "employ", "join", "recruitment agency", "employment agency", "headhunters", "headhunt", "headhunting", "apply for", "application form", "application", "CV", "covering letter", "accept", "turn down", "appoint"],
     items: [
       { id: 1, prompt: "recruit", answer: "C" },
       { id: 2, prompt: "headhunt", answer: "C" },
