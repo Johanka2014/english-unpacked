@@ -104,6 +104,7 @@ const topic1Practice: PracticeExercise[] = [
     title: 'Exercise 1.1 – Correct the mistakes',
     instruction: 'Pierre is talking about his work. Each sentence contains a mistake. Type the corrected version of the underlined word or phrase.',
     type: 'correction',
+    wordBank: ['work for', 'work on', 'run', 'manage', 'work under', 'responsibilities', 'in charge of', 'deal with', 'responsible for', 'work with'],
     items: [
       { id: 1, prompt: 'I work *about* the development of new supermarkets.', answer: 'on' },
       { id: 2, prompt: 'In fact, I *running* the development department.', answer: 'run' },
@@ -120,6 +121,7 @@ const topic1Practice: PracticeExercise[] = [
     title: 'Exercise 1.2 – Fill in the prepositions',
     instruction: 'Complete the text about Rebecca with the correct preposition.',
     type: 'fill-blank',
+    wordBank: ['to', 'at', 'in', 'off', 'out of', 'for', 'leave for work', 'go to work', 'get to work', 'arrive at work', 'at work', 'off work'],
     items: [
       { id: 1, prompt: 'She drives ___ work.', answer: 'to' },
       { id: 2, prompt: 'She worries about getting ___ work late.', answer: 'to' },
@@ -134,6 +136,7 @@ const topic1Practice: PracticeExercise[] = [
     title: 'Exercise 1.3 – Rewrite using words from C',
     instruction: 'Write a sentence about each person using the words in brackets. Use vocabulary from section C.',
     type: 'rewrite',
+    wordBank: ['full-time', 'part-time', 'permanent', 'temporary', 'full-time job', 'part-time job', 'permanent job', 'temporary job', 'works full-time', 'works part-time', 'temporary work', 'permanent work'],
     items: [
       { id: 1, prompt: 'My husband works in an office from 9 am to 5.30 pm. (he/job)', answer: 'He has a full-time job.' },
       { id: 2, prompt: 'Our daughter works in a bank from eight till five every day. (she/work)', answer: 'She works full-time.' },
