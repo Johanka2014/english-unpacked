@@ -356,16 +356,16 @@ const topic2Test: TestExercise[] = [
   {
     id: "2.1",
     title: "Test 2.1 – Make word pairs",
-    instruction: "Match each word on the left with a word on the right to make a common word pair.",
-    type: "fill-blank",
-    items: [
-      { id: 1, prompt: "physically ___", answer: "demanding" },
-      { id: 2, prompt: "human ___", answer: "contact" },
-      { id: 3, prompt: "problem ___", answer: "solving" },
-      { id: 4, prompt: "day ___", answer: "shift" },
-      { id: 5, prompt: "team ___", answer: "work" },
-      { id: 6, prompt: "clock ___", answer: "on" },
-      { id: 7, prompt: "working ___", answer: "hours" },
+    instruction: "Drag a word from the right and drop it next to its partner on the left to make a common word pair.",
+    type: "matching",
+    pairs: [
+      { id: 1, left: "physically", right: "demanding" },
+      { id: 2, left: "human", right: "contact" },
+      { id: 3, left: "problem", right: "solving" },
+      { id: 4, left: "day", right: "shift" },
+      { id: 5, left: "team", right: "work" },
+      { id: 6, left: "clock", right: "on" },
+      { id: 7, left: "working", right: "hours" },
     ],
   },
   {
