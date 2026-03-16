@@ -121,6 +121,7 @@ const topic1Practice: PracticeExercise[] = [
     title: 'Exercise 1.2 – Fill in the prepositions',
     instruction: 'Complete the text about Rebecca with the correct preposition.',
     type: 'fill-blank',
+    wordBank: ['to', 'at', 'in', 'off', 'out of', 'for', 'leave for work', 'go to work', 'get to work', 'arrive at work', 'at work', 'off work'],
     items: [
       { id: 1, prompt: 'She drives ___ work.', answer: 'to' },
       { id: 2, prompt: 'She worries about getting ___ work late.', answer: 'to' },
