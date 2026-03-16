@@ -105,6 +105,7 @@ const topic1Practice: PracticeExercise[] = [
     instruction:
       "Pierre is talking about his work. Each sentence contains a mistake. Type the corrected version of the asterisked word or phrase.",
     type: "correction",
+    wordBank: ["work for", "work on", "run", "manage", "work under", "responsibilities", "in charge of", "deal with", "responsible for", "work with"],
     items: [
       { id: 1, prompt: "I work *about* the development of new supermarkets.", answer: "on" },
       { id: 2, prompt: "In fact, I *running* the development department.", answer: "run" },
@@ -125,6 +126,7 @@ const topic1Practice: PracticeExercise[] = [
     title: "Exercise 1.2 – Fill in the prepositions",
     instruction: "Complete the text about Rebecca with the correct preposition.",
     type: "fill-blank",
+    wordBank: ["to", "at", "in", "off", "out of", "for", "leave for work", "go to work", "get to work", "arrive at work", "at work", "off work"],
     items: [
       { id: 1, prompt: "She drives ___ work.", answer: "to" },
       { id: 2, prompt: "She worries about getting ___ work late.", answer: "to" },
@@ -139,6 +141,7 @@ const topic1Practice: PracticeExercise[] = [
     title: "Exercise 1.3 – Rewrite using words from C",
     instruction: "Write a sentence about each person using the words in brackets. Use vocabulary from section C.",
     type: "rewrite",
+    wordBank: ["full-time", "part-time", "permanent", "temporary", "full-time job", "part-time job", "permanent job", "temporary job", "works full-time", "works part-time", "temporary work", "permanent work"],
     items: [
       {
         id: 1,
@@ -291,6 +294,7 @@ const topic2Practice: PracticeExercise[] = [
     title: "Exercise 2.1 – Match people to work patterns",
     instruction: "Which person (1–5) is most likely to do each of the five things (a–e)? Write the letter.",
     type: "fill-blank",
+    wordBank: ["nine-to-five job", "regular working hours", "clock in", "clock out", "flexitime", "work in shifts", "day shift", "night shift", "commute", "teleworking", "telecommuting", "commuter"],
     items: [
       {
         id: 1,
@@ -330,6 +334,7 @@ const topic2Practice: PracticeExercise[] = [
     title: "Exercise 2.2 – Correct grammatical forms",
     instruction: "Put the words in brackets into the correct grammatical form for each person describing their job.",
     type: "fill-blank",
+    wordBank: ["satisfying", "stimulating", "fascinating", "exciting", "dull", "boring", "uninteresting", "unstimulating", "repetitive", "routine", "tiring", "tough", "hard", "demanding", "travelling", "dealing", "working", "boring", "tiring", "stimulating", "repetitive", "involves"],
     items: [
       { id: 1, prompt: 'Flight attendant: "My work involves (travel) a lot." →', answer: "travelling" },
       { id: 2, prompt: 'Flight attendant: "It can be quite physically (tire)." →', answer: "tiring" },
@@ -525,6 +530,7 @@ const topic3Practice: PracticeExercise[] = [
     instruction:
       "Decide whether each action is something a company does (C) or something a person looking for work does (P).",
     type: "classify",
+    wordBank: ["recruit", "hiring", "hire", "employ", "join", "recruitment agency", "employment agency", "headhunters", "headhunt", "headhunting", "apply for", "application form", "application", "CV", "covering letter", "accept", "turn down", "appoint"],
     items: [
       { id: 1, prompt: "recruit", answer: "C" },
       { id: 2, prompt: "headhunt", answer: "C" },
@@ -542,6 +548,7 @@ const topic3Practice: PracticeExercise[] = [
     instruction:
       "Replace each underlined phrase with the correct word or expression from the text. Type the correct vocabulary term.",
     type: "correction",
+    wordBank: ["turned down", "an interview", "his referees", "offered him the job", "accepted", "applications", "CVs", "applicants", "their qualifications", "shortlisted", "advertise", "background", "experience", "candidates", "psychometric tests", "references"],
     items: [
       {
         id: 1,
