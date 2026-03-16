@@ -548,6 +548,7 @@ const topic3Practice: PracticeExercise[] = [
     instruction:
       "Replace each underlined phrase with the correct word or expression from the text. Type the correct vocabulary term.",
     type: "correction",
+    wordBank: ["turned down", "an interview", "his referees", "offered him the job", "accepted", "applications", "CVs", "applicants", "their qualifications", "shortlisted", "advertise", "background", "experience", "candidates", "psychometric tests", "references"],
     items: [
       {
         id: 1,
