@@ -104,6 +104,7 @@ const topic1Practice: PracticeExercise[] = [
     title: 'Exercise 1.1 – Correct the mistakes',
     instruction: 'Pierre is talking about his work. Each sentence contains a mistake. Type the corrected version of the underlined word or phrase.',
     type: 'correction',
+    wordBank: ['work for', 'work on', 'run', 'manage', 'work under', 'responsibilities', 'in charge of', 'deal with', 'responsible for', 'work with'],
     items: [
       { id: 1, prompt: 'I work *about* the development of new supermarkets.', answer: 'on' },
       { id: 2, prompt: 'In fact, I *running* the development department.', answer: 'run' },
