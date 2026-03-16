@@ -141,6 +141,7 @@ const topic1Practice: PracticeExercise[] = [
     title: "Exercise 1.3 – Rewrite using words from C",
     instruction: "Write a sentence about each person using the words in brackets. Use vocabulary from section C.",
     type: "rewrite",
+    wordBank: ["full-time", "part-time", "permanent", "temporary", "full-time job", "part-time job", "permanent job", "temporary job", "works full-time", "works part-time", "temporary work", "permanent work"],
     items: [
       {
         id: 1,
