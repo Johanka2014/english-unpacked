@@ -294,6 +294,7 @@ const topic2Practice: PracticeExercise[] = [
     title: "Exercise 2.1 – Match people to work patterns",
     instruction: "Which person (1–5) is most likely to do each of the five things (a–e)? Write the letter.",
     type: "fill-blank",
+    wordBank: ["nine-to-five job", "regular working hours", "clock in", "clock out", "flexitime", "work in shifts", "day shift", "night shift", "commute", "teleworking", "telecommuting", "commuter"],
     items: [
       {
         id: 1,
