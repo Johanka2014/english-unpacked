@@ -174,7 +174,7 @@ const topic1Test: TestExercise[] = [
   {
     id: "1.1",
     title: "Test 1.1 – Complete each sentence",
-    instruction: "Use a word from the box to complete each sentence. There is one extra word you don't need.",
+    instruction: "Write the correct word to complete each sentence.",
     type: "fill-blank",
     items: [
       {
