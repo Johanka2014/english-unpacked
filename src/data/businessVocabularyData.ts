@@ -334,6 +334,7 @@ const topic2Practice: PracticeExercise[] = [
     title: "Exercise 2.2 – Correct grammatical forms",
     instruction: "Put the words in brackets into the correct grammatical form for each person describing their job.",
     type: "fill-blank",
+    wordBank: ["satisfying", "stimulating", "fascinating", "exciting", "dull", "boring", "uninteresting", "unstimulating", "repetitive", "routine", "tiring", "tough", "hard", "demanding", "travelling", "dealing", "working", "boring", "tiring", "stimulating", "repetitive", "involves"],
     items: [
       { id: 1, prompt: 'Flight attendant: "My work involves (travel) a lot." →', answer: "travelling" },
       { id: 2, prompt: 'Flight attendant: "It can be quite physically (tire)." →', answer: "tiring" },
