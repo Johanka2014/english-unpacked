@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ChoiceQuestion {
@@ -164,6 +164,31 @@ const PrepositionsOfPlace = () => {
                 </>
               )}
             </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mt-6 hover:shadow-lg transition-all duration-200">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">
+                🎮 Interactive Activity: Prepositions of Place
+              </CardTitle>
+              <Badge variant="secondary">LearningApps</Badge>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Practice prepositions of place with this fun interactive matching activity on LearningApps.
+            </p>
+            <Button
+              className="bg-brand-royal hover:bg-brand-navy text-white"
+              asChild
+            >
+              <a href="https://learningapps.org/watch?v=pov7n6mqa23" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Open Activity
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </main>
