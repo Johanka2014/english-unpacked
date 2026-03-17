@@ -98,6 +98,16 @@ const maturitaActivities = [
   },
 ];
 
+const youngLearnersActivities = [
+  {
+    title: 'Practice Tests for Starters',
+    description: 'Fun practice tests for the Cambridge Pre A1 Starters exam with Listening, Reading & Writing, and Speaking',
+    icon: Star,
+    path: '/starters-practice',
+    color: 'text-pink-600',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
