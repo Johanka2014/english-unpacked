@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -98,6 +98,16 @@ const maturitaActivities = [
   },
 ];
 
+const youngLearnersActivities = [
+  {
+    title: 'Practice Tests for Starters',
+    description: 'Fun practice tests for the Cambridge Pre A1 Starters exam with Listening, Reading & Writing, and Speaking',
+    icon: Star,
+    path: '/starters-practice',
+    color: 'text-pink-600',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
@@ -144,12 +154,13 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-5 mb-8">
+          <TabsList className="grid w-full grid-cols-6 mb-8">
             <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
             <TabsTrigger value="business">Business</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
             <TabsTrigger value="grammar">Grammar</TabsTrigger>
             <TabsTrigger value="maturita">Maturita</TabsTrigger>
+            <TabsTrigger value="young-learners">Young Learners</TabsTrigger>
           </TabsList>
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
@@ -165,6 +176,9 @@ const MembersActivities = () => {
           </TabsContent>
           <TabsContent value="maturita">
             <ActivityGrid activities={maturitaActivities} />
+          </TabsContent>
+          <TabsContent value="young-learners">
+            <ActivityGrid activities={youngLearnersActivities} />
           </TabsContent>
         </Tabs>
       </main>

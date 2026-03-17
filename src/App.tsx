@@ -48,6 +48,8 @@ const BBUpperSkill = lazy(() => import("./pages/BBUpperSkill"));
 const B1Grammar = lazy(() => import("./pages/B1Grammar"));
 const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
+const StartersPractice = lazy(() => import("./pages/StartersPractice"));
+const StartersTest = lazy(() => import("./pages/StartersTest"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -103,6 +105,8 @@ const App = () => (
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
+              <Route path="/starters-practice" element={<ProtectedRoute><StartersPractice /></ProtectedRoute>} />
+              <Route path="/starters-practice/:testId" element={<ProtectedRoute><StartersTest /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

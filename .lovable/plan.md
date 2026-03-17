@@ -1,78 +1,117 @@
 
 
-## Young Learners Practice Tests for Starters
+# Business Vocabulary Section -- Framework Plan
 
-### Overview
+## Overview
 
-Create a new "Young Learners" tab in the Practice Activities page, with a "Practice Tests for Starters" tile linking to a colorful, child-friendly test section. Test 1 will have three tabs: Listening (4 parts), Reading & Writing (5 parts), and Speaking. The section will use the Fredoka font (already loaded for English for Kids) and a vibrant color palette with pinks, greens, yellows, and purples.
+Build a new "Business Vocabulary" section behind the login wall, structured as a three-level hierarchy:
 
-### Structure
+1. **Hub page** (`/business-vocabulary`) -- Section tiles (e.g. "People and Work", "Marketing", etc.)
+2. **Section page** (`/business-vocabulary/:sectionId`) -- Topic tiles within that section (e.g. "Work and Jobs", "Ways of Working")
+3. **Topic page** (`/business-vocabulary/:sectionId/:topicId`) -- Three tiles: "Theory", "Practice", "Tests"
 
-```text
-/members/activities (Young Learners tab)
-  └── /starters-practice (hub — future tests 2, 3)
-        └── /starters-practice/test-1 (tabs: Listening | Reading & Writing | Speaking)
+Each level uses the Everyday Conversations card style: image with gradient overlay, hover-zoom, icon badge.
+
+For the initial framework, we will build out the full structure with placeholder content for all sections/topics, and fully flesh out Topic 1 ("Work and Jobs") with the Theory, Practice, and Test content from the uploaded PDFs.
+
+---
+
+## Textbook Structure (from contents page)
+
+Based on the contents, the book groups into these sections:
+
+| Section | Topics |
+|---|---|
+| **People and Work** | 1 Work and jobs, 2 Ways of working, 3 Recruitment and selection, 4 Skills and qualifications, 5 Pay and benefits, 6 People and workplaces, 7 The career ladder, 8 Problems at work, 9 Businesspeople and business leaders |
+| **Company Structure** | 10 Organizations 1, 11 Organizations 2, 12 Manufacturing and services |
+| **Production** | 13 Innovation and invention, 14 Making things, 15 Materials and suppliers, 16 Business philosophies |
+| **Marketing** | 17 Buyers, sellers and the market, 18 Markets and competitors, 19 Marketing and market orientation, 20 Products and brands, 21 Price, 22 Place, 23 Promotion, 24 The Internet and e-commerce |
+| **Money** | 25 Sales and costs, 26 Profitability and unprofitability, 27 Getting paid, 28 Assets, liabilities and the balance sheet, 29 The bottom line, 30 Share capital and debt, 31 Personal finance, 32 Financial centres, 33 Trading, 34 Indicators 1, 35 Indicators 2 |
+| **Doing the Right Thing** | 36 Wrongdoing and corruption, 37 Ethics |
+| **Business Skills** | 38 Time and time management, 39 Stress and stress management, 40 Leadership and management styles, 41 Culture |
+| **Communication** | 42 Telephoning 1-3, 43 Emails, 44 Faxes, 45 Meetings 1-5, 46 Presentations 1-2, 47 Negotiations 1-5 |
+
+---
+
+## Technical Plan
+
+### 1. Data file: `src/data/businessVocabularyData.ts`
+
+Export a typed structure:
+
+```typescript
+interface BusinessVocabTopic {
+  id: string;
+  number: number;
+  title: string;
+  subtopics: string[];  // e.g. ["A What do you do?", "B Word combinations with 'work'"]
+  theory?: { ... };     // content for Theory tab (populated per topic)
+  practice?: { ... };   // content for Practice tab
+  test?: { ... };       // content for Test tab
+}
+
+interface BusinessVocabSection {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;         // lucide icon name
+  image: string;        // placeholder initially
+  topics: BusinessVocabTopic[];
+}
 ```
 
-### Test 1 Content Breakdown
+All sections and topics defined with metadata. Only Topic 1 (Work and Jobs) will have full theory/practice/test content initially.
 
-**Listening** (4 parts, each with audio player):
-- Part 1: "Listen and draw lines" — drag-drop matching names to people in image
-- Part 2: "Write a name or number" — fill-in-the-blank (5 questions)
-- Part 3: "Tick the box" — multiple choice with 3 image options per question (5 Qs)
-- Part 4: "Listen and colour" — instruction-only with audio (non-interactive, guidance text)
+### 2. Hub page: `src/pages/BusinessVocabulary.tsx`
 
-**Reading & Writing** (5 parts):
-- Part 1: "Tick or cross" — image + statement, click tick/cross buttons (5 Qs)
-- Part 2: "Write yes or no" — scene image, type yes/no (5 Qs)
-- Part 3: "Unscramble letters" — image + jumbled letters, type the word (5 Qs)
-- Part 4: "Fill the gaps from word box" — Lizards passage, drag words into gaps (5 Qs)
-- Part 5: "One-word answers" — scene image, type one word per question (5 Qs)
+- Navigation + Footer
+- Hero banner (similar to Everyday Conversations style)
+- Grid of section cards with images, gradient overlays, hover-zoom
+- Each card links to `/business-vocabulary/:sectionId`
+- Back link to `/members/activities?tab=vocabulary`
 
-**Speaking**:
-- Display scene picture + object cards grid + audio player
-- Guided instructions for teacher/parent-led practice
+### 3. Section page: `src/pages/BusinessVocabularySection.tsx`
 
-### Assets
+- Reads `:sectionId` from URL params
+- Displays topic tiles in the same card style
+- Each card links to `/business-vocabulary/:sectionId/:topicId`
+- Back link to `/business-vocabulary`
 
-- Copy all relevant PDF page images (scene pictures, individual question images) into `src/assets/starters/`
-- Copy 5 audio files into `public/audio/starters/`
+### 4. Topic page: `src/pages/BusinessVocabularyTopic.tsx`
 
-### Visual Design — More Colorful
+- Reads `:sectionId` and `:topicId` from URL params
+- Shows three large tiles: "Theory", "Practice", "Tests"
+- Each tile opens an expandable section or tab on the same page
+- For Topic 1, includes:
+  - **Theory**: The textbook explanations (sections A, B, C) formatted as styled content
+  - **Practice**: Exercises 1.1, 1.2, 1.3 as interactive fill-in-the-blank
+  - **Tests**: Exercises 1.1-1.4 from the test book as interactive quizzes
+- For other topics: "Coming soon" placeholder
+- Back link to the section page
 
-- Fredoka font for headings (already available via English for Kids)
-- Gradient hero banners with playful colors (pink-to-purple, green-to-teal)
-- Colorful part cards with distinct background colors per part (green, blue, orange, purple)
-- Rounded corners, larger fonts, emoji-style icons
-- Colorful check/cross feedback animations
-- Pastel card backgrounds instead of white
+### 5. Routes: `src/App.tsx`
 
-### Files to Create/Edit
+Add three lazy-loaded protected routes:
+- `/business-vocabulary`
+- `/business-vocabulary/:sectionId`
+- `/business-vocabulary/:sectionId/:topicId`
+
+### 6. Members Activities: `src/pages/MembersActivities.tsx`
+
+Update the existing "Business Vocabulary Practice" tile in `vocabularyActivities` to point to `/business-vocabulary` instead of `/business-vocab-app`.
+
+---
+
+## Files Summary
 
 | File | Action |
 |---|---|
-| `src/assets/starters/` | Copy ~25 images from parsed PDF |
-| `public/audio/starters/` | Copy 5 audio MP3 files |
-| `src/data/startersTestData.ts` | Test 1 data: all parts, questions, answers |
-| `src/pages/StartersPractice.tsx` | Hub page — Test 1/2/3 tiles |
-| `src/pages/StartersTest.tsx` | Test page with Listening/R&W/Speaking tabs |
-| `src/components/starters/ListeningPart1.tsx` | Draw lines — drag name labels onto image |
-| `src/components/starters/ListeningPart2.tsx` | Fill-in name/number |
-| `src/components/starters/ListeningPart3.tsx` | Multiple choice with images |
-| `src/components/starters/ListeningPart4.tsx` | Listen and colour (audio + instructions) |
-| `src/components/starters/ReadingPart1.tsx` | Tick/cross with images |
-| `src/components/starters/ReadingPart2.tsx` | Yes/no from scene |
-| `src/components/starters/ReadingPart3.tsx` | Unscramble letters |
-| `src/components/starters/ReadingPart4.tsx` | Fill gaps from word box |
-| `src/components/starters/ReadingPart5.tsx` | One-word answers from scene |
-| `src/components/starters/SpeakingSection.tsx` | Scene + object cards + audio |
-| `src/pages/MembersActivities.tsx` | Add "Young Learners" tab (6th tab) |
-| `src/App.tsx` | Add 2 new protected routes |
+| `src/data/businessVocabularyData.ts` | Create -- all sections/topics structure + Topic 1 content |
+| `src/pages/BusinessVocabulary.tsx` | Create -- hub page with section tiles |
+| `src/pages/BusinessVocabularySection.tsx` | Create -- section page with topic tiles |
+| `src/pages/BusinessVocabularyTopic.tsx` | Create -- topic detail with Theory/Practice/Tests |
+| `src/App.tsx` | Edit -- add 3 new protected routes |
+| `src/pages/MembersActivities.tsx` | Edit -- update vocabulary tile path |
 
-### Implementation Notes
-
-- Listening Part 1 (draw lines): Simplified to a click-to-match interaction — click a name, then click a person in the image area, rather than literal line-drawing
-- Listening Part 4 (colour): Non-interactive — displays the image with audio and instructions for offline colouring activity
-- Reading Part 3 images (kite, train, robot, lorry, helicopter) and Part 1 images (fish, kiwis, piano, sofa, helicopters) will be extracted from the PDF pages
-- All exercises include a "Check Answers" button with green/red feedback
+No new dependencies needed. Existing images from `src/assets/` (e.g. `business-meeting.webp`) will be reused as placeholder section images initially.
 
