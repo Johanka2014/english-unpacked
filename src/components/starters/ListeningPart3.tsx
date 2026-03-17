@@ -6,6 +6,7 @@ import exampleImage from '@/assets/starters/test1-listening-part3-example.jpg';
 import q2Image from '@/assets/starters/test1-listening-part3-q2.jpg';
 import q3Image from '@/assets/starters/test1-listening-part3-q3.jpg';
 import q4Image from '@/assets/starters/test1-listening-part3-q4.jpg';
+import q5Image from '@/assets/starters/test1-listening-part3-q5.jpg';
 
 const ListeningPart3 = () => {
   const data = test1ListeningPart3;
