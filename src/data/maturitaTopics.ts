@@ -520,7 +520,131 @@ export const maturitaTopics: MaturitaTopic[] = [
   { id: "london-washington", title: "London, Washington D.C.", description: "Historical sights, culture, entertainment", available: false, part2: { task1: { followUpQuestions: ["What famous landmark can you see?", "What is the atmosphere like?"] }, task2: { comparisonQuestions: ["How are these two cities different?"] }, task3: { question: "Which city would you prefer to visit and why?" } } },
   { id: "english-speaking-countries", title: "English-Speaking Countries", description: "Commonwealth, Canada, Australia, New Zealand, Ireland", available: false, part2: { task1: { followUpQuestions: ["Which country does this picture represent?", "What is typical about this place?"] }, task2: { comparisonQuestions: ["How are these two countries different?"] }, task3: { question: "Which English-speaking country would you most like to visit?" } } },
   { id: "english-lit-early", title: "English Literature – up to 1800", description: "Shakespeare, Chaucer, Defoe, Swift, Austen", available: false, part2: { task1: { followUpQuestions: ["What literary period does this image suggest?", "What can you say about the setting?"] }, task2: { comparisonQuestions: ["How do these two images relate to literature?"] }, task3: { question: "Why is it important to read classic literature?" } } },
-  { id: "english-lit-modern", title: "English Literature – 19th & 20th Century", description: "Dickens, Wilde, Orwell, Tolkien, Rowling", available: false, part2: { task1: { followUpQuestions: ["What literary work might this picture relate to?", "What period is shown?"] }, task2: { comparisonQuestions: ["How are the settings in these pictures different?"] }, task3: { question: "Which modern author do you find most interesting?" } } },
+  {
+    id: "english-lit-modern",
+    title: "British Literature",
+    description: "Shakespeare, Austen, Dickens, Wilde, Tolkien, Orwell, Rowling, Christie – key British writers and their masterpieces",
+    available: true,
+    learn: [
+      {
+        title: "William Shakespeare (1564–1616)",
+        content: "William Shakespeare is widely regarded as the greatest writer in the English language. Born in Stratford-upon-Avon, he wrote approximately 37 plays and 154 sonnets. His works include tragedies (Hamlet, Macbeth, Othello, King Lear, Romeo and Juliet), comedies (A Midsummer Night's Dream, Much Ado About Nothing, The Taming of the Shrew), and histories (Henry V, Richard III). Shakespeare invented over 1,700 words still used today. His plays explore universal themes: love, jealousy, ambition, betrayal, and the human condition. The Globe Theatre in London was his company's home. His influence on literature, theatre, and the English language is immeasurable."
+      },
+      {
+        title: "Jane Austen (1775–1817)",
+        content: "Jane Austen was an English novelist known for her sharp social commentary and romantic fiction set among the British landed gentry. Her six major novels include Pride and Prejudice, Sense and Sensibility, Emma, Mansfield Park, Northanger Abbey, and Persuasion. Austen's novels explore themes of love, marriage, social class, and women's dependence on marriage for social standing and economic security. Her writing is famous for its wit, irony, and keen observations of human behaviour. Despite writing in the early 19th century, her novels remain hugely popular and have been adapted into countless films and TV series."
+      },
+      {
+        title: "Charles Dickens (1812–1870)",
+        content: "Charles Dickens is one of the most famous Victorian novelists. His works include Oliver Twist, David Copperfield, Great Expectations, A Tale of Two Cities, A Christmas Carol, and Bleak House. Dickens drew on his own difficult childhood – his father was imprisoned for debt and young Charles worked in a factory. His novels highlight social injustice, poverty, child labour, and the harsh conditions of Victorian England. His characters are memorable and often have names that reflect their personalities. Dickens published many works in serial form in magazines, making literature accessible to a wide audience."
+      },
+      {
+        title: "Oscar Wilde (1854–1900)",
+        content: "Oscar Wilde was an Irish-born writer and playwright famous for his wit, flamboyant style, and brilliant conversational skills. His most famous works include the novel The Picture of Dorian Gray, and plays such as The Importance of Being Earnest, An Ideal Husband, and Lady Windermere's Fan. The Picture of Dorian Gray tells the story of a beautiful young man whose portrait ages and shows his sins while he remains young. Wilde was a leading figure of the Aesthetic Movement, which believed in 'art for art's sake'. His life ended tragically – he was imprisoned for two years and died in poverty in Paris at age 46."
+      },
+      {
+        title: "J.R.R. Tolkien (1892–1973)",
+        content: "John Ronald Reuel Tolkien was a British writer and professor of English at Oxford University. He is best known for The Hobbit (1937) and The Lord of the Rings trilogy (1954–55), which created the entire genre of modern fantasy literature. Tolkien invented complete languages (Elvish, Dwarvish), histories, and mythologies for his fictional world of Middle-earth. The Lord of the Rings follows hobbit Frodo Baggins on a quest to destroy the One Ring and defeat the Dark Lord Sauron. Themes include friendship, sacrifice, the corrupting nature of power, and the struggle between good and evil. Peter Jackson's film adaptations brought his work to a massive global audience."
+      },
+      {
+        title: "George Orwell (1903–1950)",
+        content: "George Orwell (real name Eric Arthur Blair) was a British novelist, essayist, and critic known for his opposition to totalitarianism. His two most famous works are Animal Farm (1945) – an allegorical novella satirising the Russian Revolution and Stalinism through a story about farm animals, and Nineteen Eighty-Four (1984) – a dystopian novel depicting a totalitarian society controlled by 'Big Brother' with constant surveillance, propaganda, and thought control. Orwell coined terms that are still widely used: 'Big Brother', 'thoughtcrime', 'doublethink', and 'Newspeak'. His works warn about the dangers of political corruption, censorship, and the abuse of power."
+      },
+      {
+        title: "J.K. Rowling (born 1965)",
+        content: "Joanne Rowling is a British author best known for the Harry Potter series – seven fantasy novels following the young wizard Harry Potter and his friends at Hogwarts School of Witchcraft and Wizardry. The series (1997–2007) became the best-selling book series in history, with over 500 million copies sold worldwide. The books explore themes of friendship, courage, sacrifice, the choice between good and evil, and growing up. Rowling famously wrote the first book while living on welfare as a single mother. The franchise expanded into eight blockbuster films, theme parks, and a play (Harry Potter and the Cursed Child). She also writes crime fiction under the pen name Robert Galbraith."
+      },
+      {
+        title: "Agatha Christie (1890–1976)",
+        content: "Agatha Christie is the best-selling fiction writer of all time, with over two billion copies sold. She is known as the 'Queen of Crime' for her detective novels and short stories. Her most famous characters are the Belgian detective Hercule Poirot and the elderly amateur detective Miss Marple. Key works include Murder on the Orient Express, And Then There Were None, The Murder of Roger Ackroyd, and Death on the Nile. Christie's plots are famous for their ingenious twists and surprise endings. She also wrote the world's longest-running play, The Mousetrap, which has been performed in London's West End since 1952."
+      },
+      {
+        title: "Literary Genres",
+        content: "British literature spans many genres. Fiction includes novels and short stories – invented narratives. Non-fiction covers factual works like biographies, essays, and journalism. Poetry uses rhythm, rhyme, and imagery to express ideas and emotions. Drama consists of plays written to be performed on stage. Within fiction, sub-genres include: romance (love stories), mystery/detective (solving crimes), fantasy (magical worlds), science fiction (future technology), horror (fear and suspense), historical fiction (set in the past), and adventure (exciting journeys). Understanding genres helps you discuss and compare different works."
+      },
+      {
+        title: "Reading Habits and Preferences",
+        content: "When discussing reading in the exam, be prepared to talk about: how often you read, whether you prefer fiction or non-fiction, your favourite genre, and the last book you read. Consider the differences between prose, poetry, and drama. Think about whether translations change books, which writers are popular today, and whether you've read a book and seen its film adaptation. Discuss whether parents should read to children, how reading habits have changed with technology, whether people buy or borrow books, and whether e-books will replace paper books. Having personal opinions with reasons will strengthen your answers."
+      }
+    ],
+    practice: [
+      { question: "Do you like to read? How often do you read?", answer: "Yes, I like to read. I read my favourite magazines and the Internet every day. I also try to read at least one book a month. I enjoy reading because it helps me relax and learn new things." },
+      { question: "Do you prefer fiction or non-fiction books?", answer: "I like fiction better. You can use your imagination to escape to another place or time, have different people around you, and experience a different life for a while. I especially enjoy fantasy and mystery novels." },
+      { question: "What was the last book that you read? What was it about?", answer: "The last book I read was... by... . It was about... . I enjoyed it because the characters were interesting and the plot kept me guessing until the end." },
+      { question: "How is reading prose different from reading poetry?", answer: "Prose is easier to read, especially in English. The sentences are more natural. With poetry, you have to think about the meaning, and the rhymes can sometimes make it harder to pay attention to the idea. Poetry is more concentrated and requires more careful reading." },
+      { question: "How is reading drama different from reading prose and poetry?", answer: "If you find a good play, it can be fun to try playing different characters in your head. It can be easier or harder to understand because there is no explanation or description of what's going on like in prose or poetry. The meaning is mostly in what the characters are saying. There is also the possibility of performing the play, which can be rewarding." },
+      { question: "What is your favourite literary genre?", answer: "I like fantasy best because it takes me to completely different worlds with magic and adventure. I enjoy the creativity of authors who build entire universes with their own rules and histories." },
+      { question: "Have you ever read an entire book in English?", answer: "Yes, I've read Harry Potter by J.K. Rowling in English. It was not always easy to understand, but I finished the whole thing. I was proud that I could do it, and it really helped improve my English vocabulary." },
+      { question: "Do you think that a translation of a book changes the book itself?", answer: "Yes, of course. It's impossible not to have some changes. Some idioms and expressions don't exist in the translation, so you have to use more words to express the meaning. The translator must completely understand and then re-create the author's meaning very precisely, and some translators are not so good at this." },
+      { question: "Which writers are extremely popular today?", answer: "I think J.K. Rowling, Stephen King, and Dan Brown are very popular. Their books are bestsellers and many have been made into successful films. Young adult fiction by authors like Suzanne Collins is also very popular." },
+      { question: "Have you ever read a book and seen the film that was made from it? Which did you like more?", answer: "Yes, I read The Lord of the Rings and then saw the films. I liked both, but in different ways. The book had more detail and let me use my imagination, while the film had amazing visual effects. It depends on what I experience first – I usually prefer whichever I discovered first." },
+      { question: "Did your parents read stories to you when you were little?", answer: "Yes, my parents always read to us, usually just before we went to sleep. For a long time my favourite story was... and I still remember it. Reading to children is important because young children learn to use their imagination before they can read themselves." },
+      { question: "How has reading in your country changed in the past few years?", answer: "Most people have the Internet or watch TV, so people don't read books as much as before. But people still read a lot – just not books. They read newspapers online, buy fashion or music magazines, and get a lot of information on the Internet. E-books have also become more popular." },
+      { question: "Do you think electronic books will replace paper books?", answer: "I suppose they will become more popular, since it's more environmentally friendly. But they can never completely replace a real book. Many people like the feeling of holding a book in their hands and turning the pages, and you can take a paper book with you anywhere – even to the bathtub!" },
+      { question: "Why did you choose to speak about this particular British author?", answer: "I chose to speak about Shakespeare because he is the most famous writer in the English language. His plays are still performed all over the world and his influence on literature and the English language is enormous. I find his tragedies like Hamlet particularly fascinating." },
+      { question: "Can you describe the plot of a book by a British author?", answer: "In Oliver Twist by Charles Dickens, a young orphan boy escapes from a workhouse and travels to London, where he falls in with a gang of pickpockets led by Fagin. Oliver is eventually rescued by kind people who discover his true identity. The novel exposes the harsh treatment of orphans and the poor in Victorian England." }
+    ],
+    part2: {
+      task1: {
+        promptPoints: ["Setting", "Books & Objects", "People", "Atmosphere", "Activity", "Time Period"],
+        images: [
+          { label: "Picture A", src: britlitPart2a, description: "A traditional library with bookshelves, fireplace, and an open book" },
+          { label: "Picture B", src: britlitPart2b, description: "A modern outdoor book festival with people browsing books" }
+        ],
+        followUpQuestions: [
+          "What kind of place is this? What atmosphere does it create?",
+          "What types of books might you find here?",
+          "Would you enjoy spending time in a place like this?",
+          "What does this picture tell you about how people read?"
+        ]
+      },
+      task2: {
+        promptPoints: ["Setting", "Books & Objects", "People", "Atmosphere", "Activity", "Time Period"],
+        comparisonQuestions: [
+          "How are the reading environments different in these two pictures?",
+          "Which setting do you think encourages reading more?",
+          "How have reading habits changed from the past to today?"
+        ]
+      },
+      task3: {
+        question: "How important is it for young people to read classic British literature? Should schools make students read specific books, or should they choose their own?"
+      }
+    },
+    exam: {
+      taskDescription: "In this task you should speak on your own about a selected British writer or playwright and his/her masterpieces. Use pictures 3A–3F to illustrate your speech.",
+      promptPoints: [
+        "Life of the author / playwright",
+        "Work(s) / masterpieces of the author / playwright",
+        "Theme(s) of the books / plays",
+        "Genre(s) of the book / play",
+        "Your preferences",
+        "Other"
+      ],
+      images: [
+        { label: "3A", src: britlit3a, description: "Shakespeare – Romeo and Juliet, the balcony scene" },
+        { label: "3B", src: britlit3b, description: "Dickens – Oliver Twist, Victorian London streets" },
+        { label: "3C", src: britlit3c, description: "Wilde – The Picture of Dorian Gray" },
+        { label: "3D", src: britlit3d, description: "Austen – Pride and Prejudice, Regency era" },
+        { label: "3E", src: britlit3e, description: "Tolkien – The Lord of the Rings, Middle-earth" },
+        { label: "3F", src: britlit3f, description: "Orwell – 1984, dystopian surveillance state" }
+      ],
+      followUpQuestions: [
+        "Why did you choose to speak about this author / playwright?",
+        "Why is this author popular?",
+        "Have you read any of his/her books?",
+        "Have you seen any of his/her plays or film adaptations?",
+        "Could you describe the main character to me?",
+        "Do you know any other novels / plays by this author?",
+        "Which genre is this book / play?",
+        "Could you tell me something about the plot?",
+        "What is the book / play about?",
+        "Would you recommend this book / play? Why?",
+        "Who are the main characters?",
+        "Why do you like this book / play?",
+        "What themes does this author explore in their work?"
+      ]
+    }
+  },
   { id: "american-lit-early", title: "American Literature – up to 1900", description: "Poe, Twain, Whitman, London", available: false, part2: { task1: { followUpQuestions: ["What aspect of American life is shown?", "What time period does this suggest?"] }, task2: { comparisonQuestions: ["How are these two scenes from American history different?"] }, task3: { question: "How does literature reflect a country's history?" } } },
   { id: "american-lit-modern", title: "American Literature – 20th Century", description: "Hemingway, Fitzgerald, Steinbeck, Kerouac", available: false, part2: { task1: { followUpQuestions: ["What 20th-century American theme is shown?", "What is the mood of this picture?"] }, task2: { comparisonQuestions: ["How do these two images reflect different aspects of American culture?"] }, task3: { question: "Which American novel would you recommend?" } } },
   { id: "usa-geography", title: "The USA, Geography, Political System", description: "Geography, cities, national parks, presidential system", available: false, part2: { task1: { followUpQuestions: ["What American landscape or city is shown?", "What makes this place interesting?"] }, task2: { comparisonQuestions: ["How are these two American locations different?"] }, task3: { question: "What interests you most about the USA?" } } },
