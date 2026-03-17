@@ -1,3 +1,4 @@
+import britlitThumbnail from "@/assets/maturita-britlit-thumbnail.jpg";
 import env3a from "@/assets/maturita-env-3a.jpg";
 import topicEnvironment from "@/assets/topic-environment.jpg";
 import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
@@ -109,6 +110,7 @@ export const maturitaTopics: MaturitaTopic[] = [
     title: "British Literature",
     description: "Shakespeare, Austen, Dickens, Wilde, Tolkien, Orwell, Rowling, Christie – key British writers and their masterpieces",
     available: true,
+    thumbnail: britlitThumbnail,
     learn: [
       {
         title: "William Shakespeare (1564–1616)",
