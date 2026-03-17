@@ -296,7 +296,7 @@ export const test1ReadingPart5: ReadingPart5Data = {
   ],
   questions: [
     { id: 1, question: "What colour is the bird?", answer: "red", partialAnswer: "and blue" },
-    { id: 2, question: "Which animal is in the water?", "the", answer: "monkey" },
+    { id: 2, question: "Which animal is in the water?", answer: "monkey" },
     { id: 3, question: "Where is the snake?", answer: "tree" },
     { id: 4, question: "What has the monkey got?", answer: "coconut" },
     { id: 5, question: "Who is taking a photo?", answer: "man" },
