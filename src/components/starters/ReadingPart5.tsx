@@ -70,9 +70,17 @@ const ReadingPart5 = () => {
       {/* Second image */}
       <img src={data.images[1]} alt="Scene 2" className="w-full rounded-xl shadow-md my-6" />
 
-      {/* Remaining questions */}
+      {/* Questions 2-3 */}
       <div className="space-y-4">
-        {data.questions.slice(1).map(renderQuestion)}
+        {data.questions.slice(1, 3).map(renderQuestion)}
+      </div>
+
+      {/* Third image */}
+      <img src={readingPart5P3} alt="Scene 3" className="w-full rounded-xl shadow-md my-6" />
+
+      {/* Questions 4-5 */}
+      <div className="space-y-4">
+        {data.questions.slice(3).map(renderQuestion)}
       </div>
 
       <div className="flex justify-center gap-4 mt-6">
