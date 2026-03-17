@@ -29,6 +29,16 @@ import health3f from "@/assets/maturita-health-3f.jpg";
 import healthPart2a from "@/assets/maturita-health-part2-a.jpg";
 import healthPart2b from "@/assets/maturita-health-part2-b.jpg";
 
+// British Literature images
+import britlit3a from "@/assets/maturita-britlit-3a.jpg";
+import britlit3b from "@/assets/maturita-britlit-3b.jpg";
+import britlit3c from "@/assets/maturita-britlit-3c.jpg";
+import britlit3d from "@/assets/maturita-britlit-3d.jpg";
+import britlit3e from "@/assets/maturita-britlit-3e.jpg";
+import britlit3f from "@/assets/maturita-britlit-3f.jpg";
+import britlitPart2a from "@/assets/maturita-britlit-part2-a.jpg";
+import britlitPart2b from "@/assets/maturita-britlit-part2-b.jpg";
+
 export interface LearnItem {
   title: string;
   content: string;
