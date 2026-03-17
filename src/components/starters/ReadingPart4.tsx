@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
 import { test1ReadingPart4 } from '@/data/startersTestData';
+import wordBoxImage from '@/assets/starters/test1-reading-part4-wordbox.png';
 
 const ReadingPart4 = () => {
   const data = test1ReadingPart4;
