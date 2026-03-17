@@ -110,6 +110,7 @@ export const maturitaTopics: MaturitaTopic[] = [
     title: "British Literature",
     description: "Shakespeare, Austen, Dickens, Wilde, Tolkien, Orwell, Rowling, Christie – key British writers and their masterpieces",
     available: true,
+    thumbnail: britlitThumbnail,
     learn: [
       {
         title: "William Shakespeare (1564–1616)",
