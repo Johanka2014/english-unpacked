@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
 import { test1ReadingPart5 } from '@/data/startersTestData';
+import readingPart5P3 from '@/assets/starters/test1-reading-part5-p3.jpg';
 
 const ReadingPart5 = () => {
   const data = test1ReadingPart5;
