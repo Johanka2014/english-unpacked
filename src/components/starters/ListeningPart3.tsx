@@ -3,6 +3,7 @@ import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
 import { test1ListeningPart3 } from '@/data/startersTestData';
 import exampleImage from '@/assets/starters/test1-listening-part3-example.jpg';
+import q2Image from '@/assets/starters/test1-listening-part3-q2.jpg';
 
 const ListeningPart3 = () => {
   const data = test1ListeningPart3;
