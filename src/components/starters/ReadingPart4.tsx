@@ -93,6 +93,9 @@ const ReadingPart4 = () => {
       color="from-indigo-400 to-blue-500"
       icon="📝"
     >
+      {/* Word box image */}
+      <img src={wordBoxImage} alt="Word box with pictures" className="w-full max-w-xl mx-auto rounded-xl shadow-md mb-6" />
+
       {/* Word box */}
       <div className="bg-indigo-50 rounded-xl p-4 mb-6">
         <h4 className="font-bold text-indigo-700 mb-3" style={{ fontFamily: 'Fredoka, sans-serif' }}>Word Box:</h4>
