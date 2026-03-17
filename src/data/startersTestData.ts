@@ -242,7 +242,7 @@ export const test1ReadingPart1: ReadingPart1Data = {
     { id: 1, statement: "This is a fish.", answer: true, emoji: "🐟" },
     { id: 2, statement: "These are kiwis.", answer: false, emoji: "🥔" },
     { id: 3, statement: "This is a piano.", answer: true, emoji: "🎹" },
-    { id: 4, statement: "This is a sofa.", answer: false, emoji: "🛋️" },
+    { id: 4, statement: "This is a sofa.", answer: true, emoji: "🛋️" },
     { id: 5, statement: "These are helicopters.", answer: true, emoji: "🚁" },
   ],
 };
