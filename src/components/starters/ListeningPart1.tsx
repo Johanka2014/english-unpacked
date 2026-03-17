@@ -83,10 +83,10 @@ const ListeningPart1 = () => {
           })}
         </div>
 
-        {/* Scene image with clickable people overlay */}
-        <div className="relative max-w-2xl mx-auto">
+        {/* Scene image + clickable people — 2-col on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <img src={data.sceneImage} alt="Scene with people" className="w-full rounded-xl shadow-md" />
-          <div className="grid grid-cols-4 gap-2 mt-4">
+          <div className="grid grid-cols-2 gap-2 content-start">
             {data.people.map((person) => {
               const matchedBy = Object.entries(matches).find(([, pid]) => pid === person.id);
               return (
