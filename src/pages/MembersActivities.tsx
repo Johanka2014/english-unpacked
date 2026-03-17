@@ -154,12 +154,13 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-5 mb-8">
+          <TabsList className="grid w-full grid-cols-6 mb-8">
             <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
             <TabsTrigger value="business">Business</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
             <TabsTrigger value="grammar">Grammar</TabsTrigger>
             <TabsTrigger value="maturita">Maturita</TabsTrigger>
+            <TabsTrigger value="young-learners">Young Learners</TabsTrigger>
           </TabsList>
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
