@@ -222,6 +222,16 @@ export const test1ListeningPart3: ListeningPart3Data = {
       ],
       correctOption: 'A',
     },
+    {
+      id: 6,
+      question: "Which is Sue's bike?",
+      options: [
+        { id: 'A', description: 'Bike in a rack' },
+        { id: 'B', description: 'Red bike by door' },
+        { id: 'C', description: 'Pink bike by fence' },
+      ],
+      correctOption: 'C',
+    },
   ],
 };
 
