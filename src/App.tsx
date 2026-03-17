@@ -22,6 +22,7 @@ const VerbPatternPractice = lazy(() => import("./pages/VerbPatternPractice"));
 const PrepositionsOfTimePractice = lazy(() => import("./pages/PrepositionsOfTimePractice"));
 const Prepositions = lazy(() => import("./pages/Prepositions"));
 const VerbAdjectivePrepositions = lazy(() => import("./pages/VerbAdjectivePrepositions"));
+const PrepositionsOfPlace = lazy(() => import("./pages/PrepositionsOfPlace"));
 const EverydayConversations = lazy(() => import("./pages/EverydayConversations"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
