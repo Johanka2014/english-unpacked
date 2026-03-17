@@ -39,77 +39,81 @@ const ReadingPart1 = () => {
         ))}
       </div>
 
-      {/* Reference images */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        {data.images.map((img, i) => (
-          <img key={i} src={img} alt={`Reference page ${i + 1}`} className="w-full rounded-xl shadow-md" />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Left column — images */}
+        <div className="flex flex-col gap-4">
+          {data.images.map((img, i) => (
+            <img key={i} src={img} alt={`Reference page ${i + 1}`} className="w-full rounded-xl shadow-md sticky top-4" />
+          ))}
+        </div>
+
+        {/* Right column — questions + buttons */}
+        <div>
+          <div className="space-y-4">
+            {data.questions.map((q) => {
+              const userAnswer = answers[q.id];
+              const isCorrect = checked && userAnswer === q.answer;
+              const isWrong = checked && userAnswer !== undefined && userAnswer !== null && userAnswer !== q.answer;
+
+              return (
+                <div key={q.id} className={`flex items-center gap-3 p-3 rounded-xl border-2 transition-colors ${
+                  isCorrect ? 'border-green-400 bg-green-50' : isWrong ? 'border-red-400 bg-red-50' : 'border-pink-100 bg-white'
+                }`}>
+                  <span className="w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold flex-shrink-0">
+                    {q.id}
+                  </span>
+                  <span className="text-2xl">{q.emoji}</span>
+                  <span className="flex-1 text-base font-medium text-gray-700">{q.statement}</span>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleAnswer(q.id, true)}
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-bold transition-all ${
+                        userAnswer === true
+                          ? 'bg-green-500 text-white scale-110 shadow-md'
+                          : 'bg-green-100 text-green-600 hover:bg-green-200'
+                      }`}
+                    >
+                      <Check className="h-5 w-5" />
+                    </button>
+                    <button
+                      onClick={() => handleAnswer(q.id, false)}
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-bold transition-all ${
+                        userAnswer === false
+                          ? 'bg-red-500 text-white scale-110 shadow-md'
+                          : 'bg-red-100 text-red-600 hover:bg-red-200'
+                      }`}
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                  {checked && isWrong && (
+                    <span className="text-sm font-bold text-green-600">→ {q.answer ? '✓' : '✗'}</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex justify-center gap-4 mt-6">
+            <button onClick={checkAnswers} disabled={checked}
+              className="px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg disabled:opacity-50"
+              style={{ fontFamily: 'Fredoka, sans-serif' }}>
+              ✅ Check Answers
+            </button>
+            <button onClick={reset}
+              className="px-6 py-3 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-700 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+              style={{ fontFamily: 'Fredoka, sans-serif' }}>
+              🔄 Try Again
+            </button>
+          </div>
+
+          {checked && (
+            <p className="mt-4 text-center text-lg font-bold" style={{ fontFamily: 'Fredoka, sans-serif' }}>
+              You got <span className="text-green-600">{data.questions.filter((q) => answers[q.id] === q.answer).length}</span> out of {data.questions.length} correct! 🎉
+            </p>
+          )}
+        </div>
       </div>
-
-      {/* Questions */}
-      <div className="space-y-4">
-        {data.questions.map((q) => {
-          const userAnswer = answers[q.id];
-          const isCorrect = checked && userAnswer === q.answer;
-          const isWrong = checked && userAnswer !== undefined && userAnswer !== null && userAnswer !== q.answer;
-
-          return (
-            <div key={q.id} className={`flex items-center gap-4 p-4 rounded-xl border-2 transition-colors ${
-              isCorrect ? 'border-green-400 bg-green-50' : isWrong ? 'border-red-400 bg-red-50' : 'border-pink-100 bg-white'
-            }`}>
-              <span className="w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold flex-shrink-0">
-                {q.id}
-              </span>
-              <span className="text-3xl">{q.emoji}</span>
-              <span className="flex-1 text-lg font-medium text-gray-700">{q.statement}</span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => handleAnswer(q.id, true)}
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-all ${
-                    userAnswer === true
-                      ? 'bg-green-500 text-white scale-110 shadow-md'
-                      : 'bg-green-100 text-green-600 hover:bg-green-200'
-                  }`}
-                >
-                  <Check className="h-6 w-6" />
-                </button>
-                <button
-                  onClick={() => handleAnswer(q.id, false)}
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold transition-all ${
-                    userAnswer === false
-                      ? 'bg-red-500 text-white scale-110 shadow-md'
-                      : 'bg-red-100 text-red-600 hover:bg-red-200'
-                  }`}
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              {checked && isWrong && (
-                <span className="text-sm font-bold text-green-600">→ {q.answer ? '✓' : '✗'}</span>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="flex justify-center gap-4 mt-6">
-        <button onClick={checkAnswers} disabled={checked}
-          className="px-6 py-3 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg disabled:opacity-50"
-          style={{ fontFamily: 'Fredoka, sans-serif' }}>
-          ✅ Check Answers
-        </button>
-        <button onClick={reset}
-          className="px-6 py-3 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-700 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg"
-          style={{ fontFamily: 'Fredoka, sans-serif' }}>
-          🔄 Try Again
-        </button>
-      </div>
-
-      {checked && (
-        <p className="mt-4 text-center text-lg font-bold" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-          You got <span className="text-green-600">{data.questions.filter((q) => answers[q.id] === q.answer).length}</span> out of {data.questions.length} correct! 🎉
-        </p>
-      )}
     </StartersPartCard>
   );
 };
