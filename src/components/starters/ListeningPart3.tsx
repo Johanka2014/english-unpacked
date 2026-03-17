@@ -50,6 +50,9 @@ const ListeningPart3 = () => {
             {q.id === 3 && (
               <img src={q3Image} alt="What does Tom like?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
             )}
+            {q.id === 4 && (
+              <img src={q4Image} alt="What's Jill drawing?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
+            )}
             <div className="grid grid-cols-3 gap-3">
               {q.options.map((opt, i) => {
                 const isSelected = selected[q.id] === opt.id;
