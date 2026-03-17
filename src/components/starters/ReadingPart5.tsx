@@ -20,6 +20,27 @@ const ReadingPart5 = () => {
     return q && answers[id]?.trim().toLowerCase() === q.answer.toLowerCase();
   };
 
+  const renderQuestion = (q: typeof data.questions[0]) => {
+    const correct = checked && isCorrect(q.id);
+    const wrong = checked && answers[q.id] && !isCorrect(q.id);
+    return (
+      <div key={q.id} className={`flex flex-col md:flex-row md:items-center gap-3 p-4 rounded-xl border-2 transition-colors ${
+        correct ? 'border-green-400 bg-green-50' : wrong ? 'border-red-400 bg-red-50' : 'border-teal-100 bg-white'
+      }`}>
+        <span className="w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold flex-shrink-0">{q.id}</span>
+        <span className="flex-1 text-gray-700 font-medium">{q.question}</span>
+        <div className="flex items-center gap-2">
+          <input type="text" value={answers[q.id] || ''} onChange={(e) => handleChange(q.id, e.target.value)} placeholder="Write one word..."
+            className={`px-4 py-2 rounded-xl border-2 text-lg font-bold w-36 text-center transition-colors ${
+              correct ? 'border-green-400 bg-green-50 text-green-700' : wrong ? 'border-red-400 bg-red-50 text-red-700' : 'border-teal-200 focus:border-teal-400'
+            }`} style={{ fontFamily: 'Fredoka, sans-serif' }} />
+          {q.partialAnswer && <span className="text-gray-500 font-medium">{q.partialAnswer}</span>}
+        </div>
+        {checked && wrong && <span className="text-sm font-bold text-green-600">→ {q.answer}</span>}
+      </div>
+    );
+  };
+
   return (
     <StartersPartCard
       partNumber={5}
@@ -28,6 +49,9 @@ const ReadingPart5 = () => {
       color="from-teal-400 to-cyan-500"
       icon="🖼️"
     >
+      {/* First image */}
+      <img src={data.images[0]} alt="Scene 1" className="w-full rounded-xl shadow-md mb-6" />
+
       {/* Examples */}
       <div className="bg-teal-50 rounded-xl p-4 mb-6">
         <h4 className="font-bold text-teal-700 mb-3" style={{ fontFamily: 'Fredoka, sans-serif' }}>Examples:</h4>
@@ -39,48 +63,15 @@ const ReadingPart5 = () => {
         ))}
       </div>
 
-      {/* Scene images */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        {data.images.map((img, i) => (
-          <img key={i} src={img} alt={`Scene ${i + 1}`} className="w-full rounded-xl shadow-md" />
-        ))}
-      </div>
+      {/* Question 1 */}
+      {renderQuestion(data.questions[0])}
 
-      {/* Questions */}
+      {/* Second image */}
+      <img src={data.images[1]} alt="Scene 2" className="w-full rounded-xl shadow-md my-6" />
+
+      {/* Remaining questions */}
       <div className="space-y-4">
-        {data.questions.map((q) => {
-          const correct = checked && isCorrect(q.id);
-          const wrong = checked && answers[q.id] && !isCorrect(q.id);
-
-          return (
-            <div key={q.id} className={`flex flex-col md:flex-row md:items-center gap-3 p-4 rounded-xl border-2 transition-colors ${
-              correct ? 'border-green-400 bg-green-50' : wrong ? 'border-red-400 bg-red-50' : 'border-teal-100 bg-white'
-            }`}>
-              <span className="w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold flex-shrink-0">
-                {q.id}
-              </span>
-              <span className="flex-1 text-gray-700 font-medium">{q.question}</span>
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  value={answers[q.id] || ''}
-                  onChange={(e) => handleChange(q.id, e.target.value)}
-                  placeholder="Write one word..."
-                  className={`px-4 py-2 rounded-xl border-2 text-lg font-bold w-36 text-center transition-colors ${
-                    correct ? 'border-green-400 bg-green-50 text-green-700'
-                    : wrong ? 'border-red-400 bg-red-50 text-red-700'
-                    : 'border-teal-200 focus:border-teal-400'
-                  }`}
-                  style={{ fontFamily: 'Fredoka, sans-serif' }}
-                />
-                {q.partialAnswer && <span className="text-gray-500 font-medium">{q.partialAnswer}</span>}
-              </div>
-              {checked && wrong && (
-                <span className="text-sm font-bold text-green-600">→ {q.answer}</span>
-              )}
-            </div>
-          );
-        })}
+        {data.questions.slice(1).map(renderQuestion)}
       </div>
 
       <div className="flex justify-center gap-4 mt-6">
