@@ -236,7 +236,7 @@ export const test1ReadingPart1: ReadingPart1Data = {
   images: [readingPart1P1, readingPart1P2],
   examples: [
     { statement: "This is a nose.", answer: true, emoji: "👃" },
-    { statement: "This is a skirt.", answer: false, emoji: "👗" },
+    { statement: "This is a skirt.", answer: false, emoji: "🩳" },
   ],
   questions: [
     { id: 1, statement: "This is a fish.", answer: true, emoji: "🐟" },
