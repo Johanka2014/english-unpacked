@@ -22,6 +22,7 @@ const VerbPatternPractice = lazy(() => import("./pages/VerbPatternPractice"));
 const PrepositionsOfTimePractice = lazy(() => import("./pages/PrepositionsOfTimePractice"));
 const Prepositions = lazy(() => import("./pages/Prepositions"));
 const VerbAdjectivePrepositions = lazy(() => import("./pages/VerbAdjectivePrepositions"));
+const PrepositionsOfPlace = lazy(() => import("./pages/PrepositionsOfPlace"));
 const EverydayConversations = lazy(() => import("./pages/EverydayConversations"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -92,6 +93,7 @@ const App = () => (
               <Route path="/prepositions-of-time" element={<ProtectedRoute><PrepositionsOfTimePractice /></ProtectedRoute>} />
               <Route path="/prepositions" element={<ProtectedRoute><Prepositions /></ProtectedRoute>} />
               <Route path="/verb-adjective-prepositions" element={<ProtectedRoute><VerbAdjectivePrepositions /></ProtectedRoute>} />
+              <Route path="/prepositions-of-place" element={<ProtectedRoute><PrepositionsOfPlace /></ProtectedRoute>} />
               <Route path="/presentations" element={<ProtectedRoute><PresentationSkills /></ProtectedRoute>} />
               <Route path="/business-vocabulary" element={<ProtectedRoute><BusinessVocabulary /></ProtectedRoute>} />
               <Route path="/business-vocabulary/:sectionId" element={<ProtectedRoute><BusinessVocabularySection /></ProtectedRoute>} />
