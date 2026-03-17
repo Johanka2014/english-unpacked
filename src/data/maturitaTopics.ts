@@ -1,3 +1,4 @@
+import britlitThumbnail from "@/assets/maturita-britlit-thumbnail.jpg";
 import env3a from "@/assets/maturita-env-3a.jpg";
 import topicEnvironment from "@/assets/topic-environment.jpg";
 import maturitaExamHall from "@/assets/maturita-exam-hall.jpg";
