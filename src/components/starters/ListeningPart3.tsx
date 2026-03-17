@@ -3,6 +3,7 @@ import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
 import { test1ListeningPart3 } from '@/data/startersTestData';
 import exampleImage from '@/assets/starters/test1-listening-part3-example.jpg';
+import q2Image from '@/assets/starters/test1-listening-part3-q2.jpg';
 
 const ListeningPart3 = () => {
   const data = test1ListeningPart3;
@@ -40,6 +41,9 @@ const ListeningPart3 = () => {
             </div>
             {q.id === 1 && (
               <img src={exampleImage} alt="Example: What's Kim wearing?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
+            )}
+            {q.id === 2 && (
+              <img src={q2Image} alt="Where's Dad's camera?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
             )}
             <div className="grid grid-cols-3 gap-3">
               {q.options.map((opt, i) => {
