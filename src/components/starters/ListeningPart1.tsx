@@ -12,7 +12,6 @@ const ListeningPart1 = () => {
   const handleNameClick = (name: string) => {
     if (checked) return;
     if (matches[name]) {
-      // Remove existing match
       const newMatches = { ...matches };
       delete newMatches[name];
       setMatches(newMatches);
@@ -23,7 +22,6 @@ const ListeningPart1 = () => {
 
   const handlePersonClick = (personId: string) => {
     if (checked || !selectedName) return;
-    // Check if person already matched
     const alreadyMatched = Object.entries(matches).find(([, pid]) => pid === personId);
     if (alreadyMatched) return;
 
@@ -33,8 +31,6 @@ const ListeningPart1 = () => {
 
   const checkAnswers = () => setChecked(true);
   const reset = () => { setMatches({}); setChecked(false); setSelectedName(null); };
-
-  const matchedPersonIds = Object.values(matches);
 
   return (
     <StartersPartCard
@@ -48,64 +44,67 @@ const ListeningPart1 = () => {
       <AudioPlayer src={data.audio} label="Listen to Part 1" />
 
       <div className="mt-6">
-        <p className="text-gray-600 mb-4 text-center font-medium">
-          Click a name, then click the person in the picture to match them.
-        </p>
-
-        {/* Name buttons */}
-        <div className="flex flex-wrap gap-2 justify-center mb-6">
-          {data.names.map((name) => {
-            const isMatched = !!matches[name];
-            const isSelected = selectedName === name;
-            const isCorrect = checked && data.correctMatches[name] === matches[name];
-            const isWrong = checked && isMatched && data.correctMatches[name] !== matches[name];
-
-            return (
-              <button
-                key={name}
-                onClick={() => handleNameClick(name)}
-                className={`px-4 py-2 rounded-xl text-lg font-bold transition-all shadow-sm ${
-                  isSelected
-                    ? 'bg-yellow-400 text-yellow-900 scale-110 shadow-lg'
-                    : isCorrect
-                    ? 'bg-green-400 text-white'
-                    : isWrong
-                    ? 'bg-red-400 text-white'
-                    : isMatched
-                    ? 'bg-purple-400 text-white'
-                    : 'bg-white text-purple-700 border-2 border-purple-300 hover:bg-purple-50'
-                }`}
-                style={{ fontFamily: 'Fredoka, sans-serif' }}
-              >
-                {name}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Scene image + clickable people — 2-col on desktop */}
+        {/* 2-col layout: image left, activity right */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <img src={data.sceneImage} alt="Scene with people" className="w-full rounded-xl shadow-md" />
-          <div className="grid grid-cols-2 gap-2 content-start">
-            {data.people.map((person) => {
-              const matchedBy = Object.entries(matches).find(([, pid]) => pid === person.id);
-              return (
-                <button
-                  key={person.id}
-                  onClick={() => handlePersonClick(person.id)}
-                  className={`p-3 rounded-xl text-sm font-medium transition-all ${
-                    matchedBy
-                      ? 'bg-purple-200 text-purple-800 border-2 border-purple-400'
-                      : selectedName
-                      ? 'bg-yellow-100 text-yellow-800 border-2 border-yellow-300 hover:bg-yellow-200 cursor-pointer animate-pulse'
-                      : 'bg-gray-100 text-gray-600 border-2 border-gray-200'
-                  }`}
-                  style={{ fontFamily: 'Fredoka, sans-serif' }}
-                >
-                  {matchedBy ? `${matchedBy[0]} → ${person.label}` : person.label}
-                </button>
-              );
-            })}
+          <div className="flex flex-col gap-4">
+            <p className="text-gray-600 text-center font-medium">
+              Click a name, then click the person in the picture to match them.
+            </p>
+
+            {/* Name buttons */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {data.names.map((name) => {
+                const isMatched = !!matches[name];
+                const isSelected = selectedName === name;
+                const isCorrect = checked && data.correctMatches[name] === matches[name];
+                const isWrong = checked && isMatched && data.correctMatches[name] !== matches[name];
+
+                return (
+                  <button
+                    key={name}
+                    onClick={() => handleNameClick(name)}
+                    className={`px-4 py-2 rounded-xl text-lg font-bold transition-all shadow-sm ${
+                      isSelected
+                        ? 'bg-yellow-400 text-yellow-900 scale-110 shadow-lg'
+                        : isCorrect
+                        ? 'bg-green-400 text-white'
+                        : isWrong
+                        ? 'bg-red-400 text-white'
+                        : isMatched
+                        ? 'bg-purple-400 text-white'
+                        : 'bg-white text-purple-700 border-2 border-purple-300 hover:bg-purple-50'
+                    }`}
+                    style={{ fontFamily: 'Fredoka, sans-serif' }}
+                  >
+                    {name}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Person tiles */}
+            <div className="grid grid-cols-2 gap-2">
+              {data.people.map((person) => {
+                const matchedBy = Object.entries(matches).find(([, pid]) => pid === person.id);
+                return (
+                  <button
+                    key={person.id}
+                    onClick={() => handlePersonClick(person.id)}
+                    className={`p-3 rounded-xl text-sm font-medium transition-all ${
+                      matchedBy
+                        ? 'bg-purple-200 text-purple-800 border-2 border-purple-400'
+                        : selectedName
+                        ? 'bg-yellow-100 text-yellow-800 border-2 border-yellow-300 hover:bg-yellow-200 cursor-pointer animate-pulse'
+                        : 'bg-gray-100 text-gray-600 border-2 border-gray-200'
+                    }`}
+                    style={{ fontFamily: 'Fredoka, sans-serif' }}
+                  >
+                    {matchedBy ? `${matchedBy[0]} → ${person.label}` : person.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
