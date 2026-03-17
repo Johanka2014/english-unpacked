@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Clock, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, BookOpen, MapPin } from 'lucide-react';
 
 const prepositionCards = [
   {
@@ -13,6 +13,13 @@ const prepositionCards = [
     icon: Clock,
     path: '/prepositions-of-time',
     color: 'text-amber-600',
+  },
+  {
+    title: 'Prepositions of Place',
+    description: 'Practice in front of, behind, above, below, into, out of, up, over and more with interactive choose-the-correct-word exercises',
+    icon: MapPin,
+    path: '/prepositions-of-place',
+    color: 'text-emerald-600',
   },
   {
     title: 'Verbs & Adjectives + Prepositions',
