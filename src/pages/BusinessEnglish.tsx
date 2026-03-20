@@ -11,6 +11,7 @@ import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 
 const BusinessEnglish = () => {
+  const { user } = useAuth();
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
