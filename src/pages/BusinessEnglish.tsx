@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Laptop, CheckCircle, ExternalLink, Plane } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { BookOpen, Laptop, CheckCircle, Plane, Lock, Sparkles } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
 import businessMeetingImage from "@/assets/business-meeting.webp";
