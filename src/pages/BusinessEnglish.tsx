@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Laptop, CheckCircle, ExternalLink, Plane } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { BookOpen, Laptop, CheckCircle, Plane, Lock, Sparkles } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import businessBenchmarkImage from "@/assets/business-benchmark.jpg";
 import businessVocabAppImage from "@/assets/business-vocab-app-thumbnail.jpg";
 import businessMeetingImage from "@/assets/business-meeting.webp";
@@ -10,6 +11,7 @@ import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 
 const BusinessEnglish = () => {
+  const { user } = useAuth();
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -172,18 +174,26 @@ const BusinessEnglish = () => {
         </div>
       </section>
 
-      {/* English for Presentations Section */}
+      {/* English for Presentations Section - Preview */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-first lg:order-last">
-              <Card className="service-card overflow-hidden">
-                <CardContent className="p-0">
+              <Card className="service-card overflow-hidden relative">
+                <CardContent className="p-0 relative">
                   <img 
                     src={businessVocabAppImage} 
                     alt="English for Presentations interactive learning exercises"
                     className="w-full h-auto object-cover"
                   />
+                  {!user && (
+                    <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center">
+                      <div className="text-center p-6">
+                        <Lock className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                        <p className="text-sm text-muted-foreground font-medium">Members only</p>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -192,26 +202,55 @@ const BusinessEnglish = () => {
               <h2 className="text-4xl font-bold text-foreground mb-6 font-merriweather">
                 English for Presentations
               </h2>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Master the art of presenting in English. From welcoming your audience and structuring your talk 
                 to creating attention-grabbing openings and dealing with nervousness — build the confidence to 
                 deliver impactful business presentations.
               </p>
-              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Practice with interactive exercises including fill-in-the-blanks, drag-and-drop activities, 
-                matching exercises, listening tasks, and more — all designed around real presentation scenarios.
-              </p>
 
-              <Button 
-                size="lg" 
-                className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
-                asChild
-              >
-                <a href="/presentations">
-                  <Laptop className="w-5 h-5 mr-2" />
-                  Start Presentation Practice
-                </a>
-              </Button>
+              {/* Preview of activities */}
+              <Card className="mb-6 border-dashed">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-brand-royal" />
+                    Sample Activities Inside
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <ul className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Fill-in-the-blanks</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Drag & drop</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Matching exercises</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Listening tasks</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Word ordering</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="w-3.5 h-3.5 text-brand-royal flex-shrink-0" /> Multiple choice</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {user ? (
+                <Button 
+                  size="lg" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                  asChild
+                >
+                  <a href="/presentations">
+                    <Laptop className="w-5 h-5 mr-2" />
+                    Start Presentation Practice
+                  </a>
+                </Button>
+              ) : (
+                <Button 
+                  size="lg" 
+                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200"
+                  asChild
+                >
+                  <a href="/auth">
+                    <Lock className="w-5 h-5 mr-2" />
+                    Sign In to Access Activities
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
         </div>
