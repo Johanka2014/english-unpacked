@@ -172,6 +172,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'grammar-workshop', title: 'Grammar Workshop: Contrasting Ideas', description: 'Learn to use although, however, on the other hand, in spite of and despite', type: 'grammar', content: true },
       { id: 'talking-point', title: 'Talking Point: Agents and Distributors', description: 'Gap-fill and discussion: agents, distributors and joint ventures', type: 'speaking', content: true },
       { id: 'writing-proposal', title: 'Writing: A Distributor Proposal', description: 'Write a proposal recommending a distributor using the adverts and model proposal', type: 'writing', content: true },
+      { id: 'vocabulary', title: 'Vocabulary Practice', description: 'Odd one out, compound nouns and adjectives exercises', type: 'vocabulary', content: true },
     ],
   },
   {
