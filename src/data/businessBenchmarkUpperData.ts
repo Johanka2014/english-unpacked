@@ -168,7 +168,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'listening', title: 'Listening: A New Location in Scotland', description: 'Listen and complete notes about opening a facility in Scotland', type: 'listening', content: true },
       { id: 'reading', title: 'Reading: Glasgow or Edinburgh?', description: 'Match Alicia\'s notes to the correct city using Scottish Enterprise information', type: 'reading', content: true },
       { id: 'reading-proposal', title: 'Reading: A Proposal', description: 'Read and complete a business proposal with gap-fill exercise', type: 'reading', content: true },
-      { id: 'writing', title: 'Writing', description: 'A proposal', type: 'writing' },
+      { id: 'writing', title: 'Writing: Making Recommendations', description: 'Learn recommendation phrases, highlight them in a proposal, and write your own', type: 'writing', content: true },
       { id: 'speaking', title: 'Speaking', description: 'Discussions: Extra information; What is important when starting in a new location?; Which city?', type: 'speaking' },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Agents vs. distributors vs. joint ventures', type: 'vocabulary' },
     ],
