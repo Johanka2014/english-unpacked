@@ -13,6 +13,7 @@ import SpeakingUnit10 from '@/components/bb-upper/SpeakingUnit10';
 import Listening2Unit10 from '@/components/bb-upper/Listening2Unit10';
 import TalkingPointUnit10 from '@/components/bb-upper/TalkingPointUnit10';
 import GrammarWorkshopUnit10 from '@/components/bb-upper/GrammarWorkshopUnit10';
+import GettingStartedUnit11 from '@/components/bb-upper/GettingStartedUnit11';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
