@@ -170,7 +170,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'reading-proposal', title: 'Reading: A Proposal', description: 'Read and complete a business proposal with gap-fill exercise', type: 'reading', content: true },
       { id: 'writing', title: 'Writing: Making Recommendations', description: 'Learn recommendation phrases, highlight them in a proposal, and write your own', type: 'writing', content: true },
       { id: 'grammar-workshop', title: 'Grammar Workshop: Contrasting Ideas', description: 'Learn to use although, however, on the other hand, in spite of and despite', type: 'grammar', content: true },
-      { id: 'speaking', title: 'Speaking', description: 'Discussions: Extra information; What is important when starting in a new location?; Which city?', type: 'speaking' },
+      { id: 'talking-point', title: 'Talking Point: Agents and Distributors', description: 'Gap-fill and discussion: agents, distributors and joint ventures', type: 'speaking', content: true },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Agents vs. distributors vs. joint ventures', type: 'vocabulary' },
     ],
   },
