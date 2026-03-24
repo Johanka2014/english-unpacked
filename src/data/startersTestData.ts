@@ -176,9 +176,9 @@ export const test1ListeningPart3: ListeningPart3Data = {
       id: 1,
       question: "What's Kim wearing?",
       options: [
-        { id: "A", description: "A blue jumper" },
+        { id: "A", description: "A blue cardigan" },
         { id: "B", description: "A blue t-shirt" },
-        { id: "C", description: "A blue cardigan" },
+        { id: "C", description: "A blue jacket" },
       ],
       correctOption: "B",
     },
@@ -219,6 +219,16 @@ export const test1ListeningPart3: ListeningPart3Data = {
         { id: "A", description: "Hockey" },
         { id: "B", description: "Basketball and Football" },
         { id: "C", description: "Hockey and Basketball" },
+      ],
+      correctOption: "B",
+    },
+    {
+      id: 6,
+      question: "Where is Sue's bike?",
+      options: [
+        { id: "A", description: "At school" },
+        { id: "B", description: "Next to the door" },
+        { id: "C", description: "In the garden" },
       ],
       correctOption: "B",
     },
