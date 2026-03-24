@@ -74,7 +74,7 @@ const GettingStartedUnit11 = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {/* Left column — discussion text */}
             <div className="space-y-6">
               <div className="space-y-3">
