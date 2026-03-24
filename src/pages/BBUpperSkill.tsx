@@ -19,6 +19,7 @@ import ReadingUnit11 from '@/components/bb-upper/ReadingUnit11';
 import ReadingProposalUnit11 from '@/components/bb-upper/ReadingProposalUnit11';
 import WritingUnit11 from '@/components/bb-upper/WritingUnit11';
 import TalkingPointUnit11 from '@/components/bb-upper/TalkingPointUnit11';
+import WritingProposalUnit11 from '@/components/bb-upper/WritingProposalUnit11';
 import GrammarWorkshopUnit11 from '@/components/bb-upper/GrammarWorkshopUnit11';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
