@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MessageSquare, CheckCircle2, XCircle, RotateCcw } from "lucide-react";
+import businessTalkingPoint from "@/assets/bb-upper/business-talking-point.jpg";
 
 const options = ["agents", "distributors", "joint ventures"];
 
