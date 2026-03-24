@@ -353,7 +353,192 @@ const GrammarWorkshopUnit11 = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* ── Exercise 4: Join sentences ── */}
+      <JoinSentencesExercise />
     </div>
+  );
+};
+
+/* ── Exercise 4: Join sentences using contrast words ── */
+
+interface JoinItem {
+  id: number;
+  sentenceA: string;
+  sentenceB: string;
+  keyword: string;
+  acceptedAnswers: string[];
+}
+
+const joinItems: JoinItem[] = [
+  {
+    id: 1, sentenceA: "He's very competent.", sentenceB: "He never got promotion.",
+    keyword: "despite",
+    acceptedAnswers: [
+      "despite being very competent, he never got promotion",
+      "despite being very competent he never got promotion",
+      "he never got promotion despite being very competent",
+      "despite his competence, he never got promotion",
+      "despite his competence he never got promotion",
+    ],
+  },
+  {
+    id: 2, sentenceA: "They had a large budget.", sentenceB: "They ran short of money.",
+    keyword: "although",
+    acceptedAnswers: [
+      "although they had a large budget, they ran short of money",
+      "although they had a large budget they ran short of money",
+      "they ran short of money although they had a large budget",
+    ],
+  },
+  {
+    id: 3, sentenceA: "We carried out market research.", sentenceB: "Our product failed.",
+    keyword: "in spite of",
+    acceptedAnswers: [
+      "in spite of carrying out market research, our product failed",
+      "in spite of carrying out market research our product failed",
+      "our product failed in spite of carrying out market research",
+      "in spite of the market research, our product failed",
+      "in spite of the market research our product failed",
+    ],
+  },
+  {
+    id: 4, sentenceA: "The company was extremely successful.", sentenceB: "It had cashflow problems.",
+    keyword: "although",
+    acceptedAnswers: [
+      "although the company was extremely successful, it had cashflow problems",
+      "although the company was extremely successful it had cashflow problems",
+      "the company had cashflow problems although it was extremely successful",
+    ],
+  },
+  {
+    id: 5, sentenceA: "We decided to rent the premises.", sentenceB: "The premises were extremely expensive.",
+    keyword: "despite",
+    acceptedAnswers: [
+      "we decided to rent the premises despite them being extremely expensive",
+      "despite the premises being extremely expensive, we decided to rent them",
+      "despite the premises being extremely expensive we decided to rent them",
+      "we decided to rent the premises despite the fact that they were extremely expensive",
+      "despite being extremely expensive, we decided to rent the premises",
+    ],
+  },
+  {
+    id: 6, sentenceA: "Our agent didn't understand the market.", sentenceB: "He was a local man.",
+    keyword: "although",
+    acceptedAnswers: [
+      "although he was a local man, our agent didn't understand the market",
+      "although he was a local man our agent didn't understand the market",
+      "our agent didn't understand the market although he was a local man",
+      "although our agent was a local man, he didn't understand the market",
+      "although our agent was a local man he didn't understand the market",
+    ],
+  },
+  {
+    id: 7, sentenceA: "We spent over £1m on advertising.", sentenceB: "Brand awareness didn't improve.",
+    keyword: "in spite of",
+    acceptedAnswers: [
+      "in spite of spending over £1m on advertising, brand awareness didn't improve",
+      "in spite of spending over £1m on advertising brand awareness didn't improve",
+      "brand awareness didn't improve in spite of spending over £1m on advertising",
+      "in spite of the £1m spent on advertising, brand awareness didn't improve",
+    ],
+  },
+];
+
+const JoinSentencesExercise = () => {
+  const [answers, setAnswers] = useState<string[]>(joinItems.map(() => ""));
+  const [checked, setChecked] = useState(false);
+  const [results, setResults] = useState<boolean[]>([]);
+
+  const handleChange = (i: number, val: string) => {
+    if (checked) return;
+    setAnswers((prev) => { const u = [...prev]; u[i] = val; return u; });
+  };
+
+  const handleCheck = () => {
+    const r = joinItems.map((item, i) => {
+      const userAns = answers[i].trim().toLowerCase().replace(/[.,!?]+$/, "");
+      return item.acceptedAnswers.some((a) => a.toLowerCase() === userAns);
+    });
+    setResults(r);
+    setChecked(true);
+  };
+
+  const handleReset = () => {
+    setAnswers(joinItems.map(() => ""));
+    setChecked(false);
+    setResults([]);
+  };
+
+  const correctCount = results.filter(Boolean).length;
+
+  return (
+    <Card>
+      <CardContent className="p-6">
+        <div className="flex items-center gap-2 mb-2">
+          <PenLine className="h-5 w-5 text-primary" />
+          <h3 className="text-lg font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">4</span>
+            Join the sentences using the word given
+          </h3>
+        </div>
+        <p className="text-sm text-muted-foreground mb-5">
+          Rewrite each pair of sentences as one sentence using the contrast word in brackets.
+        </p>
+
+        <div className="space-y-5">
+          {joinItems.map((item, i) => {
+            const isCorrect = checked && results[i];
+            const isWrong = checked && !results[i];
+            return (
+              <div key={item.id} className="space-y-2">
+                <div className="flex gap-2 items-start">
+                  <span className="font-bold text-primary w-6 flex-shrink-0">{item.id}</span>
+                  <div>
+                    <p className="text-sm text-foreground">{item.sentenceA} {item.sentenceB} <em className="text-primary font-medium">({item.keyword})</em></p>
+                  </div>
+                </div>
+                <div className="ml-8">
+                  <div className="relative">
+                    <Input
+                      value={answers[i]}
+                      onChange={(e) => handleChange(i, e.target.value)}
+                      disabled={checked}
+                      placeholder="Write your combined sentence here…"
+                      className={`text-sm pr-8
+                        ${isCorrect ? "border-green-500 bg-green-50 dark:bg-green-950/20" : ""}
+                        ${isWrong ? "border-red-500 bg-red-50 dark:bg-red-950/20" : ""}
+                      `}
+                    />
+                    {isCorrect && <CheckCircle2 className="h-4 w-4 text-green-600 absolute right-2 top-1/2 -translate-y-1/2" />}
+                    {isWrong && <XCircle className="h-4 w-4 text-red-600 absolute right-2 top-1/2 -translate-y-1/2" />}
+                  </div>
+                  {isWrong && (
+                    <p className="text-xs text-green-600 dark:text-green-400 mt-1 italic">
+                      Suggested: {item.acceptedAnswers[0].charAt(0).toUpperCase() + item.acceptedAnswers[0].slice(1)}.
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center gap-3 mt-6">
+          <Button onClick={handleCheck} disabled={checked || answers.some((a) => !a.trim())} className="bg-primary hover:bg-primary/90">
+            Check Answers
+          </Button>
+          <Button onClick={handleReset} variant="outline" className="gap-2">
+            <RotateCcw className="h-4 w-4" /> Reset
+          </Button>
+          {checked && (
+            <span className="text-sm font-medium">
+              {correctCount}/{joinItems.length} correct{correctCount === joinItems.length && " 🎉"}
+            </span>
+          )}
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
