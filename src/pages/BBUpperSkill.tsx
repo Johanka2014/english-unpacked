@@ -21,6 +21,7 @@ import WritingUnit11 from '@/components/bb-upper/WritingUnit11';
 import TalkingPointUnit11 from '@/components/bb-upper/TalkingPointUnit11';
 import WritingProposalUnit11 from '@/components/bb-upper/WritingProposalUnit11';
 import GrammarWorkshopUnit11 from '@/components/bb-upper/GrammarWorkshopUnit11';
+import VocabularyUnit11 from '@/components/bb-upper/VocabularyUnit11';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
@@ -89,6 +90,8 @@ const BBUpperSkill = () => {
           <TalkingPointUnit11 />
         ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'writing-proposal' ? (
           <WritingProposalUnit11 />
+        ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'vocabulary' ? (
+          <VocabularyUnit11 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
