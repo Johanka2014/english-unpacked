@@ -227,10 +227,10 @@ export const test1ListeningPart3: ListeningPart3Data = {
       question: "Where is Sue's bike?",
       options: [
         { id: "A", description: "At school" },
-        { id: "B", description: "Next to the door" },
+        { id: "B", description: "In front of the house" },
         { id: "C", description: "In the garden" },
       ],
-      correctOption: "B",
+      correctOption: "C",
     },
   ],
 };
