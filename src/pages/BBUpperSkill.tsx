@@ -16,6 +16,7 @@ import GrammarWorkshopUnit10 from '@/components/bb-upper/GrammarWorkshopUnit10';
 import GettingStartedUnit11 from '@/components/bb-upper/GettingStartedUnit11';
 import ListeningUnit11 from '@/components/bb-upper/ListeningUnit11';
 import ReadingUnit11 from '@/components/bb-upper/ReadingUnit11';
+import ReadingProposalUnit11 from '@/components/bb-upper/ReadingProposalUnit11';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
@@ -74,6 +75,8 @@ const BBUpperSkill = () => {
           <ListeningUnit11 />
         ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'reading' ? (
           <ReadingUnit11 />
+        ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'reading-proposal' ? (
+          <ReadingProposalUnit11 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
