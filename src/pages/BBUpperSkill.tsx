@@ -69,6 +69,8 @@ const BBUpperSkill = () => {
           <GrammarWorkshopUnit10 />
         ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'getting-started' ? (
           <GettingStartedUnit11 />
+        ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'listening' ? (
+          <ListeningUnit11 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">

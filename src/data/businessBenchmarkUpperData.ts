@@ -165,6 +165,7 @@ export const bbUpperModules: BBUpperModule[] = [
     title: 'Starting Up in a New Location',
     skills: [
       { id: 'getting-started', title: 'Getting Started', description: 'Read an email about opening an R&D facility in Scotland; Discuss location factors', type: 'speaking', content: true },
+      { id: 'listening', title: 'Listening', description: 'A new location in Scotland — listen and complete notes', type: 'listening', content: true },
       { id: 'reading', title: 'Reading', description: 'A new location in Scotland', type: 'reading' },
       { id: 'writing', title: 'Writing', description: 'A proposal', type: 'writing' },
       { id: 'speaking', title: 'Speaking', description: 'Discussions: Extra information; What is important when starting in a new location?; Which city?', type: 'speaking' },
