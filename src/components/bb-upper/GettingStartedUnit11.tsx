@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MessageCircle, Mail } from 'lucide-react';
+import businessDiscussion from '@/assets/bb-upper/business-discussion.jpg';
 
 const locationFactors = [
   'Will you be able to find staff?',
