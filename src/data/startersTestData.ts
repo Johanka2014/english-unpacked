@@ -160,11 +160,11 @@ export const test1ListeningPart2: ListeningPart2Data = {
     { question: "What's the boy's name?", answer: "Tom" },
   ],
   questions: [
-    { id: 1, question: "How many sisters has Tom got?", answer: "3", type: "number" },
-    { id: 2, question: "What's Lucy's sister's name?", answer: "Grace", type: "name" },
-    { id: 3, question: "How old is Lucy's cat?", answer: "2", type: "number" },
-    { id: 4, question: "What's Lucy's favourite cat's name?", answer: "Pat", type: "name" },
-    { id: 5, question: "How many cats has Lucy got?", answer: "5", type: "number" },
+    { id: 1, question: "How many sisters has Tom got?", answer: "1", type: "number" },
+    { id: 2, question: "What's Lucy's sister's name?", answer: "Pat", type: "name" },
+    { id: 3, question: "How old is Lucy's cat?", answer: "12", type: "number" },
+    { id: 4, question: "What's Lucy's favourite cat's name?", answer: "Sam", type: "name" },
+    { id: 5, question: "How many cats has Lucy got?", answer: "3", type: "number" },
   ],
 };
 
