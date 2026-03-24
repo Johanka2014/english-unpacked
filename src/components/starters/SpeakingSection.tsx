@@ -1,5 +1,7 @@
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
+import { Button } from '@/components/ui/button';
+import { ExternalLink } from 'lucide-react';
 import { test1Speaking } from '@/data/startersTestData';
 
 const SpeakingSection = () => {
@@ -56,6 +58,20 @@ const SpeakingSection = () => {
             alt="Object cards for speaking"
             className="w-full max-w-3xl mx-auto rounded-xl shadow-lg"
           />
+        </div>
+        {/* Wordwall Activity */}
+        <div className="mt-6 text-center">
+          <Button
+            asChild
+            size="lg"
+            className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold rounded-xl shadow-md"
+            style={{ fontFamily: 'Fredoka, sans-serif' }}
+          >
+            <a href="https://wordwall.net/resource/110056611" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-5 w-5 mr-2" />
+              Speaking Practice on Wordwall
+            </a>
+          </Button>
         </div>
       </div>
     </StartersPartCard>
