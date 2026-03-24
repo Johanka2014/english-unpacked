@@ -60,11 +60,11 @@ const SpeakingSection = () => {
           />
         </div>
         {/* Wordwall Activity */}
-        <div className="mt-6 text-center">
+        <div className="max-w-3xl mx-auto mt-6 text-center">
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold rounded-xl shadow-md"
+            className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold rounded-xl shadow-md"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
             <a href="https://wordwall.net/resource/110056611" target="_blank" rel="noopener noreferrer">
