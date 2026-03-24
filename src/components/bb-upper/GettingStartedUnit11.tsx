@@ -99,12 +99,11 @@ const GettingStartedUnit11 = () => {
               </div>
             </div>
 
-            {/* Right column — image */}
-            <div>
+            <div className="hidden md:block">
               <img
                 src={businessDiscussion}
                 alt="Business professionals discussing options in an office"
-                className="w-full rounded-lg shadow-md"
+                className="w-full h-full object-cover rounded-lg shadow-md"
                 loading="lazy"
                 width={896}
                 height={640}
