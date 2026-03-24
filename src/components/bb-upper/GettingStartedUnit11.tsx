@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MessageCircle, Mail } from 'lucide-react';
+import businessDiscussion from '@/assets/bb-upper/business-discussion.jpg';
 
 const locationFactors = [
   'Will you be able to find staff?',
@@ -73,24 +74,41 @@ const GettingStartedUnit11 = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="space-y-3">
-            <p className="text-sm font-semibold text-foreground">
-              <span className="text-primary font-bold mr-2">2</span>
-              Discuss what extra information Alicia needs about BioBok's plans before she starts investigating.
-            </p>
-          </div>
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            {/* Left column — discussion text */}
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-foreground">
+                  <span className="text-primary font-bold mr-2">2</span>
+                  Discuss what extra information Alicia needs about BioBok's plans before she starts investigating.
+                </p>
+              </div>
 
-          <div className="space-y-3">
-            <p className="text-sm font-semibold text-foreground">
-              <span className="text-primary font-bold mr-2">3</span>
-              Discuss what factors are important when choosing a location for a new operation. Think about these questions.
-            </p>
-            <div className="rounded-lg border bg-muted/40 p-5 max-w-xl">
-              <ul className="list-disc list-inside space-y-2 text-sm text-foreground">
-                {locationFactors.map((factor, i) => (
-                  <li key={i}>{factor}</li>
-                ))}
-              </ul>
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-foreground">
+                  <span className="text-primary font-bold mr-2">3</span>
+                  Discuss what factors are important when choosing a location for a new operation. Think about these questions.
+                </p>
+                <div className="rounded-lg border bg-muted/40 p-5">
+                  <ul className="list-disc list-inside space-y-2 text-sm text-foreground">
+                    {locationFactors.map((factor, i) => (
+                      <li key={i}>{factor}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Right column — image */}
+            <div>
+              <img
+                src={businessDiscussion}
+                alt="Business professionals discussing options in an office"
+                className="w-full rounded-lg shadow-md"
+                loading="lazy"
+                width={896}
+                height={640}
+              />
             </div>
           </div>
         </CardContent>
