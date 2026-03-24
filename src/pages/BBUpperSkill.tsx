@@ -17,6 +17,7 @@ import GettingStartedUnit11 from '@/components/bb-upper/GettingStartedUnit11';
 import ListeningUnit11 from '@/components/bb-upper/ListeningUnit11';
 import ReadingUnit11 from '@/components/bb-upper/ReadingUnit11';
 import ReadingProposalUnit11 from '@/components/bb-upper/ReadingProposalUnit11';
+import WritingUnit11 from '@/components/bb-upper/WritingUnit11';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
