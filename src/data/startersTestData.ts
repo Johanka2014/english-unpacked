@@ -139,7 +139,7 @@ export const test1ListeningPart1: ListeningPart1Data = {
     { id: "p3", label: "Boy who is sleeping", position: "center-left" },
     { id: "p4", label: "Girl with the camera", position: "center" },
     { id: "p5", label: "Boy with the orange juice", position: "center-right" },
-    { id: "p6", label: "Girl with ice cream", position: "bottom-left" },
+    { id: "p6", label: "Boy with the burger", position: "bottom-left" },
     { id: "p7", label: "Boy on bike", position: "bottom-center" },
     { id: "p8", label: "Girl waving", position: "bottom-right" },
   ],
@@ -149,6 +149,7 @@ export const test1ListeningPart1: ListeningPart1Data = {
     Matt: "p1",
     Nick: "p5",
     Hugo: "p3",
+    Mark: "p6",
   },
 };
 
