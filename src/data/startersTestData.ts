@@ -134,11 +134,11 @@ export const test1ListeningPart1: ListeningPart1Data = {
   sceneImage: listeningPart1Scene,
   names: ["Alice", "Eva", "Matt", "Nick", "Hugo", "Grace", "Mark"],
   people: [
-    { id: "p1", label: "Boy with ball", position: "top-left" },
-    { id: "p2", label: "Girl with hat", position: "top-right" },
-    { id: "p3", label: "Boy painting", position: "center-left" },
-    { id: "p4", label: "Girl reading", position: "center" },
-    { id: "p5", label: "Boy with dog", position: "center-right" },
+    { id: "p1", label: "Boy on his phone", position: "top-left" },
+    { id: "p2", label: "Girl holding the cake", position: "top-right" },
+    { id: "p3", label: "Boy who is sleeping", position: "center-left" },
+    { id: "p4", label: "Girl with the camera", position: "center" },
+    { id: "p5", label: "Boy with the orange juice", position: "center-right" },
     { id: "p6", label: "Girl with ice cream", position: "bottom-left" },
     { id: "p7", label: "Boy on bike", position: "bottom-center" },
     { id: "p8", label: "Girl waving", position: "bottom-right" },
@@ -149,7 +149,6 @@ export const test1ListeningPart1: ListeningPart1Data = {
     Matt: "p1",
     Nick: "p5",
     Hugo: "p3",
-    Grace: "p6",
   },
 };
 
