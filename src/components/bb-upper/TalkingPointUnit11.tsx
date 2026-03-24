@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MessageSquare, CheckCircle2, XCircle, RotateCcw } from "lucide-react";
+import businessTalkingPoint from "@/assets/bb-upper/business-talking-point.jpg";
 
 const options = ["agents", "distributors", "joint ventures"];
 
@@ -154,10 +155,22 @@ const TalkingPointUnit11 = () => {
               Discussion
             </h3>
           </div>
-          <div className="bg-primary/10 rounded-lg p-5 border border-primary/20">
-            <p className="text-foreground font-medium text-lg">
-              Discuss in small groups what you think the advantages and disadvantages of each are.
-            </p>
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            <div className="bg-primary/10 rounded-lg p-5 border border-primary/20 flex items-center">
+              <p className="text-foreground font-medium text-lg">
+                Discuss in small groups what you think the advantages and disadvantages of each are.
+              </p>
+            </div>
+            <div className="hidden md:block">
+              <img
+                src={businessTalkingPoint}
+                alt="Business professionals having a group discussion in an office"
+                className="w-full h-full object-cover rounded-lg shadow-md"
+                loading="lazy"
+                width={896}
+                height={640}
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
