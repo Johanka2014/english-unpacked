@@ -74,7 +74,7 @@ const GettingStartedUnit11 = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
             {/* Left column — discussion text */}
             <div className="space-y-6">
               <div className="space-y-3">
@@ -99,12 +99,11 @@ const GettingStartedUnit11 = () => {
               </div>
             </div>
 
-            {/* Right column — image */}
-            <div>
+            <div className="hidden md:block">
               <img
                 src={businessDiscussion}
                 alt="Business professionals discussing options in an office"
-                className="w-full rounded-lg shadow-md"
+                className="w-full h-full object-cover rounded-lg shadow-md"
                 loading="lazy"
                 width={896}
                 height={640}
