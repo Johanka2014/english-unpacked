@@ -1,5 +1,7 @@
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
+import { Button } from '@/components/ui/button';
+import { ExternalLink } from 'lucide-react';
 import { test1Speaking } from '@/data/startersTestData';
 
 const SpeakingSection = () => {
