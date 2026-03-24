@@ -280,7 +280,7 @@ export const test1ReadingPart3: ReadingPart3Data = {
     { id: 2, scrambledLetters: ["r", "n", "a", "i", "t"], answer: "train", emoji: "🚂" },
     { id: 3, scrambledLetters: ["r", "o", "b", "o", "t"], answer: "robot", emoji: "🤖" },
     { id: 4, scrambledLetters: ["l", "o", "r", "r", "y"], answer: "lorry", emoji: "🚛" },
-    { id: 5, scrambledLetters: ["c", "o", "p", "t", "e", "r"], answer: "copter", emoji: "🚁" },
+    { id: 5, scrambledLetters: ["c", "h", "o", "e", "p", "l", "t", "i", "e", "r"], answer: "helicopter", emoji: "🚁" },
   ],
 };
 
