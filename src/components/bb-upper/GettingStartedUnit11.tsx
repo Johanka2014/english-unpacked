@@ -1,14 +1,14 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MessageCircle, Mail } from 'lucide-react';
-import businessDiscussion from '@/assets/bb-upper/business-discussion.jpg';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MessageCircle, Mail } from "lucide-react";
+import businessDiscussion from "@/assets/bb-upper/business-discussion.jpg";
 
 const locationFactors = [
-  'Will you be able to find staff?',
-  'What are communications and infrastructure like?',
-  'How close is it to your markets?',
-  'Are your suppliers within easy reach?',
-  'How will the new location affect your costs?',
-  'How will the new location affect the image of the company?',
+  "Will you be able to find staff?",
+  "What are communications and infrastructure like?",
+  "How close is it to your markets?",
+  "Are your suppliers within easy reach?",
+  "How will the new location affect your costs?",
+  "How will the new location affect the image of the company?",
 ];
 
 const GettingStartedUnit11 = () => {
@@ -26,7 +26,8 @@ const GettingStartedUnit11 = () => {
           <div className="space-y-3">
             <p className="text-sm font-semibold text-foreground">
               <span className="text-primary font-bold mr-2">1</span>
-              Work in small groups. Read the following email which Charles Langley, BioBok's CEO, sent to Alicia Flores, BioBok's operations manager in Europe.
+              Work in small groups. Read the following email which Charles Langley, BioBok's CEO, sent to Alicia Flores,
+              BioBok's operations manager in Europe.
             </p>
 
             {/* Email mockup */}
@@ -51,7 +52,10 @@ const GettingStartedUnit11 = () => {
               <div className="bg-card p-5 text-sm leading-relaxed text-foreground space-y-4">
                 <p>Dear Alicia,</p>
                 <p>
-                  Following recent discussions with divisional heads, the board has taken the decision to open an R&D facility in Scotland, UK, where a lot of ground-breaking biotech work is taking place. We would like the facility to be close to either Edinburgh or Glasgow. Please investigate and write a brief proposal for the board recommending which city we should choose and suggesting our next course of action.
+                  Following recent discussions with divisional heads, the board has taken the decision to open an R&D
+                  facility in Scotland, UK, where a lot of ground-breaking biotech work is taking place. We would like
+                  the facility to be close to either Edinburgh or Glasgow. Please investigate and write a brief proposal
+                  for the board recommending which city we should choose and suggesting our next course of action.
                 </p>
                 <p>I look forward to hearing from you by the end of next week.</p>
                 <div className="pt-2">
@@ -87,7 +91,8 @@ const GettingStartedUnit11 = () => {
               <div className="space-y-3">
                 <p className="text-sm font-semibold text-foreground">
                   <span className="text-primary font-bold mr-2">3</span>
-                  Discuss what factors are important when choosing a location for a new operation. Think about these questions.
+                  Discuss what factors are important when choosing a location for a new operation. Think about these
+                  questions.
                 </p>
                 <div className="rounded-lg border bg-muted/40 p-5">
                   <ul className="list-disc list-inside space-y-2 text-sm text-foreground">
@@ -103,7 +108,7 @@ const GettingStartedUnit11 = () => {
               <img
                 src={businessDiscussion}
                 alt="Business professionals discussing options in an office"
-                className="w-full h-full object-cover rounded-lg shadow-md"
+                className="w-80% h-full object-cover rounded-lg shadow-md"
                 loading="lazy"
                 width={896}
                 height={640}
