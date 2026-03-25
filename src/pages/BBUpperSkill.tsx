@@ -49,7 +49,7 @@ const BBUpperSkill = () => {
         </div>
       </section>
 
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 bg-gradient-to-b from-blue-50/60 via-blue-50/30 to-white dark:from-blue-950/20 dark:via-blue-950/10 dark:to-background rounded-b-2xl">
         <div className="mb-8">
           <Link to={`/bb-upper/${mod.id}`}>
             <Button variant="ghost" className="gap-2">
