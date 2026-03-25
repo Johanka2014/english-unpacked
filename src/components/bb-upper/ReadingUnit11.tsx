@@ -53,9 +53,7 @@ const ReadingUnit11 = () => {
         <CardContent className="p-6">
           <div className="flex items-center gap-2 mb-4">
             <BookOpen className="h-5 w-5 text-primary" />
-            <h3 className="text-xl font-semibold font-merriweather text-foreground">
-              Glasgow or Edinburgh?
-            </h3>
+            <h3 className="text-xl font-semibold font-merriweather text-foreground">Glasgow or Edinburgh?</h3>
           </div>
 
           <div className="space-y-3 mb-6">
@@ -65,7 +63,8 @@ const ReadingUnit11 = () => {
             </p>
             <p className="text-muted-foreground">
               <span className="text-primary font-bold mr-2">2</span>
-              Read the two print-outs from the Scottish Enterprise website. Which city does each of Alicia's notes refer to?
+              Read the two print-outs from the Scottish Enterprise website. Which city does each of Alicia's notes refer
+              to?
             </p>
           </div>
 
@@ -112,8 +111,8 @@ const ReadingUnit11 = () => {
                           results?.[note.id] === "correct"
                             ? "border-green-500 bg-green-50 dark:bg-green-950/30"
                             : results?.[note.id] === "incorrect"
-                            ? "border-red-500 bg-red-50 dark:bg-red-950/30"
-                            : ""
+                              ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                              : ""
                         }`}
                       >
                         <SelectValue placeholder="Choose city" />
@@ -126,9 +125,7 @@ const ReadingUnit11 = () => {
                     {results?.[note.id] === "correct" && (
                       <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     )}
-                    {results?.[note.id] === "incorrect" && (
-                      <XCircle className="h-4 w-4 text-red-500 flex-shrink-0" />
-                    )}
+                    {results?.[note.id] === "incorrect" && <XCircle className="h-4 w-4 text-red-500 flex-shrink-0" />}
                   </div>
                 </div>
               ))}
@@ -145,7 +142,7 @@ const ReadingUnit11 = () => {
                     <li key={note.id} className="text-red-600 dark:text-red-400">
                       Note {note.id}: <strong>{note.answer}</strong>
                     </li>
-                  ) : null
+                  ) : null,
                 )}
               </ul>
             </div>
@@ -180,7 +177,7 @@ const ReadingUnit11 = () => {
               Discussion
             </h3>
           </div>
-          <p className="text-muted-foreground mb-3">Work in small groups. Discuss the situation and decide:</p>
+          <p className="text-muted-foreground mb-3">Discuss the situation and decide:</p>
           <ul className="list-disc list-inside space-y-2 text-muted-foreground">
             <li>which information is important when deciding where BioBok should locate its premises</li>
             <li>which city would be more suitable.</li>
