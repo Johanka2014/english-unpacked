@@ -38,29 +38,29 @@ const notes: GapNote[] = [
 ];
 
 const TRANSCRIPT = `C: Charles Langley.
-A: Hi, Charles. It's Alicia here, Alicia Flores.
-C: Oh, hello, Alicia. How are you doing?
-A: Fine, thanks, Charles, and you?
-C: Very well. And what can I do for you?
-A: Well, it's about your email. I have a few questions I thought I'd better just clear up quickly before I get down to investigating.
-C: OK, and what are they?
-A: Well, it would be useful to know what sort of investment you're thinking of making in Scotland.
-C: Well, this is all a bit hush-hush at this stage, so I didn't want to put it in an email straight away, but we're thinking in terms of two million pounds in the first year – that's for laboratories, equipment and offices.
-A: Wow! A major move, then.
-C: Sure, but for biotechnology, Scotland's one of the places to be at the moment, and we've got to keep up with what's happening there.
-A: So there'll be quite a lot of people employed there, I take it.
-C: We thought that we'd start with ten drawn from different divisions around the world, and then, if things go well, we'd build up to about 60 people.
-A: All recruited from our other divisions?
-C: A few, because we want a bit of cross-fertilisation of ideas – that's one of our objectives – but mainly recruited locally.
-A: OK, that sounds interesting.
-C: And we're hoping that there'll be someone suitable from your division to head up the new operation, so keep your eyes open for that, too.
-A: Right.
-C: And one last thing, Alicia.
-A: What's that, Charles?
-C: I hear that in some regions in Europe they offer government grants for companies thinking of moving there. Can you check and see if any are available for Scotland? It could save us some money if there are not too many strings attached.
-A: Sure, I'll get onto all this right away and let you have a proposal in a few days' time.
-C: Great stuff, Alicia. I look forward to that. Bye.
-A: Bye.`;
+A:  Hi, Charles. It's Alicia here, Alicia Flores.
+C:  Oh, hello, Alicia. How are you doing?
+A:  Fine, thanks, Charles, and you?
+C:  Very well. And what can I do for you?
+A:  Well, it's about your email. I have a few questions I thought I'd better just clear up quickly before I get down to investigating.
+C:  OK, and what are they?
+A:  Well, it would be useful to know what sort of investment you're thinking of making in Scotland.
+C:  Well, this is all a bit hush-hush at this stage, so I didn't want to put it in an email straight away, but we're thinking in terms of two million pounds in the first year – that's for laboratories, equipment and offices.
+A:  Wow! A major move, then.
+C:  Sure, but for biotechnology, Scotland's one of the places to be at the moment, and we've got to keep up with what's happening there.
+A:  So there'll be quite a lot of people employed there, I take it.
+C:  We thought that we'd start with ten drawn from different divisions around the world, and then, if things go well, we'd build up to about 60 people.
+A:  All recruited from our other divisions?
+C:  A few, because we want a bit of cross-fertilisation of ideas – that's one of our objectives – but mainly recruited locally.
+A:  OK, that sounds interesting.
+C:  And we're hoping that there'll be someone suitable from your division to head up the new operation, so keep your eyes open for that, too.
+A:  Right.
+C:  And one last thing, Alicia.
+A:  What's that, Charles?
+C:  I hear that in some regions in Europe they offer government grants for companies thinking of moving there. Can you check and see if any are available for Scotland? It could save us some money if there are not too many strings attached.
+A:  Sure, I'll get onto all this right away and let you have a proposal in a few days' time.
+C:  Great stuff, Alicia. I look forward to that. Bye.
+A:  Bye.`;
 
 const ListeningUnit11 = () => {
   const [results, setResults] = useState<Record<number, "correct" | "incorrect" | null>>({});
@@ -94,14 +94,12 @@ const ListeningUnit11 = () => {
         <CardContent className="p-6">
           <div className="flex items-center gap-2 mb-4">
             <Headphones className="h-5 w-5 text-primary" />
-            <h3 className="text-xl font-semibold font-merriweather text-foreground">
-              A new location in Scotland
-            </h3>
+            <h3 className="text-xl font-semibold font-merriweather text-foreground">A new location in Scotland</h3>
           </div>
 
           <p className="text-muted-foreground mb-2">
             <span className="text-primary font-bold mr-2">1</span>
-            Discuss with a partner what sort of information you will need to complete these notes.
+            Discuss what sort of information you will need to complete these notes.
           </p>
 
           <p className="text-muted-foreground mb-6">
@@ -130,17 +128,23 @@ const ListeningUnit11 = () => {
               </h4>
               <div className="space-y-4">
                 {notes.map((note, i) => (
-                  <div key={i} className="flex flex-wrap items-center gap-1 text-foreground text-sm leading-relaxed" style={{ fontFamily: "Georgia, serif" }}>
+                  <div
+                    key={i}
+                    className="flex flex-wrap items-center gap-1 text-foreground text-sm leading-relaxed"
+                    style={{ fontFamily: "Georgia, serif" }}
+                  >
                     <span className="italic">{note.prefix}</span>
                     <span className="relative inline-flex items-center">
                       <Input
-                        ref={(el) => { inputRefs.current[i] = el; }}
+                        ref={(el) => {
+                          inputRefs.current[i] = el;
+                        }}
                         className={`w-36 sm:w-44 h-8 text-sm inline-block mx-1 ${
                           results[i] === "correct"
                             ? "border-green-500 bg-green-50 dark:bg-green-950/30"
                             : results[i] === "incorrect"
-                            ? "border-red-500 bg-red-50 dark:bg-red-950/30"
-                            : ""
+                              ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                              : ""
                         }`}
                         placeholder={`(${i + 1})`}
                         disabled={results[i] === "correct"}
@@ -148,9 +152,7 @@ const ListeningUnit11 = () => {
                       {results[i] === "correct" && (
                         <CheckCircle2 className="h-4 w-4 text-green-600 ml-1 flex-shrink-0" />
                       )}
-                      {results[i] === "incorrect" && (
-                        <XCircle className="h-4 w-4 text-red-500 ml-1 flex-shrink-0" />
-                      )}
+                      {results[i] === "incorrect" && <XCircle className="h-4 w-4 text-red-500 ml-1 flex-shrink-0" />}
                     </span>
                     <span className="italic">{note.suffix}</span>
                   </div>
@@ -169,7 +171,7 @@ const ListeningUnit11 = () => {
                     <li key={i} className="text-red-600 dark:text-red-400">
                       Gap {i + 1}: <strong>{note.answer[0]}</strong>
                     </li>
-                  ) : null
+                  ) : null,
                 )}
               </ul>
             </div>
@@ -198,9 +200,7 @@ const ListeningUnit11 = () => {
       <Accordion type="single" collapsible>
         <AccordionItem value="transcript" className="border rounded-lg">
           <AccordionTrigger className="px-6 hover:no-underline">
-            <span className="flex items-center gap-2 text-foreground font-semibold">
-              📝 Audio Script
-            </span>
+            <span className="flex items-center gap-2 text-foreground font-semibold">📝 Audio Script</span>
           </AccordionTrigger>
           <AccordionContent className="px-6 pb-6">
             <div className="prose prose-sm dark:prose-invert max-w-none">
