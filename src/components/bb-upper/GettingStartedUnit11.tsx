@@ -110,8 +110,8 @@ const GettingStartedUnit11 = () => {
                 alt="Business professionals discussing options in an office"
                 className="w-full h-full object-cover rounded-lg shadow-md"
                 loading="lazy"
-                width={796}
-                height={540}
+                width={696}
+                height={440}
               />
             </div>
           </div>
