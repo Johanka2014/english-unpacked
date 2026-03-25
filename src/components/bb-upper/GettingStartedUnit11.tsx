@@ -108,10 +108,10 @@ const GettingStartedUnit11 = () => {
               <img
                 src={businessDiscussion}
                 alt="Business professionals discussing options in an office"
-                className="w-full h-full object-cover rounded-lg shadow-md"
+                className="max-w-md h-full object-cover rounded-lg shadow-md"
                 loading="lazy"
-                width={696}
-                height={440}
+                width={896}
+                height={640}
               />
             </div>
           </div>
