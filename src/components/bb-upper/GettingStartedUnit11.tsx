@@ -108,7 +108,7 @@ const GettingStartedUnit11 = () => {
               <img
                 src={businessDiscussion}
                 alt="Business professionals discussing options in an office"
-                className="max-w-md h-full object-cover rounded-lg shadow-md"
+                className="max-w-md max-h-md object-cover rounded-lg shadow-md"
                 loading="lazy"
                 width={896}
                 height={640}
