@@ -146,14 +146,16 @@ const ListeningUnit2 = () => {
                 <li>Is there anything you dislike?</li>
               </ul>
             </div>
-            <img
-              src={workersLineup}
-              alt="Diverse group of workers in different uniforms smiling at the camera"
-              loading="lazy"
-              width={800}
-              height={512}
-              className="w-full md:w-64 lg:w-80 rounded-lg object-cover"
-            />
+            <div className="flex-1 min-w-0">
+              <img
+                src={workersLineup}
+                alt="Diverse group of workers in different uniforms smiling at the camera"
+                loading="lazy"
+                width={800}
+                height={512}
+                className="w-full rounded-lg object-cover"
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
