@@ -25,6 +25,7 @@ import WritingProposalUnit11 from '@/components/bb-upper/WritingProposalUnit11';
 import GrammarWorkshopUnit11 from '@/components/bb-upper/GrammarWorkshopUnit11';
 import VocabularyUnit11 from '@/components/bb-upper/VocabularyUnit11';
 import ReadingUnit2 from '@/components/bb-upper/ReadingUnit2';
+import Listening2Unit2 from '@/components/bb-upper/Listening2Unit2';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
@@ -67,6 +68,8 @@ const BBUpperSkill = () => {
           <ReadingUnit2 />
         ) : moduleId === 'job-descriptions' && skillId === 'listening' ? (
           <ListeningUnit2 />
+        ) : moduleId === 'job-descriptions' && skillId === 'listening-2' ? (
+          <Listening2Unit2 />
         ) : moduleId === 'financing-the-start-up' && skillId === 'getting-started' ? (
           <GettingStartedUnit10 />
         ) : moduleId === 'financing-the-start-up' && skillId === 'vocabulary' ? (
