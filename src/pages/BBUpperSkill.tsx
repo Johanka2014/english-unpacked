@@ -59,7 +59,9 @@ const BBUpperSkill = () => {
           </Link>
         </div>
 
-        {moduleId === 'financing-the-start-up' && skillId === 'getting-started' ? (
+        {moduleId === 'job-descriptions' && skillId === 'getting-started' ? (
+          <GettingStartedUnit2 />
+        ) : moduleId === 'financing-the-start-up' && skillId === 'getting-started' ? (
           <GettingStartedUnit10 />
         ) : moduleId === 'financing-the-start-up' && skillId === 'vocabulary' ? (
           <VocabularyUnit10 />
