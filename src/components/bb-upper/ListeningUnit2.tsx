@@ -130,17 +130,6 @@ const ListeningUnit2 = () => {
         </CardContent>
       </Card>
 
-      {/* Exercise 3 — Discussion */}
-      <Card className="service-card">
-        <CardContent className="p-6">
-          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-            3. Compare and discuss
-          </h3>
-          <p className="text-muted-foreground">
-            Compare your answers with a partner. Can you remember the <strong>key words or phrases</strong> which gave you the answers?
-          </p>
-        </CardContent>
-      </Card>
 
       {/* Talking Point */}
       <Card className="service-card">
