@@ -35,8 +35,8 @@ export const bbUpperModules: BBUpperModule[] = [
     title: 'Job Descriptions',
     skills: [
       { id: 'getting-started', title: 'Getting Started', description: 'Job title abbreviations, matching descriptions to roles, and vocabulary building', type: 'vocabulary', content: true },
-      { id: 'reading', title: 'Reading', description: 'Brief job descriptions; A human resources manager', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: 'What people like about their jobs', type: 'listening', audioTrack: '' },
+      { id: 'reading', title: 'Reading', description: 'Brief job descriptions; A human resources manager', type: 'reading', content: true },
+      { id: 'listening', title: 'Listening', description: 'What people like about their jobs', type: 'listening', audioTrack: '', content: true },
       { id: 'speaking', title: 'Speaking', description: 'Saying what you like/dislike about your job or studies; Making suggestions', type: 'speaking' },
       { id: 'vocabulary', title: 'Vocabulary', description: 'Acronyms for job titles; Job titles; Describing your job; Job descriptions', type: 'vocabulary' },
     ],
