@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
+import workersLineup from "@/assets/workers-lineup.jpg";
 
 const AUDIO_URL = "/audio/bb-upper/unit2-listening.mp3";
 
