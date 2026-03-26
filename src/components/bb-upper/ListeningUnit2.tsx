@@ -65,23 +65,11 @@ const ListeningUnit2 = () => {
         </CardContent>
       </Card>
 
-      {/* Exercise 2 — Compare (discussion) */}
-      <Card className="service-card">
-        <CardContent className="p-6">
-          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-            2. Compare your answers
-          </h3>
-          <p className="text-muted-foreground">
-            Compare your answers with a partner. Which reasons are most important to you?
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* Exercise 3 — Listening + matching */}
+      {/* Exercise 2 — Listening + matching */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
-            3. Listen and match
+            2. Listen and match
           </h3>
           <p className="text-muted-foreground mb-4">
             Listen to four people talking about why they like their jobs. What reason do they give? Choose from the reasons <strong>a–f</strong> in Exercise 1.
@@ -142,11 +130,11 @@ const ListeningUnit2 = () => {
         </CardContent>
       </Card>
 
-      {/* Exercise 4 — Discussion */}
+      {/* Exercise 3 — Discussion */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-            4. Compare and discuss
+            3. Compare and discuss
           </h3>
           <p className="text-muted-foreground">
             Compare your answers with a partner. Can you remember the <strong>key words or phrases</strong> which gave you the answers?
