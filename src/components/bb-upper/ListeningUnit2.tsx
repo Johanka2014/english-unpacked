@@ -136,7 +136,7 @@ const ListeningUnit2 = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
                 Talking Point
               </h3>
