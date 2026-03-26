@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
+import workersLineup from "@/assets/workers-lineup.jpg";
 
 const AUDIO_URL = "/audio/bb-upper/unit2-listening.mp3";
 
@@ -134,14 +135,26 @@ const ListeningUnit2 = () => {
       {/* Talking Point */}
       <Card className="service-card">
         <CardContent className="p-6">
-          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
-            Talking Point
-          </h3>
-          <p className="text-muted-foreground mb-4">Discuss in small groups:</p>
-          <ul className="list-disc list-inside space-y-2 text-foreground">
-            <li>What do you most enjoy about your job/studies?</li>
-            <li>Is there anything you dislike?</li>
-          </ul>
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <div className="flex-1">
+              <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
+                Talking Point
+              </h3>
+              <p className="text-muted-foreground mb-4">Discuss in small groups:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground">
+                <li>What do you most enjoy about your job/studies?</li>
+                <li>Is there anything you dislike?</li>
+              </ul>
+            </div>
+            <img
+              src={workersLineup}
+              alt="Diverse group of workers in different uniforms smiling at the camera"
+              loading="lazy"
+              width={800}
+              height={512}
+              className="w-full md:w-64 lg:w-80 rounded-lg object-cover"
+            />
+          </div>
         </CardContent>
       </Card>
 
