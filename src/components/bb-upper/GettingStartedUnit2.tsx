@@ -167,48 +167,54 @@ const GettingStartedUnit2 = () => {
             <strong>1</strong> Match each of the statements (a–g) below to the job title they describe (1–7 in the box).
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            {statements.map((s, i) => (
-              <div key={s.letter} className={`rounded-xl border p-5 ${statementColors[i % statementColors.length]}`}>
-                <div className="flex items-start gap-3">
-                  <span className="font-bold text-primary text-lg">{s.letter}</span>
-                  <p className="text-foreground text-sm leading-relaxed italic">'{s.text}'</p>
-                </div>
-                <div className="mt-3 flex items-center gap-2">
-                  <span className="text-sm font-medium text-muted-foreground">Job title:</span>
-                  <Select
-                    value={matchAnswers[s.letter] || ""}
-                    onValueChange={(v) => setMatchAnswers((p) => ({ ...p, [s.letter]: v }))}
-                  >
-                    <SelectTrigger className="w-[60px] h-8">
-                      <SelectValue placeholder="#" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {jobTitles.map((j) => (
-                        <SelectItem key={j.num} value={String(j.num)}>
-                          {j.num}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {matchResults[s.letter] === true && <span className="text-green-600 text-sm">✓</span>}
-                  {matchResults[s.letter] === false && (
-                    <span className="text-destructive text-sm">✗ ({s.answer})</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Job titles reference box */}
-          <div className="bg-muted/60 rounded-lg p-5 mb-6 border border-border">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {jobTitles.map((j) => (
-                <div key={j.num} className="flex items-center gap-2">
-                  <span className="font-semibold text-foreground w-6">{j.num}</span>
-                  <span className="text-foreground">{j.title}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            {/* Left: Statements */}
+            <div className="space-y-4">
+              {statements.map((s, i) => (
+                <div key={s.letter} className={`rounded-xl border p-5 ${statementColors[i % statementColors.length]}`}>
+                  <div className="flex items-start gap-3">
+                    <span className="font-bold text-primary text-lg">{s.letter}</span>
+                    <p className="text-foreground text-sm leading-relaxed italic">'{s.text}'</p>
+                  </div>
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="text-sm font-medium text-muted-foreground">Job title:</span>
+                    <Select
+                      value={matchAnswers[s.letter] || ""}
+                      onValueChange={(v) => setMatchAnswers((p) => ({ ...p, [s.letter]: v }))}
+                    >
+                      <SelectTrigger className="w-[60px] h-8">
+                        <SelectValue placeholder="#" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {jobTitles.map((j) => (
+                          <SelectItem key={j.num} value={String(j.num)}>
+                            {j.num}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {matchResults[s.letter] === true && <span className="text-green-600 text-sm">✓</span>}
+                    {matchResults[s.letter] === false && (
+                      <span className="text-destructive text-sm">✗ ({s.answer})</span>
+                    )}
+                  </div>
                 </div>
               ))}
+            </div>
+
+            {/* Right: Job titles reference box */}
+            <div className="lg:sticky lg:top-24 self-start">
+              <div className="bg-muted/60 rounded-lg p-5 border border-border">
+                <h4 className="font-semibold text-foreground mb-3">Job Titles</h4>
+                <div className="space-y-2">
+                  {jobTitles.map((j) => (
+                    <div key={j.num} className="flex items-center gap-2">
+                      <span className="font-semibold text-foreground w-6">{j.num}</span>
+                      <span className="text-foreground">{j.title}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
