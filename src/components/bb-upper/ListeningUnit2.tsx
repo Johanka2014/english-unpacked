@@ -136,7 +136,7 @@ const ListeningUnit2 = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
                 Talking Point
               </h3>
@@ -146,14 +146,16 @@ const ListeningUnit2 = () => {
                 <li>Is there anything you dislike?</li>
               </ul>
             </div>
-            <img
-              src={workersLineup}
-              alt="Diverse group of workers in different uniforms smiling at the camera"
-              loading="lazy"
-              width={800}
-              height={512}
-              className="w-full md:w-64 lg:w-80 rounded-lg object-cover"
-            />
+            <div className="flex-1 min-w-0">
+              <img
+                src={workersLineup}
+                alt="Diverse group of workers in different uniforms smiling at the camera"
+                loading="lazy"
+                width={800}
+                height={512}
+                className="w-full rounded-lg object-cover"
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
