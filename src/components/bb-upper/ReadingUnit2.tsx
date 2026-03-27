@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, XCircle } from "lucide-react";
 import DragFillGaps from "@/components/presentations/DragFillGaps";
+import WordOrderExercise from "@/components/presentations/WordOrderExercise";
 
 /* ── Exercise 1 — gap-fill interview questions ── */
 const gapQuestions = [
