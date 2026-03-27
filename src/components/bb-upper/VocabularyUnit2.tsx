@@ -370,6 +370,36 @@ const VocabularyUnit2 = () => {
       />
 
       <OddOneOutExercise />
+
+      <DragFillGaps
+        title="Activity 11: Complete the Text"
+        description="Drag the words from the box to complete the text."
+        words={["budgets", "deadlines", "launch", "performance", "projects", "targets", "team leaders", "teams"]}
+        sentences={[
+          {
+            id: 1,
+            parts: [
+              "In my company, nearly all work is done in 1 ",
+              { answer: "teams" },
+              ", and all our managers are 2 ",
+              { answer: "team leaders" },
+              ". I found this quite easy to adapt to, because at Business School, we worked a lot together on 3 ",
+              { answer: "projects" },
+              ", and this got me used to working towards goals or 4 ",
+              { answer: "targets" },
+              " and meeting 5 ",
+              { answer: "deadlines" },
+              ". I work in Research and Development of new products, and we get real satisfaction from taking new products through from the original idea to the 6 ",
+              { answer: "launch" },
+              " perhaps one or two years later. I'm a financial manager, so a lot of my work involves ensuring high 7 ",
+              { answer: "performance" },
+              " in our projects while they keep within their 8 ",
+              { answer: "budgets" },
+              " - and that involves strict cost control.",
+            ],
+          },
+        ]}
+      />
     </div>
   );
 };
