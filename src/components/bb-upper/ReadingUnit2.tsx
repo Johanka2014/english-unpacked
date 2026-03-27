@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, XCircle } from "lucide-react";
+import DragFillGaps from "@/components/presentations/DragFillGaps";
 
 /* ── Exercise 1 — gap-fill interview questions ── */
 const gapQuestions = [
