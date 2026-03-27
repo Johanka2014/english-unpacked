@@ -401,6 +401,8 @@ const VocabularyUnit2 = () => {
           },
         ]}
       />
+
+      <CompoundNounsExercise />
     </div>
   );
 };
