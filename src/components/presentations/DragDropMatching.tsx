@@ -141,13 +141,13 @@ const DragDropMatching = ({ title, instruction, pairs, extraWords = [] }: DragDr
             return (
               <div
                 key={pair.id}
-                className="flex items-center gap-3"
+                className="flex items-center gap-3 md:w-[calc(50%-0.5rem)]"
                 onDragOver={(e) => handleDragOver(e, pair.id)}
                 onDragLeave={handleDragLeave}
                 onDrop={(e) => handleDrop(e, pair.id)}
                 onClick={() => handleTapSlot(pair.id)}
               >
-                <span className="text-sm font-medium text-foreground min-w-[120px] text-right">
+                <span className="text-sm font-medium text-foreground min-w-[120px] md:min-w-[40%] text-right">
                   {pair.left}
                 </span>
                 <div
