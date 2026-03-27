@@ -26,6 +26,7 @@ import GrammarWorkshopUnit11 from '@/components/bb-upper/GrammarWorkshopUnit11';
 import VocabularyUnit11 from '@/components/bb-upper/VocabularyUnit11';
 import ReadingUnit2 from '@/components/bb-upper/ReadingUnit2';
 import Listening2Unit2 from '@/components/bb-upper/Listening2Unit2';
+import VocabularyUnit2 from '@/components/bb-upper/VocabularyUnit2';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
 
 const BBUpperSkill = () => {
