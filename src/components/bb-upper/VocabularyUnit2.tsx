@@ -366,6 +366,8 @@ const VocabularyUnit2 = () => {
           { id: 12, left: "= results of research", right: "findings" },
         ]}
       />
+
+      <OddOneOutExercise />
     </div>
   );
 };
