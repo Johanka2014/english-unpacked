@@ -347,6 +347,25 @@ const VocabularyUnit2 = () => {
           </div>
         </CardContent>
       </Card>
+
+      <DragDropMatching
+        title="Activity 5: Vocabulary"
+        instruction="Find words or phrases in the job descriptions from the previous activity which mean the following. Drag each word to its matching definition."
+        pairs={[
+          { id: 1, left: "= deciding which calls a manager receives", right: "screening telephone calls" },
+          { id: 2, left: "= evaluating how well staff are doing", right: "conducting appraisals" },
+          { id: 3, left: "= communicating with", right: "liaising" },
+          { id: 4, left: "= keeping up to date with", right: "keeping abreast of" },
+          { id: 5, left: "= giving work to other staff", right: "delegating work" },
+          { id: 6, left: "= amount of work", right: "workload" },
+          { id: 7, left: "= instructions (from a client)", right: "brief" },
+          { id: 8, left: "= problem solving", right: "troubleshooting" },
+          { id: 9, left: "= speed of work", right: "work rate" },
+          { id: 10, left: "= objectives, e.g. volume of sales", right: "targets" },
+          { id: 11, left: "= paper, pens, etc.", right: "stationery" },
+          { id: 12, left: "= results of research", right: "findings" },
+        ]}
+      />
     </div>
   );
 };
