@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
 import DragDropMatching from "@/components/presentations/DragDropMatching";
+import DragFillGaps from "@/components/presentations/DragFillGaps";
 import OddOneOutExercise from "@/components/bb-upper/OddOneOutExercise";
 
 interface JobDescription {
