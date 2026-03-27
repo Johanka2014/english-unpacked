@@ -386,6 +386,22 @@ const ReadingUnit2 = () => {
           <Button onClick={checkComplexQs} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
         </CardContent>
       </Card>
+
+      <DragFillGaps
+        title="Activity 13: Grammar Questions"
+        description="Complete these questions with the question words/phrases in the box."
+        words={["how", "how long", "how many", "how much", "how often", "what", "when", "where", "which", "who", "why"]}
+        sentences={[
+          { id: 1, parts: ["1. ", { answer: "who" }, " is your boss? Ms Jones?"] },
+          { id: 2, parts: ["2. ", { answer: "how long" }, " have you worked for this company?"] },
+          { id: 3, parts: ["3. ", { answer: "which" }, " office would you prefer to work in: company headquarters or a regional office?"] },
+          { id: 4, parts: ["4. ", { answer: "where" }, " did you go to school - in this country or abroad?"] },
+          { id: 5, parts: ["5. ", { answer: "how often" }, " does your HR department carry out formal appraisals - every six months, or more often?"] },
+          { id: 6, parts: ["6. ", { answer: "what" }, " job would you like to be doing in ten years' time?"] },
+          { id: 7, parts: ["7. ", { answer: "how many" }, " people work in your office?"] },
+          { id: 8, parts: ["8. ", { answer: "how much" }, " does your boss earn?"] },
+        ]}
+      />
     </div>
   );
 };
