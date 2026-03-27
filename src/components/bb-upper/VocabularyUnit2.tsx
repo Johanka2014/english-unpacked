@@ -5,6 +5,7 @@ import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
 import DragDropMatching from "@/components/presentations/DragDropMatching";
 import DragFillGaps from "@/components/presentations/DragFillGaps";
 import OddOneOutExercise from "@/components/bb-upper/OddOneOutExercise";
+import CompoundNounsExercise from "@/components/bb-upper/CompoundNounsExercise";
 
 interface JobDescription {
   id: string;
@@ -400,6 +401,8 @@ const VocabularyUnit2 = () => {
           },
         ]}
       />
+
+      <CompoundNounsExercise />
     </div>
   );
 };
