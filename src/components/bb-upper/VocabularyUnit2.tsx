@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
 import DragDropMatching from "@/components/presentations/DragDropMatching";
+import OddOneOutExercise from "@/components/bb-upper/OddOneOutExercise";
 
 interface JobDescription {
   id: string;
@@ -366,6 +367,8 @@ const VocabularyUnit2 = () => {
           { id: 12, left: "= results of research", right: "findings" },
         ]}
       />
+
+      <OddOneOutExercise />
     </div>
   );
 };
