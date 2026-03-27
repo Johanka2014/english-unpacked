@@ -132,7 +132,7 @@ const DragDropMatching = ({ title, instruction, pairs, extraWords = [] }: DragDr
         <p className="text-muted-foreground mb-6">{instruction}</p>
 
         {/* Drop targets - left words with slots */}
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 md:flex md:flex-wrap md:gap-3 md:space-y-0 mb-8">
           {pairs.map((pair) => {
             const result = getResult(pair.id);
             const matchedWord = matches[pair.id];
