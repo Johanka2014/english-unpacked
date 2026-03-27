@@ -403,6 +403,19 @@ const ReadingUnit2 = () => {
           { id: 8, parts: ["8. ", { answer: "how much" }, " does your boss earn?"] },
         ]}
       />
+
+      <WordOrderExercise
+        title="Activity 14: Word Order"
+        description="Put the words into the correct order to form questions."
+        items={[
+          { id: 1, words: ["enjoy", "job", "do", "about", "What", "your", "most", "you?"], answer: "What do you enjoy most about your job?" },
+          { id: 2, words: ["your", "there", "about", "you", "job", "anything", "Is", "dislike?"], answer: "Is there anything you dislike about your job?" },
+          { id: 3, words: ["How", "discipline", "you", "to", "often", "workers", "have", "do?"], answer: "How often do you have to discipline workers?" },
+          { id: 4, words: ["many", "are", "your", "people", "there", "How", "store", "in?"], answer: "How many people are there in your store?" },
+          { id: 5, words: ["work", "of", "line", "this", "into", "get", "you", "did", "How?"], answer: "How did you get into this line of work?" },
+          { id: 6, words: ["What", "think", "years'", "you", "time", "you", "in", "will", "be", "do", "doing", "ten?"], answer: "What do you think you will be doing in ten years' time?" },
+        ]}
+      />
     </div>
   );
 };
