@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 const VocabularyUnit3 = () => {
   return (
     <div className="space-y-12">
-      {/* Activity 3: Categorize employment terms */}
       <DragDropCategorize
         title="Activity 3: Employment Terms Categories"
         description="Drag each term into the correct category."
@@ -38,42 +37,40 @@ const VocabularyUnit3 = () => {
         ]}
       />
 
-      {/* Activity 4: Word families — flex */}
       <DragFillGaps
         title="Activity 4: Word Families — flex"
-        description="Complete the following sentences with words related to the key word flex. You might need to add prefixes or suffixes and change the form."
+        description="Complete the following sentences with words related to the key word flex."
+        words={['flexible', 'flexitime', 'flexibility', 'inflexible']}
         sentences={[
-          { id: '1', before: 'We have a very', after: 'system in the company for our staff who need time off work for childcare.', answer: 'flexible' },
-          { id: '2', before: "We've been operating", after: 'in the company since the early 90s.', answer: 'flexitime' },
-          { id: '3', before: 'There is little or no', after: 'for our staff in terms of hours of work as they have to be around when our customers need them.', answer: 'flexibility' },
-          { id: '4', before: 'Unfortunately, our managing director is very', after: 'when it comes to deadlines.', answer: 'inflexible' },
+          { id: 1, parts: ['We have a very ', { answer: 'flexible' }, ' system in the company for our staff who need time off work for childcare.'] },
+          { id: 2, parts: ["We've been operating ", { answer: 'flexitime' }, ' in the company since the early 90s.'] },
+          { id: 3, parts: ['There is little or no ', { answer: 'flexibility' }, ' for our staff in terms of hours of work as they have to be around when our customers need them.'] },
+          { id: 4, parts: ['Unfortunately, our managing director is very ', { answer: 'inflexible' }, ' when it comes to deadlines.'] },
         ]}
       />
 
-      {/* Activity 5: Contract of Employment matching */}
       <MatchingExercise
         title="Activity 5: Contract of Employment"
         description="Match each contract point to the correct extract from a model UK employment contract."
         pairs={[
-          { id: '1', left: 'date the employment begins', right: 'Your employment begins on 1 January 20...' },
-          { id: '2', left: 'rate of pay and when/how paid', right: 'Your basic salary will be £35,000 per annum, payable monthly in arrears by credit transfer to your bank or building society.' },
-          { id: '3', left: 'normal hours of work/overtime/shift patterns', right: 'Normal hours of work are 37½ per week, 9 am to 5.30 pm Monday to Friday, with one unpaid hour for lunch each day.' },
-          { id: '4', left: 'holiday entitlement (including public holidays)', right: 'You may be required to work on a public holiday. If so, you are entitled to time off in lieu.' },
-          { id: '5', left: 'job title (or a brief description of the job)', right: 'Your current job title and responsibilities are detailed in Schedule 1 and may be amended from time to time.' },
-          { id: '6', left: 'notice period', right: 'The amount of notice you are required to give or be given by your employer in the first four years is four weeks.' },
-          { id: '7', left: 'location of workplace', right: 'Your normal place of work will be the above address. From time to time the company may require you to work at other sites on a temporary basis.' },
-          { id: '8', left: 'sick pay provision', right: 'You must inform the office by 10 am on the first day of absence. Failure to do so may render you subject to disciplinary action and may also bar you from sick pay.' },
-          { id: '9', left: 'pension scheme terms', right: 'The company does not offer a pension scheme but provides access to a stakeholder pension. Details can be obtained from the personnel department.' },
-          { id: '10', left: 'disciplinary rules and grievance procedure', right: "A copy of the company's disciplinary procedure is attached to this contract and employees are asked to read it carefully." },
+          { id: 1, left: 'date the employment begins', right: 'Your employment begins on 1 January 20...' },
+          { id: 2, left: 'rate of pay and when/how paid', right: 'Your basic salary will be £35,000 per annum, payable monthly in arrears by credit transfer.' },
+          { id: 3, left: 'normal hours of work', right: 'Normal hours of work are 37½ per week, 9 am to 5.30 pm Monday to Friday.' },
+          { id: 4, left: 'holiday entitlement', right: 'You may be required to work on a public holiday. If so, you are entitled to time off in lieu.' },
+          { id: 5, left: 'job title', right: 'Your current job title and responsibilities are detailed in Schedule 1 and may be amended.' },
+          { id: 6, left: 'notice period', right: 'The amount of notice required in the first four years is four weeks.' },
+          { id: 7, left: 'location of workplace', right: 'Your normal place of work will be the above address. The company may require you to work at other sites.' },
+          { id: 8, left: 'sick pay provision', right: 'You must inform the office by 10 am on the first day of absence. Failure to do so may render you subject to disciplinary action.' },
+          { id: 9, left: 'pension scheme terms', right: 'The company provides access to a stakeholder pension. Details can be obtained from personnel.' },
+          { id: 10, left: 'disciplinary rules', right: "A copy of the company's disciplinary procedure is attached to this contract." },
         ]}
       />
 
-      {/* Useful Language: The Language of Contracts */}
+      {/* Useful Language */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">Useful Language: The Language of Contracts</h3>
           <p className="text-muted-foreground mb-6">The language used in contracts of employment is highly formal and includes fixed phrases, formal vocabulary, passive voice, and the future tense.</p>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-primary/5 p-4 rounded-lg border border-border">
               <h4 className="font-semibold text-foreground mb-2">Fixed Phrases</h4>
@@ -113,19 +110,19 @@ const VocabularyUnit3 = () => {
         </CardContent>
       </Card>
 
-      {/* Activity 6: Contract language gap-fill */}
       <DragFillGaps
         title="Activity 6: Contract Language"
         description="Complete these sentences with formal contract phrases from the box."
+        words={['can be found', 'may be required', 'are expected', 'will be discussed', 'notified in writing', 'are entitled to', 'payable monthly in arrears', 'are asked', 'notify', 'subject to disciplinary action']}
         sentences={[
-          { id: '1', before: 'Full details of the sick pay scheme', after: 'in the staff handbook.', answer: 'can be found' },
-          { id: '2', before: 'You', after: 'to work in another office of the company from time to time.', answer: 'may be required' },
-          { id: '3', before: 'Employees', after: 'to work overtime as and when needed.', answer: 'are expected' },
-          { id: '4', before: 'Changes to your contract', after: 'and you will be', answer: 'will be discussed, notified in writing' },
-          { id: '5', before: 'You', after: "four weeks' holiday per annum after completion of six months' probation.", answer: 'are entitled to' },
-          { id: '6', before: 'Your salary is', after: 'on the last day of each month.', answer: 'payable monthly in arrears' },
-          { id: '7', before: 'Employees', after: 'to', answer: 'are asked, notify' },
-          { id: '8', before: 'You may be', after: 'if you fail to do this.', answer: 'subject to disciplinary action' },
+          { id: 1, parts: ['Full details of the sick pay scheme ', { answer: 'can be found' }, ' in the staff handbook.'] },
+          { id: 2, parts: ['You ', { answer: 'may be required' }, ' to work in another office of the company from time to time.'] },
+          { id: 3, parts: ['Employees ', { answer: 'are expected' }, ' to work overtime as and when needed.'] },
+          { id: 4, parts: ['Changes to your contract ', { answer: 'will be discussed' }, ' and you will be ', { answer: 'notified in writing' }, '.'] },
+          { id: 5, parts: ['You ', { answer: 'are entitled to' }, " four weeks' holiday per annum after completion of six months' probation."] },
+          { id: 6, parts: ['Your salary is ', { answer: 'payable monthly in arrears' }, ' on the last day of each month.'] },
+          { id: 7, parts: ['Employees ', { answer: 'are asked' }, ' to ', { answer: 'notify' }, ' the company of any absence by 10 a.m. on the first day.'] },
+          { id: 8, parts: ['You may be ', { answer: 'subject to disciplinary action' }, ' if you fail to do this.'] },
         ]}
       />
     </div>
