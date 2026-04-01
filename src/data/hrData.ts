@@ -94,11 +94,11 @@ export const hrUnits: HRUnit[] = [
     subtitle: 'Trade unions, labour relations & wage negotiation',
     topics: ['The role of trade unions', 'Labour relations', 'A wage negotiation'],
     skills: [
-      { id: 'starter', title: 'Starter', description: 'Introduction to industrial relations', type: 'vocabulary' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'The language of negotiating, persuading and bargaining', type: 'vocabulary' },
-      { id: 'listening', title: 'Listening', description: 'Wage negotiation discussions', type: 'listening' },
-      { id: 'reading', title: 'Reading', description: 'Trade unions and labour relations', type: 'reading' },
-      { id: 'speaking', title: 'Speaking', description: 'Negotiation role-play', type: 'speaking' },
+      { id: 'starter', title: 'Starter', description: 'Trade union facts true/false, news headlines and vocabulary from industrial action stories', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Phrase ordering, gap-fill sentences, definition matching and word families (negotiate/consult)', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening', description: 'Wage negotiation comprehension, gap-fill questions, true/false and negotiation phases', type: 'listening', content: true, audioTrack: 17 },
+      { id: 'reading', title: 'Reading', description: 'Outsourcing extracts, negotiation tips ranking and verb-noun matching', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking', description: 'Persuading and bargaining language, conditional sentences, email gap-fill and negotiation role-play', type: 'speaking', content: true },
     ],
   },
 ];
