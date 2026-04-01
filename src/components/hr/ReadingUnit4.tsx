@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import diverseWorkersImg from '@/assets/diverse-workers.jpg';
 
 const headingOptions = [
   'Assertive Leadership Skills',
@@ -160,6 +161,33 @@ const ReadingUnit4 = () => {
             </ul>
             <p>How does this differ from 'managing diversity'? Managing diversity is about respecting people and helping them to maximize their potential. Unlike 'equal opportunities', it does not focus on specific groups of people, nor does it only address situations where direct discrimination may occur.</p>
             <p>Diversity acknowledges that the differences people bring to a job may enhance the business and furthermore that their perspectives and ideas can improve the overall quality of the workplace. In other words, diversity recognizes the benefits of differences and, to provide for these differences, allows for such things as flexible working hours, time off for caring for dependants, paternity freedom, and doing away with age criteria.</p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Over to You */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">Over to You</h3>
+              <ul className="space-y-4 text-sm text-muted-foreground">
+                <li>According to the article, what is the reason for publishing equal opportunity statements?</li>
+                <li>Do you think such statements add value to the reputation of a company?</li>
+                <li>How many companies that you know of are actively involved in diversity?</li>
+                <li>How is it dealt with in your organization?</li>
+              </ul>
+            </div>
+            <div>
+              <img
+                src={diverseWorkersImg}
+                alt="A diverse group of happy workers of different race, ethnic origin, gender, age, disability and nationality"
+                className="rounded-lg w-full h-auto"
+                loading="lazy"
+                width={896}
+                height={576}
+              />
+            </div>
           </div>
         </CardContent>
       </Card>
