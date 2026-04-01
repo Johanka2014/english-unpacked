@@ -1,27 +1,38 @@
+import { useState } from 'react';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
 import { Card, CardContent } from '@/components/ui/card';
 
+const statements = [
+  { num: 1, text: "'Nobody can guarantee lifetime employment, but there's a lot you can do to improve the odds.'", concept: 'Long-term individual development' },
+  { num: 2, text: "'Quality feedback improves performance.'", concept: 'Appraisal' },
+  { num: 3, text: "'Those most at risk of leaving are new employees.'", concept: 'Induction programme' },
+  { num: 4, text: "'All animals are equal, but some are more equal than others.'", concept: 'Equal opportunity policies' },
+];
+
 const StarterUnit4 = () => {
+  const [revealed, setRevealed] = useState<Record<number, boolean>>({});
+
   return (
     <div className="space-y-12">
       {/* Discussion statements */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">Starter: HR Development Discussion</h3>
-          <p className="text-muted-foreground mb-6">Discuss the statements below with a partner. Do you agree or disagree with them? What aspects of HR development do you think the statements refer to?</p>
+          <p className="text-muted-foreground mb-6">Discuss the statements below with a partner. Do you agree or disagree with them? Click on a statement to reveal which aspect of HR development it refers to.</p>
           <div className="space-y-4">
-            {[
-              { num: 1, text: "'Nobody can guarantee lifetime employment, but there's a lot you can do to improve the odds.'", concept: 'Long-term individual development' },
-              { num: 2, text: "'Quality feedback improves performance.'", concept: 'Appraisal' },
-              { num: 3, text: "'Those most at risk of leaving are new employees.'", concept: 'Induction programme' },
-              { num: 4, text: "'All animals are equal, but some are more equal than others.'", concept: 'Equal opportunity policies' },
-            ].map((item) => (
-              <div key={item.num} className="bg-primary/5 p-4 rounded-lg border border-border">
+            {statements.map((item) => (
+              <div
+                key={item.num}
+                className="bg-primary/5 p-4 rounded-lg border border-border cursor-pointer transition-colors hover:bg-primary/10"
+                onClick={() => setRevealed((prev) => ({ ...prev, [item.num]: !prev[item.num] }))}
+              >
                 <div className="flex gap-3">
                   <span className="font-bold text-primary text-lg">{item.num}</span>
                   <div>
                     <p className="text-foreground italic">{item.text}</p>
-                    <p className="text-xs text-muted-foreground mt-1">→ {item.concept}</p>
+                    {revealed[item.num] && (
+                      <p className="text-xs text-primary font-medium mt-2 animate-in fade-in">→ {item.concept}</p>
+                    )}
                   </div>
                 </div>
               </div>
