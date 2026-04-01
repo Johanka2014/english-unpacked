@@ -112,6 +112,9 @@ const App = () => (
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
               <Route path="/starters-practice" element={<ProtectedRoute><StartersPractice /></ProtectedRoute>} />
               <Route path="/starters-practice/:testId" element={<ProtectedRoute><StartersTest /></ProtectedRoute>} />
+              <Route path="/hr-english" element={<ProtectedRoute><HREnglish /></ProtectedRoute>} />
+              <Route path="/hr-english/:unitId" element={<ProtectedRoute><HREnglishUnit /></ProtectedRoute>} />
+              <Route path="/hr-english/:unitId/:skillId" element={<ProtectedRoute><HREnglishSkill /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
