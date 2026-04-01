@@ -39,7 +39,6 @@ const Activity9 = () => {
         <p className="text-muted-foreground text-sm">Listen to the conversation between Jackie Branigan, head of HR, and David Grundy, her recruitment officer. Tick the types of recruitment sources they mention.</p>
       </CardHeader>
       <CardContent>
-        {/* Audio placeholder */}
         <div className="mb-6 p-4 rounded-lg border-2 border-dashed border-muted-foreground/20 flex items-center gap-3">
           <Headphones className="h-6 w-6 text-muted-foreground" />
           <div>
@@ -113,7 +112,7 @@ const Activity10 = () => {
               <Button size="sm" variant={answers[s.id] === true ? 'default' : 'outline'} onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: true }))}>True</Button>
               <Button size="sm" variant={answers[s.id] === false ? 'default' : 'outline'} onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: false }))}>False</Button>
             </div>
-            {checked && answers[s.id] !== undefined && (
+            {checked && answers[s.id] !== undefined && answers[s.id] !== null && (
               <div className={`mt-2 flex items-center gap-1 text-xs ${answers[s.id] === s.answer ? 'text-green-700' : 'text-red-700'}`}>
                 {answers[s.id] === s.answer ? <CheckCircle2 className="h-3 w-3" /> : <XCircle className="h-3 w-3" />}
                 <span>{answers[s.id] === s.answer ? 'Correct!' : `Incorrect — the answer is ${s.answer ? 'True' : 'False'}.`}</span>
@@ -138,14 +137,14 @@ const ListeningUnit1 = () => {
         title="Activity 11: Vocabulary from the Conversation"
         description="Match the words and phrases from the conversation with their meanings."
         pairs={[
-          { id: '1', left: 'have a word about', right: 'discuss something' },
-          { id: '2', left: 'cleared', right: '(have been) given official approval' },
-          { id: '3', left: 'intranet', right: "an organization's private computer network" },
-          { id: '4', left: 'in-house', right: 'inside a company' },
-          { id: '5', left: 'merger', right: 'when two companies become one' },
-          { id: '6', left: 'trade paper', right: 'newspaper or magazine for a specific profession' },
-          { id: '7', left: 'keep (sb) posted', right: 'keep somebody informed' },
-          { id: '8', left: 'disciplinary procedures', right: 'ways of warning employees that they are breaking the rules' },
+          { id: 1, left: 'have a word about', right: 'discuss something' },
+          { id: 2, left: 'cleared', right: '(have been) given official approval' },
+          { id: 3, left: 'intranet', right: "an organization's private computer network" },
+          { id: 4, left: 'in-house', right: 'inside a company' },
+          { id: 5, left: 'merger', right: 'when two companies become one' },
+          { id: 6, left: 'trade paper', right: 'newspaper or magazine for a specific profession' },
+          { id: 7, left: 'keep (sb) posted', right: 'keep somebody informed' },
+          { id: 8, left: 'disciplinary procedures', right: 'ways of warning employees that they are breaking the rules' },
         ]}
       />
     </div>

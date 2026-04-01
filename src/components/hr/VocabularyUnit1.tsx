@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import MultipleChoiceQuiz from '@/components/presentations/MultipleChoiceQuiz';
-import FillInBlanks from '@/components/presentations/FillInBlanks';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { CheckCircle2, XCircle } from 'lucide-react';
 
 /* ─── Activity 3: True / False ─── */
@@ -30,18 +30,10 @@ const TrueFalseActivity = () => {
           <div key={s.id} className="p-4 rounded-lg border bg-muted/30">
             <p className="mb-3 font-medium">{s.id}. {s.text}</p>
             <div className="flex gap-3">
-              <Button
-                size="sm"
-                variant={answers[s.id] === true ? 'default' : 'outline'}
-                onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: true }))}
-              >True</Button>
-              <Button
-                size="sm"
-                variant={answers[s.id] === false ? 'default' : 'outline'}
-                onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: false }))}
-              >False</Button>
+              <Button size="sm" variant={answers[s.id] === true ? 'default' : 'outline'} onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: true }))}>True</Button>
+              <Button size="sm" variant={answers[s.id] === false ? 'default' : 'outline'} onClick={() => !checked && setAnswers((a) => ({ ...a, [s.id]: false }))}>False</Button>
             </div>
-            {checked && answers[s.id] !== null && (
+            {checked && answers[s.id] !== null && answers[s.id] !== undefined && (
               <div className={`mt-3 flex items-start gap-2 text-sm ${answers[s.id] === s.answer ? 'text-green-700' : 'text-red-700'}`}>
                 {answers[s.id] === s.answer ? <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0" /> : <XCircle className="h-4 w-4 mt-0.5 shrink-0" />}
                 <span>{answers[s.id] === s.answer ? 'Correct!' : `Incorrect. ${s.correction || ''}`}</span>
@@ -49,9 +41,42 @@ const TrueFalseActivity = () => {
             )}
           </div>
         ))}
-        <Button className="mt-4" onClick={() => setChecked(true)} disabled={Object.keys(answers).length < statements.length}>
-          Check Answers
-        </Button>
+        <Button className="mt-4" onClick={() => setChecked(true)} disabled={Object.keys(answers).length < statements.length}>Check Answers</Button>
+      </CardContent>
+    </Card>
+  );
+};
+
+/* ─── Gap Fill Component ─── */
+const GapFillExercise = ({ title, description, sentences }: { title: string; description: string; sentences: { id: number; before: string; blank: string; after: string }[] }) => {
+  const [values, setValues] = useState<Record<number, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-xl">{title}</CardTitle>
+        <p className="text-muted-foreground text-sm">{description}</p>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {sentences.map((s) => {
+          const isCorrect = checked && values[s.id]?.toLowerCase().trim() === s.blank.toLowerCase();
+          const isWrong = checked && values[s.id]?.toLowerCase().trim() !== s.blank.toLowerCase();
+          return (
+            <div key={s.id} className="flex flex-wrap items-center gap-2">
+              <span className="text-sm">{s.before}</span>
+              <Input
+                className={`w-40 inline-block ${checked ? (isCorrect ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') : ''}`}
+                value={values[s.id] || ''}
+                onChange={(e) => !checked && setValues((v) => ({ ...v, [s.id]: e.target.value }))}
+                disabled={checked}
+              />
+              <span className="text-sm">{s.after}</span>
+              {isWrong && <span className="text-xs text-red-600">→ {s.blank}</span>}
+            </div>
+          );
+        })}
+        <Button className="mt-4" onClick={() => setChecked(true)}>Check Answers</Button>
       </CardContent>
     </Card>
   );
@@ -105,27 +130,27 @@ const VocabularyUnit1 = () => {
         title="Activity 4: Choose the Correct Verbs"
         description="Choose the correct verbs to complete the sentences from the job description."
         questions={[
-          { id: '1', question: 'The training manager ___ the general manager.', options: ['reports to', 'manages', 'monitors'], correctAnswer: 'reports to' },
-          { id: '2', question: 'The suitable applicant must be able to ___ closely with branch offices.', options: ['develop', 'work', 'implement'], correctAnswer: 'work' },
-          { id: '3', question: 'We need to ___ new training courses and ___ needs for the future development of the staff.', options: ['implement / identify', 'contribute / develop', 'train / manage'], correctAnswer: 'implement / identify' },
-          { id: '4', question: 'There is a certain amount of hands-on work which involves ___ training courses for U.K.-based personnel.', options: ['carrying out', 'ensuring', 'contributing'], correctAnswer: 'carrying out' },
-          { id: '5', question: 'First you need to ___ a new staff training manual.', options: ['prepare', 'maintain', 'operate'], correctAnswer: 'prepare' },
-          { id: '6', question: 'U.K. branch offices need to be supported, so the job ___ a lot of travelling.', options: ['involves', 'maintains', 'ensures'], correctAnswer: 'involves' },
+          { id: 1, text: 'The training manager ___ the general manager.', options: ['reports to', 'manages', 'monitors'], answer: 'reports to' },
+          { id: 2, text: 'The suitable applicant must be able to ___ closely with branch offices.', options: ['develop', 'work', 'implement'], answer: 'work' },
+          { id: 3, text: 'We need to ___ new training courses and ___ needs for the future.', options: ['implement / identify', 'contribute / develop', 'train / manage'], answer: 'implement / identify' },
+          { id: 4, text: 'There is hands-on work which involves ___ training courses.', options: ['carrying out', 'ensuring', 'contributing'], answer: 'carrying out' },
+          { id: 5, text: 'First you need to ___ a new staff training manual.', options: ['prepare', 'maintain', 'operate'], answer: 'prepare' },
+          { id: 6, text: 'The job ___ a lot of travelling.', options: ['involves', 'maintains', 'ensures'], answer: 'involves' },
         ]}
       />
 
       {/* Activity 5: Manager verbs gap-fill */}
-      <FillInBlanks
+      <GapFillExercise
         title="Activity 5: Manager Verbs"
-        description="A manager should be able to... Complete each sentence with the correct verb from the word bank: build, develop, ensure, identify, improve, motivate, react to"
+        description="A manager should be able to... Complete each gap with a verb from the word bank: build, develop, ensure, identify, improve, motivate, react to"
         sentences={[
-          { id: '1', before: 'A manager should be able to ', blank: 'improve', after: ' staff performance.' },
-          { id: '2', before: 'A manager should be able to ', blank: 'build', after: ' an effective team.' },
-          { id: '3', before: 'A manager should be able to ', blank: 'react to', after: ' change.' },
-          { id: '4', before: 'A manager should be able to ', blank: 'motivate', after: ' staff.' },
-          { id: '5', before: 'A manager should be able to ', blank: 'develop', after: ' creativity.' },
-          { id: '6', before: 'A manager should be able to ', blank: 'identify', after: ' problems.' },
-          { id: '7', before: 'A manager should be able to ', blank: 'ensure', after: ' deadlines are met.' },
+          { id: 1, before: '___', blank: 'improve', after: 'staff performance.' },
+          { id: 2, before: '___', blank: 'build', after: 'an effective team.' },
+          { id: 3, before: '___', blank: 'react to', after: 'change.' },
+          { id: 4, before: '___', blank: 'motivate', after: 'staff.' },
+          { id: 5, before: '___', blank: 'develop', after: 'creativity.' },
+          { id: 6, before: '___', blank: 'identify', after: 'problems.' },
+          { id: 7, before: '___', blank: 'ensure', after: 'deadlines are met.' },
         ]}
       />
 
@@ -134,28 +159,28 @@ const VocabularyUnit1 = () => {
         title="Activity 6: Person Specification Vocabulary"
         description="Match these words and phrases from the person specification with their definitions."
         pairs={[
-          { id: '1', left: 'to work on your own initiative', right: 'to work independently, without anyone telling you what to do' },
-          { id: '2', left: 'leadership', right: 'the ability to head a group or company' },
-          { id: '3', left: 'to coordinate', right: 'to organize the different parts of an activity or the people involved so that everything works well' },
-          { id: '4', left: 'interpersonal skills', right: 'the ability to develop good relationships between yourself and others' },
-          { id: '5', left: 'sound knowledge', right: 'a good level of information about or understanding of something' },
-          { id: '6', left: 'training audit', right: 'a careful examination to find out how much training is done and whether it is effective and necessary' },
-          { id: '7', left: 'open lines of communication', right: 'creating and maintaining an atmosphere in which people communicate easily and effectively' },
+          { id: 1, left: 'to work on your own initiative', right: 'to work independently, without anyone telling you what to do' },
+          { id: 2, left: 'leadership', right: 'the ability to head a group or company' },
+          { id: 3, left: 'to coordinate', right: 'to organize the different parts of an activity or the people involved so that everything works well' },
+          { id: 4, left: 'interpersonal skills', right: 'the ability to develop good relationships between yourself and others' },
+          { id: 5, left: 'sound knowledge', right: 'a good level of information about or understanding of something' },
+          { id: 6, left: 'training audit', right: 'a careful examination to find out how much training is done and whether it is effective and necessary' },
+          { id: 7, left: 'open lines of communication', right: 'creating and maintaining an atmosphere in which people communicate easily and effectively' },
         ]}
       />
 
       {/* Activity 12: Word formation */}
-      <FillInBlanks
+      <GapFillExercise
         title="Activity 12: Word Formation — Employ & Recruit"
         description="Complete the sentences with the correct form of 'employ' or 'recruit'. You might need to add prefixes or suffixes."
         sentences={[
-          { id: '1', before: 'Levels of ', blank: 'employment', after: ' are high.' },
-          { id: '2', before: 'There are more people on the job markets when ', blank: 'unemployment', after: ' rises.' },
-          { id: '3', before: 'She told her ', blank: 'employer', after: ' she was looking for another job.' },
-          { id: '4', before: 'We engaged six new ', blank: 'employees', after: ' in the last quarter.' },
-          { id: '5', before: 'We ', blank: 're-employed', after: ' her in the same position when she returned from maternity leave.' },
-          { id: '6', before: 'Last year we ', blank: 'recruited', after: ' two team leaders for our call centre.' },
-          { id: '7', before: 'We\'ve revised our overall ', blank: 'recruitment', after: ' procedures because of the new employment legislation.' },
+          { id: 1, before: 'Levels of', blank: 'employment', after: 'are high.' },
+          { id: 2, before: 'There are more people on the job markets when', blank: 'unemployment', after: 'rises.' },
+          { id: 3, before: 'She told her', blank: 'employer', after: 'she was looking for another job.' },
+          { id: 4, before: 'We engaged six new', blank: 'employees', after: 'in the last quarter.' },
+          { id: 5, before: 'We', blank: 're-employed', after: 'her in the same position when she returned from maternity leave.' },
+          { id: 6, before: 'Last year we', blank: 'recruited', after: 'two team leaders for our call centre.' },
+          { id: 7, before: "We've revised our overall", blank: 'recruitment', after: 'procedures because of the new employment legislation.' },
         ]}
       />
     </div>

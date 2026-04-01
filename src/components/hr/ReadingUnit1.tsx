@@ -9,13 +9,13 @@ const ReadingUnit1 = () => {
         title="Activity 13: Sources of Recruitment"
         description="Match the definitions with the different sources of recruitment."
         pairs={[
-          { id: '1', left: 'word of mouth', right: 'passing on information by networking or talking to people' },
-          { id: '2', left: 'internal advertising', right: 'advertising vacancies inside a company' },
-          { id: '3', left: 'media advertising', right: 'advertising jobs in the local or national press' },
-          { id: '4', left: 'advertising in trade press', right: 'magazines for specific professions' },
-          { id: '5', left: 'online recruitment', right: 'Internet recruitment sites for job seekers' },
-          { id: '6', left: 'recruitment agencies', right: 'organizations that match jobs with people\'s experience' },
-          { id: '7', left: 'unsolicited applications', right: 'letters received from people looking for a job (but not responding to an advertisement)' },
+          { id: 1, left: 'word of mouth', right: 'passing on information by networking or talking to people' },
+          { id: 2, left: 'internal advertising', right: 'advertising vacancies inside a company' },
+          { id: 3, left: 'media advertising', right: 'advertising jobs in the local or national press' },
+          { id: 4, left: 'advertising in trade press', right: 'magazines for specific professions' },
+          { id: 5, left: 'online recruitment', right: 'Internet recruitment sites for job seekers' },
+          { id: 6, left: 'recruitment agencies', right: 'organizations that match jobs with people\'s experience' },
+          { id: 7, left: 'unsolicited applications', right: 'letters received from people looking for a job (but not responding to an advertisement)' },
         ]}
       />
 

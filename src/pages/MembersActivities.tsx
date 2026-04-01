@@ -191,6 +191,9 @@ const MembersActivities = () => {
           <TabsContent value="young-learners">
             <ActivityGrid activities={youngLearnersActivities} />
           </TabsContent>
+          <TabsContent value="hr">
+            <ActivityGrid activities={hrActivities} />
+          </TabsContent>
         </Tabs>
       </main>
       <Footer />
