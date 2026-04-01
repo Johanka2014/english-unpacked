@@ -10,6 +10,11 @@ import VocabularyUnit1 from '@/components/hr/VocabularyUnit1';
 import ListeningUnit1 from '@/components/hr/ListeningUnit1';
 import ReadingUnit1 from '@/components/hr/ReadingUnit1';
 import SpeakingUnit1 from '@/components/hr/SpeakingUnit1';
+import StarterUnit2 from '@/components/hr/StarterUnit2';
+import VocabularyUnit2 from '@/components/hr/VocabularyUnit2';
+import ListeningUnit2 from '@/components/hr/ListeningUnit2';
+import ReadingUnit2 from '@/components/hr/ReadingUnit2';
+import SpeakingUnit2 from '@/components/hr/SpeakingUnit2';
 
 const HREnglishSkill = () => {
   const { unitId, skillId } = useParams();
@@ -36,6 +41,15 @@ const HREnglishSkill = () => {
         case 'listening': return <ListeningUnit1 />;
         case 'reading': return <ReadingUnit1 />;
         case 'speaking': return <SpeakingUnit1 />;
+      }
+    }
+    if (unitId === 'selection') {
+      switch (skillId) {
+        case 'starter': return <StarterUnit2 />;
+        case 'vocabulary': return <VocabularyUnit2 />;
+        case 'listening': return <ListeningUnit2 />;
+        case 'reading': return <ReadingUnit2 />;
+        case 'speaking': return <SpeakingUnit2 />;
       }
     }
     return (

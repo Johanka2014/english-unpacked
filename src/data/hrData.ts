@@ -38,11 +38,11 @@ export const hrUnits: HRUnit[] = [
     subtitle: 'Job ads, CVs, interviews & ageism',
     topics: ['Job advertisements', 'A curriculum vitae', 'The job interview', 'Ageism'],
     skills: [
-      { id: 'starter', title: 'Starter', description: 'Introduction to the selection process', type: 'vocabulary' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'The language of interview questioning and establishing rapport', type: 'vocabulary' },
-      { id: 'listening', title: 'Listening', description: 'Arranging an appointment and interview language', type: 'listening' },
-      { id: 'reading', title: 'Reading', description: 'Job advertisements and CVs', type: 'reading' },
-      { id: 'speaking', title: 'Speaking', description: 'Interview role-play and establishing rapport', type: 'speaking' },
+      { id: 'starter', title: 'Starter', description: 'Job application statements, advert vocabulary matching and CV structure', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'CV sections, business letter structure, employment vocabulary and definitions', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening', description: 'Interview number matching, call centre problems and sentence completion', type: 'listening', content: true, audioTrack: 2 },
+      { id: 'reading', title: 'Reading', description: 'Job advert comprehension, interview tips ordering and word formation', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking', description: 'Arranging appointments, interview language, letter writing and ageism discussion', type: 'speaking', content: true },
     ],
   },
   {
