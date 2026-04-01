@@ -130,14 +130,6 @@ const ReadingUnit4 = () => {
             ))}
           </div>
 
-          <div className="mt-6 bg-primary/5 p-4 rounded-lg border border-border">
-            <h4 className="font-semibold text-foreground mb-2">Over to You</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>• According to the article, what is the reason for publishing equal opportunity statements?</li>
-              <li>• Do you think such statements add value to the reputation of a company?</li>
-              <li>• How many companies that you know of are actively involved in diversity? How is it dealt with in your organization?</li>
-            </ul>
-          </div>
         </CardContent>
       </Card>
 
