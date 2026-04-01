@@ -52,11 +52,11 @@ export const hrUnits: HRUnit[] = [
     subtitle: 'Contracts, disciplinary procedures & health and safety',
     topics: ['Employment contracts', 'Disciplinary and grievance procedures', 'Health and safety at work'],
     skills: [
-      { id: 'starter', title: 'Starter', description: 'Introduction to employee relations', type: 'vocabulary' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'The language of contracts and formal letters', type: 'vocabulary' },
-      { id: 'listening', title: 'Listening', description: 'Giving and requesting information', type: 'listening' },
-      { id: 'reading', title: 'Reading', description: 'Employment contracts and health & safety', type: 'reading' },
-      { id: 'speaking', title: 'Speaking', description: 'Writing offer and rejection letters', type: 'speaking' },
+      { id: 'starter', title: 'Starter', description: 'Employee relations vocabulary matching and headline exercises', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Employment terms categories, word families, contract language and formal phrases', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening', description: 'Terms and conditions discussion, true/false, sentence matching and vocabulary', type: 'listening', content: true, audioTrack: 9 },
+      { id: 'reading', title: 'Reading', description: 'Dealing with grievances, health & safety measures and workplace injuries', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking', description: 'Offer and rejection letters, formal vocabulary, HR headlines and stress factors', type: 'speaking', content: true },
     ],
   },
   {
