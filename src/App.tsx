@@ -51,6 +51,9 @@ const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
 const StartersPractice = lazy(() => import("./pages/StartersPractice"));
 const StartersTest = lazy(() => import("./pages/StartersTest"));
+const HREnglish = lazy(() => import("./pages/HREnglish"));
+const HREnglishUnit = lazy(() => import("./pages/HREnglishUnit"));
+const HREnglishSkill = lazy(() => import("./pages/HREnglishSkill"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
