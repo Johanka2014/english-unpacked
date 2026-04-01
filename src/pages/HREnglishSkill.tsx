@@ -15,6 +15,11 @@ import VocabularyUnit2 from '@/components/hr/VocabularyUnit2';
 import ListeningUnit2 from '@/components/hr/ListeningUnit2';
 import ReadingUnit2 from '@/components/hr/ReadingUnit2';
 import SpeakingUnit2 from '@/components/hr/SpeakingUnit2';
+import StarterUnit3 from '@/components/hr/StarterUnit3';
+import VocabularyUnit3 from '@/components/hr/VocabularyUnit3';
+import ListeningUnit3 from '@/components/hr/ListeningUnit3';
+import ReadingUnit3 from '@/components/hr/ReadingUnit3';
+import SpeakingUnit3 from '@/components/hr/SpeakingUnit3';
 
 const HREnglishSkill = () => {
   const { unitId, skillId } = useParams();
