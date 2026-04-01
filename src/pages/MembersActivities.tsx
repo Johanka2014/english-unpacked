@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -108,6 +108,16 @@ const youngLearnersActivities = [
   },
 ];
 
+const hrActivities = [
+  {
+    title: 'Oxford English for Human Resources',
+    description: 'Master HR English across 6 units covering recruitment, selection, employee relations, development, remuneration, and industrial relations',
+    icon: Users,
+    path: '/hr-english',
+    color: 'text-teal-600',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
@@ -154,13 +164,14 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 mb-8 h-auto flex-wrap">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-7 mb-8 h-auto flex-wrap">
             <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
             <TabsTrigger value="business">Business</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
             <TabsTrigger value="grammar">Grammar</TabsTrigger>
             <TabsTrigger value="maturita">Maturita</TabsTrigger>
             <TabsTrigger value="young-learners">Young Learners</TabsTrigger>
+            <TabsTrigger value="hr">HR</TabsTrigger>
           </TabsList>
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
@@ -179,6 +190,9 @@ const MembersActivities = () => {
           </TabsContent>
           <TabsContent value="young-learners">
             <ActivityGrid activities={youngLearnersActivities} />
+          </TabsContent>
+          <TabsContent value="hr">
+            <ActivityGrid activities={hrActivities} />
           </TabsContent>
         </Tabs>
       </main>

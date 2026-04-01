@@ -51,6 +51,9 @@ const B1GrammarSection = lazy(() => import("./pages/B1GrammarSection"));
 const B1GrammarTopic = lazy(() => import("./pages/B1GrammarTopic"));
 const StartersPractice = lazy(() => import("./pages/StartersPractice"));
 const StartersTest = lazy(() => import("./pages/StartersTest"));
+const HREnglish = lazy(() => import("./pages/HREnglish"));
+const HREnglishUnit = lazy(() => import("./pages/HREnglishUnit"));
+const HREnglishSkill = lazy(() => import("./pages/HREnglishSkill"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -109,6 +112,9 @@ const App = () => (
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
               <Route path="/starters-practice" element={<ProtectedRoute><StartersPractice /></ProtectedRoute>} />
               <Route path="/starters-practice/:testId" element={<ProtectedRoute><StartersTest /></ProtectedRoute>} />
+              <Route path="/hr-english" element={<ProtectedRoute><HREnglish /></ProtectedRoute>} />
+              <Route path="/hr-english/:unitId" element={<ProtectedRoute><HREnglishUnit /></ProtectedRoute>} />
+              <Route path="/hr-english/:unitId/:skillId" element={<ProtectedRoute><HREnglishSkill /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
