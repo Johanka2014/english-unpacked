@@ -1,7 +1,60 @@
+import { useState } from 'react';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+const headingOptions = [
+  'Assertive Leadership Skills',
+  'Managing Your Time',
+  'Leadership and Team Building',
+  'Balancing Priorities and Managing Projects',
+];
+
+const courses = [
+  {
+    id: 1,
+    correctHeading: 'Assertive Leadership Skills',
+    description: 'Being a competent leader means being able to motivate and get things done. The course includes decision-making, diplomacy, and being sensitive to the needs of others.',
+    duration: '(8-hour 1-day course)',
+  },
+  {
+    id: 2,
+    correctHeading: 'Managing Your Time',
+    description: 'Learn how to set priorities, control your workload and complete tasks on time. Identify what\'s important and fulfil targets and objectives more effectively in less time.',
+    duration: '(1-day seminar)',
+  },
+  {
+    id: 3,
+    correctHeading: 'Leadership and Team Building',
+    description: 'Successful leaders know how to handle people effectively and get results, deal with conflicts and communicate confidently, and earn the respect of their peer group and superiors.',
+    duration: '(2-day course for managers and supervisors)',
+  },
+  {
+    id: 4,
+    correctHeading: 'Balancing Priorities and Managing Projects',
+    description: 'Prioritize and keep on top of multiple projects, manage conflicting demands, and take control over your workload. Set deadlines and stick to them. Get more done in less time.',
+    duration: '(2-day seminar)',
+  },
+];
 
 const ReadingUnit4 = () => {
+  const [selections, setSelections] = useState<Record<number, string>>({});
+  const [results, setResults] = useState<Record<number, 'correct' | 'incorrect'> | null>(null);
+
+  const handleSelect = (courseId: number, value: string) => {
+    setSelections((prev) => ({ ...prev, [courseId]: value }));
+    setResults(null);
+  };
+
+  const checkAnswers = () => {
+    const newResults: Record<number, 'correct' | 'incorrect'> = {};
+    courses.forEach((c) => {
+      newResults[c.id] = selections[c.id] === c.correctHeading ? 'correct' : 'incorrect';
+    });
+    setResults(newResults);
+  };
+
   return (
     <div className="space-y-12">
       {/* Activity 11: Training courses */}
@@ -11,27 +64,48 @@ const ReadingUnit4 = () => {
           <p className="text-muted-foreground mb-6">Match the headings to these short descriptions of four training courses.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-primary/5 p-5 rounded-lg border border-border">
-              <h4 className="font-semibold text-primary mb-2">1. Assertive Leadership Skills</h4>
-              <p className="text-sm text-foreground">Being a competent leader means being able to motivate and get things done. The course includes decision-making, diplomacy, and being sensitive to the needs of others.</p>
-              <p className="text-xs text-muted-foreground mt-2">(8-hour 1-day course)</p>
-            </div>
-            <div className="bg-primary/5 p-5 rounded-lg border border-border">
-              <h4 className="font-semibold text-primary mb-2">2. Managing Your Time</h4>
-              <p className="text-sm text-foreground">Learn how to set priorities, control your workload and complete tasks on time. Identify what's important and fulfil targets and objectives more effectively in less time.</p>
-              <p className="text-xs text-muted-foreground mt-2">(1-day seminar)</p>
-            </div>
-            <div className="bg-primary/5 p-5 rounded-lg border border-border">
-              <h4 className="font-semibold text-primary mb-2">3. Leadership and Team Building</h4>
-              <p className="text-sm text-foreground">Successful leaders know how to handle people effectively and get results, deal with conflicts and communicate confidently, and earn the respect of their peer group and superiors.</p>
-              <p className="text-xs text-muted-foreground mt-2">(2-day course for managers and supervisors)</p>
-            </div>
-            <div className="bg-primary/5 p-5 rounded-lg border border-border">
-              <h4 className="font-semibold text-primary mb-2">4. Balancing Priorities and Managing Projects</h4>
-              <p className="text-sm text-foreground">Prioritize and keep on top of multiple projects, manage conflicting demands, and take control over your workload. Set deadlines and stick to them. Get more done in less time.</p>
-              <p className="text-xs text-muted-foreground mt-2">(2-day seminar)</p>
-            </div>
+            {courses.map((course) => (
+              <div
+                key={course.id}
+                className={`bg-primary/5 p-5 rounded-lg border ${
+                  results?.[course.id] === 'correct'
+                    ? 'border-green-500 bg-green-50/50'
+                    : results?.[course.id] === 'incorrect'
+                    ? 'border-red-500 bg-red-50/50'
+                    : 'border-border'
+                }`}
+              >
+                <div className="mb-3">
+                  <label className="text-xs font-medium text-muted-foreground mb-1 block">Course {course.id} heading:</label>
+                  <Select
+                    value={selections[course.id] || ''}
+                    onValueChange={(val) => handleSelect(course.id, val)}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Choose a heading..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {headingOptions.map((h) => (
+                        <SelectItem key={h} value={h}>{h}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {results?.[course.id] === 'correct' && (
+                    <p className="text-green-600 text-xs mt-1">✓ Correct!</p>
+                  )}
+                  {results?.[course.id] === 'incorrect' && (
+                    <p className="text-red-600 text-xs mt-1">✗ Try again. The correct answer is: {course.correctHeading}</p>
+                  )}
+                </div>
+                <p className="text-sm text-foreground">{course.description}</p>
+                <p className="text-xs text-muted-foreground mt-2">{course.duration}</p>
+              </div>
+            ))}
           </div>
+
+          <Button onClick={checkAnswers} className="mt-6 bg-primary hover:bg-primary/90">
+            Check Answers
+          </Button>
 
           <p className="text-sm text-muted-foreground mt-4 italic">Which course would you send Peter Grahame on? Why? Discuss with a partner.</p>
         </CardContent>
