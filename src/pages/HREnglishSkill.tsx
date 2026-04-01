@@ -57,6 +57,15 @@ const HREnglishSkill = () => {
         case 'speaking': return <SpeakingUnit2 />;
       }
     }
+    if (unitId === 'employee-relations') {
+      switch (skillId) {
+        case 'starter': return <StarterUnit3 />;
+        case 'vocabulary': return <VocabularyUnit3 />;
+        case 'listening': return <ListeningUnit3 />;
+        case 'reading': return <ReadingUnit3 />;
+        case 'speaking': return <SpeakingUnit3 />;
+      }
+    }
     return (
       <div className="text-center py-16">
         <p className="text-muted-foreground text-lg">Content coming soon...</p>
