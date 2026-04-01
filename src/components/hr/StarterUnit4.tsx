@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
+import trainingImg from '@/assets/hr-training-session.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 
 const statements = [
@@ -56,6 +57,33 @@ const StarterUnit4 = () => {
           { id: 8, left: 'induction programme', right: 'to inform new staff about the company and its procedures and to help them to settle successfully into their new job' },
         ]}
       />
+
+      {/* Discussion questions with image */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">Your Company</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Which aspects of staff development mentioned above does your company use?
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed mt-4">
+                Which do you think are the most effective?
+              </p>
+            </div>
+            <div>
+              <img
+                src={trainingImg}
+                alt="Office workers in a training session"
+                className="rounded-lg shadow-md w-full"
+                loading="lazy"
+                width={768}
+                height={512}
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
