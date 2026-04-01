@@ -54,7 +54,7 @@ const ReadingUnit2 = () => {
           { id: "8", text: "Allow the candidate time for his or her own questions.", order: 7 },
           { id: "5", text: "Before finishing the interview, explain what will happen next and by when.", order: 8 },
         ]}
-        correctOrder={["6", "2", "7", "1", "3", "4", "8", "5"]}
+        />
       />
 
       {/* Word formation */}

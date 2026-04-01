@@ -92,7 +92,7 @@ const VocabularyUnit2 = () => {
           { id: "5", text: "Training", order: 5 },
           { id: "6", text: "Key Skills", order: 6 },
         ]}
-        correctOrder={["1", "2", "3", "4", "5", "6"]}
+        />
       />
 
       {/* Activity 5: Letter labelling */}
