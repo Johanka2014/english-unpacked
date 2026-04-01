@@ -160,12 +160,7 @@ const ListeningUnit4 = () => {
           <p className="text-muted-foreground mb-4">
             Gaby Meyer, a line manager at Aus-pharma, is carrying out an appraisal interview with Peter Grahame, an employee from Edinburgh on secondment in Vienna for two years.
           </p>
-          <div className="bg-muted/50 p-4 rounded-lg text-center mb-6">
-            <p className="text-sm text-muted-foreground italic">🔊 Audio placeholder — add audio file link later</p>
-            <audio controls src="" className="w-full mt-2">
-              Your browser does not support the audio element.
-            </audio>
-          </div>
+          <audio controls src="/audio/hr/unit4-14.mp3" className="w-full mb-6" />
         </CardContent>
       </Card>
 
