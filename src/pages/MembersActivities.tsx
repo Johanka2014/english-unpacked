@@ -108,6 +108,16 @@ const youngLearnersActivities = [
   },
 ];
 
+const hrActivities = [
+  {
+    title: 'Oxford English for Human Resources',
+    description: 'Master HR English across 6 units covering recruitment, selection, employee relations, development, remuneration, and industrial relations',
+    icon: Users,
+    path: '/hr-english',
+    color: 'text-teal-600',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
