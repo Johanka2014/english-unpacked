@@ -85,12 +85,12 @@ const VocabularyUnit2 = () => {
         title="Activity 4b: CV Section Order"
         description="Put these main CV headings into a logical order in which they might appear."
         items={[
-          { id: "1", text: "Personal Details" },
-          { id: "2", text: "Personal Profile" },
-          { id: "3", text: "Career History" },
-          { id: "4", text: "Education" },
-          { id: "5", text: "Training" },
-          { id: "6", text: "Key Skills" },
+          { id: "1", text: "Personal Details", order: 1 },
+          { id: "2", text: "Personal Profile", order: 2 },
+          { id: "3", text: "Career History", order: 3 },
+          { id: "4", text: "Education", order: 4 },
+          { id: "5", text: "Training", order: 5 },
+          { id: "6", text: "Key Skills", order: 6 },
         ]}
         correctOrder={["1", "2", "3", "4", "5", "6"]}
       />

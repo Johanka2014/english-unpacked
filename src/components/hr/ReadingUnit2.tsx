@@ -45,14 +45,14 @@ const ReadingUnit2 = () => {
         title="Activity 9: Interview Tips"
         description="These interview tips are in the wrong order. Put them into the correct chronological order for conducting a job interview."
         items={[
-          { id: "6", text: "Use a quiet office away from noise and interruptions." },
-          { id: "2", text: "Read the candidate's application and have it with you at the interview." },
-          { id: "7", text: "Welcome the applicant warmly into your office and explain the interview clearly." },
-          { id: "1", text: "Establish rapport and relax the candidate." },
-          { id: "3", text: "Use open questions as much as possible to ensure the candidate gives detailed answers." },
-          { id: "4", text: "Allow the candidate to do most of the talking but keep the interview focused." },
-          { id: "8", text: "Allow the candidate time for his or her own questions." },
-          { id: "5", text: "Before finishing the interview, explain what will happen next and by when." },
+          { id: "6", text: "Use a quiet office away from noise and interruptions.", order: 1 },
+          { id: "2", text: "Read the candidate's application and have it with you at the interview.", order: 2 },
+          { id: "7", text: "Welcome the applicant warmly into your office and explain the interview clearly.", order: 3 },
+          { id: "1", text: "Establish rapport and relax the candidate.", order: 4 },
+          { id: "3", text: "Use open questions as much as possible to ensure the candidate gives detailed answers.", order: 5 },
+          { id: "4", text: "Allow the candidate to do most of the talking but keep the interview focused.", order: 6 },
+          { id: "8", text: "Allow the candidate time for his or her own questions.", order: 7 },
+          { id: "5", text: "Before finishing the interview, explain what will happen next and by when.", order: 8 },
         ]}
         correctOrder={["6", "2", "7", "1", "3", "4", "8", "5"]}
       />
