@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
+import trainingImg from '@/assets/hr-training-session.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 
 const statements = [
