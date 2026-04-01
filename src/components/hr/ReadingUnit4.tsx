@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import diverseWorkersImg from '@/assets/diverse-workers.jpg';
 
 const headingOptions = [
   'Assertive Leadership Skills',
