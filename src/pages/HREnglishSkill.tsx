@@ -20,6 +20,11 @@ import VocabularyUnit3 from '@/components/hr/VocabularyUnit3';
 import ListeningUnit3 from '@/components/hr/ListeningUnit3';
 import ReadingUnit3 from '@/components/hr/ReadingUnit3';
 import SpeakingUnit3 from '@/components/hr/SpeakingUnit3';
+import StarterUnit4 from '@/components/hr/StarterUnit4';
+import VocabularyUnit4 from '@/components/hr/VocabularyUnit4';
+import ListeningUnit4 from '@/components/hr/ListeningUnit4';
+import ReadingUnit4 from '@/components/hr/ReadingUnit4';
+import SpeakingUnit4 from '@/components/hr/SpeakingUnit4';
 
 const HREnglishSkill = () => {
   const { unitId, skillId } = useParams();

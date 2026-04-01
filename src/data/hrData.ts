@@ -66,11 +66,11 @@ export const hrUnits: HRUnit[] = [
     subtitle: 'Appraisals, training & equal opportunities',
     topics: ['HR development practices', 'Dealing with staff problems', 'Appraisal interviews', 'Training courses', 'Equal opportunities and diversity'],
     skills: [
-      { id: 'starter', title: 'Starter', description: 'Introduction to HR development', type: 'vocabulary' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'The language of appraisal interviews and diplomatic language', type: 'vocabulary' },
-      { id: 'listening', title: 'Listening', description: 'Making recommendations and softening disagreement', type: 'listening' },
-      { id: 'reading', title: 'Reading', description: 'Appraisal reports and training courses', type: 'reading' },
-      { id: 'speaking', title: 'Speaking', description: 'Appraisal interview role-play', type: 'speaking' },
+      { id: 'starter', title: 'Starter', description: 'HR development discussion and staff development practices matching', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Appraisal schemes, expressions, diplomatic language and word partnerships', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening', description: 'Staff problems, development solutions and appraisal interview report', type: 'listening', content: true, audioTrack: 10 },
+      { id: 'reading', title: 'Reading', description: 'Training courses and equal opportunities vs diversity', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking', description: 'Making recommendations, diplomatic language and appraisal role-play', type: 'speaking', content: true },
     ],
   },
   {
