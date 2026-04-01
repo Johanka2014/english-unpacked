@@ -80,11 +80,11 @@ export const hrUnits: HRUnit[] = [
     subtitle: 'Salaries, fringe benefits & salary reviews',
     topics: ['Salaries and fringe benefits', 'Salary reviews'],
     skills: [
-      { id: 'starter', title: 'Starter', description: 'Introduction to reward and remuneration', type: 'vocabulary' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Talking about figures and numbers', type: 'vocabulary' },
-      { id: 'listening', title: 'Listening', description: 'Asking for and giving feedback, clarifying', type: 'listening' },
-      { id: 'reading', title: 'Reading', description: 'Salary reviews and fringe benefits', type: 'reading' },
-      { id: 'speaking', title: 'Speaking', description: 'Agreeing, disagreeing, and interrupting', type: 'speaking' },
+      { id: 'starter', title: 'Starter', description: 'Fringe benefits mind map, Cycle to Work article ordering and expression matching', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Reward vocabulary puzzle, word families (benefit/review) and talking about figures and numbers', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening', description: 'Benefits meeting matching, three-column phrase matching and salary review sentence completion', type: 'listening', content: true, audioTrack: 9 },
+      { id: 'reading', title: 'Reading', description: 'Remuneration packages comparison, job adverts and dissatisfaction over benefits article', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking', description: 'Agreeing, disagreeing, interrupting, trends vocabulary and salary review role-play', type: 'speaking', content: true },
     ],
   },
   {
