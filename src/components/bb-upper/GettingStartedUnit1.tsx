@@ -57,7 +57,7 @@ const GettingStartedUnit1 = () => {
           </div>
 
           {/* Right column – 40% */}
-          <div className="md:col-span-2 flex items-start">
+          <div className="md:col-span-2 flex items-stretch">
             <img
               src={handshakeImg}
               alt="Two businesspeople smiling and shaking hands"
