@@ -1,8 +1,17 @@
 import { useState, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { RotateCcw } from 'lucide-react';
 import handshakeImg from '@/assets/bb-upper-unit1-handshake.jpg';
+
+const SAMPLE_ANSWERS: Record<string, string[]> = {
+  Writing: ['applications', 'complaints', 'emails', 'enquiries', 'giving information', 'letters', 'memos', 'notes', 'proposals', 'reports'],
+  Reading: ['applications', 'articles', 'complaints', 'emails', 'enquiries', 'letters', 'memos', 'notes', 'proposals', 'reports'],
+  Speaking: ['complaints', 'enquiries', 'giving information', 'interviews', 'meetings', 'negotiations', 'presentations', 'telephoning', 'visits'],
+  Grammar: ['articles', 'error correction'],
+  Listening: ['complaints', 'enquiries', 'interviews', 'meetings', 'negotiations', 'presentations', 'telephoning', 'visits'],
+};
 
 const ITEMS = [
   'articles', 'complaints', 'enquiries', 'memos', 'proposals', 'reports',
