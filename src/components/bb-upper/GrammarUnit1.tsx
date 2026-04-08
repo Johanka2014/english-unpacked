@@ -227,7 +227,7 @@ const GrammarUnit1 = () => {
                         type="text"
                         value={answers[part.id]}
                         onChange={(e) => handleChange(part.id, e.target.value)}
-                        className={`border-b-2 bg-transparent text-center text-sm font-medium outline-none w-36 py-0.5 transition-colors ${
+                        className={`border-b-2 bg-transparent text-center text-sm font-medium outline-none w-40 py-0.5 transition-colors ${
                           checked
                             ? isCorrect(part.id)
                               ? 'border-green-500 text-green-700'
@@ -239,7 +239,10 @@ const GrammarUnit1 = () => {
                       {checked && (
                         isCorrect(part.id)
                           ? <CheckCircle2 className="h-4 w-4 text-green-500 ml-1 shrink-0" />
-                          : <XCircle className="h-4 w-4 text-destructive ml-1 shrink-0" />
+                          : <span className="inline-flex items-center">
+                              <XCircle className="h-4 w-4 text-destructive ml-1 shrink-0" />
+                              <span className="text-xs text-green-600 font-medium ml-1 whitespace-nowrap">({part.answer})</span>
+                            </span>
                       )}
                     </span>
                   )
