@@ -210,9 +210,33 @@ const GettingStartedUnit1 = () => {
             ))}
           </div>
 
-          <Button variant="outline" size="sm" onClick={handleReset} className="gap-2">
-            <RotateCcw className="h-3.5 w-3.5" /> Reset
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" onClick={handleReset} className="gap-2">
+              <RotateCcw className="h-3.5 w-3.5" /> Reset
+            </Button>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="sample-answer" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-sm font-semibold text-primary hover:no-underline">
+                Sample Answer (for discussion)
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {CATEGORIES.map((cat) => (
+                    <div key={cat} className="rounded-lg border border-border bg-muted/30 p-3">
+                      <h4 className="font-bold text-sm text-foreground mb-2 pb-2 border-b border-border">{cat}</h4>
+                      <ul className="space-y-1">
+                        {SAMPLE_ANSWERS[cat].map((item) => (
+                          <li key={item} className="text-xs text-muted-foreground">{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </CardContent>
       </Card>
     </div>
