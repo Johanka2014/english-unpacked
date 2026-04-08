@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
+import GettingStartedUnit1 from '@/components/bb-upper/GettingStartedUnit1';
 import GettingStartedUnit2 from '@/components/bb-upper/GettingStartedUnit2';
 import ListeningUnit2 from '@/components/bb-upper/ListeningUnit2';
 import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
@@ -63,7 +64,9 @@ const BBUpperSkill = () => {
           </Link>
         </div>
 
-        {moduleId === 'job-descriptions' && skillId === 'getting-started' ? (
+        {moduleId === 'staff-development-and-training' && skillId === 'getting-started' ? (
+          <GettingStartedUnit1 />
+        ) : moduleId === 'job-descriptions' && skillId === 'getting-started' ? (
           <GettingStartedUnit2 />
         ) : moduleId === 'job-descriptions' && skillId === 'reading' ? (
           <ReadingUnit2 />

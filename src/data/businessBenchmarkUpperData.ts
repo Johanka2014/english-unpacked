@@ -22,6 +22,7 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 1,
     title: 'Staff Development and Training',
     skills: [
+      { id: 'getting-started', title: 'Getting Started', description: 'Introductory discussion about work, study and career plans', type: 'vocabulary', content: true },
       { id: 'reading', title: 'Reading', description: 'Recruitment brochure', type: 'reading' },
       { id: 'listening', title: 'Listening', description: 'Conversation about a training course', type: 'listening', audioTrack: '' },
       { id: 'speaking', title: 'Speaking', description: 'Discussion: Who should pay for training? Preparing a staff training scheme', type: 'speaking' },
