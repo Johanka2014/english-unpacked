@@ -7,6 +7,7 @@ import { bbUpperModules } from '@/data/businessBenchmarkUpperData';
 import SEO from '@/components/SEO';
 import GettingStartedUnit1 from '@/components/bb-upper/GettingStartedUnit1';
 import VocabularyUnit1 from '@/components/bb-upper/VocabularyUnit1';
+import GrammarUnit1 from '@/components/bb-upper/GrammarUnit1';
 import GettingStartedUnit2 from '@/components/bb-upper/GettingStartedUnit2';
 import ListeningUnit2 from '@/components/bb-upper/ListeningUnit2';
 import GettingStartedUnit10 from '@/components/bb-upper/GettingStartedUnit10';
