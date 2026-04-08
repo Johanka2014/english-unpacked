@@ -1,8 +1,17 @@
 import { useState, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { RotateCcw } from 'lucide-react';
 import handshakeImg from '@/assets/bb-upper-unit1-handshake.jpg';
+
+const SAMPLE_ANSWERS: Record<string, string[]> = {
+  Writing: ['applications', 'complaints', 'emails', 'enquiries', 'giving information', 'letters', 'memos', 'notes', 'proposals', 'reports'],
+  Reading: ['applications', 'articles', 'complaints', 'emails', 'enquiries', 'letters', 'memos', 'notes', 'proposals', 'reports'],
+  Speaking: ['complaints', 'enquiries', 'giving information', 'interviews', 'meetings', 'negotiations', 'presentations', 'telephoning', 'visits'],
+  Grammar: ['articles', 'error correction'],
+  Listening: ['complaints', 'enquiries', 'interviews', 'meetings', 'negotiations', 'presentations', 'telephoning', 'visits'],
+};
 
 const ITEMS = [
   'articles', 'complaints', 'enquiries', 'memos', 'proposals', 'reports',
@@ -201,9 +210,33 @@ const GettingStartedUnit1 = () => {
             ))}
           </div>
 
-          <Button variant="outline" size="sm" onClick={handleReset} className="gap-2">
-            <RotateCcw className="h-3.5 w-3.5" /> Reset
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" onClick={handleReset} className="gap-2">
+              <RotateCcw className="h-3.5 w-3.5" /> Reset
+            </Button>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="sample-answer" className="border rounded-lg px-4">
+              <AccordionTrigger className="text-sm font-semibold text-primary hover:no-underline">
+                Sample Answer (for discussion)
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {CATEGORIES.map((cat) => (
+                    <div key={cat} className="rounded-lg border border-border bg-muted/30 p-3">
+                      <h4 className="font-bold text-sm text-foreground mb-2 pb-2 border-b border-border">{cat}</h4>
+                      <ul className="space-y-1">
+                        {SAMPLE_ANSWERS[cat].map((item) => (
+                          <li key={item} className="text-xs text-muted-foreground">{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </CardContent>
       </Card>
     </div>
