@@ -26,7 +26,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'reading', title: 'Reading', description: 'Recruitment brochure', type: 'reading' },
       { id: 'listening', title: 'Listening', description: 'Conversation about a training course', type: 'listening', audioTrack: '' },
       { id: 'speaking', title: 'Speaking', description: 'Discussion: Who should pay for training? Preparing a staff training scheme', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Job training: bonus schemes, promotion, training budget, learning goals', type: 'vocabulary' },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Job training: bonus schemes, promotion, training budget, learning goals', type: 'vocabulary', content: true },
       { id: 'grammar', title: 'Grammar', description: 'Expressing personal opinions; Comparison of adjectives', type: 'grammar' },
     ],
   },
