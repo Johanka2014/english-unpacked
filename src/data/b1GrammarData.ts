@@ -456,6 +456,7 @@ const futureTensesExamPractice = {
     {
       id: 2,
       text: 'Lewis\nCan you give me a lift home from the concert tonight? I\'m working late so I expect I\'ll miss the beginning of it. Don\'t wait for me outside.\nJack',
+      image: 'exam-future-2',
       options: [
         { letter: 'A', text: 'Lewis will probably arrive at the concert after Jack.' },
         { letter: 'B', text: 'Lewis will probably pick up Jack on his way to the concert.' },
@@ -466,6 +467,7 @@ const futureTensesExamPractice = {
     {
       id: 3,
       text: 'Dear Mum\nWe\'re staying in the mountains tomorrow night after we\'ve spent the day walking. Then, before we travel to the coast, we\'re going to spend two days in the city.\nPaula',
+      image: 'exam-future-3',
       options: [
         { letter: 'A', text: 'Paula is travelling from the coast to the city.' },
         { letter: 'B', text: 'Paula is walking in the mountains before she goes to the city.' },
@@ -476,6 +478,7 @@ const futureTensesExamPractice = {
     {
       id: 4,
       text: 'Mr Johnson has a meeting this morning. Please do not disturb him until after lunch.',
+      image: 'exam-future-4',
       options: [
         { letter: 'A', text: 'You can talk to Mr Johnson at lunchtime if you want.' },
         { letter: 'B', text: 'Mr Johnson is going to arrange a meeting for this afternoon.' },
@@ -486,6 +489,7 @@ const futureTensesExamPractice = {
     {
       id: 5,
       text: 'Kezia\nJenny rang. You left your mobile at her house. She\'ll probably bring it here on her way to college.\nAlex.',
+      image: 'exam-future-5',
       options: [
         { letter: 'A', text: 'Kezia has to fetch her mobile from Jenny\'s house.' },
         { letter: 'B', text: 'Jenny hopes to give Kezia her mobile before she goes to college.' },
