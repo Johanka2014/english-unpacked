@@ -518,6 +518,7 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
                 ))}
               </div>
             )}
+            <div className={ex.image ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : ''}>
             <div className="space-y-4">
               {ex.items.map((item) => {
                 const userAnswer = answers[ex.id]?.[item.id] || '';
