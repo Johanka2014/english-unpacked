@@ -20,6 +20,7 @@ import SpeakingCorporateCultureExercise from '@/components/business-benchmark/Sp
 import GrammarCorporateCultureExercise from '@/components/business-benchmark/GrammarCorporateCultureExercise';
 import GettingStartedCompanyHistory from '@/components/business-benchmark/GettingStartedCompanyHistory';
 import ReadingCompanyHistoryExercise from '@/components/business-benchmark/ReadingCompanyHistoryExercise';
+import GrammarCompanyHistoryExercise from '@/components/business-benchmark/GrammarCompanyHistoryExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
