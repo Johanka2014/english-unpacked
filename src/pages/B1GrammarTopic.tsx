@@ -518,8 +518,42 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
                 ))}
               </div>
             )}
-            <div className={ex.image ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : ''}>
-            <div className="space-y-4">
+            {ex.image && EXERCISE_IMAGES[ex.image] ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  {ex.items.map((item) => {
+                    const userAnswer = answers[ex.id]?.[item.id] || '';
+                    const isChecked = checked[ex.id];
+                    const isCorrect = isChecked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
+                    const isWrong = isChecked && userAnswer.trim() !== '' && !isCorrect;
+                    return (
+                      <div key={item.id} className="flex items-start gap-3">
+                        <span className="text-sm font-medium text-muted-foreground mt-2 w-6">{item.id}.</span>
+                        <div className="flex-1">
+                          <p className="text-sm text-foreground mb-1" dangerouslySetInnerHTML={{ __html: item.prompt }} />
+                          <input
+                            type="text"
+                            value={userAnswer}
+                            onChange={(e) => handleChange(ex.id, item.id, e.target.value)}
+                            className={`w-full max-w-xs border rounded-md px-3 py-1.5 text-sm transition-colors ${
+                              isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                              isWrong ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
+                              'border-border bg-background'
+                            }`}
+                            disabled={isChecked}
+                          />
+                          {isWrong && <p className="text-xs text-red-600 mt-1">Correct answer: {item.answer}</p>}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="flex items-start justify-center">
+                  <img src={EXERCISE_IMAGES[ex.image]} alt={ex.title} className="rounded-lg border border-border w-full object-contain" />
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
               {ex.items.map((item) => {
                 const userAnswer = answers[ex.id]?.[item.id] || '';
                 const isChecked = checked[ex.id];
@@ -569,12 +603,7 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
                 );
               })}
             </div>
-            {ex.image && EXERCISE_IMAGES[ex.image] && (
-              <div className="flex items-start justify-center">
-                <img src={EXERCISE_IMAGES[ex.image]} alt={ex.title} className="rounded-lg border border-border w-full object-contain" />
-              </div>
             )}
-            {ex.image && </div>}
             {!checked[ex.id] && (
               <Button onClick={() => checkExercise(ex.id)} className="mt-6">
                 Check Answers
