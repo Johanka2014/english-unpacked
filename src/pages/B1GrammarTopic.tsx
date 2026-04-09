@@ -504,6 +504,15 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{ex.title}</h3>
             <p className="text-muted-foreground mb-6">{ex.instruction}</p>
+            {ex.wordBank && ex.wordBank.length > 0 && (
+              <div className="flex flex-wrap gap-2 rounded-lg border border-border bg-muted/20 p-4 mb-6">
+                {ex.wordBank.map((w) => (
+                  <span key={w} className="px-3 py-1.5 rounded-md bg-accent text-accent-foreground text-sm font-medium border border-border">
+                    {w}
+                  </span>
+                ))}
+              </div>
+            )}
             <div className="space-y-4">
               {ex.items.map((item) => {
                 const userAnswer = answers[ex.id]?.[item.id] || '';
