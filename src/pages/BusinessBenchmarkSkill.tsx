@@ -18,6 +18,7 @@ import VocabCorporateCultureExercise from '@/components/business-benchmark/Vocab
 import ListeningCorporateCultureExercise from '@/components/business-benchmark/ListeningCorporateCultureExercise';
 import SpeakingCorporateCultureExercise from '@/components/business-benchmark/SpeakingCorporateCultureExercise';
 import GrammarCorporateCultureExercise from '@/components/business-benchmark/GrammarCorporateCultureExercise';
+import GettingStartedCompanyHistory from '@/components/business-benchmark/GettingStartedCompanyHistory';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -45,6 +46,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'listening-corporate-culture') return <ListeningCorporateCultureExercise />;
     if (contentType === 'speaking-corporate-culture') return <SpeakingCorporateCultureExercise />;
     if (contentType === 'grammar-corporate-culture') return <GrammarCorporateCultureExercise />;
+    if (contentType === 'getting-started-company-history') return <GettingStartedCompanyHistory />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
