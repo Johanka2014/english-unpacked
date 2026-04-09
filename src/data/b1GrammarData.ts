@@ -51,6 +51,7 @@ export interface GrammarExercise {
 export interface ExamReadingPart1Question {
   id: number;
   text: string;
+  image?: string;
   options: { letter: string; text: string }[];
   answer: string;
 }
@@ -444,6 +445,7 @@ const futureTensesExamPractice = {
     {
       id: 1,
       text: 'Sale starts Monday.\nShop opens normal time but closes late every day except Wednesday.',
+      image: 'exam-future-1',
       options: [
         { letter: 'A', text: 'The shop is open longer on Monday than on Wednesday.' },
         { letter: 'B', text: 'The shop is open the same hours as usual during the sale.' },
