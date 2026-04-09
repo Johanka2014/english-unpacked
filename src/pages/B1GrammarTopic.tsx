@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
-import type { GrammarExercise, EmailSegment } from '@/data/b1GrammarData';
+import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 
@@ -265,6 +265,212 @@ const ErrorCorrectionEmailExercise = ({ exercise }: { exercise: GrammarExercise 
   );
 };
 
+// ── Context Fill Exercise ──────────────────────────────────────────────
+
+const ContextFillExercise = ({ exercise }: { exercise: GrammarExercise }) => {
+  const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  const score = checked
+    ? exercise.items.filter((item) => answers[item.id]?.trim().toLowerCase() === item.answer.toLowerCase()).length
+    : 0;
+
+  return (
+    <Card className="service-card">
+      <CardContent className="p-6">
+        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">{exercise.title}</h3>
+        <p className="text-muted-foreground mb-4">{exercise.instruction}</p>
+
+        {exercise.contextText && (
+          <div className="bg-muted/50 border border-border rounded-lg p-4 mb-6 max-h-64 overflow-y-auto">
+            <p className="text-sm font-medium text-muted-foreground mb-2 uppercase tracking-wider">📖 Dialogue</p>
+            <div className="text-sm text-foreground whitespace-pre-wrap leading-relaxed">{exercise.contextText}</div>
+          </div>
+        )}
+
+        <div className="space-y-4">
+          {exercise.items.map((item) => {
+            const userAnswer = answers[item.id] || '';
+            const isCorrect = checked && userAnswer.trim().toLowerCase() === item.answer.toLowerCase();
+            const isWrong = checked && userAnswer.trim() !== '' && !isCorrect;
+
+            return (
+              <div key={item.id} className="flex items-start gap-3">
+                <span className="text-sm font-medium text-muted-foreground mt-2 w-6">{item.id}.</span>
+                <div className="flex-1">
+                  <p className="text-sm text-foreground mb-1">{item.prompt}</p>
+                  <input
+                    type="text"
+                    value={userAnswer}
+                    onChange={(e) => !checked && setAnswers((prev) => ({ ...prev, [item.id]: e.target.value }))}
+                    disabled={checked}
+                    className={`w-full max-w-xs border rounded-md px-3 py-1.5 text-sm transition-colors ${
+                      isCorrect ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                      isWrong ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
+                      'border-border bg-background'
+                    }`}
+                  />
+                  {isWrong && <p className="text-xs text-red-600 mt-1">Correct answer: {item.answer}</p>}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {!checked ? (
+          <Button onClick={() => setChecked(true)} className="mt-6">Check Answers</Button>
+        ) : (
+          <div className="mt-4 flex items-center gap-4">
+            <div className="p-3 bg-muted rounded-lg">
+              <p className="text-sm font-medium text-foreground">Score: {score} / {exercise.items.length}</p>
+            </div>
+            <Button variant="outline" onClick={() => { setChecked(false); setAnswers({}); }}>Try Again</Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
+// ── Exam Practice: Reading Part 1 ─────────────────────────────────────
+
+const ExamPracticeReadingPart1 = ({ questions, intro, grammarFocusTask }: {
+  questions: ExamReadingPart1Question[];
+  intro: string;
+  grammarFocusTask?: { instruction: string; items: GrammarFocusTaskItem[] };
+}) => {
+  const [selected, setSelected] = useState<Record<number, string>>({});
+  const [checked, setChecked] = useState(false);
+
+  const score = checked ? questions.filter((q) => selected[q.id] === q.answer).length : 0;
+
+  const [focusAnswers, setFocusAnswers] = useState<Record<number, string>>({});
+  const [focusChecked, setFocusChecked] = useState(false);
+
+  return (
+    <div className="space-y-6">
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Reading Part 1</h3>
+          <p className="text-muted-foreground text-sm">{intro}</p>
+        </CardContent>
+      </Card>
+
+      <div className="space-y-6">
+        {questions.map((q) => {
+          const isCorrect = checked && selected[q.id] === q.answer;
+          const isWrong = checked && selected[q.id] && !isCorrect;
+
+          return (
+            <Card key={q.id} className="service-card">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="text-lg font-bold text-primary shrink-0">{q.id}.</span>
+                  <div className="bg-muted/50 border border-border rounded-lg p-4 flex-1">
+                    <p className="text-sm text-foreground whitespace-pre-wrap">{q.text}</p>
+                  </div>
+                </div>
+
+                <div className="space-y-2 ml-8">
+                  {q.options.map((opt) => {
+                    const isThisCorrect = checked && opt.letter === q.answer;
+                    const isThisSelected = selected[q.id] === opt.letter;
+                    const isThisWrong = checked && isThisSelected && opt.letter !== q.answer;
+
+                    return (
+                      <button
+                        key={opt.letter}
+                        onClick={() => !checked && setSelected((prev) => ({ ...prev, [q.id]: opt.letter }))}
+                        disabled={checked}
+                        className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-colors ${
+                          isThisCorrect
+                            ? 'border-green-500 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 font-medium'
+                            : isThisWrong
+                            ? 'border-red-500 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400'
+                            : isThisSelected
+                            ? 'border-primary bg-primary/10 text-foreground'
+                            : 'border-border bg-background text-foreground hover:bg-muted'
+                        }`}
+                      >
+                        <span className="font-bold mr-2">{opt.letter}</span>
+                        {opt.text}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {isWrong && (
+                  <p className="text-xs text-red-600 mt-2 ml-8">Correct answer: {q.answer}</p>
+                )}
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      {!checked ? (
+        <Button
+          onClick={() => setChecked(true)}
+          disabled={Object.keys(selected).length < questions.length}
+        >
+          Check Answers
+        </Button>
+      ) : (
+        <div className="p-3 bg-muted rounded-lg">
+          <p className="text-sm font-medium text-foreground">Score: {score} / {questions.length}</p>
+        </div>
+      )}
+
+      {grammarFocusTask && (
+        <Card className="service-card mt-8">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Grammar Focus Task</h3>
+            <p className="text-muted-foreground text-sm mb-6">{grammarFocusTask.instruction}</p>
+
+            <div className="space-y-4">
+              {grammarFocusTask.items.map((item) => {
+                const userVal = focusAnswers[item.id] || '';
+                const isMatch = focusChecked && item.answers.some(a => userVal.trim().toLowerCase().includes(a.toLowerCase()));
+                const isWrongFocus = focusChecked && !isMatch && userVal.trim() !== '';
+
+                return (
+                  <div key={item.id} className="flex items-start gap-3">
+                    <span className="text-sm font-bold text-primary mt-2">{item.id}.</span>
+                    <div className="flex-1">
+                      <p className="text-sm text-foreground mb-2">{item.question}</p>
+                      <input
+                        type="text"
+                        value={userVal}
+                        onChange={(e) => !focusChecked && setFocusAnswers((prev) => ({ ...prev, [item.id]: e.target.value }))}
+                        disabled={focusChecked}
+                        placeholder="Type your answer..."
+                        className={`w-full max-w-md border rounded-md px-3 py-1.5 text-sm transition-colors ${
+                          isMatch ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                          isWrongFocus ? 'border-red-500 bg-red-50 dark:bg-red-950/30' :
+                          'border-border bg-background'
+                        }`}
+                      />
+                      {isWrongFocus && (
+                        <p className="text-xs text-red-600 mt-1">Possible answers: {item.answers.join(', ')}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {!focusChecked ? (
+              <Button onClick={() => setFocusChecked(true)} className="mt-6">Check Answers</Button>
+            ) : (
+              <Button variant="outline" onClick={() => { setFocusChecked(false); setFocusAnswers({}); }} className="mt-4">Try Again</Button>
+            )}
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+};
+
 // ── Exercises View ─────────────────────────────────────────────────────
 
 const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
@@ -288,6 +494,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
         }
         if (ex.type === 'error-correction' && ex.emailSegments) {
           return <ErrorCorrectionEmailExercise key={ex.id} exercise={ex} />;
+        }
+        if (ex.type === 'context-fill' && ex.contextText) {
+          return <ContextFillExercise key={ex.id} exercise={ex} />;
         }
 
         return (
@@ -622,7 +831,7 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
@@ -696,7 +905,13 @@ const B1GrammarTopic = () => {
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'exam' && mod.examPractice && (
-                mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
+                mod.examPractice.readingPart1
+                  ? <ExamPracticeReadingPart1
+                      questions={mod.examPractice.readingPart1}
+                      intro={mod.examPractice.intro || ''}
+                      grammarFocusTask={mod.examPractice.grammarFocusTaskFuture}
+                    />
+                  : mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
                   ? <ExamPracticeReadingPart2 examPractice={mod.examPractice as ExamPracticeData} />
                   : (
                     <div className="text-center py-20 max-w-md mx-auto">
