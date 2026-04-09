@@ -569,6 +569,12 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
                 );
               })}
             </div>
+            {ex.image && EXERCISE_IMAGES[ex.image] && (
+              <div className="flex items-start justify-center">
+                <img src={EXERCISE_IMAGES[ex.image]} alt={ex.title} className="rounded-lg border border-border w-full object-contain" />
+              </div>
+            )}
+            {ex.image && </div>}
             {!checked[ex.id] && (
               <Button onClick={() => checkExercise(ex.id)} className="mt-6">
                 Check Answers
