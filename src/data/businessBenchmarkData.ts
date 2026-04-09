@@ -43,7 +43,7 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     title: 'Company History',
     skills: [
       { id: 'getting-started', title: 'Getting Started', description: 'Match famous companies with the date they were set up', content: { type: 'getting-started-company-history' } },
-      { id: 'reading', title: 'Reading', description: 'Levi Strauss: an article on company history; Hongdou: an article on a Chinese clothing company' },
+      { id: 'reading', title: 'Reading', description: 'Levi Strauss: an article on company history; Hongdou: an article on a Chinese clothing company', content: { type: 'reading-company-history' } },
       { id: 'listening', title: 'Listening', description: 'Joseph Rowntree: a business studies lecture' },
       { id: 'speaking', title: 'Speaking', description: 'Asking about products: past simple questions' },
       { id: 'grammar', title: 'Grammar', description: 'Past simple; Regular and irregular verbs; Question forms' },
