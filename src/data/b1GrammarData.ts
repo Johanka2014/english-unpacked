@@ -342,6 +342,15 @@ export const b1GrammarSections: B1GrammarSection[] = [
         title: 'Past Perfect',
         subtitle: 'past perfect and past simple; used to',
       },
+      {
+        id: 'future-tenses',
+        number: 12,
+        title: 'Future Tenses',
+        subtitle: 'will; going to; present continuous; present simple',
+        theory: futureTensesTheory,
+        exercises: futureTensesExercises,
+        examPractice: futureTensesExamPractice,
+      },
     ],
   },
   {
