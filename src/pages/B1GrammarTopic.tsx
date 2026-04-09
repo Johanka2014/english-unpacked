@@ -289,6 +289,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
         if (ex.type === 'error-correction' && ex.emailSegments) {
           return <ErrorCorrectionEmailExercise key={ex.id} exercise={ex} />;
         }
+        if (ex.type === 'context-fill' && ex.contextText) {
+          return <ContextFillExercise key={ex.id} exercise={ex} />;
+        }
 
         return (
         <Card key={ex.id} className="service-card">
