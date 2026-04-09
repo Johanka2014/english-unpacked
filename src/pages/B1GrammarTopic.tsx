@@ -11,10 +11,20 @@ import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
 import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
+import examFuture1 from '@/assets/exam-future-1.jpg';
+import examFuture2 from '@/assets/exam-future-2.jpg';
+import examFuture3 from '@/assets/exam-future-3.jpg';
+import examFuture4 from '@/assets/exam-future-4.jpg';
+import examFuture5 from '@/assets/exam-future-5.jpg';
 
 const EXERCISE_IMAGES: Record<string, string> = {
   'future-tenses-c2-going-to': futureTensesC2Image,
   'future-tenses-c4-diaries': futureTensesC4Image,
+  'exam-future-1': examFuture1,
+  'exam-future-2': examFuture2,
+  'exam-future-3': examFuture3,
+  'exam-future-4': examFuture4,
+  'exam-future-5': examFuture5,
 };
 
 // ── Theory View ────────────────────────────────────────────────────────
