@@ -33,7 +33,7 @@ export interface GrammarExercise {
   id: string;
   title: string;
   instruction: string;
-  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction';
+  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction' | 'context-fill';
   items: {
     id: number;
     prompt: string;
@@ -43,6 +43,20 @@ export interface GrammarExercise {
   }[];
   compoundGroups?: CompoundGroups;
   emailSegments?: EmailSegment[];
+  contextText?: string;
+}
+
+export interface ExamReadingPart1Question {
+  id: number;
+  text: string;
+  options: { letter: string; text: string }[];
+  answer: string;
+}
+
+export interface GrammarFocusTaskItem {
+  id: number;
+  question: string;
+  answers: string[];
 }
 
 export interface B1GrammarModule {
