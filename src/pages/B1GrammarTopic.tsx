@@ -383,9 +383,15 @@ const ExamPracticeReadingPart1 = ({ questions, intro, grammarFocusTask }: {
               <CardContent className="p-6">
                 <div className="flex items-start gap-3 mb-4">
                   <span className="text-lg font-bold text-primary shrink-0">{q.id}.</span>
-                  <div className="bg-muted/50 border border-border rounded-lg p-4 flex-1">
-                    <p className="text-sm text-foreground whitespace-pre-wrap">{q.text}</p>
-                  </div>
+                  {q.image && EXERCISE_IMAGES[q.image] ? (
+                    <div className="flex-1">
+                      <img src={EXERCISE_IMAGES[q.image]} alt={`Question ${q.id}`} className="rounded-lg border border-border max-w-sm w-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className="bg-muted/50 border border-border rounded-lg p-4 flex-1">
+                      <p className="text-sm text-foreground whitespace-pre-wrap">{q.text}</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="space-y-2 ml-8">
