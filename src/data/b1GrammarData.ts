@@ -42,6 +42,7 @@ export interface GrammarExercise {
     hint?: string;
   }[];
   wordBank?: string[];
+  image?: string;
   compoundGroups?: CompoundGroups;
   emailSegments?: EmailSegment[];
   contextText?: string;
@@ -373,6 +374,8 @@ const futureTensesExercises: GrammarExercise[] = [
     title: 'Exercise C2 — Going to',
     instruction: 'Write a sentence with going to about each picture. Use the verbs: be, join, play, rain, wash, win',
     type: 'fill-blank',
+    wordBank: ['be', 'join', 'play', 'rain', 'wash', 'win'],
+    image: 'future-tenses-c2-going-to',
     items: [
       { id: 1, prompt: 'I\'m ____ the kitchen floor.', answer: 'going to wash' },
       { id: 2, prompt: 'Number 5 (not) ____.', answer: "isn't going to win" },
