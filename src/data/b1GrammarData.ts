@@ -77,6 +77,11 @@ export interface B1GrammarModule {
       instruction: string;
       items: { id: number; sentence: string; adjectives: string[]; answer: string }[];
     };
+    readingPart1?: ExamReadingPart1Question[];
+    grammarFocusTaskFuture?: {
+      instruction: string;
+      items: GrammarFocusTaskItem[];
+    };
   };
 }
 
