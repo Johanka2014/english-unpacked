@@ -264,6 +264,238 @@ const module1Exercises: GrammarExercise[] = [
   },
 ];
 
+// ── Future Tenses (Module 12) ──────────────────────────────────────────
+
+const futureTensesTheory: GrammarTheorySection[] = [
+  {
+    heading: 'B1 — Will',
+    content: `
+      <table class="w-full text-sm border-collapse my-3">
+        <tbody>
+          <tr class="border-b"><td class="p-2 font-bold w-8">+</td><td class="p-2">I/you/he/she/it/we/they <strong>will</strong> ('ll) + verb</td><td class="p-2 italic">I'll pay.</td></tr>
+          <tr class="border-b"><td class="p-2 font-bold">-</td><td class="p-2">I/you/he/she/we/it/they <strong>will not</strong> (won't) + verb</td><td class="p-2 italic">She won't pay.</td></tr>
+          <tr><td class="p-2 font-bold">?</td><td class="p-2"><strong>Will</strong> I/you/he/she/it/we/they + verb?</td><td class="p-2 italic">Will you pay?</td></tr>
+        </tbody>
+      </table>
+      <p>We use <em>will</em>:</p>
+      <ul>
+        <li>to say what we <strong>know or believe</strong> about the future (often with <em>maybe, I think, I expect, I hope</em>):<br/>
+        <em>I'll be 17 next week.</em> (= he knows this)<br/>
+        <em>Everybody will do shopping by computer in a few years' time.</em> (= he believes this)<br/>
+        <em>I expect I'll be asleep all day.</em></li>
+        <li>when the speaker <strong>decides something at the moment</strong> he/she speaks:<br/>
+        <em>I'll have a coffee with you.</em> (= she decides now)</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B2 — Going to',
+    content: `
+      <table class="w-full text-sm border-collapse my-3">
+        <tbody>
+          <tr class="border-b"><td class="p-2 font-bold w-8">+</td><td class="p-2">am/is/are <strong>going to</strong> + verb</td><td class="p-2 italic">We're going to see the film.</td></tr>
+          <tr class="border-b"><td class="p-2 font-bold">-</td><td class="p-2">am/is/are not <strong>going to</strong> + verb</td><td class="p-2 italic">I'm not going to see the film.</td></tr>
+          <tr><td class="p-2 font-bold">?</td><td class="p-2">am/is/are ... <strong>going to</strong> + verb?</td><td class="p-2 italic">Are you going to see the film?</td></tr>
+        </tbody>
+      </table>
+      <p>We use <em>going to</em>:</p>
+      <ul>
+        <li>when we can see that something is <strong>certain to happen</strong>:<br/><em>The plane is going to land.</em></li>
+        <li>to talk about <strong>plans</strong>:<br/><em>We're going to see the new James Bond film.</em> (= we decided earlier)</li>
+        <li>We can often use <em>going to</em> or <em>will</em> to talk about the future:<br/>
+        <em>I'm going to be 17 next week.</em> = <em>I'll be 17 next week.</em><br/>
+        We use <em>will</em> more often when we write, but <em>going to</em> when we speak.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B3 — Present Continuous for the Future',
+    content: `
+      <p>We use the present continuous for <strong>plans already made</strong> when we know or guess the time:</p>
+      <ul>
+        <li><em>What are you doing tonight?</em> (= what plans have you got?)</li>
+        <li><em>I'm meeting a designer at 2.30.</em> (= he has an appointment)</li>
+      </ul>
+      <p>We can often use the present continuous or <em>going to</em> to talk about plans:</p>
+      <ul>
+        <li><em>We're spending the weekend at the seaside.</em> = <em>We're going to spend the weekend at the seaside.</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B4 — Present Simple for the Future',
+    content: `
+      <p>We use the present simple for <strong>timetables</strong> (trains, planes etc.) and for <strong>programmes</strong> (films, classes etc.):</p>
+      <ul>
+        <li><em>My flight leaves Rome at 11 pm on Saturday and it arrives in London at 1 am.</em></li>
+        <li><em>The film starts at nine o'clock.</em></li>
+      </ul>
+    `,
+  },
+];
+
+const futureTensesExercises: GrammarExercise[] = [
+  {
+    id: 'ft-context',
+    title: 'A3 — Context: Elliot & Kelly',
+    instruction: 'Read the conversation between Elliot and Kelly. Complete the sentences below using the words from the dialogue.',
+    type: 'context-fill',
+    contextText: `Kelly: Hi Elliot.\nElliot: Hi Kelly.\nKelly: What are you doing tonight?\nElliot: Well ...\nKelly: We've got tickets for a film. We're going to see the new James Bond film. It starts at nine o'clock.\nElliot: Oh, that would be great but I can't.\nKelly: But why? We've finished our exams.\nElliot: I'm not studying for exams tonight. You know my company?\nKelly: No I don't know what you're talking about.\nElliot: I've started an internet company. I sell books and CDs online and there are articles and things written by teenagers for teenagers.\nKelly: Wow.\nElliot: So you can sit at home, have fun and do your shopping on the screen without leaving the house. All you need is a mouse and a keyboard.\nKelly: And a computer of course.\nElliot: Yeah, yeah. Everybody will do shopping by computer in a few years' time.\nKelly: Oh, I'm sure you're right. But, anyway, what about Saturday and Sunday? We're going to spend the weekend at the seaside. My brother's going to drive us there.\nElliot: I'm flying to Rome tomorrow.\nKelly: No!\nElliot: I'm meeting a designer at 10.30 on Saturday.\nKelly: Well, come on Sunday then.\nElliot: My flight leaves Rome at 11 pm on Saturday and it arrives in London at 1 am. I won't get much sleep on Saturday night so I expect I'll be asleep all day on Sunday. I'll probably feel really tired.\nKelly: OK then. Don't worry about your friends. I'm sure your company is more interesting.\nElliot: Don't be annoyed. Look, I've got half an hour free. Let's do something now. What about a coffee?\nKelly: OK. I'll have a coffee with you.\nElliot: And I'll pay. Come on, Kelly. I'll be 17 next week and I hope that in three years' time I'll be really rich, I'll have a fast car and I'll drive you all to the seaside or wherever you want ...`,
+    items: [
+      { id: 2, prompt: 'What does Elliot say about tonight? "I\'m not ____ for exams tonight."', answer: 'studying' },
+      { id: 3, prompt: 'What does Kelly say about Saturday and Sunday? "We\'re going to ____ the weekend at the seaside."', answer: 'spend' },
+      { id: 4, prompt: 'What are Elliot\'s plans for Saturday? "I\'m ____ a designer at 10.30 on Saturday."', answer: 'meeting' },
+      { id: 5, prompt: 'What does Elliot tell us about his journey? "My flight ____ Rome at 11 pm on Saturday."', answer: 'leaves' },
+      { id: 6, prompt: '"...and it ____ in London at 1 am."', answer: 'arrives' },
+      { id: 7, prompt: 'What does Elliot say about Sunday? "I expect I\'ll ____ asleep all day on Sunday."', answer: 'be' },
+      { id: 8, prompt: 'What does Kelly agree to do? "I\'ll ____ a coffee with you."', answer: 'have' },
+      { id: 9, prompt: 'What does Elliot say about the future? "I\'ll ____ really rich."', answer: 'be' },
+    ],
+  },
+  {
+    id: 'ft-c1',
+    title: 'Exercise C1 — Will',
+    instruction: 'Complete each sentence with a verb from the box and the correct form of will: be, become, come, leave, need, phone',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'I think ____ Rob because I haven\'t heard from him for a long time.', answer: "I'll phone" },
+      { id: 2, prompt: 'I (not) ____ my bag here because it\'s got my camera in it.', answer: "won't leave" },
+      { id: 3, prompt: 'My grandmother ____ 65 on her next birthday.', answer: "will be" },
+      { id: 4, prompt: 'No thanks, I (not) ____ to the swimming pool with you because I\'ve got a cold.', answer: "won't come" },
+      { id: 5, prompt: 'During the next hundred years the world ____ warmer and warmer.', answer: "will become" },
+      { id: 6, prompt: 'How much money ____ you ____ for the weekend?', answer: "will you need" },
+    ],
+  },
+  {
+    id: 'ft-c2',
+    title: 'Exercise C2 — Going to',
+    instruction: 'Write a sentence with going to about each picture. Use the verbs: be, join, play, rain, wash, win',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'I\'m ____ the kitchen floor.', answer: 'going to wash' },
+      { id: 2, prompt: 'Number 5 (not) ____.', answer: "isn't going to win" },
+      { id: 3, prompt: 'They ____ famous.', answer: 'are going to be' },
+      { id: 4, prompt: '(you) ____ the gym?', answer: 'Are you going to join' },
+      { id: 5, prompt: 'I ____ football.', answer: "am going to play" },
+      { id: 6, prompt: 'It (not) ____.', answer: "isn't going to rain" },
+    ],
+  },
+  {
+    id: 'ft-c3',
+    title: 'Exercise C3 — Will or Going to?',
+    instruction: 'Read this conversation and fill in the gaps with the correct form of will or going to.',
+    type: 'fill-blank',
+    items: [
+      { id: 2, prompt: 'Colin: Do you want to come? ____ (we/buy) tickets this afternoon.', answer: "We're going to buy" },
+      { id: 3, prompt: 'Darius: ____ (I/think) about it.', answer: "I'll think" },
+      { id: 4, prompt: 'Colin: ____ (Paul and Ros/come) too. It\'s quite cheap.', answer: "Paul and Ros are going to come" },
+      { id: 5, prompt: 'Darius: ____ (I/check) my diary. When is it?', answer: "I'll check" },
+      { id: 6, prompt: 'Darius: OK, OK, ____ (I/buy) a ticket.', answer: "I'll buy" },
+    ],
+  },
+  {
+    id: 'ft-c4',
+    title: 'Exercise C4 — Present Continuous',
+    instruction: 'Melissa wants to interview Liam O\'Neill, a famous DJ. Look at the diaries and fill in the gaps using the present continuous.',
+    type: 'fill-blank',
+    items: [
+      { id: 2, prompt: 'Joe: We ____ to new CDs all day. He can\'t see you then.', answer: "are listening" },
+      { id: 3, prompt: 'Melissa: And what ____ in the evening?', answer: "is he doing" },
+      { id: 4, prompt: 'Joe: He ____ to the Daily Post at 7.30.', answer: "is giving an interview" },
+      { id: 5, prompt: 'Melissa: Oh. And where ____ on Tuesday?', answer: "is he going" },
+      { id: 6, prompt: 'Joe: He ____ to the TV studio early.', answer: "is going" },
+      { id: 7, prompt: '...and he ____ there all day.', answer: "is staying" },
+      { id: 8, prompt: 'Melissa: Oh, that\'s great. I ____ the day at the TV studio.', answer: "am spending" },
+      { id: 9, prompt: 'Joe: But in the evening he\'s ____ his TV show.', answer: "presenting" },
+      { id: 10, prompt: 'The production team ____ a meal together after that.', answer: "are having" },
+    ],
+  },
+  {
+    id: 'ft-c5',
+    title: 'Exercise C5 — Choose the Best Form',
+    instruction: 'Read this conversation between a hotel receptionist and a guest. Choose the best form of the verb.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: 'I ____ here till Friday.', answer: "'m staying", options: ["'m staying", "stay"] },
+      { id: 2, prompt: "I'm ____ around the city now but I want to do some walking.", answer: "going to look", options: ["going to look", "looking"] },
+      { id: 3, prompt: 'There\'s a guided tour tomorrow. It ____ from outside the hotel at 10 am.', answer: "leaves", options: ["is leaving", "leaves"] },
+      { id: 4, prompt: '...and it ____ at 5 pm.', answer: "returns", options: ["is returning", "returns"] },
+      { id: 5, prompt: 'I think I ____ that.', answer: "'ll do", options: ["'m doing", "'ll do"] },
+      { id: 6, prompt: 'I ____ cheese please.', answer: "'ll have", options: ["'ll have", "have"] },
+      { id: 7, prompt: 'There\'s a concert tonight which ____ at 7.30.', answer: "starts", options: ["is starting", "starts"] },
+      { id: 8, prompt: 'I ____ an old friend at 6.', answer: "'m meeting", options: ["'m meeting", "'ll meet"] },
+      { id: 9, prompt: "...and I don't think I ____ back in time.", answer: "'ll be", options: ["'m", "'ll be"] },
+      { id: 10, prompt: '____ dinner in the hotel tonight?', answer: "Are you going to have", options: ["Are you going to have", "Do you have"] },
+    ],
+  },
+];
+
+const futureTensesExamPractice = {
+  description: 'Reading Part 1',
+  type: 'reading-part-1',
+  intro: 'Look at the text in each question. What does it say? Choose the correct explanation — A, B or C.',
+  readingPart1: [
+    {
+      id: 1,
+      text: 'Sale starts Monday.\nShop opens normal time but closes late every day except Wednesday.',
+      options: [
+        { letter: 'A', text: 'The shop is open longer on Monday than on Wednesday.' },
+        { letter: 'B', text: 'The shop is open the same hours as usual during the sale.' },
+        { letter: 'C', text: 'The shop is open the same number of hours each day during the sale.' },
+      ],
+      answer: 'A',
+    },
+    {
+      id: 2,
+      text: 'Lewis\nCan you give me a lift home from the concert tonight? I\'m working late so I expect I\'ll miss the beginning of it. Don\'t wait for me outside.\nJack',
+      options: [
+        { letter: 'A', text: 'Lewis will probably arrive at the concert after Jack.' },
+        { letter: 'B', text: 'Lewis will probably pick up Jack on his way to the concert.' },
+        { letter: 'C', text: 'Jack will probably meet Lewis inside the concert hall.' },
+      ],
+      answer: 'C',
+    },
+    {
+      id: 3,
+      text: 'Dear Mum\nWe\'re staying in the mountains tomorrow night after we\'ve spent the day walking. Then, before we travel to the coast, we\'re going to spend two days in the city.\nPaula',
+      options: [
+        { letter: 'A', text: 'Paula is travelling from the coast to the city.' },
+        { letter: 'B', text: 'Paula is walking in the mountains before she goes to the city.' },
+        { letter: 'C', text: 'Paula is staying on the coast before she travels to the mountains.' },
+      ],
+      answer: 'B',
+    },
+    {
+      id: 4,
+      text: 'Mr Johnson has a meeting this morning. Please do not disturb him until after lunch.',
+      options: [
+        { letter: 'A', text: 'You can talk to Mr Johnson at lunchtime if you want.' },
+        { letter: 'B', text: 'Mr Johnson is going to arrange a meeting for this afternoon.' },
+        { letter: 'C', text: 'You cannot talk to Mr Johnson until this afternoon.' },
+      ],
+      answer: 'C',
+    },
+    {
+      id: 5,
+      text: 'Kezia\nJenny rang. You left your mobile at her house. She\'ll probably bring it here on her way to college.\nAlex.',
+      options: [
+        { letter: 'A', text: 'Kezia has to fetch her mobile from Jenny\'s house.' },
+        { letter: 'B', text: 'Jenny hopes to give Kezia her mobile before she goes to college.' },
+        { letter: 'C', text: 'Kezia should meet Jenny at college to get her mobile back.' },
+      ],
+      answer: 'B',
+    },
+  ] as ExamReadingPart1Question[],
+  grammarFocusTaskFuture: {
+    instruction: 'Look at the exam questions. Find verbs which have a future meaning and categorise them.',
+    items: [
+      { id: 1, question: 'Find two verbs which tell us about a timetable.', answers: ['opens', 'closes', 'starts'] },
+      { id: 2, question: 'Find two verbs which tell us about plans someone has already made.', answers: ["we're staying", "we're going to spend", "'m working"] },
+      { id: 3, question: 'Find two verbs which tell us about what someone believes about the future.', answers: ["I'll miss", "she'll probably bring", "I expect"] },
+    ] as GrammarFocusTaskItem[],
+  },
+};
+
 // ── All 30 Modules ─────────────────────────────────────────────────────
 
 export const b1GrammarSections: B1GrammarSection[] = [
