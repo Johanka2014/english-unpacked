@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
-import type { GrammarExercise, EmailSegment } from '@/data/b1GrammarData';
+import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 
@@ -622,7 +622,7 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
