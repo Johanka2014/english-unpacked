@@ -551,7 +551,7 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
                   })}
                 </div>
                 <div className="flex items-start justify-center">
-                  <img src={EXERCISE_IMAGES[ex.image]} alt={ex.title} className="rounded-lg border border-border w-full object-contain" />
+                  <img src={EXERCISE_IMAGES[ex.image]} alt={ex.title} className="rounded-lg border border-border w-4/5 object-contain" />
                 </div>
               </div>
             ) : (
