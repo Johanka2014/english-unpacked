@@ -9,6 +9,11 @@ import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
+import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
+
+const EXERCISE_IMAGES: Record<string, string> = {
+  'future-tenses-c2-going-to': futureTensesC2Image,
+};
 
 // ── Theory View ────────────────────────────────────────────────────────
 
