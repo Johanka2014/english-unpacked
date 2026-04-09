@@ -41,6 +41,7 @@ export interface GrammarExercise {
     options?: string[];
     hint?: string;
   }[];
+  wordBank?: string[];
   compoundGroups?: CompoundGroups;
   emailSegments?: EmailSegment[];
   contextText?: string;
@@ -355,8 +356,9 @@ const futureTensesExercises: GrammarExercise[] = [
   {
     id: 'ft-c1',
     title: 'Exercise C1 — Will',
-    instruction: 'Complete each sentence with a verb from the box and the correct form of will: be, become, come, leave, need, phone',
+    instruction: 'Complete each sentence with a verb from the box and the correct form of will.',
     type: 'fill-blank',
+    wordBank: ['be', 'become', 'come', 'leave', 'need', 'phone'],
     items: [
       { id: 1, prompt: 'I think ____ Rob because I haven\'t heard from him for a long time.', answer: "I'll phone" },
       { id: 2, prompt: 'I (not) ____ my bag here because it\'s got my camera in it.', answer: "won't leave" },
