@@ -10,9 +10,11 @@ import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFo
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
+import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
 
 const EXERCISE_IMAGES: Record<string, string> = {
   'future-tenses-c2-going-to': futureTensesC2Image,
+  'future-tenses-c4-diaries': futureTensesC4Image,
 };
 
 // ── Theory View ────────────────────────────────────────────────────────

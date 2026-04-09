@@ -403,6 +403,7 @@ const futureTensesExercises: GrammarExercise[] = [
     title: 'Exercise C4 — Present Continuous',
     instruction: 'Melissa wants to interview Liam O\'Neill, a famous DJ. Look at the diaries and fill in the gaps using the present continuous.',
     type: 'fill-blank',
+    image: 'future-tenses-c4-diaries',
     items: [
       { id: 2, prompt: 'Joe: We ____ to new CDs all day. He can\'t see you then.', answer: "are listening" },
       { id: 3, prompt: 'Melissa: And what ____ in the evening?', answer: "is he doing" },
