@@ -905,7 +905,13 @@ const B1GrammarTopic = () => {
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'exam' && mod.examPractice && (
-                mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
+                mod.examPractice.readingPart1
+                  ? <ExamPracticeReadingPart1
+                      questions={mod.examPractice.readingPart1}
+                      intro={mod.examPractice.intro || ''}
+                      grammarFocusTask={mod.examPractice.grammarFocusTaskFuture}
+                    />
+                  : mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
                   ? <ExamPracticeReadingPart2 examPractice={mod.examPractice as ExamPracticeData} />
                   : (
                     <div className="text-center py-20 max-w-md mx-auto">
