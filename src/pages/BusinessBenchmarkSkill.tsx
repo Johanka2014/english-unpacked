@@ -21,6 +21,7 @@ import GrammarCorporateCultureExercise from '@/components/business-benchmark/Gra
 import GettingStartedCompanyHistory from '@/components/business-benchmark/GettingStartedCompanyHistory';
 import ReadingCompanyHistoryExercise from '@/components/business-benchmark/ReadingCompanyHistoryExercise';
 import GrammarCompanyHistoryExercise from '@/components/business-benchmark/GrammarCompanyHistoryExercise';
+import ReadingHongdouExercise from '@/components/business-benchmark/ReadingHongdouExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
