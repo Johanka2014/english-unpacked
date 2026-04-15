@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle, RotateCcw, BookOpen } from 'lucide-react';
+import { CheckCircle2, XCircle, RotateCcw, BookOpen, ExternalLink } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -321,6 +321,27 @@ const GrammarCompanyHistoryExercise = () => {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
+
+      {/* External Wordwall Exercise */}
+      <Card className="service-card border-2 border-primary/20">
+        <CardContent className="p-6 flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-foreground mb-1">🎮 Extra Practice — Wordwall</h3>
+            <p className="text-sm text-muted-foreground">
+              Test your knowledge of the past simple with this interactive Wordwall activity.
+            </p>
+          </div>
+          <a
+            href="https://wordwall.net/resource/58281819"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="gap-2 bg-brand-royal hover:bg-brand-navy">
+              Open Activity <ExternalLink className="h-4 w-4" />
+            </Button>
+          </a>
+        </CardContent>
+      </Card>
     </div>
   );
 };
