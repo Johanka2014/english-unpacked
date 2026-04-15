@@ -21,6 +21,7 @@ import GrammarCorporateCultureExercise from '@/components/business-benchmark/Gra
 import GettingStartedCompanyHistory from '@/components/business-benchmark/GettingStartedCompanyHistory';
 import ReadingCompanyHistoryExercise from '@/components/business-benchmark/ReadingCompanyHistoryExercise';
 import GrammarCompanyHistoryExercise from '@/components/business-benchmark/GrammarCompanyHistoryExercise';
+import ReadingHongdouExercise from '@/components/business-benchmark/ReadingHongdouExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -61,6 +62,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'getting-started-company-history') return <GettingStartedCompanyHistory />;
     if (contentType === 'reading-company-history') return <ReadingCompanyHistoryExercise />;
     if (contentType === 'grammar-company-history') return <GrammarCompanyHistoryExercise />;
+    if (contentType === 'reading-hongdou') return <ReadingHongdouExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
