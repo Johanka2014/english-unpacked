@@ -62,6 +62,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'getting-started-company-history') return <GettingStartedCompanyHistory />;
     if (contentType === 'reading-company-history') return <ReadingCompanyHistoryExercise />;
     if (contentType === 'grammar-company-history') return <GrammarCompanyHistoryExercise />;
+    if (contentType === 'reading-hongdou') return <ReadingHongdouExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
