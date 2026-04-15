@@ -1,8 +1,8 @@
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { Link, useParams, Navigate, useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { businessBenchmarkModules } from '@/data/businessBenchmarkData';
 import SEO from '@/components/SEO';
 import DepartmentMatchingExercise from '@/components/business-benchmark/DepartmentMatchingExercise';
@@ -24,10 +24,20 @@ import GrammarCompanyHistoryExercise from '@/components/business-benchmark/Gramm
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
+  const navigate = useNavigate();
   const mod = businessBenchmarkModules.find((m) => m.id === moduleId);
   const skill = mod?.skills.find((s) => s.id === skillId);
 
   if (!mod || !skill) return <Navigate to="/business-benchmark" replace />;
+
+  const currentIndex = mod.skills.findIndex((s) => s.id === skillId);
+  const prev = currentIndex > 0 ? mod.skills[currentIndex - 1] : null;
+  const next = currentIndex < mod.skills.length - 1 ? mod.skills[currentIndex + 1] : null;
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const renderContent = () => {
     const contentType = skill.content?.type;
@@ -89,12 +99,29 @@ const BusinessBenchmarkSkill = () => {
 
         {renderContent()}
 
-        <div className="mt-12 mb-4">
-          <Link to={`/business-benchmark/${mod.id}`}>
-            <Button variant="ghost" className="gap-2">
-              <ArrowLeft className="h-4 w-4" /> Back to {mod.title}
+        {/* Skill Navigation */}
+        <div className="flex justify-between items-center mt-12 pt-6 border-t border-border">
+          {prev ? (
+            <Button variant="outline" className="gap-2" onClick={() => handleNavigate(`/business-benchmark/${mod.id}/${prev.id}`)}>
+              <ArrowLeft className="h-4 w-4" />
+              <span className="hidden sm:inline">{prev.title}</span>
+              <span className="sm:hidden">Previous</span>
             </Button>
-          </Link>
+          ) : (
+            <div />
+          )}
+          {next ? (
+            <Button className="gap-2 bg-primary hover:bg-primary/90" onClick={() => handleNavigate(`/business-benchmark/${mod.id}/${next.id}`)}>
+              <span className="hidden sm:inline">{next.title}</span>
+              <span className="sm:hidden">Next</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          ) : (
+            <Button className="gap-2 bg-primary hover:bg-primary/90" onClick={() => handleNavigate(`/business-benchmark/${mod.id}`)}>
+              Back to Module
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          )}
         </div>
       </main>
 
