@@ -23,6 +23,7 @@ import ReadingCompanyHistoryExercise from '@/components/business-benchmark/Readi
 import GrammarCompanyHistoryExercise from '@/components/business-benchmark/GrammarCompanyHistoryExercise';
 import ReadingHongdouExercise from '@/components/business-benchmark/ReadingHongdouExercise';
 import SpeakingCompanyHistoryExercise from '@/components/business-benchmark/SpeakingCompanyHistoryExercise';
+import ListeningCompanyHistoryExercise from '@/components/business-benchmark/ListeningCompanyHistoryExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -65,6 +66,7 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'grammar-company-history') return <GrammarCompanyHistoryExercise />;
     if (contentType === 'reading-hongdou') return <ReadingHongdouExercise />;
     if (contentType === 'speaking-company-history') return <SpeakingCompanyHistoryExercise />;
+    if (contentType === 'listening-company-history') return <ListeningCompanyHistoryExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
