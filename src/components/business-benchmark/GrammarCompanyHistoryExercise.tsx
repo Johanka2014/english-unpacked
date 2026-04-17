@@ -87,6 +87,24 @@ const EX_5_4: PosNegSentence[] = [
   { id: 'p9', before: '9  It was hard carrying the bags. They ', after: ' very heavy.', answer: 'were', hint: 'be' },
 ];
 
+/* ─── Wipro Exercise 2: Past simple affirmative/negative ─── */
+const WIPRO_EX_2: GapSentence[] = [
+  { id: 'w1', before: '2  Mr M.H. Premji ', after: ' the company in the 1940s and 1950s.', answer: 'ran' },
+  { id: 'w2', before: '3  In the 1940s, the company ', after: ' baby care products.', answer: "didn't make" },
+  { id: 'w3', before: '4  In the 1970s and 1980s, the government ', after: ' the activity of multinational companies in India.', answer: 'limited' },
+  { id: 'w4', before: '5  During the 1980s, IBM ', after: ' in India.', answer: "didn't operate" },
+  { id: 'w5', before: '6  In the 1980s, Wipro ', after: ' customers in the USA.', answer: "didn't have" },
+];
+
+/* ─── Wipro Exercise 3: Write questions ─── */
+const WIPRO_EX_3: QuestionExercise[] = [
+  { id: 'wq2', prompt: 'Vegetable oil and soap.', answer: 'What did the company manufacture?' },
+  { id: 'wq3', prompt: 'Stanford University in California.', answer: 'Where did Azim Premji study?' },
+  { id: 'wq4', prompt: 'In 1966.', answer: 'When did Azim Premji return to India?' },
+  { id: 'wq5', prompt: "Because of the government's economic policies.", answer: 'Why did multinational companies leave India?' },
+  { id: 'wq6', prompt: 'In 1980.', answer: 'When did Azim Premji set up the first IT business?' },
+];
+
 /* ─── Reusable gap-fill renderer ─── */
 const GapFillExercise = ({
   title,
@@ -254,7 +272,52 @@ const GrammarCompanyHistoryExercise = () => {
         </CardContent>
       </Card>
 
-      {/* Exercise 5.1 */}
+      {/* Wipro Technologies Reading + Exercises */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl">Wipro Technologies</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-muted-foreground font-medium">
+            1  Read the following text to find out about the history of Wipro Technologies.
+          </p>
+          <div className="rounded-lg border-2 border-border bg-muted/20 p-5 space-y-3">
+            <h4 className="font-bold text-foreground tracking-wide">WIPRO TECHNOLOGIES</h4>
+            <p className="text-sm text-foreground leading-relaxed">
+              Wipro is one of India's biggest software and electronics companies. Its customer list includes Sony, Microsoft and Nokia and it generally makes a yearly profit of over $200 million. But Wipro is also an example of a company which began as something very different from what it is now.
+            </p>
+            <p className="text-sm text-foreground leading-relaxed">
+              Mr M.H. Premji originally founded the company in the 1940s. At that time it was called Western India Vegetable Products Ltd and it manufactured vegetable oil and soap. Mr Premji's son, Azim Premji, went to Stanford University in California to study engineering but he did not finish his studies. In 1966, following the death of his father, he returned to India and took over the business. Under Azim Premji, the company began a programme of expansion and started to produce a number of other completely different products. These included lights and baby care products.
+            </p>
+            <p className="text-sm text-foreground leading-relaxed">
+              In the 1970s and 1980s, the government's economic policies stopped many multinational companies from trading in India. Global IT companies like IBM left the country and Wipro moved into this field. Azim Premji set up the first IT business in Bangalore in 1980 and the company soon expanded into other IT areas such as system design. In the 1990s, the government reopened the markets and many multinational companies returned to India. At the same time, Wipro began working on product engineering for customers in the USA and also launched a global IT services division.
+            </p>
+            <p className="text-sm text-foreground leading-relaxed">
+              In 2001, the magazine <em>Business Today</em> named Wipro India's most valuable company and Azim Premji is now one of the richest men in the country.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <GapFillExercise
+        title="Exercise 2 — Past simple (affirmative or negative)"
+        instruction="Put the verb in brackets in the sentences (1–6) below into the past simple form, either affirmative or negative, to make true sentences about Wipro. Example: 1  Mr M.H. Premji, the founder, did not call the company Wipro Technologies. (call)"
+        gaps={WIPRO_EX_2}
+      />
+
+      <GapFillExercise
+        title="Exercise 3 — Write the questions"
+        instruction="Now write questions for the following answers. Example: 1  When did Mr M.H. Premji found the company? — In the 1940s."
+        gaps={WIPRO_EX_3.map((q, idx) => ({
+          id: q.id,
+          before: `${idx + 2}  `,
+          after: '',
+          answer: q.answer,
+          hint: q.prompt,
+        }))}
+      />
+
+      {/* Exercise 5.1 intro */}
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Exercise 5.1</CardTitle>
