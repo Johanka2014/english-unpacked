@@ -87,6 +87,24 @@ const EX_5_4: PosNegSentence[] = [
   { id: 'p9', before: '9  It was hard carrying the bags. They ', after: ' very heavy.', answer: 'were', hint: 'be' },
 ];
 
+/* ─── Wipro Exercise 2: Past simple affirmative/negative ─── */
+const WIPRO_EX_2: GapSentence[] = [
+  { id: 'w1', before: '2  Mr M.H. Premji ', after: ' the company in the 1940s and 1950s.', answer: 'ran' },
+  { id: 'w2', before: '3  In the 1940s, the company ', after: ' baby care products.', answer: "didn't make" },
+  { id: 'w3', before: '4  In the 1970s and 1980s, the government ', after: ' the activity of multinational companies in India.', answer: 'limited' },
+  { id: 'w4', before: '5  During the 1980s, IBM ', after: ' in India.', answer: "didn't operate" },
+  { id: 'w5', before: '6  In the 1980s, Wipro ', after: ' customers in the USA.', answer: "didn't have" },
+];
+
+/* ─── Wipro Exercise 3: Write questions ─── */
+const WIPRO_EX_3: QuestionExercise[] = [
+  { id: 'wq2', prompt: 'Vegetable oil and soap.', answer: 'What did the company manufacture?' },
+  { id: 'wq3', prompt: 'Stanford University in California.', answer: 'Where did Azim Premji study?' },
+  { id: 'wq4', prompt: 'In 1966.', answer: 'When did Azim Premji return to India?' },
+  { id: 'wq5', prompt: "Because of the government's economic policies.", answer: 'Why did multinational companies leave India?' },
+  { id: 'wq6', prompt: 'In 1980.', answer: 'When did Azim Premji set up the first IT business?' },
+];
+
 /* ─── Reusable gap-fill renderer ─── */
 const GapFillExercise = ({
   title,
