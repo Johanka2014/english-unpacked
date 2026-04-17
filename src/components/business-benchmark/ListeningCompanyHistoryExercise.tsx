@@ -158,6 +158,31 @@ const ListeningCompanyHistoryExercise = () => {
           )}
         </CardContent>
       </Card>
+
+      <Card>
+        <CardContent className="p-0">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="audioscript" className="border-0">
+              <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                <span className="flex items-center gap-2 font-serif text-lg">
+                  <FileText className="h-5 w-5 text-primary" />
+                  Audioscript — Track 04
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <div className="space-y-4 text-foreground leading-relaxed">
+                  <p>Good morning and welcome to our lecture about famous 19th century company owners who were both successful businessmen and, who were also deeply concerned with the welfare of their employees.</p>
+                  <p>The first example of a company owner who did a lot to help the poor was Joseph Rowntree. You might know the name, as many of Rowntree's chocolate products, like the Kit Kat bar, are still around today. But you may not know that the original Rowntree family were very involved with social work.</p>
+                  <p>Joseph Rowntree was born in York in 1834. First of all he worked with his father, but in 1869, he went to join his brother Henry who owned a cocoa and chocolate factory in York. At that time they had only 30 workers but under Joseph's management the company grew very quickly. By the end of the century it was a huge international business with over 4,000 employees.</p>
+                  <p>But Joseph was not just a director of a very successful company. He was also concerned with finding ways to reduce poverty and he introduced a great many changes for the workers in the Rowntree factory. He provided free education for workers under seventeen, a doctor on site and he shortened the working day to eight hours. Most importantly, in 1906 he used £10,000 of the company's profits to set up a pension fund for his workers. His son, Seebohm Rowntree, was also famous for social work and in 1901 he published a study on the life of the poor in York called <em>Poverty: a Study of Town Life</em>.</p>
+                  <p>The culture of the company changed somewhat in 1969 when Rowntree's merged with Mackintosh, another Yorkshire confectionery company, and again in 1988 when the company was taken over by Nestlé. But Joseph is still remembered as a great philanthropist and there are three charitable trusts that he set up in 1904 which are still working and are still known as the Joseph Rowntree Foundation.</p>
+                  <p>Now the next example of a kind factory owner, strangely enough, was also a confectionery giant and that was Thomas Cadbury…</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
     </div>
   );
 };
