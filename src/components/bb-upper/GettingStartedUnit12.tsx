@@ -22,7 +22,6 @@ const OPTIONS = [
   "pointer",
   "remote control",
   "samples of product",
-  "screen",
   "speakers",
 ];
 
