@@ -48,6 +48,30 @@ const ReadingUnit12 = () => {
   const reset = () => { setAns({}); setRes({}); setShow(false); };
   const correct = Object.values(res).filter((v) => v === "correct").length;
 
+  const CATEGORIES = [
+    { id: "excellent", label: "Excellent advice", color: "bg-green-50 dark:bg-green-950/30 border-green-300 dark:border-green-800" },
+    { id: "quite", label: "Quite useful advice", color: "bg-amber-50 dark:bg-amber-950/30 border-amber-300 dark:border-amber-800" },
+    { id: "not", label: "Not very useful advice", color: "bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-800" },
+  ] as const;
+  type CatId = typeof CATEGORIES[number]["id"];
+
+  const [sorted, setSorted] = useState<Record<number, CatId | null>>({});
+
+  const moveItem = (n: number, target: CatId | null) => {
+    setSorted((p) => ({ ...p, [n]: target }));
+  };
+  const onDragStart = (e: React.DragEvent, n: number) => {
+    e.dataTransfer.setData("text/plain", String(n));
+  };
+  const onDrop = (e: React.DragEvent, target: CatId | null) => {
+    e.preventDefault();
+    const n = Number(e.dataTransfer.getData("text/plain"));
+    if (!Number.isNaN(n)) moveItem(n, target);
+  };
+  const allowDrop = (e: React.DragEvent) => e.preventDefault();
+  const unsorted = advice.filter((a) => !sorted[a.n]);
+  const resetSort = () => setSorted({});
+
   return (
     <div className="space-y-8">
       <Card>
@@ -57,20 +81,101 @@ const ReadingUnit12 = () => {
             Making the most of presentations
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6">
           <p className="text-sm text-muted-foreground">
             <span className="text-primary font-bold mr-2">1</span>
-            Work in pairs. Read the advice about giving presentations (1–8) and decide if each piece of advice is:
-            <strong> a</strong> excellent advice, <strong>b</strong> quite useful advice, or <strong>c</strong> not very useful advice.
+            Read the advice about giving presentations and sort each piece into one of the three categories.
+            Drag and drop each card, or use the buttons on smaller screens.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-2">
-            {advice.map((a) => (
-              <div key={a.n} className="p-3 rounded-lg bg-muted/40 border border-border text-sm">
-                <span className="text-primary font-bold mr-2">{a.n}</span>
-                {a.text}
+          {/* Pool of unsorted advice */}
+          <div
+            onDragOver={allowDrop}
+            onDrop={(e) => onDrop(e, null)}
+            className="p-4 rounded-lg border-2 border-dashed border-border bg-muted/30 min-h-[80px]"
+          >
+            <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
+              Advice to sort ({unsorted.length} left)
+            </p>
+            {unsorted.length === 0 ? (
+              <p className="text-sm text-muted-foreground italic text-center py-2">
+                All sorted! 🎉 Compare your choices with a partner.
+              </p>
+            ) : (
+              <div className="grid sm:grid-cols-2 gap-2">
+                {unsorted.map((a) => (
+                  <div
+                    key={a.n}
+                    draggable
+                    onDragStart={(e) => onDragStart(e, a.n)}
+                    className="p-3 rounded-lg bg-card border border-border text-sm cursor-grab active:cursor-grabbing hover:border-primary hover:shadow-sm transition"
+                  >
+                    <span className="text-primary font-bold mr-2">{a.n}</span>
+                    {a.text}
+                    <div className="flex flex-wrap gap-1 mt-2 sm:hidden">
+                      {CATEGORIES.map((c) => (
+                        <button
+                          key={c.id}
+                          onClick={() => moveItem(a.n, c.id)}
+                          className="text-xs px-2 py-1 rounded border border-border bg-background hover:bg-muted"
+                        >
+                          {c.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+          </div>
+
+          {/* Drop zones */}
+          <div className="grid md:grid-cols-3 gap-4">
+            {CATEGORIES.map((c) => {
+              const items = advice.filter((a) => sorted[a.n] === c.id);
+              return (
+                <div
+                  key={c.id}
+                  onDragOver={allowDrop}
+                  onDrop={(e) => onDrop(e, c.id)}
+                  className={`rounded-lg border-2 border-dashed p-3 min-h-[160px] ${c.color}`}
+                >
+                  <p className="text-sm font-bold text-foreground mb-3 text-center">{c.label}</p>
+                  <div className="space-y-2">
+                    {items.length === 0 && (
+                      <p className="text-xs text-muted-foreground italic text-center">Drop advice here</p>
+                    )}
+                    {items.map((a) => (
+                      <div
+                        key={a.n}
+                        draggable
+                        onDragStart={(e) => onDragStart(e, a.n)}
+                        className="p-2 rounded bg-card border border-border text-xs cursor-grab active:cursor-grabbing hover:shadow-sm transition flex items-start gap-2"
+                      >
+                        <span className="text-primary font-bold flex-shrink-0">{a.n}</span>
+                        <span className="flex-1">{a.text}</span>
+                        <button
+                          onClick={() => moveItem(a.n, null)}
+                          className="text-muted-foreground hover:text-foreground flex-shrink-0"
+                          aria-label="Return to pool"
+                        >
+                          <XCircle className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-between">
+            <p className="text-xs text-muted-foreground italic">
+              💡 No single correct answer — discuss your choices with a partner.
+            </p>
+            <Button onClick={resetSort} variant="outline" size="sm" className="gap-2">
+              <RotateCcw className="h-3.5 w-3.5" /> Reset
+            </Button>
           </div>
         </CardContent>
       </Card>
