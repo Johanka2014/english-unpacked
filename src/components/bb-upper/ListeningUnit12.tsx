@@ -88,14 +88,8 @@ const ListeningUnit12 = () => {
             help, but it's also important to use phrases which signal where you are in the presentation.
           </p>
 
-          {/* Audio placeholder */}
-          <div className="rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800 p-4 flex gap-3 items-start">
-            <Info className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-900 dark:text-amber-100">
-              <strong>Audio coming soon.</strong> You can still complete both activities by reading the audio script at the
-              bottom of this page.
-            </p>
-          </div>
+          {/* Audio player */}
+          <audio controls src="/audio/bb-upper/21_unit_12.mp3" className="w-full" />
         </CardContent>
       </Card>
 
