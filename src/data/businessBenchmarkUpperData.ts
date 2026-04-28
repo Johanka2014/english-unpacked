@@ -183,10 +183,12 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 12,
     title: 'Presenting Your Business Idea',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Making the most of presentations', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: 'Signalling the parts of a presentation', type: 'listening', audioTrack: '' },
-      { id: 'speaking', title: 'Speaking', description: 'Structuring a presentation; A brief presentation; Role-play: Presenting your business idea', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Equipment for presentations; Modal verbs', type: 'vocabulary' },
+      { id: 'getting-started', title: 'Getting Started', description: 'Discuss giving presentations and label items of presentation equipment', type: 'vocabulary', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Match descriptions to presentation equipment; signalling phrases for presentations', type: 'vocabulary', content: true },
+      { id: 'listening', title: 'Listening: Signalling a Presentation', description: 'Peter Furlong presents Clock Options Express — match signalling phrases and complete notes', type: 'listening', audioTrack: '', content: true },
+      { id: 'reading', title: 'Reading: Making the Most of Presentations', description: 'Read advice paragraphs A–D and match the eight pieces of advice', type: 'reading', content: true },
+      { id: 'speaking', title: 'Speaking: Structure & Role-play', description: 'Order the seven stages of a presentation and prepare a business angel pitch', type: 'speaking', content: true },
+      { id: 'grammar', title: 'Grammar Workshop: Modal Verbs', description: 'Match modal-verb meanings, rewrite sentences and choose the best modal verb', type: 'grammar', content: true },
     ],
   },
   {
