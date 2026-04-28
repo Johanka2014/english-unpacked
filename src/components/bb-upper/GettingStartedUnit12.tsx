@@ -114,10 +114,10 @@ const GettingStartedUnit12 = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {items.map((it, idx) => (
               <div key={it.id} className="rounded-lg border border-border overflow-hidden bg-card shadow-sm">
-                <div className="aspect-square bg-muted/30 flex items-center justify-center p-3">
+                <div className="aspect-square bg-muted/30 flex items-center justify-center p-2">
                   <img src={it.img} alt={it.alt} className="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
                 <div className="p-3 border-t border-border">
