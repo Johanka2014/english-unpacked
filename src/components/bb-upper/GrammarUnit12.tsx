@@ -119,15 +119,42 @@ const GrammarUnit12 = () => {
             Grammar Workshop: Modal Verbs
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3 text-sm">
-          <p className="text-muted-foreground">To express these meanings, you can use modal verbs:</p>
-          <ul className="space-y-2 text-foreground">
-            <li><strong>perhaps:</strong> <em>may / might</em> — You should make a back-up copy because the computer <em>might</em> have a virus.</li>
-            <li><strong>able to:</strong> <em>can</em> — He's a brilliant presenter because he <em>can</em> hold everything in his head without notes.</li>
-            <li><strong>obligatory / essential:</strong> <em>must</em> (speaker agrees) or <em>have to</em> (obligation from someone else).</li>
-            <li><strong>a good idea / advisable:</strong> <em>should / ought to</em></li>
-            <li><strong>generally likely:</strong> <em>can</em> — Speakers who just read from notes <em>can</em> be very boring.</li>
-            <li><strong>allowed:</strong> <em>may / can</em> — In this company you <em>can</em> wear jeans on Fridays.</li>
+        <CardContent className="space-y-4 text-sm">
+          <p className="font-semibold text-foreground">To express these meanings, you can use modal verbs.</p>
+          <ul className="space-y-4 text-foreground">
+            <li>
+              <p><strong>perhaps:</strong> <em>may / might</em></p>
+              <p className="italic text-muted-foreground ml-4">You should make a back-up copy because the computer <strong>might</strong> have a virus.</p>
+            </li>
+            <li>
+              <p><strong>able to:</strong> <em>can</em></p>
+              <p className="italic text-muted-foreground ml-4">He's a brilliant presenter because he <strong>can</strong> hold everything he wants to say in his head without looking at notes.</p>
+            </li>
+            <li>
+              <p><strong>it's obligatory / essential:</strong> <em>must</em> or <em>have to</em></p>
+              <ul className="ml-4 mt-1 space-y-2 list-disc list-inside">
+                <li>
+                  <em>must</em> for an obligation the speaker agrees with:
+                  <p className="italic text-muted-foreground ml-5">You <strong>must</strong> help me write this report because I can't do it on my own.</p>
+                </li>
+                <li>
+                  <em>have to</em> for an obligation from someone else:
+                  <p className="italic text-muted-foreground ml-5">I'm afraid I <strong>have to</strong> work late at the office tonight – my boss wants the report finished by tomorrow lunchtime.</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <p><strong>it's a good idea / advisable:</strong> <em>should / ought to</em></p>
+              <p className="italic text-muted-foreground ml-4">If you think you've got too much work, you <strong>should</strong> speak to your boss. He <strong>ought to</strong> take on an assistant to help you.</p>
+            </li>
+            <li>
+              <p><strong>it is generally likely:</strong> <em>can</em></p>
+              <p className="italic text-muted-foreground ml-4">Speakers who just read from their notes <strong>can</strong> be very boring.</p>
+            </li>
+            <li>
+              <p><strong>it is allowed:</strong> <em>may / can</em></p>
+              <p className="italic text-muted-foreground ml-4">In this company, you <strong>can</strong> wear jeans and a T-shirt on Fridays.</p>
+            </li>
           </ul>
         </CardContent>
       </Card>
