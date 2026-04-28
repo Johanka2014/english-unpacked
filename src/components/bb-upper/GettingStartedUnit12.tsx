@@ -6,37 +6,31 @@ import { CheckCircle2, XCircle, RotateCcw, MessageCircle, Presentation } from "l
 import room from "@/assets/bb-upper/unit12-presenter-pointing.jpg";
 import presenter from "@/assets/bb-upper/unit12-presenter.jpg";
 import dataProjector from "@/assets/bb-upper/unit12-data-projector.jpg";
-import laptop from "@/assets/bb-upper/unit12-laptop.jpg";
-import screen from "@/assets/bb-upper/unit12-screen.jpg";
-import flipchartWriting from "@/assets/bb-upper/unit12-flipchart-writing.jpg";
+import pointer from "@/assets/bb-upper/unit12-pointer.jpg";
 import flipchart from "@/assets/bb-upper/unit12-flipchart.jpg";
 import handouts from "@/assets/bb-upper/unit12-handouts.jpg";
-import samples from "@/assets/bb-upper/unit12-product-samples.jpg";
-import remote from "@/assets/bb-upper/unit12-remote-control.jpg";
+import samples from "@/assets/bb-upper/unit12-samples.jpg";
+import remote from "@/assets/bb-upper/unit12-remote.jpg";
 import speakers from "@/assets/bb-upper/unit12-speakers.jpg";
 
 const OPTIONS = [
   "data projector",
   "flipchart",
   "handouts",
-  "laptop",
   "pointer",
   "remote control",
   "samples of product",
-  "screen",
   "speakers",
 ];
 
 const items: { id: string; img: string; answer: string; alt: string }[] = [
-  { id: "i1", img: flipchart, answer: "Laptop", alt: "Laptop" },
-  { id: "i2", img: laptop, answer: "Handouts", alt: "Handouts" },
-  { id: "i3", img: screen, answer: "Samples", alt: "Samples" },
-  { id: "i4", img: flipchartWriting, answer: "Pointer", alt: "Pointer" },
-  { id: "i5", img: flipchart, answer: "flipchart", alt: "Flipchart on an easel" },
-  { id: "i6", img: handouts, answer: "handouts", alt: "Handouts" },
-  { id: "i7", img: samples, answer: "samples of product", alt: "Product samples" },
-  { id: "i8", img: remote, answer: "remote control", alt: "Remote control" },
-  { id: "i9", img: speakers, answer: "speakers", alt: "Speakers" },
+  { id: "i1", img: dataProjector, answer: "data projector", alt: "Data projector" },
+  { id: "i2", img: pointer, answer: "pointer", alt: "Pointer" },
+  { id: "i3", img: flipchart, answer: "flipchart", alt: "Flipchart on an easel" },
+  { id: "i4", img: handouts, answer: "handouts", alt: "Handouts" },
+  { id: "i5", img: samples, answer: "samples of product", alt: "Product samples" },
+  { id: "i6", img: remote, answer: "remote control", alt: "Remote control" },
+  { id: "i7", img: speakers, answer: "speakers", alt: "Speakers" },
 ];
 
 const GettingStartedUnit12 = () => {
