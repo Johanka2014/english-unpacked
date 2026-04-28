@@ -27,15 +27,14 @@ const OPTIONS = [
 ];
 
 const items: { id: string; img: string; answer: string; alt: string }[] = [
-  { id: "i1", img: flipchart, answer: "Laptop", alt: "Laptop" },
-  { id: "i2", img: laptop, answer: "Handouts", alt: "Handouts" },
-  { id: "i3", img: screen, answer: "Samples", alt: "Samples" },
-  { id: "i4", img: flipchartWriting, answer: "Pointer", alt: "Pointer" },
-  { id: "i5", img: flipchart, answer: "flipchart", alt: "Flipchart on an easel" },
-  { id: "i6", img: handouts, answer: "handouts", alt: "Handouts" },
-  { id: "i7", img: samples, answer: "samples of product", alt: "Product samples" },
-  { id: "i8", img: remote, answer: "remote control", alt: "Remote control" },
-  { id: "i9", img: speakers, answer: "speakers", alt: "Speakers" },
+  { id: "i1", img: dataProjector, answer: "data projector", alt: "Data projector" },
+  { id: "i2", img: laptop, answer: "laptop", alt: "Laptop" },
+  { id: "i3", img: pointer, answer: "pointer", alt: "Pointer" },
+  { id: "i4", img: flipchart, answer: "flipchart", alt: "Flipchart on an easel" },
+  { id: "i5", img: handouts, answer: "handouts", alt: "Handouts" },
+  { id: "i6", img: samples, answer: "samples of product", alt: "Product samples" },
+  { id: "i7", img: remote, answer: "remote control", alt: "Remote control" },
+  { id: "i8", img: speakers, answer: "speakers", alt: "Speakers" },
 ];
 
 const GettingStartedUnit12 = () => {
