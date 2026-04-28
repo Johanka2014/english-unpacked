@@ -28,7 +28,7 @@ const OPTIONS = [
 ];
 
 const items: { id: string; img: string; answer: string; alt: string }[] = [
-  { id: "i1", img: dataProjector, answer: "data projector", alt: "Data projector" },
+  { id: "i1", img: flipchart, answer: "Flipchart", alt: "Flipchart" },
   { id: "i2", img: laptop, answer: "laptop", alt: "Laptop" },
   { id: "i3", img: screen, answer: "screen", alt: "Projection screen" },
   { id: "i4", img: flipchartWriting, answer: "flipchart", alt: "Hand writing on a flipchart" },
