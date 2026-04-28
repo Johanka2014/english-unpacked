@@ -19,6 +19,12 @@ import Listening2Unit10 from '@/components/bb-upper/Listening2Unit10';
 import TalkingPointUnit10 from '@/components/bb-upper/TalkingPointUnit10';
 import GrammarWorkshopUnit10 from '@/components/bb-upper/GrammarWorkshopUnit10';
 import GettingStartedUnit11 from '@/components/bb-upper/GettingStartedUnit11';
+import GettingStartedUnit12 from '@/components/bb-upper/GettingStartedUnit12';
+import VocabularyUnit12 from '@/components/bb-upper/VocabularyUnit12';
+import ListeningUnit12 from '@/components/bb-upper/ListeningUnit12';
+import ReadingUnit12 from '@/components/bb-upper/ReadingUnit12';
+import SpeakingUnit12 from '@/components/bb-upper/SpeakingUnit12';
+import GrammarUnit12 from '@/components/bb-upper/GrammarUnit12';
 import ListeningUnit11 from '@/components/bb-upper/ListeningUnit11';
 import ReadingUnit11 from '@/components/bb-upper/ReadingUnit11';
 import ReadingProposalUnit11 from '@/components/bb-upper/ReadingProposalUnit11';
@@ -116,6 +122,18 @@ const BBUpperSkill = () => {
           <WritingProposalUnit11 />
         ) : moduleId === 'starting-up-in-a-new-location' && skillId === 'vocabulary' ? (
           <VocabularyUnit11 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'getting-started' ? (
+          <GettingStartedUnit12 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'vocabulary' ? (
+          <VocabularyUnit12 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'listening' ? (
+          <ListeningUnit12 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'reading' ? (
+          <ReadingUnit12 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'speaking' ? (
+          <SpeakingUnit12 />
+        ) : moduleId === 'presenting-your-business-idea' && skillId === 'grammar' ? (
+          <GrammarUnit12 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
