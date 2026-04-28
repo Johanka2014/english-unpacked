@@ -376,6 +376,61 @@ const GrammarUnit12 = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* Verb forms gap-fill */}
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">4</span>
+            Read this extract from a presentation and put the verbs in brackets into the correct form.
+          </p>
+
+          <div className="rounded-lg border border-border bg-muted/30 p-5 leading-loose text-sm text-foreground">
+            <p>
+              Good morning, and welcome to the Strand Hotel. Thank you all very much for
+              <VG n={1} />(come); some of you <VG n={2} />(travel) a long way <VG n={3} />(hear) us today,
+              and I hope you <VG n={4} />(all have) good journeys. So let me <VG n={5} />(introduce) myself:
+              my name's Peter Furlong, and this is my partner, Mark Davies.
+            </p>
+            <p className="mt-3">
+              The purpose of this presentation is <VG n={6} />(explain) our business plans to you and
+              hopefully to get you interested in <VG n={7} />(invest) in our new company, Clock Options Express.
+            </p>
+            <p className="mt-3">
+              In my presentation, I <VG n={8} />(hope) to do three things. First, I <VG n={9} />(give) you a
+              short summary of our main business idea. Then I <VG n={10} />(tell) you the findings of the
+              market research that we <VG n={11} />(conduct), and finally I <VG n={12} />(outline) our
+              financial requirements and plans, which should show you what a sound and exciting investment
+              Clock Options Express <VG n={13} />(represent). If you have any questions you <VG n={14} />(like)
+              to ask, please leave them to the end when I <VG n={15} />(be) very happy <VG n={16} />(answer) them.
+            </p>
+          </div>
+
+          {showVG && (
+            <div className="p-3 rounded-lg bg-muted/50 text-center text-sm">
+              Score: <strong>{vgCorrect}/{verbGaps.length}</strong>
+            </div>
+          )}
+
+          {showVG && vgCorrect < verbGaps.length && (
+            <div className="p-3 rounded-lg bg-muted/50 text-xs space-y-1">
+              <p className="font-medium mb-1">Suggested answers for missed gaps:</p>
+              <ul className="grid sm:grid-cols-2 gap-x-4">
+                {verbGaps.map((g) => vgRes[g.n] === "incorrect" && (
+                  <li key={g.n} className="text-red-600 dark:text-red-400">
+                    Gap {g.n} ({g.verb}): <strong>{g.answers[0]}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="flex gap-3">
+            <Button onClick={checkVG} className="bg-primary hover:bg-primary/90">Check Answers</Button>
+            <Button onClick={resetVG} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
