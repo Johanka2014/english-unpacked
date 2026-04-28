@@ -1,0 +1,298 @@
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CheckCircle2, XCircle, RotateCcw, FileText } from "lucide-react";
+
+const meanings = [
+  { id: "A", phrase: "it might be possible to include … you must include …", answers: { 1: false, 2: true, 3: true, 4: false } },
+];
+
+// Match phrase → explanation
+const matchItems: { id: string; phrase: string; answer: number }[] = [
+  { id: "A1", phrase: "it might be possible to include …", answer: 3 },
+  { id: "A2", phrase: "you must include …", answer: 2 },
+  { id: "B", phrase: "These should be prompts only …", answer: 1 },
+  { id: "C", phrase: "people can read at their leisure", answer: 4 },
+];
+
+const explanations = [
+  { n: 1, text: "it is advisable, a good idea if these are" },
+  { n: 2, text: "it is essential, necessary or obligatory for you to" },
+  { n: 3, text: "it is perhaps" },
+  { n: 4, text: "people will be able to" },
+];
+
+// WB Grammar Ex 2 — multiple choice modals
+const mc: { n: number; text: string; options: { v: string; label: string }[]; answer: string }[] = [
+  {
+    n: 1,
+    text: "I think we ____ raise production levels to meet growing demand – it's not absolutely necessary because we still have stocks, but it would be a good idea.",
+    options: [{ v: "A", label: "must" }, { v: "B", label: "may" }, { v: "C", label: "should" }],
+    answer: "C",
+  },
+  {
+    n: 2,
+    text: "I don't know what our competitors are going to do. They ____ possibly lower their prices, although that will affect their profit margins.",
+    options: [{ v: "A", label: "must" }, { v: "B", label: "may" }, { v: "C", label: "should" }],
+    answer: "B",
+  },
+  {
+    n: 3,
+    text: "You ____ come into the office early tomorrow – it's essential we discuss things before the meeting.",
+    options: [{ v: "A", label: "must" }, { v: "B", label: "may" }, { v: "C", label: "could" }],
+    answer: "A",
+  },
+  {
+    n: 4,
+    text: "Be careful of Bill Watson. He ____ get very irritable if you interrupt him when he's busy.",
+    options: [{ v: "A", label: "must" }, { v: "B", label: "can" }, { v: "C", label: "should" }],
+    answer: "B",
+  },
+  {
+    n: 5,
+    text: "I'm sorry. It's been useful talking to you, but I ____ go now. I have a client waiting for me outside.",
+    options: [{ v: "A", label: "must" }, { v: "B", label: "may" }, { v: "C", label: "could" }],
+    answer: "A",
+  },
+];
+
+// GW3 — rewrite using a modal verb
+const rewrite: { n: number; original: string; answers: string[]; hint: string }[] = [
+  { n: 2, original: "It's a good idea to put complicated details on a handout.", hint: "should / ought to", answers: ["you should put complicated details on a handout", "you ought to put complicated details on a handout"] },
+  { n: 3, original: "It's essential to speak loudly and clearly so that everyone can hear you.", hint: "must / have to", answers: ["you must speak loudly and clearly so that everyone can hear you", "you have to speak loudly and clearly so that everyone can hear you"] },
+  { n: 4, original: "Giving presentations to senior managers is generally likely to be very frightening.", hint: "can", answers: ["giving presentations to senior managers can be very frightening"] },
+  { n: 5, original: "You are allowed to pause to drink water if your mouth is dry.", hint: "may / can", answers: ["you may pause to drink water if your mouth is dry", "you can pause to drink water if your mouth is dry"] },
+  { n: 6, original: "Perhaps people will interrupt your presentation with questions.", hint: "may / might", answers: ["people may interrupt your presentation with questions", "people might interrupt your presentation with questions"] },
+  { n: 7, original: "You are allowed to tell them to save questions till the end.", hint: "may / can", answers: ["you may tell them to save questions till the end", "you can tell them to save questions till the end"] },
+];
+
+const GrammarUnit12 = () => {
+  // Match
+  const [match, setMatch] = useState<Record<string, string>>({});
+  const [matchRes, setMatchRes] = useState<Record<string, "correct" | "incorrect" | null>>({});
+  const [showM, setShowM] = useState(false);
+
+  const checkM = () => {
+    const r: Record<string, "correct" | "incorrect"> = {};
+    matchItems.forEach((m) => { r[m.id] = (match[m.id] || "") === String(m.answer) ? "correct" : "incorrect"; });
+    setMatchRes(r); setShowM(true);
+  };
+  const resetM = () => { setMatch({}); setMatchRes({}); setShowM(false); };
+
+  // MC
+  const [mcAns, setMcAns] = useState<Record<number, string>>({});
+  const [mcRes, setMcRes] = useState<Record<number, "correct" | "incorrect" | null>>({});
+  const [showMC, setShowMC] = useState(false);
+
+  const checkMC = () => {
+    const r: Record<number, "correct" | "incorrect"> = {};
+    mc.forEach((q) => { r[q.n] = (mcAns[q.n] || "") === q.answer ? "correct" : "incorrect"; });
+    setMcRes(r); setShowMC(true);
+  };
+  const resetMC = () => { setMcAns({}); setMcRes({}); setShowMC(false); };
+
+  // Rewrite
+  const [rwAns, setRwAns] = useState<Record<number, string>>({});
+  const [rwRes, setRwRes] = useState<Record<number, "correct" | "incorrect" | null>>({});
+  const [showRW, setShowRW] = useState(false);
+
+  const norm = (s: string) => s.toLowerCase().replace(/[.,!?]/g, "").replace(/\s+/g, " ").trim();
+  const checkRW = () => {
+    const r: Record<number, "correct" | "incorrect"> = {};
+    rewrite.forEach((q) => {
+      const v = norm(rwAns[q.n] || "");
+      r[q.n] = q.answers.some((a) => norm(a) === v) ? "correct" : "incorrect";
+    });
+    setRwRes(r); setShowRW(true);
+  };
+  const resetRW = () => { setRwAns({}); setRwRes({}); setShowRW(false); };
+
+  return (
+    <div className="space-y-8">
+      {/* Theory box */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <FileText className="h-5 w-5 text-primary" />
+            Grammar Workshop: Modal Verbs
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 text-sm">
+          <p className="text-muted-foreground">To express these meanings, you can use modal verbs:</p>
+          <ul className="space-y-2 text-foreground">
+            <li><strong>perhaps:</strong> <em>may / might</em> — You should make a back-up copy because the computer <em>might</em> have a virus.</li>
+            <li><strong>able to:</strong> <em>can</em> — He's a brilliant presenter because he <em>can</em> hold everything in his head without notes.</li>
+            <li><strong>obligatory / essential:</strong> <em>must</em> (speaker agrees) or <em>have to</em> (obligation from someone else).</li>
+            <li><strong>a good idea / advisable:</strong> <em>should / ought to</em></li>
+            <li><strong>generally likely:</strong> <em>can</em> — Speakers who just read from notes <em>can</em> be very boring.</li>
+            <li><strong>allowed:</strong> <em>may / can</em> — In this company you <em>can</em> wear jeans on Fridays.</li>
+          </ul>
+        </CardContent>
+      </Card>
+
+      {/* Match meanings */}
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">1</span>
+            Match each modal phrase from the reading text with an explanation (1–4).
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3 mb-3">
+            {explanations.map((e) => (
+              <div key={e.n} className="p-3 rounded-lg bg-muted/40 border border-border text-sm">
+                <strong className="text-primary mr-2">{e.n}</strong>{e.text}
+              </div>
+            ))}
+          </div>
+
+          <div className="space-y-2">
+            {matchItems.map((m) => (
+              <div key={m.id} className="flex items-center gap-3 p-3 border border-border rounded-lg bg-card">
+                <span className="flex-1 text-sm text-foreground italic">"{m.phrase}"</span>
+                <Select
+                  value={match[m.id] || ""}
+                  onValueChange={(v) => setMatch((p) => ({ ...p, [m.id]: v }))}
+                  disabled={matchRes[m.id] === "correct"}
+                >
+                  <SelectTrigger
+                    className={`h-9 w-20 text-sm ${
+                      matchRes[m.id] === "correct"
+                        ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+                        : matchRes[m.id] === "incorrect"
+                          ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                          : ""
+                    }`}
+                  >
+                    <SelectValue placeholder="?" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {[1, 2, 3, 4].map((n) => (<SelectItem key={n} value={String(n)}>{n}</SelectItem>))}
+                  </SelectContent>
+                </Select>
+                {matchRes[m.id] === "correct" && <CheckCircle2 className="h-4 w-4 text-green-600" />}
+                {matchRes[m.id] === "incorrect" && <span className="text-xs text-red-600">→ {m.answer}</span>}
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-3">
+            <Button onClick={checkM} className="bg-primary hover:bg-primary/90">Check</Button>
+            <Button onClick={resetM} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
+          </div>
+          {showM && (
+            <p className="text-xs text-muted-foreground">Note: phrases A1 and A2 come from the same sentence in the reading text.</p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Multiple choice */}
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">2</span>
+            Choose the best modal verb (A, B or C) for each gap.
+          </p>
+          <div className="space-y-3">
+            {mc.map((q) => (
+              <div key={q.n} className="p-3 border border-border rounded-lg bg-card">
+                <div className="flex items-start gap-3 mb-2">
+                  <span className="text-primary font-bold flex-shrink-0">{q.n}</span>
+                  <p className="text-sm text-foreground flex-1">{q.text}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 ml-6">
+                  {q.options.map((o) => {
+                    const sel = mcAns[q.n] === o.v;
+                    const isCorrect = mcRes[q.n] === "correct" && sel;
+                    const isWrong = mcRes[q.n] === "incorrect" && sel;
+                    const isAnswer = showMC && o.v === q.answer;
+                    return (
+                      <Button
+                        key={o.v}
+                        variant={sel ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setMcAns((p) => ({ ...p, [q.n]: o.v }))}
+                        disabled={mcRes[q.n] === "correct"}
+                        className={`${
+                          isCorrect || (showMC && isAnswer)
+                            ? "bg-green-600 hover:bg-green-700 text-white border-green-600"
+                            : isWrong
+                              ? "bg-red-50 dark:bg-red-950/30 border-red-500 text-red-700"
+                              : ""
+                        }`}
+                      >
+                        {o.v} {o.label}
+                      </Button>
+                    );
+                  })}
+                  {mcRes[q.n] === "correct" && <CheckCircle2 className="h-4 w-4 text-green-600 self-center" />}
+                  {mcRes[q.n] === "incorrect" && <XCircle className="h-4 w-4 text-red-500 self-center" />}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-3">
+            <Button onClick={checkMC} className="bg-primary hover:bg-primary/90">Check Answers</Button>
+            <Button onClick={resetMC} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Rewrite */}
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">3</span>
+            Rewrite these sentences about giving presentations using one of the modal verbs above.
+          </p>
+          <div className="rounded-lg bg-muted/40 border border-border p-3 text-sm">
+            <strong>Example: 1</strong> I advise you to rehearse your presentation before you give it. <br />
+            <em className="text-muted-foreground">→ You should rehearse your presentation before you give it.</em>
+          </div>
+
+          <div className="space-y-3">
+            {rewrite.map((q) => (
+              <div key={q.n} className="p-3 border border-border rounded-lg bg-card space-y-2">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold flex-shrink-0">{q.n}</span>
+                  <div className="flex-1">
+                    <p className="text-sm text-foreground">{q.original}</p>
+                    <p className="text-xs text-muted-foreground italic">Suggested modal: {q.hint}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 ml-6">
+                  <Input
+                    value={rwAns[q.n] || ""}
+                    onChange={(e) => setRwAns((p) => ({ ...p, [q.n]: e.target.value }))}
+                    disabled={rwRes[q.n] === "correct"}
+                    className={`text-sm ${
+                      rwRes[q.n] === "correct"
+                        ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+                        : rwRes[q.n] === "incorrect"
+                          ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                          : ""
+                    }`}
+                    placeholder="Rewrite the sentence…"
+                  />
+                  {rwRes[q.n] === "correct" && <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />}
+                  {rwRes[q.n] === "incorrect" && <XCircle className="h-4 w-4 text-red-500 flex-shrink-0" />}
+                </div>
+                {showRW && rwRes[q.n] === "incorrect" && (
+                  <p className="text-xs text-red-600 dark:text-red-400 ml-6">
+                    Suggested answer: <em>{q.answers[0].charAt(0).toUpperCase() + q.answers[0].slice(1)}.</em>
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-3">
+            <Button onClick={checkRW} className="bg-primary hover:bg-primary/90">Check Answers</Button>
+            <Button onClick={resetRW} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default GrammarUnit12;
