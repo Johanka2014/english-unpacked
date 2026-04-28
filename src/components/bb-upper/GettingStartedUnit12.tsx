@@ -30,8 +30,8 @@ const OPTIONS = [
 const items: { id: string; img: string; answer: string; alt: string }[] = [
   { id: "i1", img: flipchart, answer: "Laptop", alt: "Laptop" },
   { id: "i2", img: laptop, answer: "Handouts", alt: "Handouts" },
-  { id: "i3", img: screen, answer: "screen", alt: "Projection screen" },
-  { id: "i4", img: flipchartWriting, answer: "flipchart", alt: "Hand writing on a flipchart" },
+  { id: "i3", img: screen, answer: "Samples", alt: "Samples" },
+  { id: "i4", img: flipchartWriting, answer: "Pointer", alt: "Pointer" },
   { id: "i5", img: flipchart, answer: "flipchart", alt: "Flipchart on an easel" },
   { id: "i6", img: handouts, answer: "handouts", alt: "Handouts" },
   { id: "i7", img: samples, answer: "samples of product", alt: "Product samples" },
