@@ -92,6 +92,31 @@ const GettingStartedUnit12 = () => {
         </CardContent>
       </Card>
 
+      {/* Discussion: Presentation experience */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-xl flex items-center gap-2">
+            <MessageCircle className="h-5 w-5 text-primary" />
+            Your Presentation Experience
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-foreground">
+            Think about common mistakes people make when giving presentations. If you give presentations already, discuss the questions below in pairs.
+          </p>
+          <div className="rounded-lg border bg-muted/40 p-5">
+            <ul className="list-disc list-inside space-y-2 text-sm text-foreground">
+              <li>What do you present?</li>
+              <li>How do you prepare?</li>
+              <li>How long does it take to prepare a presentation?</li>
+              <li>What is the ideal length of a presentation?</li>
+              <li>Have you ever had to present something in English?</li>
+              <li>How do you deal with presentation nerves?</li>
+            </ul>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Labelling exercise */}
       <Card>
         <CardHeader>
