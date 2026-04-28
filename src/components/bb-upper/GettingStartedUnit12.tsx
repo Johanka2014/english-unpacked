@@ -7,12 +7,11 @@ import room from "@/assets/bb-upper/unit12-presenter-pointing.jpg";
 import presenter from "@/assets/bb-upper/unit12-presenter.jpg";
 import dataProjector from "@/assets/bb-upper/unit12-data-projector.jpg";
 import laptop from "@/assets/bb-upper/unit12-laptop.jpg";
-import screen from "@/assets/bb-upper/unit12-screen.jpg";
-import flipchartWriting from "@/assets/bb-upper/unit12-flipchart-writing.jpg";
+import pointer from "@/assets/bb-upper/unit12-pointer.jpg";
 import flipchart from "@/assets/bb-upper/unit12-flipchart.jpg";
 import handouts from "@/assets/bb-upper/unit12-handouts.jpg";
-import samples from "@/assets/bb-upper/unit12-product-samples.jpg";
-import remote from "@/assets/bb-upper/unit12-remote-control.jpg";
+import samples from "@/assets/bb-upper/unit12-samples.jpg";
+import remote from "@/assets/bb-upper/unit12-remote.jpg";
 import speakers from "@/assets/bb-upper/unit12-speakers.jpg";
 
 const OPTIONS = [
