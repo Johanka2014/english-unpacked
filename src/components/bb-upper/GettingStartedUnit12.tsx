@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, XCircle, RotateCcw, MessageCircle, Presentation } from "lucide-react";
-import room from "@/assets/bb-upper/unit12-presentation-room.jpg";
+import room from "@/assets/bb-upper/unit12-presenter-pointing.jpg";
 import presenter from "@/assets/bb-upper/unit12-presenter.jpg";
 import dataProjector from "@/assets/bb-upper/unit12-data-projector.jpg";
 import laptop from "@/assets/bb-upper/unit12-laptop.jpg";
@@ -86,7 +86,7 @@ const GettingStartedUnit12 = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <img src={room} alt="A conference room with a long table" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
+            <img src={room} alt="A businessman pointing to a presentation board" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
             <img src={presenter} alt="A man giving a presentation at a whiteboard" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
           </div>
         </CardContent>
