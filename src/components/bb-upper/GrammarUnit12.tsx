@@ -129,6 +129,44 @@ const GrammarUnit12 = () => {
   };
   const resetRW = () => { setRwAns({}); setRwRes({}); setShowRW(false); };
 
+  // Verb gap fill
+  const [vgAns, setVgAns] = useState<Record<number, string>>({});
+  const [vgRes, setVgRes] = useState<Record<number, "correct" | "incorrect" | null>>({});
+  const [showVG, setShowVG] = useState(false);
+  const checkVG = () => {
+    const r: Record<number, "correct" | "incorrect"> = {};
+    verbGaps.forEach((g) => {
+      const v = norm(vgAns[g.n] || "");
+      r[g.n] = g.answers.some((a) => norm(a) === v) ? "correct" : "incorrect";
+    });
+    setVgRes(r); setShowVG(true);
+  };
+  const resetVG = () => { setVgAns({}); setVgRes({}); setShowVG(false); };
+  const vgCorrect = Object.values(vgRes).filter((v) => v === "correct").length;
+
+  const VG = ({ n }: { n: number }) => {
+    const g = verbGaps.find((x) => x.n === n)!;
+    const r = vgRes[n];
+    return (
+      <span className="inline-flex items-baseline gap-1 mx-1 align-baseline">
+        <span className="text-primary font-bold text-xs">{n}</span>
+        <Input
+          value={vgAns[n] || ""}
+          onChange={(e) => setVgAns((p) => ({ ...p, [n]: e.target.value }))}
+          disabled={r === "correct"}
+          className={`inline-block h-7 w-32 text-sm not-italic px-2 ${
+            r === "correct"
+              ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+              : r === "incorrect"
+                ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                : ""
+          }`}
+        />
+        <span className="italic text-muted-foreground text-xs">({g.verb})</span>
+      </span>
+    );
+  };
+
   return (
     <div className="space-y-8">
       {/* Theory box */}
