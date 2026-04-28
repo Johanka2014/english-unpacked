@@ -86,7 +86,7 @@ const GettingStartedUnit12 = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <img src={room} alt="A conference room with a long table" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
+            <img src={room} alt="A businessman pointing to a presentation board" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
             <img src={presenter} alt="A man giving a presentation at a whiteboard" className="rounded-lg shadow-md w-full h-56 object-cover" loading="lazy" />
           </div>
         </CardContent>
