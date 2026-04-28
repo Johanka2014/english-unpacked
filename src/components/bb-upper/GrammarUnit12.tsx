@@ -68,6 +68,26 @@ const rewrite: { n: number; original: string; answers: string[]; hint: string }[
   { n: 7, original: "You are allowed to tell them to save questions till the end.", hint: "may / can", answers: ["you may tell them to save questions till the end", "you can tell them to save questions till the end"] },
 ];
 
+// Verb-form gap fill from Peter Furlong's presentation extract
+const verbGaps: { n: number; verb: string; answers: string[] }[] = [
+  { n: 1, verb: "come", answers: ["coming"] },
+  { n: 2, verb: "travel", answers: ["have travelled", "have traveled", "travelled", "traveled"] },
+  { n: 3, verb: "hear", answers: ["to hear"] },
+  { n: 4, verb: "all have", answers: ["all had", "all have had"] },
+  { n: 5, verb: "introduce", answers: ["introduce"] },
+  { n: 6, verb: "explain", answers: ["to explain"] },
+  { n: 7, verb: "invest", answers: ["investing"] },
+  { n: 8, verb: "hope", answers: ["am hoping", "hope", "'m hoping"] },
+  { n: 9, verb: "give", answers: ["'ll give", "will give", "shall give"] },
+  { n: 10, verb: "tell", answers: ["'ll tell", "will tell"] },
+  { n: 11, verb: "conduct", answers: ["have conducted", "'ve conducted", "conducted"] },
+  { n: 12, verb: "outline", answers: ["'ll outline", "will outline"] },
+  { n: 13, verb: "represent", answers: ["represents"] },
+  { n: 14, verb: "like", answers: ["would like", "'d like"] },
+  { n: 15, verb: "be", answers: ["'ll be", "will be"] },
+  { n: 16, verb: "answer", answers: ["to answer"] },
+];
+
 const GrammarUnit12 = () => {
   // Match
   const [match, setMatch] = useState<Record<string, string>>({});
@@ -108,6 +128,44 @@ const GrammarUnit12 = () => {
     setRwRes(r); setShowRW(true);
   };
   const resetRW = () => { setRwAns({}); setRwRes({}); setShowRW(false); };
+
+  // Verb gap fill
+  const [vgAns, setVgAns] = useState<Record<number, string>>({});
+  const [vgRes, setVgRes] = useState<Record<number, "correct" | "incorrect" | null>>({});
+  const [showVG, setShowVG] = useState(false);
+  const checkVG = () => {
+    const r: Record<number, "correct" | "incorrect"> = {};
+    verbGaps.forEach((g) => {
+      const v = norm(vgAns[g.n] || "");
+      r[g.n] = g.answers.some((a) => norm(a) === v) ? "correct" : "incorrect";
+    });
+    setVgRes(r); setShowVG(true);
+  };
+  const resetVG = () => { setVgAns({}); setVgRes({}); setShowVG(false); };
+  const vgCorrect = Object.values(vgRes).filter((v) => v === "correct").length;
+
+  const VG = ({ n }: { n: number }) => {
+    const g = verbGaps.find((x) => x.n === n)!;
+    const r = vgRes[n];
+    return (
+      <span className="inline-flex items-baseline gap-1 mx-1 align-baseline">
+        <span className="text-primary font-bold text-xs">{n}</span>
+        <Input
+          value={vgAns[n] || ""}
+          onChange={(e) => setVgAns((p) => ({ ...p, [n]: e.target.value }))}
+          disabled={r === "correct"}
+          className={`inline-block h-7 w-32 text-sm not-italic px-2 ${
+            r === "correct"
+              ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+              : r === "incorrect"
+                ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                : ""
+          }`}
+        />
+        <span className="italic text-muted-foreground text-xs">({g.verb})</span>
+      </span>
+    );
+  };
 
   return (
     <div className="space-y-8">
@@ -315,6 +373,61 @@ const GrammarUnit12 = () => {
           <div className="flex gap-3">
             <Button onClick={checkRW} className="bg-primary hover:bg-primary/90">Check Answers</Button>
             <Button onClick={resetRW} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Verb forms gap-fill */}
+      <Card>
+        <CardContent className="p-6 space-y-4">
+          <p className="text-sm font-semibold text-foreground">
+            <span className="text-primary font-bold mr-2">4</span>
+            Read this extract from a presentation and put the verbs in brackets into the correct form.
+          </p>
+
+          <div className="rounded-lg border border-border bg-muted/30 p-5 leading-loose text-sm text-foreground">
+            <p>
+              Good morning, and welcome to the Strand Hotel. Thank you all very much for
+              <VG n={1} />(come); some of you <VG n={2} />(travel) a long way <VG n={3} />(hear) us today,
+              and I hope you <VG n={4} />(all have) good journeys. So let me <VG n={5} />(introduce) myself:
+              my name's Peter Furlong, and this is my partner, Mark Davies.
+            </p>
+            <p className="mt-3">
+              The purpose of this presentation is <VG n={6} />(explain) our business plans to you and
+              hopefully to get you interested in <VG n={7} />(invest) in our new company, Clock Options Express.
+            </p>
+            <p className="mt-3">
+              In my presentation, I <VG n={8} />(hope) to do three things. First, I <VG n={9} />(give) you a
+              short summary of our main business idea. Then I <VG n={10} />(tell) you the findings of the
+              market research that we <VG n={11} />(conduct), and finally I <VG n={12} />(outline) our
+              financial requirements and plans, which should show you what a sound and exciting investment
+              Clock Options Express <VG n={13} />(represent). If you have any questions you <VG n={14} />(like)
+              to ask, please leave them to the end when I <VG n={15} />(be) very happy <VG n={16} />(answer) them.
+            </p>
+          </div>
+
+          {showVG && (
+            <div className="p-3 rounded-lg bg-muted/50 text-center text-sm">
+              Score: <strong>{vgCorrect}/{verbGaps.length}</strong>
+            </div>
+          )}
+
+          {showVG && vgCorrect < verbGaps.length && (
+            <div className="p-3 rounded-lg bg-muted/50 text-xs space-y-1">
+              <p className="font-medium mb-1">Suggested answers for missed gaps:</p>
+              <ul className="grid sm:grid-cols-2 gap-x-4">
+                {verbGaps.map((g) => vgRes[g.n] === "incorrect" && (
+                  <li key={g.n} className="text-red-600 dark:text-red-400">
+                    Gap {g.n} ({g.verb}): <strong>{g.answers[0]}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="flex gap-3">
+            <Button onClick={checkVG} className="bg-primary hover:bg-primary/90">Check Answers</Button>
+            <Button onClick={resetVG} variant="outline" className="gap-2"><RotateCcw className="h-4 w-4" /> Reset</Button>
           </div>
         </CardContent>
       </Card>
