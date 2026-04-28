@@ -68,6 +68,26 @@ const rewrite: { n: number; original: string; answers: string[]; hint: string }[
   { n: 7, original: "You are allowed to tell them to save questions till the end.", hint: "may / can", answers: ["you may tell them to save questions till the end", "you can tell them to save questions till the end"] },
 ];
 
+// Verb-form gap fill from Peter Furlong's presentation extract
+const verbGaps: { n: number; verb: string; answers: string[] }[] = [
+  { n: 1, verb: "come", answers: ["coming"] },
+  { n: 2, verb: "travel", answers: ["have travelled", "have traveled", "travelled", "traveled"] },
+  { n: 3, verb: "hear", answers: ["to hear"] },
+  { n: 4, verb: "all have", answers: ["all had", "all have had"] },
+  { n: 5, verb: "introduce", answers: ["introduce"] },
+  { n: 6, verb: "explain", answers: ["to explain"] },
+  { n: 7, verb: "invest", answers: ["investing"] },
+  { n: 8, verb: "hope", answers: ["am hoping", "hope", "'m hoping"] },
+  { n: 9, verb: "give", answers: ["'ll give", "will give", "shall give"] },
+  { n: 10, verb: "tell", answers: ["'ll tell", "will tell"] },
+  { n: 11, verb: "conduct", answers: ["have conducted", "'ve conducted", "conducted"] },
+  { n: 12, verb: "outline", answers: ["'ll outline", "will outline"] },
+  { n: 13, verb: "represent", answers: ["represents"] },
+  { n: 14, verb: "like", answers: ["would like", "'d like"] },
+  { n: 15, verb: "be", answers: ["'ll be", "will be"] },
+  { n: 16, verb: "answer", answers: ["to answer"] },
+];
+
 const GrammarUnit12 = () => {
   // Match
   const [match, setMatch] = useState<Record<string, string>>({});
