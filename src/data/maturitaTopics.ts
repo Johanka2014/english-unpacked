@@ -552,9 +552,21 @@ export const maturitaTopics: MaturitaTopic[] = [
         promptPoints: ["Type of data", "Place / Region", "Numbers and trends", "Causes", "Consequences", "Other"],
         images: [
           { label: "Picture A", src: unemploymentPart2a, description: "Map showing unemployment at the municipal level in Czechia (Charles University Research Centre, UNCE)" },
-          { label: "Picture B", src: unemploymentPart2b, description: "Demographic pyramid of the Czech Republic showing the age and gender structure of the population" }
+          { label: "Picture B", src: unemploymentPart2b, description: "Demographic pyramid of the Czech Republic showing the age and gender structure of the population" },
+          { label: "Historical 3A", src: unemploymentWs3a, description: "Míra nezaměstnanosti v ČR – the Czech unemployment rate from January 2008 to August 2009, showing the sharp rise during the global financial crisis (from around 5 % to 8.5 %)" },
+          { label: "Historical 3B", src: unemploymentWs3b, description: "Employment by economic sector in the Czech Republic 1993–2004 (in %): the primary sector (agriculture) shrinks, the secondary sector (industry) gradually declines and the tertiary sector (services) grows steadily" },
+          { label: "Historical 3C", src: unemploymentWs3c, description: "Map of unemployment by district in the Czech Republic (May 2010): the highest rates (15 %+) are in north Bohemia (Most, Karviná) and parts of Moravia, while Prague and central Bohemia have the lowest rates" }
         ],
-        followUpQuestions: ["What kind of data does the picture show?", "Which Czech regions or age groups stand out and why?", "What does this tell us about the labour market?", "What conclusions could the government draw from this picture?"]
+        followUpQuestions: [
+          "What kind of data does the picture show?",
+          "Which Czech regions or age groups stand out and why?",
+          "What does this tell us about the labour market?",
+          "What conclusions could the government draw from this picture?",
+          "Can you describe the development of the unemployment rate in the Czech Republic between 2008 and 2009?",
+          "What were the causes of the increase in unemployment at the beginning of 2009?",
+          "How has the structure of employment by sector changed since 1993, and what does it tell us about the Czech economy?",
+          "Which regions in the Czech Republic in particular suffer from unemployment, and what are the consequences for those regions?"
+        ]
       },
       task2: {
         promptPoints: ["Type of data", "Place / Region", "Numbers and trends", "Causes", "Consequences", "Other"],
