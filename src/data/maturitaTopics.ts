@@ -23,6 +23,9 @@ import unemployment3c from "@/assets/maturita-unemployment-3c.jpg";
 import unemployment3d from "@/assets/maturita-unemployment-3d.jpg";
 import unemployment3e from "@/assets/maturita-unemployment-3e.jpg";
 import unemployment3f from "@/assets/maturita-unemployment-3f.jpg";
+import unemploymentWs3a from "@/assets/maturita-unemployment-ws-3a.jpg";
+import unemploymentWs3b from "@/assets/maturita-unemployment-ws-3b.jpg";
+import unemploymentWs3c from "@/assets/maturita-unemployment-ws-3c.jpg";
 
 // Hemingway images
 import hemingwayThumbnail from "@/assets/maturita-hemingway-thumbnail.jpg";
