@@ -13,6 +13,17 @@ import envPart2b from "@/assets/maturita-env-part2-b.jpg";
 // Medical Care images
 import topicMedicalCare from "@/assets/topic-medical-care.jpg";
 
+// Unemployment images
+import topicUnemployment from "@/assets/topic-unemployment.jpg";
+import unemploymentPart2a from "@/assets/maturita-unemployment-part2-a.png";
+import unemploymentPart2b from "@/assets/maturita-unemployment-part2-b.png";
+import unemployment3a from "@/assets/maturita-unemployment-3a.jpg";
+import unemployment3b from "@/assets/maturita-unemployment-3b.jpg";
+import unemployment3c from "@/assets/maturita-unemployment-3c.jpg";
+import unemployment3d from "@/assets/maturita-unemployment-3d.jpg";
+import unemployment3e from "@/assets/maturita-unemployment-3e.jpg";
+import unemployment3f from "@/assets/maturita-unemployment-3f.jpg";
+
 // Hemingway images
 import hemingwayThumbnail from "@/assets/maturita-hemingway-thumbnail.jpg";
 import hemingway3a from "@/assets/maturita-hemingway-3a.jpg";
