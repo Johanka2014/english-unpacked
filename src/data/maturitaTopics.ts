@@ -606,7 +606,11 @@ export const maturitaTopics: MaturitaTopic[] = [
         "How is automation changing the labour market?",
         "Why is youth unemployment a particular problem in some EU countries?",
         "How does an ageing population affect unemployment and the labour market?",
-        "What can governments and individuals do to reduce unemployment in the future?"
+        "What can governments and individuals do to reduce unemployment in the future?",
+        "How is unemployment measured – what is the difference between the registered rate and the ILO rate?",
+        "Is there any relation between inflation and unemployment?",
+        "What does the State do to help the unemployed?",
+        "What are some possible solutions to the problem of unemployment?"
       ]
     }
   },
