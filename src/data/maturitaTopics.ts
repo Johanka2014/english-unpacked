@@ -593,6 +593,7 @@ export const maturitaTopics: MaturitaTopic[] = [
     }
   },
   {
+    id: "ernest-hemingway",
     title: "Ernest Hemingway",
     description: "Life and lifestyle, major works, awards, main themes, writing style, and The Old Man and the Sea",
     available: true,
