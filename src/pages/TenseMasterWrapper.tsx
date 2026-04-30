@@ -1385,6 +1385,10 @@ const TenseMasterWrapper = () => {
         return renderGrammarSection('perfect');
       case 'pastPerfect':
         return renderGrammarSection('pastPerfect');
+      case 'future':
+        return renderGrammarSection('future');
+      case 'futurePerfect':
+        return renderGrammarSection('futurePerfect');
       case 'present_simple_hub':
         return renderPracticeHub('Present Simple Practice', presentSimplePractice, 'present', 'border-brand-royal');
       case 'present_continuous_hub':
@@ -1399,6 +1403,10 @@ const TenseMasterWrapper = () => {
         return renderPracticeHub('Present Perfect Practice', presentPerfectPractice, 'perfect', 'border-teal-500');
       case 'past_perfect_hub':
         return renderPracticeHub('Past Perfect Practice', pastPerfectPractice, 'pastPerfect', 'border-purple-500');
+      case 'future_hub':
+        return renderPracticeHub('Future Tenses Practice', futurePractice, 'future', 'border-amber-500');
+      case 'future_perfect_hub':
+        return renderPracticeHub('Future Perfect Practice', futurePerfectPractice, 'futurePerfect', 'border-orange-500');
       case 'quiz':
         return renderQuiz();
       default:
