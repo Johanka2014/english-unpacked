@@ -947,7 +947,7 @@ const TenseMasterWrapper = () => {
                   <ExternalLink className="w-6 h-6 text-teal-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-foreground">Extra Practice: Irregular Verbs Quiz</h3>
+                  <h3 className="font-semibold text-foreground">Irregular verbs, Past Simple and Present Perfect quiz</h3>
                   <p className="text-sm text-muted-foreground">Open the LearningApps interactive quiz in a new tab to drill irregular past participles.</p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground" />
