@@ -822,6 +822,127 @@ const tenseContent: Record<string, TenseData> = {
         icon: "timer"
       }
     ]
+  },
+  future: {
+    title: "Future Tenses",
+    intro: "Different ways to talk about the future: will, going to, Future Continuous, and present tenses for the future.",
+    units: [
+      {
+        title: "Future with 'will'",
+        subtitle: "I will do",
+        formula: "Subject + will + base verb",
+        explanation: "Use <strong>will</strong> for predictions, instant decisions made at the moment of speaking, promises, offers, and polite requests. It's the most general future form.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Predictions / Opinions", desc: "What you think or believe will happen: 'I think it will rain.'" },
+          { title: "2. Instant Decisions", desc: "Decisions made at the moment of speaking: 'I'll get it!'" },
+          { title: "3. Promises & Offers", desc: "'I'll help you.' / 'I won't tell anyone.'" },
+          { title: "4. Polite Requests", desc: "'Will you open the window, please?'" }
+        ],
+        examples: [
+          "I think Spain <strong>will win</strong> the match.",
+          "The phone is ringing — I<strong>'ll get</strong> it!",
+          "I promise I <strong>won't be</strong> late."
+        ],
+        icon: "rocket"
+      },
+      {
+        title: "Future with 'going to'",
+        subtitle: "I am going to do",
+        formula: "Subject + am/is/are + going to + base verb",
+        explanation: "Use <strong>going to</strong> for plans and intentions decided <em>before</em> the moment of speaking, and for predictions based on <strong>present evidence</strong> you can see right now.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Plans & Intentions", desc: "Decisions already made: 'I'm going to study medicine.'" },
+          { title: "2. Predictions with Evidence", desc: "Based on what you see now: 'Look at those clouds — it's going to rain.'" },
+          { title: "3. Things About to Happen", desc: "'Watch out! You're going to fall!'" }
+        ],
+        examples: [
+          "We <strong>are going to visit</strong> my grandparents next weekend.",
+          "Look at those black clouds! It<strong>'s going to rain</strong>.",
+          "She <strong>is going to have</strong> a baby in May."
+        ],
+        icon: "calendar"
+      },
+      {
+        title: "Future Continuous",
+        subtitle: "I will be doing",
+        formula: "Subject + will + be + verb-ing",
+        explanation: "Use the Future Continuous to describe an action that will be <strong>in progress</strong> at a specific moment in the future, or to ask politely about someone's future plans.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Action in Progress at Future Time", desc: "'This time tomorrow, I'll be flying to Paris.'" },
+          { title: "2. Polite Enquiries", desc: "'Will you be using the car this evening?'" },
+          { title: "3. Parallel Future Actions", desc: "Two things happening at the same future moment." }
+        ],
+        examples: [
+          "Don't call at 8 — we <strong>will be having</strong> dinner.",
+          "This time next week, I <strong>'ll be lying</strong> on the beach.",
+          "<strong>Will</strong> you <strong>be using</strong> your laptop tonight?"
+        ],
+        icon: "timer"
+      },
+      {
+        title: "Present Tenses for the Future",
+        subtitle: "I'm meeting / The train leaves",
+        formula: "Present Continuous = arrangements · Present Simple = timetables",
+        explanation: "We often use <strong>Present Continuous</strong> for personal arrangements already organised, and <strong>Present Simple</strong> for fixed timetables and schedules (trains, flights, schools, cinemas).",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "Arrangements (Present Continuous)", desc: "'I'm meeting Sarah at 7.' (already arranged)" },
+          { title: "Timetables (Present Simple)", desc: "'The train leaves at 8:15.' (fixed schedule)" },
+          { title: "Avoid 'will' here", desc: "Don't use 'will' for arranged plans or fixed timetables." }
+        ],
+        examples: [
+          "We <strong>are having</strong> a party on Saturday. Can you come?",
+          "The film <strong>starts</strong> at 7:30.",
+          "I <strong>'m seeing</strong> the dentist on Friday."
+        ],
+        icon: "check-square"
+      }
+    ]
+  },
+  futurePerfect: {
+    title: "Future Perfect Tenses",
+    intro: "Looking back from a point in the future. Covering Simple and Continuous forms.",
+    units: [
+      {
+        title: "Future Perfect Simple",
+        subtitle: "I will have done",
+        formula: "Subject + will have + past participle (v3)",
+        explanation: "Use the Future Perfect to talk about an action that <strong>will be completed before</strong> a specific point in the future. Often used with <em>by</em>, <em>by the time</em>, or <em>before</em>.",
+        practiceLink: "future_perfect_hub",
+        detailedUses: [
+          { title: "1. Completed Before a Future Point", desc: "'By next June, I will have finished my degree.'" },
+          { title: "2. With 'by the time' clauses", desc: "'By the time you arrive, I will have cooked dinner.'" },
+          { title: "3. Predicting Completion", desc: "'By 2030, scientists will have found a cure.'" }
+        ],
+        examples: [
+          "By next month, they <strong>will have lived</strong> here for ten years.",
+          "I <strong>will have left</strong> before he gets here.",
+          "By midnight, the team <strong>will have finished</strong> the project."
+        ],
+        icon: "check-square"
+      },
+      {
+        title: "Future Perfect Continuous",
+        subtitle: "I will have been doing",
+        formula: "Subject + will have been + verb-ing",
+        explanation: "Use the Future Perfect Continuous to emphasise the <strong>duration</strong> of an activity that continues up to a specific point in the future. Often used with <em>for</em> + period of time.",
+        practiceLink: "future_perfect_hub",
+        detailedUses: [
+          { title: "1. Duration up to a Future Point", desc: "'By June, I will have been studying English for ten years.'" },
+          { title: "2. Emphasis on Activity", desc: "Highlights how long something has been ongoing." },
+          { title: "3. Often with 'by' / 'when'", desc: "'When you arrive, we will have been waiting for two hours!'" }
+        ],
+        examples: [
+          "By 5 PM, she <strong>will have been working</strong> for nine hours straight.",
+          "Next month, we <strong>will have been running</strong> this business for a decade.",
+          "By the end of this year, he <strong>will have been driving</strong> the same car for 15 years."
+        ],
+        icon: "timer"
+      }
+    ]
   }
 };
 
