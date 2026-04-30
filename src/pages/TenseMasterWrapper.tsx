@@ -649,6 +649,26 @@ const tenseContent: Record<string, TenseData> = {
           "I <strong>have been working</strong> hard all day. I'm tired."
         ],
         icon: "timer"
+      },
+      {
+        title: "Irregular Verbs in the Perfect Tense",
+        subtitle: "have/has + past participle (V3)",
+        formula: "Subject + have/has + V3 (irregular form)",
+        explanation: "The Present Perfect uses the <strong>past participle</strong> (the third form of the verb, V3). For regular verbs, this is just <em>verb + -ed</em> (work → worked). But many common English verbs are <strong>irregular</strong> — their past participle does not follow this pattern and must be learned by heart. A frequent learner error is saying <em>'I have eated'</em> instead of <em>'I have eaten'</em>, or <em>'She has went'</em> (mixing past simple and participle) instead of <em>'She has gone'</em>.",
+        practiceLink: "present_perfect_hub",
+        detailedUses: [
+          { title: "Same in all 3 forms", desc: "cut → cut → cut, put → put → put, let → let → let, hit → hit → hit." },
+          { title: "Past = Participle", desc: "buy → bought → bought, find → found → found, make → made → made, sit → sat → sat." },
+          { title: "All 3 forms different", desc: "eat → ate → eaten, go → went → gone, write → wrote → written, take → took → taken, see → saw → seen, speak → spoke → spoken." },
+          { title: "Watch out: gone vs been", desc: "'has gone to Paris' = still there. 'has been to Paris' = visited and returned." }
+        ],
+        examples: [
+          "I <strong>have eaten</strong> sushi many times. (NOT 'have eated')",
+          "She <strong>has written</strong> three books. (NOT 'has wrote')",
+          "They <strong>have gone</strong> home. (they're not here now)",
+          "We <strong>have been</strong> to London twice. (visited and came back)"
+        ],
+        icon: "book-open"
       }
     ]
   },
