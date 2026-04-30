@@ -947,10 +947,11 @@ const tenseContent: Record<string, TenseData> = {
 };
 
 // Navigation views
-type ViewType = 'home' | 'present' | 'past' | 'perfect' | 'pastPerfect' | 
+type ViewType = 'home' | 'present' | 'past' | 'perfect' | 'pastPerfect' | 'future' | 'futurePerfect' |
   'present_simple_hub' | 'present_continuous_hub' | 'present_simple_vs_continuous_hub' |
   'past_simple_hub' | 'past_continuous_hub' |
-  'present_perfect_hub' | 'past_perfect_hub' | 
+  'present_perfect_hub' | 'past_perfect_hub' |
+  'future_hub' | 'future_perfect_hub' |
   'quiz' | 'general_quiz';
 
 const TenseMasterWrapper = () => {
