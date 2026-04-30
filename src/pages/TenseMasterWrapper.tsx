@@ -1029,12 +1029,14 @@ const TenseMasterWrapper = () => {
         Interactive grammar guide based on Cambridge Grammar in Use
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {[
           { title: "Present Tenses", desc: "I do vs I am doing", icon: Clock, action: 'present' as ViewType, color: "text-brand-royal" },
           { title: "Past Tenses", desc: "I did vs I was doing", icon: History, action: 'past' as ViewType, color: "text-rose-600" },
           { title: "Present Perfect", desc: "I have done / been doing", icon: CheckSquare, action: 'perfect' as ViewType, color: "text-teal-600" },
-          { title: "Past Perfect", desc: "I had done / been doing", icon: Undo2, action: 'pastPerfect' as ViewType, color: "text-purple-600" }
+          { title: "Past Perfect", desc: "I had done / been doing", icon: Undo2, action: 'pastPerfect' as ViewType, color: "text-purple-600" },
+          { title: "Future Tenses", desc: "I will / am going to do", icon: Rocket, action: 'future' as ViewType, color: "text-amber-600" },
+          { title: "Future Perfect", desc: "I will have done / been doing", icon: CalendarClock, action: 'futurePerfect' as ViewType, color: "text-orange-600" }
         ].map((card) => (
           <Card 
             key={card.action}
