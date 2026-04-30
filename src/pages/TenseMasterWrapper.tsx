@@ -1013,6 +1013,8 @@ const TenseMasterWrapper = () => {
       case 'past_continuous_hub': return pastContinuousPractice;
       case 'present_perfect_hub': return presentPerfectPractice;
       case 'past_perfect_hub': return pastPerfectPractice;
+      case 'future_hub': return futurePractice;
+      case 'future_perfect_hub': return futurePerfectPractice;
       default: return [];
     }
   };
