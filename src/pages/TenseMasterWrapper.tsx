@@ -934,6 +934,28 @@ const TenseMasterWrapper = () => {
           ))}
         </div>
 
+        {type === 'perfect' && (
+          <a
+            href="https://learningapps.org/view2394861"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-6"
+          >
+            <Card className="service-card hover:shadow-lg transition-shadow border-l-4 border-teal-500">
+              <CardContent className="p-5 flex items-center gap-4">
+                <div className="bg-teal-50 p-3 rounded-lg">
+                  <ExternalLink className="w-6 h-6 text-teal-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-foreground">Extra Practice: Irregular Verbs Quiz</h3>
+                  <p className="text-sm text-muted-foreground">Open the LearningApps interactive quiz in a new tab to drill irregular past participles.</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-muted-foreground" />
+              </CardContent>
+            </Card>
+          </a>
+        )}
+
         <div className="mt-8 text-center">
           <Button variant="ghost" onClick={() => navigate('home')}>
             <Home className="w-4 h-4 mr-2" />
