@@ -1076,6 +1076,8 @@ const TenseMasterWrapper = () => {
             <Badge variant="secondary">Past Continuous</Badge>
             <Badge variant="secondary">Present Perfect</Badge>
             <Badge variant="secondary">Past Perfect</Badge>
+            <Badge variant="secondary">Future</Badge>
+            <Badge variant="secondary">Future Perfect</Badge>
           </div>
         </CardContent>
       </Card>
