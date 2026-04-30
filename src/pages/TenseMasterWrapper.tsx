@@ -434,6 +434,23 @@ const presentPerfectPractice: QuizCategory[] = [
       { q: "The kitchen is a mess. They ______ (cook).", options: ["have been cooking", "cooked", "cook"], correct: 0, feedback: "Correct! Recent activity with visible result." },
       { q: "I ______ (think) about what you said lately.", options: ["have been thinking", "think", "am thinking"], correct: 0, feedback: "Correct! Mental activity over a recent period." }
     ]
+  },
+  {
+    id: 'irregular',
+    title: "Irregular Past Participles",
+    desc: "Choose the correct irregular past participle (V3) to complete the Present Perfect sentence.",
+    questions: [
+      { q: "I have ______ (eat) too much chocolate.", options: ["ate", "eaten", "eated"], correct: 1, feedback: "Correct! eat → ate → eaten." },
+      { q: "She has ______ (write) three emails this morning.", options: ["wrote", "writed", "written"], correct: 2, feedback: "Correct! write → wrote → written." },
+      { q: "We have ______ (go) to Italy twice.", options: ["went", "gone", "been going"], correct: 1, feedback: "Correct! go → went → gone." },
+      { q: "He has ______ (take) my pen again!", options: ["took", "taken", "taked"], correct: 1, feedback: "Correct! take → took → taken." },
+      { q: "They have ______ (see) that film already.", options: ["saw", "seen", "seed"], correct: 1, feedback: "Correct! see → saw → seen." },
+      { q: "I have ______ (break) my phone screen.", options: ["broke", "broken", "breaked"], correct: 1, feedback: "Correct! break → broke → broken." },
+      { q: "Have you ever ______ (drive) a sports car?", options: ["drove", "driven", "drived"], correct: 1, feedback: "Correct! drive → drove → driven." },
+      { q: "The kids have ______ (drink) all the juice.", options: ["drank", "drunk", "drinked"], correct: 1, feedback: "Correct! drink → drank → drunk." },
+      { q: "She has ______ (give) me a wonderful gift.", options: ["gave", "given", "gived"], correct: 1, feedback: "Correct! give → gave → given." },
+      { q: "We have ______ (speak) to the manager about it.", options: ["spoke", "spoken", "speaked"], correct: 1, feedback: "Correct! speak → spoke → spoken." }
+    ]
   }
 ];
 
