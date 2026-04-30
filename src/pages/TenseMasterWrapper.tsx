@@ -492,7 +492,115 @@ const pastPerfectPractice: QuizCategory[] = [
   }
 ];
 
-const generalQuiz: Question[] = [
+const futurePractice: QuizCategory[] = [
+  {
+    id: 'will',
+    title: "Future with 'will'",
+    desc: "Predictions, instant decisions, promises and offers.",
+    questions: [
+      { q: "I think it ______ (rain) later.", options: ["rains", "will rain", "is raining"], correct: 1, feedback: "Correct! 'I think' signals a prediction → will." },
+      { q: "The phone is ringing. I ______ (get) it!", options: ["get", "am getting", "will get"], correct: 2, feedback: "Correct! Instant decision made at the moment of speaking." },
+      { q: "Don't worry, I ______ (help) you with your homework.", options: ["help", "will help", "am helping"], correct: 1, feedback: "Correct! An offer to help → will." },
+      { q: "I promise I ______ (not / tell) anyone.", options: ["don't tell", "won't tell", "am not telling"], correct: 1, feedback: "Correct! A promise → will/won't." },
+      { q: "In 2050, people ______ (live) on Mars.", options: ["live", "will live", "are living"], correct: 1, feedback: "Correct! Long-term prediction." },
+      { q: "______ you ______ (open) the window, please?", options: ["Do / open", "Will / open", "Are / opening"], correct: 1, feedback: "Correct! Polite request → will." },
+      { q: "I'm sure she ______ (pass) the exam.", options: ["passes", "will pass", "is passing"], correct: 1, feedback: "Correct! Personal opinion / prediction." },
+      { q: "I'm thirsty. I ______ (have) a glass of water.", options: ["have", "am having", "will have"], correct: 2, feedback: "Correct! Spontaneous decision." },
+      { q: "Perhaps Tom ______ (call) us tonight.", options: ["calls", "will call", "is calling"], correct: 1, feedback: "Correct! 'Perhaps' signals an uncertain prediction." },
+      { q: "I think Spain ______ (win) the match.", options: ["wins", "is winning", "will win"], correct: 2, feedback: "Correct! Opinion-based prediction → will." }
+    ]
+  },
+  {
+    id: 'going_to',
+    title: "Future with 'going to'",
+    desc: "Plans, intentions and predictions based on present evidence.",
+    questions: [
+      { q: "I've decided. I ______ (study) medicine at university.", options: ["will study", "am going to study", "study"], correct: 1, feedback: "Correct! A pre-made plan/intention → going to." },
+      { q: "Look at those black clouds! It ______ (rain).", options: ["will rain", "is going to rain", "rains"], correct: 1, feedback: "Correct! Prediction based on visible evidence." },
+      { q: "We ______ (visit) my grandparents next weekend. We've already booked the train.", options: ["will visit", "are going to visit", "visit"], correct: 1, feedback: "Correct! A planned arrangement → going to." },
+      { q: "Watch out! You ______ (fall)!", options: ["will fall", "are going to fall", "fall"], correct: 1, feedback: "Correct! Prediction based on what you can see right now." },
+      { q: "What ______ (you / do) when you finish school?", options: ["will you do", "are you going to do", "do you do"], correct: 1, feedback: "Correct! Asking about future plans → going to." },
+      { q: "She ______ (have) a baby in May.", options: ["will have", "is going to have", "has"], correct: 1, feedback: "Correct! A known future event with present evidence." },
+      { q: "I ______ (not / buy) that car. I've changed my mind.", options: ["won't buy", "am not going to buy", "don't buy"], correct: 1, feedback: "Correct! A revised intention → going to." },
+      { q: "Be careful! That glass ______ (fall) off the table.", options: ["will fall", "is going to fall", "falls"], correct: 1, feedback: "Correct! Prediction with visible evidence." },
+      { q: "They ______ (get) married in June. The wedding is planned.", options: ["will get", "are going to get", "get"], correct: 1, feedback: "Correct! A firm plan → going to." },
+      { q: "I ______ (start) jogging every morning from Monday.", options: ["will start", "am going to start", "start"], correct: 1, feedback: "Correct! Personal intention → going to." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Future Continuous",
+    desc: "Actions in progress at a specific moment in the future.",
+    questions: [
+      { q: "This time tomorrow, I ______ (fly) to Paris.", options: ["will fly", "will be flying", "fly"], correct: 1, feedback: "Correct! In progress at a specific future moment." },
+      { q: "Don't call at 8 PM. We ______ (have) dinner.", options: ["will have", "will be having", "are having"], correct: 1, feedback: "Correct! Action in progress at that future time." },
+      { q: "At 10 o'clock tomorrow, she ______ (work) in her office.", options: ["will work", "will be working", "works"], correct: 1, feedback: "Correct! In progress at a specific future time." },
+      { q: "______ you ______ (use) the car this evening?", options: ["Will / use", "Will / be using", "Do / use"], correct: 1, feedback: "Correct! Polite enquiry about future plans." },
+      { q: "This time next week, we ______ (lie) on the beach.", options: ["will lie", "will be lying", "lie"], correct: 1, feedback: "Correct! In progress at a specified future point." },
+      { q: "I can't meet you at 7 — I ______ (drive) home then.", options: ["will drive", "will be driving", "drive"], correct: 1, feedback: "Correct! Action in progress at 7." },
+      { q: "Tomorrow afternoon, the children ______ (play) in the garden.", options: ["will play", "will be playing", "play"], correct: 1, feedback: "Correct! Ongoing action at a future time." },
+      { q: "Don't worry — I ______ (think) about you while you're away.", options: ["will think", "will be thinking", "think"], correct: 1, feedback: "Correct! Continuous future action." },
+      { q: "By this time on Sunday, we ______ (travel) across France.", options: ["will travel", "will be travelling", "travel"], correct: 1, feedback: "Correct! In progress at a specific point." },
+      { q: "What ______ (you / do) at 9 PM tonight?", options: ["will you do", "will you be doing", "do you do"], correct: 1, feedback: "Correct! Asking about an action in progress." }
+    ]
+  },
+  {
+    id: 'present_for_future',
+    title: "Present Tenses for the Future",
+    desc: "Present Continuous for arrangements, Present Simple for timetables.",
+    questions: [
+      { q: "I ______ (meet) Sarah at 7 PM tomorrow. We've arranged it.", options: ["meet", "am meeting", "will meet"], correct: 1, feedback: "Correct! Personal arrangement → Present Continuous." },
+      { q: "The train ______ (leave) at 8:15.", options: ["leaves", "is leaving", "will leave"], correct: 0, feedback: "Correct! Timetable → Present Simple." },
+      { q: "What time ______ the film ______ (start)?", options: ["does / start", "is / starting", "will / start"], correct: 0, feedback: "Correct! Schedule → Present Simple." },
+      { q: "We ______ (have) a party on Saturday. Can you come?", options: ["have", "are having", "will have"], correct: 1, feedback: "Correct! Social arrangement → Present Continuous." },
+      { q: "My flight ______ (arrive) at 10:30.", options: ["arrives", "is arriving", "will arrive"], correct: 0, feedback: "Correct! Flight timetable → Present Simple." },
+      { q: "She ______ (see) the dentist on Friday.", options: ["sees", "is seeing", "will see"], correct: 1, feedback: "Correct! Personal appointment → Present Continuous." },
+      { q: "School ______ (begin) on September 1st.", options: ["begins", "is beginning", "will begin"], correct: 0, feedback: "Correct! Fixed calendar event → Present Simple." },
+      { q: "What ______ (you / do) tonight?", options: ["do you do", "are you doing", "will you do"], correct: 1, feedback: "Correct! Asking about plans/arrangements → Present Continuous." },
+      { q: "The conference ______ (finish) on Friday at 5 PM.", options: ["finishes", "is finishing", "will finish"], correct: 0, feedback: "Correct! Scheduled event → Present Simple." },
+      { q: "We ______ (fly) to Rome next Tuesday. Tickets are booked.", options: ["fly", "are flying", "will fly"], correct: 1, feedback: "Correct! Arrangement → Present Continuous." }
+    ]
+  }
+];
+
+const futurePerfectPractice: QuizCategory[] = [
+  {
+    id: 'simple',
+    title: "Future Perfect Simple",
+    desc: "Actions that will be completed before a specific point in the future.",
+    questions: [
+      { q: "By next June, I ______ (finish) my degree.", options: ["finish", "will finish", "will have finished"], correct: 2, feedback: "Correct! Completed before a future point → Future Perfect." },
+      { q: "By the time you arrive, I ______ (cook) dinner.", options: ["will cook", "will have cooked", "cook"], correct: 1, feedback: "Correct! Completed before your arrival." },
+      { q: "By 2030, scientists ______ (find) a cure for many diseases.", options: ["find", "will find", "will have found"], correct: 2, feedback: "Correct! Completed before a future date." },
+      { q: "By this evening, she ______ (write) all the emails.", options: ["writes", "will write", "will have written"], correct: 2, feedback: "Correct! Completed before this evening." },
+      { q: "I ______ (leave) before he gets here.", options: ["leave", "will leave", "will have left"], correct: 2, feedback: "Correct! Action complete before another future event." },
+      { q: "By the end of the year, we ______ (save) enough money.", options: ["save", "will save", "will have saved"], correct: 2, feedback: "Correct! Completed by a future deadline." },
+      { q: "By midnight, the team ______ (finish) the project.", options: ["finishes", "will finish", "will have finished"], correct: 2, feedback: "Correct! Completed before a future point." },
+      { q: "______ you ______ (eat) by the time I get home?", options: ["Will / eat", "Will / have eaten", "Do / eat"], correct: 1, feedback: "Correct! Question about completion before a future point." },
+      { q: "By next month, they ______ (live) here for ten years.", options: ["live", "will live", "will have lived"], correct: 2, feedback: "Correct! Duration up to a future moment." },
+      { q: "He ______ (not / arrive) by 8 PM.", options: ["doesn't arrive", "won't arrive", "won't have arrived"], correct: 2, feedback: "Correct! Predicting non-completion before a future point." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Future Perfect Continuous",
+    desc: "Duration of an activity up to a specific point in the future.",
+    questions: [
+      { q: "By June, I ______ (study) English for ten years.", options: ["will study", "will be studying", "will have been studying"], correct: 2, feedback: "Correct! Duration up to a future point." },
+      { q: "Next week, they ______ (live) in this house for 20 years.", options: ["will live", "will be living", "will have been living"], correct: 2, feedback: "Correct! Emphasises duration before a future moment." },
+      { q: "By 5 PM, she ______ (work) for nine hours straight.", options: ["will work", "will be working", "will have been working"], correct: 2, feedback: "Correct! Duration leading up to 5 PM." },
+      { q: "When you arrive, we ______ (wait) for two hours!", options: ["will wait", "will be waiting", "will have been waiting"], correct: 2, feedback: "Correct! Duration up to your arrival." },
+      { q: "By the end of this month, he ______ (drive) the same car for 15 years.", options: ["will drive", "will be driving", "will have been driving"], correct: 2, feedback: "Correct! Long duration before a future point." },
+      { q: "In May, I ______ (teach) at this school for five years.", options: ["will teach", "will be teaching", "will have been teaching"], correct: 2, feedback: "Correct! Duration up to a future point." },
+      { q: "By tomorrow, the workers ______ (build) this wall for a week.", options: ["will build", "will be building", "will have been building"], correct: 2, feedback: "Correct! Duration before a future moment." },
+      { q: "How long ______ you ______ (learn) Spanish by next summer?", options: ["will / learn", "will / be learning", "will / have been learning"], correct: 2, feedback: "Correct! Asking about duration before a future point." },
+      { q: "By the time the train arrives, I ______ (wait) for an hour.", options: ["will wait", "will be waiting", "will have been waiting"], correct: 2, feedback: "Correct! Duration up to the arrival." },
+      { q: "Next month, we ______ (run) this business for a decade.", options: ["will run", "will be running", "will have been running"], correct: 2, feedback: "Correct! Duration before a future point." }
+    ]
+  }
+];
+
+
   { q: "Look! That man ______ to open the door of your car.", options: ["tries", "is trying", "tried"], correct: 1, feedback: "Correct! We use Present Continuous for actions happening right now (Look!)." },
   { q: "Can you hear those people? What ______ about?", options: ["do they talk", "are they talking", "talk they"], correct: 1, feedback: "Correct! The action is happening now, so we use Present Continuous." },
   { q: "The moon ______ round the earth in about 27 days.", options: ["goes", "is going", "went"], correct: 0, feedback: "Correct! This is a general truth/scientific fact, so we use Present Simple." },
