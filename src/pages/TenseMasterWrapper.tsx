@@ -9,7 +9,8 @@ import { useToast } from '@/hooks/use-toast';
 import { 
   Clock, History, CheckSquare, Undo2, ArrowRight, 
   Home, RefreshCw, CheckCircle, Trophy,
-  ArrowLeft, GraduationCap, BookOpen, Loader2, ExternalLink
+  ArrowLeft, GraduationCap, BookOpen, Loader2, ExternalLink,
+  Rocket, CalendarClock
 } from 'lucide-react';
 
 // Types
