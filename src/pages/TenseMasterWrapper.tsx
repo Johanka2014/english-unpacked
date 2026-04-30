@@ -601,6 +601,7 @@ const futurePerfectPractice: QuizCategory[] = [
 ];
 
 
+const generalQuiz: Question[] = [
   { q: "Look! That man ______ to open the door of your car.", options: ["tries", "is trying", "tried"], correct: 1, feedback: "Correct! We use Present Continuous for actions happening right now (Look!)." },
   { q: "Can you hear those people? What ______ about?", options: ["do they talk", "are they talking", "talk they"], correct: 1, feedback: "Correct! The action is happening now, so we use Present Continuous." },
   { q: "The moon ______ round the earth in about 27 days.", options: ["goes", "is going", "went"], correct: 0, feedback: "Correct! This is a general truth/scientific fact, so we use Present Simple." },
