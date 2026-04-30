@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { 
   Clock, History, CheckSquare, Undo2, ArrowRight, 
   Home, RefreshCw, CheckCircle, Trophy,
-  ArrowLeft, GraduationCap, BookOpen, Loader2
+  ArrowLeft, GraduationCap, BookOpen, Loader2, ExternalLink
 } from 'lucide-react';
 
 // Types
@@ -434,6 +434,23 @@ const presentPerfectPractice: QuizCategory[] = [
       { q: "The kitchen is a mess. They ______ (cook).", options: ["have been cooking", "cooked", "cook"], correct: 0, feedback: "Correct! Recent activity with visible result." },
       { q: "I ______ (think) about what you said lately.", options: ["have been thinking", "think", "am thinking"], correct: 0, feedback: "Correct! Mental activity over a recent period." }
     ]
+  },
+  {
+    id: 'irregular',
+    title: "Irregular Past Participles",
+    desc: "Choose the correct irregular past participle (V3) to complete the Present Perfect sentence.",
+    questions: [
+      { q: "I have ______ (eat) too much chocolate.", options: ["ate", "eaten", "eated"], correct: 1, feedback: "Correct! eat → ate → eaten." },
+      { q: "She has ______ (write) three emails this morning.", options: ["wrote", "writed", "written"], correct: 2, feedback: "Correct! write → wrote → written." },
+      { q: "We have ______ (go) to Italy twice.", options: ["went", "gone", "been going"], correct: 1, feedback: "Correct! go → went → gone." },
+      { q: "He has ______ (take) my pen again!", options: ["took", "taken", "taked"], correct: 1, feedback: "Correct! take → took → taken." },
+      { q: "They have ______ (see) that film already.", options: ["saw", "seen", "seed"], correct: 1, feedback: "Correct! see → saw → seen." },
+      { q: "I have ______ (break) my phone screen.", options: ["broke", "broken", "breaked"], correct: 1, feedback: "Correct! break → broke → broken." },
+      { q: "Have you ever ______ (drive) a sports car?", options: ["drove", "driven", "drived"], correct: 1, feedback: "Correct! drive → drove → driven." },
+      { q: "The kids have ______ (drink) all the juice.", options: ["drank", "drunk", "drinked"], correct: 1, feedback: "Correct! drink → drank → drunk." },
+      { q: "She has ______ (give) me a wonderful gift.", options: ["gave", "given", "gived"], correct: 1, feedback: "Correct! give → gave → given." },
+      { q: "We have ______ (speak) to the manager about it.", options: ["spoke", "spoken", "speaked"], correct: 1, feedback: "Correct! speak → spoke → spoken." }
+    ]
   }
 ];
 
@@ -632,6 +649,26 @@ const tenseContent: Record<string, TenseData> = {
           "I <strong>have been working</strong> hard all day. I'm tired."
         ],
         icon: "timer"
+      },
+      {
+        title: "Irregular Verbs in the Perfect Tense",
+        subtitle: "have/has + past participle (V3)",
+        formula: "Subject + have/has + V3 (irregular form)",
+        explanation: "The Present Perfect uses the <strong>past participle</strong> (the third form of the verb, V3). For regular verbs, this is just <em>verb + -ed</em> (work → worked). But many common English verbs are <strong>irregular</strong> — their past participle does not follow this pattern and must be learned by heart. A frequent learner error is saying <em>'I have eated'</em> instead of <em>'I have eaten'</em>, or <em>'She has went'</em> (mixing past simple and participle) instead of <em>'She has gone'</em>.",
+        practiceLink: "present_perfect_hub",
+        detailedUses: [
+          { title: "Same in all 3 forms", desc: "cut → cut → cut, put → put → put, let → let → let, hit → hit → hit." },
+          { title: "Past = Participle", desc: "buy → bought → bought, find → found → found, make → made → made, sit → sat → sat." },
+          { title: "All 3 forms different", desc: "eat → ate → eaten, go → went → gone, write → wrote → written, take → took → taken, see → saw → seen, speak → spoke → spoken." },
+          { title: "Watch out: gone vs been", desc: "'has gone to Paris' = still there. 'has been to Paris' = visited and returned." }
+        ],
+        examples: [
+          "I <strong>have eaten</strong> sushi many times. (NOT 'have eated')",
+          "She <strong>has written</strong> three books. (NOT 'has wrote')",
+          "They <strong>have gone</strong> home. (they're not here now)",
+          "We <strong>have been</strong> to London twice. (visited and came back)"
+        ],
+        icon: "book-open"
       }
     ]
   },
@@ -896,6 +933,28 @@ const TenseMasterWrapper = () => {
             </Button>
           ))}
         </div>
+
+        {type === 'perfect' && (
+          <a
+            href="https://learningapps.org/view2394861"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-6"
+          >
+            <Card className="service-card hover:shadow-lg transition-shadow border-l-4 border-teal-500">
+              <CardContent className="p-5 flex items-center gap-4">
+                <div className="bg-teal-50 p-3 rounded-lg">
+                  <ExternalLink className="w-6 h-6 text-teal-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-foreground">Extra Practice: Irregular Verbs Quiz</h3>
+                  <p className="text-sm text-muted-foreground">Open the LearningApps interactive quiz in a new tab to drill irregular past participles.</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-muted-foreground" />
+              </CardContent>
+            </Card>
+          </a>
+        )}
 
         <div className="mt-8 text-center">
           <Button variant="ghost" onClick={() => navigate('home')}>
