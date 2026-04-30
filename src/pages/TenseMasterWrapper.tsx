@@ -1104,7 +1104,9 @@ const TenseMasterWrapper = () => {
       present: { gradient: "from-brand-royal to-blue-600", border: "border-brand-royal" },
       past: { gradient: "from-rose-500 to-pink-600", border: "border-rose-500" },
       perfect: { gradient: "from-teal-500 to-emerald-600", border: "border-teal-500" },
-      pastPerfect: { gradient: "from-purple-500 to-violet-600", border: "border-purple-500" }
+      pastPerfect: { gradient: "from-purple-500 to-violet-600", border: "border-purple-500" },
+      future: { gradient: "from-amber-500 to-orange-600", border: "border-amber-500" },
+      futurePerfect: { gradient: "from-orange-500 to-red-600", border: "border-orange-500" }
     };
 
     const colors = colorClasses[type] || colorClasses.present;
