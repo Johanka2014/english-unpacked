@@ -1,93 +1,60 @@
-## Goal
+## Pronunciation Practice Course
 
-Add a new Maturita Speaking topic **"Unemployment"** that appears as a tile immediately after **Medical Care** on `/maturita-speaking`, and is fully fleshed-out at `/maturita-speaking/unemployment` with Learn, Practice, Part 2 and Part 3 — matching the existing structure used by Medical Care and Hemingway.
+A new "Pronunciation" tab and full course on `/members/activities`, modelled on the *Pronunciation Practice Activities* (Hewings, CUP 2004) textbook.
 
-## Where the change lands
+### 1. Add new "Pronunciation" tab on Practice page
+File: `src/pages/MembersActivities.tsx`
+- Add new tab `"pronunciation"` to the `TabsList` (grid expands to 8 cols on md+)
+- Add a `pronunciationActivities` array with one tile:
+  - Title: "Pronunciation Practice Course"
+  - Description: "Master English pronunciation across 8 sections — sounds, connected speech, word stress, intonation, spelling and more"
+  - Icon: `Mic` (lucide)
+  - Path: `/pronunciation`
 
-All content for a topic is driven by a single object in `src/data/maturitaTopics.ts`. The pages (`MaturitaSpeaking.tsx`, `MaturitaSpeakingTopic.tsx`, `Part2Tab.tsx`) already render whatever is supplied — no page or component changes are needed. The new topic just has to follow the existing `MaturitaTopic` shape.
+### 2. New routes & pages
+- Route `/pronunciation` → `PronunciationCourse.tsx` (course hub – grid of 8 section cards)
+- Route `/pronunciation/:sectionId` → `PronunciationSection.tsx` (theory units + interactive activities + end-of-section quiz)
+- Both protected routes added to `src/App.tsx` (lazy-loaded)
 
-I will insert the new topic object **directly after the Medical Care block** (currently ends around line 497) and before `ernest-hemingway`, so the tile order on the listing page becomes: … → Medical Care → **Unemployment** → Hemingway → …
+### 3. Course structure (mirrors textbook chapters)
+Data file: `src/data/pronunciationData.ts`
 
-## Content sources I will use
+| # | Section | Key content |
+|---|---|---|
+| 1 | Awareness of English Pronunciation | vowels vs consonants, syllables, stress, intonation intro |
+| 2 | Sounds: Vowels, Consonants & Clusters | vowel chart, minimal pairs, clusters |
+| 3 | Connected Speech | linking, contractions, weak/strong forms, elision |
+| 4 | Syllables, Word Stress & Stress in Phrases | counting syllables, stress patterns, -ty/-teen, compounds |
+| 5 | Intonation | prominence, tone units, fall/rise tones |
+| 6 | Pronunciation, Spelling, Grammar & Vocabulary | vowel/consonant letter rules, -s and -ed endings, homographs |
+| 7 | Testing Pronunciation | self-diagnostic quizzes |
+| 8 | Resources: Tongue Twisters, Limericks & Jokes | authentic material practice |
 
-1. **Manuvia article** (Czech labour market, December 2025, unemployment 4.8%) — for current statistics, regional differences and seasonal trends. I'll fetch this with `code--fetch_website` and pull concrete numbers/quotes into the Learn accordion and Practice answers.
-2. **Google Drive worksheet** (Czech secondary-school handout) — I'll attempt to retrieve it via the Google Drive connector (`standard_connectors--connect` → `google_drive`). If it requires per-user OAuth and the connector cannot read it, I'll proceed without it; the Manuvia article + standard Czech maturita unemployment vocabulary is enough. I'll mention this honestly in the build summary if it happens.
-3. **Two Part 2 images** — downloaded with `curl` and saved to `src/assets/`:
-   - `maturita-unemployment-part2-a.jpg` — regional unemployment-rate chart from `https://geo-unce.natur.cuni.cz/en/unemployment-in-czech/`
-   - `maturita-unemployment-part2-b.jpg` — Czech Republic demographic pyramid 2022 from `https://www.iz.sk/en/projects/eu-regions/CZ0`
-   I'll fetch each page, locate the actual image URL, download it, and verify the file is a real image (>5 KB, valid JPEG/PNG) before importing it.
-4. **Six Part 3 images** — relevant unemployment-themed photos. I'll generate them with the AI image tool (consistent with how other topics use illustrative photos) covering: job centre / labour office, CV and job interview, unemployment queue / waiting room, redundancy / closing factory, retraining / adult education, and online job hunting. Saved as `maturita-unemployment-3a.jpg` … `3f.jpg` in `src/assets/`.
-5. **Tile thumbnail** — a single hero image `topic-unemployment.jpg` (job-centre / job-search themed) for the listing card.
+### 4. Each section contains
+- 2–4 theory "units" with explanation, examples and (where useful) IPA symbols
+- 1–3 interactive activities (reusing existing patterns):
+  - **Minimal pair matching** (e.g. ship/sheep) – `MatchingExercise` style
+  - **Classify by sound** (drag-drop into vowel/consonant groups) – `DragDropCategorize`
+  - **Stress pattern matching** (Oo, oO, Ooo…) – `MatchingExercise`
+  - **-ed / -s ending classifier** (/t/, /d/, /ɪd/) – `DragDropCategorize`
+  - **Tongue twister + limerick reader** with audio play button using `SpeechSynthesisUtterance` (no API key needed)
+  - **Homograph picker** (row, lead, tear) – multiple choice with context
+- **End-of-section 10-question quiz** (multiple choice) following the same `QuizCategory` pattern used in `TenseMasterWrapper`, with instant feedback and score
 
-## Topic content outline
+### 5. UI/style
+- Follows existing `SkillNavigation` smooth-scroll-to-top pattern
+- Persist active section via `?tab=` query param (per project convention)
+- Color-coded section cards (Mic icon, indigo/violet/teal/etc.)
+- Brand colors (Navy/Royal Blue/Accent Orange), Merriweather headings
+- Correct answers shown in green; locked/members-only handled by `ProtectedRoute`
 
-**Tile**
-- `id: "unemployment"`, `title: "Unemployment"`, `available: true`
-- `description: "Causes of unemployment, the labour market in the Czech Republic and Europe, job hunting, social support, and the future of work"`
+### 6. Interactive audio
+- Use the browser's built-in `window.speechSynthesis` for "Listen" buttons on example words, minimal pairs, tongue twisters and limericks (en-GB voice). No backend or API key required.
 
-**Learn (10 accordion items)** — Czech focus with European comparison
-1. What is unemployment? (definitions: unemployment rate, registered vs. ILO, frictional / structural / cyclical / seasonal)
-2. The Czech labour market today (current rate ~4.8% Dec 2025 from Manuvia, vacancies, long-term trend of one of the lowest rates in the EU)
-3. Regional differences in the Czech Republic (Prague & Plzeň low; Ústecký, Moravskoslezský, Karlovarský higher — using the cuni.cz map)
-4. Causes of unemployment (automation, outsourcing, recession, mismatched skills, seasonal work, company restructuring)
-5. Effects of unemployment (financial hardship, loss of self-esteem, mental health, social exclusion, impact on the state budget)
-6. The Czech Labour Office (Úřad práce) – registration, job-seeker status, retraining courses
-7. Unemployment benefits in the Czech Republic (eligibility, 65/50/45 % of previous net wage, support period by age)
-8. Job hunting (CV, motivation letter, job portals like Jobs.cz / Práce.cz, interviews, networking, LinkedIn)
-9. Unemployment in Europe (broad picture: low in Czechia, Germany, Poland; higher in Spain, Greece; youth unemployment as a particular issue)
-10. The future of work (AI & automation, remote work, gig economy, lifelong learning, demographic ageing — links into the demographic-pyramid image used in Part 2)
+### Technical files to create/edit
+- **Edit**: `src/pages/MembersActivities.tsx`, `src/App.tsx`
+- **Create**: `src/data/pronunciationData.ts`, `src/pages/PronunciationCourse.tsx`, `src/pages/PronunciationSection.tsx`
+- **Create**: small shared component `src/components/pronunciation/SpeakButton.tsx` (wraps speechSynthesis)
+- Reuse existing components: `MatchingExercise`, `DragDropCategorize`, `MultipleChoiceQuiz` from `src/components/presentations/`
 
-**Practice (12–15 Q&A)** — sample questions an examiner may ask, each with a model answer drawing on the Learn content. Examples:
-- What does "unemployment rate" mean?
-- Why does the Czech Republic have one of the lowest unemployment rates in the EU?
-- Which Czech regions have the highest unemployment and why?
-- What support can an unemployed person get from the Labour Office?
-- What documents do you need when applying for a job?
-- How do you prepare for a job interview?
-- What is youth unemployment and why is it a problem in some EU countries?
-- How is automation changing the job market?
-- What are the social and psychological effects of long-term unemployment?
-- How does the ageing population affect the labour market?
-- (plus ~4 more covering CVs, retraining, gig economy, remote work)
-
-**Part 2**
-- `task1` — single-image description, prompts: People, Place, Activity, Numbers/Data, Mood, Other.
-  - Picture A: regional unemployment chart (Czech Republic)
-  - Picture B: Czech Republic demographic pyramid 2022
-  - 4 follow-up questions per existing pattern (what data is shown, which regions stand out, what does the shape of the pyramid tell us, how do these two relate to the labour market).
-- `task2` — comparison: same prompts; questions like "Which picture is more useful for understanding the Czech labour market?", "How do regional disparities and demographic trends interact?", "Which trend will have a bigger impact on unemployment in the next 20 years?"
-- `task3` (Topic Discussion question): *"How serious is unemployment in the Czech Republic compared with the rest of Europe, and what should the government and individuals do about it?"*
-
-**Part 3 (Topic Presentation & Follow-Up)**
-- `taskDescription`: "Give a short presentation about unemployment in the Czech Republic and Europe. Use pictures 3A–3F to illustrate the main aspects of the topic and answer the examiner's follow-up questions."
-- `promptPoints`: Causes of unemployment / The Czech labour market and regional differences / Job hunting and the role of the Labour Office / Unemployment benefits and social support / Effects on individuals and society / The future of work
-- 6 images (3A–3F) as described above with short descriptions
-- 10–12 follow-up questions covering causes, regional differences, job-hunting steps, benefits, automation, youth unemployment, demographic ageing, government measures, personal opinion, future predictions.
-
-## Technical details
-
-```text
-src/data/maturitaTopics.ts
-├── add 9 image imports (thumbnail + part2-a + part2-b + 3a–3f)
-└── insert new topic object after the medical-care block (≈ line 497),
-    before the ernest-hemingway block
-
-src/assets/  (new files)
-├── topic-unemployment.jpg
-├── maturita-unemployment-part2-a.jpg     (downloaded from geo-unce.natur.cuni.cz)
-├── maturita-unemployment-part2-b.jpg     (downloaded from iz.sk)
-└── maturita-unemployment-3a.jpg … 3f.jpg (generated)
-```
-
-Build steps in order:
-1. `code--fetch_website` Manuvia article → extract stats and quotes.
-2. Try Google Drive connector for the worksheet; if blocked, continue.
-3. Fetch the cuni.cz and iz.sk pages, identify the chart and pyramid image URLs, `curl` them into `src/assets/`, verify they are valid images.
-4. Generate the 6 Part 3 illustrative images + 1 tile thumbnail.
-5. Edit `src/data/maturitaTopics.ts`: add imports and the new topic object in the correct position.
-6. Spot-check `/maturita-speaking` (new tile appears after Medical Care) and `/maturita-speaking/unemployment` (all 4 tabs render correctly, both Part 2 images load, all 6 Part 3 images load).
-
-## Out of scope
-
-- No changes to the listing page, tab components, or routing — the existing code already handles any topic that follows the `MaturitaTopic` shape.
-- No changes to other topics.
+No database changes required — fully client-side content.
