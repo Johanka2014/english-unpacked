@@ -174,11 +174,12 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-7 mb-8 h-auto flex-wrap">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-8 mb-8 h-auto flex-wrap">
             <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
             <TabsTrigger value="business">Business</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
             <TabsTrigger value="grammar">Grammar</TabsTrigger>
+            <TabsTrigger value="pronunciation">Pronunciation</TabsTrigger>
             <TabsTrigger value="maturita">Maturita</TabsTrigger>
             <TabsTrigger value="young-learners">Young Learners</TabsTrigger>
             <TabsTrigger value="hr">HR</TabsTrigger>
@@ -194,6 +195,9 @@ const MembersActivities = () => {
           </TabsContent>
           <TabsContent value="grammar">
             <ActivityGrid activities={grammarActivities} />
+          </TabsContent>
+          <TabsContent value="pronunciation">
+            <ActivityGrid activities={pronunciationActivities} />
           </TabsContent>
           <TabsContent value="maturita">
             <ActivityGrid activities={maturitaActivities} />
