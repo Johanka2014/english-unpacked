@@ -54,6 +54,8 @@ const StartersTest = lazy(() => import("./pages/StartersTest"));
 const HREnglish = lazy(() => import("./pages/HREnglish"));
 const HREnglishUnit = lazy(() => import("./pages/HREnglishUnit"));
 const HREnglishSkill = lazy(() => import("./pages/HREnglishSkill"));
+const PronunciationCourse = lazy(() => import("./pages/PronunciationCourse"));
+const PronunciationSection = lazy(() => import("./pages/PronunciationSection"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -115,6 +117,8 @@ const App = () => (
               <Route path="/hr-english" element={<ProtectedRoute><HREnglish /></ProtectedRoute>} />
               <Route path="/hr-english/:unitId" element={<ProtectedRoute><HREnglishUnit /></ProtectedRoute>} />
               <Route path="/hr-english/:unitId/:skillId" element={<ProtectedRoute><HREnglishSkill /></ProtectedRoute>} />
+              <Route path="/pronunciation" element={<ProtectedRoute><PronunciationCourse /></ProtectedRoute>} />
+              <Route path="/pronunciation/:sectionId" element={<ProtectedRoute><PronunciationSection /></ProtectedRoute>} />
               
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

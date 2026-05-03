@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -105,6 +105,16 @@ const youngLearnersActivities = [
     icon: Star,
     path: '/starters-practice',
     color: 'text-pink-600',
+  },
+];
+
+const pronunciationActivities = [
+  {
+    title: 'Pronunciation Practice Course',
+    description: 'Master English pronunciation across 8 sections — sounds, connected speech, word stress, intonation and more — with interactive activities and quizzes',
+    icon: Mic,
+    path: '/pronunciation',
+    color: 'text-indigo-600',
   },
 ];
 
