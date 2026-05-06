@@ -44,6 +44,14 @@ import WritingLetterUnit3 from '@/components/bb-upper/WritingLetterUnit3';
 import WritingEmailUnit3 from '@/components/bb-upper/WritingEmailUnit3';
 import SpeakingUnit3 from '@/components/bb-upper/SpeakingUnit3';
 import VocabularyUnit3 from '@/components/bb-upper/VocabularyUnit3';
+import GettingStartedUnit8 from '@/components/bb-upper/GettingStartedUnit8';
+import ListeningUnit8 from '@/components/bb-upper/ListeningUnit8';
+import ReadingUnit8 from '@/components/bb-upper/ReadingUnit8';
+import VocabularyUnit8 from '@/components/bb-upper/VocabularyUnit8';
+import Listening2Unit8 from '@/components/bb-upper/Listening2Unit8';
+import GrammarUnit8 from '@/components/bb-upper/GrammarUnit8';
+import WritingUnit8 from '@/components/bb-upper/WritingUnit8';
+import SpeakingUnit8 from '@/components/bb-upper/SpeakingUnit8';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
