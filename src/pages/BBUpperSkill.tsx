@@ -37,6 +37,13 @@ import ReadingUnit2 from '@/components/bb-upper/ReadingUnit2';
 import Listening2Unit2 from '@/components/bb-upper/Listening2Unit2';
 import VocabularyUnit2 from '@/components/bb-upper/VocabularyUnit2';
 import SkillNavigation from '@/components/bb-upper/SkillNavigation';
+import GettingStartedUnit3 from '@/components/bb-upper/GettingStartedUnit3';
+import ReadingUnit3 from '@/components/bb-upper/ReadingUnit3';
+import ListeningUnit3 from '@/components/bb-upper/ListeningUnit3';
+import WritingLetterUnit3 from '@/components/bb-upper/WritingLetterUnit3';
+import WritingEmailUnit3 from '@/components/bb-upper/WritingEmailUnit3';
+import SpeakingUnit3 from '@/components/bb-upper/SpeakingUnit3';
+import VocabularyUnit3 from '@/components/bb-upper/VocabularyUnit3';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -134,6 +141,20 @@ const BBUpperSkill = () => {
           <SpeakingUnit12 />
         ) : moduleId === 'presenting-your-business-idea' && skillId === 'grammar' ? (
           <GrammarUnit12 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'getting-started' ? (
+          <GettingStartedUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'reading' ? (
+          <ReadingUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'listening' ? (
+          <ListeningUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'writing-letter' ? (
+          <WritingLetterUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'writing-email' ? (
+          <WritingEmailUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'speaking' ? (
+          <SpeakingUnit3 />
+        ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'vocabulary' ? (
+          <VocabularyUnit3 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
