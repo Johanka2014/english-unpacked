@@ -44,6 +44,14 @@ import WritingLetterUnit3 from '@/components/bb-upper/WritingLetterUnit3';
 import WritingEmailUnit3 from '@/components/bb-upper/WritingEmailUnit3';
 import SpeakingUnit3 from '@/components/bb-upper/SpeakingUnit3';
 import VocabularyUnit3 from '@/components/bb-upper/VocabularyUnit3';
+import GettingStartedUnit8 from '@/components/bb-upper/GettingStartedUnit8';
+import ListeningUnit8 from '@/components/bb-upper/ListeningUnit8';
+import ReadingUnit8 from '@/components/bb-upper/ReadingUnit8';
+import VocabularyUnit8 from '@/components/bb-upper/VocabularyUnit8';
+import Listening2Unit8 from '@/components/bb-upper/Listening2Unit8';
+import GrammarUnit8 from '@/components/bb-upper/GrammarUnit8';
+import WritingUnit8 from '@/components/bb-upper/WritingUnit8';
+import SpeakingUnit8 from '@/components/bb-upper/SpeakingUnit8';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -155,6 +163,22 @@ const BBUpperSkill = () => {
           <SpeakingUnit3 />
         ) : moduleId === 'letters-of-enquiry-and-applications' && skillId === 'vocabulary' ? (
           <VocabularyUnit3 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'getting-started' ? (
+          <GettingStartedUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'listening-1' ? (
+          <ListeningUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'reading' ? (
+          <ReadingUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'vocabulary' ? (
+          <VocabularyUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'listening-2' ? (
+          <Listening2Unit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'grammar' ? (
+          <GrammarUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'writing' ? (
+          <WritingUnit8 />
+        ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'speaking' ? (
+          <SpeakingUnit8 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
