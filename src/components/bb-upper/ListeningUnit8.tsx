@@ -140,6 +140,36 @@ const ListeningUnit8 = () => {
 
       <Card className="service-card">
         <CardContent className="p-6">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="script">
+              <AccordionTrigger className="text-lg font-semibold font-merriweather text-foreground">Audio Script</AccordionTrigger>
+              <AccordionContent>
+                <div className="space-y-2 text-foreground leading-relaxed">
+                  <p><strong>Jack:</strong> Hello. Good morning. Tessa Marcovitz? My name's Jack Lemming, and <strong>this</strong> is my colleague, Susie Chen.</p>
+                  <p><strong>Tessa:</strong> Hello. Nice to <strong>meet</strong> you. So you got my letter? That's great.</p>
+                  <p><strong>Jack:</strong> Hello.</p>
+                  <p><strong>Susie:</strong> Hello. Nice to meet you <strong>too</strong>. So this is your stand? Very smart, and <strong>thanks</strong> for inviting us, by the way.</p>
+                  <p><strong>Tessa:</strong> Well, we've been wanting to <strong>talk</strong> to you people for some time, and we like to let people know when we've got a stand at a fair. Did you have a good <strong>trip</strong>?</p>
+                  <p><strong>Jack:</strong> Yes, thanks. Very good.</p>
+                  <p><strong>Susie:</strong> Yes, the airport's so convenient for this fair. <strong>Lovely</strong> city, isn't it?</p>
+                  <p><strong>Tessa:</strong> Yes, lovely. Where are you <strong>staying</strong>?</p>
+                  <p><strong>Susie:</strong> We're staying at the Ritz, in the city centre.</p>
+                  <p><strong>Tessa:</strong> Good. They say it's the best hotel in town. When did you <strong>get</strong> in?</p>
+                  <p><strong>Jack:</strong> Just last night, but not too late.</p>
+                  <p><strong>Tessa:</strong> Oh, good. Now, can we show you a few of our products? Take a seat if you like.</p>
+                  <p><strong>Jack:</strong> Thanks. <strong>Busy</strong>, isn't it?</p>
+                  <p><strong>Tessa:</strong> Incredibly, and it's been like this all week. Would <strong>either</strong> of you like a cup of coffee or tea before we get started?</p>
+                  <p><strong>Susie:</strong> Yes, please. I could really do <strong>with</strong> a cup of coffee myself. What about you, Jack?</p>
+                  <p><strong>Jack:</strong> Tea for me, please.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-4 font-merriweather text-foreground">Role-play</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-lg border border-border bg-muted/30 p-4">
