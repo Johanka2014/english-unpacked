@@ -30,7 +30,7 @@ const GettingStartedUnit8 = () => (
 
     <Card className="service-card">
       <CardContent className="p-6">
-        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Suggested teacher notes</h3>
+        <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Useful notes</h3>
         <ul className="list-disc list-inside space-y-2 text-foreground text-sm">
           <li>Retailers find new products through company reps, the trade press, the Internet, trade fairs and general advertising.</li>
           <li>New products bring in customers looking for novelties and keep the store's image up to date.</li>
