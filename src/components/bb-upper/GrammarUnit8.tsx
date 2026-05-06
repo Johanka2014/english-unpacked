@@ -214,6 +214,76 @@ const GrammarUnit8 = () => {
           </div>
         </CardContent>
       </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">-ing Forms and Infinitives</h3>
+          <div className="rounded-lg border border-border bg-muted/30 p-4 mb-4 text-foreground space-y-3 text-sm">
+            <div>
+              <p className="font-semibold mb-1">Use infinitives:</p>
+              <ul className="list-disc list-inside space-y-1">
+                <li>to express purpose: <em>He borrowed money <u>to start</u> his own business.</em></li>
+                <li>after adjectives: <em>It's <u>great</u> to talk to you.</em></li>
+                <li>after <em>too</em> and <em>enough</em>: <em>He's <u>too busy</u> to speak to you at the moment.</em></li>
+                <li>after certain verbs: <em>agree, appear, arrange, ask, decide, demand, expect, fail, help, hope, intend, manage, offer, plan, promise, refuse, threaten, want</em>.<br/><em>I've <u>arranged</u> to meet the marketing manager at 11 o'clock.</em></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold mb-1">Use -ing forms:</p>
+              <ul className="list-disc list-inside space-y-1">
+                <li>after prepositions: <em>How about <u>running</u> a new advertising campaign?</em></li>
+                <li>as subjects or objects of a verb: <em><u>Borrowing</u> money can be risky.</em></li>
+                <li>after certain verbs: <em>admit, avoid, consider, delay, deny, enjoy, finish, involve, mind, postpone, risk, suggest</em>.</li>
+                <li>after expressions: <em>it's no good, it's not worth, it's no use, it's a waste of time</em>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h4 className="text-lg font-semibold mb-2 font-merriweather text-foreground">Exercise — Put the verbs in the correct form</h4>
+          <p className="text-muted-foreground mb-4 text-sm">Use the <em>-ing</em> form or the infinitive (with or without <em>to</em>).</p>
+          <div className="space-y-4">
+            {ingItems.map((it) => (
+              <div key={it.id} className="text-foreground leading-relaxed">
+                <span className="font-semibold mr-2">{it.id}</span>
+                {it.parts.map((p, idx) => p.text ? <span key={idx}>{p.text}</span> : (
+                  <Gap key={idx} id={p.gap!.id} verb={p.gap!.verb} ans={ingAns} setAns={setIngAns} res={ingRes} correct={p.gap!.answer} />
+                ))}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkIng} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Extra Practice — Match the halves (book version)</h3>
+          <p className="text-muted-foreground mb-4">Make complete first-conditional sentences by matching (1–7) with (a–g).</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-3">
+              {pdfHalves.map((h) => (
+                <div key={h.id} className="flex items-start gap-3">
+                  <span className="font-semibold w-6 mt-2">{h.id}</span>
+                  <span className="flex-1 text-foreground">{h.first}</span>
+                  <Select value={pdfHAns[h.id] || ""} onValueChange={(v) => setPdfHAns((p) => ({ ...p, [h.id]: v }))}>
+                    <SelectTrigger className={`w-20 ${pdfHRes?.[h.id] === true ? "border-green-500 bg-green-50" : pdfHRes?.[h.id] === false ? "border-red-500 bg-red-50" : ""}`}><SelectValue placeholder="?" /></SelectTrigger>
+                    <SelectContent>
+                      {["a","b","c","d","e","f","g"].map((l) => <SelectItem key={l} value={l}>{l}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                  {pdfHRes && pdfHRes[h.id] === false && <span className="text-xs text-red-600 mt-2">({h.answer})</span>}
+                </div>
+              ))}
+            </div>
+            <div className="bg-muted/40 rounded-lg p-4 space-y-2">
+              {pdfHalves.map((h) => (
+                <p key={h.id} className="text-foreground text-sm"><span className="font-bold text-brand-royal mr-2">{h.answer}</span>{h.end}</p>
+              ))}
+            </div>
+          </div>
+          <Button onClick={checkPdfH} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
     </div>
   );
 };
