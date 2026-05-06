@@ -78,6 +78,33 @@ const VocabularyUnit3 = () => {
   const [prepRes, setPrepRes] = useState<Record<number, boolean | null>>({});
   const [fqAns, setFqAns] = useState<Record<number, string>>({});
   const [fqRes, setFqRes] = useState<Record<number, boolean | null>>({});
+  const [tenseAns, setTenseAns] = useState<Record<string, string>>({});
+  const [tenseRes, setTenseRes] = useState<Record<string, boolean | null>>({});
+  const [sqAns, setSqAns] = useState<Record<number, string>>({});
+  const [sqRes, setSqRes] = useState<Record<number, boolean | null>>({});
+  const [cqAns, setCqAns] = useState<Record<number, string>>({});
+  const [cqRes, setCqRes] = useState<Record<number, boolean | null>>({});
+
+  const norm = (s: string) => s.trim().toLowerCase().replace(/[?.!,]+$/g, "").replace(/\s+/g, " ");
+
+  const checkTense = () => {
+    const r: Record<string, boolean> = {};
+    tenseItems.forEach((it) => it.parts.forEach((p) => {
+      if (p.gap) r[p.gap.id] = norm(tenseAns[p.gap.id] || "") === norm(p.gap.answer);
+    }));
+    setTenseRes(r);
+  };
+  const checkSQ = () => {
+    const r: Record<number, boolean> = {};
+    simpleQs.forEach((q) => { r[q.id] = norm(sqAns[q.id] || "") === norm(q.answer); });
+    setSqRes(r);
+  };
+  const checkCQ = () => {
+    const r: Record<number, boolean> = {};
+    complexQs.forEach((q) => { r[q.id] = norm(cqAns[q.id] || "") === norm(q.answer); });
+    setCqRes(r);
+  };
+
 
   const checkMatches = () => {
     const r: Record<number, boolean> = {};
