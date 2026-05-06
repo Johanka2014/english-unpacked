@@ -101,8 +101,31 @@ const GrammarUnit8 = () => {
   const [vAns, setVAns] = useState<Record<string, string>>({});
   const [vRes, setVRes] = useState<Record<string, boolean> | null>(null);
   const [free, setFree] = useState<Record<number, string>>({});
+  const [pdfHAns, setPdfHAns] = useState<Record<number, string>>({});
+  const [pdfHRes, setPdfHRes] = useState<Record<number, boolean> | null>(null);
+  const [ingAns, setIngAns] = useState<Record<string, string>>({});
+  const [ingRes, setIngRes] = useState<Record<string, boolean> | null>(null);
 
   const norm = (s: string) => s.trim().toLowerCase().replace(/[?.!,]+$/g, "").replace(/\s+/g, " ");
+  const checkH = () => {
+    const r: Record<number, boolean> = {};
+    halves.forEach((h) => { r[h.id] = hAns[h.id] === h.answer; });
+    setHRes(r);
+  };
+  const checkPdfH = () => {
+    const r: Record<number, boolean> = {};
+    pdfHalves.forEach((h) => { r[h.id] = pdfHAns[h.id] === h.answer; });
+    setPdfHRes(r);
+  };
+  const checkIng = () => {
+    const r: Record<string, boolean> = {};
+    ingItems.forEach((it) => {
+      it.parts.forEach((p) => {
+        if (p.gap) r[p.gap.id] = norm(ingAns[p.gap.id] || "") === norm(p.gap.answer);
+      });
+    });
+    setIngRes(r);
+  };
   const checkH = () => {
     const r: Record<number, boolean> = {};
     halves.forEach((h) => { r[h.id] = hAns[h.id] === h.answer; });
