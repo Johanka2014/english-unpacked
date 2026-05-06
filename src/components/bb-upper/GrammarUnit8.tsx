@@ -126,11 +126,6 @@ const GrammarUnit8 = () => {
     });
     setIngRes(r);
   };
-  const checkH = () => {
-    const r: Record<number, boolean> = {};
-    halves.forEach((h) => { r[h.id] = hAns[h.id] === h.answer; });
-    setHRes(r);
-  };
   const checkV = () => {
     const r: Record<string, boolean> = {};
     verbItems.forEach((it) => {
