@@ -167,6 +167,99 @@ const VocabularyUnit3 = () => {
 
       <Card className="service-card">
         <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Grammar — Present Perfect or Past Simple?</h3>
+          <p className="text-muted-foreground mb-4">Put the verbs in brackets in the correct tense (present perfect or past simple).</p>
+          <div className="space-y-4">
+            {tenseItems.map((it) => (
+              <div key={it.id} className="text-foreground leading-relaxed">
+                <span className="font-semibold mr-2">{it.id}</span>
+                {it.parts.map((p, idx) => p.text ? (
+                  <span key={idx}>{p.text}</span>
+                ) : p.gap ? (
+                  <span key={idx} className="inline-flex items-center gap-1 mx-1 align-middle">
+                    <Input
+                      value={tenseAns[p.gap.id] || ""}
+                      onChange={(e) => setTenseAns((prev) => ({ ...prev, [p.gap!.id]: e.target.value }))}
+                      className={`inline-block w-40 h-8 ${tenseRes[p.gap.id] === true ? "border-green-500 bg-green-50" : tenseRes[p.gap.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                      placeholder={`(${p.gap.verb})`}
+                    />
+                    {tenseRes[p.gap.id] === false && <span className="text-xs text-red-600">({p.gap.answer})</span>}
+                  </span>
+                ) : null)}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkTense} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Simple Questions — Interview</h3>
+          <p className="text-muted-foreground mb-2">Form questions by putting an auxiliary verb before the subject (or the main verb itself when it is <em>be</em>). Complete each question in this interview based on the reply.</p>
+          <div className="bg-muted/40 rounded-lg p-4 mb-4 text-sm space-y-1">
+            <p><strong>How long have you</strong> worked for Carrefour?</p>
+            <p><strong>When did you</strong> graduate from university?</p>
+            <p><strong>Are you</strong> responsible for sales?</p>
+          </div>
+          <div className="space-y-4">
+            {simpleQs.map((q) => (
+              <div key={q.id} className="space-y-1">
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold">{q.id}</span>
+                  <Input
+                    value={sqAns[q.id] || ""}
+                    onChange={(e) => setSqAns((p) => ({ ...p, [q.id]: e.target.value }))}
+                    className={`flex-1 ${sqRes[q.id] === true ? "border-green-500 bg-green-50" : sqRes[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                    placeholder="Write the question..."
+                  />
+                  <span className="text-foreground">?</span>
+                  {icon(sqRes[q.id])}
+                </div>
+                <p className="text-sm text-muted-foreground italic ml-6">{q.reply}</p>
+                {sqRes[q.id] === false && <p className="text-sm text-red-600 ml-6">Answer: {q.answer}?</p>}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkSQ} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Complex Questions — Rewrite</h3>
+          <p className="text-muted-foreground mb-2">When a short phrase comes before a question, the word order changes (no inversion, no auxiliary <em>do/does/did</em>). Use a question mark only if the introductory phrase is itself a question.</p>
+          <div className="bg-muted/40 rounded-lg p-4 mb-4 text-sm space-y-1">
+            <p>How long <strong>have you</strong> worked for Carrefour? → <em>Can you tell me</em> how long <strong>you have</strong> worked for Carrefour?</p>
+            <p>When <strong>did you</strong> graduate? → <em>I'd like you to tell me</em> when <strong>you graduated</strong> from university.</p>
+            <p>What <strong>do you</strong> like? → <em>I wonder</em> what <strong>you like</strong> about your present job.</p>
+          </div>
+          <p className="text-muted-foreground mb-4">Rewrite these questions, starting with the words given.</p>
+          <div className="space-y-4">
+            {complexQs.map((q) => (
+              <div key={q.id} className="space-y-1">
+                <p className="text-foreground"><span className="font-semibold mr-2">{q.id}</span>{q.direct}</p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-foreground italic">{q.starter}</span>
+                  <Input
+                    value={cqAns[q.id] || ""}
+                    onChange={(e) => setCqAns((p) => ({ ...p, [q.id]: e.target.value }))}
+                    className={`flex-1 min-w-[220px] ${cqRes[q.id] === true ? "border-green-500 bg-green-50" : cqRes[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                    placeholder="..."
+                  />
+                  <span>{q.punct}</span>
+                  {icon(cqRes[q.id])}
+                </div>
+                {cqRes[q.id] === false && <p className="text-sm text-red-600">Answer: {q.starter} {q.answer}{q.punct}</p>}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkCQ} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Grammar — Prepositions in a letter of enquiry</h3>
           <p className="text-muted-foreground mb-4">Complete this letter of enquiry by putting the correct preposition in each space.</p>
           <div className="bg-muted/40 rounded-lg p-4 mb-4 text-foreground italic text-sm leading-relaxed">{prepLetter}</div>
