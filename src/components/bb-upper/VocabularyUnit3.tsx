@@ -25,6 +25,43 @@ const defs = [
 const prepLetter = "I am a 22-year-old student [1] of psychology [2] ___ the University of Hanover in Germany and I am writing to enquire [3] ___ career opportunities [4] ___ your company. I have visited your website and I see that you have an innovative and open-minded approach [5] ___ the recruitment and management [6] ___ personnel within your company. I am [7] ___ my final year of a five-year course of studies and am particularly interested [8] ___ working [9] ___ the area of personnel recruitment.";
 const prepAnswers: Record<number, string> = { 2: "at", 3: "about", 4: "within", 5: "to", 6: "of", 7: "in", 8: "in", 9: "in" };
 
+// Tense exercise (Present Perfect / Past Simple)
+const tenseItems: { id: number; parts: { text?: string; gap?: { id: string; verb: string; answer: string } }[] }[] = [
+  { id: 1, parts: [
+    { text: "I " }, { gap: { id: "1a", verb: "work", answer: "have worked" } }, { text: " for the same company for only three years, but I'm already a senior manager." },
+  ]},
+  { id: 2, parts: [
+    { text: "I " }, { gap: { id: "2a", verb: "go", answer: "went" } }, { text: " on a training course during my first month at work, but I " }, { gap: { id: "2b", verb: "not go", answer: "haven't gone" } }, { text: " on one since then." },
+  ]},
+  { id: 3, parts: [
+    { text: "My first boss " }, { gap: { id: "3a", verb: "be", answer: "was" } }, { text: " very friendly, but she " }, { gap: { id: "3b", verb: "leave", answer: "left" } }, { text: " the company last year and I " }, { gap: { id: "3c", verb: "not see", answer: "haven't seen" } }, { text: " her since she " }, { gap: { id: "3d", verb: "go", answer: "went" } }, { text: "." },
+  ]},
+  { id: 4, parts: [
+    { text: "They " }, { gap: { id: "4a", verb: "change", answer: "have changed" } }, { text: " the way we work completely in the last six months. Now we have flexible working, whereas before we " }, { gap: { id: "4b", verb: "start", answer: "started" } }, { text: " at nine and " }, { gap: { id: "4c", verb: "finish", answer: "finished" } }, { text: " at five." },
+  ]},
+  { id: 5, parts: [
+    { text: "In 2004, they " }, { gap: { id: "5a", verb: "post", answer: "posted" } }, { text: " him to Japan. He " }, { gap: { id: "5b", verb: "be", answer: "has been" } }, { text: " there ever since, and during that time he " }, { gap: { id: "5c", verb: "get", answer: "has got" } }, { text: " married and " }, { gap: { id: "5d", verb: "start", answer: "has started" } }, { text: " a family." },
+  ]},
+];
+
+// Simple questions — interview completion
+const simpleQs = [
+  { id: 1, answer: "Did you have a good journey here today", reply: "Yes, thanks, although there was a lot of traffic coming into the city." },
+  { id: 2, answer: "Would working in this city be a problem for you", reply: "Working in this city? I don't think so. I've always wanted to work here." },
+  { id: 3, answer: "How long have you been working as an accountant", reply: "Well, I finished my training three years ago, so as a fully qualified accountant, just three years." },
+  { id: 4, answer: "What do you most enjoy about your work", reply: "Oh, I'm fascinated by figures, and especially how they reflect the performance of an organisation." },
+  { id: 5, answer: "What would you like to be doing in ten years' time", reply: "In ten years' time, I'd like to have a post in senior management here, or in a similar organisation." },
+];
+
+// Complex questions — rewrite
+const complexQs = [
+  { id: 1, direct: "How long have you been a product manager?", starter: "Could you tell me", answer: "how long you have been a product manager", punct: "?" },
+  { id: 2, direct: "Have you studied abroad?", starter: "I'd like to know", answer: "if you have studied abroad", punct: "." },
+  { id: 3, direct: "When did you first become interested in this profession?", starter: "I wonder", answer: "when you first became interested in this profession", punct: "." },
+  { id: 4, direct: "What do you enjoy doing in your free time?", starter: "I'd like you to tell me", answer: "what you enjoy doing in your free time", punct: "." },
+  { id: 5, direct: "What will you be doing in ten years' time?", starter: "Can you predict", answer: "what you will be doing in ten years' time", punct: "?" },
+];
+
 const formalQs = [
   { id: 1, direct: "When will you be holding interviews?", starter: "Could you tell me", answer: "when you will be holding interviews" },
   { id: 2, direct: "How long are the annual holidays?", starter: "I would also like to know", answer: "how long the annual holidays are" },
@@ -41,6 +78,33 @@ const VocabularyUnit3 = () => {
   const [prepRes, setPrepRes] = useState<Record<number, boolean | null>>({});
   const [fqAns, setFqAns] = useState<Record<number, string>>({});
   const [fqRes, setFqRes] = useState<Record<number, boolean | null>>({});
+  const [tenseAns, setTenseAns] = useState<Record<string, string>>({});
+  const [tenseRes, setTenseRes] = useState<Record<string, boolean | null>>({});
+  const [sqAns, setSqAns] = useState<Record<number, string>>({});
+  const [sqRes, setSqRes] = useState<Record<number, boolean | null>>({});
+  const [cqAns, setCqAns] = useState<Record<number, string>>({});
+  const [cqRes, setCqRes] = useState<Record<number, boolean | null>>({});
+
+  const norm = (s: string) => s.trim().toLowerCase().replace(/[?.!,]+$/g, "").replace(/\s+/g, " ");
+
+  const checkTense = () => {
+    const r: Record<string, boolean> = {};
+    tenseItems.forEach((it) => it.parts.forEach((p) => {
+      if (p.gap) r[p.gap.id] = norm(tenseAns[p.gap.id] || "") === norm(p.gap.answer);
+    }));
+    setTenseRes(r);
+  };
+  const checkSQ = () => {
+    const r: Record<number, boolean> = {};
+    simpleQs.forEach((q) => { r[q.id] = norm(sqAns[q.id] || "") === norm(q.answer); });
+    setSqRes(r);
+  };
+  const checkCQ = () => {
+    const r: Record<number, boolean> = {};
+    complexQs.forEach((q) => { r[q.id] = norm(cqAns[q.id] || "") === norm(q.answer); });
+    setCqRes(r);
+  };
+
 
   const checkMatches = () => {
     const r: Record<number, boolean> = {};
@@ -98,6 +162,99 @@ const VocabularyUnit3 = () => {
             </div>
           </div>
           <Button onClick={checkMatches} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Grammar — Present Perfect or Past Simple?</h3>
+          <p className="text-muted-foreground mb-4">Put the verbs in brackets in the correct tense (present perfect or past simple).</p>
+          <div className="space-y-4">
+            {tenseItems.map((it) => (
+              <div key={it.id} className="text-foreground leading-relaxed">
+                <span className="font-semibold mr-2">{it.id}</span>
+                {it.parts.map((p, idx) => p.text ? (
+                  <span key={idx}>{p.text}</span>
+                ) : p.gap ? (
+                  <span key={idx} className="inline-flex items-center gap-1 mx-1 align-middle">
+                    <Input
+                      value={tenseAns[p.gap.id] || ""}
+                      onChange={(e) => setTenseAns((prev) => ({ ...prev, [p.gap!.id]: e.target.value }))}
+                      className={`inline-block w-40 h-8 ${tenseRes[p.gap.id] === true ? "border-green-500 bg-green-50" : tenseRes[p.gap.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                      placeholder={`(${p.gap.verb})`}
+                    />
+                    {tenseRes[p.gap.id] === false && <span className="text-xs text-red-600">({p.gap.answer})</span>}
+                  </span>
+                ) : null)}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkTense} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Simple Questions — Interview</h3>
+          <p className="text-muted-foreground mb-2">Form questions by putting an auxiliary verb before the subject (or the main verb itself when it is <em>be</em>). Complete each question in this interview based on the reply.</p>
+          <div className="bg-muted/40 rounded-lg p-4 mb-4 text-sm space-y-1">
+            <p><strong>How long have you</strong> worked for Carrefour?</p>
+            <p><strong>When did you</strong> graduate from university?</p>
+            <p><strong>Are you</strong> responsible for sales?</p>
+          </div>
+          <div className="space-y-4">
+            {simpleQs.map((q) => (
+              <div key={q.id} className="space-y-1">
+                <div className="flex items-start gap-2">
+                  <span className="font-semibold">{q.id}</span>
+                  <Input
+                    value={sqAns[q.id] || ""}
+                    onChange={(e) => setSqAns((p) => ({ ...p, [q.id]: e.target.value }))}
+                    className={`flex-1 ${sqRes[q.id] === true ? "border-green-500 bg-green-50" : sqRes[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                    placeholder="Write the question..."
+                  />
+                  <span className="text-foreground">?</span>
+                  {icon(sqRes[q.id])}
+                </div>
+                <p className="text-sm text-muted-foreground italic ml-6">{q.reply}</p>
+                {sqRes[q.id] === false && <p className="text-sm text-red-600 ml-6">Answer: {q.answer}?</p>}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkSQ} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">Complex Questions — Rewrite</h3>
+          <p className="text-muted-foreground mb-2">When a short phrase comes before a question, the word order changes (no inversion, no auxiliary <em>do/does/did</em>). Use a question mark only if the introductory phrase is itself a question.</p>
+          <div className="bg-muted/40 rounded-lg p-4 mb-4 text-sm space-y-1">
+            <p>How long <strong>have you</strong> worked for Carrefour? → <em>Can you tell me</em> how long <strong>you have</strong> worked for Carrefour?</p>
+            <p>When <strong>did you</strong> graduate? → <em>I'd like you to tell me</em> when <strong>you graduated</strong> from university.</p>
+            <p>What <strong>do you</strong> like? → <em>I wonder</em> what <strong>you like</strong> about your present job.</p>
+          </div>
+          <p className="text-muted-foreground mb-4">Rewrite these questions, starting with the words given.</p>
+          <div className="space-y-4">
+            {complexQs.map((q) => (
+              <div key={q.id} className="space-y-1">
+                <p className="text-foreground"><span className="font-semibold mr-2">{q.id}</span>{q.direct}</p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-foreground italic">{q.starter}</span>
+                  <Input
+                    value={cqAns[q.id] || ""}
+                    onChange={(e) => setCqAns((p) => ({ ...p, [q.id]: e.target.value }))}
+                    className={`flex-1 min-w-[220px] ${cqRes[q.id] === true ? "border-green-500 bg-green-50" : cqRes[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                    placeholder="..."
+                  />
+                  <span>{q.punct}</span>
+                  {icon(cqRes[q.id])}
+                </div>
+                {cqRes[q.id] === false && <p className="text-sm text-red-600">Answer: {q.starter} {q.answer}{q.punct}</p>}
+              </div>
+            ))}
+          </div>
+          <Button onClick={checkCQ} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
         </CardContent>
       </Card>
 
