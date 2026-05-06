@@ -16,6 +16,69 @@ const halves = [
   { id: 7, first: "Provided that you give us exclusivity,", answer: "a", end: "we'll supply you at this special price." },
 ];
 
+// PDF matching exercise (book version)
+const pdfHalves = [
+  { id: 1, first: "If you buy more than 1,000 units,", answer: "e", end: "we could manage a larger discount." },
+  { id: 2, first: "Unless you're late paying,", answer: "g", end: "we'll continue supplying you at regular intervals." },
+  { id: 3, first: "We'll arrange for extra-fast delivery", answer: "b", end: "on condition that you pay the transportation costs involved." },
+  { id: 4, first: "I might place a very large order", answer: "c", end: "provided we can reach agreement on price." },
+  { id: 5, first: "As long as your products meet international hygiene standards,", answer: "f", end: "we should have no difficulty in selling them." },
+  { id: 6, first: "We'll be happy to pay in euros", answer: "d", end: "unless the exchange rate changes drastically." },
+  { id: 7, first: "We'll sell your products on condition that", answer: "a", end: "you make us exclusive agents for this region." },
+];
+
+// -ing or infinitive exercise
+const ingItems: { id: number; parts: { text?: string; gap?: { id: string; verb: string; answer: string } }[] }[] = [
+  { id: 1, parts: [
+    { text: "My company doesn't spend enough money on " },
+    { gap: { id: "1a", verb: "train", answer: "training" } },
+    { text: " staff." },
+  ]},
+  { id: 2, parts: [
+    { text: "My job involves " },
+    { gap: { id: "2a", verb: "deal", answer: "dealing" } },
+    { text: " with money." },
+  ]},
+  { id: 3, parts: [
+    { text: "I would be happy " },
+    { gap: { id: "3a", verb: "get", answer: "to get" } },
+    { text: " a more responsible job." },
+  ]},
+  { id: 4, parts: [
+    { gap: { id: "4a", verb: "advertise", answer: "Advertising" } },
+    { text: " on television is too expensive for my company " },
+    { gap: { id: "4b", verb: "invest", answer: "to invest" } },
+    { text: " in." },
+  ]},
+  { id: 5, parts: [
+    { text: "It's not worth " },
+    { gap: { id: "5a", verb: "develop", answer: "developing" } },
+    { text: " a new product unless you know who your target customers are likely " },
+    { gap: { id: "5b", verb: "be", answer: "to be" } },
+    { text: "." },
+  ]},
+  { id: 6, parts: [
+    { text: "I wouldn't risk " },
+    { gap: { id: "6a", verb: "leave", answer: "leaving" } },
+    { text: " my job " },
+    { gap: { id: "6b", verb: "start", answer: "to start" } },
+    { text: " up a business on my own." },
+  ]},
+  { id: 7, parts: [
+    { text: "If a member of my family had a good business idea, I would help them " },
+    { gap: { id: "7a", verb: "develop", answer: "develop" } },
+    { text: " it by " },
+    { gap: { id: "7b", verb: "lend", answer: "lending" } },
+    { text: " them money." },
+  ]},
+  { id: 8, parts: [
+    { gap: { id: "8a", verb: "study", answer: "Studying" } },
+    { text: " for a business degree is essential if you want " },
+    { gap: { id: "8b", verb: "be", answer: "to be" } },
+    { text: " successful in business." },
+  ]},
+];
+
 const verbItems: { id: number; before: string; v1: string; ans1: string; mid: string; v2: string; ans2: string; after: string }[] = [
   { id: 1, before: "I ", v1: "give", ans1: "will give", mid: " you a 15% discount on condition that you ", v2: "pay", ans2: "pay", after: " within 30 days." },
   { id: 2, before: "We ", v1: "not be", ans1: "won't be", mid: " able to stay in business unless he ", v2: "pay", ans2: "pays", after: " in cash." },
