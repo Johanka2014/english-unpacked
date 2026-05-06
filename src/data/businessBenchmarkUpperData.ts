@@ -48,11 +48,13 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 3,
     title: 'Letters of Enquiry and Applications',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Job satisfaction at EMI; How best to apply for jobs', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: 'Advice on job applications', type: 'listening', audioTrack: '' },
-      { id: 'writing', title: 'Writing', description: 'A letter of enquiry about careers; An email applying for a job', type: 'writing' },
-      { id: 'speaking', title: 'Speaking', description: 'Discussion: How to handle job interviews; What makes a great place to work?', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Perks, colleagues, etc.; Asking complex questions; Formal/informal style', type: 'vocabulary' },
+      { id: 'getting-started', title: 'Getting Started', description: 'What makes a company a great place to work? Useful language for talking about importance', type: 'speaking', content: true },
+      { id: 'reading', title: 'Reading: Job Satisfaction at EMI', description: 'Four EMI Music employees describe what they love about their jobs', type: 'reading', content: true },
+      { id: 'listening', title: 'Listening: Advice on Job Applications', description: 'Five HR officers give advice about applying for jobs', type: 'listening', audioTrack: '', content: true },
+      { id: 'writing-letter', title: 'Writing: A Letter of Enquiry', description: 'Structure, sample letter and complex questions for a letter of enquiry', type: 'writing', content: true },
+      { id: 'writing-email', title: 'Writing: An Email of Application', description: 'Choose the more formal phrase in a model email of application', type: 'writing', content: true },
+      { id: 'speaking', title: 'Speaking: Talking Point', description: 'Discussion about job applications, interviews and great workplaces', type: 'speaking', content: true },
+      { id: 'vocabulary', title: 'Vocabulary & Grammar', description: 'Work words, prepositions in letters of enquiry, and complex questions practice', type: 'vocabulary', content: true },
     ],
   },
   {
