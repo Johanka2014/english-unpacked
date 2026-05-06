@@ -204,48 +204,54 @@ const ReadingUnit8 = () => {
             <AccordionItem value="role" className="border-none">
               <AccordionTrigger className="text-2xl font-semibold font-merriweather text-foreground hover:no-underline">🎭 Role-play cards (Situations 1 & 2)</AccordionTrigger>
               <AccordionContent>
-                <div className="space-y-6 text-foreground">
+                <div className="space-y-8 text-foreground">
                   <p className="text-sm text-muted-foreground italic">
-                    Work in pairs. <strong>Student A</strong> plays the seller and uses the product card to answer questions.
-                    <strong> Student B</strong> plays the buyer (retailer): ask questions about each product's characteristics and terms,
-                    then write down Student A's answers in the spaces provided.
+                    Work in pairs. <strong>Student A</strong> plays the seller and uses their card to answer questions.
+                    <strong> Student B</strong> plays the buyer (retailer): ask questions about the product's characteristics and terms,
+                    then write Student A's answers in the spaces provided.
                   </p>
 
-                  <div className="rounded-lg border border-border bg-muted/30 p-4 space-y-4">
-                    <div>
-                      <p className="font-semibold mb-1">Situation 1 — CorkPops™ Bottle Opener</p>
-                      <p className="text-sm mb-2"><strong>Student A (Seller):</strong> Insert a long needle through the cork, press a button… POP! One cartridge can open <strong>60–80</strong> bottles. Wholesale price: <strong>€12</strong>. Recommended retail price: <strong>€19.99</strong>. Availability: <strong>immediately</strong>.</p>
-                    </div>
-                    <div className="bg-card rounded-md p-3 border border-border">
-                      <p className="font-semibold text-sm mb-2">Student B (Buyer) — your notes</p>
-                      <p className="text-xs text-muted-foreground mb-2">Ask questions and write the seller's answers below:</p>
-                      <div className="space-y-2 text-sm">
-                        <div><label className="block font-medium mb-1">How does it work?</label><Textarea rows={2} placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">How many bottles per cartridge?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Wholesale price?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Recommended retail price?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Availability / delivery?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Other questions / notes:</label><Textarea rows={2} placeholder="..." /></div>
+                  <div>
+                    <p className="font-semibold text-lg mb-3">Situation 1 — CorkPops™ Bottle Opener</p>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="rounded-lg border-2 border-brand-royal/40 bg-brand-royal/5 p-4">
+                        <p className="font-semibold text-brand-royal mb-2">👤 Student A — Seller card</p>
+                        <p className="text-sm">Insert a long needle through the cork, press a button… POP! One cartridge can open <strong>60–80</strong> bottles. Wholesale price: <strong>€12</strong>. Recommended retail price: <strong>€19.99</strong>. Availability: <strong>immediately</strong>.</p>
+                      </div>
+                      <div className="rounded-lg border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/20 p-4">
+                        <p className="font-semibold text-foreground mb-2">📝 Student B — Buyer's notes</p>
+                        <p className="text-xs text-muted-foreground mb-3">Ask the seller and write their answers below:</p>
+                        <div className="space-y-2 text-sm">
+                          <div><label className="block font-medium mb-1">How does it work?</label><Textarea rows={2} placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">How many bottles per cartridge?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Wholesale price?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Recommended retail price?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Availability / delivery?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Other questions / notes:</label><Textarea rows={2} placeholder="..." /></div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="rounded-lg border border-border bg-muted/30 p-4 space-y-4">
-                    <div>
-                      <p className="font-semibold mb-1">Situation 2 — Speedy Peel Battery Operated Peeler</p>
-                      <p className="text-sm mb-2"><strong>Student A (Seller):</strong> Length: <strong>21 cm</strong>. Blade can be cleaned <strong>in the dishwasher</strong>. Weighs: <strong>85 g</strong>. Requires <strong>2 AA</strong> batteries (not included). Wholesale price: <strong>€6</strong>. Retail price: <strong>€9.95</strong>.</p>
-                    </div>
-                    <div className="bg-card rounded-md p-3 border border-border">
-                      <p className="font-semibold text-sm mb-2">Student B (Buyer) — your notes</p>
-                      <p className="text-xs text-muted-foreground mb-2">Ask questions and write the seller's answers below:</p>
-                      <div className="space-y-2 text-sm">
-                        <div><label className="block font-medium mb-1">How long is it?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">How is it cleaned?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">How much does it weigh?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Are batteries included?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Wholesale price?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Retail price?</label><Input placeholder="..." /></div>
-                        <div><label className="block font-medium mb-1">Other questions / notes:</label><Textarea rows={2} placeholder="..." /></div>
+                  <div>
+                    <p className="font-semibold text-lg mb-3">Situation 2 — Speedy Peel Battery Operated Peeler</p>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="rounded-lg border-2 border-brand-royal/40 bg-brand-royal/5 p-4">
+                        <p className="font-semibold text-brand-royal mb-2">👤 Student A — Seller card</p>
+                        <p className="text-sm">Length: <strong>21 cm</strong>. Blade can be cleaned <strong>in the dishwasher</strong>. Weighs: <strong>85 g</strong>. Requires <strong>2 AA</strong> batteries (not included). Wholesale price: <strong>€6</strong>. Retail price: <strong>€9.95</strong>.</p>
+                      </div>
+                      <div className="rounded-lg border-2 border-orange-300 bg-orange-50 dark:bg-orange-950/20 p-4">
+                        <p className="font-semibold text-foreground mb-2">📝 Student B — Buyer's notes</p>
+                        <p className="text-xs text-muted-foreground mb-3">Ask the seller and write their answers below:</p>
+                        <div className="space-y-2 text-sm">
+                          <div><label className="block font-medium mb-1">How long is it?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">How is it cleaned?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">How much does it weigh?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Are batteries included?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Wholesale price?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Retail price?</label><Input placeholder="..." /></div>
+                          <div><label className="block font-medium mb-1">Other questions / notes:</label><Textarea rows={2} placeholder="..." /></div>
+                        </div>
                       </div>
                     </div>
                   </div>
