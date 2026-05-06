@@ -174,6 +174,32 @@ const ReadingUnit8 = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <Accordion type="single" collapsible>
+            <AccordionItem value="script">
+              <AccordionTrigger className="text-lg font-semibold font-merriweather text-foreground">Audio Script</AccordionTrigger>
+              <AccordionContent>
+                <div className="space-y-2 text-foreground leading-relaxed">
+                  <p><strong>Jack:</strong> Is it easy to keep clean?</p>
+                  <p><strong>Tessa:</strong> To wash it, you just pop the bowl in the dishwasher, and the rest can be cleaned with a damp cloth.</p>
+                  <p><strong>Susie:</strong> Not very heavy, is it? How much does it weigh?</p>
+                  <p><strong>Tessa:</strong> No, it's very light. It weighs less than half a kilo.</p>
+                  <p><strong>Jack:</strong> Great! Now, if we stocked this product, how much would we be able to sell it for, Susie?</p>
+                  <p><strong>Tessa:</strong> I think it would retail at around €149.</p>
+                  <p><strong>Susie:</strong> OK, and what price would you supply it to us at?</p>
+                  <p><strong>Tessa:</strong> At €100, so you've got a 50% mark-up.</p>
+                  <p><strong>Jack:</strong> How quickly could you get them to us if they were selling well?</p>
+                  <p><strong>Tessa:</strong> We could get them to you pretty quickly. Within the week, if necessary.</p>
+                  <p><strong>Susie:</strong> One more question. Does it come supplied with a battery, or do customers have to pay extra for that?</p>
+                  <p><strong>Tessa:</strong> No, it comes with the battery included.</p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </CardContent>
+      </Card>
+
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <Accordion type="single" collapsible>
             <AccordionItem value="role" className="border-none">
               <AccordionTrigger className="text-2xl font-semibold font-merriweather text-foreground hover:no-underline">🎭 Role-play cards (Situations 1 & 2)</AccordionTrigger>
               <AccordionContent>
