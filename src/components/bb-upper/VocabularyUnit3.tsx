@@ -25,6 +25,43 @@ const defs = [
 const prepLetter = "I am a 22-year-old student [1] of psychology [2] ___ the University of Hanover in Germany and I am writing to enquire [3] ___ career opportunities [4] ___ your company. I have visited your website and I see that you have an innovative and open-minded approach [5] ___ the recruitment and management [6] ___ personnel within your company. I am [7] ___ my final year of a five-year course of studies and am particularly interested [8] ___ working [9] ___ the area of personnel recruitment.";
 const prepAnswers: Record<number, string> = { 2: "at", 3: "about", 4: "within", 5: "to", 6: "of", 7: "in", 8: "in", 9: "in" };
 
+// Tense exercise (Present Perfect / Past Simple)
+const tenseItems: { id: number; parts: { text?: string; gap?: { id: string; verb: string; answer: string } }[] }[] = [
+  { id: 1, parts: [
+    { text: "I " }, { gap: { id: "1a", verb: "work", answer: "have worked" } }, { text: " for the same company for only three years, but I'm already a senior manager." },
+  ]},
+  { id: 2, parts: [
+    { text: "I " }, { gap: { id: "2a", verb: "go", answer: "went" } }, { text: " on a training course during my first month at work, but I " }, { gap: { id: "2b", verb: "not go", answer: "haven't gone" } }, { text: " on one since then." },
+  ]},
+  { id: 3, parts: [
+    { text: "My first boss " }, { gap: { id: "3a", verb: "be", answer: "was" } }, { text: " very friendly, but she " }, { gap: { id: "3b", verb: "leave", answer: "left" } }, { text: " the company last year and I " }, { gap: { id: "3c", verb: "not see", answer: "haven't seen" } }, { text: " her since she " }, { gap: { id: "3d", verb: "go", answer: "went" } }, { text: "." },
+  ]},
+  { id: 4, parts: [
+    { text: "They " }, { gap: { id: "4a", verb: "change", answer: "have changed" } }, { text: " the way we work completely in the last six months. Now we have flexible working, whereas before we " }, { gap: { id: "4b", verb: "start", answer: "started" } }, { text: " at nine and " }, { gap: { id: "4c", verb: "finish", answer: "finished" } }, { text: " at five." },
+  ]},
+  { id: 5, parts: [
+    { text: "In 2004, they " }, { gap: { id: "5a", verb: "post", answer: "posted" } }, { text: " him to Japan. He " }, { gap: { id: "5b", verb: "be", answer: "has been" } }, { text: " there ever since, and during that time he " }, { gap: { id: "5c", verb: "get", answer: "has got" } }, { text: " married and " }, { gap: { id: "5d", verb: "start", answer: "has started" } }, { text: " a family." },
+  ]},
+];
+
+// Simple questions — interview completion
+const simpleQs = [
+  { id: 1, answer: "Did you have a good journey here today", reply: "Yes, thanks, although there was a lot of traffic coming into the city." },
+  { id: 2, answer: "Would working in this city be a problem for you", reply: "Working in this city? I don't think so. I've always wanted to work here." },
+  { id: 3, answer: "How long have you been working as an accountant", reply: "Well, I finished my training three years ago, so as a fully qualified accountant, just three years." },
+  { id: 4, answer: "What do you most enjoy about your work", reply: "Oh, I'm fascinated by figures, and especially how they reflect the performance of an organisation." },
+  { id: 5, answer: "What would you like to be doing in ten years' time", reply: "In ten years' time, I'd like to have a post in senior management here, or in a similar organisation." },
+];
+
+// Complex questions — rewrite
+const complexQs = [
+  { id: 1, direct: "How long have you been a product manager?", starter: "Could you tell me", answer: "how long you have been a product manager", punct: "?" },
+  { id: 2, direct: "Have you studied abroad?", starter: "I'd like to know", answer: "if you have studied abroad", punct: "." },
+  { id: 3, direct: "When did you first become interested in this profession?", starter: "I wonder", answer: "when you first became interested in this profession", punct: "." },
+  { id: 4, direct: "What do you enjoy doing in your free time?", starter: "I'd like you to tell me", answer: "what you enjoy doing in your free time", punct: "." },
+  { id: 5, direct: "What will you be doing in ten years' time?", starter: "Can you predict", answer: "what you will be doing in ten years' time", punct: "?" },
+];
+
 const formalQs = [
   { id: 1, direct: "When will you be holding interviews?", starter: "Could you tell me", answer: "when you will be holding interviews" },
   { id: 2, direct: "How long are the annual holidays?", starter: "I would also like to know", answer: "how long the annual holidays are" },
