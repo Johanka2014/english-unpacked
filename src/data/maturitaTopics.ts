@@ -103,6 +103,20 @@ export interface Part2Data {
   task3: Part2Task3;
 }
 
+export interface Part4Image {
+  label: string;
+  src: string;
+  description: string;
+}
+
+export interface Part4Data {
+  scenario: string;
+  promptPoints: string[];
+  images: Part4Image[];
+  starter: string;
+  tips?: string[];
+}
+
 export interface MaturitaTopic {
   id: string;
   title: string;
@@ -116,6 +130,7 @@ export interface MaturitaTopic {
   practice?: PracticeQA[];
   exam?: ExamPractice;
   part2?: Part2Data;
+  part4?: Part4Data;
 }
 
 export const maturitaTopics: MaturitaTopic[] = [
