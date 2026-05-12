@@ -1,60 +1,67 @@
-## Pronunciation Practice Course
+## Goal
 
-A new "Pronunciation" tab and full course on `/members/activities`, modelled on the *Pronunciation Practice Activities* (Hewings, CUP 2004) textbook.
+Turn the existing placeholder `social-issues` topic in `src/data/maturitaTopics.ts` into a fully fleshed-out topic that mirrors the depth and structure of British Literature, Environment, Medical Care, Unemployment and Hemingway. Content sourced from the two attached references (the V-level Part 3 PDF on Problems of Today, and the Conversation Questions DOCX on Poverty / Food Programs / Welfare / Homeless) plus the two URLs (statnimaturita-anglictina – Global Issues, anglictina-maturita – Social Problems).
 
-### 1. Add new "Pronunciation" tab on Practice page
-File: `src/pages/MembersActivities.tsx`
-- Add new tab `"pronunciation"` to the `TabsList` (grid expands to 8 cols on md+)
-- Add a `pronunciationActivities` array with one tile:
-  - Title: "Pronunciation Practice Course"
-  - Description: "Master English pronunciation across 8 sections — sounds, connected speech, word stress, intonation, spelling and more"
-  - Icon: `Mic` (lucide)
-  - Path: `/pronunciation`
+## Sub-topics covered (Learn accordion)
 
-### 2. New routes & pages
-- Route `/pronunciation` → `PronunciationCourse.tsx` (course hub – grid of 8 section cards)
-- Route `/pronunciation/:sectionId` → `PronunciationSection.tsx` (theory units + interactive activities + end-of-section quiz)
-- Both protected routes added to `src/App.tsx` (lazy-loaded)
+The content will span the full "social issues" umbrella as treated by Czech maturita:
 
-### 3. Course structure (mirrors textbook chapters)
-Data file: `src/data/pronunciationData.ts`
+1. What are social issues? (definition, scope, why they matter)
+2. Poverty & hunger (causes, the poverty line, global vs. CR)
+3. Homelessness (causes, life on the street, shelters, CR examples)
+4. Unemployment as a social issue (brief – cross-link to the dedicated topic)
+5. Drug abuse & alcoholism (legal vs. illegal drugs, addiction, prevention)
+6. Crime & criminality (types of crime, juvenile crime, punishment)
+7. Bullying & cyberbullying (school, workplace, online)
+8. Racism, xenophobia & discrimination (CR Roma situation, migration)
+9. Domestic violence & gender inequality
+10. Human-rights violations (with reference to Amnesty International, UN)
+11. Natural disasters & humanitarian crises (floods, earthquakes, refugees)
+12. Charity, NGOs & how individuals can help (Red Cross, Caritas, People in Need / Člověk v tísni, Greenpeace, Amnesty)
 
-| # | Section | Key content |
-|---|---|---|
-| 1 | Awareness of English Pronunciation | vowels vs consonants, syllables, stress, intonation intro |
-| 2 | Sounds: Vowels, Consonants & Clusters | vowel chart, minimal pairs, clusters |
-| 3 | Connected Speech | linking, contractions, weak/strong forms, elision |
-| 4 | Syllables, Word Stress & Stress in Phrases | counting syllables, stress patterns, -ty/-teen, compounds |
-| 5 | Intonation | prominence, tone units, fall/rise tones |
-| 6 | Pronunciation, Spelling, Grammar & Vocabulary | vowel/consonant letter rules, -s and -ed endings, homographs |
-| 7 | Testing Pronunciation | self-diagnostic quizzes |
-| 8 | Resources: Tongue Twisters, Limericks & Jokes | authentic material practice |
+## Practice tab
 
-### 4. Each section contains
-- 2–4 theory "units" with explanation, examples and (where useful) IPA symbols
-- 1–3 interactive activities (reusing existing patterns):
-  - **Minimal pair matching** (e.g. ship/sheep) – `MatchingExercise` style
-  - **Classify by sound** (drag-drop into vowel/consonant groups) – `DragDropCategorize`
-  - **Stress pattern matching** (Oo, oO, Ooo…) – `MatchingExercise`
-  - **-ed / -s ending classifier** (/t/, /d/, /ɪd/) – `DragDropCategorize`
-  - **Tongue twister + limerick reader** with audio play button using `SpeechSynthesisUtterance` (no API key needed)
-  - **Homograph picker** (row, lead, tear) – multiple choice with context
-- **End-of-section 10-question quiz** (multiple choice) following the same `QuizCategory` pattern used in `TenseMasterWrapper`, with instant feedback and score
+15 question/answer pairs covering: definition of social issues, poverty in CR vs. world, homelessness, drug prevention, crime trends, bullying at school, racism in CR, role of NGOs, what an individual can do, government responsibilities, comparing CR with other countries, opinions on welfare, etc. Drawn from the DOCX question bank and both URLs, rewritten as model B2-level answers in the same voice as existing topics.
 
-### 5. UI/style
-- Follows existing `SkillNavigation` smooth-scroll-to-top pattern
-- Persist active section via `?tab=` query param (per project convention)
-- Color-coded section cards (Mic icon, indigo/violet/teal/etc.)
-- Brand colors (Navy/Royal Blue/Accent Orange), Merriweather headings
-- Correct answers shown in green; locked/members-only handled by `ProtectedRoute`
+## Part 2 (Describe & compare images)
 
-### 6. Interactive audio
-- Use the browser's built-in `window.speechSynthesis` for "Listen" buttons on example words, minimal pairs, tongue twisters and limericks (en-GB voice). No backend or API key required.
+Two paired images on a social-issues theme (e.g. a homeless person on a city street vs. a charity volunteer / soup kitchen). Includes prompt points (People, Place, Atmosphere, Activity, Cause, Solution), follow-up questions, comparison questions, and a discussion question ("Whose responsibility is it to help people in need – the state, charities or individuals?").
 
-### Technical files to create/edit
-- **Edit**: `src/pages/MembersActivities.tsx`, `src/App.tsx`
-- **Create**: `src/data/pronunciationData.ts`, `src/pages/PronunciationCourse.tsx`, `src/pages/PronunciationSection.tsx`
-- **Create**: small shared component `src/components/pronunciation/SpeakButton.tsx` (wraps speechSynthesis)
-- Reuse existing components: `MatchingExercise`, `DragDropCategorize`, `MultipleChoiceQuiz` from `src/components/presentations/`
+## Part 3 (Exam – Problems of Today)
 
-No database changes required — fully client-side content.
+Built from the V-level PDF. Six images (3A–3F) with labels:
+- 3A Poverty / hunger
+- 3B Pollution / environment
+- 3C Natural disasters
+- 3D Human-rights violations
+- 3E Homelessness
+- 3F Drug abuse / crime
+
+Task description, six prompt points (Affected regions, Causes, Solutions, Specific examples, Role of organisations, Other) and ~12 follow-up questions taken straight from the PDF interlocutor sheet.
+
+## Part 4 (Interactive conversation)
+
+Scenario from the PDF Task Two: a foreign friend wants to know what the most serious problems are in the Czech Republic. Examiner starter line, prompt points (unemployment, homelessness, environment, public transport, racial prejudice, NGOs), four illustrative images (4A–4D – e.g. CR street scene, Czech recycling bins, Roma community, public transport), and 3 conversation tips.
+
+## Images to generate
+
+Generated with `imagegen` (fast tier, photographic style consistent with existing topic art) and saved to `src/assets/`:
+
+- `maturita-social-thumbnail.jpg` – topic card thumbnail
+- `maturita-social-3a.jpg` … `3f.jpg` – Part 3 images
+- `maturita-social-part2-a.jpg`, `maturita-social-part2-b.jpg` – Part 2 pair
+- `maturita-social-4a.jpg` … `4d.jpg` – Part 4 images
+
+All images will be tasteful, non-graphic, and consistent with the existing site tone.
+
+## Files to change
+
+- `src/data/maturitaTopics.ts` – add image imports, replace the existing one-line `social-issues` placeholder (around line 886) with a full topic object: `available: true`, `thumbnail`, `learn`, `practice`, `part2`, `exam`, `part4`. No interface changes needed.
+- `src/assets/` – new generated images listed above.
+
+No changes to `MaturitaSpeaking.tsx`, `MaturitaSpeakingTopic.tsx`, `Part2Tab.tsx`, `Part4Tab.tsx` – they already render any topic that has these fields.
+
+## Out of scope
+
+- No new tabs, no design changes, no routing changes.
+- The other placeholder topics (Mass Media, etc.) stay as they are.
