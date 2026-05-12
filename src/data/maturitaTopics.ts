@@ -54,6 +54,21 @@ import britlit3f from "@/assets/maturita-britlit-3f.jpg";
 import britlitPart2a from "@/assets/maturita-britlit-part2-a.jpg";
 import britlitPart2b from "@/assets/maturita-britlit-part2-b.jpg";
 
+// Social Issues images
+import socialThumbnail from "@/assets/maturita-social-thumbnail.jpg";
+import social3a from "@/assets/maturita-social-3a.jpg";
+import social3b from "@/assets/maturita-social-3b.jpg";
+import social3c from "@/assets/maturita-social-3c.jpg";
+import social3d from "@/assets/maturita-social-3d.jpg";
+import social3e from "@/assets/maturita-social-3e.jpg";
+import social3f from "@/assets/maturita-social-3f.jpg";
+import socialPart2a from "@/assets/maturita-social-part2-a.jpg";
+import socialPart2b from "@/assets/maturita-social-part2-b.jpg";
+import social4a from "@/assets/maturita-social-4a.jpg";
+import social4b from "@/assets/maturita-social-4b.jpg";
+import social4c from "@/assets/maturita-social-4c.jpg";
+import social4d from "@/assets/maturita-social-4d.jpg";
+
 export interface LearnItem {
   title: string;
   content: string;
@@ -883,7 +898,163 @@ export const maturitaTopics: MaturitaTopic[] = [
     }
   },
   
-  { id: "social-issues", title: "Social Issues", description: "Drug abuse, terrorism, crime, bullying, homelessness", available: false, part2: { task1: { followUpQuestions: ["What social issue can you see?", "How does this affect people?"] }, task2: { comparisonQuestions: ["Which picture shows a more serious problem?"] }, task3: { question: "What social problem concerns you the most?" } } },
+  {
+    id: "social-issues",
+    title: "Social Issues",
+    description: "Poverty, homelessness, drugs, crime, bullying, racism, human rights and the role of charities",
+    available: true,
+    thumbnail: socialThumbnail,
+    learn: [
+      {
+        title: "What are social issues?",
+        content: "Social issues (or social problems) are difficulties that affect large groups of people in a society and that society as a whole tries to solve. They include poverty, homelessness, unemployment, drug and alcohol abuse, crime, bullying, racism and discrimination, domestic violence, gender inequality, the violation of human rights, and humanitarian crises caused by war or natural disasters. Most social issues have several causes – economic, political, historical and personal – and there is rarely a single, simple solution. Governments, international organisations, NGOs and ordinary citizens all play a part in tackling them."
+      },
+      {
+        title: "Poverty and hunger",
+        content: "Poverty means not having enough money for basic needs such as food, clothing, housing and healthcare. Economists distinguish absolute poverty (people who cannot afford basic survival, often living on less than $2.15 a day, mostly in Africa and parts of Asia) from relative poverty (people whose income is much lower than the average in their country). According to the UN, about 700 million people still live in extreme poverty and around 800 million suffer from hunger. The main causes are war, corruption, lack of education, unemployment, natural disasters and climate change. International organisations such as the UN World Food Programme, UNICEF and Oxfam fight global poverty; in the Czech Republic the official poverty line is set by the state and people below it can apply for benefits."
+      },
+      {
+        title: "Homelessness",
+        content: "Homeless people have no permanent place to live. They sleep in the streets, in train stations, in night shelters or in temporary accommodation. The most common causes are unemployment, the loss of family ties (divorce, death of a partner), mental illness, alcohol or drug addiction, debt and high housing costs. Homelessness is dangerous: people suffer from cold, hunger, illness and violence. Cities help with night shelters, soup kitchens, social housing and outreach programmes. In the Czech Republic the best-known organisations are Naděje, Armáda spásy (Salvation Army) and the Caritas charity. The street magazine Nový Prostor gives homeless people a chance to earn money legally."
+      },
+      {
+        title: "Unemployment as a social issue",
+        content: "Long-term unemployment causes financial problems but also social and psychological ones – loss of routine, isolation, low self-esteem, depression and a higher risk of falling into poverty, debt or addiction. High unemployment in a region usually goes together with rising crime and homelessness. The state supports the unemployed through Job Centres (Úřad práce), unemployment benefits, retraining courses, and tax incentives for employers who create new jobs. (For a much more detailed treatment, see the dedicated Unemployment topic.)"
+      },
+      {
+        title: "Drug abuse and alcoholism",
+        content: "Drugs are usually divided into legal drugs (alcohol, tobacco, caffeine, prescribed medicines) and illegal drugs (marijuana, cocaine, heroin, methamphetamine, ecstasy). They can also be classified as soft drugs and hard drugs. Addiction means a person can no longer control their use of a substance. Causes include peer pressure, stress, family problems, depression, curiosity and the desire to escape reality. The consequences are damaged health, broken relationships, loss of job, debt, crime and sometimes death by overdose. Prevention starts at school with information campaigns. Help is available in detox centres, therapeutic communities and through organisations such as Drop In or Sananim in the Czech Republic. Alcoholism is the most widespread addiction in Central Europe."
+      },
+      {
+        title: "Crime and criminality",
+        content: "Crime is any act that breaks the law. Common types include theft, burglary, robbery, vandalism, fraud, cybercrime, drug trafficking, assault, domestic violence and murder. White-collar crime (tax evasion, embezzlement, corruption) is committed by people in business or politics. Juvenile delinquency means crimes committed by young people under 18. Causes of crime are complex: poverty, unemployment, broken families, addiction, lack of education and bad role models. Punishments range from fines and community service to prison sentences and, in some countries, the death penalty. Most European countries, including the Czech Republic, abolished the death penalty long ago and focus on rehabilitation."
+      },
+      {
+        title: "Bullying and cyberbullying",
+        content: "Bullying is the repeated use of force, threats or humiliation to intimidate someone weaker. It happens at school, in the workplace and increasingly online (cyberbullying via social media, messaging apps and games). Victims often feel ashamed and afraid to talk, which can lead to anxiety, depression, poor school results and, in extreme cases, suicide. Schools in the Czech Republic now have anti-bullying programmes, school psychologists and a national helpline (Linka bezpečí). Parents and teachers should look out for warning signs – sudden mood changes, lost or damaged things, fear of going to school, withdrawal from friends."
+      },
+      {
+        title: "Racism, xenophobia and discrimination",
+        content: "Racism is the belief that some races are superior to others; xenophobia is the fear or hatred of foreigners. Discrimination means treating someone unfairly because of their race, religion, gender, age, sexual orientation or disability. In the Czech Republic the main targets of prejudice have traditionally been the Roma minority and, more recently, refugees and migrants. Examples include problems finding housing or work, verbal abuse and segregated education. The European Union, the Council of Europe and NGOs such as Amnesty International or the Czech NGO In IUSTITIA work against discrimination. The Charter of Fundamental Rights of the EU and the Czech Anti-Discrimination Act make discrimination illegal."
+      },
+      {
+        title: "Domestic violence and gender inequality",
+        content: "Domestic violence is physical, psychological, sexual or economic abuse between people in the same household. Most victims are women and children, but men can be victims too. Warning signs include controlling behaviour, isolation from family and friends, jealousy, threats and physical injuries. In the Czech Republic the police can issue an immediate ten-day ban (vykázání) keeping the abuser out of the home, and victims can find help at organisations such as Bílý kruh bezpečí or ROSA. Gender inequality also shows itself in the gender pay gap, in fewer women in top management or politics, and in unequal sharing of housework and childcare."
+      },
+      {
+        title: "Human rights and human-rights violations",
+        content: "Human rights are basic freedoms that belong to every person from birth – the right to life, freedom, education, a fair trial, freedom of speech, religion and movement. They are set out in the Universal Declaration of Human Rights (UN, 1948) and the European Convention on Human Rights. Human rights are violated all over the world: by torture and the death penalty, censorship, child labour, human trafficking, slavery, forced marriage and the persecution of minorities and political opponents. International organisations defending human rights include the United Nations, Amnesty International, Human Rights Watch and Doctors Without Borders (Médecins Sans Frontières)."
+      },
+      {
+        title: "Natural disasters and humanitarian crises",
+        content: "Natural disasters – floods, earthquakes, hurricanes, tsunamis, droughts and wildfires – often cause huge social problems: loss of life, destruction of homes, displacement of millions of people and outbreaks of disease. They hit poor countries hardest because they have weaker infrastructure. Wars create refugees and humanitarian crises (Syria, Ukraine, Sudan). The international response is led by UN agencies (UNHCR, WFP, UNICEF), the Red Cross / Red Crescent and NGOs such as People in Need (Člověk v tísni). The Czech Republic also has its own emergency system (Integrovaný záchranný systém) and the public regularly donates to charity collections after disasters."
+      },
+      {
+        title: "Charities, NGOs and what individuals can do",
+        content: "NGOs (non-governmental organisations) and charities fill the gaps left by the state. International ones include the Red Cross, Amnesty International, Greenpeace, UNICEF, Oxfam and Doctors Without Borders. Czech ones include People in Need (Člověk v tísni), Caritas (Charita), Naděje, ADRA, Bílý kruh bezpečí and Linka bezpečí. Ordinary people can help by donating money, sending clothes or food, becoming volunteers, giving blood, signing petitions or simply being a good neighbour. Even small actions – not ignoring someone in trouble, reporting bullying, separating waste, treating everyone with respect – help to build a better society."
+      }
+    ],
+    practice: [
+      { question: "What do we mean by social issues?", answer: "Social issues are problems that affect a large number of people in a society and that society needs to solve together. Typical examples are poverty, homelessness, unemployment, drug abuse, crime, bullying, racism and the violation of human rights. Most of them have several causes and require help from the state, NGOs and ordinary citizens." },
+      { question: "What is the difference between absolute and relative poverty?", answer: "Absolute poverty means people cannot afford the basic things they need to survive – food, clean water, shelter, clothing and healthcare. It mostly affects developing countries. Relative poverty means having an income much lower than the average in your country, so you cannot live a normal life by local standards. There is relative poverty even in rich countries like Germany or the Czech Republic." },
+      { question: "Is poverty a problem in the Czech Republic?", answer: "Compared to many countries we are quite well off, but poverty exists here too. Single parents, pensioners with low pensions, people with disabilities and families in structurally weak regions like the Ústí or Moravian-Silesian regions are most at risk. The state pays social benefits and the minimum wage is regularly increased, but rising rents and energy prices push more people close to the poverty line." },
+      { question: "Why do people become homeless?", answer: "There is rarely just one reason. People often lose their home after a combination of unemployment, divorce or the death of a partner, debt, mental illness or addiction. High rents and a lack of affordable social housing make it very hard to get back on your feet. Some young people end up on the street after leaving children's homes." },
+      { question: "How does your country help homeless people?", answer: "Cities provide night shelters, soup kitchens and social workers who go out into the streets. Charities such as Naděje, the Salvation Army (Armáda spásy) and Caritas run hostels and food programmes, and the magazine Nový Prostor gives homeless people the chance to earn money legally. Personally I think we should also build more social housing." },
+      { question: "What are the main causes of drug addiction among young people?", answer: "The most common reasons are peer pressure, curiosity, stress at school, family problems, low self-esteem and the wish to escape from reality. Some young people start with alcohol or marijuana and gradually move to harder drugs. Good prevention at school and a stable family are the best protection." },
+      { question: "How can drug abuse be prevented?", answer: "Prevention should start early, in primary school. Children need clear and honest information about what drugs do to the body and the brain. Free-time activities like sport, music or volunteering give young people a healthy alternative. Parents should talk to their children, listen to them and notice changes in behaviour. The state also needs to control the drug market and support treatment centres." },
+      { question: "What kinds of crime are most common in your country?", answer: "The most common crimes in the Czech Republic are property crimes – theft, burglary and pickpocketing, especially in big cities and tourist areas. Cybercrime, fraud and online scams are growing very fast. Violent crime, fortunately, is relatively low compared to many other European countries." },
+      { question: "What is bullying and how can schools fight it?", answer: "Bullying is when one person, or a group, repeatedly hurts, threatens or humiliates someone weaker, either in person or online. Schools should have a clear anti-bullying policy, a school psychologist and teachers who notice early warning signs. Pupils should know they can talk to an adult or call the helpline Linka bezpečí. Bystanders should not stay silent." },
+      { question: "Is racism a problem in the Czech Republic?", answer: "Unfortunately yes. The Roma minority faces discrimination in housing, in finding work and in education. Some refugees and people of different skin colour also experience prejudice. There are laws against discrimination and several NGOs work in this area, but changing people's attitudes takes a long time and starts with education." },
+      { question: "What are human rights and where are they protected?", answer: "Human rights are basic freedoms that every person has from birth – the right to life, education, freedom of speech, religion and movement, and the right to a fair trial. They are protected by the United Nations Universal Declaration of Human Rights, the European Convention on Human Rights and, in the Czech Republic, by the Charter of Fundamental Rights and Freedoms. Organisations such as Amnesty International monitor violations around the world." },
+      { question: "Which international organisations help to solve global problems?", answer: "The most important ones are the United Nations and its agencies – UNICEF for children, the World Food Programme for hunger, UNHCR for refugees and the WHO for health. Amnesty International defends human rights, Greenpeace protects the environment, the Red Cross helps after disasters, and Doctors Without Borders (Médecins Sans Frontières) provides medical care in war zones." },
+      { question: "What can ordinary people do to help?", answer: "Even small actions matter. We can donate money or things we no longer need, give blood, become volunteers, take part in food collections, sign petitions, separate waste, and treat everyone around us with respect. We can also speak up when we see bullying, racism or someone in trouble instead of looking the other way." },
+      { question: "Whose responsibility is it to fight social problems – the state, charities or individuals?", answer: "I think it has to be a combination. The state is responsible for laws, the social system, education and healthcare, because only the state has the money and power to act on a large scale. Charities and NGOs cover the gaps and help specific groups. But in the end, society is made of individuals, so each of us has a part to play – through our taxes, our votes and our everyday behaviour." },
+      { question: "Do you think the world is getting better or worse?", answer: "In some ways it is clearly getting better – extreme poverty has fallen, more children go to school, and many diseases have been almost eliminated. On the other hand, we face new challenges like climate change, wars, growing inequality and mental-health problems. So I am cautiously optimistic: progress is possible, but we cannot take it for granted." }
+    ],
+    part2: {
+      task1: {
+        promptPoints: ["People", "Place", "Atmosphere", "Activity", "Cause", "Solution"],
+        images: [
+          { label: "Picture A", src: socialPart2a, description: "A homeless person on a busy city street with people walking past" },
+          { label: "Picture B", src: socialPart2b, description: "Volunteers serving warm food to people in need at a soup kitchen" }
+        ],
+        followUpQuestions: [
+          "Who are the people in the picture and how do they feel?",
+          "Where and when do you think this picture was taken?",
+          "What might have caused this situation?",
+          "How does the picture make you feel?"
+        ]
+      },
+      task2: {
+        promptPoints: ["People", "Place", "Atmosphere", "Activity", "Cause", "Solution"],
+        comparisonQuestions: [
+          "How are the two situations different and how are they similar?",
+          "Which picture shows a problem and which shows a solution?",
+          "Which scene is more common in your country?",
+          "Which picture gives you more hope and why?"
+        ]
+      },
+      task3: {
+        question: "Whose responsibility is it to help people in need – the state, charities or individuals? What can young people do?"
+      }
+    },
+    exam: {
+      taskDescription: "In this task you should speak on your own about the global problems of today. Use pictures 3A–3F to illustrate your speech. Talk about which parts of the world the problems affect, what causes them, possible solutions, and specific examples.",
+      promptPoints: [
+        "Which parts of the world the problem affects",
+        "Causes of the problem",
+        "Possible solutions",
+        "Specific examples",
+        "Role of international organisations",
+        "Other"
+      ],
+      images: [
+        { label: "3A", src: social3a, description: "Poverty, hunger and malnutrition in developing countries" },
+        { label: "3B", src: social3b, description: "Pollution and the destruction of the environment" },
+        { label: "3C", src: social3c, description: "Natural disasters – floods, hurricanes, earthquakes" },
+        { label: "3D", src: social3d, description: "Human-rights violations and peaceful protest" },
+        { label: "3E", src: social3e, description: "Homelessness in cities" },
+        { label: "3F", src: social3f, description: "Drug abuse, alcoholism and crime" }
+      ],
+      followUpQuestions: [
+        "Is poverty an issue in Europe too? How do governments try to fight it?",
+        "What kinds of pollution do you know? What causes them?",
+        "Do you remember any recent natural disasters? Can you tell me something about them?",
+        "How can human rights be violated? Can you give some specific examples? In which parts of the world does it happen?",
+        "What can you see in picture 3A / 3B / 3C / 3D / 3E / 3F?",
+        "Do you know any international organisations trying to solve global problems?",
+        "Which of these problems do you think is the most serious and why?",
+        "Do you think any of these problems can be completely solved?",
+        "How do the media influence the way we see these issues?",
+        "Do young people care more or less about these problems than older generations?",
+        "Have you ever taken part in a charity event or a collection?",
+        "What can ordinary people do about global problems?"
+      ]
+    },
+    part4: {
+      scenario: "In this task you and the examiner are going to talk together about problems of today in the Czech Republic. Imagine the following situation: your foreign friend wants to know what the most serious problems in your country – or in the place where you live – are. Give them examples and speak about what causes the problems. You can also suggest possible solutions. The examiner is going to play the role of your friend.",
+      starter: "So tell me, what do you think are the biggest social problems in the Czech Republic at the moment? I keep hearing different things in the news…",
+      promptPoints: [
+        "Unemployment and structurally weak regions",
+        "Homelessness and the cost of housing",
+        "Environmental problems (air pollution, drought)",
+        "Public transport and infrastructure",
+        "Racial prejudice and xenophobia",
+        "Czech NGOs and charities helping people in need"
+      ],
+      images: [
+        { label: "4A", src: social4a, description: "A typical Czech city street – everyday life and urban issues" },
+        { label: "4B", src: social4b, description: "Recycling bins – environmental responsibility in the Czech Republic" },
+        { label: "4C", src: social4c, description: "A diverse community in a Czech town square" },
+        { label: "4D", src: social4d, description: "Public transport in a Czech city" }
+      ],
+      tips: [
+        "Give concrete Czech examples (cities, regions, organisations) – it makes your answer much stronger.",
+        "Don't just describe the problem – always say what causes it and suggest a possible solution.",
+        "Show interest in the conversation: ask the examiner short questions back, like 'Is it the same in your country?'"
+      ]
+    }
+  },
   { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false, part2: { task1: { followUpQuestions: ["What holiday or tradition is shown?", "What are the people celebrating?"] }, task2: { comparisonQuestions: ["How are the celebrations different?"] }, task3: { question: "Which holiday is most important to you and why?" } } },
   { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false, part2: { task1: { followUpQuestions: ["What type of transport can you see?", "Where might these people be travelling?"] }, task2: { comparisonQuestions: ["Which means of transport is more practical?"] }, task3: { question: "What will transport look like in the future?" } } },
   { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false, part2: { task1: { followUpQuestions: ["What sport is being played?", "Where is the event taking place?"] }, task2: { comparisonQuestions: ["Which sport requires more physical effort?"] }, task3: { question: "Should sport be compulsory at school?" } } },
