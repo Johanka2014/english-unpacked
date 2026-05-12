@@ -78,11 +78,11 @@ const MaturitaSpeakingTopic = () => {
           </Link>
 
           <Tabs defaultValue={defaultTab} className="w-full">
-            <TabsList className={`grid w-full ${gridColsClass} mb-8`}>
+            <TabsList className="flex w-full h-auto flex-row flex-nowrap mb-8">
               {availableTabs.map((tab) => (
-                <TabsTrigger key={tab.id} value={tab.id} className="flex items-center gap-2">
-                  <tab.icon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{tab.label}</span>
+                <TabsTrigger key={tab.id} value={tab.id} className="flex-1 min-w-0 flex items-center justify-center gap-2 px-2">
+                  <tab.icon className="w-4 h-4 shrink-0" />
+                  <span className="hidden sm:inline truncate">{tab.label}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
