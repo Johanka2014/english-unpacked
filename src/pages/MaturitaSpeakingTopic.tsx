@@ -17,7 +17,8 @@ import PracticeCard from "@/components/maturita/PracticeCard";
 const MaturitaSpeakingTopic = () => {
   const { topicId } = useParams<{ topicId: string }>();
   const [searchParams] = useSearchParams();
-  const defaultTab = searchParams.get("tab") === "part2" ? "part2" : "learn";
+  const tabParam = searchParams.get("tab");
+  const defaultTab = tabParam === "part2" || tabParam === "part4" || tabParam === "exam" || tabParam === "practice" ? tabParam : "learn";
   const topic = maturitaTopics.find((t) => t.id === topicId);
 
   if (!topic || !topic.available) {
@@ -193,6 +194,11 @@ const MaturitaSpeakingTopic = () => {
                   </CardContent>
                 </Card>
               )}
+            </TabsContent>
+
+            {/* Part 4 Tab */}
+            <TabsContent value="part4">
+              <Part4Tab topic={topic} />
             </TabsContent>
           </Tabs>
         </div>
