@@ -5,18 +5,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff, Image, Clock } from "lucide-react";
+import { ArrowLeft, BookOpen, MessageSquare, ClipboardCheck, Eye, EyeOff, Image, Clock, Users } from "lucide-react";
 import { useState } from "react";
 import heroBackground from "@/assets/hero-background.webp";
 import SEO from "@/components/SEO";
 import { maturitaTopics } from "@/data/maturitaTopics";
 import Part2Tab from "@/components/maturita/Part2Tab";
+import Part4Tab from "@/components/maturita/Part4Tab";
 import PracticeCard from "@/components/maturita/PracticeCard";
 
 const MaturitaSpeakingTopic = () => {
   const { topicId } = useParams<{ topicId: string }>();
   const [searchParams] = useSearchParams();
-  const defaultTab = searchParams.get("tab") === "part2" ? "part2" : "learn";
+  const tabParam = searchParams.get("tab");
+  const defaultTab = tabParam === "part2" || tabParam === "part4" || tabParam === "exam" || tabParam === "practice" ? tabParam : "learn";
   const topic = maturitaTopics.find((t) => t.id === topicId);
 
   if (!topic || !topic.available) {
@@ -28,10 +30,13 @@ const MaturitaSpeakingTopic = () => {
     { id: "learn", label: "Learn", icon: BookOpen },
     { id: "practice", label: "Practice", icon: MessageSquare },
     ...(topic.part2 ? [{ id: "part2" as const, label: "Part 2", icon: Image }] : []),
-    { id: "exam", label: "Part 3", icon: ClipboardCheck }
+    { id: "exam", label: "Part 3", icon: ClipboardCheck },
+    ...(topic.part4 ? [{ id: "part4" as const, label: "Part 4", icon: Users }] : [])
   ];
 
-  const gridColsClass = availableTabs.length === 3 ? "grid-cols-3" : "grid-cols-4";
+  const gridColsClass =
+    availableTabs.length === 5 ? "grid-cols-5" :
+    availableTabs.length === 4 ? "grid-cols-4" : "grid-cols-3";
 
   return (
     <div className="min-h-screen bg-background">
@@ -189,6 +194,11 @@ const MaturitaSpeakingTopic = () => {
                   </CardContent>
                 </Card>
               )}
+            </TabsContent>
+
+            {/* Part 4 Tab */}
+            <TabsContent value="part4">
+              <Part4Tab topic={topic} />
             </TabsContent>
           </Tabs>
         </div>

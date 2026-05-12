@@ -103,6 +103,20 @@ export interface Part2Data {
   task3: Part2Task3;
 }
 
+export interface Part4Image {
+  label: string;
+  src: string;
+  description: string;
+}
+
+export interface Part4Data {
+  scenario: string;
+  promptPoints: string[];
+  images: Part4Image[];
+  starter: string;
+  tips?: string[];
+}
+
 export interface MaturitaTopic {
   id: string;
   title: string;
@@ -116,6 +130,7 @@ export interface MaturitaTopic {
   practice?: PracticeQA[];
   exam?: ExamPractice;
   part2?: Part2Data;
+  part4?: Part4Data;
 }
 
 export const maturitaTopics: MaturitaTopic[] = [
@@ -242,6 +257,30 @@ export const maturitaTopics: MaturitaTopic[] = [
         "Who are the main characters?",
         "Why do you like this book / play?",
         "What themes does this author explore in their work?"
+      ]
+    },
+    part4: {
+      scenario: "You and your English-speaking friend want to start a small book club to read British authors together. First, you should agree on which books to read and how to organise the meetings, then talk about the practical details.",
+      promptPoints: [
+        "Which books / authors to read",
+        "How often to meet",
+        "Where to meet",
+        "Who leads each session",
+        "Refreshments",
+        "Online or in person",
+        "Other"
+      ],
+      starter: "Hi! So we're really doing this book club! Where do you think we should start – which book should we read first?",
+      tips: [
+        "The examiner will start the conversation – listen, react, and ask questions back.",
+        "Don't just answer 'yes' or 'no' – give reasons and suggest your own ideas.",
+        "Use the pictures as inspiration if you run out of ideas."
+      ],
+      images: [
+        { label: "4A", src: britlit3a, description: "A classic novel to read together" },
+        { label: "4B", src: britlit3c, description: "A modern adaptation – book and film" },
+        { label: "4C", src: britlit3d, description: "Discussing characters and themes" },
+        { label: "4D", src: britlit3e, description: "Fantasy or contemporary fiction?" }
       ]
     }
   },
@@ -438,6 +477,30 @@ export const maturitaTopics: MaturitaTopic[] = [
       task3: {
         question: "What can individuals do to help protect the environment?"
       }
+    },
+    part4: {
+      scenario: "You and your English-speaking friend have just moved into a flat together and want to make it as environmentally friendly as possible. First, agree on who will do what to reduce your impact on the environment, then talk about the practical details.",
+      promptPoints: [
+        "Who does what",
+        "How often",
+        "What to buy or replace",
+        "Who pays for what",
+        "When to buy it",
+        "How to recycle and save energy",
+        "Other"
+      ],
+      starter: "OK, so we both said we want this flat to be greener. Where should we start – what do you think wastes the most energy here?",
+      tips: [
+        "Suggest concrete ideas (LED bulbs, recycling bins, eco cleaning products).",
+        "Don't dominate – ask your friend what they think too.",
+        "Be ready to compromise on price and effort."
+      ],
+      images: [
+        { label: "4A", src: env3a, description: "Saving water at home" },
+        { label: "4B", src: env3c, description: "Travelling without the car" },
+        { label: "4C", src: env3e, description: "Buying bio / local products" },
+        { label: "4D", src: env3d, description: "Reducing waste and recycling" }
+      ]
     }
   },
   {
@@ -507,6 +570,30 @@ export const maturitaTopics: MaturitaTopic[] = [
         { label: "3F", src: health3f, description: "Surgery and operating room" }
       ],
       followUpQuestions: ["What are the main reasons people go to hospital?", "Can you describe the typical layout and departments of a modern hospital?", "Who are the main healthcare professionals working in hospitals?", "What are the differences between emergency care and planned hospital admission?", "How has hospital technology improved patient care?", "What are some patient rights in hospitals?", "Describe the intensive care unit (ICU) and what patients need ICU care?", "How do hospitals maintain cleanliness and prevent infections?", "What role does each picture play in representing aspects of healthcare?", "How would you describe your own experiences with healthcare?", "What do you think will change in hospitals in the future?", "How important is good communication between doctors and patients?", "What qualities should a good healthcare professional have?"]
+    },
+    part4: {
+      scenario: "You and your English-speaking friend share a flat and want to put together a proper first-aid kit and a basic health plan in case one of you gets ill. First, agree on what to include and who will look after what, then talk about the details.",
+      promptPoints: [
+        "What to buy for the first-aid kit",
+        "Who buys what",
+        "How often to check and restock",
+        "Who pays for what",
+        "Where to keep it",
+        "Doctor's & emergency numbers to write down",
+        "Other"
+      ],
+      starter: "I just realised we don't even have a plaster in this flat! What do we actually need in a first-aid kit?",
+      tips: [
+        "Think practically: bandages, painkillers, thermometer, plasters, antiseptic.",
+        "Discuss healthy habits too – meals, exercise, sleep.",
+        "Ask your friend about allergies or medication they need."
+      ],
+      images: [
+        { label: "4A", src: health3b, description: "Pharmacy items and basic medication" },
+        { label: "4B", src: health3c, description: "Visiting the GP for a check-up" },
+        { label: "4C", src: health3e, description: "Emergency numbers and ambulance" },
+        { label: "4D", src: health3a, description: "Knowing where the nearest hospital is" }
+      ]
     }
   },
   {
@@ -611,6 +698,30 @@ export const maturitaTopics: MaturitaTopic[] = [
         "Is there any relation between inflation and unemployment?",
         "What does the State do to help the unemployed?",
         "What are some possible solutions to the problem of unemployment?"
+      ]
+    },
+    part4: {
+      scenario: "Your English-speaking friend has just lost their job and is feeling worried about the future. Together, you want to make a practical plan for finding a new job. First, agree on the steps to take, then talk about the details.",
+      promptPoints: [
+        "Where to look for jobs",
+        "Updating the CV and writing a cover letter",
+        "Preparing for interviews",
+        "Retraining or learning new skills",
+        "Budget and benefits while job-hunting",
+        "Who can help (Labour Office, friends, family)",
+        "Other"
+      ],
+      starter: "I'm a bit lost, to be honest. I lost my job last week – where should I even start looking for a new one?",
+      tips: [
+        "Be supportive – your friend is stressed.",
+        "Suggest practical online portals (Jobs.cz, LinkedIn) and the Labour Office.",
+        "Discuss short-term solutions (temporary work) as well as long-term goals."
+      ],
+      images: [
+        { label: "4A", src: unemployment3e, description: "Searching for jobs online from home" },
+        { label: "4B", src: unemployment3b, description: "A job interview – handing over a CV" },
+        { label: "4C", src: unemployment3a, description: "Registering at the Labour Office" },
+        { label: "4D", src: unemployment3d, description: "Retraining and learning new skills" }
       ]
     }
   },
@@ -744,6 +855,30 @@ export const maturitaTopics: MaturitaTopic[] = [
         "How does the story end?",
         "What does 'A man can be destroyed but not defeated' mean to you?",
         "Why do you think Hemingway chose an old fisherman as his hero?"
+      ]
+    },
+    part4: {
+      scenario: "You and your English-speaking friend are big fans of Ernest Hemingway and want to organise a Hemingway-themed evening at home – book discussion, a film, food and drinks. First, agree on the plan, then talk about the practical details.",
+      promptPoints: [
+        "Which work to focus on (book or film)",
+        "When and where to hold the evening",
+        "What food and drinks to serve (Cuban / Spanish theme)",
+        "Who to invite",
+        "Decorations and atmosphere",
+        "Who organises and pays for what",
+        "Other"
+      ],
+      starter: "So – Hemingway evening! Should we focus on one book like The Old Man and the Sea, or mix several of his stories?",
+      tips: [
+        "Connect the food and drinks to Hemingway's life (Cuba, Spain, Paris).",
+        "Suggest a film adaptation as well as a book.",
+        "Plan a short discussion question to get everyone talking."
+      ],
+      images: [
+        { label: "4A", src: hemingway3b, description: "Choose a book or short story" },
+        { label: "4B", src: hemingway3c, description: "Cuban or Spanish-themed food and drinks" },
+        { label: "4C", src: hemingway3d, description: "Watching a film adaptation together" },
+        { label: "4D", src: hemingway3a, description: "Setting the mood – Hemingway's lifestyle" }
       ]
     }
   },
