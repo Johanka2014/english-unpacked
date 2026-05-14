@@ -62,6 +62,8 @@ export interface GrammarFocusTaskItem {
   answers: string[];
 }
 
+export type TenseMasterRef = 'present' | 'past' | 'perfect' | 'pastPerfect' | 'future' | 'futurePerfect';
+
 export interface B1GrammarModule {
   id: string;
   number: number;
@@ -69,6 +71,7 @@ export interface B1GrammarModule {
   subtitle: string; // e.g. "adjective position; adjective order; -ing/-ed adjectives"
   theory?: GrammarTheorySection[];
   exercises?: GrammarExercise[];
+  tenseMaster?: TenseMasterRef;
   examPractice?: {
     description: string;
     type: string;
