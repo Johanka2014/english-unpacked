@@ -9,6 +9,7 @@ import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
+import SuffixCategorizeExercise from '@/components/exercises/SuffixCategorizeExercise';
 import TenseMasterPanel from '@/components/tense-master/TenseMasterPanel';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
 import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
@@ -515,6 +516,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
         }
         if (ex.type === 'noun-compound') {
           return <NounCompoundExercise key={ex.id} exercise={ex} />;
+        }
+        if (ex.type === 'suffix-categorize') {
+          return <SuffixCategorizeExercise key={ex.id} exercise={ex} />;
         }
         if (ex.type === 'error-correction' && ex.emailSegments) {
           return <ErrorCorrectionEmailExercise key={ex.id} exercise={ex} />;

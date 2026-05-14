@@ -30,11 +30,24 @@ export interface EmailSegment {
   correction?: string;
 }
 
+export interface SuffixCategorizeWord {
+  verb: string;
+  category: string; // category id, e.g. '-ation'
+  noun: string;
+}
+
+export interface SuffixCategorizeFollowUp {
+  id: number;
+  before: string;
+  after: string;
+  answer: string; // a noun present in the words list
+}
+
 export interface GrammarExercise {
   id: string;
   title: string;
   instruction: string;
-  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction' | 'context-fill';
+  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction' | 'context-fill' | 'suffix-categorize';
   items: {
     id: number;
     prompt: string;
@@ -47,6 +60,11 @@ export interface GrammarExercise {
   compoundGroups?: CompoundGroups;
   emailSegments?: EmailSegment[];
   contextText?: string;
+  // For suffix-categorize type:
+  categories?: { id: string; label: string }[];
+  words?: SuffixCategorizeWord[];
+  example?: SuffixCategorizeWord;
+  followUpSentences?: SuffixCategorizeFollowUp[];
 }
 
 export interface ExamReadingPart1Question {
@@ -832,6 +850,44 @@ const suffixesExercises: GrammarExercise[] = [
       { id: 3, prompt: 'It was really thought___ of you to bring that cake.', answer: 'thoughtful', options: ['thoughtful', 'thoughtless'] },
       { id: 4, prompt: 'My son had been so care___ in burning the cake he made.', answer: 'careless', options: ['careful', 'careless'] },
       { id: 5, prompt: 'After I look___ at the paper, I put it in the recycling.', answer: 'looked', options: ['looking', 'looked'] },
+    ],
+  },
+  {
+    id: 'sf-7',
+    title: 'Exercise S7 — Verb → Noun: drag into the correct column',
+    instruction: 'Drag each verb into the column for the suffix that turns it into a noun (-ation, -ence, -ment or -ance). Then complete the sentences below using the nouns you formed.',
+    type: 'suffix-categorize',
+    items: [],
+    categories: [
+      { id: 'ation', label: '-ation' },
+      { id: 'ence', label: '-ence' },
+      { id: 'ment', label: '-ment' },
+      { id: 'ance', label: '-ance' },
+    ],
+    example: { verb: 'admire', category: 'ation', noun: 'admiration' },
+    words: [
+      { verb: 'amaze', category: 'ment', noun: 'amazement' },
+      { verb: 'appear', category: 'ance', noun: 'appearance' },
+      { verb: 'apply', category: 'ation', noun: 'application' },
+      { verb: 'arrange', category: 'ment', noun: 'arrangement' },
+      { verb: 'assist', category: 'ance', noun: 'assistance' },
+      { verb: 'concentrate', category: 'ation', noun: 'concentration' },
+      { verb: 'encourage', category: 'ment', noun: 'encouragement' },
+      { verb: 'exist', category: 'ence', noun: 'existence' },
+      { verb: 'differ', category: 'ence', noun: 'difference' },
+      { verb: 'guide', category: 'ance', noun: 'guidance' },
+      { verb: 'identify', category: 'ation', noun: 'identification' },
+      { verb: 'perform', category: 'ance', noun: 'performance' },
+      { verb: 'prefer', category: 'ence', noun: 'preference' },
+      { verb: 'publish', category: 'ation', noun: 'publication' },
+      { verb: 'punish', category: 'ment', noun: 'punishment' },
+    ],
+    followUpSentences: [
+      { id: 1, before: "Julie's 40th birthday coincided with the", after: 'of her first novel.', answer: 'publication' },
+      { id: 2, before: 'Having a car would make a huge', after: 'to my life.', answer: 'difference' },
+      { id: 3, before: 'To my', after: ', I won a prize for the song I wrote.', answer: 'amazement' },
+      { id: 4, before: "People didn't know of the", after: 'of the planet Uranus until Hirschel discovered it in 1871.', answer: 'existence' },
+      { id: 5, before: 'Staff are available to offer', after: 'to anyone who needs help carrying their luggage.', answer: 'assistance' },
     ],
   },
 ];
