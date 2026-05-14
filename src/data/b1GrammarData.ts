@@ -1164,4 +1164,36 @@ export const b1GrammarSections: B1GrammarSection[] = [
       },
     ],
   },
+  {
+    id: 'word-formation',
+    title: 'Word Formation',
+    description: 'Prefixes and suffixes',
+    icon: Type,
+    image: wordFormationImg,
+    modules: [
+      {
+        id: 'prefixes',
+        number: 31,
+        title: 'Prefixes',
+        subtitle: 'negative prefixes; un-, dis-, in-/im-/il-/ir-, mis-, re-, pre-, ex-, half-',
+        theory: prefixesTheory,
+        exercises: prefixesExercises,
+      },
+      {
+        id: 'suffixes',
+        number: 32,
+        title: 'Suffixes',
+        subtitle: 'noun, adjective, adverb and verb suffixes; -er/-or, -ment, -tion, -ness, -ity, -ful/-less, -ly',
+        theory: suffixesTheory,
+        exercises: suffixesExercises,
+      },
+      {
+        id: 'word-formation-quiz',
+        number: 33,
+        title: 'Word Formation Quiz',
+        subtitle: 'mixed prefix + suffix review quiz',
+        exercises: wordFormationQuizExercises,
+      },
+    ],
+  },
 ];
