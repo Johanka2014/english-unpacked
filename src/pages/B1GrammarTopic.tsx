@@ -517,6 +517,9 @@ const ExercisesView = ({ exercises }: { exercises: GrammarExercise[] }) => {
         if (ex.type === 'noun-compound') {
           return <NounCompoundExercise key={ex.id} exercise={ex} />;
         }
+        if (ex.type === 'suffix-categorize') {
+          return <SuffixCategorizeExercise key={ex.id} exercise={ex} />;
+        }
         if (ex.type === 'error-correction' && ex.emailSegments) {
           return <ErrorCorrectionEmailExercise key={ex.id} exercise={ex} />;
         }
