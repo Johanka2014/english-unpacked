@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import DragFillGaps from '@/components/presentations/DragFillGaps';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
 import DragDropCategorize from '@/components/presentations/DragDropCategorize';
+import AppraisalReportActivity from '@/components/hr/AppraisalReportActivity';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -187,21 +187,7 @@ const ListeningUnit4 = () => {
       />
 
       {/* Activity 7: Appraisal report gap-fill */}
-      <DragFillGaps
-        title="Activity 7: Complete the Appraisal Report"
-        description="Listen to the interview again and complete the appraisal report on Peter Grahame using the words below."
-        words={['to detail', 'relationships', 'delegate', 'decrease', 'skills', 'sickness', 'overtime', 'communicate', 'cultural', 'production director', 'leadership', 'training manager', 'long-term']}
-        sentences={[
-          { id: 1, parts: ['Strengths: Attention ', { answer: 'to detail' }, ', excellent. Accuracy, good.'] },
-          { id: 2, parts: ["Peter feels he doesn't have any problems with staff ", { answer: 'relationships' }, '.'] },
-          { id: 3, parts: ["Weaknesses: Peter doesn't always ", { answer: 'delegate' }, ' to team members and this causes overwork.'] },
-          { id: 4, parts: ['...and thus a ', { answer: 'decrease' }, ' in output. Communication ', { answer: 'skills' }, ' need attention.'] },
-          { id: 5, parts: ["Problems: Decrease in output caused by Antonio's ", { answer: 'sickness' }, ", inability of other team members to work ", { answer: 'overtime' }, "."] },
-          { id: 6, parts: ["Peter didn't feel able to ", { answer: 'communicate' }, " with me. Antonio needs ", { answer: 'cultural' }, " training."] },
-          { id: 7, parts: ['Action 1: Speak to ', { answer: 'production director' }, ' about temporary transfer of staff.'] },
-          { id: 8, parts: ['Action 2: Talk to ', { answer: 'training manager' }, ' about ', { answer: 'leadership' }, ' skills and time management training for Peter.'] },
-        ]}
-      />
+      <AppraisalReportActivity />
     </div>
   );
 };
