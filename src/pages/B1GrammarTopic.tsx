@@ -4,11 +4,12 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock } from 'lucide-react';
+import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
+import TenseMasterPanel from '@/components/tense-master/TenseMasterPanel';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
 import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
 import examFuture1 from '@/assets/exam-future-1.jpg';
@@ -891,7 +892,7 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
 
 const B1GrammarTopic = () => {
   const { sectionId, moduleId } = useParams<{ sectionId: string; moduleId: string }>();
-  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | null>(null);
+  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | null>(null);
 
   const section = b1GrammarSections.find((s) => s.id === sectionId);
   if (!section) return <Navigate to="/b1-grammar" replace />;
@@ -899,13 +900,14 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
     { key: 'exercises' as const, label: 'Exercises', icon: PenLine, available: !!mod.exercises, color: 'from-emerald-600 to-emerald-800' },
     { key: 'exam' as const, label: 'Exam Practice', icon: ClipboardCheck, available: !!mod.examPractice, color: 'from-purple-600 to-purple-800' },
-  ];
+    { key: 'practice' as const, label: 'Tense Master Practice', icon: Sparkles, available: !!mod.tenseMaster, color: 'from-amber-600 to-orange-700' },
+  ].filter((t) => t.available || t.key !== 'practice');
 
   return (
     <div className="min-h-screen bg-background">
@@ -940,7 +942,7 @@ const B1GrammarTopic = () => {
               <p className="text-muted-foreground">Content for this module is being prepared.</p>
             </div>
           ) : activeTab === null ? (
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className={`grid gap-6 max-w-5xl mx-auto ${tiles.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3'}`}>
               {tiles.map((tile) => {
                 const Icon = tile.icon;
                 return (
@@ -966,12 +968,13 @@ const B1GrammarTopic = () => {
               })}
             </div>
           ) : (
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <Button variant="outline" onClick={() => setActiveTab(null)} className="mb-6">
                 <ArrowLeft className="h-4 w-4 mr-1" /> Back to module overview
               </Button>
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
+              {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
               {activeTab === 'exam' && mod.examPractice && (
                 mod.examPractice.readingPart1
                   ? <ExamPracticeReadingPart1

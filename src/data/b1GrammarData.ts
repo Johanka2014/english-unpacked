@@ -62,6 +62,8 @@ export interface GrammarFocusTaskItem {
   answers: string[];
 }
 
+export type TenseMasterRef = 'present' | 'past' | 'perfect' | 'pastPerfect' | 'future' | 'futurePerfect';
+
 export interface B1GrammarModule {
   id: string;
   number: number;
@@ -69,6 +71,7 @@ export interface B1GrammarModule {
   subtitle: string; // e.g. "adjective position; adjective order; -ing/-ed adjectives"
   theory?: GrammarTheorySection[];
   exercises?: GrammarExercise[];
+  tenseMaster?: TenseMasterRef;
   examPractice?: {
     description: string;
     type: string;
@@ -586,24 +589,28 @@ export const b1GrammarSections: B1GrammarSection[] = [
         number: 4,
         title: 'Present Tenses',
         subtitle: 'present simple; present continuous; state verbs; have got and have',
+        tenseMaster: 'present',
       },
       {
         id: 'past-tenses',
         number: 5,
         title: 'Past Tenses',
         subtitle: 'past simple; past continuous',
+        tenseMaster: 'past',
       },
       {
         id: 'present-perfect-past-simple',
         number: 6,
         title: 'Present Perfect and Past Simple',
         subtitle: 'present perfect and past simple; have gone and have been',
+        tenseMaster: 'perfect',
       },
       {
         id: 'past-perfect',
         number: 7,
         title: 'Past Perfect',
         subtitle: 'past perfect and past simple; used to',
+        tenseMaster: 'pastPerfect',
       },
       {
         id: 'future-tenses',
@@ -613,6 +620,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
         theory: futureTensesTheory,
         exercises: futureTensesExercises,
         examPractice: futureTensesExamPractice,
+        tenseMaster: 'future',
       },
     ],
   },

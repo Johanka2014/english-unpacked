@@ -1,67 +1,44 @@
 ## Goal
 
-Turn the existing placeholder `social-issues` topic in `src/data/maturitaTopics.ts` into a fully fleshed-out topic that mirrors the depth and structure of British Literature, Environment, Medical Care, Unemployment and Hemingway. Content sourced from the two attached references (the V-level Part 3 PDF on Problems of Today, and the Conversation Questions DOCX on Poverty / Food Programs / Welfare / Homeless) plus the two URLs (statnimaturita-anglictina – Global Issues, anglictina-maturita – Social Problems).
+Fold the standalone **Tense Master Grammar Course** into the **B1 Grammar → Tenses** section so each tense module contains the matching theory + interactive quizzes, and remove the duplicate "Tense Master" entry from the Practice → Grammar tab.
 
-## Sub-topics covered (Learn accordion)
+## Mapping
 
-The content will span the full "social issues" umbrella as treated by Czech maturita:
+| B1 Grammar module | Tense Master content to embed |
+|---|---|
+| Present Tenses | Present Simple, Present Continuous, Present Simple vs Continuous |
+| Past Tenses | Past Simple, Past Continuous |
+| Present Perfect & Past Simple | Present Perfect (Simple + Continuous), Irregular Past Participles |
+| Past Perfect | Past Perfect Simple, Past Perfect Continuous |
+| Future Tenses | Existing B1 content kept as-is, Tense Master future quizzes appended below (Will, Going to, Future Continuous, Present for Future, Future Perfect Simple, Future Perfect Continuous) |
 
-1. What are social issues? (definition, scope, why they matter)
-2. Poverty & hunger (causes, the poverty line, global vs. CR)
-3. Homelessness (causes, life on the street, shelters, CR examples)
-4. Unemployment as a social issue (brief – cross-link to the dedicated topic)
-5. Drug abuse & alcoholism (legal vs. illegal drugs, addiction, prevention)
-6. Crime & criminality (types of crime, juvenile crime, punishment)
-7. Bullying & cyberbullying (school, workplace, online)
-8. Racism, xenophobia & discrimination (CR Roma situation, migration)
-9. Domestic violence & gender inequality
-10. Human-rights violations (with reference to Amnesty International, UN)
-11. Natural disasters & humanitarian crises (floods, earthquakes, refugees)
-12. Charity, NGOs & how individuals can help (Red Cross, Caritas, People in Need / Člověk v tísni, Greenpeace, Amnesty)
+## Refactor — extract Tense Master into reusable parts
 
-## Practice tab
+`src/pages/TenseMasterWrapper.tsx` is 1,428 lines mixing data + UI. Split it:
 
-15 question/answer pairs covering: definition of social issues, poverty in CR vs. world, homelessness, drug prevention, crime trends, bullying at school, racism in CR, role of NGOs, what an individual can do, government responsibilities, comparing CR with other countries, opinions on welfare, etc. Drawn from the DOCX question bank and both URLs, rewritten as model B2-level answers in the same voice as existing topics.
+1. **`src/data/tenseMasterData.ts`** — move all `QuizCategory[]` arrays and the `tensesData` (theory units) out of the wrapper. Export each tense block by key (e.g. `presentSimple`, `presentContinuous`, `presentSimpleVsContinuous`, `pastSimple`, …, `futurePerfectContinuous`).
+2. **`src/components/tense-master/TenseTheoryCard.tsx`** — renders one `TenseUnit` (formula, detailed uses, examples) using existing styles.
+3. **`src/components/tense-master/TenseQuizSection.tsx`** — renders a `QuizCategory[]` with the same question/feedback/scoring UX currently in the wrapper. Self-contained state so multiple instances can live on one page.
+4. **`src/components/tense-master/TenseMasterModule.tsx`** — composition helper that takes a list of `{ theory: TenseUnit; quizzes: QuizCategory[] }` and renders theory + quizzes for one B1 module.
 
-## Part 2 (Describe & compare images)
+`TenseMasterWrapper.tsx` is rewritten to consume these new pieces so the standalone page keeps working visually and behaviourally identical (we just shrink it).
 
-Two paired images on a social-issues theme (e.g. a homeless person on a city street vs. a charity volunteer / soup kitchen). Includes prompt points (People, Place, Atmosphere, Activity, Cause, Solution), follow-up questions, comparison questions, and a discussion question ("Whose responsibility is it to help people in need – the state, charities or individuals?").
+## Wire into B1 Grammar
 
-## Part 3 (Exam – Problems of Today)
+`src/data/b1GrammarData.ts` — extend the `B1GrammarModule` type with an optional `tenseMaster?: TenseMasterModuleConfig` field referencing the data keys, and populate it on the 5 Tenses modules per the table above.
 
-Built from the V-level PDF. Six images (3A–3F) with labels:
-- 3A Poverty / hunger
-- 3B Pollution / environment
-- 3C Natural disasters
-- 3D Human-rights violations
-- 3E Homelessness
-- 3F Drug abuse / crime
+`src/pages/B1GrammarTopic.tsx` — when `module.tenseMaster` is present, render `<TenseMasterModule …/>` after the existing theory/exercises sections so Future Tenses keeps its current content and gains the extra quizzes underneath.
 
-Task description, six prompt points (Affected regions, Causes, Solutions, Specific examples, Role of organisations, Other) and ~12 follow-up questions taken straight from the PDF interlocutor sheet.
+## Remove the duplicate
 
-## Part 4 (Interactive conversation)
+- `src/pages/MembersActivities.tsx` — delete the **TenseMaster Grammar Course** entry from `grammarActivities`.
+- Keep the `/tense-master` route and `TenseMasterWrapper` page mounted in `src/App.tsx` so the existing "Further Practice" link inside `GrammarWorkshopExercise.tsx` (Business Benchmark) and any external bookmarks keep working — it just no longer appears as a separate Grammar card.
 
-Scenario from the PDF Task Two: a foreign friend wants to know what the most serious problems are in the Czech Republic. Examiner starter line, prompt points (unemployment, homelessness, environment, public transport, racial prejudice, NGOs), four illustrative images (4A–4D – e.g. CR street scene, Czech recycling bins, Roma community, public transport), and 3 conversation tips.
+## Files touched
 
-## Images to generate
-
-Generated with `imagegen` (fast tier, photographic style consistent with existing topic art) and saved to `src/assets/`:
-
-- `maturita-social-thumbnail.jpg` – topic card thumbnail
-- `maturita-social-3a.jpg` … `3f.jpg` – Part 3 images
-- `maturita-social-part2-a.jpg`, `maturita-social-part2-b.jpg` – Part 2 pair
-- `maturita-social-4a.jpg` … `4d.jpg` – Part 4 images
-
-All images will be tasteful, non-graphic, and consistent with the existing site tone.
-
-## Files to change
-
-- `src/data/maturitaTopics.ts` – add image imports, replace the existing one-line `social-issues` placeholder (around line 886) with a full topic object: `available: true`, `thumbnail`, `learn`, `practice`, `part2`, `exam`, `part4`. No interface changes needed.
-- `src/assets/` – new generated images listed above.
-
-No changes to `MaturitaSpeaking.tsx`, `MaturitaSpeakingTopic.tsx`, `Part2Tab.tsx`, `Part4Tab.tsx` – they already render any topic that has these fields.
+- New: `src/data/tenseMasterData.ts`, `src/components/tense-master/TenseTheoryCard.tsx`, `src/components/tense-master/TenseQuizSection.tsx`, `src/components/tense-master/TenseMasterModule.tsx`
+- Edited: `src/pages/TenseMasterWrapper.tsx` (slim down), `src/data/b1GrammarData.ts` (add tenseMaster config to 5 modules), `src/pages/B1GrammarTopic.tsx` (render Tense Master block), `src/pages/MembersActivities.tsx` (remove duplicate card)
 
 ## Out of scope
 
-- No new tabs, no design changes, no routing changes.
-- The other placeholder topics (Mass Media, etc.) stay as they are.
+No changes to backend, auth, routing structure, or visual design tokens. The standalone `/tense-master` route stays available for the existing in-app link from Business Benchmark.
