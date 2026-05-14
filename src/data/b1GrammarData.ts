@@ -1,4 +1,4 @@
-import { BookOpen, Clock, FileText, Megaphone, HelpCircle, Pen, GitBranch, Layers } from 'lucide-react';
+import { BookOpen, Clock, FileText, Megaphone, HelpCircle, Pen, GitBranch, Layers, Type } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import describingImg from '@/assets/b1-describing-things.jpg';
 import tensesImg from '@/assets/b1-tenses.jpg';
