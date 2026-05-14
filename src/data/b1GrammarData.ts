@@ -514,6 +514,353 @@ const futureTensesExamPractice = {
 
 // ── All 30 Modules ─────────────────────────────────────────────────────
 
+// ── Word Formation: Prefixes ───────────────────────────────────────────
+
+const prefixesTheory: GrammarTheorySection[] = [
+  {
+    heading: 'A1 — What is a prefix?',
+    content: `
+      <p>A <strong>prefix</strong> is a group of letters added to the <strong>beginning</strong> of a word that changes its meaning.</p>
+      <ul>
+        <li><em>like → <strong>dis</strong>like</em> (negative meaning)</li>
+        <li><em>lock → <strong>un</strong>lock</em> (the opposite action — to undo locking)</li>
+      </ul>
+      <p>Some prefixed words use a hyphen (<em>half-brother, ex-wife</em>); most don't (<em>unhappy, redo</em>). When you add a prefix, the spelling of the original word doesn't change: <em>dis + satisfied = dissatisfied</em>.</p>
+    `,
+  },
+  {
+    heading: 'A2 — Negative prefixes',
+    content: `
+      <p>Several prefixes give a word the meaning <em>not</em>. Which one to use often depends on the first letter of the word:</p>
+      <table class="w-full text-sm border-collapse my-3">
+        <thead><tr class="border-b"><th class="text-left p-2">Prefix</th><th class="text-left p-2">Used before</th><th class="text-left p-2">Examples</th></tr></thead>
+        <tbody>
+          <tr class="border-b"><td class="p-2"><strong>un-</strong></td><td class="p-2">many words</td><td class="p-2 italic">unhappy, unemployed, untidy</td></tr>
+          <tr class="border-b"><td class="p-2"><strong>dis-</strong></td><td class="p-2">verbs and adjectives</td><td class="p-2 italic">disagree, dishonest</td></tr>
+          <tr class="border-b"><td class="p-2"><strong>in-</strong></td><td class="p-2">many adjectives</td><td class="p-2 italic">invisible, informal</td></tr>
+          <tr class="border-b"><td class="p-2"><strong>il-</strong></td><td class="p-2">words starting with <em>l</em></td><td class="p-2 italic">illegal, illegible</td></tr>
+          <tr class="border-b"><td class="p-2"><strong>im-</strong></td><td class="p-2">words starting with <em>m</em> or <em>p</em></td><td class="p-2 italic">impatient, impossible</td></tr>
+          <tr><td class="p-2"><strong>ir-</strong></td><td class="p-2">words starting with <em>r</em></td><td class="p-2 italic">irregular, irresponsible</td></tr>
+        </tbody>
+      </table>
+    `,
+  },
+  {
+    heading: 'A3 — Other useful prefixes',
+    content: `
+      <ul>
+        <li><strong>mis-</strong> = wrongly / badly: <em>misunderstand, misread</em></li>
+        <li><strong>re-</strong> = again: <em>rewrite, rebuild, reorganise</em></li>
+        <li><strong>pre-</strong> = before: <em>prepare, preview, predate</em></li>
+        <li><strong>over-</strong> = too much: <em>oversleep, overcook</em></li>
+        <li><strong>inter-</strong> = between or among: <em>interact, international</em></li>
+        <li><strong>ex-</strong> = was but not now: <em>ex-wife, ex-president</em></li>
+        <li><strong>half-</strong> = 50%: <em>halfway, half-price</em></li>
+      </ul>
+    `,
+  },
+];
+
+const prefixesExercises: GrammarExercise[] = [
+  {
+    id: 'pf-1',
+    title: 'Exercise P1 — Choose the right prefix',
+    instruction: 'Choose the correct prefix to complete each sentence.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: "I'm sorry, I'm ___able to come to your party next week.", answer: 'un', options: ['un', 'dis'] },
+      { id: 2, prompt: 'I have to stay in to ___vise for my exam.', answer: 're', options: ['pre', 're'] },
+      { id: 3, prompt: "This is a secret, please don't ___peat it to anyone.", answer: 're', options: ['un', 're'] },
+      { id: 4, prompt: 'She ___agrees with everything I say.', answer: 'dis', options: ['un', 'dis'] },
+      { id: 5, prompt: 'You need to ___cook the pastry before baking the pie.', answer: 'pre', options: ['re', 'pre'] },
+    ],
+  },
+  {
+    id: 'pf-2',
+    title: 'Exercise P2 — Make the opposite',
+    instruction: 'Add a negative prefix (un-, dis-, in-, im-, il-, ir-, mis-) to make the opposite of each word.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'agree', answer: 'disagree' },
+      { id: 2, prompt: 'employed', answer: 'unemployed' },
+      { id: 3, prompt: 'visible', answer: 'invisible' },
+      { id: 4, prompt: 'lock', answer: 'unlock' },
+      { id: 5, prompt: 'legal', answer: 'illegal' },
+      { id: 6, prompt: 'regular', answer: 'irregular' },
+      { id: 7, prompt: 'formal', answer: 'informal' },
+      { id: 8, prompt: 'honest', answer: 'dishonest' },
+      { id: 9, prompt: 'dressed', answer: 'undressed' },
+      { id: 10, prompt: 'happy', answer: 'unhappy' },
+      { id: 11, prompt: 'understand', answer: 'misunderstand' },
+      { id: 12, prompt: 'like', answer: 'dislike' },
+    ],
+  },
+  {
+    id: 'pf-3',
+    title: 'Exercise P3 — Match prefix to meaning',
+    instruction: 'Match each prefix with its meaning.',
+    type: 'matching',
+    items: [
+      { id: 1, prompt: 'ex-', answer: 'was but not now' },
+      { id: 2, prompt: 'dis-', answer: 'not (with verbs)' },
+      { id: 3, prompt: 'half-', answer: '50% of something' },
+      { id: 4, prompt: 'in- / im- / il-', answer: 'not (with adjectives)' },
+      { id: 5, prompt: 'mis-', answer: 'incorrectly' },
+      { id: 6, prompt: 're-', answer: 'again' },
+      { id: 7, prompt: 'un-', answer: 'not (with adjectives or verbs)' },
+    ],
+  },
+  {
+    id: 'pf-4',
+    title: 'Exercise P4 — Complete the sentences',
+    instruction: 'Add the right prefix to a word from the box to complete each sentence.',
+    type: 'fill-blank',
+    wordBank: ['appear', 'comfortable', 'lock', 'organising', 'packed', 'possible', 'slept', 'understood', 'way', 'wife'],
+    items: [
+      { id: 1, prompt: 'It was ___ to sleep because of the noise.', answer: 'impossible' },
+      { id: 2, prompt: 'She lives ___ between Oxford and London.', answer: 'halfway' },
+      { id: 3, prompt: 'Plastic seats are very ___ in hot weather.', answer: 'uncomfortable' },
+      { id: 4, prompt: 'Many species of plants and animals ___ every year.', answer: 'disappear' },
+      { id: 5, prompt: 'My ___ and her new husband live abroad.', answer: 'ex-wife' },
+      { id: 6, prompt: 'She ___ the instructions and answered two questions instead of three.', answer: 'misunderstood' },
+      { id: 7, prompt: 'The department is in a terrible mess. It needs ___.', answer: 'reorganising' },
+      { id: 8, prompt: 'He finally managed to ___ the door and we were able to get inside.', answer: 'unlock' },
+      { id: 9, prompt: 'We ___ as soon as we got to the hotel and then we went to the beach.', answer: 'unpacked' },
+    ],
+  },
+  {
+    id: 'pf-5',
+    title: 'Exercise P5 — What does it mean?',
+    instruction: 'Choose the sentence that has the closest meaning.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: 'We need to <strong>reappoint</strong> for that job as soon as possible.', answer: 'We need to appoint someone again for that job as soon as possible.', options: ['We need to appoint someone again for that job as soon as possible.', 'We do not need to appoint anyone for that job.'] },
+      { id: 2, prompt: 'A good CV is a <strong>precondition</strong> of employment.', answer: 'A good CV is needed before anyone can be employed.', options: ['A good CV is a condition of being employed again.', 'A good CV is needed before anyone can be employed.'] },
+      { id: 3, prompt: "I'm worried that he will <strong>disappear</strong> before he has paid.", answer: 'I\'m worried that he will not be seen again before he has paid.', options: ['I\'m worried that he will appear again before he has paid.', 'I\'m worried that he will not be seen again before he has paid.'] },
+    ],
+  },
+];
+
+// ── Word Formation: Suffixes ───────────────────────────────────────────
+
+const suffixesTheory: GrammarTheorySection[] = [
+  {
+    heading: 'B1 — What is a suffix?',
+    content: `
+      <p>A <strong>suffix</strong> is a group of letters added to the <strong>end</strong> of a word. Suffixes often change the <strong>word class</strong> — they turn a verb into a noun, a noun into an adjective, an adjective into an adverb, and so on.</p>
+      <ul>
+        <li><em>improve (verb) → improve<strong>ment</strong> (noun)</em></li>
+        <li><em>happy (adjective) → happi<strong>ness</strong> (noun)</em></li>
+        <li><em>hope (noun) → hope<strong>ful</strong> (adjective)</em></li>
+        <li><em>quick (adjective) → quick<strong>ly</strong> (adverb)</em></li>
+      </ul>
+      <p>There are no strict rules — each word family must be learned individually.</p>
+    `,
+  },
+  {
+    heading: 'B2 — Verb → noun',
+    content: `
+      <table class="w-full text-sm border-collapse my-3">
+        <thead><tr class="border-b"><th class="text-left p-2">Suffix</th><th class="text-left p-2">Verb</th><th class="text-left p-2">Noun</th></tr></thead>
+        <tbody>
+          <tr class="border-b"><td class="p-2">-ment</td><td class="p-2">adjust, enjoy</td><td class="p-2">adjustment, enjoyment</td></tr>
+          <tr class="border-b"><td class="p-2">-tion / -ation / -sion / -ition</td><td class="p-2">combine, inform, divide, define</td><td class="p-2">combination, information, division, definition</td></tr>
+          <tr class="border-b"><td class="p-2">-er / -or</td><td class="p-2">publish, survive</td><td class="p-2">publisher, survivor</td></tr>
+          <tr class="border-b"><td class="p-2">-ance / -ence</td><td class="p-2">guide, exist</td><td class="p-2">guidance, existence</td></tr>
+          <tr class="border-b"><td class="p-2">-al</td><td class="p-2">approve, arrive</td><td class="p-2">approval, arrival</td></tr>
+          <tr><td class="p-2">-ee</td><td class="p-2">employ</td><td class="p-2">employee</td></tr>
+        </tbody>
+      </table>
+    `,
+  },
+  {
+    heading: 'B3 — Adjective → noun',
+    content: `
+      <ul>
+        <li><strong>-ness</strong>: friendly → friendliness, dark → darkness, sad → sadness</li>
+        <li><strong>-ity</strong>: popular → popularity, responsible → responsibility</li>
+        <li><strong>-ance / -ence</strong>: relevant → relevance, patient → patience</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B4 — Noun → adjective',
+    content: `
+      <table class="w-full text-sm border-collapse my-3">
+        <thead><tr class="border-b"><th class="text-left p-2">Suffix</th><th class="text-left p-2">Noun</th><th class="text-left p-2">Adjective</th></tr></thead>
+        <tbody>
+          <tr class="border-b"><td class="p-2">-y</td><td class="p-2">cloud, boss</td><td class="p-2">cloudy, bossy</td></tr>
+          <tr class="border-b"><td class="p-2">-ful</td><td class="p-2">help, hope</td><td class="p-2">helpful, hopeful</td></tr>
+          <tr class="border-b"><td class="p-2">-less</td><td class="p-2">care, end</td><td class="p-2">careless, endless</td></tr>
+          <tr class="border-b"><td class="p-2">-ous</td><td class="p-2">danger, fame</td><td class="p-2">dangerous, famous</td></tr>
+          <tr class="border-b"><td class="p-2">-al</td><td class="p-2">emotion, nature</td><td class="p-2">emotional, natural</td></tr>
+          <tr class="border-b"><td class="p-2">-ic</td><td class="p-2">optimist</td><td class="p-2">optimistic</td></tr>
+          <tr><td class="p-2">-ish</td><td class="p-2">child</td><td class="p-2">childish</td></tr>
+        </tbody>
+      </table>
+      <p><strong>-ful</strong> usually means <em>full of</em> (<em>helpful</em> = full of help). <strong>-less</strong> means <em>without</em> (<em>helpless</em> = without help). Many adjectives have both forms with opposite meanings: <em>careful / careless, hopeful / hopeless, useful / useless</em>.</p>
+    `,
+  },
+  {
+    heading: 'B5 — People (jobs and roles)',
+    content: `
+      <p>To name the person who does an activity, add:</p>
+      <ul>
+        <li><strong>-er</strong> to many verbs: sing → singer, drive → driver, train → trainer</li>
+        <li><strong>-or</strong> to some verbs: act → actor, direct → director</li>
+        <li><strong>-ist</strong> to nouns: art → artist, motor → motorist</li>
+        <li><strong>-ian</strong> to nouns: electricity → electrician, music → musician</li>
+        <li><strong>-ee</strong> to a verb (the person who <em>receives</em> the action): employ → employee, refer → referee</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B6 — Adjective → adverb',
+    content: `
+      <p>Adverbs are almost always formed by adding <strong>-ly</strong> to the adjective. If the adjective ends in <em>-ic</em>, add <strong>-ally</strong>:</p>
+      <ul>
+        <li><em>quick → quickly, slow → slowly, careful → carefully</em></li>
+        <li><em>simple → simply, automatic → automatically, organic → organically</em></li>
+      </ul>
+    `,
+  },
+];
+
+const suffixesExercises: GrammarExercise[] = [
+  {
+    id: 'sf-1',
+    title: 'Exercise S1 — Match nouns to meanings',
+    instruction: 'Match each word on the left with its meaning on the right.',
+    type: 'matching',
+    items: [
+      { id: 1, prompt: 'arrangement', answer: 'putting things into an order' },
+      { id: 2, prompt: 'darkness', answer: 'no light' },
+      { id: 3, prompt: 'endless', answer: 'that seems never to end' },
+      { id: 4, prompt: 'film director', answer: 'a person in charge of making a film' },
+      { id: 5, prompt: 'footballer', answer: 'a person who plays football' },
+      { id: 6, prompt: 'hopeful', answer: 'quite sure something good will happen' },
+      { id: 7, prompt: 'impressive', answer: 'so good that it impresses people' },
+      { id: 8, prompt: 'mathematics', answer: 'the study of numbers and shapes' },
+      { id: 9, prompt: 'organization', answer: 'a group of people who work together for the same purpose' },
+      { id: 10, prompt: 'artist', answer: 'a person who paints or draws' },
+    ],
+  },
+  {
+    id: 'sf-2',
+    title: 'Exercise S2 — Form the noun',
+    instruction: 'Add a suffix (-ment, -ness, -ity, -tion / -sion / -ation) to make a noun from the word in brackets.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: '(amuse) ___', answer: 'amusement' },
+      { id: 2, prompt: '(digest) ___', answer: 'digestion' },
+      { id: 3, prompt: '(discuss) ___', answer: 'discussion' },
+      { id: 4, prompt: '(enjoy) ___', answer: 'enjoyment' },
+      { id: 5, prompt: '(govern) ___', answer: 'government' },
+      { id: 6, prompt: '(happy) ___', answer: 'happiness' },
+      { id: 7, prompt: '(impress) ___', answer: 'impression' },
+      { id: 8, prompt: '(inform) ___', answer: 'information' },
+      { id: 9, prompt: '(invite) ___', answer: 'invitation' },
+      { id: 10, prompt: '(measure) ___', answer: 'measurement' },
+      { id: 11, prompt: '(popular) ___', answer: 'popularity' },
+      { id: 12, prompt: '(prepare) ___', answer: 'preparation' },
+      { id: 13, prompt: '(protect) ___', answer: 'protection' },
+      { id: 14, prompt: '(punish) ___', answer: 'punishment' },
+      { id: 15, prompt: '(responsible) ___', answer: 'responsibility' },
+      { id: 16, prompt: '(revise) ___', answer: 'revision' },
+      { id: 17, prompt: '(sad) ___', answer: 'sadness' },
+      { id: 18, prompt: '(state) ___', answer: 'statement' },
+      { id: 19, prompt: '(suggest) ___', answer: 'suggestion' },
+      { id: 20, prompt: '(televise) ___', answer: 'television' },
+    ],
+  },
+  {
+    id: 'sf-3',
+    title: 'Exercise S3 — Complete the sentences',
+    instruction: 'Use a noun from the box to complete each sentence.',
+    type: 'fill-blank',
+    wordBank: ['discussion', 'television', 'revision', 'protection', 'information', 'suggestion', 'preparation', 'invitation'],
+    items: [
+      { id: 1, prompt: 'We had a ___ about working hours in the meeting.', answer: 'discussion' },
+      { id: 2, prompt: 'I mostly watch ___ in the evening.', answer: 'television' },
+      { id: 3, prompt: 'He needs to do his ___ for the History exam tomorrow.', answer: 'revision' },
+      { id: 4, prompt: "This coat doesn't give you any ___ from the rain.", answer: 'protection' },
+      { id: 5, prompt: 'Could you give me some ___ about the train times?', answer: 'information' },
+      { id: 6, prompt: "Can I make a ___? Let's have pizza tonight.", answer: 'suggestion' },
+      { id: 7, prompt: 'Teachers usually have to do a lot of ___ before each lesson.', answer: 'preparation' },
+      { id: 8, prompt: "I'm sorry but I'm not free this weekend. I have an ___ to a party.", answer: 'invitation' },
+    ],
+  },
+  {
+    id: 'sf-4',
+    title: 'Exercise S4 — Person who…',
+    instruction: 'Write the noun for the person who does each activity.',
+    type: 'fill-blank',
+    items: [
+      { id: 1, prompt: 'sing', answer: 'singer' },
+      { id: 2, prompt: 'employ (the person who has a job)', answer: 'employee' },
+      { id: 3, prompt: 'farm', answer: 'farmer' },
+      { id: 4, prompt: 'dance', answer: 'dancer' },
+      { id: 5, prompt: 'direct (a film)', answer: 'director' },
+      { id: 6, prompt: 'art', answer: 'artist' },
+      { id: 7, prompt: 'act', answer: 'actor' },
+      { id: 8, prompt: 'manage', answer: 'manager' },
+      { id: 9, prompt: 'drive', answer: 'driver' },
+      { id: 10, prompt: 'train', answer: 'trainer' },
+    ],
+  },
+  {
+    id: 'sf-5',
+    title: 'Exercise S5 — -ful or -less?',
+    instruction: 'Choose the adjective that best describes each person or thing.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: 'He is a very bad driver. He is ___.', answer: 'careless', options: ['careful', 'careless'] },
+      { id: 2, prompt: "This bottle opener doesn't work at all! It's ___.", answer: 'useless', options: ['useful', 'useless'] },
+      { id: 3, prompt: "This injection didn't hurt me. It was ___.", answer: 'painless', options: ['painful', 'painless'] },
+      { id: 4, prompt: "It seems that housework never ends. It's ___.", answer: 'endless', options: ['endless', 'helpful'] },
+      { id: 5, prompt: 'There is no cure. The situation is ___.', answer: 'hopeless', options: ['hopeful', 'hopeless'] },
+    ],
+  },
+  {
+    id: 'sf-6',
+    title: 'Exercise S6 — Choose the right suffix',
+    instruction: 'Pick the correct suffix to complete each sentence.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: "I am look___ for information on Paris in the library.", answer: 'looking', options: ['looking', 'looked'] },
+      { id: 2, prompt: 'Sarah was by far the young___ person in the room.', answer: 'youngest', options: ['younger', 'youngest'] },
+      { id: 3, prompt: 'It was really thought___ of you to bring that cake.', answer: 'thoughtful', options: ['thoughtful', 'thoughtless'] },
+      { id: 4, prompt: 'My son had been so care___ in burning the cake he made.', answer: 'careless', options: ['careful', 'careless'] },
+      { id: 5, prompt: 'After I look___ at the paper, I put it in the recycling.', answer: 'looked', options: ['looking', 'looked'] },
+    ],
+  },
+];
+
+// ── Word Formation Quiz ────────────────────────────────────────────────
+
+const wordFormationQuizExercises: GrammarExercise[] = [
+  {
+    id: 'wfq-1',
+    title: 'Word Formation Review Quiz',
+    instruction: 'Choose the correct form of the word to complete each sentence. Mixes prefixes and suffixes from this section.',
+    type: 'multiple-choice',
+    items: [
+      { id: 1, prompt: 'Be careful — the lift is broken so we have to use the stairs. It is very ___.', answer: 'inconvenient', options: ['inconvenient', 'unconvenient', 'disconvenient'] },
+      { id: 2, prompt: 'I always check my work because making the same mistake twice would be ___.', answer: 'irresponsible', options: ['unresponsible', 'disresponsible', 'irresponsible'] },
+      { id: 3, prompt: "She didn't hear the alarm and ___ this morning.", answer: 'overslept', options: ['overslept', 'misslept', 'preslept'] },
+      { id: 4, prompt: 'Could you ___ that, please? The connection was bad.', answer: 'repeat', options: ['prepeat', 'repeat', 'unrepeat'] },
+      { id: 5, prompt: 'The teacher gave us some useful ___ for the exam.', answer: 'information', options: ['informness', 'information', 'informment'] },
+      { id: 6, prompt: 'Her ___ to learn new languages is amazing.', answer: 'ability', options: ['ableness', 'ability', 'ablement'] },
+      { id: 7, prompt: 'The film was so ___ that I fell asleep.', answer: 'boring', options: ['boring', 'bored', 'boreful'] },
+      { id: 8, prompt: 'A ___ is the person who teaches you to play sport.', answer: 'trainer', options: ['trainor', 'trainist', 'trainer'] },
+      { id: 9, prompt: 'Please drive ___ — the road is wet.', answer: 'carefully', options: ['careful', 'carefully', 'carelessly'] },
+      { id: 10, prompt: 'I had to ___ the report because it had too many mistakes.', answer: 'rewrite', options: ['miswrite', 'prewrite', 'rewrite'] },
+      { id: 11, prompt: 'My grandmother is famous for her ___ cooking.', answer: 'delicious', options: ['deliciousness', 'delicious', 'deliciously'] },
+      { id: 12, prompt: 'Without a map we felt completely ___.', answer: 'helpless', options: ['helpful', 'helpless', 'unhelp'] },
+    ],
+  },
+];
+
 export const b1GrammarSections: B1GrammarSection[] = [
   {
     id: 'describing',
