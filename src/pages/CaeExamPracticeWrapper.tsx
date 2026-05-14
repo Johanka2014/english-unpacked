@@ -356,7 +356,7 @@ const CaeExamPracticeWrapper = () => {
     return (
       <div className="min-h-screen bg-background flex flex-col">
         <SEO 
-          title="CAE Exam Practice - Interactive Cambridge Advanced English Exercises"
+          title="CAE Exam Practice - Cambridge Advanced Exercises"
           description="Practice CAE exam vocabulary, phrasal verbs, and word formation with interactive exercises. Master legal terms, crime vocabulary, and advanced English grammar for Cambridge C1 Advanced."
           canonical="https://english-unpacked.lovable.app/exam-practice"
         />
