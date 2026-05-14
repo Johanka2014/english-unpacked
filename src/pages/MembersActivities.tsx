@@ -35,13 +35,6 @@ const cambridgeActivities = [
 
 const grammarActivities = [
   {
-    title: 'TenseMaster Grammar Course',
-    description: 'Master English tenses with interactive quizzes covering Present, Past, and Perfect forms',
-    icon: Clock,
-    path: '/tense-master',
-    color: 'text-indigo-600',
-  },
-  {
     title: 'Verb Pattern Practice',
     description: 'Master verb patterns: -ing forms, infinitives, preferences and more (Units 53-68)',
     icon: PenLine,
