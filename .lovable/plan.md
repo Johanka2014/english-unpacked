@@ -1,44 +1,72 @@
 ## Goal
 
-Fold the standalone **Tense Master Grammar Course** into the **B1 Grammar → Tenses** section so each tense module contains the matching theory + interactive quizzes, and remove the duplicate "Tense Master" entry from the Practice → Grammar tab.
+Add a new **Word Formation** section to **Practice → Grammar → B1 Grammar** containing prefixes and suffixes, using the same tile/section/module pattern as the existing 8 sections (e.g. Tenses, Conditionals).
 
-## Mapping
+## New section
 
-| B1 Grammar module | Tense Master content to embed |
-|---|---|
-| Present Tenses | Present Simple, Present Continuous, Present Simple vs Continuous |
-| Past Tenses | Past Simple, Past Continuous |
-| Present Perfect & Past Simple | Present Perfect (Simple + Continuous), Irregular Past Participles |
-| Past Perfect | Past Perfect Simple, Past Perfect Continuous |
-| Future Tenses | Existing B1 content kept as-is, Tense Master future quizzes appended below (Will, Going to, Future Continuous, Present for Future, Future Perfect Simple, Future Perfect Continuous) |
+`b1GrammarSections` gets a 9th entry:
 
-## Refactor — extract Tense Master into reusable parts
+- **id:** `word-formation`
+- **title:** Word Formation
+- **description:** Prefixes and suffixes
+- **icon:** `Type` (lucide)
+- **image:** new generated asset `b1-word-formation.jpg` (same style as other section thumbnails)
+- **modules:**
+  - **31. Prefixes** — `id: prefixes`, subtitle "negative prefixes; un-, dis-, in-/im-/il-/ir-, mis-, re-, pre-, ex-, half-"
+  - **32. Suffixes** — `id: suffixes`, subtitle "noun, adjective, adverb and verb suffixes; -er/-or, -ment, -tion, -ness, -ity, -ful/-less, -ly"
+  - **33. Word Formation Quiz** — `id: word-formation-quiz`, subtitle "mixed prefix + suffix review quiz"
 
-`src/pages/TenseMasterWrapper.tsx` is 1,428 lines mixing data + UI. Split it:
+Each module reuses the existing `theory` + `exercises` + `examPractice` shape rendered by `B1GrammarTopic.tsx` — no UI plumbing changes needed beyond data.
 
-1. **`src/data/tenseMasterData.ts`** — move all `QuizCategory[]` arrays and the `tensesData` (theory units) out of the wrapper. Export each tense block by key (e.g. `presentSimple`, `presentContinuous`, `presentSimpleVsContinuous`, `pastSimple`, …, `futurePerfectContinuous`).
-2. **`src/components/tense-master/TenseTheoryCard.tsx`** — renders one `TenseUnit` (formula, detailed uses, examples) using existing styles.
-3. **`src/components/tense-master/TenseQuizSection.tsx`** — renders a `QuizCategory[]` with the same question/feedback/scoring UX currently in the wrapper. Self-contained state so multiple instances can live on one page.
-4. **`src/components/tense-master/TenseMasterModule.tsx`** — composition helper that takes a list of `{ theory: TenseUnit; quizzes: QuizCategory[] }` and renders theory + quizzes for one B1 module.
+## Module 31 — Prefixes
 
-`TenseMasterWrapper.tsx` is rewritten to consume these new pieces so the standalone page keeps working visually and behaviourally identical (we just shrink it).
+**Theory sections** (same `GrammarTheorySection` HTML format used by other modules):
 
-## Wire into B1 Grammar
+1. **What is a prefix?** — definition, hyphen vs no hyphen note, distinction between negative meaning (`like → dislike`) and reversal (`lock → unlock`).
+2. **Negative prefixes** — table of `un-`, `dis-`, `in-`, `im-`, `il-`, `ir-` with the spelling rules (`il-` before l, `im-` before m/p, `ir-` before r) and examples.
+3. **Other useful prefixes** — `mis-` (wrongly), `re-` (again), `pre-` (before), `over-` (too much), `inter-` (between), `ex-` (former), `half-` (50%).
 
-`src/data/b1GrammarData.ts` — extend the `B1GrammarModule` type with an optional `tenseMaster?: TenseMasterModuleConfig` field referencing the data keys, and populate it on the 5 Tenses modules per the table above.
+**Exercises** (built from the PDFs, using existing exercise types):
 
-`src/pages/B1GrammarTopic.tsx` — when `module.tenseMaster` is present, render `<TenseMasterModule …/>` after the existing theory/exercises sections so Future Tenses keeps its current content and gains the extra quizzes underneath.
+- **P1 — Choose the right prefix** (`multiple-choice`): 5 items adapted from the Skillswise Using prefixes worksheet (un/dis/re/pre choices in sentences like "I'm ___able to come", "___vise for my exam", etc.).
+- **P2 — Make the opposite** (`fill-blank`): 12 items from PET prefixes ex. b — agree → disagree, lock → unlock, employed → unemployed, legal → illegal, regular → irregular, formal → informal, honest → dishonest, understand → misunderstand, visible → invisible, dressed → undressed, happy → unhappy, like → dislike/unlike.
+- **P3 — Match prefix to meaning** (`matching`): ex- = was but not now; dis- = not (verbs); half- = 50%; in-/im-/il- = not (adjectives); mis- = incorrectly; re- = again; un- = not (adjectives or verbs).
+- **P4 — Complete the sentences** (`fill-blank`, with word bank): 9 items from PET prefixes ex. e — impossible, halfway, uncomfortable, disappear, ex-wife, misunderstood, reorganising, unlock, unpacked.
+- **P5 — Sentence meaning** (`multiple-choice`): 3 items from Skillswise — reappoint, precondition, disappear.
 
-## Remove the duplicate
+## Module 32 — Suffixes
 
-- `src/pages/MembersActivities.tsx` — delete the **TenseMaster Grammar Course** entry from `grammarActivities`.
-- Keep the `/tense-master` route and `TenseMasterWrapper` page mounted in `src/App.tsx` so the existing "Further Practice" link inside `GrammarWorkshopExercise.tsx` (Business Benchmark) and any external bookmarks keep working — it just no longer appears as a separate Grammar card.
+**Theory sections:**
+
+1. **What is a suffix?** — suffixes change word class; brief overview.
+2. **Verb → noun suffixes** — table: `-ment` (adjust→adjustment), `-tion/-ation/-sion/-ition` (combine→combination), `-er/-or` (publish→publisher, survive→survivor), `-ance/-ence`, `-ant`, `-al`, `-ee`.
+3. **Adjective → noun** — `-ness` (friendly→friendliness), `-ity` (popular→popularity), `-ance/-ence`.
+4. **Noun → adjective** — `-y`, `-ful`, `-less`, `-ous`, `-al`, `-ic`, `-ish`.
+5. **People nouns** — `-er` (sing→singer), `-or` (act→actor), `-ist` (art→artist), `-ian` (electricity→electrician), `-ee` (employ→employee).
+6. **Adjective → adverb** — `-ly`, and `-ally` after `-ic`.
+7. **-ful vs -less** — note that `-ful` = "full of" and `-less` = "without".
+
+**Exercises:**
+
+- **S1 — Match nouns to meanings** (`matching`): 10 items from PET suffixes ex. a (arrangement, darkness, endless, film director, footballer, hopeful, impressive, mathematics, organization, artist).
+- **S2 — Form the noun** (`fill-blank`, with verb/adjective prompts): the 20 items from PET suffixes ex. b (amusement, digestion, discussion, enjoyment, government, happiness, impression, information, invitation, measurement, popularity, preparation, protection, punishment, responsibility, revision, sadness, statement, suggestion, television).
+- **S3 — Complete the sentences** (`fill-blank`, with word bank): 8 items from PET suffixes ex. c.
+- **S4 — Person who…** (`fill-blank`): 10 items from PET suffixes ex. d (singer, employer, farmer, dancer, director, artist, actor, manager, driver, trainer).
+- **S5 — Choose -ful or -less** (`multiple-choice`): 5 items from PET suffixes ex. e (careless / hopeless / useless / painless / endless).
+- **S6 — Skillswise suffix choice** (`multiple-choice`): 4 sentences from Skillswise Using suffixes worksheet (look-ing, young-est, thought-ful/care-less, look-ing/look-ed/recycl-ing).
+
+## Module 33 — Word Formation Quiz
+
+`examPractice`-style assessment using the existing Reading-Part-style framing isn't needed; instead we add an `exercises` array containing one final mixed quiz:
+
+- **WF1 — Mixed Prefix & Suffix Quiz** (`multiple-choice`, ~12 items) drawn from across both modules so students get a single end-of-section assessment with score feedback (the existing `ExercisesView` already shows correct/incorrect feedback per item).
 
 ## Files touched
 
-- New: `src/data/tenseMasterData.ts`, `src/components/tense-master/TenseTheoryCard.tsx`, `src/components/tense-master/TenseQuizSection.tsx`, `src/components/tense-master/TenseMasterModule.tsx`
-- Edited: `src/pages/TenseMasterWrapper.tsx` (slim down), `src/data/b1GrammarData.ts` (add tenseMaster config to 5 modules), `src/pages/B1GrammarTopic.tsx` (render Tense Master block), `src/pages/MembersActivities.tsx` (remove duplicate card)
+- **New asset:** `src/assets/b1-word-formation.jpg` (generated thumbnail in the same style as other B1 section images).
+- **Edit:** `src/data/b1GrammarData.ts` — import `Type` icon + new image, add `prefixesTheory`, `prefixesExercises`, `suffixesTheory`, `suffixesExercises`, `wordFormationQuizExercises`, append the new section to `b1GrammarSections`.
+- **No changes** to `B1Grammar.tsx`, `B1GrammarSection.tsx`, `B1GrammarTopic.tsx`, routes, or types — they already iterate `b1GrammarSections` and render `theory` / `exercises` generically.
 
 ## Out of scope
 
-No changes to backend, auth, routing structure, or visual design tokens. The standalone `/tense-master` route stays available for the existing in-app link from Business Benchmark.
+No changes to backend, auth, the Tense Master integration, or the standalone `/tense-master` route. No new exercise component types — everything reuses `multiple-choice`, `matching`, and `fill-blank` which already render correctly.
