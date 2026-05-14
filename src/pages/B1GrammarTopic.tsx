@@ -892,7 +892,7 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
 
 const B1GrammarTopic = () => {
   const { sectionId, moduleId } = useParams<{ sectionId: string; moduleId: string }>();
-  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | null>(null);
+  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | null>(null);
 
   const section = b1GrammarSections.find((s) => s.id === sectionId);
   if (!section) return <Navigate to="/b1-grammar" replace />;
@@ -900,13 +900,14 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
     { key: 'exercises' as const, label: 'Exercises', icon: PenLine, available: !!mod.exercises, color: 'from-emerald-600 to-emerald-800' },
     { key: 'exam' as const, label: 'Exam Practice', icon: ClipboardCheck, available: !!mod.examPractice, color: 'from-purple-600 to-purple-800' },
-  ];
+    { key: 'practice' as const, label: 'Tense Master Practice', icon: Sparkles, available: !!mod.tenseMaster, color: 'from-amber-600 to-orange-700' },
+  ].filter((t) => t.available || t.key !== 'practice');
 
   return (
     <div className="min-h-screen bg-background">
