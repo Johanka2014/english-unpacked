@@ -30,11 +30,24 @@ export interface EmailSegment {
   correction?: string;
 }
 
+export interface SuffixCategorizeWord {
+  verb: string;
+  category: string; // category id, e.g. '-ation'
+  noun: string;
+}
+
+export interface SuffixCategorizeFollowUp {
+  id: number;
+  before: string;
+  after: string;
+  answer: string; // a noun present in the words list
+}
+
 export interface GrammarExercise {
   id: string;
   title: string;
   instruction: string;
-  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction' | 'context-fill';
+  type: 'matching' | 'fill-blank' | 'rewrite' | 'multiple-choice' | 'noun-compound' | 'error-correction' | 'context-fill' | 'suffix-categorize';
   items: {
     id: number;
     prompt: string;
@@ -47,6 +60,11 @@ export interface GrammarExercise {
   compoundGroups?: CompoundGroups;
   emailSegments?: EmailSegment[];
   contextText?: string;
+  // For suffix-categorize type:
+  categories?: { id: string; label: string }[];
+  words?: SuffixCategorizeWord[];
+  example?: SuffixCategorizeWord;
+  followUpSentences?: SuffixCategorizeFollowUp[];
 }
 
 export interface ExamReadingPart1Question {
