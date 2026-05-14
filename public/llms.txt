@@ -1,0 +1,22 @@
+# English Unpacked
+
+> Personalized one-to-one online English lessons with a TEFL-qualified teacher. Business English, conversational practice, and Cambridge exam preparation (FCE, CAE, CPE, IELTS).
+
+English Unpacked is run by Joanna, an experienced TEFL teacher offering tailored online English lessons for adults and young learners. Lessons cover business communication, exam preparation, conversational fluency, and English for kids.
+
+## Pages
+
+- [Home](/): Overview of services and how lessons work.
+- [Business English](/business-english): Professional communication training for the corporate world.
+- [Business Travel English](/business-travel): English for travel, emergencies, and disruptions.
+- [Conversational English](/conversational-english): Fluency and confidence for everyday speaking.
+- [Everyday Conversations](/everyday-conversations): Real-life scenarios and practice dialogues.
+- [Exam Preparation](/exam-preparation): Cambridge FCE, CAE, CPE, and IELTS preparation.
+- [English for Kids](/english-for-kids): Cambridge Starters, Movers and Flyers for young learners.
+- [Maturita Speaking](/maturita-speaking): All 28 Czech maturita speaking topics.
+- [Booking](/booking): Schedule a free consultation.
+
+## Optional
+
+- [Maturita topic — Environment](/maturita-speaking/environment)
+- [Maturita topic — Modern English Literature](/maturita-speaking/english-lit-modern)

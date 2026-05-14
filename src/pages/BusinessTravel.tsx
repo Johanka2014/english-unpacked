@@ -174,7 +174,7 @@ const BusinessTravel = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Business Travel English - Handle Emergencies & Travel Disruptions"
+        title="Business Travel English - Emergencies & Disruptions"
         description="Master English for business travel challenges: flight delays, lost luggage, car rental issues, hotel problems. Learn essential phrases and complaint writing. Practical scenarios."
         canonical="https://english-unpacked.lovable.app/business-travel"
         schema={schema}

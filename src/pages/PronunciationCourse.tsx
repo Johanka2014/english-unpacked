@@ -23,7 +23,7 @@ const PronunciationCourse = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Pronunciation Practice Course | English Unpacked"
+        title="Pronunciation Practice Course"
         description="Master English pronunciation across 8 sections — sounds, connected speech, word stress, intonation and more — with interactive activities and quizzes."
       />
       <Navigation />

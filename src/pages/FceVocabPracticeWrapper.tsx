@@ -441,7 +441,7 @@ const FceVocabPracticeWrapper = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO 
-        title="FCE Vocabulary Practice - Interactive First Certificate Exercises"
+        title="FCE Vocabulary Practice - Interactive Exercises"
         description="Master FCE vocabulary with interactive exercises: multiple choice, word sorting, confusing words, and sentence completion. Practice for Cambridge B2 First exam success."
         canonical="https://english-unpacked.lovable.app/fce-vocab-practice"
       />

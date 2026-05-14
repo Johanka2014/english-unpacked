@@ -9,35 +9,40 @@ interface SEOProps {
   schema?: object;
 }
 
-const SEO = ({ 
-  title, 
-  description, 
-  canonical = "https://english-unpacked.lovable.app",
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+const SITE_URL = "https://english-unpacked.lovable.app";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+const SEO = ({
+  title,
+  description,
+  canonical,
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  schema
+  schema,
 }: SEOProps) => {
-  const fullTitle = `${title} | English Unpacked`;
-  
+  // Self-reference canonical/og:url to the current path when not explicitly provided
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+  const resolvedCanonical = canonical ?? `${SITE_URL}${path}`;
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="title" content={fullTitle} />
+      <title>{title}</title>
+      <meta name="title" content={title} />
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={resolvedCanonical} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:title" content={fullTitle} />
+      <meta property="og:url" content={resolvedCanonical} />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={canonical} />
-      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:url" content={resolvedCanonical} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
