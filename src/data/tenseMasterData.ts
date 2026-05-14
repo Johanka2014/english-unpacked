@@ -1,0 +1,956 @@
+// Tense Master data — types, quiz arrays, theory content.
+// Used by both the standalone /tense-master page and the embedded B1 Grammar
+// "Tenses" modules.
+
+export interface Question {
+  q: string;
+  options: string[];
+  correct: number;
+  feedback: string;
+}
+
+export interface QuizCategory {
+  id: string;
+  title: string;
+  desc: string;
+  questions: Question[];
+}
+
+export interface TenseUnit {
+  title: string;
+  subtitle: string;
+  formula: string;
+  explanation: string;
+  practiceLink: string;
+  detailedUses: { title: string; desc: string }[];
+  examples: string[];
+  icon: string;
+}
+
+export interface TenseData {
+  title: string;
+  intro: string;
+  units: TenseUnit[];
+}
+
+export type TenseMasterType = 'present' | 'past' | 'perfect' | 'pastPerfect' | 'future' | 'futurePerfect';
+
+export const presentSimplePractice: QuizCategory[] = [
+  {
+    id: 'habits',
+    title: "Habits & Repeated Actions",
+    desc: "Daily routines, hobbies, and things you do often.",
+    questions: [
+      { q: "I usually ______ (go) away at weekends.", options: ["go", "goes", "going"], correct: 0, feedback: "Correct! 'Usually' indicates a habit." },
+      { q: "On weekdays, I ______ (catch) the bus.", options: ["catches", "catch", "catching"], correct: 1, feedback: "Correct! 'I' takes the base form." },
+      { q: "He ______ (play) tennis every Friday.", options: ["play", "playing", "plays"], correct: 2, feedback: "Correct! Third person singular (He) adds 's'." },
+      { q: "They often ______ (visit) their grandparents.", options: ["visit", "visits", "visiting"], correct: 0, feedback: "Correct! 'Often' signals a repeated action." },
+      { q: "She never ______ (forget) her purse.", options: ["forget", "forgets", "forgot"], correct: 1, feedback: "Correct! 'Never' is an adverb of frequency used with habits." },
+      { q: "We ______ (watch) TV in the evening.", options: ["watch", "watches", "watching"], correct: 0, feedback: "Correct! 'We' takes the base form." },
+      { q: "My brother ______ (live) in London.", options: ["live", "lives", "living"], correct: 1, feedback: "Correct! A permanent situation/habit." },
+      { q: "Tom ______ (have) a shower every morning.", options: ["haves", "has", "have"], correct: 1, feedback: "Correct! 'Has' is the 3rd person form of 'have'." },
+      { q: "I ______ (work) in a bank.", options: ["works", "working", "work"], correct: 2, feedback: "Correct! A general habit/fact about your life." },
+      { q: "Sarah ______ (drive) to work every day.", options: ["drive", "drives", "is driving"], correct: 1, feedback: "Correct! 'Every day' implies a habit." }
+    ]
+  },
+  {
+    id: 'facts',
+    title: "Facts & General Truths",
+    desc: "Things that are always true or true in general.",
+    questions: [
+      { q: "The earth ______ (go) round the sun.", options: ["goes", "go", "going"], correct: 0, feedback: "Correct! Scientific fact." },
+      { q: "Nurses ______ (look) after patients in hospitals.", options: ["looks", "look", "looking"], correct: 1, feedback: "Correct! General truth about nurses." },
+      { q: "Cats ______ (like) milk.", options: ["like", "likes", "liking"], correct: 0, feedback: "Correct! General truth about cats." },
+      { q: "Water ______ (boil) at 100 degrees Celsius.", options: ["boils", "boil", "boiled"], correct: 0, feedback: "Correct! Physical fact." },
+      { q: "It ______ (rain) a lot in winter here.", options: ["rain", "rains", "raining"], correct: 1, feedback: "Correct! General weather fact." },
+      { q: "Birds ______ (not / like) milk.", options: ["not like", "doesn't like", "do not like"], correct: 2, feedback: "Correct! Negative fact." },
+      { q: "Canada ______ (share) a border with the USA.", options: ["shares", "share", "sharing"], correct: 0, feedback: "Correct! Geographic fact." },
+      { q: "Windows ______ (be) made of glass.", options: ["is", "are", "be"], correct: 1, feedback: "Correct! General truth." },
+      { q: "The sun ______ (rise) in the East.", options: ["rise", "rises", "rising"], correct: 1, feedback: "Correct! Universal truth." },
+      { q: "Vegetarians ______ (not / eat) meat.", options: ["don't eat", "doesn't eat", "not eat"], correct: 0, feedback: "Correct! General definition." }
+    ]
+  },
+  {
+    id: 'schedules',
+    title: "Schedules & Timetables",
+    desc: "Future events based on a timetable.",
+    questions: [
+      { q: "My university term ______ (start) in Autumn.", options: ["start", "starts", "starting"], correct: 1, feedback: "Correct! A fixed schedule." },
+      { q: "The train ______ (leave) at 11:30.", options: ["leave", "leaves", "leaving"], correct: 1, feedback: "Correct! Train timetable." },
+      { q: "What time ______ (do) the film begin?", options: ["do", "does", "is"], correct: 1, feedback: "Correct! Question about a schedule." },
+      { q: "The plane ______ (arrive) tonight at 9 PM.", options: ["arrive", "arrives", "arriving"], correct: 1, feedback: "Correct! Flight schedule." },
+      { q: "The concert ______ (finish) at 10:30.", options: ["finishes", "finish", "finished"], correct: 0, feedback: "Correct! Fixed event time." },
+      { q: "School ______ (begin) next week.", options: ["begins", "begin", "beginning"], correct: 0, feedback: "Correct! School calendar." },
+      { q: "The exhibition ______ (open) on the 18th.", options: ["open", "opens", "opening"], correct: 1, feedback: "Correct! Scheduled opening." },
+      { q: "When ______ (do) the bus arrive?", options: ["do", "does", "is"], correct: 1, feedback: "Correct! Bus timetable." },
+      { q: "Our flight ______ (take) off at 7 AM tomorrow.", options: ["takes", "take", "taking"], correct: 0, feedback: "Correct! Flight schedule." },
+      { q: "The football match ______ (start) at 3 PM.", options: ["start", "starts", "starting"], correct: 1, feedback: "Correct! Sports schedule." }
+    ]
+  },
+  {
+    id: 'states',
+    title: "Non-Continuous (State) Verbs",
+    desc: "Verbs about thoughts, feelings, and possession.",
+    questions: [
+      { q: "I ______ (understand) the problem now.", options: ["understand", "am understanding", "understands"], correct: 0, feedback: "Correct! 'Understand' is a state verb." },
+      { q: "She ______ (want) a new car.", options: ["wants", "is wanting", "want"], correct: 0, feedback: "Correct! 'Want' describes a state/desire." },
+      { q: "Do you ______ (know) the answer?", options: ["know", "knowing", "knows"], correct: 0, feedback: "Correct! 'Know' is a mental state." },
+      { q: "This soup ______ (taste) delicious.", options: ["tastes", "is tasting", "taste"], correct: 0, feedback: "Correct! Describes the state of the soup." },
+      { q: "I ______ (think) he is right.", options: ["think", "am thinking", "thinks"], correct: 0, feedback: "Correct! Opinion = Simple Tense." },
+      { q: "He ______ (need) help with his homework.", options: ["needs", "is needing", "need"], correct: 0, feedback: "Correct! 'Need' is a state verb." },
+      { q: "I ______ (remember) his face.", options: ["remember", "am remembering", "remembers"], correct: 0, feedback: "Correct! Mental process." },
+      { q: "They ______ (own) a farm.", options: ["own", "are owning", "owns"], correct: 0, feedback: "Correct! Possession." },
+      { q: "I ______ (like) this song.", options: ["like", "am liking", "likes"], correct: 0, feedback: "Correct! Preference." },
+      { q: "It ______ (seem) expensive.", options: ["seems", "is seeming", "seem"], correct: 0, feedback: "Correct! Appearance/State." }
+    ]
+  }
+];
+
+export const presentSimpleVsContinuousPractice: QuizCategory[] = [
+  {
+    id: 'choosing',
+    title: "Choosing the Right Tense",
+    desc: "Decide if the sentence needs Present Simple or Present Continuous.",
+    questions: [
+      { q: "Look! It ______ (rain).", options: ["rains", "is raining", "rain"], correct: 1, feedback: "Correct! 'Look!' signals something happening right now → Present Continuous." },
+      { q: "Be quiet! The film ______ (start).", options: ["starts", "is starting", "start"], correct: 1, feedback: "Correct! Something happening at this moment → Present Continuous." },
+      { q: "He ______ (sell) second-hand cars for a living.", options: ["is selling", "sells", "sell"], correct: 1, feedback: "Correct! A regular job/permanent situation → Present Simple." },
+      { q: "The sun ______ (rise) in the east.", options: ["is rising", "rises", "rise"], correct: 1, feedback: "Correct! A general fact → Present Simple." },
+      { q: "I'm not happy at work. I ______ (look) for a new job.", options: ["look", "am looking", "looks"], correct: 1, feedback: "Correct! A temporary situation in progress around now → Present Continuous." },
+      { q: "They ______ (live) in London.", options: ["are living", "live", "lives"], correct: 1, feedback: "Correct! A permanent situation → Present Simple." },
+      { q: "We ______ (meet) at 8.30 this evening.", options: ["meet", "are meeting", "meets"], correct: 1, feedback: "Correct! A future arrangement → Present Continuous." },
+      { q: "He ______ (study) maths at college.", options: ["studies", "is studying", "study"], correct: 1, feedback: "Correct! A present situation (course in progress) → Present Continuous." },
+      { q: "They often ______ (come) late.", options: ["are coming", "come", "comes"], correct: 1, feedback: "Correct! 'Often' signals a repeated action → Present Simple." },
+      { q: "You ______ (not listen) to me. You ______ (read) the paper.", options: ["don't listen / read", "aren't listening / 're reading", "not listen / are reading"], correct: 1, feedback: "Correct! Actions happening right now → Present Continuous." }
+    ]
+  },
+  {
+    id: 'police_call',
+    title: "The Phone Call to the Police",
+    desc: "Fill in the gaps with Present Simple or Present Continuous based on context.",
+    questions: [
+      { q: "I ______ (ring) to complain about the noise.", options: ["ring", "am ringing", "rings"], correct: 1, feedback: "Correct! The action is happening right now → Present Continuous." },
+      { q: "The noise ______ (come) from the flat above me.", options: ["comes", "is coming", "come"], correct: 1, feedback: "Correct! Happening at the time of speaking → Present Continuous." },
+      { q: "They ______ (have) a party.", options: ["have", "are having", "has"], correct: 1, feedback: "Correct! An activity happening now → Present Continuous." },
+      { q: "They ______ (play) music very loudly.", options: ["play", "are playing", "plays"], correct: 1, feedback: "Correct! Happening right now → Present Continuous." },
+      { q: "The man who ______ (live) there has a party every weekend.", options: ["is living", "lives", "live"], correct: 1, feedback: "Correct! A permanent situation → Present Simple." },
+      { q: "He ______ (have) a party every weekend.", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! 'Every weekend' signals a repeated action → Present Simple." },
+      { q: "Every weekend I ______ (ask) him to turn the music down.", options: ["am asking", "ask", "asks"], correct: 1, feedback: "Correct! A repeated action → Present Simple." },
+      { q: "He ______ (not take) any notice.", options: ["isn't taking", "doesn't take", "don't take"], correct: 1, feedback: "Correct! A habitual response → Present Simple." },
+      { q: "They ______ (not leave) until 2 or 3 in the morning.", options: ["aren't leaving", "don't leave", "doesn't leave"], correct: 1, feedback: "Correct! What usually happens → Present Simple." },
+      { q: "Tonight the noise is awful and it ______ (keep) me awake.", options: ["keeps", "is keeping", "keep"], correct: 1, feedback: "Correct! Happening right now, tonight → Present Continuous." }
+    ]
+  },
+  {
+    id: 'state_action',
+    title: "State vs Action Verbs",
+    desc: "Some verbs (think, have, be, see, smell, taste) change meaning between state and action.",
+    questions: [
+      { q: "She ______ she's beautiful. (= opinion)", options: ["is thinking", "thinks", "think"], correct: 1, feedback: "Correct! 'Think' as opinion = state verb → Present Simple." },
+      { q: "What ______ you ______ about? (= mental activity)", options: ["do / think", "are / thinking", "does / think"], correct: 1, feedback: "Correct! 'Think about' = mental process/action → Present Continuous." },
+      { q: "This car ______ a sun-roof. (= possession)", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! 'Have' = possession → Present Simple." },
+      { q: "She ______ a shower. (= activity)", options: ["has", "is having", "have"], correct: 1, feedback: "Correct! 'Have a shower' = action → Present Continuous." },
+      { q: "This egg ______ bad. (= state)", options: ["is being", "is", "are"], correct: 1, feedback: "Correct! 'Be' describing a state → Present Simple." },
+      { q: "You ______ very silly. (= behaviour)", options: ["are", "are being", "is being"], correct: 1, feedback: "Correct! 'Be' describing temporary behaviour → Present Continuous." },
+      { q: "I ______ what you mean. (= understanding)", options: ["am seeing", "see", "sees"], correct: 1, feedback: "Correct! 'See' = understand → state verb → Present Simple." },
+      { q: "I ______ the doctor at 10. (= appointment)", options: ["see", "am seeing", "sees"], correct: 1, feedback: "Correct! 'See' = meeting/appointment → action → Present Continuous." },
+      { q: "This soup ______ wonderful. (= perception)", options: ["is tasting", "tastes", "taste"], correct: 1, feedback: "Correct! 'Taste' as perception = state → Present Simple." },
+      { q: "She ______ the sauce to check if it needs salt. (= action)", options: ["tastes", "is tasting", "taste"], correct: 1, feedback: "Correct! 'Taste' as deliberate action → Present Continuous." }
+    ]
+  },
+  {
+    id: 'error_correction',
+    title: "Spot the Error",
+    desc: "Choose the correct version of each sentence.",
+    questions: [
+      { q: "Which is correct? The girl works in the accounts department.", options: ["The girl is working in the accounts department.", "The girl works in the accounts department. ✓", "The girl work in the accounts department."], correct: 1, feedback: "Correct! Her permanent job → Present Simple." },
+      { q: "Which is correct? She's going out with that boy.", options: ["She goes out with that boy.", "She's going out with that boy. ✓", "She go out with that boy."], correct: 1, feedback: "Correct! A current/temporary relationship → Present Continuous." },
+      { q: "Which is correct? He's working in the accounts department this week.", options: ["He works in the accounts department this week.", "He's working in the accounts department this week. ✓", "He work in the accounts department this week."], correct: 1, feedback: "Correct! 'This week' = temporary situation → Present Continuous." },
+      { q: "He's the sales manager. He ______ a lot.", options: ["is travelling", "travels", "travel"], correct: 1, feedback: "Correct! General description of his job → Present Simple." },
+      { q: "She starts work at 7.30 and ______ leave till 8 PM.", options: ["isn't", "doesn't", "don't"], correct: 1, feedback: "Correct! A daily routine → Present Simple." },
+      { q: "Which is correct about someone smoking 60 cigarettes daily?", options: ["He is smoking 60 cigarettes a day.", "He smokes 60 cigarettes a day. ✓", "He smoke 60 cigarettes a day."], correct: 1, feedback: "Correct! A habitual action → Present Simple." },
+      { q: "He ______ of giving up smoking. (considering it)", options: ["thinks", "is thinking", "think"], correct: 1, feedback: "Correct! 'Think of' = considering = action → Present Continuous." },
+      { q: "He ______ married next month. (arranged)", options: ["gets", "is getting", "get"], correct: 1, feedback: "Correct! Future arrangement → Present Continuous." },
+      { q: "He ______ his own space in the car park. (permanent)", options: ["is having", "has", "have"], correct: 1, feedback: "Correct! Permanent possession → Present Simple." },
+      { q: "He ______ to become managing director. (desire)", options: ["is wanting", "wants", "want"], correct: 1, feedback: "Correct! 'Want' is a state verb → Present Simple." }
+    ]
+  }
+];
+
+export const presentContinuousPractice: QuizCategory[] = [
+  {
+    id: 'now',
+    title: "Happening Now",
+    desc: "Actions happening at the time of speaking.",
+    questions: [
+      { q: "Please be quiet. I ______ (try) to work.", options: ["try", "am trying", "tried"], correct: 1, feedback: "Correct! Happening right now." },
+      { q: "Look! It ______ (rain).", options: ["rains", "is raining", "rained"], correct: 1, feedback: "Correct! 'Look!' indicates this moment." },
+      { q: "Where's Mark? He ______ (have) a shower.", options: ["is having", "has", "have"], correct: 0, feedback: "Correct! He is doing it now." },
+      { q: "(at a party) Hi, Jane. ______ (you / enjoy) the party?", options: ["Do you enjoy", "Are you enjoying", "You enjoy"], correct: 1, feedback: "Correct! Asking about the current moment." },
+      { q: "What's that noise? What ______ (happen)?", options: ["is happening", "happens", "happen"], correct: 0, feedback: "Correct! Ongoing action." },
+      { q: "Listen! The birds ______ (sing).", options: ["sing", "are singing", "is singing"], correct: 1, feedback: "Correct! 'Listen!' is a clue." },
+      { q: "Don't go out now. It ______ (snow).", options: ["is snowing", "snows", "snowing"], correct: 0, feedback: "Correct! Happening now." },
+      { q: "I ______ (not / watch) TV right now.", options: ["am not watching", "don't watch", "not watching"], correct: 0, feedback: "Correct! Negative action now." },
+      { q: "Why ______ (you / wear) that coat? It's hot!", options: ["do you wear", "are you wearing", "wear you"], correct: 1, feedback: "Correct! You are wearing it now." },
+      { q: "Look at that man! He ______ (run) after the bus.", options: ["runs", "is running", "running"], correct: 1, feedback: "Correct! Visible action." }
+    ]
+  },
+  {
+    id: 'temporary',
+    title: "Temporary Situations",
+    desc: "Actions in progress around now, but not necessarily this second.",
+    questions: [
+      { q: "I ______ (stay) with friends until I find a flat.", options: ["stay", "am staying", "staying"], correct: 1, feedback: "Correct! A temporary situation." },
+      { q: "My car is broken, so I ______ (walk) to work this week.", options: ["am walking", "walk", "walks"], correct: 0, feedback: "Correct! Temporary routine." },
+      { q: "She ______ (study) Economics at university.", options: ["studies", "is studying", "studying"], correct: 1, feedback: "Correct! In progress over a period of time." },
+      { q: "I ______ (read) a really good book at the moment.", options: ["read", "am reading", "reads"], correct: 1, feedback: "Correct! 'At the moment' implies temporary." },
+      { q: "They ______ (build) a new hotel in the city centre.", options: ["build", "are building", "building"], correct: 1, feedback: "Correct! Ongoing project." },
+      { q: "My sister ______ (look) for a job.", options: ["looks", "is looking", "look"], correct: 1, feedback: "Correct! Temporary activity." },
+      { q: "We ______ (decorate) the house this month.", options: ["are decorating", "decorate", "decorates"], correct: 0, feedback: "Correct! Happening this month." },
+      { q: "He ______ (work) hard on a new project.", options: ["works", "is working", "working"], correct: 1, feedback: "Correct! Specific project duration." },
+      { q: "I ______ (live) with my parents for now.", options: ["live", "am living", "living"], correct: 1, feedback: "Correct! 'For now' means temporary." },
+      { q: "She ______ (write) a book about her travels.", options: ["writes", "is writing", "wrote"], correct: 1, feedback: "Correct! In the middle of doing it." }
+    ]
+  },
+  {
+    id: 'future',
+    title: "Future Arrangements",
+    desc: "Plans you have already arranged for the future.",
+    questions: [
+      { q: "I ______ (meet) Sarah for lunch tomorrow.", options: ["am meeting", "meet", "meeting"], correct: 0, feedback: "Correct! Arranged plan." },
+      { q: "What ______ (you / do) on Saturday night?", options: ["do you do", "are you doing", "you doing"], correct: 1, feedback: "Correct! Asking about plans." },
+      { q: "We ______ (go) to the cinema tonight.", options: ["go", "are going", "goes"], correct: 1, feedback: "Correct! Definite plan." },
+      { q: "He ______ (play) tennis on Friday.", options: ["plays", "is playing", "play"], correct: 1, feedback: "Correct! Arranged activity." },
+      { q: "They ______ (fly) to Paris next week.", options: ["fly", "are flying", "flying"], correct: 1, feedback: "Correct! Booked travel." },
+      { q: "I ______ (not / work) tomorrow.", options: ["am not working", "don't work", "not work"], correct: 0, feedback: "Correct! Plan not to work." },
+      { q: "______ (you / come) to the party?", options: ["Do you come", "Are you coming", "Coming you"], correct: 1, feedback: "Correct! Asking about attendance." },
+      { q: "She ______ (see) the dentist at 10 AM.", options: ["sees", "is seeing", "see"], correct: 1, feedback: "Correct! Appointment." },
+      { q: "We ______ (have) a barbecue this weekend.", options: ["have", "are having", "having"], correct: 1, feedback: "Correct! Planned event." },
+      { q: "My parents ______ (visit) us next month.", options: ["visit", "are visiting", "visits"], correct: 1, feedback: "Correct! Arranged visit." }
+    ]
+  },
+  {
+    id: 'changes',
+    title: "Trends & Changes",
+    desc: "Situations that are changing or developing.",
+    questions: [
+      { q: "My English ______ (get) better.", options: ["is getting", "gets", "getting"], correct: 0, feedback: "Correct! Changing state." },
+      { q: "The population of the world ______ (increase).", options: ["increases", "is increasing", "increase"], correct: 1, feedback: "Correct! Trend." },
+      { q: "It ______ (become) harder to find a job.", options: ["becomes", "is becoming", "become"], correct: 1, feedback: "Correct! Developing situation." },
+      { q: "The cost of living ______ (rise).", options: ["rises", "is rising", "rising"], correct: 1, feedback: "Correct! Upward trend." },
+      { q: "The weather ______ (start) to improve.", options: ["starts", "is starting", "starting"], correct: 1, feedback: "Correct! Change in progress." },
+      { q: "My muscles ______ (develop) from all this work!", options: ["develop", "are developing", "develops"], correct: 1, feedback: "Correct! Physical change." },
+      { q: "Technology ______ (change) very fast.", options: ["changes", "is changing", "change"], correct: 1, feedback: "Correct! Rapid change." },
+      { q: "People ______ (live) longer these days.", options: ["live", "are living", "lives"], correct: 1, feedback: "Correct! Changing demographic." },
+      { q: "The days ______ (get) shorter in winter.", options: ["get", "are getting", "getting"], correct: 1, feedback: "Correct! Seasonal change." },
+      { q: "Your French ______ (improve) quickly.", options: ["improves", "is improving", "improve"], correct: 1, feedback: "Correct! Improvement in progress." }
+    ]
+  }
+];
+
+export const pastSimplePractice: QuizCategory[] = [
+  {
+    id: 'completed',
+    title: "Completed Actions",
+    desc: "Actions that started and finished at a specific time in the past.",
+    questions: [
+      { q: "I ______ (see) a movie yesterday.", options: ["see", "saw", "seen"], correct: 1, feedback: "Correct! Irregular past of 'see'." },
+      { q: "Last year, I ______ (travel) to Japan.", options: ["traveled", "travel", "travelling"], correct: 0, feedback: "Correct! Specific time in the past." },
+      { q: "Did you ______ (have) dinner last night?", options: ["had", "have", "has"], correct: 1, feedback: "Correct! 'Did' takes the base form." },
+      { q: "She ______ (wash) her car on Sunday.", options: ["wash", "washed", "washes"], correct: 1, feedback: "Correct! Completed action." },
+      { q: "He ______ (not / wash) his car.", options: ["didn't wash", "not washed", "didn't washed"], correct: 0, feedback: "Correct! Negative past simple." },
+      { q: "We ______ (go) to the park last weekend.", options: ["go", "went", "gone"], correct: 1, feedback: "Correct! Irregular past of 'go'." },
+      { q: "I ______ (buy) a new phone yesterday.", options: ["buyed", "bought", "buying"], correct: 1, feedback: "Correct! Irregular past of 'buy'." },
+      { q: "They ______ (leave) the party early.", options: ["left", "leaved", "leave"], correct: 0, feedback: "Correct! Irregular past of 'leave'." },
+      { q: "______ (you / sleep) well last night?", options: ["Did you sleep", "Do you sleep", "Slept you"], correct: 0, feedback: "Correct! Past simple question." },
+      { q: "Tom ______ (not / come) to the office yesterday.", options: ["didn't came", "didn't come", "not come"], correct: 1, feedback: "Correct! 'Did not' + base verb." }
+    ]
+  },
+  {
+    id: 'series',
+    title: "Series of Actions",
+    desc: "A list of completed actions happening one after another.",
+    questions: [
+      { q: "I finished work, ______ (walk) to the beach, and found a nice place to swim.", options: ["walk", "walked", "walking"], correct: 1, feedback: "Correct! Part of a sequence." },
+      { q: "He arrived at 8:00, ______ (check) into the hotel, and met the others.", options: ["checked", "check", "checking"], correct: 0, feedback: "Correct! Sequential past action." },
+      { q: "Did you add flour, ______ (pour) in the milk, and then add eggs?", options: ["poured", "pour", "pouring"], correct: 1, feedback: "Correct! 'Did' applies to the list." },
+      { q: "She opened the box and ______ (look) inside.", options: ["looked", "look", "looking"], correct: 0, feedback: "Correct! Next action in story." },
+      { q: "He woke up, washed his face, and ______ (brush) his teeth.", options: ["brushed", "brush", "brushes"], correct: 0, feedback: "Correct! List of past events." },
+      { q: "I sat down, took a book, and ______ (start) to read.", options: ["start", "started", "starting"], correct: 1, feedback: "Correct! Sequential action." },
+      { q: "The thief broke in, ______ (steal) the TV, and ran away.", options: ["stole", "stealed", "stolen"], correct: 0, feedback: "Correct! Irregular past of 'steal'." },
+      { q: "She put on her coat, ______ (grab) her bag, and left.", options: ["grabbed", "grab", "grabbing"], correct: 0, feedback: "Correct! Sequence of events." },
+      { q: "We bought tickets, ______ (enter) the cinema, and sat down.", options: ["entered", "enter", "entering"], correct: 0, feedback: "Correct! Narrative sequence." },
+      { q: "He paid the bill, ______ (stand) up, and walked out.", options: ["stood", "standed", "stand"], correct: 0, feedback: "Correct! Irregular past of 'stand'." }
+    ]
+  },
+  {
+    id: 'duration',
+    title: "Duration in Past",
+    desc: "Actions that lasted for a time in the past but are now finished.",
+    questions: [
+      { q: "I ______ (live) in Brazil for two years.", options: ["lived", "live", "living"], correct: 0, feedback: "Correct! Finished duration." },
+      { q: "Shauna ______ (study) Japanese for five years.", options: ["studied", "studies", "studying"], correct: 0, feedback: "Correct! Past duration." },
+      { q: "They ______ (sit) at the beach all day.", options: ["sat", "sit", "sitted"], correct: 0, feedback: "Correct! Irregular past of 'sit'." },
+      { q: "We ______ (talk) on the phone for thirty minutes.", options: ["talked", "talk", "talking"], correct: 0, feedback: "Correct! Specific duration in past." },
+      { q: "How long ______ (you / wait) for them?", options: ["did you wait", "do you wait", "waited you"], correct: 0, feedback: "Correct! Question about duration." },
+      { q: "I ______ (work) there for 10 years before I quit.", options: ["worked", "work", "working"], correct: 0, feedback: "Correct! Finished period." },
+      { q: "She ______ (be) sick for a week.", options: ["was", "is", "were"], correct: 0, feedback: "Correct! Past state duration." },
+      { q: "We ______ (stay) at the party for only an hour.", options: ["stayed", "stay", "staying"], correct: 0, feedback: "Correct! Short duration in past." },
+      { q: "He ______ (play) football for the school team for 3 years.", options: ["played", "play", "playing"], correct: 0, feedback: "Correct! Past habit/duration." },
+      { q: "They ______ (queue) for tickets for 4 hours!", options: ["queued", "queue", "queuing"], correct: 0, feedback: "Correct! Long duration in past." }
+    ]
+  },
+  {
+    id: 'habits',
+    title: "Habits in the Past",
+    desc: "Things you used to do but don't do anymore.",
+    questions: [
+      { q: "I ______ (study) French when I was a child.", options: ["studied", "study", "studying"], correct: 0, feedback: "Correct! Past habit." },
+      { q: "He ______ (play) the violin when he was younger.", options: ["played", "plays", "playing"], correct: 0, feedback: "Correct! Past skill/habit." },
+      { q: "She ______ (work) at the cinema after school.", options: ["worked", "works", "working"], correct: 0, feedback: "Correct! Regular past action." },
+      { q: "They never ______ (go) to school; they always skipped.", options: ["went", "go", "gone"], correct: 0, feedback: "Correct! Past routine." },
+      { q: "Did you ______ (play) an instrument when you were a kid?", options: ["play", "played", "playing"], correct: 0, feedback: "Correct! Question about past habit." },
+      { q: "My grandpa always ______ (wear) a hat.", options: ["wore", "worn", "wear"], correct: 0, feedback: "Correct! Past characteristic." },
+      { q: "We often ______ (go) camping in summer.", options: ["went", "go", "going"], correct: 0, feedback: "Correct! Recurring past event." },
+      { q: "I ______ (not / like) vegetables as a child.", options: ["didn't like", "don't like", "not liked"], correct: 0, feedback: "Correct! Past state/habit." },
+      { q: "People ______ (pay) much more for calls in the past.", options: ["paid", "payed", "pay"], correct: 0, feedback: "Correct! General past truth." },
+      { q: "She ______ (be) very shy, but now she's outgoing.", options: ["was", "is", "were"], correct: 0, feedback: "Correct! Past state." }
+    ]
+  }
+];
+
+export const pastContinuousPractice: QuizCategory[] = [
+  {
+    id: 'interrupted',
+    title: "Interrupted Actions",
+    desc: "Long action in progress interrupted by a short action.",
+    questions: [
+      { q: "I ______ (watch) TV when she called.", options: ["was watching", "watched", "watching"], correct: 0, feedback: "Correct! Interrupted action." },
+      { q: "When the phone rang, she ______ (write) a letter.", options: ["was writing", "wrote", "writes"], correct: 0, feedback: "Correct! Action in progress." },
+      { q: "While we ______ (have) the picnic, it started to rain.", options: ["were having", "had", "having"], correct: 0, feedback: "Correct! Background action." },
+      { q: "What ______ (you / do) when the earthquake started?", options: ["were you doing", "did you do", "do you do"], correct: 0, feedback: "Correct! Action in progress." },
+      { q: "I ______ (listen) to music, so I didn't hear the bell.", options: ["was listening", "listened", "listen"], correct: 0, feedback: "Correct! Reason for not hearing." },
+      { q: "You ______ (not / listen) to me when I told you.", options: ["were not listening", "didn't listen", "not listening"], correct: 0, feedback: "Correct! Negative continuous." },
+      { q: "Sammy ______ (wait) for us when we got off the plane.", options: ["was waiting", "waited", "wait"], correct: 0, feedback: "Correct! Already happening." },
+      { q: "While I ______ (write) the email, the computer crashed.", options: ["was writing", "wrote", "write"], correct: 0, feedback: "Correct! Interrupted process." },
+      { q: "I ______ (snowboard) when I broke my leg.", options: ["was snowboarding", "snowboarded", "snowboard"], correct: 0, feedback: "Correct! Context of accident." },
+      { q: "He ______ (drive) too fast when the police stopped him.", options: ["was driving", "drove", "drives"], correct: 0, feedback: "Correct! Action in progress." }
+    ]
+  },
+  {
+    id: 'time',
+    title: "Specific Time",
+    desc: "Action in progress at a precise moment in the past.",
+    questions: [
+      { q: "Last night at 6 PM, I ______ (eat) dinner.", options: ["was eating", "ate", "eaten"], correct: 0, feedback: "Correct! In progress at that exact time." },
+      { q: "At midnight, we ______ (still / drive) through the desert.", options: ["were still driving", "still drove", "drive"], correct: 0, feedback: "Correct! Happening precisely then." },
+      { q: "Yesterday at this time, I ______ (sit) at my desk.", options: ["was sitting", "sat", "sit"], correct: 0, feedback: "Correct! In progress at this time yesterday." },
+      { q: "What ______ (you / do) at 8 o'clock last night?", options: ["were you doing", "did you do", "do you do"], correct: 0, feedback: "Correct! Specific time inquiry." },
+      { q: "This time last year, I ______ (live) in Tokyo.", options: ["was living", "lived", "live"], correct: 0, feedback: "Correct! In progress then." },
+      { q: "At 10 AM yesterday, she ______ (work) in the garden.", options: ["was working", "worked", "works"], correct: 0, feedback: "Correct! Ongoing at 10 AM." },
+      { q: "We ______ (sleep) when the alarm went off at 6 AM.", options: ["were sleeping", "slept", "sleep"], correct: 0, feedback: "Correct! State at that time." },
+      { q: "It ______ (rain) heavily at lunchtime.", options: ["was raining", "rained", "rains"], correct: 0, feedback: "Correct! Weather at a specific time." },
+      { q: "They ______ (have) breakfast at 7:30 this morning.", options: ["were having", "had", "have"], correct: 0, feedback: "Correct! Meal in progress." },
+      { q: "I ______ (not / work) at 5 PM; I was already home.", options: ["wasn't working", "didn't work", "not working"], correct: 0, feedback: "Correct! Negative state at specific time." }
+    ]
+  },
+  {
+    id: 'parallel',
+    title: "Parallel Actions",
+    desc: "Two or more actions happening at the same time.",
+    questions: [
+      { q: "I ______ (study) while he was making dinner.", options: ["was studying", "studied", "study"], correct: 0, feedback: "Correct! Simultaneous action." },
+      { q: "While Ellen was reading, Tim ______ (watch) TV.", options: ["was watching", "watched", "watches"], correct: 0, feedback: "Correct! Happening together." },
+      { q: "______ (you / listen) while he was talking?", options: ["Were you listening", "Did you listen", "Listen you"], correct: 0, feedback: "Correct! Simultaneous actions." },
+      { q: "Thomas wasn't working, and I ______ (not / work) either.", options: ["wasn't working", "didn't work", "not working"], correct: 0, feedback: "Correct! Parallel negative states." },
+      { q: "They ______ (eat) dinner and discussing plans.", options: ["were eating", "ate", "eat"], correct: 0, feedback: "Correct! Multiple ongoing actions." },
+      { q: "While I was cooking, my sister ______ (do) her homework.", options: ["was doing", "did", "does"], correct: 0, feedback: "Correct! Parallel activity." },
+      { q: "He ______ (read) the paper while his wife was driving.", options: ["was reading", "read", "reads"], correct: 0, feedback: "Correct! Happening at the same time." },
+      { q: "The kids ______ (play) while the parents were chatting.", options: ["were playing", "played", "play"], correct: 0, feedback: "Correct! Background scene." },
+      { q: "I ______ (try) to sleep while the neighbours were partying.", options: ["was trying", "tried", "try"], correct: 0, feedback: "Correct! Parallel struggle." },
+      { q: "She ______ (laugh) while he was telling the joke.", options: ["was laughing", "laughed", "laughs"], correct: 0, feedback: "Correct! Simultaneous reaction." }
+    ]
+  },
+  {
+    id: 'atmosphere',
+    title: "Atmosphere & Repetition",
+    desc: "Setting the scene or describing irritating habits with 'always'.",
+    questions: [
+      { q: "When I walked in, everyone ______ (talk).", options: ["was talking", "talked", "talk"], correct: 0, feedback: "Correct! Setting the scene." },
+      { q: "The birds ______ (sing) and the sun was shining.", options: ["were singing", "sang", "sing"], correct: 0, feedback: "Correct! Atmosphere description." },
+      { q: "She ______ (always / come) to class late!", options: ["was always coming", "always came", "comes always"], correct: 0, feedback: "Correct! Irritating past habit." },
+      { q: "He ______ (constantly / talk). He annoyed everyone.", options: ["was constantly talking", "constantly talked", "talks constantly"], correct: 0, feedback: "Correct! Annoying habit." },
+      { q: "I didn't like them because they ______ (always / complain).", options: ["were always complaining", "always complained", "complain always"], correct: 0, feedback: "Correct! Negative repetition." },
+      { q: "Customers ______ (wait) to be helped.", options: ["were waiting", "waited", "wait"], correct: 0, feedback: "Correct! Scene description." },
+      { q: "Phones ______ (ring) and people were shouting.", options: ["were ringing", "rang", "ring"], correct: 0, feedback: "Correct! Busy atmosphere." },
+      { q: "My old car ______ (always / break) down.", options: ["was always breaking", "always broke", "breaks always"], correct: 0, feedback: "Correct! Annoying frequency." },
+      { q: "The wind ______ (blow) heavily outside.", options: ["was blowing", "blew", "blows"], correct: 0, feedback: "Correct! Atmospheric background." },
+      { q: "He ______ (forever / ask) for money.", options: ["was forever asking", "forever asked", "asks forever"], correct: 0, feedback: "Correct! Hyperbolic habit." }
+    ]
+  }
+];
+
+export const presentPerfectPractice: QuizCategory[] = [
+  {
+    id: 'simple',
+    title: "Present Perfect Simple",
+    desc: "Experiences, results in the present, and recent news.",
+    questions: [
+      { q: "I ______ (lose) my key. I can't find it anywhere.", options: ["lost", "have lost", "lose"], correct: 1, feedback: "Correct! Result in the present." },
+      { q: "______ (you / ever / be) to Australia?", options: ["Did you ever go", "Have you ever been", "Were you ever"], correct: 1, feedback: "Correct! Asking about life experience." },
+      { q: "She ______ (not / finish) her homework yet.", options: ["hasn't finished", "didn't finish", "not finished"], correct: 0, feedback: "Correct! 'Yet' suggests uncompleted expectation." },
+      { q: "Look! Someone ______ (break) that window.", options: ["broke", "has broken", "breaks"], correct: 1, feedback: "Correct! New information/Result." },
+      { q: "I ______ (know) him for a long time.", options: ["know", "have known", "am knowing"], correct: 1, feedback: "Correct! Duration with non-continuous verb." },
+      { q: "We ______ (already / see) that movie.", options: ["already saw", "have already seen", "had already seen"], correct: 1, feedback: "Correct! Unspecified time before now." },
+      { q: "Where is Jim? He ______ (go) to the shops.", options: ["has gone", "went", "goes"], correct: 0, feedback: "Correct! He is not here now." },
+      { q: "I ______ (never / eat) sushi.", options: ["never ate", "have never eaten", "never eat"], correct: 1, feedback: "Correct! Life experience." },
+      { q: "______ (you / hear) from George recently?", options: ["Did you hear", "Have you heard", "Do you hear"], correct: 1, feedback: "Correct! News/Recent event." },
+      { q: "They ______ (live) in this house since 2010.", options: ["lived", "have lived", "live"], correct: 1, feedback: "Correct! Started in past, continues now (state)." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Present Perfect Continuous",
+    desc: "Duration of activity, recent actions, and visible evidence.",
+    questions: [
+      { q: "It ______ (rain) for two hours.", options: ["is raining", "has been raining", "rains"], correct: 1, feedback: "Correct! Emphasizes duration." },
+      { q: "You look tired. ______ (you / work) hard?", options: ["Have you been working", "Do you work", "Are you working"], correct: 0, feedback: "Correct! Evidence (tiredness) from recent activity." },
+      { q: "She ______ (learn) English for six months.", options: ["has been learning", "is learning", "learns"], correct: 0, feedback: "Correct! Duration of an ongoing activity." },
+      { q: "I ______ (wait) here since 9 o'clock!", options: ["am waiting", "wait", "have been waiting"], correct: 2, feedback: "Correct! Emphasis on length of time." },
+      { q: "Sorry I'm late. ______ (you / wait) long?", options: ["Do you wait", "Are you waiting", "Have you been waiting"], correct: 2, feedback: "Correct! Activity continuing up to now." },
+      { q: "My hands are dirty. I ______ (repair) my bike.", options: ["have been repairing", "repaired", "am repairing"], correct: 0, feedback: "Correct! Evidence of recent activity." },
+      { q: "How long ______ (you / play) tennis?", options: ["do you play", "have you been playing", "are you playing"], correct: 1, feedback: "Correct! Question about duration." },
+      { q: "He ______ (watch) TV all day.", options: ["is watching", "has been watching", "watches"], correct: 1, feedback: "Correct! 'All day' emphasizes continuous duration." },
+      { q: "The kitchen is a mess. They ______ (cook).", options: ["have been cooking", "cooked", "cook"], correct: 0, feedback: "Correct! Recent activity with visible result." },
+      { q: "I ______ (think) about what you said lately.", options: ["have been thinking", "think", "am thinking"], correct: 0, feedback: "Correct! Mental activity over a recent period." }
+    ]
+  },
+  {
+    id: 'irregular',
+    title: "Irregular Past Participles",
+    desc: "Choose the correct irregular past participle (V3) to complete the Present Perfect sentence.",
+    questions: [
+      { q: "I have ______ (eat) too much chocolate.", options: ["ate", "eaten", "eated"], correct: 1, feedback: "Correct! eat → ate → eaten." },
+      { q: "She has ______ (write) three emails this morning.", options: ["wrote", "writed", "written"], correct: 2, feedback: "Correct! write → wrote → written." },
+      { q: "We have ______ (go) to Italy twice.", options: ["went", "gone", "been going"], correct: 1, feedback: "Correct! go → went → gone." },
+      { q: "He has ______ (take) my pen again!", options: ["took", "taken", "taked"], correct: 1, feedback: "Correct! take → took → taken." },
+      { q: "They have ______ (see) that film already.", options: ["saw", "seen", "seed"], correct: 1, feedback: "Correct! see → saw → seen." },
+      { q: "I have ______ (break) my phone screen.", options: ["broke", "broken", "breaked"], correct: 1, feedback: "Correct! break → broke → broken." },
+      { q: "Have you ever ______ (drive) a sports car?", options: ["drove", "driven", "drived"], correct: 1, feedback: "Correct! drive → drove → driven." },
+      { q: "The kids have ______ (drink) all the juice.", options: ["drank", "drunk", "drinked"], correct: 1, feedback: "Correct! drink → drank → drunk." },
+      { q: "She has ______ (give) me a wonderful gift.", options: ["gave", "given", "gived"], correct: 1, feedback: "Correct! give → gave → given." },
+      { q: "We have ______ (speak) to the manager about it.", options: ["spoke", "spoken", "speaked"], correct: 1, feedback: "Correct! speak → spoke → spoken." }
+    ]
+  }
+];
+
+export const pastPerfectPractice: QuizCategory[] = [
+  {
+    id: 'simple',
+    title: "Past Perfect Simple",
+    desc: "Actions completed before another past time.",
+    questions: [
+      { q: "When I arrived at the party, Paul ______ (already / go) home.", options: ["already went", "had already gone", "has already gone"], correct: 1, feedback: "Correct! Happened before I arrived." },
+      { q: "We weren't hungry. We ______ (just / have) lunch.", options: ["just had", "had just had", "have just had"], correct: 1, feedback: "Correct! Action completed before past state (not hungry)." },
+      { q: "The house was quiet. Everybody ______ (go) to bed.", options: ["went", "had gone", "was going"], correct: 1, feedback: "Correct! Completed before the past time (was quiet)." },
+      { q: "I didn't recognize him. He ______ (change) a lot.", options: ["changed", "had changed", "has changed"], correct: 1, feedback: "Correct! Change happened before I saw him." },
+      { q: "The car broke down because I ______ (forget) to put oil in it.", options: ["forgot", "had forgotten", "forget"], correct: 1, feedback: "Correct! The forgetting happened before the breakdown." },
+      { q: "She ______ (never / see) a bear before she moved to Alaska.", options: ["never saw", "had never seen", "never sees"], correct: 1, feedback: "Correct! Experience before a past event." },
+      { q: "By the time the police arrived, the thief ______ (escape).", options: ["escaped", "had escaped", "escapes"], correct: 1, feedback: "Correct! Escaped before arrival." },
+      { q: "I realized I ______ (leave) my wallet at home.", options: ["left", "had left", "leave"], correct: 1, feedback: "Correct! Realized later about an earlier action." },
+      { q: "The film ______ (already / start) when we got to the cinema.", options: ["already started", "had already started", "starts"], correct: 1, feedback: "Correct! Started before we arrived." },
+      { q: "He told me he ______ (buy) a new computer.", options: ["bought", "had bought", "buys"], correct: 1, feedback: "Correct! Reported speech (bought -> had bought)." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Past Perfect Continuous",
+    desc: "Duration up to a past moment and causes of past states.",
+    questions: [
+      { q: "I was tired. I ______ (work) hard all day.", options: ["was working", "had been working", "worked"], correct: 1, feedback: "Correct! Duration leading up to a past state." },
+      { q: "Her eyes were red. She ______ (cry).", options: ["was crying", "had been crying", "cried"], correct: 1, feedback: "Correct! Evidence of a recent past activity." },
+      { q: "We ______ (play) tennis for 30 minutes when it started to rain.", options: ["were playing", "had been playing", "played"], correct: 1, feedback: "Correct! Duration up to the interruption." },
+      { q: "Ken gave up smoking. He ______ (smoke) for 30 years.", options: ["smoked", "had been smoking", "was smoking"], correct: 1, feedback: "Correct! Duration up to a past point (gave up)." },
+      { q: "The road was wet. It ______ (rain).", options: ["rained", "had been raining", "was raining"], correct: 1, feedback: "Correct! Cause of the past state." },
+      { q: "They were angry. They ______ (wait) for over an hour.", options: ["were waiting", "had been waiting", "waited"], correct: 1, feedback: "Correct! Duration causing the feeling." },
+      { q: "How long ______ (you / learn) English before you moved to London?", options: ["were you learning", "had you been learning", "did you learn"], correct: 1, feedback: "Correct! Duration before a past event." },
+      { q: "I was out of breath. I ______ (run).", options: ["ran", "had been running", "was running"], correct: 1, feedback: "Correct! Recent activity causing a state." },
+      { q: "He gained weight because he ______ (eat) too much.", options: ["was eating", "had been eating", "ate"], correct: 1, feedback: "Correct! Repeated action leading to a result." },
+      { q: "They ______ (drive) all night, so they were exhausted.", options: ["drove", "had been driving", "were driving"], correct: 1, feedback: "Correct! Duration causing exhaustion." }
+    ]
+  }
+];
+
+export const futurePractice: QuizCategory[] = [
+  {
+    id: 'will',
+    title: "Future with 'will'",
+    desc: "Predictions, instant decisions, promises and offers.",
+    questions: [
+      { q: "I think it ______ (rain) later.", options: ["rains", "will rain", "is raining"], correct: 1, feedback: "Correct! 'I think' signals a prediction → will." },
+      { q: "The phone is ringing. I ______ (get) it!", options: ["get", "am getting", "will get"], correct: 2, feedback: "Correct! Instant decision made at the moment of speaking." },
+      { q: "Don't worry, I ______ (help) you with your homework.", options: ["help", "will help", "am helping"], correct: 1, feedback: "Correct! An offer to help → will." },
+      { q: "I promise I ______ (not / tell) anyone.", options: ["don't tell", "won't tell", "am not telling"], correct: 1, feedback: "Correct! A promise → will/won't." },
+      { q: "In 2050, people ______ (live) on Mars.", options: ["live", "will live", "are living"], correct: 1, feedback: "Correct! Long-term prediction." },
+      { q: "______ you ______ (open) the window, please?", options: ["Do / open", "Will / open", "Are / opening"], correct: 1, feedback: "Correct! Polite request → will." },
+      { q: "I'm sure she ______ (pass) the exam.", options: ["passes", "will pass", "is passing"], correct: 1, feedback: "Correct! Personal opinion / prediction." },
+      { q: "I'm thirsty. I ______ (have) a glass of water.", options: ["have", "am having", "will have"], correct: 2, feedback: "Correct! Spontaneous decision." },
+      { q: "Perhaps Tom ______ (call) us tonight.", options: ["calls", "will call", "is calling"], correct: 1, feedback: "Correct! 'Perhaps' signals an uncertain prediction." },
+      { q: "I think Spain ______ (win) the match.", options: ["wins", "is winning", "will win"], correct: 2, feedback: "Correct! Opinion-based prediction → will." }
+    ]
+  },
+  {
+    id: 'going_to',
+    title: "Future with 'going to'",
+    desc: "Plans, intentions and predictions based on present evidence.",
+    questions: [
+      { q: "I've decided. I ______ (study) medicine at university.", options: ["will study", "am going to study", "study"], correct: 1, feedback: "Correct! A pre-made plan/intention → going to." },
+      { q: "Look at those black clouds! It ______ (rain).", options: ["will rain", "is going to rain", "rains"], correct: 1, feedback: "Correct! Prediction based on visible evidence." },
+      { q: "We ______ (visit) my grandparents next weekend. We've already booked the train.", options: ["will visit", "are going to visit", "visit"], correct: 1, feedback: "Correct! A planned arrangement → going to." },
+      { q: "Watch out! You ______ (fall)!", options: ["will fall", "are going to fall", "fall"], correct: 1, feedback: "Correct! Prediction based on what you can see right now." },
+      { q: "What ______ (you / do) when you finish school?", options: ["will you do", "are you going to do", "do you do"], correct: 1, feedback: "Correct! Asking about future plans → going to." },
+      { q: "She ______ (have) a baby in May.", options: ["will have", "is going to have", "has"], correct: 1, feedback: "Correct! A known future event with present evidence." },
+      { q: "I ______ (not / buy) that car. I've changed my mind.", options: ["won't buy", "am not going to buy", "don't buy"], correct: 1, feedback: "Correct! A revised intention → going to." },
+      { q: "Be careful! That glass ______ (fall) off the table.", options: ["will fall", "is going to fall", "falls"], correct: 1, feedback: "Correct! Prediction with visible evidence." },
+      { q: "They ______ (get) married in June. The wedding is planned.", options: ["will get", "are going to get", "get"], correct: 1, feedback: "Correct! A firm plan → going to." },
+      { q: "I ______ (start) jogging every morning from Monday.", options: ["will start", "am going to start", "start"], correct: 1, feedback: "Correct! Personal intention → going to." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Future Continuous",
+    desc: "Actions in progress at a specific moment in the future.",
+    questions: [
+      { q: "This time tomorrow, I ______ (fly) to Paris.", options: ["will fly", "will be flying", "fly"], correct: 1, feedback: "Correct! In progress at a specific future moment." },
+      { q: "Don't call at 8 PM. We ______ (have) dinner.", options: ["will have", "will be having", "are having"], correct: 1, feedback: "Correct! Action in progress at that future time." },
+      { q: "At 10 o'clock tomorrow, she ______ (work) in her office.", options: ["will work", "will be working", "works"], correct: 1, feedback: "Correct! In progress at a specific future time." },
+      { q: "______ you ______ (use) the car this evening?", options: ["Will / use", "Will / be using", "Do / use"], correct: 1, feedback: "Correct! Polite enquiry about future plans." },
+      { q: "This time next week, we ______ (lie) on the beach.", options: ["will lie", "will be lying", "lie"], correct: 1, feedback: "Correct! In progress at a specified future point." },
+      { q: "I can't meet you at 7 — I ______ (drive) home then.", options: ["will drive", "will be driving", "drive"], correct: 1, feedback: "Correct! Action in progress at 7." },
+      { q: "Tomorrow afternoon, the children ______ (play) in the garden.", options: ["will play", "will be playing", "play"], correct: 1, feedback: "Correct! Ongoing action at a future time." },
+      { q: "Don't worry — I ______ (think) about you while you're away.", options: ["will think", "will be thinking", "think"], correct: 1, feedback: "Correct! Continuous future action." },
+      { q: "By this time on Sunday, we ______ (travel) across France.", options: ["will travel", "will be travelling", "travel"], correct: 1, feedback: "Correct! In progress at a specific point." },
+      { q: "What ______ (you / do) at 9 PM tonight?", options: ["will you do", "will you be doing", "do you do"], correct: 1, feedback: "Correct! Asking about an action in progress." }
+    ]
+  },
+  {
+    id: 'present_for_future',
+    title: "Present Tenses for the Future",
+    desc: "Present Continuous for arrangements, Present Simple for timetables.",
+    questions: [
+      { q: "I ______ (meet) Sarah at 7 PM tomorrow. We've arranged it.", options: ["meet", "am meeting", "will meet"], correct: 1, feedback: "Correct! Personal arrangement → Present Continuous." },
+      { q: "The train ______ (leave) at 8:15.", options: ["leaves", "is leaving", "will leave"], correct: 0, feedback: "Correct! Timetable → Present Simple." },
+      { q: "What time ______ the film ______ (start)?", options: ["does / start", "is / starting", "will / start"], correct: 0, feedback: "Correct! Schedule → Present Simple." },
+      { q: "We ______ (have) a party on Saturday. Can you come?", options: ["have", "are having", "will have"], correct: 1, feedback: "Correct! Social arrangement → Present Continuous." },
+      { q: "My flight ______ (arrive) at 10:30.", options: ["arrives", "is arriving", "will arrive"], correct: 0, feedback: "Correct! Flight timetable → Present Simple." },
+      { q: "She ______ (see) the dentist on Friday.", options: ["sees", "is seeing", "will see"], correct: 1, feedback: "Correct! Personal appointment → Present Continuous." },
+      { q: "School ______ (begin) on September 1st.", options: ["begins", "is beginning", "will begin"], correct: 0, feedback: "Correct! Fixed calendar event → Present Simple." },
+      { q: "What ______ (you / do) tonight?", options: ["do you do", "are you doing", "will you do"], correct: 1, feedback: "Correct! Asking about plans/arrangements → Present Continuous." },
+      { q: "The conference ______ (finish) on Friday at 5 PM.", options: ["finishes", "is finishing", "will finish"], correct: 0, feedback: "Correct! Scheduled event → Present Simple." },
+      { q: "We ______ (fly) to Rome next Tuesday. Tickets are booked.", options: ["fly", "are flying", "will fly"], correct: 1, feedback: "Correct! Arrangement → Present Continuous." }
+    ]
+  }
+];
+
+export const futurePerfectPractice: QuizCategory[] = [
+  {
+    id: 'simple',
+    title: "Future Perfect Simple",
+    desc: "Actions that will be completed before a specific point in the future.",
+    questions: [
+      { q: "By next June, I ______ (finish) my degree.", options: ["finish", "will finish", "will have finished"], correct: 2, feedback: "Correct! Completed before a future point → Future Perfect." },
+      { q: "By the time you arrive, I ______ (cook) dinner.", options: ["will cook", "will have cooked", "cook"], correct: 1, feedback: "Correct! Completed before your arrival." },
+      { q: "By 2030, scientists ______ (find) a cure for many diseases.", options: ["find", "will find", "will have found"], correct: 2, feedback: "Correct! Completed before a future date." },
+      { q: "By this evening, she ______ (write) all the emails.", options: ["writes", "will write", "will have written"], correct: 2, feedback: "Correct! Completed before this evening." },
+      { q: "I ______ (leave) before he gets here.", options: ["leave", "will leave", "will have left"], correct: 2, feedback: "Correct! Action complete before another future event." },
+      { q: "By the end of the year, we ______ (save) enough money.", options: ["save", "will save", "will have saved"], correct: 2, feedback: "Correct! Completed by a future deadline." },
+      { q: "By midnight, the team ______ (finish) the project.", options: ["finishes", "will finish", "will have finished"], correct: 2, feedback: "Correct! Completed before a future point." },
+      { q: "______ you ______ (eat) by the time I get home?", options: ["Will / eat", "Will / have eaten", "Do / eat"], correct: 1, feedback: "Correct! Question about completion before a future point." },
+      { q: "By next month, they ______ (live) here for ten years.", options: ["live", "will live", "will have lived"], correct: 2, feedback: "Correct! Duration up to a future moment." },
+      { q: "He ______ (not / arrive) by 8 PM.", options: ["doesn't arrive", "won't arrive", "won't have arrived"], correct: 2, feedback: "Correct! Predicting non-completion before a future point." }
+    ]
+  },
+  {
+    id: 'continuous',
+    title: "Future Perfect Continuous",
+    desc: "Duration of an activity up to a specific point in the future.",
+    questions: [
+      { q: "By June, I ______ (study) English for ten years.", options: ["will study", "will be studying", "will have been studying"], correct: 2, feedback: "Correct! Duration up to a future point." },
+      { q: "Next week, they ______ (live) in this house for 20 years.", options: ["will live", "will be living", "will have been living"], correct: 2, feedback: "Correct! Emphasises duration before a future moment." },
+      { q: "By 5 PM, she ______ (work) for nine hours straight.", options: ["will work", "will be working", "will have been working"], correct: 2, feedback: "Correct! Duration leading up to 5 PM." },
+      { q: "When you arrive, we ______ (wait) for two hours!", options: ["will wait", "will be waiting", "will have been waiting"], correct: 2, feedback: "Correct! Duration up to your arrival." },
+      { q: "By the end of this month, he ______ (drive) the same car for 15 years.", options: ["will drive", "will be driving", "will have been driving"], correct: 2, feedback: "Correct! Long duration before a future point." },
+      { q: "In May, I ______ (teach) at this school for five years.", options: ["will teach", "will be teaching", "will have been teaching"], correct: 2, feedback: "Correct! Duration up to a future point." },
+      { q: "By tomorrow, the workers ______ (build) this wall for a week.", options: ["will build", "will be building", "will have been building"], correct: 2, feedback: "Correct! Duration before a future moment." },
+      { q: "How long ______ you ______ (learn) Spanish by next summer?", options: ["will / learn", "will / be learning", "will / have been learning"], correct: 2, feedback: "Correct! Asking about duration before a future point." },
+      { q: "By the time the train arrives, I ______ (wait) for an hour.", options: ["will wait", "will be waiting", "will have been waiting"], correct: 2, feedback: "Correct! Duration up to the arrival." },
+      { q: "Next month, we ______ (run) this business for a decade.", options: ["will run", "will be running", "will have been running"], correct: 2, feedback: "Correct! Duration before a future point." }
+    ]
+  }
+];
+
+
+export const generalQuiz: Question[] = [
+  { q: "Look! That man ______ to open the door of your car.", options: ["tries", "is trying", "tried"], correct: 1, feedback: "Correct! We use Present Continuous for actions happening right now (Look!)." },
+  { q: "Can you hear those people? What ______ about?", options: ["do they talk", "are they talking", "talk they"], correct: 1, feedback: "Correct! The action is happening now, so we use Present Continuous." },
+  { q: "The moon ______ round the earth in about 27 days.", options: ["goes", "is going", "went"], correct: 0, feedback: "Correct! This is a general truth/scientific fact, so we use Present Simple." },
+  { q: "I ______ (see) Josh yesterday evening.", options: ["was seeing", "saw", "seen"], correct: 1, feedback: "Correct! 'Yesterday evening' indicates a finished time in the past." },
+  { q: "I ______ (walk) along the road when I saw Dave.", options: ["walked", "was walking", "am walking"], correct: 1, feedback: "Correct! You were in the middle of the action when something else happened." },
+  { q: "'I ______ (have) a great time here in England.'", options: ["have", "am having", "had"], correct: 1, feedback: "Correct! This is happening around the present time (temporary situation)." }
+];
+
+// Content data for tense categories
+export const tenseContent: Record<string, TenseData> = {
+  present: {
+    title: "Present Tenses",
+    intro: "Learn when to use the Simple Present and Present Continuous.",
+    units: [
+      {
+        title: "Present Simple",
+        subtitle: "I do",
+        formula: "Subject + verb (s/es)",
+        explanation: "Use this for things that are true in general, or for things that happen repeatedly (habits).",
+        practiceLink: "present_simple_hub",
+        detailedUses: [
+          { title: "1. Repeated Actions", desc: "Habits, hobbies, daily events, or scheduled events." },
+          { title: "2. Facts or Generalizations", desc: "General truths about people or things." },
+          { title: "3. Scheduled Events", desc: "Often used for public transportation or fixed schedules." },
+          { title: "4. State Verbs", desc: "For verbs not used in continuous forms (like 'need', 'want', 'know')." }
+        ],
+        examples: [
+          "Nurses <strong>look</strong> after patients in hospitals.",
+          "I usually <strong>go</strong> away at weekends.",
+          "The cafe <strong>opens</strong> at 7:30 in the morning."
+        ],
+        icon: "repeat"
+      },
+      {
+        title: "Present Continuous",
+        subtitle: "I am doing",
+        formula: "Subject + am/is/are + verb-ing",
+        explanation: "Use this for an action happening <strong>now</strong> (at the time of speaking) or around now. The action is not finished.",
+        practiceLink: "present_continuous_hub",
+        detailedUses: [
+          { title: "1. Now", desc: "Something is happening at this very moment." },
+          { title: "2. Longer Actions in Progress", desc: "An action in progress this week, month, or year." },
+          { title: "3. Near Future", desc: "Indicates that something will happen in the near future." },
+          { title: "4. Trends & Changes", desc: "Describing a changing situation." }
+        ],
+        examples: [
+          "Sarah is in her car. She <strong>is driving</strong> to work.",
+          "Please don't make noise. I <strong>am trying</strong> to work.",
+          "Look! It <strong>is raining</strong>."
+        ],
+        icon: "spinner"
+      },
+      {
+        title: "Present Simple vs Continuous",
+        subtitle: "I do vs I am doing",
+        formula: "Choose the right tense based on context",
+        explanation: "Many learners confuse these two tenses. The key is understanding whether you're talking about a <strong>permanent/repeated</strong> situation or something <strong>temporary/in progress</strong>.",
+        practiceLink: "present_simple_vs_continuous_hub",
+        detailedUses: [
+          { title: "1. State vs Action Verbs", desc: "Some verbs (think, have, be, see, taste) change meaning depending on the tense." },
+          { title: "2. Permanent vs Temporary", desc: "'I live in London' (permanent) vs 'I'm living with friends' (temporary)." },
+          { title: "3. Habit vs Now", desc: "'I smoke' (habit) vs 'I'm smoking' (right now)." },
+          { title: "4. Fact vs Current Activity", desc: "'What do you do?' (job) vs 'What are you doing?' (right now)." }
+        ],
+        examples: [
+          "<strong>I smoke</strong> 20 cigarettes a day. (habit) vs <strong>I'm smoking</strong> a lot nowadays. (temporary increase)",
+          "She <strong>thinks</strong> she's beautiful. (opinion) vs What <strong>are</strong> you <strong>thinking</strong> about? (mental activity)",
+          "He <strong>has</strong> a sun-roof. (possession) vs She <strong>is having</strong> a shower. (activity)"
+        ],
+        icon: "shuffle"
+      }
+    ]
+  },
+  past: {
+    title: "Past Tenses",
+    intro: "Distinguishing between finished actions and actions in progress in the past.",
+    units: [
+      {
+        title: "Past Simple",
+        subtitle: "I did",
+        formula: "Subject + verb-ed (or irregular)",
+        explanation: "Use this for finished actions in the past. We often say when it happened.",
+        practiceLink: "past_simple_hub",
+        detailedUses: [
+          { title: "1. Completed Action", desc: "An action started and finished at a specific time in the past." },
+          { title: "2. Series of Actions", desc: "A list of completed actions that happened in sequence." },
+          { title: "3. Duration in Past", desc: "An action that starts and stops in the past." },
+          { title: "4. Past Habits", desc: "Habits which stopped in the past." }
+        ],
+        examples: [
+          "I <strong>woke</strong> up at 6:00 yesterday.",
+          "We <strong>played</strong> tennis yesterday afternoon.",
+          "He <strong>didn't</strong> go to work last week."
+        ],
+        icon: "check-circle"
+      },
+      {
+        title: "Past Continuous",
+        subtitle: "I was doing",
+        formula: "Subject + was/were + verb-ing",
+        explanation: "Use this when you were in the middle of doing something at a certain time in the past.",
+        practiceLink: "past_continuous_hub",
+        detailedUses: [
+          { title: "1. Interrupted Action", desc: "A longer action in the past was interrupted by a shorter action." },
+          { title: "2. Specific Time", desc: "In progress at an exact time in the past." },
+          { title: "3. Parallel Actions", desc: "Two actions happening at the same time." },
+          { title: "4. Atmosphere", desc: "Using parallel actions to describe the scene." }
+        ],
+        examples: [
+          "This time last year I <strong>was living</strong> in Brazil.",
+          "What <strong>were</strong> you <strong>doing</strong> at 10 o'clock last night?",
+          "It <strong>was raining</strong> when we went out."
+        ],
+        icon: "film"
+      }
+    ]
+  },
+  perfect: {
+    title: "Present Perfect Tenses",
+    intro: "Linking the past with the present. Covering both Simple and Continuous forms.",
+    units: [
+      {
+        title: "Present Perfect Simple",
+        subtitle: "I have done",
+        formula: "Subject + have/has + past participle (v3)",
+        explanation: "The action is in the past, but the result is in the present. It describes an action at an unspecified time before now.",
+        practiceLink: "present_perfect_hub",
+        detailedUses: [
+          { title: "1. Result in Present", desc: "Something happened in the past and has a result now." },
+          { title: "2. Life Experience", desc: "Talking about your life up to now." },
+          { title: "3. Change Over Time", desc: "Describing a change that has happened over a period." },
+          { title: "4. Duration (State Verbs)", desc: "With non-continuous verbs, shows something continues to now." }
+        ],
+        examples: [
+          "I <strong>have lost</strong> my key. (I don't have it now)",
+          "<strong>Have</strong> you <strong>seen</strong> Tom? (Where is he now?)",
+          "My English <strong>has really improved</strong> since I moved here."
+        ],
+        icon: "check-square"
+      },
+      {
+        title: "Present Perfect Continuous",
+        subtitle: "I have been doing",
+        formula: "Subject + have/has + been + verb-ing",
+        explanation: "Use this for an activity that started in the past and has continued up to now, often emphasizing duration.",
+        practiceLink: "present_perfect_hub",
+        detailedUses: [
+          { title: "1. Duration from Past Until Now", desc: "Something started in the past and continues to now." },
+          { title: "2. Recently / Lately", desc: "Emphasizes recent behavior without specific duration." },
+          { title: "3. Evidence of Activity", desc: "The activity stopped, but you can see the result." }
+        ],
+        examples: [
+          "It <strong>has been raining</strong> for two hours.",
+          "She <strong>has been working</strong> at that company for three years.",
+          "I <strong>have been working</strong> hard all day. I'm tired."
+        ],
+        icon: "timer"
+      },
+      {
+        title: "Irregular Verbs in the Perfect Tense",
+        subtitle: "have/has + past participle (V3)",
+        formula: "Subject + have/has + V3 (irregular form)",
+        explanation: "The Present Perfect uses the <strong>past participle</strong> (the third form of the verb, V3). For regular verbs, this is just <em>verb + -ed</em> (work → worked). But many common English verbs are <strong>irregular</strong> — their past participle does not follow this pattern and must be learned by heart. A frequent learner error is saying <em>'I have eated'</em> instead of <em>'I have eaten'</em>, or <em>'She has went'</em> (mixing past simple and participle) instead of <em>'She has gone'</em>.",
+        practiceLink: "present_perfect_hub",
+        detailedUses: [
+          { title: "Same in all 3 forms", desc: "cut → cut → cut, put → put → put, let → let → let, hit → hit → hit." },
+          { title: "Past = Participle", desc: "buy → bought → bought, find → found → found, make → made → made, sit → sat → sat." },
+          { title: "All 3 forms different", desc: "eat → ate → eaten, go → went → gone, write → wrote → written, take → took → taken, see → saw → seen, speak → spoke → spoken." },
+          { title: "Watch out: gone vs been", desc: "'has gone to Paris' = still there. 'has been to Paris' = visited and returned." }
+        ],
+        examples: [
+          "I <strong>have eaten</strong> sushi many times. (NOT 'have eated')",
+          "She <strong>has written</strong> three books. (NOT 'has wrote')",
+          "They <strong>have gone</strong> home. (they're not here now)",
+          "We <strong>have been</strong> to London twice. (visited and came back)"
+        ],
+        icon: "book-open"
+      }
+    ]
+  },
+  pastPerfect: {
+    title: "Past Perfect Tenses",
+    intro: "Going back to a time before the past. Covering Simple and Continuous forms.",
+    units: [
+      {
+        title: "Past Perfect Simple",
+        subtitle: "I had done",
+        formula: "Subject + had + past participle (v3)",
+        explanation: "We use the Past Perfect to indicate that an action happened before another action in the past.",
+        practiceLink: "past_perfect_hub",
+        detailedUses: [
+          { title: "1. Action Before Another Past Action", desc: "Something occurred before another action in the past." },
+          { title: "2. Duration Before Past Event", desc: "With state verbs, shows something continued until another past action." },
+          { title: "3. Reported Speech", desc: "Present Perfect/Past Simple becomes Past Perfect in reported speech." }
+        ],
+        examples: [
+          "When Sarah arrived at the party, Paul <strong>had</strong> already <strong>gone</strong> home.",
+          "We <strong>had had</strong> that car for ten years before it broke down.",
+          "The house was dirty. They <strong>hadn't cleaned</strong> it for weeks."
+        ],
+        icon: "undo"
+      },
+      {
+        title: "Past Perfect Continuous",
+        subtitle: "I had been doing",
+        formula: "Subject + had + been + verb-ing",
+        explanation: "Use this to describe an action that had been happening for a period of time before another action in the past.",
+        practiceLink: "past_perfect_hub",
+        detailedUses: [
+          { title: "1. Duration Before Past Event", desc: "Something started in the past and continued up to another past time." },
+          { title: "2. Cause of Past State", desc: "Explaining why a past condition existed." }
+        ],
+        examples: [
+          "I was very tired when I arrived. I <strong>had been working</strong> hard all day.",
+          "The game was stopped because it <strong>had been raining</strong> heavily.",
+          "Ken gave up smoking. He <strong>had been smoking</strong> for 30 years."
+        ],
+        icon: "timer"
+      }
+    ]
+  },
+  future: {
+    title: "Future Tenses",
+    intro: "Different ways to talk about the future: will, going to, Future Continuous, and present tenses for the future.",
+    units: [
+      {
+        title: "Future with 'will'",
+        subtitle: "I will do",
+        formula: "Subject + will + base verb",
+        explanation: "Use <strong>will</strong> for predictions, instant decisions made at the moment of speaking, promises, offers, and polite requests. It's the most general future form.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Predictions / Opinions", desc: "What you think or believe will happen: 'I think it will rain.'" },
+          { title: "2. Instant Decisions", desc: "Decisions made at the moment of speaking: 'I'll get it!'" },
+          { title: "3. Promises & Offers", desc: "'I'll help you.' / 'I won't tell anyone.'" },
+          { title: "4. Polite Requests", desc: "'Will you open the window, please?'" }
+        ],
+        examples: [
+          "I think Spain <strong>will win</strong> the match.",
+          "The phone is ringing — I<strong>'ll get</strong> it!",
+          "I promise I <strong>won't be</strong> late."
+        ],
+        icon: "rocket"
+      },
+      {
+        title: "Future with 'going to'",
+        subtitle: "I am going to do",
+        formula: "Subject + am/is/are + going to + base verb",
+        explanation: "Use <strong>going to</strong> for plans and intentions decided <em>before</em> the moment of speaking, and for predictions based on <strong>present evidence</strong> you can see right now.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Plans & Intentions", desc: "Decisions already made: 'I'm going to study medicine.'" },
+          { title: "2. Predictions with Evidence", desc: "Based on what you see now: 'Look at those clouds — it's going to rain.'" },
+          { title: "3. Things About to Happen", desc: "'Watch out! You're going to fall!'" }
+        ],
+        examples: [
+          "We <strong>are going to visit</strong> my grandparents next weekend.",
+          "Look at those black clouds! It<strong>'s going to rain</strong>.",
+          "She <strong>is going to have</strong> a baby in May."
+        ],
+        icon: "calendar"
+      },
+      {
+        title: "Future Continuous",
+        subtitle: "I will be doing",
+        formula: "Subject + will + be + verb-ing",
+        explanation: "Use the Future Continuous to describe an action that will be <strong>in progress</strong> at a specific moment in the future, or to ask politely about someone's future plans.",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "1. Action in Progress at Future Time", desc: "'This time tomorrow, I'll be flying to Paris.'" },
+          { title: "2. Polite Enquiries", desc: "'Will you be using the car this evening?'" },
+          { title: "3. Parallel Future Actions", desc: "Two things happening at the same future moment." }
+        ],
+        examples: [
+          "Don't call at 8 — we <strong>will be having</strong> dinner.",
+          "This time next week, I <strong>'ll be lying</strong> on the beach.",
+          "<strong>Will</strong> you <strong>be using</strong> your laptop tonight?"
+        ],
+        icon: "timer"
+      },
+      {
+        title: "Present Tenses for the Future",
+        subtitle: "I'm meeting / The train leaves",
+        formula: "Present Continuous = arrangements · Present Simple = timetables",
+        explanation: "We often use <strong>Present Continuous</strong> for personal arrangements already organised, and <strong>Present Simple</strong> for fixed timetables and schedules (trains, flights, schools, cinemas).",
+        practiceLink: "future_hub",
+        detailedUses: [
+          { title: "Arrangements (Present Continuous)", desc: "'I'm meeting Sarah at 7.' (already arranged)" },
+          { title: "Timetables (Present Simple)", desc: "'The train leaves at 8:15.' (fixed schedule)" },
+          { title: "Avoid 'will' here", desc: "Don't use 'will' for arranged plans or fixed timetables." }
+        ],
+        examples: [
+          "We <strong>are having</strong> a party on Saturday. Can you come?",
+          "The film <strong>starts</strong> at 7:30.",
+          "I <strong>'m seeing</strong> the dentist on Friday."
+        ],
+        icon: "check-square"
+      }
+    ]
+  },
+  futurePerfect: {
+    title: "Future Perfect Tenses",
+    intro: "Looking back from a point in the future. Covering Simple and Continuous forms.",
+    units: [
+      {
+        title: "Future Perfect Simple",
+        subtitle: "I will have done",
+        formula: "Subject + will have + past participle (v3)",
+        explanation: "Use the Future Perfect to talk about an action that <strong>will be completed before</strong> a specific point in the future. Often used with <em>by</em>, <em>by the time</em>, or <em>before</em>.",
+        practiceLink: "future_perfect_hub",
+        detailedUses: [
+          { title: "1. Completed Before a Future Point", desc: "'By next June, I will have finished my degree.'" },
+          { title: "2. With 'by the time' clauses", desc: "'By the time you arrive, I will have cooked dinner.'" },
+          { title: "3. Predicting Completion", desc: "'By 2030, scientists will have found a cure.'" }
+        ],
+        examples: [
+          "By next month, they <strong>will have lived</strong> here for ten years.",
+          "I <strong>will have left</strong> before he gets here.",
+          "By midnight, the team <strong>will have finished</strong> the project."
+        ],
+        icon: "check-square"
+      },
+      {
+        title: "Future Perfect Continuous",
+        subtitle: "I will have been doing",
+        formula: "Subject + will have been + verb-ing",
+        explanation: "Use the Future Perfect Continuous to emphasise the <strong>duration</strong> of an activity that continues up to a specific point in the future. Often used with <em>for</em> + period of time.",
+        practiceLink: "future_perfect_hub",
+        detailedUses: [
+          { title: "1. Duration up to a Future Point", desc: "'By June, I will have been studying English for ten years.'" },
+          { title: "2. Emphasis on Activity", desc: "Highlights how long something has been ongoing." },
+          { title: "3. Often with 'by' / 'when'", desc: "'When you arrive, we will have been waiting for two hours!'" }
+        ],
+        examples: [
+          "By 5 PM, she <strong>will have been working</strong> for nine hours straight.",
+          "Next month, we <strong>will have been running</strong> this business for a decade.",
+          "By the end of this year, he <strong>will have been driving</strong> the same car for 15 years."
+        ],
+        icon: "timer"
+      }
+    ]
+  }
+};
+
+// ── Mapping helpers ────────────────────────────────────────────────────
+
+export const tenseMasterPracticeMap: Record<TenseMasterType, QuizCategory[]> = {
+  present: [...presentSimplePractice, ...presentContinuousPractice, ...presentSimpleVsContinuousPractice],
+  past: [...pastSimplePractice, ...pastContinuousPractice],
+  perfect: [...presentPerfectPractice],
+  pastPerfect: [...pastPerfectPractice],
+  future: [...futurePractice],
+  futurePerfect: [...futurePerfectPractice],
+};
+
+export const tenseMasterColorMap: Record<TenseMasterType, { gradient: string; border: string; quizBorder: string }> = {
+  present: { gradient: 'from-brand-royal to-blue-600', border: 'border-brand-royal', quizBorder: 'border-brand-royal' },
+  past: { gradient: 'from-rose-500 to-pink-600', border: 'border-rose-500', quizBorder: 'border-rose-500' },
+  perfect: { gradient: 'from-teal-500 to-emerald-600', border: 'border-teal-500', quizBorder: 'border-teal-500' },
+  pastPerfect: { gradient: 'from-purple-500 to-violet-600', border: 'border-purple-500', quizBorder: 'border-purple-500' },
+  future: { gradient: 'from-amber-500 to-orange-600', border: 'border-amber-500', quizBorder: 'border-amber-500' },
+  futurePerfect: { gradient: 'from-orange-500 to-red-600', border: 'border-orange-500', quizBorder: 'border-orange-500' },
+};
