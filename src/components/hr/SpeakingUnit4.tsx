@@ -93,7 +93,7 @@ const SpeakingUnit4 = () => {
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">Activity 10: Appraisal Interview Role-play</h3>
           <p className="text-muted-foreground mb-6">Work with a partner to practise an appraisal interview with a member of staff who is unhappy in his or her job. Use the profiles in the Partner Files or think of a situation of your own.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="bg-primary/5 p-5 rounded-lg border border-border">
               <h4 className="font-semibold text-foreground mb-3">Asking About the Job</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -111,6 +111,70 @@ const SpeakingUnit4 = () => {
                 <li>• Well, actually, someone is making life rather unpleasant for me.</li>
                 <li>• I didn't feel able to talk to you about it earlier.</li>
               </ul>
+            </div>
+          </div>
+
+          {/* Partner Files */}
+          <h4 className="text-xl font-semibold mb-4 font-merriweather text-foreground">Partner Files</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Partner A — Recruitment Officer */}
+            <div className="bg-white border border-slate-300 rounded-lg shadow-sm overflow-hidden">
+              <div className="bg-rose-100 border-b border-rose-200 px-4 py-2 flex items-center justify-between">
+                <span className="font-bold text-rose-900 tracking-wide text-sm">Partner A — Recruitment Officer</span>
+                <span className="font-bold text-rose-900 text-sm">File 04</span>
+              </div>
+              <div className="p-5 space-y-4 text-sm text-slate-800 leading-relaxed">
+                <p>
+                  You are a recruitment officer in a large HR department and are getting ready for your first
+                  appraisal interview with your boss — the personnel officer in charge of recruitment.
+                </p>
+                <p>
+                  You've been with the company for one year now (including the six-month probationary period).
+                  You started off well in the job and were very happy — it's a challenging post with lots of
+                  contact with other branches. In preparation for the appraisal interview, make notes of some
+                  of the things you feel you do well and which make you suitable for the position.
+                </p>
+                <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4 font-serif italic text-blue-800">
+                  <p className="font-semibold underline mb-2 not-italic">Strengths</p>
+                  <ol className="list-decimal list-inside space-y-1">
+                    <li>six years' recruiting experience in previous company</li>
+                    <li>attention to detail</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            {/* Partner B — Personnel Officer */}
+            <div className="bg-white border border-slate-300 rounded-lg shadow-sm overflow-hidden">
+              <div className="bg-rose-100 border-b border-rose-200 px-4 py-2 flex items-center justify-between">
+                <span className="font-bold text-rose-900 tracking-wide text-sm">Partner B — Personnel Officer</span>
+                <span className="font-bold text-rose-900 text-sm">File 04</span>
+              </div>
+              <div className="p-5 space-y-4 text-sm text-slate-800 leading-relaxed">
+                <p>
+                  You are the personnel officer responsible for the recruitment section of a large HR
+                  department and are about to carry out an appraisal interview with one of your recruitment
+                  officers who has completed a year's service. You were very happy with his/her work during
+                  the six-month probationary period, but it seems something has gone wrong. You feel he/she
+                  has good potential and would like him/her to be a success.
+                </p>
+                <p>
+                  Look at the notes you have made about some problems and prepare some questions to ask the
+                  employee during the appraisal interview. After the interview, swap roles and do the
+                  interview again.
+                </p>
+                <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4 font-serif italic text-blue-800">
+                  <p className="font-semibold mb-2 not-italic">problems over last six months</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>two periods of sickness of ten days each. What was wrong?</li>
+                    <li>a lot of mistakes reported</li>
+                    <li>complaint from a long-term employee and colleague (Johnson) about long breaks from the desk, lack of attention to detail</li>
+                    <li>we spoke briefly three months ago (he/she was nervous and tense)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </CardContent>
