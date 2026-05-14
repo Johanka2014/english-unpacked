@@ -8,6 +8,7 @@ import questionsPrepImg from '@/assets/b1-questions-prepositions.jpg';
 import verbPatternsImg from '@/assets/b1-verb-patterns.jpg';
 import conditionalsImg from '@/assets/b1-conditionals.jpg';
 import advancedImg from '@/assets/b1-advanced-structures.jpg';
+import wordFormationImg from '@/assets/b1-word-formation.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
