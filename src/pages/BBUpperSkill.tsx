@@ -59,6 +59,15 @@ import ReadingUnit4 from '@/components/bb-upper/ReadingUnit4';
 import Reading2Unit4 from '@/components/bb-upper/Reading2Unit4';
 import SpeakingUnit4 from '@/components/bb-upper/SpeakingUnit4';
 import WorkbookUnit4 from '@/components/bb-upper/WorkbookUnit4';
+import GettingStartedUnit13 from '@/components/bb-upper/GettingStartedUnit13';
+import WritingUnit13 from '@/components/bb-upper/WritingUnit13';
+import ReadingUnit13 from '@/components/bb-upper/ReadingUnit13';
+import VocabularyUnit13 from '@/components/bb-upper/VocabularyUnit13';
+import TalkingPoint1Unit13 from '@/components/bb-upper/TalkingPoint1Unit13';
+import ListeningUnit13 from '@/components/bb-upper/ListeningUnit13';
+import Reading2Unit13 from '@/components/bb-upper/Reading2Unit13';
+import TalkingPoint2Unit13 from '@/components/bb-upper/TalkingPoint2Unit13';
+import WorkbookUnit13 from '@/components/bb-upper/WorkbookUnit13';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -200,6 +209,24 @@ const BBUpperSkill = () => {
           <SpeakingUnit4 />
         ) : moduleId === 'telephone-skills' && skillId === 'workbook' ? (
           <WorkbookUnit4 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'getting-started' ? (
+          <GettingStartedUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'writing' ? (
+          <WritingUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'reading' ? (
+          <ReadingUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'vocabulary' ? (
+          <VocabularyUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'talking-point-1' ? (
+          <TalkingPoint1Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'listening' ? (
+          <ListeningUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'reading-2' ? (
+          <Reading2Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'talking-point-2' ? (
+          <TalkingPoint2Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'workbook' ? (
+          <WorkbookUnit13 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
