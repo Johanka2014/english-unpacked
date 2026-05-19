@@ -15,7 +15,7 @@ const Footer = () => {
             </Link>
             <p className="text-white/80 leading-relaxed">
               Personalized English lessons designed to help you communicate with confidence. 
-              Based in Czech Republic, serving students worldwide.
+              Working online, serving students worldwide.
             </p>
           </div>
 
