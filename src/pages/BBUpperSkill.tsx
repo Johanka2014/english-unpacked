@@ -209,6 +209,24 @@ const BBUpperSkill = () => {
           <SpeakingUnit4 />
         ) : moduleId === 'telephone-skills' && skillId === 'workbook' ? (
           <WorkbookUnit4 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'getting-started' ? (
+          <GettingStartedUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'writing' ? (
+          <WritingUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'reading' ? (
+          <ReadingUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'vocabulary' ? (
+          <VocabularyUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'talking-point-1' ? (
+          <TalkingPoint1Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'listening' ? (
+          <ListeningUnit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'reading-2' ? (
+          <Reading2Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'talking-point-2' ? (
+          <TalkingPoint2Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'workbook' ? (
+          <WorkbookUnit13 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
