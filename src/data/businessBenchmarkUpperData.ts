@@ -212,13 +212,17 @@ export const bbUpperModules: BBUpperModule[] = [
   {
     id: 'business-hotels-and-sales',
     number: 13,
-    title: 'Business Hotels and Sales',
+    title: 'Business Hotels and Sales Conferences',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Business accommodation', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: 'Conference problems', type: 'listening', audioTrack: '' },
-      { id: 'writing', title: 'Writing', description: 'The results of a survey', type: 'writing' },
-      { id: 'speaking', title: 'Speaking', description: 'Discussion: The needs of the business traveller; Mini-presentation: business travel', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Hotel vocabulary: subscribers, chain, etc.', type: 'vocabulary' },
+      { id: 'getting-started', title: 'Getting Started', description: 'Discussion: business travellers vs tourists; ranking hotel amenities', type: 'speaking', content: true },
+      { id: 'writing', title: 'Writing: Results of a Survey', description: 'Gap-fill a survey paragraph and write paragraphs from two charts', type: 'writing', content: true },
+      { id: 'reading', title: 'Reading: Business Accommodation', description: 'Home Sweet Hotel — choose the best sentence A–H for each gap', type: 'reading', content: true },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Find words and phrases in the Home Sweet Hotel article', type: 'vocabulary', content: true },
+      { id: 'talking-point-1', title: 'Talking Point: Presenting Your Opinions', description: 'Mini-presentations on business hotels, foreign trips and airlines', type: 'speaking', content: true },
+      { id: 'listening', title: 'Listening: Conference Problems', description: 'Five colleagues complain about conferences — match the topic and complete extracts', type: 'listening', audioTrack: '/audio/bb-upper/unit13-listening.mp3', content: true },
+      { id: 'reading-2', title: 'Reading: Planning a Lively Sales Conference', description: 'Bye-bye BORING — choose the best word for each gap', type: 'reading', content: true },
+      { id: 'talking-point-2', title: 'Talking Point: Planning a Conference', description: 'Plan a two-day company conference with a partner or group', type: 'speaking', content: true },
+      { id: 'workbook', title: 'Workbook: Hotel Letter & Grammar', description: 'Hotel-booking letter gap-fill, survey paragraphs and should have practice', type: 'grammar', content: true },
     ],
   },
   {
