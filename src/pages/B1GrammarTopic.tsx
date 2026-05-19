@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles } from 'lucide-react';
+import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles, Gamepad2, ExternalLink } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
@@ -896,7 +896,7 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
 
 const B1GrammarTopic = () => {
   const { sectionId, moduleId } = useParams<{ sectionId: string; moduleId: string }>();
-  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | null>(null);
+  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | 'wordwall' | null>(null);
 
   const section = b1GrammarSections.find((s) => s.id === sectionId);
   if (!section) return <Navigate to="/b1-grammar" replace />;
@@ -904,14 +904,15 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster || mod.wordwall);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
     { key: 'exercises' as const, label: 'Exercises', icon: PenLine, available: !!mod.exercises, color: 'from-emerald-600 to-emerald-800' },
     { key: 'exam' as const, label: 'Exam Practice', icon: ClipboardCheck, available: !!mod.examPractice, color: 'from-purple-600 to-purple-800' },
     { key: 'practice' as const, label: 'Tense Master Practice', icon: Sparkles, available: !!mod.tenseMaster, color: 'from-amber-600 to-orange-700' },
-  ].filter((t) => t.available || t.key !== 'practice');
+    { key: 'wordwall' as const, label: 'Practice', icon: Gamepad2, available: !!mod.wordwall, color: 'from-pink-600 to-rose-700' },
+  ].filter((t) => t.available || (t.key !== 'practice' && t.key !== 'wordwall'));
 
   return (
     <div className="min-h-screen bg-background">
@@ -979,6 +980,31 @@ const B1GrammarTopic = () => {
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
+              {activeTab === 'wordwall' && mod.wordwall && (
+                <div className="space-y-4">
+                  <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Practice</h2>
+                  <p className="text-muted-foreground">Interactive activity powered by Wordwall.</p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border shadow-md" style={{ paddingTop: '56.25%' }}>
+                    <iframe
+                      src={mod.wordwall.url}
+                      title={mod.wordwall.title || 'Wordwall activity'}
+                      loading="lazy"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                  {mod.wordwall.shareUrl && (
+                    <a
+                      href={mod.wordwall.shareUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                    >
+                      Open in a new tab <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+              )}
               {activeTab === 'exam' && mod.examPractice && (
                 mod.examPractice.readingPart1
                   ? <ExamPracticeReadingPart1
