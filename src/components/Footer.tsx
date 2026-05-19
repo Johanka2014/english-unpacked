@@ -49,7 +49,7 @@ const Footer = () => {
                 to="/booking"
                 className="block text-white/80 hover:text-white transition-colors duration-200"
               >
-                📅 Book Free Consultation
+                📅 Book a Free Consultation
               </Link>
               <a 
                 href="mailto:info@englishunpacked.com"
