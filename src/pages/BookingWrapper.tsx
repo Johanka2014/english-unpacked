@@ -8,7 +8,7 @@ const BookingWrapper = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO 
-        title="Book Free Consultation - Schedule Your English Lesson"
+        title="Book a Free Consultation - Schedule Your English Lesson"
         description="Book a free consultation to discuss your English learning goals. Personalized lessons for Business English, exam prep, and conversational practice. Start your journey today."
         canonical="https://english-unpacked.lovable.app/booking"
       />
