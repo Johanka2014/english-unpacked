@@ -84,7 +84,7 @@ const BBUpperIntermediate = () => {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {bbUpperModules.map((mod) => {
+          {bbUpperModules.filter((mod) => !mod.isGrammarWorkshop).map((mod) => {
             const Icon = moduleIcons[mod.id] || Briefcase;
             const isGW = mod.isGrammarWorkshop;
             return (
