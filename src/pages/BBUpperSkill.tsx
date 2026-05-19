@@ -52,6 +52,12 @@ import Listening2Unit8 from '@/components/bb-upper/Listening2Unit8';
 import GrammarUnit8 from '@/components/bb-upper/GrammarUnit8';
 import WritingUnit8 from '@/components/bb-upper/WritingUnit8';
 import SpeakingUnit8 from '@/components/bb-upper/SpeakingUnit8';
+import GettingStartedUnit4 from '@/components/bb-upper/GettingStartedUnit4';
+import ListeningUnit4 from '@/components/bb-upper/ListeningUnit4';
+import Listening2Unit4 from '@/components/bb-upper/Listening2Unit4';
+import ReadingUnit4 from '@/components/bb-upper/ReadingUnit4';
+import Reading2Unit4 from '@/components/bb-upper/Reading2Unit4';
+import SpeakingUnit4 from '@/components/bb-upper/SpeakingUnit4';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -179,6 +185,18 @@ const BBUpperSkill = () => {
           <WritingUnit8 />
         ) : moduleId === 'establishing-relationships-and-negotiating' && skillId === 'speaking' ? (
           <SpeakingUnit8 />
+        ) : moduleId === 'telephone-skills' && skillId === 'getting-started' ? (
+          <GettingStartedUnit4 />
+        ) : moduleId === 'telephone-skills' && skillId === 'listening-1' ? (
+          <ListeningUnit4 />
+        ) : moduleId === 'telephone-skills' && skillId === 'listening-2' ? (
+          <Listening2Unit4 />
+        ) : moduleId === 'telephone-skills' && skillId === 'reading-1' ? (
+          <ReadingUnit4 />
+        ) : moduleId === 'telephone-skills' && skillId === 'reading-2' ? (
+          <Reading2Unit4 />
+        ) : moduleId === 'telephone-skills' && skillId === 'speaking' ? (
+          <SpeakingUnit4 />
         ) : (
           <div className="bg-muted/50 rounded-xl p-12 text-center">
             <p className="text-lg text-muted-foreground">
