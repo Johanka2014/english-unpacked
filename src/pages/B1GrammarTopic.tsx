@@ -953,7 +953,14 @@ const B1GrammarTopic = () => {
                 return (
                   <button
                     key={tile.key}
-                    onClick={() => tile.available && setActiveTab(tile.key)}
+                    onClick={() => {
+                      if (!tile.available) return;
+                      if (tile.key === 'wordwall' && mod.wordwall) {
+                        window.open(mod.wordwall.shareUrl || mod.wordwall.url, '_blank', 'noopener,noreferrer');
+                        return;
+                      }
+                      setActiveTab(tile.key);
+                    }}
                     disabled={!tile.available}
                     className="text-left"
                   >
@@ -980,31 +987,6 @@ const B1GrammarTopic = () => {
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
-              {activeTab === 'wordwall' && mod.wordwall && (
-                <div className="space-y-4">
-                  <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Practice</h2>
-                  <p className="text-muted-foreground">Interactive activity powered by Wordwall.</p>
-                  <div className="relative w-full overflow-hidden rounded-lg border border-border shadow-md" style={{ paddingTop: '56.25%' }}>
-                    <iframe
-                      src={mod.wordwall.url}
-                      title={mod.wordwall.title || 'Wordwall activity'}
-                      loading="lazy"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    />
-                  </div>
-                  {mod.wordwall.shareUrl && (
-                    <a
-                      href={mod.wordwall.shareUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
-                    >
-                      Open in a new tab <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
-                </div>
-              )}
               {activeTab === 'exam' && mod.examPractice && (
                 mod.examPractice.readingPart1
                   ? <ExamPracticeReadingPart1
