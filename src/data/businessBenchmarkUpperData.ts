@@ -62,10 +62,12 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 4,
     title: 'Telephone Skills',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'A telephone quiz; Phone answering tips', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: 'Telephone language; Enquiring about a job', type: 'listening', audioTrack: '' },
-      { id: 'speaking', title: 'Speaking', description: 'Discussions: Problems using the phone; Telephone skills training; Role-plays: Booking a hotel, Recruiting an assistant', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Complex questions; Talking at a business meeting', type: 'vocabulary' },
+      { id: 'getting-started', title: 'Getting Started', description: 'Discussion: phoning in English, common problems and how to prepare', type: 'speaking', content: true },
+      { id: 'listening-1', title: 'Listening: Telephone Language', description: 'Hotel reservation: complete the form and the extracts from the call', type: 'listening', audioTrack: '', content: true },
+      { id: 'speaking', title: 'Speaking: Role-plays & Talking Point', description: 'Booking a meeting room; Recruiting an assistant; Telephone-skills course', type: 'speaking', content: true },
+      { id: 'reading-1', title: 'Reading: A Telephone Quiz', description: '10 questions on how to speak on the phone in English', type: 'reading', content: true },
+      { id: 'listening-2', title: 'Listening: Enquiring About a Job', description: 'Tick the phrases used and complete the notes from the call', type: 'listening', audioTrack: '', content: true },
+      { id: 'reading-2', title: 'Reading: Phone-Answering Tips', description: 'Texts A & B: advice from Susan Ward on winning business by phone', type: 'reading', content: true },
     ],
   },
   {
