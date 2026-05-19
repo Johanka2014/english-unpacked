@@ -91,6 +91,7 @@ export interface B1GrammarModule {
   theory?: GrammarTheorySection[];
   exercises?: GrammarExercise[];
   tenseMaster?: TenseMasterRef;
+  wordwall?: { url: string; shareUrl?: string; title?: string };
   examPractice?: {
     description: string;
     type: string;
@@ -1249,6 +1250,11 @@ export const b1GrammarSections: B1GrammarSection[] = [
         title: 'Word Formation Quiz',
         subtitle: 'mixed prefix + suffix review quiz',
         exercises: wordFormationQuizExercises,
+        wordwall: {
+          url: 'https://wordwall.net/embed/12843617?themeId=1&templateId=3&fontStackId=0',
+          shareUrl: 'https://wordwall.net/resource/12843617',
+          title: 'Word Formation Practice',
+        },
       },
     ],
   },
