@@ -68,6 +68,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'reading-1', title: 'Reading: A Telephone Quiz', description: '10 questions on how to speak on the phone in English', type: 'reading', content: true },
       { id: 'listening-2', title: 'Listening: Enquiring About a Job', description: 'Tick the phrases used and complete the notes from the call', type: 'listening', audioTrack: '', content: true },
       { id: 'reading-2', title: 'Reading: Phone-Answering Tips', description: 'Texts A & B: advice from Susan Ward on winning business by phone', type: 'reading', content: true },
+      { id: 'workbook', title: 'Workbook: Telephone Practice', description: 'Match advice to telephone conversations and complete two gap-fill calls', type: 'reading', content: true },
     ],
   },
   {
