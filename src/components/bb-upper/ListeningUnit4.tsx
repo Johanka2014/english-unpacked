@@ -8,16 +8,21 @@ import { CheckCircle2, XCircle } from "lucide-react";
 const AUDIO_URL = "/audio/bb-upper/unit4-listening-1.mp3";
 
 // Hotel reservation form fields the student must complete from the call
-const formFields = [
-  { id: 1, label: "Name of caller", answer: "Jack Rubenstein" },
-  { id: 2, label: "Calling from", answer: "New York" },
-  { id: 3, label: "Company name", answer: "Top Flight International" },
-  { id: 4, label: "Type of room required", answer: "meeting room" },
-  { id: 5, label: "Size of room (number of people)", answer: "15" },
-  { id: 6, label: "Date required", answer: "May 18" },
-  { id: 7, label: "Time", answer: "9 to 1" },
-  { id: 8, label: "Purpose of room", answer: "job interviews" },
-  { id: 9, label: "Extra service requested", answer: "coffee" },
+// Each row mirrors the printed Flemings Hotel form: a label on the left and
+// a single gap (with optional fixed text before/after) on the right.
+const formFields: {
+  id: number;
+  label: string;
+  before?: string;
+  after?: string;
+  answer: string;
+}[] = [
+  { id: 1, label: "Reservation made by:", before: "Jack", answer: "Rubenstein" },
+  { id: 2, label: "Company:", after: "International.", answer: "Top Flight" },
+  { id: 3, label: "Type of room:", after: "for 15 people.", answer: "Meeting room" },
+  { id: 4, label: "Purpose:", answer: "Job interviews" },
+  { id: 5, label: "Date:", after: "from 9 a.m. to 1 p.m.", answer: "May 18" },
+  { id: 6, label: "Extra services required:", answer: "Coffee" },
 ];
 
 // Gap-fill extracts from the conversation
