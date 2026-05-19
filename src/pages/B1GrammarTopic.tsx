@@ -912,7 +912,7 @@ const B1GrammarTopic = () => {
     { key: 'exam' as const, label: 'Exam Practice', icon: ClipboardCheck, available: !!mod.examPractice, color: 'from-purple-600 to-purple-800' },
     { key: 'practice' as const, label: 'Tense Master Practice', icon: Sparkles, available: !!mod.tenseMaster, color: 'from-amber-600 to-orange-700' },
     { key: 'wordwall' as const, label: 'Practice', icon: Gamepad2, available: !!mod.wordwall, color: 'from-pink-600 to-rose-700' },
-  ].filter((t) => t.available || (t.key !== 'practice' && t.key !== 'wordwall'));
+  ].filter((t) => t.available);
 
   return (
     <div className="min-h-screen bg-background">
