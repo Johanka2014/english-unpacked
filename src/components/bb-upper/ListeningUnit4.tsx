@@ -76,25 +76,44 @@ const ListeningUnit4 = () => {
           </p>
           <audio controls src={AUDIO_URL} className="w-full mb-6" />
 
-          <div className="space-y-3">
-            {formFields.map((f) => (
-              <div key={f.id} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                <label className="sm:w-64 text-foreground">{f.id}. {f.label}</label>
-                <div className="flex items-center gap-2 flex-1">
-                  <Input
-                    value={formAnswers[f.id] || ""}
-                    onChange={(e) => { setFormAnswers((p) => ({ ...p, [f.id]: e.target.value })); setFormResults(null); }}
-                    className="flex-1"
-                  />
-                  {formResults && (formResults[f.id]
-                    ? <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    : <span className="flex items-center gap-1"><XCircle className="h-5 w-5 text-red-500" /><span className="text-sm text-red-600">{f.answer}</span></span>
-                  )}
+          {/* Stylised Flemings Hotel reservation form */}
+          <div className="mx-auto max-w-2xl bg-[#fdfcf7] border border-border rounded-lg shadow-lg p-6 sm:p-10 rotate-[-0.4deg]">
+            <h4
+              className="text-center text-4xl sm:text-5xl text-brand-royal mb-4"
+              style={{ fontFamily: "'Pacifico', cursive" }}
+            >
+              Flemings Hotel
+            </h4>
+            <div className="bg-brand-royal/10 text-brand-royal text-center tracking-widest font-bold py-2 px-4 rounded-full mb-8">
+              RESERVATION FORM
+            </div>
+
+            <div className="space-y-5">
+              {formFields.map((f) => (
+                <div key={f.id} className="grid grid-cols-1 sm:grid-cols-[10rem_1fr] gap-x-4 gap-y-1 items-baseline">
+                  <label className="font-bold text-brand-royal">{f.label}</label>
+                  <div className="flex flex-wrap items-baseline gap-2 border-b border-dotted border-muted-foreground/60 pb-1">
+                    <span className="font-bold text-foreground">{f.id}</span>
+                    {f.before && <span className="italic text-foreground">{f.before}</span>}
+                    <Input
+                      value={formAnswers[f.id] || ""}
+                      onChange={(e) => { setFormAnswers((p) => ({ ...p, [f.id]: e.target.value })); setFormResults(null); }}
+                      className="flex-1 min-w-[8rem] h-8 bg-transparent border-0 border-b border-muted-foreground/40 rounded-none italic focus-visible:ring-0 focus-visible:border-brand-royal px-1"
+                    />
+                    {f.after && <span className="italic text-foreground">{f.after}</span>}
+                    {formResults && (formResults[f.id]
+                      ? <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                      : <span className="flex items-center gap-1 shrink-0"><XCircle className="h-5 w-5 text-red-500" /><span className="text-sm text-red-600">{f.answer}</span></span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-          <Button onClick={checkForm} className="mt-6 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+
+          <div className="flex justify-center">
+            <Button onClick={checkForm} className="mt-6 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+          </div>
         </CardContent>
       </Card>
 
