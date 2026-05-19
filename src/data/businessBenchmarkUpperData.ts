@@ -222,6 +222,7 @@ export const bbUpperModules: BBUpperModule[] = [
       { id: 'listening', title: 'Listening: Conference Problems', description: 'Five colleagues complain about conferences — match the topic and complete extracts', type: 'listening', audioTrack: '/audio/bb-upper/unit13-listening.mp3', content: true },
       { id: 'reading-2', title: 'Reading: Planning a Lively Sales Conference', description: 'Bye-bye BORING — choose the best word for each gap', type: 'reading', content: true },
       { id: 'talking-point-2', title: 'Talking Point: Planning a Conference', description: 'Plan a two-day company conference with a partner or group', type: 'speaking', content: true },
+      { id: 'grammar', title: 'Grammar Workshop: While/Whereas & Modal Perfect Forms', description: 'Contrasting ideas with while/whereas, modal perfect forms, passives and too/enough', type: 'grammar', content: true },
       { id: 'workbook', title: 'Workbook: Hotel Letter & Grammar', description: 'Hotel-booking letter gap-fill, survey paragraphs and should have practice', type: 'grammar', content: true },
     ],
   },

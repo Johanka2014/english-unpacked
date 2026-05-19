@@ -68,6 +68,7 @@ import ListeningUnit13 from '@/components/bb-upper/ListeningUnit13';
 import Reading2Unit13 from '@/components/bb-upper/Reading2Unit13';
 import TalkingPoint2Unit13 from '@/components/bb-upper/TalkingPoint2Unit13';
 import WorkbookUnit13 from '@/components/bb-upper/WorkbookUnit13';
+import GrammarUnit13 from '@/components/bb-upper/GrammarUnit13';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -225,6 +226,8 @@ const BBUpperSkill = () => {
           <Reading2Unit13 />
         ) : moduleId === 'business-hotels-and-sales' && skillId === 'talking-point-2' ? (
           <TalkingPoint2Unit13 />
+        ) : moduleId === 'business-hotels-and-sales' && skillId === 'grammar' ? (
+          <GrammarUnit13 />
         ) : moduleId === 'business-hotels-and-sales' && skillId === 'workbook' ? (
           <WorkbookUnit13 />
         ) : (
