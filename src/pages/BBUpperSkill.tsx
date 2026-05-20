@@ -69,6 +69,14 @@ import Reading2Unit13 from '@/components/bb-upper/Reading2Unit13';
 import TalkingPoint2Unit13 from '@/components/bb-upper/TalkingPoint2Unit13';
 import WorkbookUnit13 from '@/components/bb-upper/WorkbookUnit13';
 import GrammarUnit13 from '@/components/bb-upper/GrammarUnit13';
+import GettingStartedUnit5 from '@/components/bb-upper/GettingStartedUnit5';
+import ReadingUnit5 from '@/components/bb-upper/ReadingUnit5';
+import VocabularyUnit5 from '@/components/bb-upper/VocabularyUnit5';
+import SpeakingUnit5 from '@/components/bb-upper/SpeakingUnit5';
+import ListeningUnit5 from '@/components/bb-upper/ListeningUnit5';
+import Reading2Unit5 from '@/components/bb-upper/Reading2Unit5';
+import TalkingPointUnit5 from '@/components/bb-upper/TalkingPointUnit5';
+import WorkbookUnit5 from '@/components/bb-upper/WorkbookUnit5';
 
 const BBUpperSkill = () => {
   const { moduleId, skillId } = useParams();
