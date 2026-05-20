@@ -87,10 +87,14 @@ export const bbUpperModules: BBUpperModule[] = [
     number: 5,
     title: 'Promotional Activities and Branding',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Promoting AXE; The power of brands', type: 'reading' },
-      { id: 'listening', title: 'Listening', description: "Supermarkets' own brands", type: 'listening', audioTrack: '' },
-      { id: 'speaking', title: 'Speaking', description: 'Discussions: Advantages and disadvantages of promotional activities; Brands; Role-play: Promoting a shampoo', type: 'speaking' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Promotional activities; Marketing terms: brands, logo, etc.', type: 'vocabulary' },
+      { id: 'getting-started', title: 'Getting Started', description: 'Promotional activities: advantages, disadvantages and choosing the right channel', type: 'speaking' },
+      { id: 'reading', title: 'Reading', description: 'Promoting AXE — how Unilever launched its deodorant spray in the USA', type: 'reading' },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Marketing terms from the AXE text: launch, ploys, hits, brand awareness, market share…', type: 'vocabulary' },
+      { id: 'speaking', title: 'Speaking', description: 'Role-play: prepare a promotional campaign to launch a shampoo', type: 'speaking' },
+      { id: 'listening', title: 'Listening', description: "Christina Bunt on Tesco's own brands", type: 'listening', audioTrack: '' },
+      { id: 'reading-2', title: 'Reading 2', description: 'The power of brands — matching statements to extracts from an article', type: 'reading' },
+      { id: 'talking-point', title: 'Talking Point', description: 'Discuss a brand you know: image, feelings, marketing', type: 'speaking' },
+      { id: 'workbook', title: 'Workbook', description: 'Vocabulary multi-choice and grammar: countable/uncountable nouns and -ing/infinitive', type: 'grammar' },
     ],
   },
   {
