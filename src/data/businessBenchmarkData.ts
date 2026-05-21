@@ -18,9 +18,9 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     number: 1,
     title: 'The Working Day',
     skills: [
+      { id: 'getting-started', title: 'Getting Started', description: 'Match departments to a company organigram', content: { type: 'organigram-working-day' } },
       { id: 'reading', title: 'Reading', description: 'Changing places: job swapping at work', content: { type: 'reading-changing-places' } },
       { id: 'listening', title: 'Listening', description: 'Being a PA', content: { type: 'listening-pa' } },
-      
       { id: 'vocabulary', title: 'Vocabulary', description: 'Job titles and describing jobs; Names of company departments', content: { type: 'department-matching' } },
       { id: 'grammar', title: 'Grammar', description: 'Present simple and present continuous; Time expressions', content: { type: 'grammar-workshop' } },
     ],

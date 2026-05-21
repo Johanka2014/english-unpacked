@@ -24,6 +24,7 @@ import GrammarCompanyHistoryExercise from '@/components/business-benchmark/Gramm
 import ReadingHongdouExercise from '@/components/business-benchmark/ReadingHongdouExercise';
 import SpeakingCompanyHistoryExercise from '@/components/business-benchmark/SpeakingCompanyHistoryExercise';
 import ListeningCompanyHistoryExercise from '@/components/business-benchmark/ListeningCompanyHistoryExercise';
+import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -44,6 +45,7 @@ const BusinessBenchmarkSkill = () => {
 
   const renderContent = () => {
     const contentType = skill.content?.type;
+    if (contentType === 'organigram-working-day') return <OrganigramExercise />;
     if (contentType === 'department-matching') return (
       <div className="space-y-8">
         <DepartmentMatchingExercise />
