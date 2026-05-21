@@ -756,28 +756,28 @@ const MixedPractice = () => {
 const COUNTRIES: { id: number; img: string; alt: string; answer: string; accepted: string[] }[] = [
   {
     id: 1,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Tower_Bridge_from_Shad_Thames.jpg/640px-Tower_Bridge_from_Shad_Thames.jpg',
+    img: towerBridgeImg,
     alt: 'Tower Bridge in London',
     answer: 'the UK',
     accepted: ['uk', 'the uk', 'england', 'united kingdom', 'the united kingdom', 'britain', 'great britain'],
   },
   {
     id: 2,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/640px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg',
+    img: greatWallImg,
     alt: 'The Great Wall of China',
     answer: 'China',
     accepted: ['china'],
   },
   {
     id: 3,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Itsukushima_torii_distance.jpg/640px-Itsukushima_torii_distance.jpg',
+    img: itsukushimaImg,
     alt: 'Itsukushima torii gate in Japan',
     answer: 'Japan',
     accepted: ['japan'],
   },
   {
     id: 4,
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/640px-Taj_Mahal_%28Edited%29.jpeg',
+    img: tajMahalImg,
     alt: 'The Taj Mahal in India',
     answer: 'India',
     accepted: ['india'],
