@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Sparkles, BookOpen, Volume2, Plane, MessageCircle, HelpCircle, Globe2, PenLine, Mic } from 'lucide-react';
+import { Sparkles, BookOpen, Volume2, Plane, MessageCircle, HelpCircle, Globe2, PenLine, Mic, Shuffle, PenTool } from 'lucide-react';
 
 // ───────────────────────── Activity 1: Grammar reference ─────────────────────────
 
