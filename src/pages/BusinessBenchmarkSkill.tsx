@@ -25,6 +25,7 @@ import ReadingHongdouExercise from '@/components/business-benchmark/ReadingHongd
 import SpeakingCompanyHistoryExercise from '@/components/business-benchmark/SpeakingCompanyHistoryExercise';
 import ListeningCompanyHistoryExercise from '@/components/business-benchmark/ListeningCompanyHistoryExercise';
 import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
+import CorporateCultureGettingStarted from '@/components/business-benchmark/CorporateCultureGettingStarted';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
