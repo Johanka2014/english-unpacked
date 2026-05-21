@@ -47,6 +47,7 @@ const BusinessBenchmarkSkill = () => {
   const renderContent = () => {
     const contentType = skill.content?.type;
     if (contentType === 'organigram-working-day') return <OrganigramExercise />;
+    if (contentType === 'getting-started-corporate-culture') return <CorporateCultureGettingStarted />;
     if (contentType === 'department-matching') return (
       <div className="space-y-8">
         <DepartmentMatchingExercise />
