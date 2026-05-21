@@ -93,6 +93,7 @@ export interface B1GrammarModule {
   tenseMaster?: TenseMasterRef;
   wordwall?: { url: string; shareUrl?: string; title?: string };
   holidayLesson?: true;
+  cambridgeLesson?: true;
   examPractice?: {
     description: string;
     type: string;
@@ -1004,6 +1005,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
         subtitle: 'past simple; past continuous',
         tenseMaster: 'past',
         holidayLesson: true,
+        cambridgeLesson: true,
       },
       {
         id: 'present-perfect-past-simple',
