@@ -7,42 +7,114 @@ import { Sparkles, BookOpen, Volume2, Plane, MessageCircle, HelpCircle, Globe2, 
 
 // ───────────────────────── Activity 1: Grammar reference ─────────────────────────
 
+type FlipCard = {
+  title: string;
+  symbol: React.ReactNode;
+  tagline: string;
+  /** tailwind classes for front face background + border */
+  frontTheme: string;
+  /** title colour */
+  titleColor: string;
+  /** back face theme */
+  backTheme: string;
+  examples: { label?: string; text: React.ReactNode }[];
+};
+
+const FLIP_CARDS: FlipCard[] = [
+  {
+    title: 'Regular Verbs',
+    symbol: <span className="text-4xl font-bold text-green-600 dark:text-green-400"><span className="mr-1">+</span>ed</span>,
+    tagline: 'Most verbs',
+    frontTheme: 'bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-900',
+    titleColor: 'text-green-700 dark:text-green-400',
+    backTheme: 'bg-green-600 text-white',
+    examples: [
+      { text: <>walk → walk<strong>ed</strong></> },
+      { text: <>play → play<strong>ed</strong></> },
+      { text: <>visit → visit<strong>ed</strong></> },
+      { text: <>I <strong>walked</strong> on the beach.</> },
+    ],
+  },
+  {
+    title: 'Spelling',
+    symbol: <PenTool className="w-10 h-10 text-purple-600 dark:text-purple-400" />,
+    tagline: 'y → ied / double consonant',
+    frontTheme: 'bg-purple-50 dark:bg-purple-950/30 border-purple-200 dark:border-purple-900',
+    titleColor: 'text-purple-700 dark:text-purple-400',
+    backTheme: 'bg-purple-600 text-white',
+    examples: [
+      { text: <>study → stud<strong>ied</strong></> },
+      { text: <>try → tr<strong>ied</strong></> },
+      { text: <>stop → sto<strong>pped</strong></> },
+      { text: <>plan → pla<strong>nned</strong></> },
+    ],
+  },
+  {
+    title: 'Irregular',
+    symbol: <Shuffle className="w-10 h-10 text-orange-600 dark:text-orange-400" strokeWidth={2.5} />,
+    tagline: 'They change completely!',
+    frontTheme: 'bg-orange-50 dark:bg-orange-950/30 border-orange-200 dark:border-orange-900',
+    titleColor: 'text-orange-700 dark:text-orange-400',
+    backTheme: 'bg-orange-500 text-white',
+    examples: [
+      { text: <>go → <strong>went</strong></> },
+      { text: <>have → <strong>had</strong></> },
+      { text: <>see → <strong>saw</strong></> },
+      { text: <>eat → <strong>ate</strong></> },
+    ],
+  },
+  {
+    title: 'Negatives',
+    symbol: <span className="text-3xl font-bold text-red-600 dark:text-red-400">didn't</span>,
+    tagline: '+ Base Verb',
+    frontTheme: 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900',
+    titleColor: 'text-red-700 dark:text-red-400',
+    backTheme: 'bg-red-500 text-white',
+    examples: [
+      { text: <>I <strong>didn't go</strong> to school.</> },
+      { text: <>She <strong>didn't eat</strong> breakfast.</> },
+      { text: <>We <strong>didn't see</strong> the film.</> },
+      { text: <>Did you <strong>go</strong>? — base form!</> },
+    ],
+  },
+];
+
+const GrammarFlipCard = ({ card }: { card: FlipCard }) => (
+  <div className="group [perspective:1200px] h-56">
+    <div className="relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      {/* Front */}
+      <div className={`absolute inset-0 [backface-visibility:hidden] rounded-2xl border-2 ${card.frontTheme} p-5 flex flex-col items-center justify-between text-center shadow-sm`}>
+        <h4 className={`font-merriweather font-bold text-lg ${card.titleColor}`}>{card.title}</h4>
+        <div className="flex-1 flex items-center justify-center">{card.symbol}</div>
+        <p className="text-xs text-muted-foreground">{card.tagline}</p>
+      </div>
+      {/* Back */}
+      <div className={`absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl ${card.backTheme} p-5 flex flex-col justify-center shadow-md`}>
+        <p className="text-xs uppercase tracking-wider opacity-80 mb-2 font-semibold">Examples</p>
+        <ul className="space-y-1.5 text-sm">
+          {card.examples.map((ex, i) => (
+            <li key={i}>{ex.text}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+);
+
 const GrammarReference = () => (
   <Card className="service-card">
     <CardContent className="p-6 space-y-6">
-      <div className="flex items-center gap-2">
-        <BookOpen className="w-5 h-5 text-primary" />
-        <h3 className="text-xl font-semibold font-merriweather text-foreground">1 · Past Simple — quick reference</h3>
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-primary" />
+          <h3 className="text-xl font-semibold font-merriweather text-foreground">Grammar Lab: The Past Simple</h3>
+        </div>
+        <span className="text-xs font-bold tracking-wider bg-primary text-primary-foreground px-3 py-1.5 rounded-full">RULES & PATTERNS</span>
       </div>
-      <p className="text-sm text-muted-foreground">We use the past simple to talk about finished actions in the past — perfect for describing your last holiday.</p>
+      <p className="text-center text-sm text-muted-foreground">Hover over the cards to discover the rules for forming the past tense.</p>
 
-      <div className="grid md:grid-cols-2 gap-4">
-        <div className="rounded-lg border border-border bg-muted/30 p-4">
-          <p className="font-semibold text-green-700 dark:text-green-400 mb-2">+ Positive</p>
-          <ul className="text-sm text-foreground space-y-1">
-            <li>I <strong>got up</strong> early yesterday.</li>
-            <li>You <strong>had</strong> breakfast in bed.</li>
-            <li>He <strong>went</strong> to work by car.</li>
-            <li>They <strong>had</strong> dinner at home.</li>
-          </ul>
-        </div>
-        <div className="rounded-lg border border-border bg-muted/30 p-4">
-          <p className="font-semibold text-red-700 dark:text-red-400 mb-2">− Negative</p>
-          <ul className="text-sm text-foreground space-y-1">
-            <li>I <strong>didn't get up</strong> early.</li>
-            <li>You <strong>didn't have</strong> breakfast.</li>
-            <li>He <strong>didn't go</strong> to work.</li>
-            <li>They <strong>didn't have</strong> dinner.</li>
-          </ul>
-        </div>
-        <div className="rounded-lg border border-border bg-muted/30 p-4 md:col-span-2">
-          <p className="font-semibold text-primary mb-2">? Question</p>
-          <ul className="text-sm text-foreground space-y-1">
-            <li><strong>Did</strong> you <strong>go</strong> to school yesterday? — Yes, I did. / No, I didn't.</li>
-            <li><strong>Did</strong> she <strong>get up</strong> early? — Yes, she did. / No, she didn't.</li>
-            <li><strong>Did</strong> they <strong>have</strong> lunch at work? — Yes, they did. / No, they didn't.</li>
-          </ul>
-        </div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {FLIP_CARDS.map((c) => <GrammarFlipCard key={c.title} card={c} />)}
       </div>
 
       <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
