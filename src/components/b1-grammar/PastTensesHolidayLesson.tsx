@@ -4,6 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Sparkles, BookOpen, Volume2, Plane, MessageCircle, HelpCircle, Globe2, PenLine, Mic, Shuffle, PenTool } from 'lucide-react';
+import towerBridgeImg from '@/assets/holiday/tower-bridge.jpg';
+import greatWallImg from '@/assets/holiday/great-wall.jpg';
+import itsukushimaImg from '@/assets/holiday/itsukushima.jpg';
+import tajMahalImg from '@/assets/holiday/taj-mahal.jpg';
 
 // ───────────────────────── Activity 1: Grammar reference ─────────────────────────
 
