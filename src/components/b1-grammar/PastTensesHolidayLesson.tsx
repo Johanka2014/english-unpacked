@@ -117,7 +117,7 @@ const GrammarReference = () => (
         {FLIP_CARDS.map((c) => <GrammarFlipCard key={c.title} card={c} />)}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="space-y-4">
         <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
           <div className="flex items-center gap-2 mb-2">
             <Volume2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
@@ -129,23 +129,25 @@ const GrammarReference = () => (
           </p>
         </div>
 
-        <a
-          href="https://wordwall.net/resource/87761877"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4 hover:bg-amber-100 dark:hover:bg-amber-950/50 transition-colors block group"
-        >
+        <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
           <div className="flex items-center gap-2 mb-2">
             <Volume2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
             <p className="font-semibold text-amber-800 dark:text-amber-300">Pronunciation: regular verbs in the past tense</p>
           </div>
-          <p className="text-sm text-amber-900 dark:text-amber-200">
+          <p className="text-sm text-amber-900 dark:text-amber-200 mb-3">
             Practise the <em>/d/</em>, <em>/t/</em> and <em>/ɪd/</em> endings of regular past tense verbs with this interactive Wordwall activity.
           </p>
-          <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold text-amber-800 dark:text-amber-300 underline group-hover:no-underline">
-            Open the Wordwall activity ↗
-          </span>
-        </a>
+          <a
+            href="https://wordwall.net/resource/87761877"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm shadow-sm transition-colors"
+          >
+            <Volume2 className="w-4 h-4" />
+            Open Wordwall activity
+            <span aria-hidden>↗</span>
+          </a>
+        </div>
       </div>
 
     </CardContent>
