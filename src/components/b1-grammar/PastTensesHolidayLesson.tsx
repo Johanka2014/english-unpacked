@@ -117,16 +117,37 @@ const GrammarReference = () => (
         {FLIP_CARDS.map((c) => <GrammarFlipCard key={c.title} card={c} />)}
       </div>
 
-      <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
-        <div className="flex items-center gap-2 mb-2">
-          <Volume2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
-          <p className="font-semibold text-amber-800 dark:text-amber-300">Pronunciation: /ɜː/ and was / were</p>
+      <div className="grid md:grid-cols-2 gap-4">
+        <div className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4">
+          <div className="flex items-center gap-2 mb-2">
+            <Volume2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
+            <p className="font-semibold text-amber-800 dark:text-amber-300">Pronunciation: /ɜː/ and was / were</p>
+          </div>
+          <p className="text-sm text-amber-900 dark:text-amber-200">
+            Practise the sound in: <em>n<strong>ur</strong>se · w<strong>or</strong>k · h<strong>er</strong> · w<strong>or</strong>d · f<strong>ir</strong>st</em>.
+            Then: <em>W<strong>ere</strong> they famous? · W<strong>as</strong> she a teacher? · He w<strong>as</strong> a soldier. · They w<strong>ere</strong> waitresses.</em>
+          </p>
         </div>
-        <p className="text-sm text-amber-900 dark:text-amber-200">
-          Practise the sound in: <em>n<strong>ur</strong>se · w<strong>or</strong>k · h<strong>er</strong> · w<strong>or</strong>d · f<strong>ir</strong>st</em>.
-          Then: <em>W<strong>ere</strong> they famous? · W<strong>as</strong> she a teacher? · He w<strong>as</strong> a soldier. · They w<strong>ere</strong> waitresses.</em>
-        </p>
+
+        <a
+          href="https://wordwall.net/resource/87761877"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-lg border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 p-4 hover:bg-amber-100 dark:hover:bg-amber-950/50 transition-colors block group"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <Volume2 className="w-4 h-4 text-amber-700 dark:text-amber-300" />
+            <p className="font-semibold text-amber-800 dark:text-amber-300">Pronunciation: regular verbs in the past tense</p>
+          </div>
+          <p className="text-sm text-amber-900 dark:text-amber-200">
+            Practise the <em>/d/</em>, <em>/t/</em> and <em>/ɪd/</em> endings of regular past tense verbs with this interactive Wordwall activity.
+          </p>
+          <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold text-amber-800 dark:text-amber-300 underline group-hover:no-underline">
+            Open the Wordwall activity ↗
+          </span>
+        </a>
       </div>
+
     </CardContent>
   </Card>
 );
