@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles, Gamepad2, ExternalLink, Plane } from 'lucide-react';
+import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles, Gamepad2, ExternalLink, Plane, GraduationCap } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
@@ -12,6 +12,7 @@ import NounCompoundExercise from '@/components/exercises/NounCompoundExercise';
 import SuffixCategorizeExercise from '@/components/exercises/SuffixCategorizeExercise';
 import TenseMasterPanel from '@/components/tense-master/TenseMasterPanel';
 import PastTensesHolidayLesson from '@/components/b1-grammar/PastTensesHolidayLesson';
+import PastTensesCambridgeLesson from '@/components/b1-grammar/PastTensesCambridgeLesson';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
 import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
 import examFuture1 from '@/assets/exam-future-1.jpg';
@@ -897,7 +898,7 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
 
 const B1GrammarTopic = () => {
   const { sectionId, moduleId } = useParams<{ sectionId: string; moduleId: string }>();
-  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | 'wordwall' | 'holiday' | null>(null);
+  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | 'wordwall' | 'holiday' | 'cambridge' | null>(null);
 
   const section = b1GrammarSections.find((s) => s.id === sectionId);
   if (!section) return <Navigate to="/b1-grammar" replace />;
@@ -905,7 +906,7 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster || mod.wordwall || mod.holidayLesson);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
@@ -914,6 +915,7 @@ const B1GrammarTopic = () => {
     { key: 'practice' as const, label: 'Tense Master Practice', icon: Sparkles, available: !!mod.tenseMaster, color: 'from-amber-600 to-orange-700' },
     { key: 'wordwall' as const, label: 'Practice', icon: Gamepad2, available: !!mod.wordwall, color: 'from-pink-600 to-rose-700' },
     { key: 'holiday' as const, label: 'Talking About My Holiday', icon: Plane, available: !!mod.holidayLesson, color: 'from-cyan-600 to-teal-700' },
+    { key: 'cambridge' as const, label: 'Past Simple & Continuous', icon: GraduationCap, available: !!mod.cambridgeLesson, color: 'from-indigo-600 to-violet-700' },
   ].filter((t) => t.available);
 
   return (
@@ -990,6 +992,7 @@ const B1GrammarTopic = () => {
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
               {activeTab === 'holiday' && mod.holidayLesson && <PastTensesHolidayLesson />}
+              {activeTab === 'cambridge' && mod.cambridgeLesson && <PastTensesCambridgeLesson />}
               {activeTab === 'exam' && mod.examPractice && (
                 mod.examPractice.readingPart1
                   ? <ExamPracticeReadingPart1
