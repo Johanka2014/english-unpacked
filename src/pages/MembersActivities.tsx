@@ -55,6 +55,13 @@ const grammarActivities = [
     path: '/b1-grammar',
     color: 'text-rose-600',
   },
+  {
+    title: 'Connected Speech',
+    description: 'Master 6 lessons on linking, intrusive /r/, elision, assimilation and reductions — with theory, examples and quizzes',
+    icon: Megaphone,
+    path: '/connected-speech',
+    color: 'text-indigo-600',
+  },
 ];
 
 const businessActivities = [
