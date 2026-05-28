@@ -73,6 +73,11 @@ const LessonDetail = () => {
 
   const handleSave = async () => {
     try {
+      const invalid = webLinks.find(l => l.url && !isSafeUrl(l.url));
+      if (invalid) {
+        toast({ title: 'Invalid URL', description: 'Only http:// or https:// links are allowed.', variant: 'destructive' });
+        return;
+      }
       const { error } = await supabase
         .from('lessons')
         .update({
@@ -106,11 +111,15 @@ const LessonDetail = () => {
     setWebLinks(webLinks.filter((_, i) => i !== index));
   };
 
+  const isSafeUrl = (url: string) => /^https?:\/\//i.test(url);
+
   const updateWebLink = (index: number, field: 'title' | 'url', value: string) => {
     const updated = [...webLinks];
     updated[index][field] = value;
     setWebLinks(updated);
   };
+
+  const sanitizeHref = (url: string) => (isSafeUrl(url) ? url : '#');
 
   if (isLoading) {
     return (
@@ -245,7 +254,7 @@ const LessonDetail = () => {
                     webLinks.map((link, index) => (
                       <a
                         key={index}
-                        href={link.url}
+                        href={sanitizeHref(link.url)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-3 p-4 bg-blue-50/30 rounded-lg hover:bg-blue-50 transition-colors"

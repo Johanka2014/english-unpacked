@@ -137,6 +137,8 @@ const EmailManagement = () => {
           .order("lesson_date");
 
         if (lessons && lessons.length > 0) {
+          const escapeHtml = (s: string) =>
+            String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
           const lessonsTableRows = lessons.map((lesson: Lesson) => {
             const date = new Date(lesson.lesson_date).toLocaleDateString("en-GB", {
               day: "numeric",
@@ -144,8 +146,8 @@ const EmailManagement = () => {
             });
             return `
               <tr style="border-bottom: 1px solid #e2e8f0;">
-                <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${date}</td>
-                <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${lesson.lesson_title}</td>
+                <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${escapeHtml(date)}</td>
+                <td style="padding: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">${escapeHtml(lesson.lesson_title)}</td>
                 <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">60 min</td>
                 <td style="padding: 12px; text-align: right; font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #1e293b;">£45.00</td>
               </tr>
