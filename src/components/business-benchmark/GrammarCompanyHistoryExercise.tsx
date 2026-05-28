@@ -248,18 +248,32 @@ const GrammarCompanyHistoryExercise = () => {
             </div>
           </div>
 
-          <a
-            href="https://wordwall.net/resource/53890374"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full"
-          >
-            <div className="w-full rounded-lg border-2 border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors p-6 flex justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
-                <ExternalLink className="h-4 w-4" /> Click to Practice
-              </Button>
-            </div>
-          </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="https://wordwall.net/resource/53890374"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
+              <div className="w-full h-full rounded-lg border-2 border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors p-6 flex justify-center items-center">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                  <ExternalLink className="h-4 w-4" /> Irregular Verbs in the Past
+                </Button>
+              </div>
+            </a>
+            <a
+              href="https://wordwall.net/resource/17527235"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full"
+            >
+              <div className="w-full h-full rounded-lg border-2 border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors p-6 flex justify-center items-center">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                  <ExternalLink className="h-4 w-4" /> Pronunciation of Regular Verbs in the Past
+                </Button>
+              </div>
+            </a>
+          </div>
 
 
           {/* Section C */}
