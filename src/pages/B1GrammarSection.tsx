@@ -50,7 +50,7 @@ const B1GrammarSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.modules.map((mod) => {
-              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson);
+              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson);
               return (
                 <Link key={mod.id} to={`/b1-grammar/${sectionId}/${mod.id}`}>
                   <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">

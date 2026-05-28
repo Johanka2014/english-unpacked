@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles, Gamepad2, ExternalLink, Plane, GraduationCap, Brain, Wand2 } from 'lucide-react';
+import { ArrowLeft, BookOpen, PenLine, ClipboardCheck, Lock, Sparkles, Gamepad2, ExternalLink, Plane, GraduationCap, Brain, Wand2, Layers } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import type { GrammarExercise, EmailSegment, ExamReadingPart1Question, GrammarFocusTaskItem } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
@@ -15,6 +15,7 @@ import PastTensesHolidayLesson from '@/components/b1-grammar/PastTensesHolidayLe
 import PastTensesCambridgeLesson from '@/components/b1-grammar/PastTensesCambridgeLesson';
 import ModalVerbsMasterLesson from '@/components/b1-grammar/ModalVerbsMasterLesson';
 import SoSuchMasterLesson from '@/components/b1-grammar/SoSuchMasterLesson';
+import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectivesLesson';
 import futureTensesC2Image from '@/assets/future-tenses-c2-going-to.png';
 import futureTensesC4Image from '@/assets/future-tenses-c4-diaries.png';
 import examFuture1 from '@/assets/exam-future-1.jpg';
@@ -900,7 +901,7 @@ const ExamPracticeReadingPart2 = ({ examPractice }: { examPractice: ExamPractice
 
 const B1GrammarTopic = () => {
   const { sectionId, moduleId } = useParams<{ sectionId: string; moduleId: string }>();
-  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | 'wordwall' | 'holiday' | 'cambridge' | 'modal-master' | 'so-such-master' | null>(null);
+  const [activeTab, setActiveTab] = useState<'theory' | 'exercises' | 'exam' | 'practice' | 'wordwall' | 'holiday' | 'cambridge' | 'modal-master' | 'so-such-master' | 'compound-adjectives' | null>(null);
 
   const section = b1GrammarSections.find((s) => s.id === sectionId);
   if (!section) return <Navigate to="/b1-grammar" replace />;
@@ -908,7 +909,7 @@ const B1GrammarTopic = () => {
   const mod = section.modules.find((m) => m.id === moduleId);
   if (!mod) return <Navigate to={`/b1-grammar/${sectionId}`} replace />;
 
-  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson);
+  const hasContent = !!(mod.theory || mod.exercises || mod.examPractice?.people || mod.examPractice?.readingPart1 || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson);
 
   const tiles = [
     { key: 'theory' as const, label: 'Grammar', icon: BookOpen, available: !!mod.theory, color: 'from-blue-600 to-blue-800' },
@@ -920,6 +921,7 @@ const B1GrammarTopic = () => {
     { key: 'cambridge' as const, label: 'Past Simple & Continuous', icon: GraduationCap, available: !!mod.cambridgeLesson, color: 'from-indigo-600 to-violet-700' },
     { key: 'modal-master' as const, label: 'Modal Verbs Master', icon: Brain, available: !!mod.modalMasteryLesson, color: 'from-fuchsia-600 to-purple-700' },
     { key: 'so-such-master' as const, label: 'So/Such Master', icon: Wand2, available: !!mod.soSuchMasteryLesson, color: 'from-rose-600 to-pink-700' },
+    { key: 'compound-adjectives' as const, label: 'Compound Adjectives', icon: Layers, available: !!mod.compoundAdjectivesLesson, color: 'from-teal-600 to-emerald-700' },
   ].filter((t) => t.available);
 
   return (
@@ -1004,6 +1006,7 @@ const B1GrammarTopic = () => {
                   {tab === 'cambridge' && mod.cambridgeLesson && <PastTensesCambridgeLesson />}
                   {tab === 'modal-master' && mod.modalMasteryLesson && <ModalVerbsMasterLesson />}
                   {tab === 'so-such-master' && mod.soSuchMasteryLesson && <SoSuchMasterLesson />}
+                  {tab === 'compound-adjectives' && mod.compoundAdjectivesLesson && <CompoundAdjectivesLesson />}
                   {tab === 'exam' && mod.examPractice && (
                     mod.examPractice.readingPart1
                       ? <ExamPracticeReadingPart1
