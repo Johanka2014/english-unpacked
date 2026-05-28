@@ -94,6 +94,7 @@ export interface B1GrammarModule {
   wordwall?: { url: string; shareUrl?: string; title?: string };
   holidayLesson?: true;
   cambridgeLesson?: true;
+  modalMasteryLesson?: true;
   examPractice?: {
     description: string;
     type: string;
@@ -1096,6 +1097,13 @@ export const b1GrammarSections: B1GrammarSection[] = [
         number: 15,
         title: 'Modals 3',
         subtitle: 'certainty and possibility; ability',
+      },
+      {
+        id: 'modal-verbs-master',
+        number: 16,
+        title: 'Modal Verbs Master',
+        subtitle: 'reference, practice quiz and song listening for all 8 modal verbs',
+        modalMasteryLesson: true,
       },
     ],
   },
