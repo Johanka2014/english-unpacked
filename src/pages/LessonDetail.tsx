@@ -106,11 +106,15 @@ const LessonDetail = () => {
     setWebLinks(webLinks.filter((_, i) => i !== index));
   };
 
+  const isSafeUrl = (url: string) => /^https?:\/\//i.test(url);
+
   const updateWebLink = (index: number, field: 'title' | 'url', value: string) => {
     const updated = [...webLinks];
     updated[index][field] = value;
     setWebLinks(updated);
   };
+
+  const sanitizeHref = (url: string) => (isSafeUrl(url) ? url : '#');
 
   if (isLoading) {
     return (

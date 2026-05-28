@@ -128,6 +128,8 @@ const Admin = () => {
     setWebLinks(updated);
   };
 
+  const isSafeUrl = (url: string) => /^https?:\/\//i.test(url);
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
