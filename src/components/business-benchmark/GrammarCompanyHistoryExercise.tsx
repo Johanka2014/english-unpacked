@@ -286,6 +286,20 @@ const GrammarCompanyHistoryExercise = () => {
             </ul>
           </div>
 
+          <a
+            href="https://wordwall.net/resource/103077127"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full"
+          >
+            <div className="w-full rounded-lg border-2 border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors p-6 flex justify-center items-center">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                <ExternalLink className="h-4 w-4" /> Past simple questions
+              </Button>
+            </div>
+          </a>
+
+
           {/* Section D */}
           <div className="rounded-lg border border-border bg-muted/30 p-5 space-y-3">
             <p className="font-semibold text-foreground text-sm">D  The past of <em>be</em> (am/is/are) is <em className="text-primary">was/were</em>:</p>
