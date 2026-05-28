@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic, Megaphone } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -54,6 +54,13 @@ const grammarActivities = [
     icon: FileText,
     path: '/b1-grammar',
     color: 'text-rose-600',
+  },
+  {
+    title: 'Connected Speech',
+    description: 'Master 6 lessons on linking, intrusive /r/, elision, assimilation and reductions — with theory, examples and quizzes',
+    icon: Megaphone,
+    path: '/connected-speech',
+    color: 'text-indigo-600',
   },
 ];
 
