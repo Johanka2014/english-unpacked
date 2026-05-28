@@ -95,6 +95,7 @@ export interface B1GrammarModule {
   holidayLesson?: true;
   cambridgeLesson?: true;
   modalMasteryLesson?: true;
+  soSuchMasteryLesson?: true;
   examPractice?: {
     description: string;
     type: string;
@@ -1218,6 +1219,13 @@ export const b1GrammarSections: B1GrammarSection[] = [
         number: 28,
         title: 'So/Such; Too/Enough',
         subtitle: 'so/such (+ that); enough and too (+ to infinitive and for)',
+      },
+      {
+        id: 'so-such-master',
+        number: 28,
+        title: 'So/Such Master',
+        subtitle: 'patterns reference, multiple choice, fill-in-the-blanks, pattern recognition, and song listening',
+        soSuchMasteryLesson: true,
       },
       {
         id: 'linking-words-1',
