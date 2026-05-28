@@ -1003,6 +1003,7 @@ const B1GrammarTopic = () => {
                   {tab === 'holiday' && mod.holidayLesson && <PastTensesHolidayLesson />}
                   {tab === 'cambridge' && mod.cambridgeLesson && <PastTensesCambridgeLesson />}
                   {tab === 'modal-master' && mod.modalMasteryLesson && <ModalVerbsMasterLesson />}
+                  {tab === 'so-such-master' && mod.soSuchMasteryLesson && <SoSuchMasterLesson />}
                   {tab === 'exam' && mod.examPractice && (
                     mod.examPractice.readingPart1
                       ? <ExamPracticeReadingPart1
