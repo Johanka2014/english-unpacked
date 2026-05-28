@@ -50,7 +50,7 @@ const B1GrammarSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.modules.map((mod) => {
-              const hasContent = !!(mod.theory || mod.exercises);
+              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson);
               return (
                 <Link key={mod.id} to={`/b1-grammar/${sectionId}/${mod.id}`}>
                   <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
@@ -59,7 +59,7 @@ const B1GrammarSection = () => {
                       <div className="absolute top-4 left-4 bg-white/20 p-2 rounded-full">
                         <BookOpen className="w-5 h-5 text-white" />
                       </div>
-                      {!hasContent && (
+                      {!hasContent && mod.id !== 'so-such-too-enough' && (
                         <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
                           Coming soon
                         </div>
