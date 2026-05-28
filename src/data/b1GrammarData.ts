@@ -96,6 +96,7 @@ export interface B1GrammarModule {
   cambridgeLesson?: true;
   modalMasteryLesson?: true;
   soSuchMasteryLesson?: true;
+  compoundAdjectivesLesson?: true;
   examPractice?: {
     description: string;
     type: string;
@@ -983,6 +984,13 @@ export const b1GrammarSections: B1GrammarSection[] = [
         number: 3,
         title: 'Comparisons',
         subtitle: 'comparative and superlative adjectives and adverbs; comparing nouns',
+      },
+      {
+        id: 'compound-adjectives',
+        number: 34,
+        title: 'Compound Adjectives',
+        subtitle: 'forming and using compound adjectives like well-known, short-sighted and open-minded',
+        compoundAdjectivesLesson: true,
       },
     ],
   },
