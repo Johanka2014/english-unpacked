@@ -952,7 +952,7 @@ const B1GrammarTopic = () => {
               <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Coming Soon</h2>
               <p className="text-muted-foreground">Content for this module is being prepared.</p>
             </div>
-          ) : activeTab === null ? (
+          ) : (activeTab === null && tiles.length > 1) ? (
             <div className={`grid gap-6 max-w-5xl mx-auto ${tiles.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3'}`}>
               {tiles.map((tile) => {
                 const Icon = tile.icon;
@@ -987,32 +987,39 @@ const B1GrammarTopic = () => {
             </div>
           ) : (
             <div className="max-w-5xl mx-auto">
-              <Button variant="outline" onClick={() => setActiveTab(null)} className="mb-6">
-                <ArrowLeft className="h-4 w-4 mr-1" /> Back to module overview
-              </Button>
-              {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
-              {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
-              {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
-              {activeTab === 'holiday' && mod.holidayLesson && <PastTensesHolidayLesson />}
-              {activeTab === 'cambridge' && mod.cambridgeLesson && <PastTensesCambridgeLesson />}
-              {activeTab === 'modal-master' && mod.modalMasteryLesson && <ModalVerbsMasterLesson />}
-              {activeTab === 'exam' && mod.examPractice && (
-                mod.examPractice.readingPart1
-                  ? <ExamPracticeReadingPart1
-                      questions={mod.examPractice.readingPart1}
-                      intro={mod.examPractice.intro || ''}
-                      grammarFocusTask={mod.examPractice.grammarFocusTaskFuture}
-                    />
-                  : mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
-                  ? <ExamPracticeReadingPart2 examPractice={mod.examPractice as ExamPracticeData} />
-                  : (
-                    <div className="text-center py-20 max-w-md mx-auto">
-                      <ClipboardCheck className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
-                      <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Exam Practice</h2>
-                      <p className="text-muted-foreground">{mod.examPractice.description} — coming soon.</p>
-                    </div>
-                  )
+              {tiles.length > 1 && (
+                <Button variant="outline" onClick={() => setActiveTab(null)} className="mb-6">
+                  <ArrowLeft className="h-4 w-4 mr-1" /> Back to module overview
+                </Button>
               )}
+              {(() => {
+                const tab = activeTab ?? (tiles.length === 1 ? tiles[0].key : null);
+                return <>
+                  {tab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
+                  {tab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
+                  {tab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
+                  {tab === 'holiday' && mod.holidayLesson && <PastTensesHolidayLesson />}
+                  {tab === 'cambridge' && mod.cambridgeLesson && <PastTensesCambridgeLesson />}
+                  {tab === 'modal-master' && mod.modalMasteryLesson && <ModalVerbsMasterLesson />}
+                  {tab === 'exam' && mod.examPractice && (
+                    mod.examPractice.readingPart1
+                      ? <ExamPracticeReadingPart1
+                          questions={mod.examPractice.readingPart1}
+                          intro={mod.examPractice.intro || ''}
+                          grammarFocusTask={mod.examPractice.grammarFocusTaskFuture}
+                        />
+                      : mod.examPractice.people && mod.examPractice.options && mod.examPractice.answers
+                      ? <ExamPracticeReadingPart2 examPractice={mod.examPractice as ExamPracticeData} />
+                      : (
+                        <div className="text-center py-20 max-w-md mx-auto">
+                          <ClipboardCheck className="w-16 h-16 text-muted-foreground/30 mx-auto mb-4" />
+                          <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Exam Practice</h2>
+                          <p className="text-muted-foreground">{mod.examPractice.description} — coming soon.</p>
+                        </div>
+                      )
+                  )}
+                </>;
+              })()}
             </div>
           )}
         </div>
