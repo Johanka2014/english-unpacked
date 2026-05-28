@@ -79,6 +79,11 @@ const Admin = () => {
     }
 
     try {
+      const invalid = webLinks.find(l => l.url && !/^https?:\/\//i.test(l.url));
+      if (invalid) {
+        toast({ title: 'Invalid URL', description: 'Only http:// or https:// links are allowed.', variant: 'destructive' });
+        return;
+      }
       const { data, error } = await supabase.from('lessons').insert({
         student_id: selectedStudent,
         lesson_date: lessonDate,
