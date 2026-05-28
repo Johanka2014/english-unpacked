@@ -59,7 +59,7 @@ const B1GrammarSection = () => {
                       <div className="absolute top-4 left-4 bg-white/20 p-2 rounded-full">
                         <BookOpen className="w-5 h-5 text-white" />
                       </div>
-                      {!hasContent && (
+                      {!hasContent && mod.id !== 'so-such-too-enough' && (
                         <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
                           Coming soon
                         </div>
