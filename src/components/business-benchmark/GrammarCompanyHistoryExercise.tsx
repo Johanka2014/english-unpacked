@@ -248,6 +248,20 @@ const GrammarCompanyHistoryExercise = () => {
             </div>
           </div>
 
+          <a
+            href="https://wordwall.net/resource/53890374"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full"
+          >
+            <div className="w-full rounded-lg border-2 border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors p-6 flex justify-center">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                <ExternalLink className="h-4 w-4" /> Click to Practice
+              </Button>
+            </div>
+          </a>
+
+
           {/* Section C */}
           <div className="rounded-lg border border-border bg-muted/30 p-5 space-y-3">
             <p className="font-semibold text-foreground text-sm">C  Questions and negatives use <em className="text-primary">did/didn't</em> + infinitive:</p>
