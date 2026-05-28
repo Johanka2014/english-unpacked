@@ -43,14 +43,28 @@ const defaultSubjects: Record<string, string> = {
   newsletter: "English Unpacked Newsletter",
 };
 
+// Variables whose values are intentionally HTML (already escaped by caller).
+// All other variables are HTML-encoded before interpolation to prevent injection.
+const HTML_VARIABLES = new Set(["lessons_table", "activities_html", "achievements_html", "main_content", "hero_image"]);
+
+function htmlEncode(value: string): string {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function replaceVariables(html: string, variables: Record<string, string>): string {
   let result = html;
-  
+
   for (const [key, value] of Object.entries(variables)) {
     const regex = new RegExp(`{{${key}}}`, "g");
-    result = result.replace(regex, value);
+    const safeValue = HTML_VARIABLES.has(key) ? String(value ?? "") : htmlEncode(value ?? "");
+    result = result.replace(regex, safeValue);
   }
-  
+
   return result;
 }
 
