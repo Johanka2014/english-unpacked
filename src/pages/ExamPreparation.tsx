@@ -35,7 +35,7 @@ const ExamPreparation = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Cambridge Exam Preparation - FCE, CAE, CPE & IELTS"
-        description="Achieve your best exam score with specialized FCE, CAE, CPE, and IELTS preparation. Expert strategies, practice tests, and one-on-one tutoring. Book free consultation today."
+        description="Specialised FCE, CAE, CPE and IELTS preparation with expert strategies, practice tests and one-on-one tutoring. Book a free consultation."
         canonical="https://english-unpacked.lovable.app/exam-preparation"
         schema={schema}
       />

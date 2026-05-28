@@ -85,8 +85,8 @@ const ServicesSection = () => {
                   className="w-full border-brand-royal text-brand-royal hover:bg-brand-royal hover:text-white transition-all duration-200"
                   asChild
                 >
-                  <a href={service.link} target="_blank" rel="noopener noreferrer">
-                    Learn More
+                  <a href={service.link} target="_blank" rel="noopener noreferrer" aria-label={`Learn more about ${service.title}`}>
+                    Learn more about {service.title}
                   </a>
                 </Button>
               </CardContent>

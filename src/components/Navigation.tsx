@@ -45,10 +45,10 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="cursor-pointer">
-              <h1 className="text-3xl font-bold text-brand-navy font-pacifico hover:text-brand-royal transition-colors duration-200">
+            <Link to="/" className="cursor-pointer" aria-label="English Unpacked home">
+              <span className="text-3xl font-bold text-brand-navy font-pacifico hover:text-brand-royal transition-colors duration-200 block">
                 English Unpacked
-              </h1>
+              </span>
             </Link>
           </div>
 
@@ -112,6 +112,8 @@ const Navigation = () => {
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-brand-navy"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
