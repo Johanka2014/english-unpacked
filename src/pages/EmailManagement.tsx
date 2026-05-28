@@ -119,8 +119,10 @@ const EmailManagement = () => {
         }
       }
 
-      // Add student name to variables
-      variables.student_name = student.full_name.split(" ")[0];
+      // Add student name to variables (HTML-escaped to prevent injection into email templates)
+      const escapeHtmlValue = (s: string) =>
+        String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      variables.student_name = escapeHtmlValue(student.full_name.split(" ")[0]);
 
       // If invoice email, fetch lessons for the current month
       if (emailType === "monthly-invoice") {
