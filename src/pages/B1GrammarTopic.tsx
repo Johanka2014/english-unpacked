@@ -952,7 +952,7 @@ const B1GrammarTopic = () => {
               <h2 className="text-2xl font-semibold text-foreground mb-2 font-merriweather">Coming Soon</h2>
               <p className="text-muted-foreground">Content for this module is being prepared.</p>
             </div>
-          ) : activeTab === null ? (
+          ) : (activeTab === null && tiles.length > 1) ? (
             <div className={`grid gap-6 max-w-5xl mx-auto ${tiles.length === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : 'md:grid-cols-3'}`}>
               {tiles.map((tile) => {
                 const Icon = tile.icon;
@@ -986,10 +986,13 @@ const B1GrammarTopic = () => {
               })}
             </div>
           ) : (
+            (() => { if (activeTab === null && tiles.length === 1) { /* auto-select single tile */ } return null; })() || 
             <div className="max-w-5xl mx-auto">
-              <Button variant="outline" onClick={() => setActiveTab(null)} className="mb-6">
-                <ArrowLeft className="h-4 w-4 mr-1" /> Back to module overview
-              </Button>
+              {tiles.length > 1 && (
+                <Button variant="outline" onClick={() => setActiveTab(null)} className="mb-6">
+                  <ArrowLeft className="h-4 w-4 mr-1" /> Back to module overview
+                </Button>
+              )}
               {activeTab === 'theory' && mod.theory && <TheoryView sections={mod.theory} />}
               {activeTab === 'exercises' && mod.exercises && <ExercisesView exercises={mod.exercises} />}
               {activeTab === 'practice' && mod.tenseMaster && <TenseMasterPanel type={mod.tenseMaster} />}
