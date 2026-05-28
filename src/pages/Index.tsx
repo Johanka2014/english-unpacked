@@ -56,7 +56,7 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO 
         title="Online English Lessons - One-on-One Tutoring"
-        description="Personalized one-on-one English lessons with TEFL-qualified teacher. Business English, conversational practice, and exam prep for FCE, CAE, IELTS. Book free consultation."
+        description="One-on-one online English lessons with a TEFL teacher. Business English, conversational practice, and FCE/CAE/IELTS exam prep. Book a free consultation."
         canonical="https://english-unpacked.lovable.app/"
         schema={schema}
       />

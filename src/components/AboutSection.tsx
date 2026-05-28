@@ -50,7 +50,7 @@ const AboutSection = () => {
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-brand-navy">{feature.title}</h4>
+                    <h3 className="font-semibold text-brand-navy">{feature.title}</h3>
                     <p className="text-muted-foreground text-sm">{feature.description}</p>
                   </div>
                 </div>

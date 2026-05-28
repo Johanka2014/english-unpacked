@@ -28,7 +28,7 @@ const ConversationalEnglish = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Conversational English Lessons - Build Fluency & Confidence"
-        description="Master everyday English conversations with personalized one-on-one lessons. Learn idioms, natural expressions, and speak confidently in real-world situations. Start today."
+        description="Build fluency with one-on-one conversational English lessons. Learn idioms and natural expressions to speak confidently in real-world situations."
         canonical="https://english-unpacked.lovable.app/conversational-english"
         schema={schema}
       />

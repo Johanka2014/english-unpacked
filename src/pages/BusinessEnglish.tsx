@@ -31,7 +31,7 @@ const BusinessEnglish = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Business English Lessons - Professional Communication Training"
-        description="Master business English with one-on-one lessons. Learn professional communication for meetings, presentations, emails & negotiations. Interactive apps + textbooks. Book consultation."
+        description="One-on-one Business English lessons for meetings, presentations, emails and negotiations. Interactive apps and textbooks. Book a free consultation."
         canonical="https://english-unpacked.lovable.app/business-english"
         schema={schema}
       />
