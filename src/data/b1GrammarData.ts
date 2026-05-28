@@ -1221,6 +1221,13 @@ export const b1GrammarSections: B1GrammarSection[] = [
         subtitle: 'so/such (+ that); enough and too (+ to infinitive and for)',
       },
       {
+        id: 'so-such-master',
+        number: 29,
+        title: 'So/Such Master',
+        subtitle: 'patterns reference, multiple choice, fill-in-the-blanks, pattern recognition, and song listening',
+        soSuchMasteryLesson: true,
+      },
+      {
         id: 'linking-words-1',
         number: 29,
         title: 'Linking Words 1',
