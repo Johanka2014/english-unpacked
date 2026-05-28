@@ -1222,7 +1222,7 @@ export const b1GrammarSections: B1GrammarSection[] = [
       },
       {
         id: 'so-such-master',
-        number: 29,
+        number: 28,
         title: 'So/Such Master',
         subtitle: 'patterns reference, multiple choice, fill-in-the-blanks, pattern recognition, and song listening',
         soSuchMasteryLesson: true,
