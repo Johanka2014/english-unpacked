@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic, Megaphone } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic, Megaphone, Wrench } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -128,6 +128,16 @@ const hrActivities = [
   },
 ];
 
+const engineeringActivities = [
+  {
+    title: 'Cambridge English for Engineering',
+    description: 'Master engineering English across 10 units — technology, materials, design, safety, monitoring, and pushing the boundaries',
+    icon: Wrench,
+    path: '/engineering-english',
+    color: 'text-slate-700',
+  },
+];
+
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
     {activities.map((activity) => {
@@ -174,7 +184,7 @@ const MembersActivities = () => {
         </div>
 
         <Tabs defaultValue={defaultTab} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 md:grid-cols-8 mb-8 h-auto flex-wrap">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-9 mb-8 h-auto flex-wrap">
             <TabsTrigger value="vocabulary">Vocabulary</TabsTrigger>
             <TabsTrigger value="business">Business</TabsTrigger>
             <TabsTrigger value="cambridge">Cambridge</TabsTrigger>
@@ -183,6 +193,7 @@ const MembersActivities = () => {
             <TabsTrigger value="maturita">Maturita</TabsTrigger>
             <TabsTrigger value="young-learners">Young Learners</TabsTrigger>
             <TabsTrigger value="hr">HR</TabsTrigger>
+            <TabsTrigger value="engineering">Engineering</TabsTrigger>
           </TabsList>
           <TabsContent value="vocabulary">
             <ActivityGrid activities={vocabularyActivities} />
@@ -207,6 +218,9 @@ const MembersActivities = () => {
           </TabsContent>
           <TabsContent value="hr">
             <ActivityGrid activities={hrActivities} />
+          </TabsContent>
+          <TabsContent value="engineering">
+            <ActivityGrid activities={engineeringActivities} />
           </TabsContent>
         </Tabs>
       </main>
