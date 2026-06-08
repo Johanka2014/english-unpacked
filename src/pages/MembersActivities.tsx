@@ -136,6 +136,13 @@ const engineeringActivities = [
     path: '/engineering-english',
     color: 'text-slate-700',
   },
+  {
+    title: 'Technical English: Vocabulary and Grammar',
+    description: 'Brieger & Pohl — 50 topics across professional activities, industry profiles and 20 grammar uses',
+    icon: BookOpen,
+    path: '/technical-english',
+    color: 'text-slate-600',
+  },
 ];
 
 const ActivityGrid = ({ activities }: { activities: typeof vocabularyActivities }) => (
