@@ -111,10 +111,12 @@ const EngineeringSectionRenderer = ({ activities }: { activities: Activity[] }) 
               <MultipleChoiceQuiz
                 key={idx}
                 title={a.title || 'Quiz'}
-                questions={(a.mcq || []).map((q) => ({
-                  question: q.question,
+                description={a.body || ''}
+                questions={(a.mcq || []).map((q, i) => ({
+                  id: i + 1,
+                  text: q.question,
                   options: q.options,
-                  correctAnswer: q.answerIndex,
+                  answer: q.options[q.answerIndex],
                 }))}
               />
             );
