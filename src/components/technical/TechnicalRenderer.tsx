@@ -95,7 +95,7 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
               <MatchingExercise
                 key={idx}
                 title={a.title || 'Matching exercise'}
-                description={a.body}
+                description={a.body || ''}
                 pairs={a.pairs || []}
                 leftLabel="Item"
                 rightLabel="Match"
