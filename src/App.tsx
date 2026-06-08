@@ -57,6 +57,8 @@ const HREnglishSkill = lazy(() => import("./pages/HREnglishSkill"));
 const EngineeringEnglish = lazy(() => import("./pages/EngineeringEnglish"));
 const EngineeringEnglishUnit = lazy(() => import("./pages/EngineeringEnglishUnit"));
 const EngineeringEnglishSection = lazy(() => import("./pages/EngineeringEnglishSection"));
+const TechnicalEnglish = lazy(() => import("./pages/TechnicalEnglish"));
+const TechnicalEnglishTopic = lazy(() => import("./pages/TechnicalEnglishTopic"));
 const PronunciationCourse = lazy(() => import("./pages/PronunciationCourse"));
 const PronunciationSection = lazy(() => import("./pages/PronunciationSection"));
 const ConnectedSpeech = lazy(() => import("./pages/ConnectedSpeech"));
