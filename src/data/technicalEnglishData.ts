@@ -195,8 +195,8 @@ export const technicalTopics: TechnicalTopic[] = [
         { prompt: '11. The ___ is continuing work on the new drug. (experiment)', answer: 'experimenter' },
         { prompt: '12. Many people are against animal ___. (experiment)', answer: 'experimentation' },
       ]},
-      { type: 'fill-blanks', title: '3 · Email to R&D — complete with words from the list',
-        body: 'List: breakthrough · prototype · developmental · engineers · design · patent · innovative · experiment',
+      { type: 'drag-fill', title: '3 · Email to R&D — complete with words from the list',
+        body: 'Drag each word from the bank into the correct gap in the email.',
         blanks: [
           { prompt: '(a) regarding her ___ for a new children\'s pushchair', answer: 'design' },
           { prompt: '(b) a simple but ___ invention', answer: 'innovative' },
