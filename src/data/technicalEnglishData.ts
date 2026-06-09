@@ -80,7 +80,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { prompt: '7. The company began in a single room but has now developed into ___.', answer: 'large-scale manufacturing' },
         { prompt: '8. The manufacturing process is the responsibility of the ___.', answer: 'production manager' },
       ]},
-      { type: 'fill-blanks', title: '2 · Complete the sentences (first letter given)', blanks: [
+      { type: 'type-blanks', title: '2 · Complete the sentences (first letter given)', blanks: [
         { prompt: '1. A quantity of goods prepared at the same time is known as a b___.', answer: 'batch' },
         { prompt: '2. To put parts together to produce the final product is to a___.', answer: 'assemble' },
         { prompt: '3. Production processes convert inputs to o___.', answer: 'outputs' },
