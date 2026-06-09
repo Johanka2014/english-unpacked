@@ -70,7 +70,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 7, left: 'raw',            right: 'material' },
         { id: 8, left: 'productivity',   right: 'levels' },
       ]},
-      { type: 'fill-blanks', title: '1b · Complete the sentences using the collocations above', blanks: [
+      { type: 'drag-fill', title: '1b · Complete the sentences using the collocations above', body: 'Drag each collocation from the bank into the correct sentence.', blanks: [
         { prompt: '1. Improved ___ has led to higher efficiency in production.', answer: 'quality control' },
         { prompt: '2. The manufacture of paper is an ___.', answer: 'industrial process' },
         { prompt: '3. Crude oil is the basic ___ for the plastics industry.', answer: 'raw material' },
