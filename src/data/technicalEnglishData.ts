@@ -88,8 +88,8 @@ export const technicalTopics: TechnicalTopic[] = [
         { prompt: '5. A part which is used in the final product is called a c___.', answer: 'component' },
         { prompt: '6. To get the best possible level of production is to o___.', answer: 'optimize' },
       ]},
-      { type: 'fill-blanks', title: '3 · Memo from the company director — complete with words from the box',
-        body: 'Box: faulty · equipment · repair · site · workshops · factory · stock · breakdowns · layout · maintain · fixtures · machinery',
+      { type: 'drag-fill', title: '3 · Memo from the company director — complete with words from the box',
+        body: 'Drag each word from the bank into the correct gap in the memo.',
         blanks: [
           { prompt: '(a) new ___ development', answer: 'factory' },
           { prompt: '(b) a new ___ close to the river', answer: 'site' },
