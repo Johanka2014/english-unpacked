@@ -136,7 +136,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 7, left: 'cycle',         right: 'the series of activities following one another to produce a product' },
         { id: 8, left: 'requirement',   right: 'something that is needed for a particular process' },
       ]},
-      { type: 'fill-blanks', title: '3 · Factory tour dialogue — complete with the jumbled words', blanks: [
+      { type: 'type-blanks', title: '3 · Factory tour dialogue — unjumble the words and type them in', blanks: [
         { prompt: '(a) the ___ (manedd) for furniture is seasonal', answer: 'demand' },
         { prompt: '(b) do you ___ (kaem-ot-osckt)?', answer: 'make-to-stock' },
         { prompt: '(c) all our units are made-___ (ot-reord)', answer: 'to-order' },
