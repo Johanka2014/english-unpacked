@@ -30,9 +30,6 @@ export const technicalTopics: TechnicalTopic[] = [
         'During production processes, inputs are converted into outputs. These processes take many forms: from basic agriculture to large-scale manufacturing. Much manufacturing takes place in factories, where assembly lines allow a steady flow of raw materials (inputs) and finished products (outputs).',
         'People in production focus on efficiency and effectiveness of processes in order to maximize productivity. To achieve overall success, it is important to measure, analyse and evaluate these processes. However, other activities also contribute to success: purchasing, inventory control, quality control, storage, logistics.',
       ]},
-      { type: 'word-list', title: 'B · Key vocabulary — Process', words: [
-        'assemble','batch','component','convert','effectiveness','efficiency','line','lot','maximize','optimize',
-      ]},
       { type: 'matching', title: 'B1 · Match the process word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'assemble',      right: 'to put parts together to make a finished product', hint: 'Think of a car factory worker fitting components together.' },
         { id: 2, left: 'batch',         right: 'a quantity of goods produced together at one time', hint: 'A bakery makes one of these of bread at a time.' },
