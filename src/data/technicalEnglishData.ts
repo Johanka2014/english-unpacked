@@ -33,12 +33,42 @@ export const technicalTopics: TechnicalTopic[] = [
       { type: 'word-list', title: 'B · Key vocabulary — Process', words: [
         'assemble','batch','component','convert','effectiveness','efficiency','line','lot','maximize','optimize',
       ]},
+      { type: 'matching', title: 'B1 · Match the process word with its definition', body: 'Drag each definition to the word it describes.', pairs: [
+        { id: 1, left: 'assemble',      right: 'to put parts together to make a finished product' },
+        { id: 2, left: 'batch',         right: 'a quantity of goods produced together at one time' },
+        { id: 3, left: 'component',     right: 'a part used in a larger product' },
+        { id: 4, left: 'convert',       right: 'to change something from one form into another' },
+        { id: 5, left: 'effectiveness', right: 'the degree to which a process achieves its intended result' },
+        { id: 6, left: 'efficiency',    right: 'producing results with the least waste of time, effort or materials' },
+        { id: 7, left: 'line',          right: 'a sequence of workstations along which a product moves during assembly' },
+        { id: 8, left: 'lot',           right: 'a group of items manufactured or handled as a single unit' },
+        { id: 9, left: 'maximize',      right: 'to make something as large or great as possible' },
+        { id: 10, left: 'optimize',     right: 'to make a process as good or effective as possible' },
+      ]},
       { type: 'word-list', title: 'B · Resources', words: [
         'equipment','fixtures','machinery','materials handling','raw materials',
+      ]},
+      { type: 'matching', title: 'B2 · Match the resource word with its definition', body: 'Drag each definition to the word it describes.', pairs: [
+        { id: 1, left: 'equipment',         right: 'the tools and devices needed for a particular activity' },
+        { id: 2, left: 'fixtures',          right: 'items fixed in position, such as fittings inside a building' },
+        { id: 3, left: 'machinery',         right: 'machines used in a factory, considered collectively' },
+        { id: 4, left: 'materials handling',right: 'the movement, storage and control of materials within production' },
+        { id: 5, left: 'raw materials',     right: 'the basic substances used to make a finished product' },
       ]},
       { type: 'word-list', title: 'B · Stock & Maintenance', words: [
         'inventory','stock','store','breakdown','failure','fault','maintain','repair',
       ]},
+      { type: 'matching', title: 'B3 · Match the stock & maintenance word with its definition', body: 'Drag each definition to the word it describes.', pairs: [
+        { id: 1, left: 'inventory',  right: 'a complete list of goods or materials held by a company' },
+        { id: 2, left: 'stock',      right: 'goods kept available for sale or use' },
+        { id: 3, left: 'store',      right: 'a place where goods or materials are kept' },
+        { id: 4, left: 'breakdown',  right: 'a sudden stoppage caused by a machine no longer working' },
+        { id: 5, left: 'failure',    right: 'the fact of a piece of equipment ceasing to function' },
+        { id: 6, left: 'fault',      right: 'a defect that prevents something from working correctly' },
+        { id: 7, left: 'maintain',   right: 'to keep equipment in good working condition' },
+        { id: 8, left: 'repair',     right: 'to fix something that is damaged or broken' },
+      ]},
+
       { type: 'matching', title: '1 · Match the words that go together', body: 'Pair each word on the left with the noun on the right to form a common collocation.', pairs: [
         { id: 1, left: 'quality',        right: 'control' },
         { id: 2, left: 'finished',       right: 'products' },
