@@ -30,9 +30,6 @@ export const technicalTopics: TechnicalTopic[] = [
         'During production processes, inputs are converted into outputs. These processes take many forms: from basic agriculture to large-scale manufacturing. Much manufacturing takes place in factories, where assembly lines allow a steady flow of raw materials (inputs) and finished products (outputs).',
         'People in production focus on efficiency and effectiveness of processes in order to maximize productivity. To achieve overall success, it is important to measure, analyse and evaluate these processes. However, other activities also contribute to success: purchasing, inventory control, quality control, storage, logistics.',
       ]},
-      { type: 'word-list', title: 'B · Key vocabulary — Process', words: [
-        'assemble','batch','component','convert','effectiveness','efficiency','line','lot','maximize','optimize',
-      ]},
       { type: 'matching', title: 'B1 · Match the process word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'assemble',      right: 'to put parts together to make a finished product', hint: 'Think of a car factory worker fitting components together.' },
         { id: 2, left: 'batch',         right: 'a quantity of goods produced together at one time', hint: 'A bakery makes one of these of bread at a time.' },
@@ -45,18 +42,12 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 9, left: 'maximize',      right: 'to make something as large or great as possible', hint: 'The opposite of minimize.' },
         { id: 10, left: 'optimize',     right: 'to make a process as good or effective as possible', hint: 'Fine-tuning for the best possible result.' },
       ]},
-      { type: 'word-list', title: 'B · Resources', words: [
-        'equipment','fixtures','machinery','materials handling','raw materials',
-      ]},
       { type: 'matching', title: 'B2 · Match the resource word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'equipment',         right: 'the tools and devices needed for a particular activity', hint: 'Uncountable noun — general tools for a task.' },
         { id: 2, left: 'fixtures',          right: 'items fixed in position, such as fittings inside a building', hint: 'Often paired with "fittings"; they stay when you move.' },
         { id: 3, left: 'machinery',         right: 'machines used in a factory, considered collectively', hint: 'Uncountable — all the machines together.' },
         { id: 4, left: 'materials handling',right: 'the movement, storage and control of materials within production', hint: 'Forklifts, conveyors and warehousing fall under this.' },
         { id: 5, left: 'raw materials',     right: 'the basic substances used to make a finished product', hint: 'Crude oil, iron ore, cotton — before processing.' },
-      ]},
-      { type: 'word-list', title: 'B · Stock & Maintenance', words: [
-        'inventory','stock','store','breakdown','failure','fault','maintain','repair',
       ]},
       { type: 'matching', title: 'B3 · Match the stock & maintenance word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'inventory',  right: 'a complete list of goods or materials held by a company', hint: 'A detailed list — also the act of counting stock.' },
