@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
 import DragFillCollocations from './DragFillCollocations';
+import TypeBlanks from './TypeBlanks';
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
@@ -96,6 +97,15 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
               <DragFillCollocations
                 key={idx}
                 title={a.title || 'Drag to complete'}
+                body={a.body}
+                blanks={a.blanks || []}
+              />
+            );
+          case 'type-blanks':
+            return (
+              <TypeBlanks
+                key={idx}
+                title={a.title || 'Type to complete'}
                 body={a.body}
                 blanks={a.blanks || []}
               />

@@ -11,6 +11,7 @@ export type ActivityType =
   | 'matching'
   | 'multiple-choice'
   | 'fill-blanks'
+  | 'type-blanks'
   | 'drag-fill'
   | 'word-list'
   | 'task';
