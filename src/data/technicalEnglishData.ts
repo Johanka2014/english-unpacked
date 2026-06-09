@@ -49,9 +49,6 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 4, left: 'materials handling',right: 'the movement, storage and control of materials within production', hint: 'Forklifts, conveyors and warehousing fall under this.' },
         { id: 5, left: 'raw materials',     right: 'the basic substances used to make a finished product', hint: 'Crude oil, iron ore, cotton — before processing.' },
       ]},
-      { type: 'word-list', title: 'B · Stock & Maintenance', words: [
-        'inventory','stock','store','breakdown','failure','fault','maintain','repair',
-      ]},
       { type: 'matching', title: 'B3 · Match the stock & maintenance word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'inventory',  right: 'a complete list of goods or materials held by a company', hint: 'A detailed list — also the act of counting stock.' },
         { id: 2, left: 'stock',      right: 'goods kept available for sale or use', hint: '"In ___" / "out of ___" on a shop sign.' },
