@@ -14,7 +14,7 @@ export type ActivityType =
   | 'word-list'
   | 'task';
 
-export interface MatchingPair { id: number; left: string; right: string }
+export interface MatchingPair { id: number; left: string; right: string; hint?: string }
 export interface MCQItem { question: string; options: string[]; answerIndex: number }
 export interface FillBlanksItem { prompt: string; answer: string }
 
