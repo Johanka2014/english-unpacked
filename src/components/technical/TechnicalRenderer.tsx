@@ -101,6 +101,15 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
                 blanks={a.blanks || []}
               />
             );
+          case 'type-blanks':
+            return (
+              <TypeBlanks
+                key={idx}
+                title={a.title || 'Type to complete'}
+                body={a.body}
+                blanks={a.blanks || []}
+              />
+            );
           case 'matching':
             return (
               <MatchingExercise
