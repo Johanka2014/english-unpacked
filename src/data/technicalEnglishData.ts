@@ -136,7 +136,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 7, left: 'cycle',         right: 'the series of activities following one another to produce a product' },
         { id: 8, left: 'requirement',   right: 'something that is needed for a particular process' },
       ]},
-      { type: 'fill-blanks', title: '3 · Factory tour dialogue — complete with the jumbled words', blanks: [
+      { type: 'type-blanks', title: '3 · Factory tour dialogue — unjumble the words and type them in', blanks: [
         { prompt: '(a) the ___ (manedd) for furniture is seasonal', answer: 'demand' },
         { prompt: '(b) do you ___ (kaem-ot-osckt)?', answer: 'make-to-stock' },
         { prompt: '(c) all our units are made-___ (ot-reord)', answer: 'to-order' },
@@ -181,7 +181,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 7, left: 'innovation',          right: 'a new technique or idea' },
         { id: 8, left: 'analysis',            right: 'the study of the parts and their relationship to one another' },
       ]},
-      { type: 'fill-blanks', title: '2 · Word formation — use the word in brackets', blanks: [
+      { type: 'type-blanks', title: '2 · Word formation — type the correct form of the word in brackets', blanks: [
         { prompt: '1. The scientists have presented a detailed ___ of the results. (analyse)', answer: 'analysis' },
         { prompt: '2. They have brought in a food ___ to help in the research. (analyse)', answer: 'analyst' },
         { prompt: '3. All process materials are tested using highly developed ___ techniques. (analyse)', answer: 'analytical' },
@@ -195,8 +195,8 @@ export const technicalTopics: TechnicalTopic[] = [
         { prompt: '11. The ___ is continuing work on the new drug. (experiment)', answer: 'experimenter' },
         { prompt: '12. Many people are against animal ___. (experiment)', answer: 'experimentation' },
       ]},
-      { type: 'fill-blanks', title: '3 · Email to R&D — complete with words from the list',
-        body: 'List: breakthrough · prototype · developmental · engineers · design · patent · innovative · experiment',
+      { type: 'drag-fill', title: '3 · Email to R&D — complete with words from the list',
+        body: 'Drag each word from the bank into the correct gap in the email.',
         blanks: [
           { prompt: '(a) regarding her ___ for a new children\'s pushchair', answer: 'design' },
           { prompt: '(b) a simple but ___ invention', answer: 'innovative' },
