@@ -42,9 +42,6 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 9, left: 'maximize',      right: 'to make something as large or great as possible', hint: 'The opposite of minimize.' },
         { id: 10, left: 'optimize',     right: 'to make a process as good or effective as possible', hint: 'Fine-tuning for the best possible result.' },
       ]},
-      { type: 'word-list', title: 'B · Resources', words: [
-        'equipment','fixtures','machinery','materials handling','raw materials',
-      ]},
       { type: 'matching', title: 'B2 · Match the resource word with its definition', body: 'Click a word, then click its definition. Use the lightbulb for a hint.', pairs: [
         { id: 1, left: 'equipment',         right: 'the tools and devices needed for a particular activity', hint: 'Uncountable noun — general tools for a task.' },
         { id: 2, left: 'fixtures',          right: 'items fixed in position, such as fittings inside a building', hint: 'Often paired with "fittings"; they stay when you move.' },
