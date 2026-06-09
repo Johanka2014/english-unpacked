@@ -181,7 +181,7 @@ export const technicalTopics: TechnicalTopic[] = [
         { id: 7, left: 'innovation',          right: 'a new technique or idea' },
         { id: 8, left: 'analysis',            right: 'the study of the parts and their relationship to one another' },
       ]},
-      { type: 'fill-blanks', title: '2 · Word formation — use the word in brackets', blanks: [
+      { type: 'type-blanks', title: '2 · Word formation — type the correct form of the word in brackets', blanks: [
         { prompt: '1. The scientists have presented a detailed ___ of the results. (analyse)', answer: 'analysis' },
         { prompt: '2. They have brought in a food ___ to help in the research. (analyse)', answer: 'analyst' },
         { prompt: '3. All process materials are tested using highly developed ___ techniques. (analyse)', answer: 'analytical' },
