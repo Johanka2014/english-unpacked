@@ -6,6 +6,7 @@ import MultipleChoiceQuiz from '@/components/presentations/MultipleChoiceQuiz';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
+import DragFillCollocations from './DragFillCollocations';
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
