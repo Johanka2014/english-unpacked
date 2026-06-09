@@ -91,6 +91,15 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
             return <WordList key={idx} activity={a} />;
           case 'fill-blanks':
             return <FillBlanks key={idx} activity={a} />;
+          case 'drag-fill':
+            return (
+              <DragFillCollocations
+                key={idx}
+                title={a.title || 'Drag to complete'}
+                body={a.body}
+                blanks={a.blanks || []}
+              />
+            );
           case 'matching':
             return (
               <MatchingExercise
