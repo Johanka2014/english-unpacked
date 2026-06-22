@@ -69,6 +69,21 @@ import social4b from "@/assets/maturita-social-4b.jpg";
 import social4c from "@/assets/maturita-social-4c.jpg";
 import social4d from "@/assets/maturita-social-4d.jpg";
 
+// Mass Media images
+import mediaThumbnail from "@/assets/maturita-media-thumbnail.jpg";
+import mediaPart2a from "@/assets/maturita-media-part2-a.jpg";
+import mediaPart2b from "@/assets/maturita-media-part2-b.jpg";
+import media3a from "@/assets/maturita-media-3a.jpg";
+import media3b from "@/assets/maturita-media-3b.jpg";
+import media3c from "@/assets/maturita-media-3c.jpg";
+import media3d from "@/assets/maturita-media-3d.jpg";
+import media3e from "@/assets/maturita-media-3e.jpg";
+import media3f from "@/assets/maturita-media-3f.jpg";
+import media4a from "@/assets/maturita-media-4a.jpg";
+import media4b from "@/assets/maturita-media-4b.jpg";
+import media4c from "@/assets/maturita-media-4c.jpg";
+import media4d from "@/assets/maturita-media-4d.jpg";
+
 export interface LearnItem {
   title: string;
   content: string;
@@ -1055,6 +1070,160 @@ export const maturitaTopics: MaturitaTopic[] = [
       ]
     }
   },
+
+  {
+    id: "mass-media",
+    title: "Mass Media",
+    description: "Newspapers, radio, TV, the internet and social media – their role, advantages, disadvantages and influence on society",
+    available: true,
+    thumbnail: mediaThumbnail,
+    learn: [
+      {
+        title: "What are the mass media?",
+        content: "The mass media are the means of communication that reach large numbers of people at the same time. The traditional 'big four' are newspapers and magazines (the press), the radio, television and, since the 1990s, the internet. Social media – Facebook, Instagram, TikTok, X (formerly Twitter), YouTube – are now usually considered a fifth, distinct medium. The role of the media is to inform, to educate, to entertain and to act as a 'watchdog' that keeps a check on the government and big business. Good journalism should be honest, accurate, objective and well-researched; bad journalism is biased, sensational or even invents stories (so-called fake news)."
+      },
+      {
+        title: "Newspapers: broadsheets vs. tabloids",
+        content: "Newspapers are usually divided into two main groups. Broadsheets (also called 'serious' or 'quality' papers) such as The Times, The Guardian, The New York Times or the Czech Lidové noviny and Hospodářské noviny have longer articles, in-depth analyses, more international news, business sections and editorials. Tabloids (the 'gutter press' or 'yellow press') such as The Sun, Daily Mail or the Czech Blesk and Aha! use large headlines, short sensational stories, lots of photos, celebrity gossip and scandals. By how often they appear, newspapers are dailies, weeklies, Sundays or monthlies. Typical sections include the front page, world and national news, business, sports, culture, lifestyle, the TV guide, the weather forecast, opinion and editorials, comics, horoscopes, obituaries and classified ads."
+      },
+      {
+        title: "Radio",
+        content: "Radio is over a hundred years old and is still very popular because it is cheap, portable and easy to listen to while doing something else – driving, cooking, working out. Stations are usually divided into public-service (Český rozhlas, BBC Radio) and commercial / private. Typical content includes news bulletins, traffic and weather reports, sport, music, interviews, phone-in talk shows and dramatised stories. Internet streaming, DAB+ broadcasting and podcasts have given radio a new lease of life."
+      },
+      {
+        title: "Television",
+        content: "Television combines pictures, sound and live broadcasting, which makes it powerful and emotional. Modern viewers can choose between traditional terrestrial broadcasting, satellite, cable and streaming services such as Netflix, HBO Max, Disney+ or Czech iVysílání and Voyo. Typical programmes include the nightly news and 24-hour news channels (ČT24, BBC World, CNN, Sky News), current-affairs shows, documentaries, soap operas, reality shows, sitcoms, talent and quiz shows, sport, films and cartoons. Public-service channels are funded by a TV licence fee and are expected to be balanced; commercial channels are funded by advertising and tend to focus more on entertainment."
+      },
+      {
+        title: "The internet and online news",
+        content: "The internet has changed the media landscape completely. We can read online versions of newspapers and magazines, listen to internet radio, watch TV channels live, watch videos on YouTube or follow specialised blogs and podcasts. News is updated 24 hours a day and is often free, but the quality is very mixed: alongside reliable sources there is a huge amount of disinformation, hoaxes, clickbait and AI-generated content. Most readers now access news through search engines and social-media feeds rather than going to a newspaper's homepage."
+      },
+      {
+        title: "Social media and influencers",
+        content: "Social-media platforms (Facebook, Instagram, TikTok, X, YouTube, Snapchat) are used by billions of people, especially the young. They let users share photos, videos and opinions, follow celebrities and 'influencers', and stay in contact with friends. They are also where many young people get their news. The advantages are speed, interactivity, free access and the possibility for ordinary people to be heard. The disadvantages are well known: addiction, cyberbullying, hate speech, comparison and body-image problems, loss of privacy, filter bubbles, echo chambers and the rapid spread of fake news and conspiracy theories."
+      },
+      {
+        title: "Advertising and the media business",
+        content: "Most commercial media – tabloids, free newspapers ('freesheets' like Metro), commercial TV and radio, websites and social platforms – are paid for by advertising. Companies pay to show their products in TV commercials, banner ads, sponsored articles or, increasingly, through influencer marketing on Instagram and TikTok. Advertising has a strong influence on what is published: media depend on advertisers and may avoid stories that would upset them. Critics also warn that advertising creates unrealistic ideals and pushes consumerism, especially among children and teenagers."
+      },
+      {
+        title: "The power of the media: bias, fake news and censorship",
+        content: "The media are sometimes called the 'fourth estate' because they influence public opinion and political life. The flip side is media bias – when stories are presented from a particular political or commercial angle. Fake news means deliberately invented stories that look like real journalism; a hoax is a false story spread for fun, profit or to confuse people (April Fool's Day jokes are a harmless example). In democracies the press is free but regulated by media laws and ethical codes; in dictatorships the media are censored or controlled directly by the state. Concentration of ownership – when one rich person or company owns many newspapers and TV channels – is also a serious concern."
+      },
+      {
+        title: "Mass media in the Czech Republic",
+        content: "The main public-service broadcasters are Česká televize (ČT1, ČT2, ČT24, ČT sport, ČT :D / art) and Český rozhlas, both funded by a licence fee. The biggest commercial TV stations are TV Nova and Prima. Leading serious newspapers are Lidové noviny, Hospodářské noviny, Mladá fronta DNES and Deník N; the most popular tabloid is Blesk; well-known news websites include iDNES, Novinky, Seznam Zprávy and Aktuálně.cz. Free newspapers Metro are handed out in big cities. Many Czechs get their news through Facebook and Seznam.cz, and younger people increasingly through YouTube, Instagram and TikTok influencers."
+      },
+      {
+        title: "Means of communication",
+        content: "Mass media are about communication from one source to many people; means of communication cover all the ways individuals stay in touch. Face-to-face conversation is still considered the most personal and reliable. Telephone and mobile phones allow instant voice contact; e-mail, SMS and messaging apps (WhatsApp, Messenger, Signal, Telegram) are used for written messages. Video conferencing (Zoom, MS Teams, Google Meet) became essential during the Covid-19 pandemic and is now standard for work and study. Older forms – letters, postcards, faxes – are largely disappearing, although a hand-written letter still feels special. GPS, smart watches and other gadgets connect us almost everywhere."
+      },
+      {
+        title: "Future of the media",
+        content: "Print circulation is falling year after year, but most experts believe newspapers will not disappear completely – they will simply be read mostly online and on tablets. Television is moving from fixed schedules to on-demand streaming and short-form video. Artificial intelligence is already used to generate articles, translate news, recommend content and even create deep-fake videos. The big challenges for the next decade are reliable verification of information, protecting users' privacy and data, regulating big tech companies, and teaching people – especially children – media literacy: how to read critically, check sources and recognise manipulation."
+      }
+    ],
+    practice: [
+      { question: "What are the main types of mass media today?", answer: "The traditional types are newspapers and magazines, the radio and television; since the 1990s the internet has been added, and today social media – Facebook, Instagram, TikTok, YouTube and X – are usually treated as a separate fifth category. Each of them has its own strengths: newspapers go into depth, radio is portable, television is visual and emotional, the internet is fast and interactive, and social media let ordinary people share their own content." },
+      { question: "What is the role of the media?", answer: "The media have several important roles. They inform us about what is happening in our country and in the world, they educate us through documentaries and quality journalism, and they entertain us with films, music and sport. Just as importantly, they act as a 'watchdog' or fourth estate – they keep a check on politicians and big business, expose corruption and give a voice to ordinary people." },
+      { question: "How do you personally follow the news?", answer: "Mostly through my phone. I have news apps like Seznam Zprávy and BBC News, I read headlines on Instagram and I sometimes watch evening news on ČT24 with my parents. I try to compare at least two sources before I believe a big story, because there is so much misinformation online." },
+      { question: "What is the difference between broadsheets and tabloids?", answer: "Broadsheets, or quality papers, focus on serious news – politics, business, science, foreign affairs – and have longer articles and in-depth analyses. Examples are The Times, The Guardian or the Czech Hospodářské noviny. Tabloids have big headlines, short stories, lots of photos and concentrate on celebrities, crime and scandals. Typical examples are The Sun, the Daily Mail or the Czech Blesk." },
+      { question: "Why is radio still popular even though it is over a hundred years old?", answer: "Radio is cheap, portable and you can listen to it while doing something else – driving, cooking, working. It also offers a wide choice of music and talk programmes for every taste, traffic and weather updates are very practical, and modern internet streaming and podcasts have given it a new audience." },
+      { question: "Do you think television will be replaced by streaming services?", answer: "I think classic linear TV with fixed schedules will gradually shrink, especially for younger viewers who prefer Netflix, HBO Max or YouTube on demand. But live broadcasts such as news, sport and big events still work best on TV, and public-service channels like Česká televize have an important role in providing balanced information." },
+      { question: "What are the advantages and disadvantages of the internet as a source of news?", answer: "The advantages are obvious: news is free, updated 24/7, comes from many sources and can include video and interactive maps. The main disadvantages are that the quality is very mixed, it is full of disinformation, hoaxes and clickbait, and the algorithms tend to show us only the opinions we already agree with – the so-called filter bubble." },
+      { question: "How do social media influence young people?", answer: "They have positive sides – staying in touch with friends, finding communities with similar interests, learning new things, getting involved in social causes. But they can also be very harmful: addiction, cyberbullying, comparing yourself to perfect-looking influencers, anxiety, sleep problems and the rapid spread of fake news. I think it is important to set time limits and follow accounts that bring you something useful." },
+      { question: "What is fake news and how can we recognise it?", answer: "Fake news is information that is deliberately invented and presented as real journalism, usually to make money, get clicks or push a political agenda. To recognise it we should check the source, look for the same story in other independent media, be suspicious of shocking headlines, check the date, look at the URL and not trust posts just because a friend shared them." },
+      { question: "What is the difference between public-service and commercial media?", answer: "Public-service broadcasters such as Česká televize, Český rozhlas or the BBC are funded mainly by licence fees and are expected to be balanced, accurate and to serve all groups in society. Commercial media are owned by private companies and earn money from advertising, so they tend to focus on what is most entertaining and what attracts the largest audience." },
+      { question: "How does advertising influence the media?", answer: "Most commercial media depend on advertising for survival. This means they have to attract big audiences and try not to upset their advertisers, which can influence what they publish. Advertising also affects us as consumers: it creates unrealistic ideals of beauty and lifestyle and pushes us to buy things we don't really need. Influencer marketing on Instagram and TikTok is a more recent and less transparent form." },
+      { question: "Who are your favourite TV presenter or YouTuber and why?", answer: "I like Marek Eben because he is intelligent, polite and has a great sense of humour. Among YouTubers I follow Kovy and a few foreign creators who explain science and history in an interesting way. I appreciate people who do their research and respect their audience instead of just chasing views." },
+      { question: "Should the internet be censored?", answer: "I am against general censorship because freedom of speech is one of the basic human rights and the internet has given a voice to people who could never speak out before. On the other hand, illegal content – child abuse, terrorism, direct threats – has to be removed, and big platforms should take more responsibility for hate speech and disinformation. The difficult question is always who decides what is acceptable." },
+      { question: "What would happen if the media suddenly stopped working?", answer: "It would be chaos. We would have no information about the weather, traffic, politics or emergencies. Businesses would suffer because they couldn't reach customers, and many people would feel lost without their daily routines of news, music and social media. It would probably show us how dependent we have become on a constant flow of information." },
+      { question: "What do you think the media will look like in the future?", answer: "I expect almost everything to be online, personalised and available on demand. Artificial intelligence will write more articles, translate them automatically and recommend content to each user. Deep-fake videos and AI-generated images will make it even harder to tell what is true, so media literacy and trustworthy sources will become more important than ever. Printed newspapers will probably survive as a small, premium product." }
+    ],
+    part2: {
+      task1: {
+        promptPoints: ["People", "Place", "Activities", "Time", "Atmosphere", "Other"],
+        images: [
+          { label: "Picture A", src: mediaPart2a, description: "A teenage boy and a young woman looking at a tablet together in a school library" },
+          { label: "Picture B", src: mediaPart2b, description: "Two older businessmen reading printed newspapers in a cafe" }
+        ],
+        followUpQuestions: [
+          "Who are the people and what are they doing?",
+          "Where and when do you think the picture was taken?",
+          "What kind of media are they using and why?",
+          "What is the atmosphere of the scene?"
+        ]
+      },
+      task2: {
+        promptPoints: ["People", "Place", "Activities", "Type of media", "Atmosphere", "Other"],
+        comparisonQuestions: [
+          "How are the two situations similar and how are they different?",
+          "Which generation does each picture represent?",
+          "Which way of following the news is more typical today?",
+          "Which scene is closer to your own life?"
+        ]
+      },
+      task3: {
+        question: "Talk about your own relationship with mass media. Which types do you use, how often, what do you like and dislike about them, and how much do you trust them?"
+      }
+    },
+    exam: {
+      taskDescription: "In this task you should speak on your own about mass media. Imagine you have just finished a school project about the media and your teacher has asked you to give a short presentation to the class. Use pictures 3A–3F to illustrate your speech.",
+      promptPoints: [
+        "Speed and accessibility",
+        "Objectivity and reliability",
+        "Cost (for the user)",
+        "Typical users (age, interests)",
+        "Advantages and disadvantages",
+        "Your own preferences"
+      ],
+      images: [
+        { label: "3A", src: media3a, description: "Newspapers – the traditional printed press" },
+        { label: "3B", src: media3b, description: "Radio – broadcasting since the early 20th century" },
+        { label: "3C", src: media3c, description: "Television news studio – picture, sound and live coverage" },
+        { label: "3D", src: media3d, description: "Online news website on a laptop" },
+        { label: "3E", src: media3e, description: "Social media feed on a smartphone" },
+        { label: "3F", src: media3f, description: "Magazines and tabloids – lifestyle and entertainment" }
+      ],
+      followUpQuestions: [
+        "How do you follow the news? Why?",
+        "Which type of media do you think will be most popular in the future and why?",
+        "Do you think the internet will replace newspapers? Why or why not?",
+        "Could you live without the internet or social media for a week?",
+        "What can you find on the internet that you can't find in traditional media?",
+        "What is the difference between a broadsheet and a tabloid newspaper?",
+        "Do you know any famous British or American newspapers and magazines?",
+        "What is a hoax? Can you give an example?",
+        "How can ordinary people recognise fake news?",
+        "Should there be more regulation of social media? Why or why not?",
+        "How do advertisements influence people, especially young ones?",
+        "Have you ever taken part in a 'water-cooler moment' – a TV show or video that everyone was talking about?"
+      ]
+    },
+    part4: {
+      scenario: "In this task you and the examiner are going to talk together about the media in the Czech Republic and the various means of communication. Imagine the following situation: your foreign friend is working on a project about the Czech media scene and wants to know what you read, watch and listen to, how reliable Czech media are, and how people prefer to communicate today. The examiner will play the role of your friend and start the conversation.",
+      starter: "So, I'm trying to understand how Czech people get their news these days – what do you and your friends actually read, watch or scroll through?",
+      promptPoints: [
+        "Czech public-service media: Česká televize and Český rozhlas",
+        "Commercial TV channels (Nova, Prima) and tabloids (Blesk)",
+        "Online news portals (Seznam Zprávy, iDNES, Novinky, Deník N)",
+        "Social-media platforms most used in the Czech Republic",
+        "Means of communication: face-to-face, phone, messaging apps, video calls",
+        "Trust in the media and the problem of disinformation"
+      ],
+      images: [
+        { label: "4A", src: media4a, description: "A modern public-service television news studio" },
+        { label: "4B", src: media4b, description: "A street newsstand kiosk with newspapers and magazines" },
+        { label: "4C", src: media4c, description: "Young people on smartphones – social media and messaging" },
+        { label: "4D", src: media4d, description: "Press photographers and reporters – the paparazzi" }
+      ],
+      tips: [
+        "Give concrete Czech examples (channels, papers, websites, apps) – it makes your answer much stronger.",
+        "Don't just list media – say what you personally use, how often and why.",
+        "Show interest in the conversation: ask the examiner short questions back, like 'Is it the same in your country?' or 'Which platforms do you use?'"
+      ]
+    }
+  },
   { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false, part2: { task1: { followUpQuestions: ["What holiday or tradition is shown?", "What are the people celebrating?"] }, task2: { comparisonQuestions: ["How are the celebrations different?"] }, task3: { question: "Which holiday is most important to you and why?" } } },
   { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false, part2: { task1: { followUpQuestions: ["What type of transport can you see?", "Where might these people be travelling?"] }, task2: { comparisonQuestions: ["Which means of transport is more practical?"] }, task3: { question: "What will transport look like in the future?" } } },
   { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false, part2: { task1: { followUpQuestions: ["What sport is being played?", "Where is the event taking place?"] }, task2: { comparisonQuestions: ["Which sport requires more physical effort?"] }, task3: { question: "Should sport be compulsory at school?" } } },
@@ -1066,7 +1235,7 @@ export const maturitaTopics: MaturitaTopic[] = [
   { id: "ostrava", title: "Ostrava, Town and Region", description: "Geography, history, transport, culture of Ostrava", available: false, part2: { task1: { followUpQuestions: ["What part of the city can you see?", "What is happening in this place?"] }, task2: { comparisonQuestions: ["How are these two places in the region different?"] }, task3: { question: "What do you like most about living in your region?" } } },
   { id: "czech-republic", title: "The Czech Republic", description: "Geography, political system, cities, natural beauties", available: false, part2: { task1: { followUpQuestions: ["What place in the Czech Republic is this?", "What makes it special?"] }, task2: { comparisonQuestions: ["How are these two Czech locations different?"] }, task3: { question: "What makes the Czech Republic unique?" } } },
   { id: "prague", title: "Prague, Czech History", description: "Capital city, sights, key historical events", available: false, part2: { task1: { followUpQuestions: ["What famous Prague landmark can you see?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two views of Prague different?"] }, task3: { question: "Why is Prague important for Czech history?" } } },
-  { id: "mass-media", title: "Mass Media", description: "Press, TV, advertising, power of mass media", available: false, part2: { task1: { followUpQuestions: ["What type of media is shown?", "How are people consuming information?"] }, task2: { comparisonQuestions: ["Which form of media is more influential?"] }, task3: { question: "How do social media influence young people?" } } },
+  
   { id: "home-housing", title: "Home and Housing", description: "Types of houses, mortgages, architecture", available: false, part2: { task1: { followUpQuestions: ["What type of home is this?", "Would you like to live here?"] }, task2: { comparisonQuestions: ["Which home would you prefer to live in?"] }, task3: { question: "What is your idea of a perfect home?" } } },
   { id: "united-kingdom", title: "The United Kingdom", description: "Geography, political system, places of interest", available: false, part2: { task1: { followUpQuestions: ["What British location or tradition is shown?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two aspects of British life different?"] }, task3: { question: "What do you find most interesting about British culture?" } } },
   { id: "london-washington", title: "London, Washington D.C.", description: "Historical sights, culture, entertainment", available: false, part2: { task1: { followUpQuestions: ["What famous landmark can you see?", "What is the atmosphere like?"] }, task2: { comparisonQuestions: ["How are these two cities different?"] }, task3: { question: "Which city would you prefer to visit and why?" } } },
