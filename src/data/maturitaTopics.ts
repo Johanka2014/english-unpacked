@@ -69,6 +69,21 @@ import social4b from "@/assets/maturita-social-4b.jpg";
 import social4c from "@/assets/maturita-social-4c.jpg";
 import social4d from "@/assets/maturita-social-4d.jpg";
 
+// Mass Media images
+import mediaThumbnail from "@/assets/maturita-media-thumbnail.jpg";
+import mediaPart2a from "@/assets/maturita-media-part2-a.jpg";
+import mediaPart2b from "@/assets/maturita-media-part2-b.jpg";
+import media3a from "@/assets/maturita-media-3a.jpg";
+import media3b from "@/assets/maturita-media-3b.jpg";
+import media3c from "@/assets/maturita-media-3c.jpg";
+import media3d from "@/assets/maturita-media-3d.jpg";
+import media3e from "@/assets/maturita-media-3e.jpg";
+import media3f from "@/assets/maturita-media-3f.jpg";
+import media4a from "@/assets/maturita-media-4a.jpg";
+import media4b from "@/assets/maturita-media-4b.jpg";
+import media4c from "@/assets/maturita-media-4c.jpg";
+import media4d from "@/assets/maturita-media-4d.jpg";
+
 export interface LearnItem {
   title: string;
   content: string;
