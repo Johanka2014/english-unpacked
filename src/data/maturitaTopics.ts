@@ -1045,6 +1045,30 @@ export const maturitaTopics: MaturitaTopic[] = [
         "Have you ever taken part in a charity event or a collection?",
         "What can ordinary people do about global problems?"
       ]
+    },
+    part4: {
+      scenario: "In this task you and the examiner are going to talk together about problems of today in the Czech Republic. Imagine the following situation: your foreign friend wants to know what the most serious problems in your country – or in the place where you live – are. Give them examples and speak about what causes the problems. You can also suggest possible solutions. The examiner is going to play the role of your friend.",
+      starter: "So tell me, what do you think are the biggest social problems in the Czech Republic at the moment? I keep hearing different things in the news…",
+      promptPoints: [
+        "Unemployment and structurally weak regions",
+        "Homelessness and the cost of housing",
+        "Environmental problems (air pollution, drought)",
+        "Public transport and infrastructure",
+        "Racial prejudice and xenophobia",
+        "Czech NGOs and charities helping people in need"
+      ],
+      images: [
+        { label: "4A", src: social4a, description: "A typical Czech city street – everyday life and urban issues" },
+        { label: "4B", src: social4b, description: "Recycling bins – environmental responsibility in the Czech Republic" },
+        { label: "4C", src: social4c, description: "A diverse community in a Czech town square" },
+        { label: "4D", src: social4d, description: "Public transport in a Czech city" }
+      ],
+      tips: [
+        "Give concrete Czech examples (cities, regions, organisations) – it makes your answer much stronger.",
+        "Don't just describe the problem – always say what causes it and suggest a possible solution.",
+        "Show interest in the conversation: ask the examiner short questions back, like 'Is it the same in your country?'"
+      ]
+    }
   },
 
   {
@@ -1200,31 +1224,6 @@ export const maturitaTopics: MaturitaTopic[] = [
       ]
     }
   },
-
-    part4: {
-      scenario: "In this task you and the examiner are going to talk together about problems of today in the Czech Republic. Imagine the following situation: your foreign friend wants to know what the most serious problems in your country – or in the place where you live – are. Give them examples and speak about what causes the problems. You can also suggest possible solutions. The examiner is going to play the role of your friend.",
-      starter: "So tell me, what do you think are the biggest social problems in the Czech Republic at the moment? I keep hearing different things in the news…",
-      promptPoints: [
-        "Unemployment and structurally weak regions",
-        "Homelessness and the cost of housing",
-        "Environmental problems (air pollution, drought)",
-        "Public transport and infrastructure",
-        "Racial prejudice and xenophobia",
-        "Czech NGOs and charities helping people in need"
-      ],
-      images: [
-        { label: "4A", src: social4a, description: "A typical Czech city street – everyday life and urban issues" },
-        { label: "4B", src: social4b, description: "Recycling bins – environmental responsibility in the Czech Republic" },
-        { label: "4C", src: social4c, description: "A diverse community in a Czech town square" },
-        { label: "4D", src: social4d, description: "Public transport in a Czech city" }
-      ],
-      tips: [
-        "Give concrete Czech examples (cities, regions, organisations) – it makes your answer much stronger.",
-        "Don't just describe the problem – always say what causes it and suggest a possible solution.",
-        "Show interest in the conversation: ask the examiner short questions back, like 'Is it the same in your country?'"
-      ]
-    }
-  },
   { id: "holidays-traditions", title: "Holidays, Traditions, Feast Days", description: "Christmas, Easter, Thanksgiving, national holidays", available: false, part2: { task1: { followUpQuestions: ["What holiday or tradition is shown?", "What are the people celebrating?"] }, task2: { comparisonQuestions: ["How are the celebrations different?"] }, task3: { question: "Which holiday is most important to you and why?" } } },
   { id: "transport-travelling", title: "Transport, Travelling", description: "Means of transport, tourist destinations, immigration", available: false, part2: { task1: { followUpQuestions: ["What type of transport can you see?", "Where might these people be travelling?"] }, task2: { comparisonQuestions: ["Which means of transport is more practical?"] }, task3: { question: "What will transport look like in the future?" } } },
   { id: "sports-games", title: "Sports and Games", description: "Olympics, national sports, extreme sports", available: false, part2: { task1: { followUpQuestions: ["What sport is being played?", "Where is the event taking place?"] }, task2: { comparisonQuestions: ["Which sport requires more physical effort?"] }, task3: { question: "Should sport be compulsory at school?" } } },
@@ -1236,7 +1235,7 @@ export const maturitaTopics: MaturitaTopic[] = [
   { id: "ostrava", title: "Ostrava, Town and Region", description: "Geography, history, transport, culture of Ostrava", available: false, part2: { task1: { followUpQuestions: ["What part of the city can you see?", "What is happening in this place?"] }, task2: { comparisonQuestions: ["How are these two places in the region different?"] }, task3: { question: "What do you like most about living in your region?" } } },
   { id: "czech-republic", title: "The Czech Republic", description: "Geography, political system, cities, natural beauties", available: false, part2: { task1: { followUpQuestions: ["What place in the Czech Republic is this?", "What makes it special?"] }, task2: { comparisonQuestions: ["How are these two Czech locations different?"] }, task3: { question: "What makes the Czech Republic unique?" } } },
   { id: "prague", title: "Prague, Czech History", description: "Capital city, sights, key historical events", available: false, part2: { task1: { followUpQuestions: ["What famous Prague landmark can you see?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two views of Prague different?"] }, task3: { question: "Why is Prague important for Czech history?" } } },
-  { id: "mass-media", title: "Mass Media", description: "Press, TV, advertising, power of mass media", available: false, part2: { task1: { followUpQuestions: ["What type of media is shown?", "How are people consuming information?"] }, task2: { comparisonQuestions: ["Which form of media is more influential?"] }, task3: { question: "How do social media influence young people?" } } },
+  
   { id: "home-housing", title: "Home and Housing", description: "Types of houses, mortgages, architecture", available: false, part2: { task1: { followUpQuestions: ["What type of home is this?", "Would you like to live here?"] }, task2: { comparisonQuestions: ["Which home would you prefer to live in?"] }, task3: { question: "What is your idea of a perfect home?" } } },
   { id: "united-kingdom", title: "The United Kingdom", description: "Geography, political system, places of interest", available: false, part2: { task1: { followUpQuestions: ["What British location or tradition is shown?", "What are the people doing?"] }, task2: { comparisonQuestions: ["How are these two aspects of British life different?"] }, task3: { question: "What do you find most interesting about British culture?" } } },
   { id: "london-washington", title: "London, Washington D.C.", description: "Historical sights, culture, entertainment", available: false, part2: { task1: { followUpQuestions: ["What famous landmark can you see?", "What is the atmosphere like?"] }, task2: { comparisonQuestions: ["How are these two cities different?"] }, task3: { question: "Which city would you prefer to visit and why?" } } },
