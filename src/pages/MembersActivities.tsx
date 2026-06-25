@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic, Megaphone, Wrench } from 'lucide-react';
+import { BookOpen, GraduationCap, Languages, Shield, Clock, PenLine, FileText, Briefcase, Star, Users, Mic, Megaphone, Wrench, Trophy } from 'lucide-react';
 
 const vocabularyActivities = [
   {
@@ -85,6 +85,13 @@ const businessActivities = [
     icon: Briefcase,
     path: '/bb-upper',
     color: 'text-sky-600',
+  },
+  {
+    title: 'The Price of Passion',
+    description: 'B2 lesson on dynamic ticket pricing — reading, vocabulary matching, mixed conditionals, boardroom debate and a Financial Times listening gap-fill',
+    icon: Trophy,
+    path: '/price-of-passion',
+    color: 'text-rose-600',
   },
 ];
 
