@@ -7,6 +7,18 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, Trophy } from 'lucide-react';
 import type { Activity } from '@/data/engineeringData';
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
+import Flashcards, { type FlashcardItem } from '@/components/presentations/Flashcards';
+
+const vocabFlashcards: FlashcardItem[] = [
+  { term: 'Face value',   definition: 'The original price printed on a ticket before any resale mark-up.', example: 'The ticket\'s face value was £45, but resellers were asking £120.' },
+  { term: 'Snap up',      definition: 'To buy something quickly because it is cheap or in short supply.', example: 'Fans snapped up the early-bird seats within minutes.' },
+  { term: 'Fend off',     definition: 'To defend yourself against an attack, problem or unwelcome competitor.', example: 'Clubs say dynamic pricing helps them fend off scalpers.' },
+  { term: 'Rip-off',      definition: 'Something that is unreasonably expensive or a fraudulent deal.', example: '£15 for a stadium hotdog is a complete rip-off.' },
+  { term: 'Skyrocket',    definition: 'To rise extremely quickly and to a very high level.', example: 'Prices skyrocket when a top team comes to town.' },
+  { term: 'Squeezed out', definition: 'Forced to leave or be excluded from a market or group, often by rising costs.', example: 'Working-class supporters feel squeezed out of the modern game.' },
+  { term: 'Affluent',     definition: 'Having a great deal of money; wealthy.', example: 'Premium seats are increasingly reserved for affluent fans.' },
+  { term: 'Scalper',      definition: 'An unauthorised reseller who buys tickets and resells them at a high profit.', example: 'Scalpers buy tickets at face value and flip them online.' },
+];
 
 const introActivities: Activity[] = [
   {
@@ -193,7 +205,19 @@ const PriceOfPassion = () => {
           </p>
         </header>
 
-        <TechnicalRenderer activities={introActivities} />
+        <TechnicalRenderer activities={introActivities.slice(0, 1)} />
+
+        <div className="mt-6">
+          <Flashcards
+            title="1b · Vocabulary Flashcards"
+            description="Preview the key vocabulary you will meet in the reading. Click a card to flip it, then use Next or Shuffle to keep practising."
+            cards={vocabFlashcards}
+          />
+        </div>
+
+        <div className="mt-6">
+          <TechnicalRenderer activities={introActivities.slice(1)} />
+        </div>
 
         {/* Listening section with embedded video */}
         <div className="mt-6">
