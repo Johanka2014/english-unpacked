@@ -205,7 +205,19 @@ const PriceOfPassion = () => {
           </p>
         </header>
 
-        <TechnicalRenderer activities={introActivities} />
+        <TechnicalRenderer activities={introActivities.slice(0, 1)} />
+
+        <div className="mt-6">
+          <Flashcards
+            title="1b · Vocabulary Flashcards"
+            description="Preview the key vocabulary you will meet in the reading. Click a card to flip it, then use Next or Shuffle to keep practising."
+            cards={vocabFlashcards}
+          />
+        </div>
+
+        <div className="mt-6">
+          <TechnicalRenderer activities={introActivities.slice(1)} />
+        </div>
 
         {/* Listening section with embedded video */}
         <div className="mt-6">
