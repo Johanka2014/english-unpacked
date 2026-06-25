@@ -63,6 +63,7 @@ const PronunciationCourse = lazy(() => import("./pages/PronunciationCourse"));
 const PronunciationSection = lazy(() => import("./pages/PronunciationSection"));
 const ConnectedSpeech = lazy(() => import("./pages/ConnectedSpeech"));
 const ConnectedSpeechLesson = lazy(() => import("./pages/ConnectedSpeechLesson"));
+const PriceOfPassion = lazy(() => import("./pages/PriceOfPassion"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -116,6 +117,7 @@ const App = () => (
               <Route path="/bb-upper" element={<ProtectedRoute><BBUpperIntermediate /></ProtectedRoute>} />
               <Route path="/bb-upper/:moduleId" element={<ProtectedRoute><BBUpperModule /></ProtectedRoute>} />
               <Route path="/bb-upper/:moduleId/:skillId" element={<ProtectedRoute><BBUpperSkill /></ProtectedRoute>} />
+              <Route path="/price-of-passion" element={<ProtectedRoute><PriceOfPassion /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
