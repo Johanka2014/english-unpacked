@@ -78,13 +78,11 @@ const LessonDetail = () => {
         toast({ title: 'Invalid URL', description: 'Only http:// or https:// links are allowed.', variant: 'destructive' });
         return;
       }
-      const { error } = await supabase
-        .from('lessons')
-        .update({
-          teacher_notes: teacherNotes,
-          web_links: JSON.stringify(webLinks) as any,
-        })
-        .eq('id', id);
+      const { error } = await supabase.rpc('update_my_lesson', {
+        p_lesson_id: id!,
+        p_teacher_notes: teacherNotes,
+        p_web_links: webLinks as any,
+      });
 
       if (error) throw error;
 
