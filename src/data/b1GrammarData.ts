@@ -97,6 +97,7 @@ export interface B1GrammarModule {
   modalMasteryLesson?: true;
   soSuchMasteryLesson?: true;
   compoundAdjectivesLesson?: true;
+  externalUrl?: string;
   examPractice?: {
     description: string;
     type: string;

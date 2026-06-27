@@ -1,48 +1,70 @@
-## Goal
+## Reorganize Practice tabs + all UX recommendations
 
-Add a new **Engineering** tab on `/members/activities` containing one tile, **Cambridge English for Engineering**, that opens a full course mirroring the existing HR English layout but structured around the PDF's own 4 sub-sections per unit. Audio activities are stubbed with a disabled player + "Audio coming soon" note until files are uploaded.
+### 1. Six-tab structure with icons on triggers
 
-## Information architecture
+`src/pages/MembersActivities.tsx` — rebuild with 6 tabs, each with an icon in the trigger label:
 
-```text
-/engineering-english                       → 10-unit landing grid
-/engineering-english/:unitId               → unit page with 4 sub-section cards
-/engineering-english/:unitId/:sectionId    → activities for that sub-section
-```
+- **Grammar** (`GraduationCap`) — Grammar *(renamed from "B1 Grammar")*
+- **Business** (`Briefcase`) — grouped sub-headings:
+  - *Core courses*: Business Vocabulary · Business Benchmark Pre-Int to Int · Business Benchmark Upper Intermediate
+  - *Profession-specific*: Oxford English for HR · Cambridge English for Engineering · Technical English
+  - *Single lessons*: Insurance Vocabulary
+- **Pronunciation** (`Mic`) — Pronunciation Practice Course · Connected Speech
+- **Exams** (`Award`) — CAE Exam Practice · FCE Vocabulary Practice · Maturita Speaking Practice
+- **Topics** (`Compass`) — Sport
+- **Young Learners** (`Star`) — Practice Tests for Starters
 
-The 10 units and their 4 sub-sections come straight from the PDF contents (e.g. Unit 1: Describing technical functions and applications · Explaining how technology works · Emphasising technical advantages · Simplifying and illustrating technical explanations). Each sub-section embeds the listenings and readings that belong to it, plus the printed exercises (matching, gap-fill, multiple choice, discussion prompts).
+Tab order: Grammar, Business, Pronunciation, Exams, Topics, Young Learners.
 
-## Files
+### 2. Search bar
 
-**New tab + tile**
-- `src/pages/MembersActivities.tsx` — add `engineering` tab + `engineeringActivities` array with one tile linking to `/engineering-english`.
+Above the tabs: input with `Search` icon, filters every tile (title + description, case-insensitive) across all tabs. When the query is non-empty, replace the tab UI with a flat result grid showing the matching tiles plus a small "in *Business*" badge on each. Clearing the box returns to the tabbed view.
 
-**Routing**
-- `src/App.tsx` — lazy-load 3 new pages and add the 3 routes above inside `<ProtectedRoute>`.
+### 3. Recently opened strip
 
-**Data**
-- `src/data/engineeringData.ts` — typed `engineeringUnits: EngineeringUnit[]` with `id`, `title`, `description`, `icon`, and a `sections` array of `{ id, title, component }`. All copy (instructions, items, options, answer keys) comes from the SB PDF; teacher notes/answers from the TB PDF are used to mark correct answers in the interactive widgets.
+Persisted in `localStorage` under `eu:recent-activities` (max 3, FIFO). Click on any tile records its path + label + icon name + tab. Strip appears above the search bar with a "Recently opened" heading and small cards. Hidden when empty.
 
-**Page shells (mirror HR English)**
-- `src/pages/EngineeringEnglish.tsx` — landing grid of 10 unit cards.
-- `src/pages/EngineeringEnglishUnit.tsx` — 4 sub-section cards for the chosen unit.
-- `src/pages/EngineeringEnglishSection.tsx` — renders the sub-section's component with prev/next navigation and `?tab=` persistence (same pattern as `HREnglishSkill`).
+### 4. Redirects for old slugs
 
-**Activity components** (`src/components/engineering/`) — one component per sub-section, 40 in total: `Unit1Section1.tsx` … `Unit10Section4.tsx`. Each composes existing presentation primitives:
-- `MatchingExercise`, `MultipleChoiceQuiz`, `FillInBlanks`, `DragDropCategorize`, `OrderingExercise`, `WordOrderExercise`, `ThreeColumnMatching`, `InfoSection` from `src/components/presentations/`.
-- A new shared `EngineeringAudio.tsx` that renders a disabled `<audio>` control with the caption "🎧 Audio coming soon — listening transcript and tasks below" so the section is usable from printed prompts until MP3s arrive.
-- Reading passages render in `InfoSection` cards followed by their comprehension exercise.
+`useEffect` reads `?tab=`; if it matches a legacy slug, `navigate('?tab=<new>', { replace: true })`:
+- `vocabulary` → `business`
+- `cambridge` → `exams`
+- `maturita` → `exams`
+- `hr` → `business`
+- `engineering` → `business`
 
-## Styling
+Default tab behaviour unchanged (first tab = Grammar when no `?tab=`).
 
-Reuses the HR English look (white background, navy/royal blue, Merriweather headings) — no new tokens. Tile on the Practice page uses an engineering icon (`Wrench` from lucide-react).
+### 5. Verb Patterns & Prepositions folded into Grammar
 
-## Out of scope
+`src/data/b1GrammarData.ts`:
+- Add optional `externalUrl?: string` to `B1GrammarModule`.
+- Section **Verb Patterns**: append module `{ number: 22, title: 'Verb Pattern Practice', subtitle: 'Units 53–68: -ing forms, infinitives, preferences', externalUrl: '/verb-pattern-practice' }`.
+- Section **Questions & Prepositions**: append three modules linking to `/prepositions-of-time`, `/prepositions-of-place`, `/verb-adjective-prepositions`.
 
-- No audio uploads / no audio asset wiring (user will upload later — when they do, swap the placeholder `src` in each section's `EngineeringAudio` for the asset URL).
-- No DB / RLS changes; content is static under `src/data/`.
-- No changes to security memory or other unrelated areas.
+`src/pages/B1GrammarSection.tsx`: when `mod.externalUrl` is set, render the card as an `<a href={mod.externalUrl}>` instead of `<Link>`, treat as having content (no Coming soon badge), show a small `ExternalLink` icon corner badge.
 
-## Verification
+### 6. Rename "B1 Grammar" → "Grammar" (user-facing only)
 
-After build: open `/members/activities` → Engineering tab → tile → Unit 1 → each of the 4 sub-sections; spot-check Unit 5 and Unit 10 routes; confirm prev/next works across sub-section and unit boundaries and that the disabled audio placeholder renders in every listening activity.
+- `src/pages/B1Grammar.tsx`: hero title, SEO title/description, back link wording → "Grammar".
+- `src/pages/B1GrammarSection.tsx`: back link → "Back to Grammar"; SEO suffix → "- Grammar".
+- Routes (`/b1-grammar/*`), file names, data variable names stay the same to avoid churn.
+
+### 7. Sport topic page
+
+New `src/pages/TopicsSport.tsx` — Navigation + Footer + back link + heading "Sport" + Card grid containing **The Price of Passion** (Trophy icon, links to `/price-of-passion`). Patterned after `MembersActivities`'s `ActivityGrid`.
+
+New route in `src/App.tsx`: `/topics/sport` → `ProtectedRoute > TopicsSport` (lazy-loaded).
+
+The Topics tab tile "Sport" links to `/topics/sport`.
+
+### Files touched
+
+- `src/pages/MembersActivities.tsx` — full restructure (tabs, search, recents, redirects, icons on triggers, sub-headings inside Business).
+- `src/data/b1GrammarData.ts` — `externalUrl` field + 4 new module entries.
+- `src/pages/B1GrammarSection.tsx` — handle `externalUrl`, rename back link.
+- `src/pages/B1Grammar.tsx` — rename hero/SEO/back link.
+- `src/pages/TopicsSport.tsx` — new file.
+- `src/App.tsx` — new lazy import + route.
+
+No data migrations, no route changes for existing paths, no other in-app links break.
