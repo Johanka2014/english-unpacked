@@ -3,7 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
 
@@ -18,7 +18,7 @@ const B1GrammarSection = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${section.title} - B1 Grammar`}
+        title={`${section.title} - Grammar`}
         description={section.description}
       />
       <Navigation />
@@ -43,38 +43,48 @@ const B1GrammarSection = () => {
           <div className="mb-6 max-w-7xl mx-auto">
             <Link to="/b1-grammar">
               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <ArrowLeft className="h-4 w-4 mr-1" /> Back to B1 Grammar
+                <ArrowLeft className="h-4 w-4 mr-1" /> Back to Grammar
               </Button>
             </Link>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.modules.map((mod) => {
-              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson);
-              return (
-                <Link key={mod.id} to={`/b1-grammar/${sectionId}/${mod.id}`}>
-                  <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                    <div className="relative h-40 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-royal flex items-center justify-center">
-                      <span className="text-5xl font-bold text-white/20 font-merriweather">{mod.number}</span>
-                      <div className="absolute top-4 left-4 bg-white/20 p-2 rounded-full">
-                        <BookOpen className="w-5 h-5 text-white" />
-                      </div>
-                      {!hasContent && mod.id !== 'so-such-too-enough' && (
-                        <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
-                          Coming soon
-                        </div>
-                      )}
+              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson || mod.externalUrl);
+              const cardInner = (
+                <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="relative h-40 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-royal flex items-center justify-center">
+                    <span className="text-5xl font-bold text-white/20 font-merriweather">
+                      {mod.number > 100 ? '★' : mod.number}
+                    </span>
+                    <div className="absolute top-4 left-4 bg-white/20 p-2 rounded-full">
+                      <BookOpen className="w-5 h-5 text-white" />
                     </div>
-                    <CardHeader>
-                      <CardTitle className="font-merriweather text-lg">
-                        {mod.number}. {mod.title}
-                      </CardTitle>
-                      <CardDescription className="text-sm">
-                        {mod.subtitle}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                </Link>
+                    {mod.externalUrl && (
+                      <div className="absolute top-4 right-4 bg-white/20 p-2 rounded-full">
+                        <ExternalLink className="w-4 h-4 text-white" />
+                      </div>
+                    )}
+                    {!hasContent && mod.id !== 'so-such-too-enough' && (
+                      <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
+                        Coming soon
+                      </div>
+                    )}
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="font-merriweather text-lg">
+                      {mod.number > 100 ? mod.title : `${mod.number}. ${mod.title}`}
+                    </CardTitle>
+                    <CardDescription className="text-sm">
+                      {mod.subtitle}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              );
+              return mod.externalUrl ? (
+                <Link key={mod.id} to={mod.externalUrl}>{cardInner}</Link>
+              ) : (
+                <Link key={mod.id} to={`/b1-grammar/${sectionId}/${mod.id}`}>{cardInner}</Link>
               );
             })}
           </div>
