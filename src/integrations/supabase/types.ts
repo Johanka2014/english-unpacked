@@ -112,6 +112,14 @@ export type Database = {
         }
         Returns: boolean
       }
+      update_my_lesson: {
+        Args: {
+          p_lesson_id: string
+          p_teacher_notes: string
+          p_web_links: Json
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "student"
