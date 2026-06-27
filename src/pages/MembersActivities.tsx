@@ -107,6 +107,14 @@ const TABS: TabDef[] = [
         color: 'text-orange-600',
         group: 'Single lessons',
       },
+      {
+        title: 'English for Presentations',
+        description: 'Master the language of business presentations: welcoming audiences, structuring talks, attention-grabbing openings, and dealing with nervousness',
+        icon: Presentation,
+        path: '/presentations',
+        color: 'text-blue-700',
+        group: 'Single lessons',
+      },
     ],
   },
   {
