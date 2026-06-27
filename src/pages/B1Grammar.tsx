@@ -12,8 +12,8 @@ const B1Grammar = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="B1 Grammar - English Unpacked"
-        description="Master B1-level English grammar across 30 modules with interactive theory, exercises and exam practice."
+        title="Grammar - English Unpacked"
+        description="Master English grammar across 30+ modules with interactive theory, exercises and exam practice."
       />
       <Navigation />
 
