@@ -64,6 +64,7 @@ const PronunciationSection = lazy(() => import("./pages/PronunciationSection"));
 const ConnectedSpeech = lazy(() => import("./pages/ConnectedSpeech"));
 const ConnectedSpeechLesson = lazy(() => import("./pages/ConnectedSpeechLesson"));
 const PriceOfPassion = lazy(() => import("./pages/PriceOfPassion"));
+const TopicsSport = lazy(() => import("./pages/TopicsSport"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
