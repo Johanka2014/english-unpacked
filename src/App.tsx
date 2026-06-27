@@ -119,6 +119,7 @@ const App = () => (
               <Route path="/bb-upper/:moduleId" element={<ProtectedRoute><BBUpperModule /></ProtectedRoute>} />
               <Route path="/bb-upper/:moduleId/:skillId" element={<ProtectedRoute><BBUpperSkill /></ProtectedRoute>} />
               <Route path="/price-of-passion" element={<ProtectedRoute><PriceOfPassion /></ProtectedRoute>} />
+              <Route path="/topics/sport" element={<ProtectedRoute><TopicsSport /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
