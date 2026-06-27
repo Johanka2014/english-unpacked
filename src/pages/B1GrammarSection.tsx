@@ -18,7 +18,7 @@ const B1GrammarSection = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={`${section.title} - B1 Grammar`}
+        title={`${section.title} - Grammar`}
         description={section.description}
       />
       <Navigation />
