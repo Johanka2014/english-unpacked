@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, type LucideIcon,
 } from 'lucide-react';
 
 // ── Types & data ────────────────────────────────────────────────────────────
@@ -105,6 +105,14 @@ const TABS: TabDef[] = [
         icon: Shield,
         path: '/insurance-vocabulary',
         color: 'text-orange-600',
+        group: 'Single lessons',
+      },
+      {
+        title: 'English for Presentations',
+        description: 'Master the language of business presentations: welcoming audiences, structuring talks, attention-grabbing openings, and dealing with nervousness',
+        icon: Presentation,
+        path: '/presentations',
+        color: 'text-blue-700',
         group: 'Single lessons',
       },
     ],
