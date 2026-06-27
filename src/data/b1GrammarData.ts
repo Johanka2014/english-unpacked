@@ -1148,6 +1148,27 @@ export const b1GrammarSections: B1GrammarSection[] = [
         title: 'Prepositions 3',
         subtitle: 'expressions with prepositions; verbs and adjectives + prepositions; phrasal verbs',
       },
+      {
+        id: 'prepositions-of-time-practice',
+        number: 101,
+        title: 'Prepositions of Time — Practice',
+        subtitle: 'on, in, at, from, to, past, till, by, since, for, ago, before — interactive exercises (7 units)',
+        externalUrl: '/prepositions-of-time',
+      },
+      {
+        id: 'prepositions-of-place-practice',
+        number: 102,
+        title: 'Prepositions of Place — Practice',
+        subtitle: 'in front of, behind, above, below, into, out of, up, over and more',
+        externalUrl: '/prepositions-of-place',
+      },
+      {
+        id: 'verb-adjective-prepositions-practice',
+        number: 103,
+        title: 'Verbs & Adjectives + Prepositions — Practice',
+        subtitle: 'talk about/to, wait for, agree with, work in/for/as, apply for/to',
+        externalUrl: '/verb-adjective-prepositions',
+      },
     ],
   },
   {
@@ -1169,8 +1190,16 @@ export const b1GrammarSections: B1GrammarSection[] = [
         title: 'To or -ing?',
         subtitle: 'verbs + to infinitive; make and let; verbs + -ing; verbs + to infinitive or + -ing',
       },
+      {
+        id: 'verb-pattern-practice',
+        number: 22,
+        title: 'Verb Pattern Practice',
+        subtitle: 'Units 53–68: -ing forms, infinitives, preferences and more',
+        externalUrl: '/verb-pattern-practice',
+      },
     ],
   },
+
   {
     id: 'conditionals',
     title: 'Conditionals',
