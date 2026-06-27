@@ -30,10 +30,10 @@ const B1Grammar = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/30 to-brand-royal/30" />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-20">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-merriweather">
-            B1 Grammar
+            Grammar
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            30 modules covering all essential B1-level grammar for PET and everyday English
+            30+ modules covering essential grammar — tenses, modals, conditionals, verb patterns, prepositions and more
           </p>
         </div>
       </section>
