@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, type LucideIcon,
 } from 'lucide-react';
 
 // ── Types & data ────────────────────────────────────────────────────────────
@@ -113,6 +113,14 @@ const TABS: TabDef[] = [
         icon: Presentation,
         path: '/presentations',
         color: 'text-blue-700',
+        group: 'Single lessons',
+      },
+      {
+        title: 'Business Phrasal Verbs',
+        description: 'Mobile-friendly app to master 16 business phrasal verbs — dictionary, flashcards and sentence quiz',
+        icon: Smartphone,
+        path: '/bizphrasal',
+        color: 'text-blue-600',
         group: 'Single lessons',
       },
     ],
