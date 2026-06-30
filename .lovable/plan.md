@@ -1,70 +1,16 @@
-## Reorganize Practice tabs + all UX recommendations
+## Problem
+The `Navigation` component is `fixed top-0` (~73px tall), but the main content has no offset. Pages whose hero uses `min-h-screen flex items-center` (Index, ExamPreparation, BusinessEnglish, etc.) hide the issue because the centered content sits well below the nav. Short heroes that only use `py-16/20/24` (e.g. **BusinessBenchmark**, BBUpperIntermediate, HREnglish, EngineeringEnglish, PresentationSkills, BusinessTravel, Conversation, EverydayConversations, the two exam-practice wrappers) get their top edge — including the H1 — clipped under the fixed nav.
 
-### 1. Six-tab structure with icons on triggers
+## Fix
+Add a single global offset for the fixed nav rather than patching every page.
 
-`src/pages/MembersActivities.tsx` — rebuild with 6 tabs, each with an icon in the trigger label:
+1. **`src/components/Navigation.tsx`** — add a stable height class (e.g. `h-[73px]`) so the offset matches.
+2. **`src/App.tsx`** — wrap `<Routes>` in a `<div className="pt-[73px]">` (applied to every page). For pages that already use `min-h-screen` heroes with `backgroundAttachment: fixed`, this just pushes the hero down by the nav height — visually identical to today since the nav already overlapped a transparent strip. Verify Index/ExamPreparation still look right.
+3. **Alternative if global padding causes visual regressions on the full-bleed homepage hero:** instead of editing `App.tsx`, add `pt-20` (or `pt-[73px]`) only to the short hero `<section>` elements on the affected pages listed above. This is more surgical but touches ~10 files.
 
-- **Grammar** (`GraduationCap`) — Grammar *(renamed from "B1 Grammar")*
-- **Business** (`Briefcase`) — grouped sub-headings:
-  - *Core courses*: Business Vocabulary · Business Benchmark Pre-Int to Int · Business Benchmark Upper Intermediate
-  - *Profession-specific*: Oxford English for HR · Cambridge English for Engineering · Technical English
-  - *Single lessons*: Insurance Vocabulary
-- **Pronunciation** (`Mic`) — Pronunciation Practice Course · Connected Speech
-- **Exams** (`Award`) — CAE Exam Practice · FCE Vocabulary Practice · Maturita Speaking Practice
-- **Topics** (`Compass`) — Sport
-- **Young Learners** (`Star`) — Practice Tests for Starters
+Recommended: go with the global offset in `App.tsx` + verify the homepage and ExamPreparation hero still render correctly; fall back to per-page padding only if a regression appears.
 
-Tab order: Grammar, Business, Pronunciation, Exams, Topics, Young Learners.
-
-### 2. Search bar
-
-Above the tabs: input with `Search` icon, filters every tile (title + description, case-insensitive) across all tabs. When the query is non-empty, replace the tab UI with a flat result grid showing the matching tiles plus a small "in *Business*" badge on each. Clearing the box returns to the tabbed view.
-
-### 3. Recently opened strip
-
-Persisted in `localStorage` under `eu:recent-activities` (max 3, FIFO). Click on any tile records its path + label + icon name + tab. Strip appears above the search bar with a "Recently opened" heading and small cards. Hidden when empty.
-
-### 4. Redirects for old slugs
-
-`useEffect` reads `?tab=`; if it matches a legacy slug, `navigate('?tab=<new>', { replace: true })`:
-- `vocabulary` → `business`
-- `cambridge` → `exams`
-- `maturita` → `exams`
-- `hr` → `business`
-- `engineering` → `business`
-
-Default tab behaviour unchanged (first tab = Grammar when no `?tab=`).
-
-### 5. Verb Patterns & Prepositions folded into Grammar
-
-`src/data/b1GrammarData.ts`:
-- Add optional `externalUrl?: string` to `B1GrammarModule`.
-- Section **Verb Patterns**: append module `{ number: 22, title: 'Verb Pattern Practice', subtitle: 'Units 53–68: -ing forms, infinitives, preferences', externalUrl: '/verb-pattern-practice' }`.
-- Section **Questions & Prepositions**: append three modules linking to `/prepositions-of-time`, `/prepositions-of-place`, `/verb-adjective-prepositions`.
-
-`src/pages/B1GrammarSection.tsx`: when `mod.externalUrl` is set, render the card as an `<a href={mod.externalUrl}>` instead of `<Link>`, treat as having content (no Coming soon badge), show a small `ExternalLink` icon corner badge.
-
-### 6. Rename "B1 Grammar" → "Grammar" (user-facing only)
-
-- `src/pages/B1Grammar.tsx`: hero title, SEO title/description, back link wording → "Grammar".
-- `src/pages/B1GrammarSection.tsx`: back link → "Back to Grammar"; SEO suffix → "- Grammar".
-- Routes (`/b1-grammar/*`), file names, data variable names stay the same to avoid churn.
-
-### 7. Sport topic page
-
-New `src/pages/TopicsSport.tsx` — Navigation + Footer + back link + heading "Sport" + Card grid containing **The Price of Passion** (Trophy icon, links to `/price-of-passion`). Patterned after `MembersActivities`'s `ActivityGrid`.
-
-New route in `src/App.tsx`: `/topics/sport` → `ProtectedRoute > TopicsSport` (lazy-loaded).
-
-The Topics tab tile "Sport" links to `/topics/sport`.
-
-### Files touched
-
-- `src/pages/MembersActivities.tsx` — full restructure (tabs, search, recents, redirects, icons on triggers, sub-headings inside Business).
-- `src/data/b1GrammarData.ts` — `externalUrl` field + 4 new module entries.
-- `src/pages/B1GrammarSection.tsx` — handle `externalUrl`, rename back link.
-- `src/pages/B1Grammar.tsx` — rename hero/SEO/back link.
-- `src/pages/TopicsSport.tsx` — new file.
-- `src/App.tsx` — new lazy import + route.
-
-No data migrations, no route changes for existing paths, no other in-app links break.
+## Verification
+- Navigate to `/business-benchmark` — full "Business Benchmark" H1 + subtitle visible, no clipping under nav.
+- Spot-check `/` (homepage hero), `/exam-preparation`, `/business-english` — hero text still centered, no double gap.
+- Spot-check `/hr-english`, `/engineering-english`, `/presentations`, `/business-travel` — top of hero visible.
