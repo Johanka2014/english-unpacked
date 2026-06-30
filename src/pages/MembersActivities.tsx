@@ -92,6 +92,14 @@ const TABS: TabDef[] = [
         group: 'Profession-specific',
       },
       {
+        title: 'Tech Talk Intermediate',
+        description: 'Oxford Business English — 18 units pairing Student\u2019s Book with Workbook practice and Teacher\u2019s Book answer keys & audio scripts',
+        icon: Wrench,
+        path: '/tech-talk',
+        color: 'text-cyan-700',
+        group: 'Profession-specific',
+      },
+      {
         title: 'Technical English: Vocabulary and Grammar',
         description: 'Brieger & Pohl — 50 topics across professional activities, industry profiles and 20 grammar uses',
         icon: BookOpen,
