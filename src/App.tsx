@@ -58,6 +58,9 @@ const HREnglishSkill = lazy(() => import("./pages/HREnglishSkill"));
 const EngineeringEnglish = lazy(() => import("./pages/EngineeringEnglish"));
 const EngineeringEnglishUnit = lazy(() => import("./pages/EngineeringEnglishUnit"));
 const EngineeringEnglishSection = lazy(() => import("./pages/EngineeringEnglishSection"));
+const TechTalk = lazy(() => import("./pages/TechTalk"));
+const TechTalkUnit = lazy(() => import("./pages/TechTalkUnit"));
+const TechTalkSection = lazy(() => import("./pages/TechTalkSection"));
 const TechnicalEnglish = lazy(() => import("./pages/TechnicalEnglish"));
 const TechnicalEnglishTopic = lazy(() => import("./pages/TechnicalEnglishTopic"));
 const PronunciationCourse = lazy(() => import("./pages/PronunciationCourse"));
@@ -134,6 +137,9 @@ const App = () => (
               <Route path="/engineering-english" element={<ProtectedRoute><EngineeringEnglish /></ProtectedRoute>} />
               <Route path="/engineering-english/:unitId" element={<ProtectedRoute><EngineeringEnglishUnit /></ProtectedRoute>} />
               <Route path="/engineering-english/:unitId/:sectionId" element={<ProtectedRoute><EngineeringEnglishSection /></ProtectedRoute>} />
+              <Route path="/tech-talk" element={<ProtectedRoute><TechTalk /></ProtectedRoute>} />
+              <Route path="/tech-talk/:unitId" element={<ProtectedRoute><TechTalkUnit /></ProtectedRoute>} />
+              <Route path="/tech-talk/:unitId/:sectionId" element={<ProtectedRoute><TechTalkSection /></ProtectedRoute>} />
               <Route path="/technical-english" element={<ProtectedRoute><TechnicalEnglish /></ProtectedRoute>} />
               <Route path="/technical-english/:topicId" element={<ProtectedRoute><TechnicalEnglishTopic /></ProtectedRoute>} />
 
