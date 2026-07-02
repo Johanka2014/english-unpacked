@@ -29,6 +29,7 @@ export const hrUnits: HRUnit[] = [
       { id: 'listening', title: 'Listening', description: 'Recruitment sources discussion and vocabulary from the conversation', type: 'listening', content: true, audioTrack: 1 },
       { id: 'reading', title: 'Reading', description: 'Recruitment sources matching and the benefits of recruitment advertising agencies', type: 'reading', content: true },
       { id: 'speaking', title: 'Speaking & Role-play', description: 'Useful language for exchanging information, making suggestions, agreeing and disagreeing', type: 'speaking', content: true },
+      { id: 'seo-strategy', title: 'Growth & SEO Strategy', description: 'Recruitment marketing extension: read a link-building strategy passage and rebuild the key takeaways word-by-word', type: 'reading', content: true },
     ],
   },
   {

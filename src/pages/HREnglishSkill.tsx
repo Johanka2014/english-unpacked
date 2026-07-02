@@ -10,6 +10,7 @@ import VocabularyUnit1 from '@/components/hr/VocabularyUnit1';
 import ListeningUnit1 from '@/components/hr/ListeningUnit1';
 import ReadingUnit1 from '@/components/hr/ReadingUnit1';
 import SpeakingUnit1 from '@/components/hr/SpeakingUnit1';
+import SEOStrategyUnit1 from '@/components/hr/SEOStrategyUnit1';
 import StarterUnit2 from '@/components/hr/StarterUnit2';
 import VocabularyUnit2 from '@/components/hr/VocabularyUnit2';
 import ListeningUnit2 from '@/components/hr/ListeningUnit2';
@@ -62,6 +63,7 @@ const HREnglishSkill = () => {
         case 'listening': return <ListeningUnit1 />;
         case 'reading': return <ReadingUnit1 />;
         case 'speaking': return <SpeakingUnit1 />;
+        case 'seo-strategy': return <SEOStrategyUnit1 />;
       }
     }
     if (unitId === 'selection') {
