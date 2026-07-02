@@ -20,6 +20,7 @@ import VocabularyUnit3 from '@/components/hr/VocabularyUnit3';
 import ListeningUnit3 from '@/components/hr/ListeningUnit3';
 import ReadingUnit3 from '@/components/hr/ReadingUnit3';
 import SpeakingUnit3 from '@/components/hr/SpeakingUnit3';
+import ProbationPeriodsUnit3 from '@/components/hr/ProbationPeriodsUnit3';
 import StarterUnit4 from '@/components/hr/StarterUnit4';
 import VocabularyUnit4 from '@/components/hr/VocabularyUnit4';
 import ListeningUnit4 from '@/components/hr/ListeningUnit4';
@@ -79,6 +80,7 @@ const HREnglishSkill = () => {
         case 'listening': return <ListeningUnit3 />;
         case 'reading': return <ReadingUnit3 />;
         case 'speaking': return <SpeakingUnit3 />;
+        case 'probation-periods': return <ProbationPeriodsUnit3 />;
       }
     }
     if (unitId === 'hr-development') {
