@@ -1,16 +1,42 @@
-## Problem
-The `Navigation` component is `fixed top-0` (~73px tall), but the main content has no offset. Pages whose hero uses `min-h-screen flex items-center` (Index, ExamPreparation, BusinessEnglish, etc.) hide the issue because the centered content sits well below the nav. Short heroes that only use `py-16/20/24` (e.g. **BusinessBenchmark**, BBUpperIntermediate, HREnglish, EngineeringEnglish, PresentationSkills, BusinessTravel, Conversation, EverydayConversations, the two exam-practice wrappers) get their top edge — including the H1 — clipped under the fixed nav.
+## Plan: Word Scramble game under Young Learners
 
-## Fix
-Add a single global offset for the fixed nav rather than patching every page.
+### 1. New React page — `src/pages/WordScramble.tsx`
+Refactor the uploaded HTML into an idiomatic React component:
+- State via `useState` / `useEffect` / `useRef` (score, timeLeft, currentLetters, gameActive, message).
+- Timer via `setInterval` inside `useEffect` with cleanup.
+- Same core logic: `isValidFormation`, Fisher–Yates shuffle, submit on Enter, shake animation on invalid.
+- No colored hero banner. Layout:
+  - Global `Navigation` at top, `Footer` at bottom (site chrome only, per your choice).
+  - Compact page heading: `<h1>Word Scramble</h1>` + one-line instructions, plain background.
+  - Centered game card (max-w-md) with letter tiles, input, Submit / Shuffle / New Game buttons.
+- Uses design tokens only (`bg-background`, `text-foreground`, `bg-primary`, `bg-muted`, `bg-accent`) — no hardcoded blue/indigo/teal. Fits site branding (Navy / Royal Blue / Accent Orange).
+- Merriweather for the page heading, system body font for tiles (large, bold, readable for young learners).
+- Includes `<SEO title="Word Scramble Game" description="Fun timed word-building game for young English learners." canonical="…/word-scramble" />`.
 
-1. **`src/components/Navigation.tsx`** — add a stable height class (e.g. `h-[73px]`) so the offset matches.
-2. **`src/App.tsx`** — wrap `<Routes>` in a `<div className="pt-[73px]">` (applied to every page). For pages that already use `min-h-screen` heroes with `backgroundAttachment: fixed`, this just pushes the hero down by the nav height — visually identical to today since the nav already overlapped a transparent strip. Verify Index/ExamPreparation still look right.
-3. **Alternative if global padding causes visual regressions on the full-bleed homepage hero:** instead of editing `App.tsx`, add `pt-20` (or `pt-[73px]`) only to the short hero `<section>` elements on the affected pages listed above. This is more surgical but touches ~10 files.
+### 2. Themed letter sets
+Replace the 7 generic sets with categorized pools the game rotates through:
+- Everyday: `ANIMALS`, `KITCHEN`, `WEATHER`, `SCHOOLS`, `FRIENDS`
+- Travel: `AIRPORT`, `STATION`, `HOLIDAY`, `SUITCAS`, `TICKETS`
+- Business: `MEETING`, `PROJECT`, `MANAGER`, `CLIENTS`, `INVOICE`
+- Category label shown above the tiles ("Category: Travel") so learners know the theme.
 
-Recommended: go with the global offset in `App.tsx` + verify the homepage and ExamPreparation hero still render correctly; fall back to per-page padding only if a regression appears.
+### 3. Routing — `src/App.tsx`
+- `const WordScramble = lazy(() => import("./pages/WordScramble"));`
+- Add `<Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />`.
 
-## Verification
-- Navigate to `/business-benchmark` — full "Business Benchmark" H1 + subtitle visible, no clipping under nav.
-- Spot-check `/` (homepage hero), `/exam-preparation`, `/business-english` — hero text still centered, no double gap.
-- Spot-check `/hr-english`, `/engineering-english`, `/presentations`, `/business-travel` — top of hero visible.
+### 4. Practice hub — `src/pages/MembersActivities.tsx`
+- Under the **Young Learners** category, add a new tile:
+  - Title: "Word Scramble"
+  - Description: "Timed letter-tile game — build as many words as you can in 60 seconds."
+  - Icon: `Shuffle` (lucide-react)
+  - Route: `/word-scramble`
+- Opens inline (same tab) — clicking uses standard React Router navigation, so users keep the site's back button and nav.
+
+### 5. Cleanup
+- Do **not** copy the uploaded HTML into `/public`. The React page fully replaces it.
+
+### Notes on your questions
+- **New browser window?** No — inline is better here. Popups get blocked, break back-navigation, and lose the shared design system. The React version lives at `/word-scramble` and feels native.
+- **Header/footer banners?** Dropped. Only the global site Navigation + Footer remain; no colored hero strip.
+
+No backend, no data model, no dependencies added.
