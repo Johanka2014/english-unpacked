@@ -57,6 +57,7 @@ export const hrUnits: HRUnit[] = [
       { id: 'listening', title: 'Listening', description: 'Terms and conditions discussion, true/false, sentence matching and vocabulary', type: 'listening', content: true, audioTrack: 9 },
       { id: 'reading', title: 'Reading', description: 'Dealing with grievances, health & safety measures and workplace injuries', type: 'reading', content: true },
       { id: 'speaking', title: 'Speaking', description: 'Offer and rejection letters, formal vocabulary, HR headlines and stress factors', type: 'speaking', content: true },
+      { id: 'probation-periods', title: 'Probation Periods', description: 'Managing new staff: probation vocabulary, disciplinary language, a reading task and discussion prompts', type: 'vocabulary', content: true },
     ],
   },
   {
