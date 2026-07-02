@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, type LucideIcon,
 } from 'lucide-react';
 
 // ── Types & data ────────────────────────────────────────────────────────────
@@ -207,6 +207,13 @@ const TABS: TabDef[] = [
         icon: Star,
         path: '/starters-practice',
         color: 'text-pink-600',
+      },
+      {
+        title: 'Word Scramble',
+        description: 'Timed letter-tile game — build as many words as you can in 60 seconds. Themed sets for everyday, travel and business English.',
+        icon: Shuffle,
+        path: '/word-scramble',
+        color: 'text-indigo-600',
       },
     ],
   },
