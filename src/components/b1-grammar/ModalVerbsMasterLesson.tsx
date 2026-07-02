@@ -366,21 +366,6 @@ const ListeningSection = () => {
   );
 };
 
-// ── Main ────────────────────────────────────────────────────────────────
-
-const ModalVerbsMasterLesson = () => (
-  <div className="space-y-8">
-    <Card className="service-card">
-      <CardContent className="p-6">
-        <h2 className="text-2xl md:text-3xl font-bold font-merriweather text-foreground mb-2">
-          Modal Verbs Master
-        </h2>
-        <p className="text-muted-foreground">
-          Master <strong>Can, Could, May, Might, Must, Should, Will</strong> and <strong>Would</strong> through
-          a reference guide, an interactive practice quiz, and a real-song listening activity.
-        </p>
-      </CardContent>
-    </Card>
 // ── Section D: Advanced C1 Safety Quiz ──────────────────────────────────
 
 interface AdvQuestion {
