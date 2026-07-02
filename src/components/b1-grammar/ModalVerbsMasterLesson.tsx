@@ -381,10 +381,157 @@ const ModalVerbsMasterLesson = () => (
         </p>
       </CardContent>
     </Card>
+// ── Section D: Advanced C1 Safety Quiz ──────────────────────────────────
+
+interface AdvQuestion {
+  question: string;
+  options: string[];
+  answer: string;
+}
+
+const advancedQuizData: AdvQuestion[] = [
+  { question: 'If you neglect the safety protocols, accidents ___ to happen.', options: ['are bound', 'may well', 'should have'], answer: 'are bound' },
+  { question: "You ___ disregard the phishing email warning from the IT department. It's crucial.", options: ["couldn't", 'had better not', "don't have to"], answer: 'had better not' },
+  { question: 'The emergency exits ___ to be kept clear, but they were blocked by boxes.', options: ['were supposed', 'might have', 'would'], answer: 'were supposed' },
+  { question: 'The security seal is broken. Someone ___ have tampered with the container.', options: ['must', 'should', "can't"], answer: 'must' },
+  { question: 'As per regulations, employees ___ operate this machinery without prior certification.', options: ['may not', "needn't", "can't have"], answer: 'may not' },
+  { question: 'He ignored the warning signs and got injured. He ___ have been more cautious.', options: ['must', 'could', 'should'], answer: 'should' },
+  { question: 'The system is still online; the hacker ___ have breached the main firewall yet.', options: ["can't", "mustn't", "shouldn't"], answer: "can't" },
+  { question: 'Without proper gear, a fall from that height ___ conceivably be fatal.', options: ['should', 'could', 'must'], answer: 'could' },
+  { question: "Visitors ___ sign in at reception upon arrival; it's a strict policy.", options: ['are to', 'can', 'would'], answer: 'are to' },
+  { question: 'I brought my own safety goggles, so I ___ have taken a pair from the lab.', options: ["mustn't", "needn't", "couldn't"], answer: "needn't" },
+  { question: "If the safety net hadn't been there, the consequences ___ have been far worse.", options: ['would', 'must', 'should'], answer: 'would' },
+  { question: 'One ___ to familiarise oneself with the evacuation plan before starting work here.', options: ['ought', 'has', 'is bound'], answer: 'ought' },
+  { question: "The power outage ___ been caused by the storm, but we're still investigating other possibilities.", options: ['must have', 'might have', 'should have'], answer: 'might have' },
+  { question: 'You ___ have clicked that link without verifying the sender first. Now your data is at risk.', options: ["mustn't", "couldn't", "shouldn't"], answer: "shouldn't" },
+  { question: 'Ignoring this software update ___ well lead to significant security vulnerabilities.', options: ['can', 'may', 'ought to'], answer: 'may' },
+  { question: 'The instructions were clear. You ___ have had any difficulty assembling the safety guard.', options: ["can't", "mustn't", "needn't"], answer: "can't" },
+  { question: 'Given the potential for a chemical spill, you really ___ to wear the supplied respirator.', options: ['would', 'ought', 'are bound'], answer: 'ought' },
+  { question: 'He ___ have been speeding, otherwise he would have been able to stop in time.', options: ['must', 'could', 'should'], answer: 'must' },
+  { question: 'By law, all personnel entering this zone ___ be wearing a high-visibility jacket.', options: ['are to', 'would', 'could'], answer: 'are to' },
+  { question: 'It was a dangerous situation. You ___ have been seriously injured!', options: ['should', 'must', 'could'], answer: 'could' },
+];
+
+const shuffle = <T,>(arr: T[]): T[] => [...arr].sort(() => Math.random() - 0.5);
+
+const AdvancedSafetyQuizSection = () => {
+  const [questions, setQuestions] = useState<AdvQuestion[]>(() => shuffle(advancedQuizData));
+  const [idx, setIdx] = useState(0);
+  const [score, setScore] = useState(0);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
+
+  const current = questions[idx];
+
+  const selectAnswer = (opt: string) => {
+    if (selected) return;
+    setSelected(opt);
+    const correct = opt === current.answer;
+    if (correct) setScore((s) => s + 1);
+    setTimeout(() => {
+      if (idx + 1 < questions.length) {
+        setIdx(idx + 1);
+        setSelected(null);
+      } else {
+        setDone(true);
+      }
+    }, 1500);
+  };
+
+  const restart = () => {
+    setQuestions(shuffle(advancedQuizData));
+    setIdx(0);
+    setScore(0);
+    setSelected(null);
+    setDone(false);
+  };
+
+  const percentage = Math.round((score / questions.length) * 100);
+  const feedback =
+    percentage === 100 ? 'Exceptional! Your command of modal verbs is truly C1 level.'
+    : percentage >= 75 ? 'Excellent work. You have a strong grasp of these complex modal structures.'
+    : percentage >= 50 ? 'A solid performance. Reviewing the incorrect answers will help you master these nuances.'
+    : 'Good effort. These are challenging concepts; consistent practice is key to improvement.';
+
+  return (
+    <Card className="service-card">
+      <CardContent className="p-6">
+        <div className="flex items-center gap-3 mb-2">
+          <ShieldAlert className="h-6 w-6 text-primary" />
+          <h3 className="text-2xl font-semibold font-merriweather text-foreground">
+            4. Advanced Quiz — C1 Safety Scenarios
+          </h3>
+        </div>
+        <p className="text-muted-foreground mb-6">
+          Choose the most appropriate modal verb for each real-world safety scenario.
+        </p>
+
+        {!done ? (
+          <div className="max-w-2xl mx-auto">
+            <div className="flex justify-between items-center mb-4">
+              <p className="text-sm text-muted-foreground">Question {idx + 1} of {questions.length}</p>
+              <p className="text-sm font-semibold text-foreground">Score: {score}</p>
+            </div>
+            <p className="text-lg text-foreground mb-6 font-medium min-h-[4rem]">{current.question}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {current.options.map((opt) => {
+                const isCorrect = selected && opt === current.answer;
+                const isWrongPick = selected === opt && opt !== current.answer;
+                let cls = 'border-border bg-background hover:border-primary/50 hover:bg-primary/5';
+                if (isCorrect) cls = 'border-green-500 bg-green-50 text-green-700';
+                else if (isWrongPick) cls = 'border-red-500 bg-red-50 text-red-700';
+                else if (selected) cls = 'border-border bg-background opacity-60';
+                return (
+                  <button
+                    key={opt}
+                    disabled={!!selected}
+                    onClick={() => selectAnswer(opt)}
+                    className={`p-3 rounded-lg border-2 font-medium transition-all flex items-center justify-between ${cls}`}
+                  >
+                    <span>{opt}</span>
+                    {isCorrect && <CheckCircle2 className="h-4 w-4" />}
+                    {isWrongPick && <XCircle className="h-4 w-4" />}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-2xl mx-auto text-center py-6">
+            <h4 className="text-2xl font-bold text-foreground font-merriweather mb-3">Quiz Complete!</h4>
+            <p className="text-lg text-foreground mb-2">
+              Your final score is {score} out of {questions.length} ({percentage}%)
+            </p>
+            <p className="text-muted-foreground mb-6">{feedback}</p>
+            <Button onClick={restart}>Try Again</Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
+// ── Main ────────────────────────────────────────────────────────────────
+
+const ModalVerbsMasterLesson = () => (
+  <div className="space-y-8">
+    <Card className="service-card">
+      <CardContent className="p-6">
+        <h2 className="text-2xl md:text-3xl font-bold font-merriweather text-foreground mb-2">
+          Modal Verbs Master
+        </h2>
+        <p className="text-muted-foreground">
+          Master <strong>Can, Could, May, Might, Must, Should, Will</strong> and <strong>Would</strong> through
+          a reference guide, an interactive practice quiz, a real-song listening activity, and an advanced C1 challenge.
+        </p>
+      </CardContent>
+    </Card>
     <ReferenceSection />
     <QuizSection />
     <ListeningSection />
+    <AdvancedSafetyQuizSection />
   </div>
 );
 
 export default ModalVerbsMasterLesson;
+
