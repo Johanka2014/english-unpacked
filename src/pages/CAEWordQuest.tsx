@@ -11,8 +11,8 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import {
   ALL_WORDS, TOPICS, TOPIC_META, wordsByTopic, type Topic, type Word,
-} from "@/data/petWordsData";
-import { usePetProgress, BADGES, level, xpForLevel, xpToNext } from "@/store/petProgress";
+} from "@/data/caeWordsData";
+import { useCaeProgress, BADGES, level, xpForLevel, xpToNext } from "@/store/caeProgress";
 import { playTone, vibrate, speak } from "@/lib/petSound";
 
 // ─────────────────────────────────────────────────────────────
@@ -96,7 +96,7 @@ function useView() {
 // Top-level page
 // ─────────────────────────────────────────────────────────────
 
-const PETWordQuest = () => {
+const CAEWordQuest = () => {
   const { view, setView, mode, topic, wordId, tricky } = useView();
 
   useEffect(() => {
@@ -106,8 +106,8 @@ const PETWordQuest = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="PET Word Quest — Cambridge B1 Vocabulary Game"
-        description="Gamified vocabulary trainer for the Cambridge PET (B1) exam — flashcards, quizzes, spelling and daily challenges."
+        title="CAE Word Quest — Cambridge C1 Vocabulary Game"
+        description="Gamified vocabulary trainer for the Cambridge CAE (C1) exam — flashcards, quizzes, spelling and daily challenges."
       />
       <Navigation />
       <PetStyles />
@@ -138,7 +138,7 @@ const PETWordQuest = () => {
   );
 };
 
-export default PETWordQuest;
+export default CAEWordQuest;
 
 // ─────────────────────────────────────────────────────────────
 // Top tabs (replaces bottom-nav)
@@ -188,7 +188,7 @@ const homeModes = [
 ];
 
 function HomeView({ setView }: { setView: (v: View, extra?: Record<string, string>) => void }) {
-  const { xp, streak, correctTotal } = usePetProgress();
+  const { xp, streak, correctTotal } = useCaeProgress();
   const lvl = level(xp);
   const curBase = xpForLevel(lvl);
   const nextBase = xpForLevel(lvl + 1);
@@ -197,7 +197,7 @@ function HomeView({ setView }: { setView: (v: View, extra?: Record<string, strin
   return (
     <div>
       <header className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">PET Vocab</p>
+        <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">CAE Vocab</p>
         <h1 className="mt-1 text-3xl font-bold text-balance">
           Ready to <span className="text-primary">level up</span>?
         </h1>
@@ -281,7 +281,7 @@ function HomeView({ setView }: { setView: (v: View, extra?: Record<string, strin
 // ─────────────────────────────────────────────────────────────
 
 function PlayIndexView({ setView }: { setView: (v: View, extra?: Record<string, string>) => void }) {
-  const tricky = usePetProgress((s) => s.trickyWordIds);
+  const tricky = useCaeProgress((s) => s.trickyWordIds);
   const modes = [
     { mode: "flashcards" as const, label: "Flashcards", desc: "Flip & rate yourself", icon: Layers, color: "from-violet-500 to-fuchsia-500" },
     { mode: "quiz" as const, label: "Multiple choice", desc: "Pick the right meaning", icon: Brain, color: "from-sky-500 to-cyan-500" },
@@ -338,10 +338,10 @@ function PlayIndexView({ setView }: { setView: (v: View, extra?: Record<string, 
 // ─────────────────────────────────────────────────────────────
 
 function PlayRound({ mode, topic, tricky, onExit }: { mode: GameMode; topic?: Topic; tricky: boolean; onExit: () => void }) {
-  const trickyIds = usePetProgress((s) => s.trickyWordIds);
-  const recordAnswer = usePetProgress((s) => s.recordAnswer);
-  const finishRound = usePetProgress((s) => s.finishRound);
-  const soundOn = usePetProgress((s) => s.soundOn);
+  const trickyIds = useCaeProgress((s) => s.trickyWordIds);
+  const recordAnswer = useCaeProgress((s) => s.recordAnswer);
+  const finishRound = useCaeProgress((s) => s.finishRound);
+  const soundOn = useCaeProgress((s) => s.soundOn);
 
   const [words] = useState(() => pickWords(mode, topic, tricky, trickyIds));
   const [idx, setIdx] = useState(0);
@@ -584,7 +584,7 @@ function WordsView({ setView }: { setView: (v: View, extra?: Record<string, stri
   return (
     <div>
       <h1 className="mb-1 text-2xl font-bold">All words</h1>
-      <p className="mb-4 text-sm text-muted-foreground">{ALL_WORDS.length} PET vocabulary words</p>
+      <p className="mb-4 text-sm text-muted-foreground">{ALL_WORDS.length} CAE vocabulary words</p>
       <div className="relative mb-4">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <input value={query} onChange={(e) => setQuery(e.target.value)}
@@ -767,7 +767,7 @@ function WordView({ id, setView }: { id: string; setView: (v: View, extra?: Reco
 // ─────────────────────────────────────────────────────────────
 
 function ProgressView() {
-  const state = usePetProgress();
+  const state = useCaeProgress();
   const lvl = level(state.xp);
   const knownCount = Object.keys(state.knownWordIds).length;
   const masteredCount = Object.values(state.knownWordIds).filter((n) => n >= 3).length;
@@ -833,7 +833,7 @@ function ProgressView() {
         </button>
       </div>
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        {ALL_WORDS.length} PET words available · Cambridge B1 level
+        {ALL_WORDS.length} CAE words available · Cambridge C1 level
       </p>
     </div>
   );
@@ -856,9 +856,9 @@ function Stat({ icon, label, value, accent }: { icon: React.ReactNode; label: st
 const CHALLENGE_MS = 60_000;
 
 function ChallengeView({ setView }: { setView: (v: View) => void }) {
-  const recordAnswer = usePetProgress((s) => s.recordAnswer);
-  const finishRound = usePetProgress((s) => s.finishRound);
-  const soundOn = usePetProgress((s) => s.soundOn);
+  const recordAnswer = useCaeProgress((s) => s.recordAnswer);
+  const finishRound = useCaeProgress((s) => s.finishRound);
+  const soundOn = useCaeProgress((s) => s.soundOn);
   const [started, setStarted] = useState(false);
   const [q, setQ] = useState(() => makeQ());
   const [picked, setPicked] = useState<string | null>(null);
