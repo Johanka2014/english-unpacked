@@ -174,6 +174,13 @@ const TABS: TabDef[] = [
         color: 'text-green-600',
       },
       {
+        title: 'FCE Word Quest',
+        description: 'Gamified Cambridge FCE (B2) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        icon: Gamepad2,
+        path: '/fce-word-quest',
+        color: 'text-emerald-600',
+      },
+      {
         title: 'Maturita Speaking Practice',
         description: 'Master all 28 maturita speaking topics with structured learning, sample sentences and official exam practice',
         icon: GraduationCap,
