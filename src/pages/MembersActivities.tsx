@@ -167,6 +167,13 @@ const TABS: TabDef[] = [
         color: 'text-purple-600',
       },
       {
+        title: 'CAE Word Quest',
+        description: 'Gamified Cambridge CAE (C1) vocabulary trainer built from the Oxford CAE Result! wordlist — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        icon: Gamepad2,
+        path: '/cae-word-quest',
+        color: 'text-purple-600',
+      },
+      {
         title: 'FCE Vocabulary Practice',
         description: 'Build your FCE vocabulary with comprehensive exercises',
         icon: BookOpen,
