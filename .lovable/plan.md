@@ -1,42 +1,52 @@
-## Plan: Word Scramble game under Young Learners
+## Goal
 
-### 1. New React page — `src/pages/WordScramble.tsx`
-Refactor the uploaded HTML into an idiomatic React component:
-- State via `useState` / `useEffect` / `useRef` (score, timeLeft, currentLetters, gameActive, message).
-- Timer via `setInterval` inside `useEffect` with cleanup.
-- Same core logic: `isValidFormation`, Fisher–Yates shuffle, submit on Enter, shake animation on invalid.
-- No colored hero banner. Layout:
-  - Global `Navigation` at top, `Footer` at bottom (site chrome only, per your choice).
-  - Compact page heading: `<h1>Word Scramble</h1>` + one-line instructions, plain background.
-  - Centered game card (max-w-md) with letter tiles, input, Submit / Shuffle / New Game buttons.
-- Uses design tokens only (`bg-background`, `text-foreground`, `bg-primary`, `bg-muted`, `bg-accent`) — no hardcoded blue/indigo/teal. Fits site branding (Navy / Royal Blue / Accent Orange).
-- Merriweather for the page heading, system body font for tiles (large, bold, readable for young learners).
-- Includes `<SEO title="Word Scramble Game" description="Fun timed word-building game for young English learners." canonical="…/word-scramble" />`.
+Create an **FCE Word Quest** — a Cambridge B2 vocabulary trainer that reuses the PET Word Quest game engine, powered by the uploaded B2 word list, and add it as a new tile under Practice → Exams next to "FCE Vocabulary Practice" and "PET Word Quest".
 
-### 2. Themed letter sets
-Replace the 7 generic sets with categorized pools the game rotates through:
-- Everyday: `ANIMALS`, `KITCHEN`, `WEATHER`, `SCHOOLS`, `FRIENDS`
-- Travel: `AIRPORT`, `STATION`, `HOLIDAY`, `SUITCAS`, `TICKETS`
-- Business: `MEETING`, `PROJECT`, `MANAGER`, `CLIENTS`, `INVOICE`
-- Category label shown above the tiles ("Category: Travel") so learners know the theme.
+## What gets built
 
-### 3. Routing — `src/App.tsx`
-- `const WordScramble = lazy(() => import("./pages/WordScramble"));`
-- Add `<Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />`.
+### 1. B2 word data — `src/data/fceWordsData.ts`
+- Parse the uploaded `level-b2-word-list-1.pdf` (headword + IPA + part of speech + short definition + one example) into a structured dataset.
+- Extract ~250–350 high-value B2 headwords across the alphabet (skipping A1/A2 basics like *animal*, *about*, *air*, *all*, *again*) and group them into ~10 thematic topics used by the game UI, e.g.:
+  - People & feelings (ambition, anxious, affection, admire…)
+  - Actions & change (abandon, abolish, adapt, adjust, acquire…)
+  - Society & law (abuse, accuse, agent…)
+  - Work & study (analyst, account, activity…)
+  - Everyday & travel, Health & body, Nature & environment, Media & tech, Money & business, Ideas & opinions.
+- Each entry: `{ word, ipa, pos, definition, example, topic, level: 'B2' }`.
+- Keep the shape compatible with what `PETWordQuest.tsx` consumes so the same engine renders it.
 
-### 4. Practice hub — `src/pages/MembersActivities.tsx`
-- Under the **Young Learners** category, add a new tile:
-  - Title: "Word Scramble"
-  - Description: "Timed letter-tile game — build as many words as you can in 60 seconds."
-  - Icon: `Shuffle` (lucide-react)
-  - Route: `/word-scramble`
-- Opens inline (same tab) — clicking uses standard React Router navigation, so users keep the site's back button and nav.
+### 2. Progress store — `src/store/fceProgress.ts`
+- Duplicate `petProgress.ts` with a new persist key (`fce-word-quest-progress`) so B2 XP, streaks, and badges are tracked independently from PET.
+- Same shape: XP, level, daily streak, achievements, per-word mastery.
 
-### 5. Cleanup
-- Do **not** copy the uploaded HTML into `/public`. The React page fully replaces it.
+### 3. Game page — `src/pages/FCEWordQuest.tsx`
+- Duplicate `PETWordQuest.tsx` and swap:
+  - Data import → `fceWordsData`
+  - Store import → `fceProgress`
+  - Copy: "PET (B1)" → "FCE (B2)", page title, and headings
+  - 60-second daily challenge pool draws from B2 words
+- Reuse `src/lib/petSound.ts` as-is (audio + speech synthesis + vibration).
+- Same four modes: Flashcards, Quiz, Spelling, Listen & Spell.
+- Same views via `?view=`: Home, Words, Progress, Challenge.
 
-### Notes on your questions
-- **New browser window?** No — inline is better here. Popups get blocked, break back-navigation, and lose the shared design system. The React version lives at `/word-scramble` and feels native.
-- **Header/footer banners?** Dropped. Only the global site Navigation + Footer remain; no colored hero strip.
+### 4. Routing — `src/App.tsx`
+- Add `const FCEWordQuest = lazy(() => import('./pages/FCEWordQuest'))`.
+- Register protected route `/fce-word-quest`.
 
-No backend, no data model, no dependencies added.
+### 5. Navigation tile — `src/pages/MembersActivities.tsx`
+- Add a new activity in the `exams` tab, placed right after "FCE Vocabulary Practice":
+  - Title: **FCE Word Quest**
+  - Description: *Gamified Cambridge FCE (B2) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge*
+  - Icon: `Gamepad2` (same family as PET) with a distinct color, e.g. `text-emerald-600`
+  - Path: `/fce-word-quest`
+
+## Not changing
+
+- PET Word Quest, its data, its store, its route, and its tile all stay exactly as they are.
+- No changes to `petSound.ts` or the shared UI components.
+- No backend/RLS/schema changes — game state is local (Zustand persist).
+
+## Technical notes
+
+- The PDF is 50+ pages; extraction runs during build using `document--parse_document` output (already available in `tool-results://`) plus a short script to filter to the target headwords and write `fceWordsData.ts`. Only the curated ~250–350 B2 words are shipped, not the full PDF text.
+- Bundle impact is minimal (JSON-like TS module) — no new dependencies; `zustand` and `canvas-confetti` are already installed.
