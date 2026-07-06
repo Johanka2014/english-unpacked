@@ -70,6 +70,7 @@ const ConnectedSpeechLesson = lazy(() => import("./pages/ConnectedSpeechLesson")
 const PriceOfPassion = lazy(() => import("./pages/PriceOfPassion"));
 const TopicsSport = lazy(() => import("./pages/TopicsSport"));
 const WordScramble = lazy(() => import("./pages/WordScramble"));
+const PETWordQuest = lazy(() => import("./pages/PETWordQuest"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -128,6 +129,7 @@ const App = () => (
               <Route path="/price-of-passion" element={<ProtectedRoute><PriceOfPassion /></ProtectedRoute>} />
               <Route path="/topics/sport" element={<ProtectedRoute><TopicsSport /></ProtectedRoute>} />
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
+              <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
