@@ -628,7 +628,13 @@ const MembersActivities = () => {
               </TabsList>
               {TABS.map((t) => (
                 <TabsContent key={t.value} value={t.value}>
-                  <TabBody tab={t} onOpen={handleOpen} />
+                  <TabBody
+                    tab={t}
+                    onOpen={handleOpen}
+                    examId={t.value === 'exams' ? examId : null}
+                    onSelectExam={setExam}
+                    onClearExam={clearExam}
+                  />
                 </TabsContent>
               ))}
             </Tabs>
