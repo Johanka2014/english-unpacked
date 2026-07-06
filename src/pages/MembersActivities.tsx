@@ -180,6 +180,13 @@ const TABS: TabDef[] = [
         path: '/maturita-speaking',
         color: 'text-red-600',
       },
+      {
+        title: 'PET Word Quest',
+        description: 'Gamified Cambridge PET (B1) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        icon: Gamepad2,
+        path: '/pet-word-quest',
+        color: 'text-violet-600',
+      },
     ],
   },
   {
