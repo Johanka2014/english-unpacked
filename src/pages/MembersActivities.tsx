@@ -481,6 +481,9 @@ const MembersActivities = () => {
   const rawTab = searchParams.get('tab');
   const resolvedTab = rawTab && LEGACY_SLUG_MAP[rawTab] ? LEGACY_SLUG_MAP[rawTab] : rawTab;
   const validTab = TABS.find((t) => t.value === resolvedTab)?.value ?? TABS[0].value;
+  const examId = searchParams.get('exam');
+  const setExam = (id: string) => navigate(`/members/activities?tab=exams&exam=${id}`, { replace: true });
+  const clearExam = () => navigate(`/members/activities?tab=exams`, { replace: true });
 
   const [query, setQuery] = useState('');
   const [recents, setRecents] = useState<RecentEntry[]>([]);
