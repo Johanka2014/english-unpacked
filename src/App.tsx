@@ -133,6 +133,7 @@ const App = () => (
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
+              <Route path="/cae-word-quest" element={<ProtectedRoute><CAEWordQuest /></ProtectedRoute>} />
               <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
               <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
