@@ -335,13 +335,122 @@ const ActivityGroup = ({
   </div>
 );
 
+interface ExamGroupMeta {
+  id: string;
+  group: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  color: string;
+}
+
+const EXAM_GROUPS: ExamGroupMeta[] = [
+  {
+    id: 'pet',
+    group: 'PET (B1)',
+    title: 'PET (B1)',
+    description: 'Cambridge Preliminary English Test — B1 level vocabulary games and practice activities',
+    icon: Award,
+    color: 'text-violet-600',
+  },
+  {
+    id: 'fce',
+    group: 'FCE (B2)',
+    title: 'FCE (B2)',
+    description: 'Cambridge First Certificate — B2 level vocabulary trainer and exam-focused practice',
+    icon: Trophy,
+    color: 'text-emerald-600',
+  },
+  {
+    id: 'cae',
+    group: 'CAE (C1)',
+    title: 'CAE (C1)',
+    description: 'Cambridge Advanced English — C1 level vocabulary trainer and exam practice',
+    icon: GraduationCap,
+    color: 'text-purple-600',
+  },
+  {
+    id: 'maturita',
+    group: 'Maturita',
+    title: 'Maturita',
+    description: 'Czech school-leaving exam — structured speaking practice across all 28 topics',
+    icon: ScrollText,
+    color: 'text-red-600',
+  },
+];
+
 const TabBody = ({
   tab,
   onOpen,
+  examId,
+  onSelectExam,
+  onClearExam,
 }: {
   tab: TabDef;
   onOpen: (a: Activity, tab: string) => void;
+  examId?: string | null;
+  onSelectExam?: (id: string) => void;
+  onClearExam?: () => void;
 }) => {
+  // Special two-level view for Exams tab
+  if (tab.value === 'exams') {
+    if (!examId) {
+      return (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+          {EXAM_GROUPS.map((eg) => {
+            const Icon = eg.icon;
+            return (
+              <button
+                key={eg.id}
+                type="button"
+                onClick={() => onSelectExam?.(eg.id)}
+                className="text-left"
+              >
+                <Card className="h-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+                  <CardHeader>
+                    <div className={`p-2 rounded-lg bg-muted w-fit ${eg.color} mb-2`}>
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="text-2xl">{eg.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">{eg.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </button>
+            );
+          })}
+        </div>
+      );
+    }
+    const eg = EXAM_GROUPS.find((e) => e.id === examId);
+    if (!eg) return null;
+    const items = tab.activities.filter((a) => a.group === eg.group);
+    return (
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <Button variant="ghost" size="sm" onClick={onClearExam} className="gap-2">
+            <ArrowLeft className="h-4 w-4" />
+            All exams
+          </Button>
+          <div className="flex items-center gap-2">
+            <div className={`p-1.5 rounded-md bg-muted ${eg.color}`}>
+              <eg.icon className="h-4 w-4" />
+            </div>
+            <h2 className="text-lg font-semibold">{eg.title}</h2>
+          </div>
+        </div>
+        {items.length === 0 ? (
+          <div className="text-center py-16 text-muted-foreground">
+            No activities yet for this exam.
+          </div>
+        ) : (
+          <ActivityGroup activities={items} tabValue={tab.value} onOpen={onOpen} />
+        )}
+      </div>
+    );
+  }
+
   if (!tab.groupOrder) {
     return <ActivityGroup activities={tab.activities} tabValue={tab.value} onOpen={onOpen} />;
   }
