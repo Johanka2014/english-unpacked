@@ -158,20 +158,15 @@ const TABS: TabDef[] = [
     value: 'exams',
     label: 'Exams',
     icon: Award,
+    groupOrder: ['PET (B1)', 'FCE (B2)', 'CAE (C1)', 'Maturita'],
     activities: [
       {
-        title: 'CAE Exam Practice',
-        description: 'Prepare for Cambridge Advanced English with targeted practice',
-        icon: GraduationCap,
-        path: '/cae-exam-practice',
-        color: 'text-purple-600',
-      },
-      {
-        title: 'CAE Word Quest',
-        description: 'Gamified Cambridge CAE (C1) vocabulary trainer built from the Oxford CAE Result! wordlist — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        title: 'PET Word Quest',
+        description: 'Gamified Cambridge PET (B1) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
         icon: Gamepad2,
-        path: '/cae-word-quest',
-        color: 'text-purple-600',
+        path: '/pet-word-quest',
+        color: 'text-violet-600',
+        group: 'PET (B1)',
       },
       {
         title: 'FCE Vocabulary Practice',
@@ -179,6 +174,7 @@ const TABS: TabDef[] = [
         icon: BookOpen,
         path: '/fce-vocab-practice',
         color: 'text-green-600',
+        group: 'FCE (B2)',
       },
       {
         title: 'FCE Word Quest',
@@ -186,6 +182,23 @@ const TABS: TabDef[] = [
         icon: Gamepad2,
         path: '/fce-word-quest',
         color: 'text-emerald-600',
+        group: 'FCE (B2)',
+      },
+      {
+        title: 'CAE Exam Practice',
+        description: 'Prepare for Cambridge Advanced English with targeted practice',
+        icon: GraduationCap,
+        path: '/cae-exam-practice',
+        color: 'text-purple-600',
+        group: 'CAE (C1)',
+      },
+      {
+        title: 'CAE Word Quest',
+        description: 'Gamified Cambridge CAE (C1) vocabulary trainer built from the Oxford CAE Result! wordlist — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        icon: Gamepad2,
+        path: '/cae-word-quest',
+        color: 'text-purple-600',
+        group: 'CAE (C1)',
       },
       {
         title: 'Maturita Speaking Practice',
@@ -193,30 +206,11 @@ const TABS: TabDef[] = [
         icon: GraduationCap,
         path: '/maturita-speaking',
         color: 'text-red-600',
-      },
-      {
-        title: 'PET Word Quest',
-        description: 'Gamified Cambridge PET (B1) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
-        icon: Gamepad2,
-        path: '/pet-word-quest',
-        color: 'text-violet-600',
+        group: 'Maturita',
       },
     ],
   },
-  {
-    value: 'topics',
-    label: 'Topics',
-    icon: Compass,
-    activities: [
-      {
-        title: 'Sport',
-        description: 'Themed lessons on sport, business and culture — starting with The Price of Passion',
-        icon: Trophy,
-        path: '/topics/sport',
-        color: 'text-rose-600',
-      },
-    ],
-  },
+
   {
     value: 'young-learners',
     label: 'Young Learners',
