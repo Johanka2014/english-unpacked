@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, type LucideIcon,
 } from 'lucide-react';
 
 // ── Types & data ────────────────────────────────────────────────────────────
@@ -179,6 +179,13 @@ const TABS: TabDef[] = [
         icon: GraduationCap,
         path: '/maturita-speaking',
         color: 'text-red-600',
+      },
+      {
+        title: 'PET Word Quest',
+        description: 'Gamified Cambridge PET (B1) vocabulary trainer — flashcards, quizzes, spelling, listen & spell, plus a 60-second daily challenge',
+        icon: Gamepad2,
+        path: '/pet-word-quest',
+        color: 'text-violet-600',
       },
     ],
   },
