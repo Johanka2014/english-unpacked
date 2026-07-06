@@ -213,6 +213,20 @@ const TABS: TabDef[] = [
   },
 
   {
+    value: 'topics',
+    label: 'Topics',
+    icon: Compass,
+    activities: [
+      {
+        title: 'Sport',
+        description: 'Explore sport-themed lessons — starting with "The Price of Passion", a B2 lesson on dynamic ticket pricing',
+        icon: Compass,
+        path: '/topics/sport',
+        color: 'text-orange-600',
+      },
+    ],
+  },
+  {
     value: 'young-learners',
     label: 'Young Learners',
     icon: Star,
