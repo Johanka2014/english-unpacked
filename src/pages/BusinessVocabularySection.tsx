@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { ArrowLeft, BookOpen } from 'lucide-react';
 import { businessVocabSections } from '@/data/businessVocabularyData';
 import SEO from '@/components/SEO';
+import { ComingSoonBadge } from '@/components/ComingSoonBadge';
 
 const BusinessVocabularySection = () => {
   const { sectionId } = useParams<{ sectionId: string }>();
