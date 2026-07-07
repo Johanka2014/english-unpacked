@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cafeBusinessConversation from "@/assets/bb-upper/cafe-business-conversation.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -168,16 +169,33 @@ const SpeakingCorporateCultureExercise = () => {
       {/* Exercise 2: Pair Discussion */}
       <Card className="service-card">
         <CardContent className="p-6">
-          <h4 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
-            Exercise 2: Ask your partner
-          </h4>
-          <p className="text-muted-foreground mb-4">
-            Choose three of the questions from Exercise 1 to ask your partner, then ask three more questions of your own. Remember to think about whether your partner is working or studying before choosing your questions.
-          </p>
-          <div className="bg-muted/50 rounded-lg p-4 border border-border">
-            <p className="text-sm text-muted-foreground italic">
-              💡 This is a speaking activity. Practise with a partner or your teacher.
-            </p>
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-4">
+              <h4 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
+                Exercise 2: Ask your partner
+              </h4>
+              <p className="text-muted-foreground mb-4">
+                Choose three of the questions from Exercise 1 to ask your partner, then ask three more questions of your own. Remember to think about whether your partner is working or studying before choosing your questions.
+              </p>
+              <div className="bg-muted/50 rounded-lg p-4 border border-border">
+                <p className="text-sm text-muted-foreground italic">
+                  💡 This is a speaking activity. Practise with a partner or your teacher.
+                </p>
+              </div>
+            </div>
+            <figure className="space-y-2">
+              <img
+                src={cafeBusinessConversation}
+                alt="Two smartly dressed professionals having a conversation over coffee in a cafe"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="w-full h-auto rounded-lg shadow-md border border-border object-cover"
+              />
+              <figcaption className="text-xs text-muted-foreground text-center italic">
+                Practise asking questions in a relaxed, professional setting
+              </figcaption>
+            </figure>
           </div>
         </CardContent>
       </Card>
