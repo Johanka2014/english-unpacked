@@ -1,4 +1,5 @@
 import { useState } from "react";
+import cafeBusinessConversation from "@/assets/bb-upper/cafe-business-conversation.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
