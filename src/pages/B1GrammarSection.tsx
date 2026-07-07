@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 import { b1GrammarSections } from '@/data/b1GrammarData';
 import SEO from '@/components/SEO';
+import { ComingSoonBadge } from '@/components/ComingSoonBadge';
 
 const B1GrammarSection = () => {
   const { sectionId } = useParams<{ sectionId: string }>();
@@ -51,8 +52,9 @@ const B1GrammarSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.modules.map((mod) => {
               const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson || mod.externalUrl);
+              const showComingSoon = !hasContent && mod.id !== 'so-such-too-enough';
               const cardInner = (
-                <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <Card className={`service-card overflow-hidden group shadow-lg transition-all duration-300 h-full ${showComingSoon ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl'}`}>
                   <div className="relative h-40 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-royal flex items-center justify-center">
                     <span className="text-5xl font-bold text-white/20 font-merriweather">
                       {mod.number > 100 ? '★' : mod.number}
@@ -65,10 +67,8 @@ const B1GrammarSection = () => {
                         <ExternalLink className="w-4 h-4 text-white" />
                       </div>
                     )}
-                    {!hasContent && mod.id !== 'so-such-too-enough' && (
-                      <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
-                        Coming soon
-                      </div>
+                    {showComingSoon && (
+                      <ComingSoonBadge className="absolute top-3 right-3" />
                     )}
                   </div>
                   <CardHeader>
@@ -81,6 +81,9 @@ const B1GrammarSection = () => {
                   </CardHeader>
                 </Card>
               );
+              if (showComingSoon) {
+                return <div key={mod.id} aria-disabled="true">{cardInner}</div>;
+              }
               return mod.externalUrl ? (
                 <Link key={mod.id} to={mod.externalUrl}>{cardInner}</Link>
               ) : (
