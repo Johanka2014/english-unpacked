@@ -31,10 +31,10 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     title: 'Corporate Culture',
     skills: [
       { id: 'getting-started', title: 'Getting Started', description: 'Introduction to corporate culture', content: { type: 'getting-started-corporate-culture' } },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations', content: { type: 'vocab-corporate-culture' } },
       { id: 'reading', title: 'Reading', description: 'What kind of company culture would suit you? Reading and answering a quiz; A company culture statement', content: { type: 'reading-corporate-culture' } },
       { id: 'listening', title: 'Listening', description: 'Company culture: a conversation between two employees', content: { type: 'listening-corporate-culture' } },
       { id: 'speaking', title: 'Speaking', description: 'Asking questions about companies', content: { type: 'speaking-corporate-culture' } },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Finding and recording collocations', content: { type: 'vocab-corporate-culture' } },
       { id: 'grammar', title: 'Grammar', description: 'Questions with and without auxiliaries', content: { type: 'grammar-corporate-culture' } },
     ],
   },

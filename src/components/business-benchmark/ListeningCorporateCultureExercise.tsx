@@ -8,7 +8,7 @@ import audioAsset from "@/assets/corporate-culture-listening.mp3.asset.json";
 
 const AUDIO_URL = audioAsset.url;
 
-const cultureStatement = `People talk a lot about corporate culture these days but at Olympus we really pay attention to it. We aim to offer people challenging and rewarding work in a pleasant environment. Employees dress casually on days when there is no customer contact and this helps to create a friendly atmosphere. Developing and maintaining close partnerships with our customers is one of the keys to our success. Our customers appreciate that we offer high quality products at competitive prices and a high level of customer care. They rely on us to come up with solutions for their needs. And of course, customer care is not just about external customers. It is also about how we relate to each other and work together to pool our ideas. In short, Olympus is a great place to work.`;
+
 
 const cultureClaimQuestions = [
   {
