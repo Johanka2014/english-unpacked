@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import MatchingExercise from "@/components/presentations/MatchingExercise";
+import audioAsset from "@/assets/working-day-pa-interview.mp3.asset.json";
 
 const paTaskOptions = [
   "answering letters",
@@ -27,7 +28,7 @@ const matchPairs = [
   { id: 6, left: "6. Do you have any words of encouragement for anyone who is thinking of becoming a PA?", right: "e. Being a PA is a valuable career." },
 ];
 
-const AUDIO_URL = "https://johanka2014.github.io/Bus_Bench_pre_inter/Mod_1/02.mp3";
+const AUDIO_URL = audioAsset.url;
 
 const ListeningPAExercise = () => {
   const [checkedTasks, setCheckedTasks] = useState<Set<string>>(new Set());
