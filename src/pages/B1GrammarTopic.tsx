@@ -978,7 +978,7 @@ const B1GrammarTopic = () => {
                       <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${tile.color} flex items-center justify-center`}>
                         <Icon className="w-16 h-16 text-white/30" />
                         {!tile.available && (
-                          <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">Coming soon</div>
+                          <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-black/40 text-white/90 text-xs px-2 py-1 backdrop-blur-sm"><Lock className="h-3 w-3" /><span>Coming soon</span></div>
                         )}
                       </div>
                       <CardContent className="p-6">

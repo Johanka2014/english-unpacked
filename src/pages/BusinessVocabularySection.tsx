@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { ArrowLeft, BookOpen } from 'lucide-react';
 import { businessVocabSections } from '@/data/businessVocabularyData';
 import SEO from '@/components/SEO';
+import { ComingSoonBadge } from '@/components/ComingSoonBadge';
 
 const BusinessVocabularySection = () => {
   const { sectionId } = useParams<{ sectionId: string }>();
@@ -59,18 +60,15 @@ const BusinessVocabularySection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.topics.map((topic) => {
               const hasContent = !!(topic.theory || topic.practice || topic.test);
-              return (
-                <Link key={topic.id} to={`/business-vocabulary/${sectionId}/${topic.id}`}>
-                  <Card className="service-card overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+              const card = (
+                <Card className={`service-card overflow-hidden group shadow-lg transition-all duration-300 h-full ${hasContent ? 'cursor-pointer hover:shadow-xl' : 'opacity-60 cursor-not-allowed'}`}>
                     <div className="relative h-40 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-royal flex items-center justify-center">
                       <span className="text-5xl font-bold text-white/20 font-merriweather">{topic.number}</span>
                       <div className="absolute top-4 left-4 bg-white/20 p-2 rounded-full">
                         <BookOpen className="w-5 h-5 text-white" />
                       </div>
                       {!hasContent && (
-                        <div className="absolute bottom-3 right-3 bg-amber-500/90 text-white text-xs px-2 py-1 rounded-full">
-                          Coming soon
-                        </div>
+                        <ComingSoonBadge className="absolute top-3 right-3" />
                       )}
                     </div>
                     <CardHeader>
@@ -84,7 +82,13 @@ const BusinessVocabularySection = () => {
                       )}
                     </CardHeader>
                   </Card>
+              );
+              return hasContent ? (
+                <Link key={topic.id} to={`/business-vocabulary/${sectionId}/${topic.id}`}>
+                  {card}
                 </Link>
+              ) : (
+                <div key={topic.id} aria-disabled="true">{card}</div>
               );
             })}
           </div>

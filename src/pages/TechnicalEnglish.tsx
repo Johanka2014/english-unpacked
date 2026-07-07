@@ -7,29 +7,36 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, BookOpenText } from 'lucide-react';
 import { technicalTopics, groupLabels, type TechnicalTopic } from '@/data/technicalEnglishData';
+import { ComingSoonBadge } from '@/components/ComingSoonBadge';
 
 const TopicCard = ({ topic }: { topic: TechnicalTopic }) => {
   const ready = topic.activities.length > 0;
+  const card = (
+    <Card className={`h-full transition-all ${ready ? 'hover:shadow-lg hover:-translate-y-0.5' : 'opacity-60 cursor-not-allowed'}`}>
+      <CardHeader className="pb-3">
+        <div className="flex items-start justify-between gap-2">
+          <span className="text-xs font-semibold text-muted-foreground">Topic {topic.number}</span>
+          {ready ? (
+            <Badge variant="secondary" className="text-xs">Interactive</Badge>
+          ) : (
+            <ComingSoonBadge />
+          )}
+        </div>
+        <CardTitle className="text-lg font-merriweather leading-tight">{topic.title}</CardTitle>
+      </CardHeader>
+      {topic.subtitle && (
+        <CardContent className="pt-0">
+          <p className="text-sm text-muted-foreground">{topic.subtitle}</p>
+        </CardContent>
+      )}
+    </Card>
+  );
+  if (!ready) {
+    return <div aria-disabled="true">{card}</div>;
+  }
   return (
     <Link to={`/technical-english/${topic.id}`} className="block">
-      <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-0.5">
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between gap-2">
-            <span className="text-xs font-semibold text-muted-foreground">Topic {topic.number}</span>
-            {ready ? (
-              <Badge variant="secondary" className="text-xs">Interactive</Badge>
-            ) : (
-              <Badge variant="outline" className="text-xs">Coming soon</Badge>
-            )}
-          </div>
-          <CardTitle className="text-lg font-merriweather leading-tight">{topic.title}</CardTitle>
-        </CardHeader>
-        {topic.subtitle && (
-          <CardContent className="pt-0">
-            <p className="text-sm text-muted-foreground">{topic.subtitle}</p>
-          </CardContent>
-        )}
-      </Card>
+      {card}
     </Link>
   );
 };
