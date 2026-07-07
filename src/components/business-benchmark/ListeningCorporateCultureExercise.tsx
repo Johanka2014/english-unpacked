@@ -110,18 +110,59 @@ const ListeningCorporateCultureExercise = () => {
         </CardContent>
       </Card>
 
-      {/* Culture Statement Reference */}
-      <Card className="service-card">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-semibold mb-3 font-merriweather text-foreground">Olympus Culture Statement</h3>
-          <div className="bg-muted/50 rounded-lg p-4 border border-border">
-            <p className="text-foreground leading-relaxed italic">{cultureStatement}</p>
+      {/* Culture Statement Reference - styled as a website screenshot */}
+      <div className="rounded-xl overflow-hidden shadow-2xl border border-border bg-white">
+        {/* Browser chrome */}
+        <div className="bg-slate-100 border-b border-slate-200 px-4 py-2.5 flex items-center gap-3">
+          <div className="flex gap-1.5">
+            <span className="w-3 h-3 rounded-full bg-red-400" />
+            <span className="w-3 h-3 rounded-full bg-yellow-400" />
+            <span className="w-3 h-3 rounded-full bg-green-400" />
           </div>
-          <p className="text-sm text-muted-foreground mt-3">
+          <div className="flex-1 mx-2 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-500 font-mono truncate">
+            https://www.olympus-corp.com/about/our-culture
+          </div>
+        </div>
+
+        {/* Site header */}
+        <div className="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm">O</div>
+            <span className="font-bold text-slate-800 tracking-wide">OLYMPUS</span>
+          </div>
+          <nav className="hidden sm:flex gap-5 text-xs text-slate-600 font-medium">
+            <span>Home</span>
+            <span>Products</span>
+            <span className="text-blue-700 border-b-2 border-blue-700 pb-0.5">About</span>
+            <span>Careers</span>
+            <span>Contact</span>
+          </nav>
+        </div>
+
+        {/* Page content */}
+        <article className="px-6 sm:px-10 py-8 bg-white">
+          <p className="text-xs uppercase tracking-widest text-blue-700 font-semibold mb-2">About Us</p>
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1 font-merriweather">Our Culture Statement</h3>
+          <p className="text-xs text-slate-400 mb-5">Published by the Olympus Communications Team</p>
+          <div className="w-12 h-1 bg-blue-700 mb-5" />
+          <p className="text-slate-700 leading-relaxed text-[15px]">{cultureStatement}</p>
+        </article>
+
+        {/* Site footer */}
+        <div className="bg-slate-800 text-slate-300 text-xs px-6 py-3 flex justify-between">
+          <span>© Olympus Corporation</span>
+          <span>Privacy · Terms</span>
+        </div>
+      </div>
+
+      <Card className="service-card">
+        <CardContent className="p-4">
+          <p className="text-sm text-muted-foreground">
             <strong>Task tip:</strong> It is not necessary to understand every word of the conversation. Concentrate on the information which is important. Listen for the opposite of the culture statement.
           </p>
         </CardContent>
       </Card>
+
 
       {/* Exercise 1: True/False on culture claims */}
       <Card className="service-card">
