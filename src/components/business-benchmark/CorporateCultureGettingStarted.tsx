@@ -1,4 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import corporateCulturesInfographic from '@/assets/bb-upper/corporate-cultures-infographic.jpg';
+
 
 const CorporateCultureGettingStarted = () => {
   return (
