@@ -8,7 +8,7 @@ import audioAsset from "@/assets/corporate-culture-listening.mp3.asset.json";
 
 const AUDIO_URL = audioAsset.url;
 
-const cultureStatement = `People talk a lot about corporate culture these days but at Olympus we really pay attention to it. We aim to offer people challenging and rewarding work in a pleasant environment. Employees dress casually on days when there is no customer contact and this helps to create a friendly atmosphere. Developing and maintaining close partnerships with our customers is one of the keys to our success. Our customers appreciate that we offer high quality products at competitive prices and a high level of customer care. They rely on us to come up with solutions for their needs. And of course, customer care is not just about external customers. It is also about how we relate to each other and work together to pool our ideas. In short, Olympus is a great place to work.`;
+
 
 const cultureClaimQuestions = [
   {
@@ -110,68 +110,23 @@ const ListeningCorporateCultureExercise = () => {
         </CardContent>
       </Card>
 
-      {/* Culture Statement Reference - styled as a website screenshot */}
-      <div className="rounded-xl overflow-hidden shadow-2xl border border-border bg-white">
-        {/* Browser chrome */}
-        <div className="bg-slate-100 border-b border-slate-200 px-4 py-2.5 flex items-center gap-3">
-          <div className="flex gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-red-400" />
-            <span className="w-3 h-3 rounded-full bg-yellow-400" />
-            <span className="w-3 h-3 rounded-full bg-green-400" />
-          </div>
-          <div className="flex-1 mx-2 bg-white border border-slate-200 rounded-md px-3 py-1 text-xs text-slate-500 font-mono truncate">
-            https://www.olympus-corp.com/about/our-culture
-          </div>
-        </div>
-
-        {/* Site header */}
-        <div className="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white font-bold text-sm">O</div>
-            <span className="font-bold text-slate-800 tracking-wide">OLYMPUS</span>
-          </div>
-          <nav className="hidden sm:flex gap-5 text-xs text-slate-600 font-medium">
-            <span>Home</span>
-            <span>Products</span>
-            <span className="text-blue-700 border-b-2 border-blue-700 pb-0.5">About</span>
-            <span>Careers</span>
-            <span>Contact</span>
-          </nav>
-        </div>
-
-        {/* Page content */}
-        <article className="px-6 sm:px-10 py-8 bg-white">
-          <p className="text-xs uppercase tracking-widest text-blue-700 font-semibold mb-2">About Us</p>
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1 font-merriweather">Our Culture Statement</h3>
-          <p className="text-xs text-slate-400 mb-5">Published by the Olympus Communications Team</p>
-          <div className="w-12 h-1 bg-blue-700 mb-5" />
-          <p className="text-slate-700 leading-relaxed text-[15px]">{cultureStatement}</p>
-        </article>
-
-        {/* Site footer */}
-        <div className="bg-slate-800 text-slate-300 text-xs px-6 py-3 flex justify-between">
-          <span>© Olympus Corporation</span>
-          <span>Privacy · Terms</span>
-        </div>
-      </div>
-
       <Card className="service-card">
         <CardContent className="p-4">
           <p className="text-sm text-muted-foreground">
-            <strong>Task tip:</strong> It is not necessary to understand every word of the conversation. Concentrate on the information which is important. Listen for the opposite of the culture statement.
+            <strong>Task tip:</strong> It is not necessary to understand every word of the conversation. Concentrate on the information which is important and listen for the employees' opinions about the company.
           </p>
         </CardContent>
       </Card>
 
 
-      {/* Exercise 1: True/False on culture claims */}
+      {/* Exercise 1: True/False on company claims */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
-            Exercise 1: What parts of the culture statement are not true?
+            Exercise 1: What do the employees say about the company?
           </h3>
           <p className="text-muted-foreground mb-6">
-            Listen to the conversation and decide — according to the employees, is each part of the culture statement true or not true?
+            Listen to the conversation and decide — according to the employees, is each claim true or not true?
           </p>
 
           <div className="space-y-4">
