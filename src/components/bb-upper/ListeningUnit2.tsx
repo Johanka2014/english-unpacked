@@ -24,9 +24,19 @@ const speakers = [
   { id: 4, name: "Maxine Macpherson", answer: "a" },
 ];
 
+type HighlightStyle = "highlight" | "underline";
+
 const ListeningUnit2 = () => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, boolean> | null>(null);
+  const [highlighted, setHighlighted] = useState<Record<string, boolean>>({});
+  const [mode, setMode] = useState<HighlightStyle>("highlight");
+
+  const toggleWord = (key: string) => {
+    setHighlighted((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const clearHighlights = () => setHighlighted({});
 
   const checkAnswers = () => {
     const r: Record<number, boolean> = {};
@@ -49,9 +59,29 @@ const ListeningUnit2 = () => {
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
             1. Why people like their jobs
           </h3>
-          <p className="text-muted-foreground mb-4">
-            Look at the following reasons why people might like their jobs. <strong>Underline the key words</strong> in each one.
+          <p className="text-muted-foreground mb-3">
+            Look at the following reasons why people might like their jobs. <strong>Tap the key words</strong> to {mode === "highlight" ? "highlight" : "underline"} them.
           </p>
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="text-sm text-muted-foreground">Style:</span>
+            <Button
+              size="sm"
+              variant={mode === "highlight" ? "default" : "outline"}
+              onClick={() => setMode("highlight")}
+            >
+              Highlight
+            </Button>
+            <Button
+              size="sm"
+              variant={mode === "underline" ? "default" : "outline"}
+              onClick={() => setMode("underline")}
+            >
+              Underline
+            </Button>
+            <Button size="sm" variant="ghost" onClick={clearHighlights} className="ml-auto">
+              Clear
+            </Button>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {reasons.map((r) => (
               <div
@@ -59,7 +89,27 @@ const ListeningUnit2 = () => {
                 className="flex items-start gap-2 p-3 rounded-lg border border-border bg-card"
               >
                 <span className="font-semibold text-primary min-w-[1.25rem]">{r.letter}</span>
-                <span className="text-foreground">{r.text}</span>
+                <p className="text-foreground leading-relaxed">
+                  {r.text.split(/(\s+)/).map((token, idx) => {
+                    if (/^\s+$/.test(token)) return <span key={idx}>{token}</span>;
+                    const key = `${r.letter}-${idx}`;
+                    const isOn = highlighted[key];
+                    const activeClass =
+                      mode === "highlight"
+                        ? "bg-yellow-200 dark:bg-yellow-500/40 rounded px-0.5"
+                        : "underline decoration-2 underline-offset-4 decoration-primary";
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => toggleWord(key)}
+                        className={`cursor-pointer transition-colors hover:bg-muted/60 rounded px-0.5 ${isOn ? activeClass : ""}`}
+                      >
+                        {token}
+                      </button>
+                    );
+                  })}
+                </p>
               </div>
             ))}
           </div>
