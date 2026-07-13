@@ -69,6 +69,7 @@ const ConnectedSpeech = lazy(() => import("./pages/ConnectedSpeech"));
 const ConnectedSpeechLesson = lazy(() => import("./pages/ConnectedSpeechLesson"));
 const PriceOfPassion = lazy(() => import("./pages/PriceOfPassion"));
 const TopicsSport = lazy(() => import("./pages/TopicsSport"));
+const SleepLesson = lazy(() => import("./pages/SleepLesson"));
 const WordScramble = lazy(() => import("./pages/WordScramble"));
 const PETWordQuest = lazy(() => import("./pages/PETWordQuest"));
 const FCEWordQuest = lazy(() => import("./pages/FCEWordQuest"));
@@ -130,6 +131,7 @@ const App = () => (
               <Route path="/bb-upper/:moduleId/:skillId" element={<ProtectedRoute><BBUpperSkill /></ProtectedRoute>} />
               <Route path="/price-of-passion" element={<ProtectedRoute><PriceOfPassion /></ProtectedRoute>} />
               <Route path="/topics/sport" element={<ProtectedRoute><TopicsSport /></ProtectedRoute>} />
+              <Route path="/topics/sleep" element={<ProtectedRoute><SleepLesson /></ProtectedRoute>} />
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
