@@ -242,6 +242,52 @@ const SleepLesson = () => {
 
               <Card className="service-card">
                 <CardContent className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+                    <div className="flex items-center gap-3">
+                      <FileText className="h-5 w-5 text-primary" />
+                      <h3 className="text-lg font-semibold font-merriweather text-foreground">
+                        Transcript &amp; captions
+                      </h3>
+                    </div>
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href="/lessons/sleep-ted-ed-transcript.vtt"
+                        download="sleep-ted-ed-transcript.vtt"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download .vtt captions
+                      </a>
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Prefer to read along? Expand the full transcript below, or download the timed
+                    WebVTT caption file to use with your own player.
+                  </p>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="secondary" size="sm" className="gap-2">
+                        <ChevronDown className="h-4 w-4" />
+                        Show / hide transcript
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-4">
+                      <div className="space-y-3 p-4 rounded-lg border border-border bg-muted/30 text-foreground leading-relaxed">
+                        {videoTranscript.map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                        <p className="text-xs text-muted-foreground pt-2 border-t border-border">
+                          Source: TED-Ed, "What would happen if you didn't sleep?" by Claudia
+                          Aguirre (2015). Used for educational purposes.
+                        </p>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                </CardContent>
+              </Card>
+
+
+              <Card className="service-card">
+                <CardContent className="p-6">
                   <h3 className="text-lg font-semibold mb-3 font-merriweather text-foreground">
                     Discussion — before you watch
                   </h3>
