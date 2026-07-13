@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import supermarketCheckout from '@/assets/supermarket-checkout-smile.jpg';
 
 /* ── Exercise 1: Matching definitions ── */
 
