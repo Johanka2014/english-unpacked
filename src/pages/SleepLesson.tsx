@@ -22,6 +22,9 @@ import {
   finalQuiz,
   videoComprehension,
 } from "@/data/sleepLessonData";
+import audio510 from "@/assets/sleep-5-10.mp3.asset.json";
+import audio511 from "@/assets/sleep-5-11.mp3.asset.json";
+import audio512 from "@/assets/sleep-5-12.mp3.asset.json";
 
 const videoTranscript: string[] = [
   "In 1965, 17-year-old high school student Randy Gardner stayed awake for 264 hours. That's 11 days, to see how he'd cope without sleep. On the second day, his eyes stopped focusing. Next, he lost the ability to identify objects by touch. By day three, Gardner was moody and uncoordinated. At the end of the experiment, he was struggling to concentrate, had trouble with short-term memory, became paranoid, and started hallucinating.",
