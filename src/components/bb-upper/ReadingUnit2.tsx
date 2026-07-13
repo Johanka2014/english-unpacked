@@ -8,6 +8,7 @@ import DragFillGaps from "@/components/presentations/DragFillGaps";
 import WordOrderExercise from "@/components/presentations/WordOrderExercise";
 import imiNorgrenLogo from "@/assets/imi-norgren-logo.png.asset.json";
 import officeWorkerImg from "@/assets/office-worker-ambitions.jpg";
+import juniorSeniorMentoring from "@/assets/junior-senior-mentoring.jpg";
 
 /* ── Exercise 1 — gap-fill interview questions ── */
 const gapQuestions = [
