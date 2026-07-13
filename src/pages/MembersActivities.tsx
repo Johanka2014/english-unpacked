@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -223,6 +223,13 @@ const TABS: TabDef[] = [
         icon: Compass,
         path: '/topics/sport',
         color: 'text-orange-600',
+      },
+      {
+        title: 'Sleep',
+        description: 'B2 lesson on sleep — reading, sleep vocabulary and similes, "used to / be used to / get used to" grammar, and a mixed quiz',
+        icon: Moon,
+        path: '/topics/sleep',
+        color: 'text-indigo-600',
       },
     ],
   },

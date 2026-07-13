@@ -1,64 +1,92 @@
-## Goal
+# Sleep Lesson (B2) — Topical Lessons hub
 
-Sweep the Members Activities hub (`/members/activities`) and every page it links to, identify modules/sub-modules that are not yet built out, and apply a **single, consistent "Coming soon" treatment**: greyed tile, lock badge, non-clickable.
+## 1. New "Topical Lessons" category
 
-## Audit approach
+- Add a new tile "Topical Lessons" to the Members Activities hub grid (`src/pages/MembersActivities.tsx`) using the same card style as existing categories. Icon: `Sparkles` or `BookMarked`.
+- New landing page `src/pages/TopicalLessons.tsx` at route `/practice/topical-lessons`:
+  - Grid of lesson cards. First (and only live) card: **Sleep — Used To (B2)**.
+  - Placeholder greyed-out cards using the existing `ComingSoonBadge` for future topics (Travel, Food, Technology) to signal the hub is a growing library.
+- Register route in `src/App.tsx` behind `ProtectedRoute`, matching other practice modules.
 
-For each hub tab, open the destination page and its data source. Classify each item as:
+## 2. Sleep lesson page
 
-- **Live** — has real content, leave alone.
-- **Partially built** — some children live, some empty → mark only the empty children.
-- **Unfinished** — no meaningful content behind it → grey the top-level hub tile itself.
+Route: `/practice/topical-lessons/sleep`, file `src/pages/SleepLesson.tsx`.
 
-Signals used to detect "unfinished":
-- `content: false`, `available: false`, missing `theory/practice/test`, or empty children arrays in data files.
-- Component that only renders "coming soon" text or a stub.
-- Route that maps to `NotFound` or a placeholder page.
+Sticky in-page nav (like `BBUpperSkill`) with 5 sections in this order:
 
-## Visual convention (single pattern site-wide)
+1. **Warm-up & Reading** — "Sleep Matters" (adapted from resource 3)
+2. **Vocabulary** — sleep words + similes (resources 4, 5)
+3. **Grammar: Used To / Didn't use to / Be used to / Get used to**
+4. **Listening** — user-supplied audio (see §4)
+5. **Quiz** — mixed 10-question review
 
-Reuse the pattern already in `BusinessBenchmarkModule` / `HREnglishUnit`:
+Each section rendered as a `Card` with the site's Merriweather headings, Royal Blue accents, matching the existing exercise components (see `ListeningCorporateCultureExercise`, `VocabCorporateCultureExercise` patterns).
 
-- Card wrapped in a `div` (not a `Link`) with `opacity-60 cursor-not-allowed pointer-events-none` on the inner card.
-- Top-right pill: `Lock` icon + text **"Coming soon"** on a translucent dark chip (`bg-black/40 text-white/80 text-xs px-2 py-1 rounded-full`).
-- Where the current implementation uses an amber pill (`BusinessVocabularySection`, `B1GrammarSection`, `B1GrammarTopic`), switch to the same lock-pill for consistency, and ensure the card is actually non-clickable (some currently still navigate).
+## 3. Section content & interactivity
 
-No new "button" component — the pill IS the coming-soon indicator, sitting on a disabled card. This matches the pattern the user already approved elsewhere.
+**Reading (Sleep Matters)**
+- Short intro prediction task: "Some animals die without this…" reveal button.
+- Adapted ~350-word passage from resource 3 rendered with `InfoSection`.
+- Gist matching + 5 comprehension MCQs using `MultipleChoiceQuiz`.
+- Vocabulary-in-context: 6 items → definitions via `MatchingExercise`.
 
-## Files touched
+**Vocabulary**
+- Fill-in-the-blanks "sleep race" (yawn, snore, duvet, oversleep, insomnia, siesta, sleeping tablets, sleep like a log, jet-lagged, keep awake) with `TypeBlanks` or `DragFillCollocations`.
+- Similes drag-drop (stubborn as a mule, sleeps like a log, drinks like a fish, white as a sheet, blind as a bat, quick as a flash, eats like a horse, works like a dream) via `DragDropMatching`.
+- Optional per-word pronunciation using existing `SpeakButton`.
 
-**Hub — tile-level greying**
-- `src/pages/MembersActivities.tsx`
-  - Add `available?: boolean` to the `Activity` interface.
-  - In `ActivityTile`, when `available === false`, render a non-link `div`, add the lock pill, apply opacity/cursor styles, skip `pushRecent`.
-  - Flag any top-level tiles whose destinations are stubs (candidates I'll confirm by opening each: `Insurance Vocabulary`, `English for Presentations`, `Topics → Sport`, `Word Scramble` — will only mark those that truly have no content).
-  - Exclude greyed tiles from search results' primary CTA or show them dimmed in search too.
+**Grammar: Used To**
+- Explanation card with side-by-side contrast:
+  - `used to + infinitive` (past habit — no longer true)
+  - `didn't use to` / `did you use to…?`
+  - `be used to + -ing / noun` (accustomed to)
+  - `get used to + -ing / noun` (becoming accustomed)
+- Examples framed around sleep habits ("I used to stay up till 2am… now I'm used to going to bed at 10").
+- Two exercises:
+  1. Choose the correct form (10 MCQs) — reuse `MultipleChoiceQuiz`.
+  2. Type-the-blank transformation drill (8 items) — reuse `TypeBlanks`.
 
-**Sub-listing pages — normalize pattern & disable clicks on unfinished cards**
-- `src/pages/BusinessBenchmarkModule.tsx` — already correct, keep.
-- `src/pages/BBUpperModule.tsx` — already correct, keep.
-- `src/pages/HREnglishUnit.tsx` — already correct, keep.
-- `src/pages/BusinessVocabularySection.tsx` — replace amber pill with lock pill, wrap unfinished topics in a disabled `div` instead of `Link`.
-- `src/pages/B1GrammarSection.tsx` — same swap + disable click.
-- `src/pages/B1GrammarTopic.tsx` — same swap on the inner tile grid + disable click on the `!tile.available` branch.
-- `src/pages/TechnicalEnglish.tsx` — the "Coming soon" `Badge` currently sits next to a still-clickable row; wrap the row so unfinished topics don't navigate.
-- `src/pages/TechnicalEnglishTopic.tsx` — already renders a coming-soon empty state, keep.
-- `src/pages/TechTalk.tsx`, `src/pages/EngineeringEnglish.tsx`, `src/pages/EngineeringEnglishSection.tsx`, `src/pages/EngineeringEnglishUnit.tsx`, `src/pages/TechTalkSection.tsx`, `src/pages/TechTalkUnit.tsx` — audit and, where a unit/section has no rendered content, apply the same lock-pill + disabled card.
-- `src/pages/MaturitaSpeaking.tsx` / `src/pages/MaturitaSpeakingTopic.tsx` — for topics with `available: false` in `maturitaTopics.ts`, ensure card is greyed with lock pill and non-clickable (most of the list — Holidays, Transport, Sports, Shopping, Food, Nature, Arts, Education, Ostrava, Czech Republic, Prague, Home, UK, London/Washington, English-speaking countries, all literature/history topics).
-- `src/pages/StartersPractice.tsx` — already locks Tests 2 & 3; swap the current lock UI to the shared pill for visual consistency, keep behaviour.
-- `src/pages/ExamPreparation.tsx` — audit and apply where cards link to nothing.
+**Listening**
+- Audio player (same pattern as `EngineeringAudio` / `TechTalkAudio`) sourced from an mp3 the user will upload.
+- Pre-listening: 3 prediction questions.
+- While-listening gap-fill (8 gaps) using `TypeBlanks`.
+- Post-listening comprehension (4 MCQs).
+- Placeholder audio file `src/assets/sleep-listening.mp3.asset.json` created via `lovable-assets` once you provide the file. Until then, the section shows an "Audio coming soon" state so the rest of the lesson is fully usable.
 
-**Small shared helper (optional)**
-- `src/components/ComingSoonBadge.tsx` — a 15-line component exporting the lock pill so every page uses the exact same markup. Not strictly required, but avoids drift.
+**Quiz (mixed review, 10 questions)**
+- 4 vocab, 4 used-to, 2 reading-comprehension — all via `MultipleChoiceQuiz` with a final score + retry.
 
-## Out of scope
+## 4. Audio handoff
 
-- No content is added or removed; only presentation is changed.
-- No routing, data schema, auth, or backend changes.
-- Landing page / marketing sections are untouched (per your scope choice).
+After the plan is approved, you upload the mp3 to the chat. I'll:
+- Save it via the `lovable-assets` CLI, producing `src/assets/sleep-listening.mp3.asset.json`.
+- Wire the pointer into the listening component.
 
-## Verification
+If you'd also like a YouTube backup embed (e.g. TED-Ed "What would happen if you didn't sleep?"), say so and I'll add an `<iframe>` toggle below the mp3 player.
 
-- Typecheck.
-- Spot-open one page per changed file in the preview to confirm: greyed tiles don't navigate, the lock pill is visible top-right, and live tiles behave unchanged.
-- Confirm search on the Members Activities hub still surfaces greyed items but they render disabled.
+## 5. Data & storage
+
+- Lesson content lives in a new file `src/data/sleepLessonData.ts` (passages, vocab lists, quiz banks) so the page component stays presentational.
+- No database or backend changes; fully client-side like the other Business Benchmark exercises.
+
+## 6. Files touched (technical)
+
+Created:
+- `src/pages/TopicalLessons.tsx`
+- `src/pages/SleepLesson.tsx`
+- `src/data/sleepLessonData.ts`
+- `src/components/topical/SleepReading.tsx`
+- `src/components/topical/SleepVocabulary.tsx`
+- `src/components/topical/SleepGrammarUsedTo.tsx`
+- `src/components/topical/SleepListening.tsx`
+- `src/components/topical/SleepQuiz.tsx`
+
+Modified:
+- `src/App.tsx` (2 new routes)
+- `src/pages/MembersActivities.tsx` (add Topical Lessons tile)
+
+## 7. Out of scope (this pass)
+
+- Progress tracking / persistence in Supabase.
+- Additional topical lessons beyond the greyed placeholders.
+- Automatic YouTube search — I'll only embed a video if you ask for one.
