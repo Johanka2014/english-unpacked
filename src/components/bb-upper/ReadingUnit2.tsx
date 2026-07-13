@@ -163,9 +163,16 @@ const ReadingUnit2 = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">The Management Accountant</h3>
-          <div className="bg-muted/50 rounded-lg p-4 mb-4">
-            <p className="font-semibold text-foreground">Company background</p>
-            <p className="text-muted-foreground">IMI Norgren is an international engineering company, specialising in fluid technologies.</p>
+          <div className="bg-muted/50 rounded-lg p-4 mb-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <img
+              src={imiNorgrenLogo.url}
+              alt="IMI Norgren logo"
+              className="h-12 w-auto shrink-0 object-contain"
+            />
+            <div>
+              <p className="font-semibold text-foreground">Company background</p>
+              <p className="text-muted-foreground">IMI Norgren is an international engineering company, specialising in fluid technologies.</p>
+            </div>
           </div>
         </CardContent>
       </Card>
