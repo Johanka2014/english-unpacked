@@ -316,8 +316,20 @@ const ReadingUnit2 = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-4 font-merriweather text-foreground">Talking Point</h3>
-          <p className="text-foreground font-semibold mb-2">Work in pairs and ask each other similar questions to the ones which Gabriella was asked.</p>
-          <p className="text-muted-foreground">Talk about the job you do, or a job you would like to do in the future.</p>
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <img
+              src={juniorSeniorMentoring}
+              alt="Junior office worker being advised by a senior colleague at a computer"
+              className="w-full h-auto rounded-xl shadow-md object-cover"
+              loading="lazy"
+              width={1024}
+              height={1024}
+            />
+            <div className="space-y-2">
+              <p className="text-foreground font-semibold">Work in pairs and ask each other similar questions to the ones which Gabriella was asked.</p>
+              <p className="text-muted-foreground">Talk about the job you do, or a job you would like to do in the future.</p>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
