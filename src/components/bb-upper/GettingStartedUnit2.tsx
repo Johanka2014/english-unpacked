@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import companyHierarchy from "@/assets/company-hierarchy.jpg";
 
 /* ─── Exercise 1: Abbreviation matching ─── */
 
