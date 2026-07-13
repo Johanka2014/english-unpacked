@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, BookOpen, Headphones, GraduationCap, Sparkles, HelpCircle, Moon } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ArrowLeft, BookOpen, Headphones, GraduationCap, Sparkles, HelpCircle, Moon, FileText, Download, ChevronDown } from "lucide-react";
 import MatchingExercise from "@/components/presentations/MatchingExercise";
 import MultipleChoiceQuiz from "@/components/presentations/MultipleChoiceQuiz";
 import TypeBlanks from "@/components/technical/TypeBlanks";
@@ -21,6 +22,18 @@ import {
   finalQuiz,
   videoComprehension,
 } from "@/data/sleepLessonData";
+
+const videoTranscript: string[] = [
+  "In 1965, 17-year-old high school student Randy Gardner stayed awake for 264 hours. That's 11 days, to see how he'd cope without sleep. On the second day, his eyes stopped focusing. Next, he lost the ability to identify objects by touch. By day three, Gardner was moody and uncoordinated. At the end of the experiment, he was struggling to concentrate, had trouble with short-term memory, became paranoid, and started hallucinating.",
+  "Although Gardner recovered without long-term psychological or physical damage, for others, losing shuteye can result in hormonal imbalance, illness, and, in extreme cases, death. We're only beginning to understand why we sleep to begin with, but we do know it's essential. Adults need seven to eight hours of sleep a night, and adolescents need about ten.",
+  "We grow sleepy due to signals from our body telling our brain we are tired, and signals from the environment telling us it's dark outside. The rise in sleep-inducing chemicals, like adenosine and melatonin, send us into a light doze that grows deeper, making our breathing and heart rate slow down and our muscles relax. This non-REM sleep is when DNA is repaired and our bodies replenish themselves for the day ahead.",
+  "In the United States, it's estimated that 30% of adults and 66% of adolescents are regularly sleep-deprived. This isn't just a minor inconvenience. Staying awake can cause serious bodily harm. When we lose sleep, learning, memory, mood, and reaction time are affected. Sleeplessness may also cause inflammation, hallucinations, high blood pressure, and it's even been linked to diabetes and obesity.",
+  "In 2014, a devoted soccer fan died after staying awake for 48 hours to watch the World Cup. While his untimely death was due to a stroke, studies show that chronically sleeping fewer than six hours a night increases stroke risk by four and a half times compared to those getting a consistent seven to eight hours of shuteye.",
+  "For a handful of people on the planet who carry a rare inherited genetic mutation, sleeplessness is a daily reality. This condition, known as Fatal Familial Insomnia, places the body in a nightmarish state of wakefulness, forbidding it from entering the sanctuary of sleep. Within months or years, this progressively worsening condition leads to dementia and death.",
+  "How can sleep deprivation cause such immense suffering? Scientists think the answer lies with the accumulation of waste products in the brain. During our waking hours, our cells are busy using up our day's energy sources, which get broken down into various byproducts, including adenosine. As adenosine builds up, it increases the urge to sleep, also known as sleep pressure. In fact, caffeine works by blocking adenosine's receptor pathways.",
+  "Other waste products also build up in the brain, and if they're not cleared away, they collectively overload the brain and are thought to lead to the many negative symptoms of sleep deprivation. So what's happening in our brain when we sleep to prevent this? Scientists found something called the glymphatic system, a clean-up mechanism that removes this buildup and is much more active when we're asleep. It works by using cerebrospinal fluid to flush away toxic byproducts that accumulate between cells.",
+  "Lymphatic vessels, which serve as pathways for immune cells, have recently been discovered in the brain, and they may also play a role in clearing out the brain's daily waste products. While scientists continue exploring the restorative mechanisms behind sleep, we can be sure that slipping into slumber is a necessity if we want to maintain our health and our sanity.",
+];
 
 const SleepLesson = () => {
   return (
@@ -226,6 +239,52 @@ const SleepLesson = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card className="service-card">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
+                    <div className="flex items-center gap-3">
+                      <FileText className="h-5 w-5 text-primary" />
+                      <h3 className="text-lg font-semibold font-merriweather text-foreground">
+                        Transcript &amp; captions
+                      </h3>
+                    </div>
+                    <Button asChild variant="outline" size="sm">
+                      <a
+                        href="/lessons/sleep-ted-ed-transcript.vtt"
+                        download="sleep-ted-ed-transcript.vtt"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download .vtt captions
+                      </a>
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Prefer to read along? Expand the full transcript below, or download the timed
+                    WebVTT caption file to use with your own player.
+                  </p>
+                  <Collapsible>
+                    <CollapsibleTrigger asChild>
+                      <Button variant="secondary" size="sm" className="gap-2">
+                        <ChevronDown className="h-4 w-4" />
+                        Show / hide transcript
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="mt-4">
+                      <div className="space-y-3 p-4 rounded-lg border border-border bg-muted/30 text-foreground leading-relaxed">
+                        {videoTranscript.map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                        <p className="text-xs text-muted-foreground pt-2 border-t border-border">
+                          Source: TED-Ed, "What would happen if you didn't sleep?" by Claudia
+                          Aguirre (2015). Used for educational purposes.
+                        </p>
+                      </div>
+                    </CollapsibleContent>
+                  </Collapsible>
+                </CardContent>
+              </Card>
+
 
               <Card className="service-card">
                 <CardContent className="p-6">
