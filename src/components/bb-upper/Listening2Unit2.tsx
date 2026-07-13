@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import supermarketCheckout from '@/assets/supermarket-checkout-smile.jpg';
 
 /* ── Exercise 1: Matching definitions ── */
 
@@ -314,14 +315,26 @@ const Listening2Unit2 = () => {
       {/* Talking Point */}
       <Card className="border-amber-200 dark:border-amber-800/40 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/20">
         <CardContent className="p-6">
-          <h3 className="text-xl font-semibold text-foreground mb-3">Talking Point</h3>
-          <p className="text-muted-foreground mb-3">Work in small groups. Discuss whether you agree with these opinions:</p>
-          <ul className="list-disc list-inside space-y-2 text-foreground text-sm">
-            <li>"If you employ the right people, you don't have a problem managing them once they're in the workplace."</li>
-            <li>"If you try and teach people to be polite and to smile, it doesn't necessarily work."</li>
-            <li>"First impressions are really important — be totally natural and don't try to put yourself forward as something you're not."</li>
-          </ul>
-          <p className="text-muted-foreground mt-4 text-sm">What other interview advice would you give?</p>
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">Talking Point</h3>
+              <p className="text-muted-foreground mb-3">Work in small groups. Discuss whether you agree with these opinions:</p>
+              <ul className="list-disc list-inside space-y-2 text-foreground text-sm">
+                <li>"If you employ the right people, you don't have a problem managing them once they're in the workplace."</li>
+                <li>"If you try and teach people to be polite and to smile, it doesn't necessarily work."</li>
+                <li>"First impressions are really important — be totally natural and don't try to put yourself forward as something you're not."</li>
+              </ul>
+              <p className="text-muted-foreground mt-4 text-sm">What other interview advice would you give?</p>
+            </div>
+            <img
+              src={supermarketCheckout}
+              alt="Customer smiling at a friendly supermarket cashier at the checkout"
+              className="w-full h-auto rounded-xl shadow-md object-cover"
+              loading="lazy"
+              width={1024}
+              height={1024}
+            />
+          </div>
         </CardContent>
       </Card>
 
