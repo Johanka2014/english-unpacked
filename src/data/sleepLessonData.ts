@@ -1,5 +1,44 @@
 // Data for the B2 Sleep lesson (Used To grammar)
 
+export const videoComprehension = [
+  {
+    id: 1,
+    text: "According to the TED-Ed video, after how many hours awake do most people start to feel the effects of sleep deprivation?",
+    options: ["6 hours", "12 hours", "24 hours", "48 hours"],
+    answer: "24 hours",
+  },
+  {
+    id: 2,
+    text: "One of the first cognitive functions to suffer from lack of sleep is…",
+    options: ["long-term memory", "concentration and reaction time", "vocabulary", "physical strength"],
+    answer: "concentration and reaction time",
+  },
+  {
+    id: 3,
+    text: "The rare genetic disorder mentioned in the video that leads to death from lack of sleep is called…",
+    options: [
+      "chronic insomnia",
+      "sleep apnoea",
+      "fatal familial insomnia",
+      "narcolepsy",
+    ],
+    answer: "fatal familial insomnia",
+  },
+  {
+    id: 4,
+    text: "The video explains that during sleep the brain…",
+    options: [
+      "shuts down completely",
+      "clears out toxins and consolidates memories",
+      "only rests the body, not the mind",
+      "produces adrenaline",
+    ],
+    answer: "clears out toxins and consolidates memories",
+  },
+];
+
+
+
 export const readingPassage = [
   "Sleep matters — but why? Some animals die without it, while others can survive for months. Humans spend a third of their lives asleep, and yet no one is entirely sure why we do it. Recent research suggests that sleep is essential for memory, mood, immune function and even weight regulation.",
   "For many people, however, a good night's rest is elusive. Insomnia affects roughly one adult in three at least once a week, and chronic sleep deprivation is now considered a serious public-health issue. Stress, caffeine, screen light and irregular schedules all conspire to keep the modern brain awake long after it should be switched off.",
