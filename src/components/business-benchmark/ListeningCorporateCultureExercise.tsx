@@ -123,11 +123,35 @@ const ListeningCorporateCultureExercise = () => {
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">
-            Exercise 1: What do the employees say about the company?
+            Exercise 1: Do the employees agree with the company's claims?
           </h3>
-          <p className="text-muted-foreground mb-6">
-            Listen to the conversation and decide — according to the employees, is each claim true or not true?
+          <p className="text-muted-foreground mb-4">
+            Below are seven statements Olympus makes in its <strong>official culture statement</strong>. Listen to the conversation and decide — based on what the two employees say (and don't say) — whether each claim is <em>True</em> or <em>Not True</em>. If the employees never touch on a point, treat it as <em>True</em> (they don't contradict it).
           </p>
+
+          <Collapsible>
+            <CollapsibleTrigger className="w-full mb-6 text-left">
+              <div className="flex items-center justify-between gap-3 p-3 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors">
+                <div className="flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-primary" />
+                  <span className="text-sm font-medium text-foreground">Reference: Olympus's official culture claims</span>
+                </div>
+                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <ul className="mb-6 p-4 rounded-lg border border-border bg-blue-50/40 dark:bg-blue-950/20 space-y-1.5 text-sm text-foreground list-disc list-inside">
+                <li>Olympus offers challenging and rewarding work in a pleasant environment.</li>
+                <li>Employees can dress casually on days with no customer contact.</li>
+                <li>The company creates a friendly atmosphere.</li>
+                <li>The company maintains close partnerships with customers.</li>
+                <li>The company offers high quality products at competitive prices.</li>
+                <li>Staff work together to pool their ideas.</li>
+                <li>Olympus is a great place to work.</li>
+              </ul>
+            </CollapsibleContent>
+          </Collapsible>
+
 
           <div className="space-y-4">
             {cultureClaimQuestions.map((q) => {
