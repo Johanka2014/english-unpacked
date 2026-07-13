@@ -310,11 +310,46 @@ const SleepLesson = () => {
               />
 
               <Card className="service-card">
-                <CardContent className="p-6">
-                  <div className="p-4 rounded-lg border border-dashed border-border bg-muted/30 text-sm text-muted-foreground">
-                    <strong className="text-foreground">Audio activity coming soon.</strong> If
-                    you'd like to add a specific MP3 recording alongside the video, upload it in the
-                    chat and I'll wire it in as a gap-fill exercise.
+                <CardContent className="p-6 space-y-5">
+                  <div className="flex items-center gap-3">
+                    <Headphones className="h-6 w-6 text-primary" />
+                    <h3 className="text-xl font-semibold font-merriweather text-foreground">
+                      Audio activities (Unit 5B)
+                    </h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Three short recordings on sleep habits and routines. Listen once for gist, then
+                    again for detail — pause and replay as often as you need.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground mb-2">
+                        Track 5.10 — Warm-up: sleep habits
+                      </p>
+                      <audio controls src={audio510.url} className="w-full" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground mb-2">
+                        Track 5.11 — Interview: changing sleep routines
+                      </p>
+                      <audio controls src={audio511.url} className="w-full" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground mb-2">
+                        Track 5.12 — Extended listening: sleep and health
+                      </p>
+                      <audio controls src={audio512.url} className="w-full" />
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-lg border border-border bg-blue-50/40 dark:bg-blue-950/20 text-sm">
+                    <p className="font-semibold text-foreground mb-1">While you listen — focus questions</p>
+                    <ul className="list-disc list-inside text-foreground space-y-1">
+                      <li>What did the speakers <em>use to</em> do that they don't do any more?</li>
+                      <li>What have they had to <em>get used to</em>?</li>
+                      <li>Note down any sleep vocabulary you hear from the earlier section.</li>
+                    </ul>
                   </div>
                 </CardContent>
               </Card>
