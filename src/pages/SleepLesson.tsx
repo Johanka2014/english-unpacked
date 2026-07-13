@@ -19,6 +19,7 @@ import {
   usedToMcq,
   usedToTransform,
   finalQuiz,
+  videoComprehension,
 } from "@/data/sleepLessonData";
 
 const SleepLesson = () => {
@@ -206,16 +207,22 @@ const SleepLesson = () => {
                   <div className="flex items-center gap-3 mb-3">
                     <Headphones className="h-6 w-6 text-primary" />
                     <h2 className="text-2xl font-semibold font-merriweather text-foreground">
-                      Listening
+                      Video: What would happen if you didn't sleep?
                     </h2>
                   </div>
-                  <div className="p-6 rounded-lg border-2 border-dashed border-border bg-muted/30 text-center">
-                    <Moon className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
-                    <p className="font-medium text-foreground mb-1">Audio coming soon</p>
-                    <p className="text-sm text-muted-foreground">
-                      Upload your MP3 to the chat and I'll wire it in as a gap-fill and
-                      comprehension activity here.
-                    </p>
+                  <p className="text-muted-foreground mb-4">
+                    Watch this short TED-Ed animation by Claudia Aguirre and then answer the
+                    comprehension questions below.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/dqONk48l5vY"
+                      title="What would happen if you didn't sleep? — TED-Ed"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -223,7 +230,7 @@ const SleepLesson = () => {
               <Card className="service-card">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold mb-3 font-merriweather text-foreground">
-                    Discussion — before you listen
+                    Discussion — before you watch
                   </h3>
                   <ul className="space-y-2 list-disc list-inside text-foreground">
                     <li>How many hours of sleep do you get on a typical weeknight?</li>
@@ -233,7 +240,24 @@ const SleepLesson = () => {
                   </ul>
                 </CardContent>
               </Card>
+
+              <MultipleChoiceQuiz
+                title="Video comprehension"
+                description="Answer these questions based on the TED-Ed video."
+                questions={videoComprehension}
+              />
+
+              <Card className="service-card">
+                <CardContent className="p-6">
+                  <div className="p-4 rounded-lg border border-dashed border-border bg-muted/30 text-sm text-muted-foreground">
+                    <strong className="text-foreground">Audio activity coming soon.</strong> If
+                    you'd like to add a specific MP3 recording alongside the video, upload it in the
+                    chat and I'll wire it in as a gap-fill exercise.
+                  </div>
+                </CardContent>
+              </Card>
             </TabsContent>
+
 
             {/* QUIZ */}
             <TabsContent value="quiz" className="space-y-6">
