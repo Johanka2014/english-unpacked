@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import companyHierarchy from "@/assets/company-hierarchy.jpg";
 
 /* ─── Exercise 1: Abbreviation matching ─── */
 
@@ -267,10 +268,25 @@ const GettingStartedUnit2 = () => {
       {/* ─── Exercise 4: Discussion prompt ─── */}
       <Card className="service-card">
         <CardContent className="p-6">
-          <p className="text-muted-foreground">
-            <strong>3</strong> Work in groups. Write one or two sentences like the ones you read in the previous activities.
-            Read your sentence(s) to the rest of the group. The other students should guess what job you are talking about.
-          </p>
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <p className="text-muted-foreground">
+              <strong>3</strong> Work in groups. Write one or two sentences like the ones you read in the previous activities.
+              Read your sentence(s) to the rest of the group. The other students should guess what job you are talking about.
+            </p>
+            <figure className="space-y-2">
+              <img
+                src={companyHierarchy}
+                alt="Organizational chart showing the hierarchical structure of a company: CEO at the top, with CFO, CIO, HR Manager, R&D Director, and Marketing Director beneath, each leading their respective teams and staff."
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="w-full h-auto rounded-lg shadow-md border border-border"
+              />
+              <figcaption className="text-xs text-muted-foreground text-center italic">
+                Typical hierarchical structure of a company's departments
+              </figcaption>
+            </figure>
+          </div>
         </CardContent>
       </Card>
     </div>
