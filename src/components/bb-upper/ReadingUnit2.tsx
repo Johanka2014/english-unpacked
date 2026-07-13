@@ -7,6 +7,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 import DragFillGaps from "@/components/presentations/DragFillGaps";
 import WordOrderExercise from "@/components/presentations/WordOrderExercise";
 import imiNorgrenLogo from "@/assets/imi-norgren-logo.png.asset.json";
+import officeWorkerImg from "@/assets/office-worker-ambitions.jpg";
 
 /* ── Exercise 1 — gap-fill interview questions ── */
 const gapQuestions = [
@@ -182,31 +183,48 @@ const ReadingUnit2 = () => {
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-2 font-merriweather text-foreground">Exercise 1 — Complete the Questions</h3>
           <p className="text-muted-foreground mb-4">Write one word in each gap to complete questions you might ask at a job interview.</p>
-          <div className="space-y-3">
-            {gapQuestions.map((q) => (
-              <div key={q.id} className="flex items-center flex-wrap gap-1 text-foreground">
-                <span className="font-semibold w-6">{q.id}</span>
-                <span>{q.before}</span>
-                <Input
-                  ref={(el) => { ex1Refs.current[q.id] = el; }}
-                  className={`inline-block w-24 mx-1 ${ex1Results[q.id] === true ? "border-green-500 bg-green-50" : ex1Results[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
-                  placeholder="..."
-                />
-                <span>{q.mid}</span>
-                <Input
-                  ref={(el) => { ex1Refs2.current[q.id] = el; }}
-                  className={`inline-block w-24 mx-1 ${ex1Results[q.id] === true ? "border-green-500 bg-green-50" : ex1Results[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
-                  placeholder="..."
-                />
-                <span>{q.after}</span>
-                {resultIcon(ex1Results[q.id] ?? null)}
-                {ex1Results[q.id] === false && (
-                  <span className="text-sm text-red-600 ml-2">({q.answer} ... {q.answer2})</span>
-                )}
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            <div>
+              <div className="space-y-3">
+                {gapQuestions.map((q) => (
+                  <div key={q.id} className="flex items-center flex-wrap gap-1 text-foreground">
+                    <span className="font-semibold w-6">{q.id}</span>
+                    <span>{q.before}</span>
+                    <Input
+                      ref={(el) => { ex1Refs.current[q.id] = el; }}
+                      className={`inline-block w-24 mx-1 ${ex1Results[q.id] === true ? "border-green-500 bg-green-50" : ex1Results[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                      placeholder="..."
+                    />
+                    <span>{q.mid}</span>
+                    <Input
+                      ref={(el) => { ex1Refs2.current[q.id] = el; }}
+                      className={`inline-block w-24 mx-1 ${ex1Results[q.id] === true ? "border-green-500 bg-green-50" : ex1Results[q.id] === false ? "border-red-500 bg-red-50" : ""}`}
+                      placeholder="..."
+                    />
+                    <span>{q.after}</span>
+                    {resultIcon(ex1Results[q.id] ?? null)}
+                    {ex1Results[q.id] === false && (
+                      <span className="text-sm text-red-600 ml-2">({q.answer} ... {q.answer2})</span>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+              <Button onClick={checkEx1} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+            </div>
+            <figure className="md:sticky md:top-24">
+              <img
+                src={officeWorkerImg}
+                alt="Office worker at a desk daydreaming about future career ambitions"
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="rounded-xl shadow-md w-full h-auto object-cover"
+              />
+              <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
+                Ambitions for the future
+              </figcaption>
+            </figure>
           </div>
-          <Button onClick={checkEx1} className="mt-4 bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
         </CardContent>
       </Card>
 
