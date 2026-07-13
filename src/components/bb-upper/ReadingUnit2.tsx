@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle, XCircle } from "lucide-react";
 import DragFillGaps from "@/components/presentations/DragFillGaps";
 import WordOrderExercise from "@/components/presentations/WordOrderExercise";
+import imiNorgrenLogo from "@/assets/imi-norgren-logo.png.asset.json";
 
 /* ── Exercise 1 — gap-fill interview questions ── */
 const gapQuestions = [
