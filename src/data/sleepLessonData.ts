@@ -92,13 +92,13 @@ export const readingVocabMatch = [
 export const sleepVocabBlanks = [
   { prompt: "Most people start feeling s___ around 11pm.", answer: "sleepy" },
   { prompt: "When you're tired you often open your mouth and y___.", answer: "yawn" },
-  { prompt: "Before bed I always s___ my a___ clock for 7am.", answer: "set" },
+  { prompt: "Before bed I always set my a___ clock for 7am.", answer: "alarm" },
   { prompt: "I put my head on the p___ and closed my eyes.", answer: "pillow" },
   { prompt: "In winter I sleep under a thick d___.", answer: "duvet" },
   { prompt: "My husband s___ so loudly I can't sleep.", answer: "snores" },
   { prompt: "I had a terrible n___ about falling off a cliff.", answer: "nightmare" },
   { prompt: "I didn't hear the alarm and I o___.", answer: "overslept" },
-  { prompt: "Coffee in the evening always k___ me a___.", answer: "keeps" },
+  { prompt: "Coffee in the evening always keeps me a___.", answer: "awake" },
   { prompt: "She can't sleep at all — she suffers from i___.", answer: "insomnia" },
   { prompt: "In Spain many people have a s___ after lunch.", answer: "siesta" },
   { prompt: "After the flight from Tokyo I was completely j___.", answer: "jet-lagged" },
@@ -182,13 +182,13 @@ export const usedToMcq = [
 
 export const usedToTransform = [
   { prompt: "I don't play tennis now, but I d___ when I was younger. (play)", answer: "did" },
-  { prompt: "She isn't scared of the dark any more — she u___ be, though. (used)", answer: "used to" },
-  { prompt: "After six months in Prague he finally g___ the cold winters. (got)", answer: "got used to" },
-  { prompt: "I'm a doctor, so I a___ working long hours. (am)", answer: "am used to" },
-  { prompt: "D___ you u___ have a nap after lunch? (did / use)", answer: "used to" },
+  { prompt: "She isn't scared of the dark any more — she u___ to be, though. (used)", answer: "used" },
+  { prompt: "After six months in Prague he finally g___ used to the cold winters. (got)", answer: "got" },
+  { prompt: "I'm a doctor, so I a___ used to working long hours. (am)", answer: "am" },
+  { prompt: "Did you u___ to have a nap after lunch? (use)", answer: "use" },
   { prompt: "He w___ used to spicy food, so his eyes watered. (was)", answer: "wasn't" },
-  { prompt: "It took her a while to g___ driving on the left. (get)", answer: "get used to" },
-  { prompt: "My dad u___ smoke a pipe, but he gave up years ago. (used)", answer: "used to" },
+  { prompt: "It took her a while to g___ used to driving on the left. (get)", answer: "get" },
+  { prompt: "My dad u___ to smoke a pipe, but he gave up years ago. (used)", answer: "used" },
 ];
 
 // Final mixed quiz (10 questions)
