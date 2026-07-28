@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "validate:lessons": "node scripts/validate-lesson-blanks.mjs",
+    "prebuild": "node scripts/validate-lesson-blanks.mjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
