@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { prepositionModules, type PrepositionModule } from '@/data/prepositionsOfTimeData';
 import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
 import inOnAtImage from '@/assets/prepositions-time-in-on-at.jpg';
+import inOnAtPlaceImage from '@/assets/prepositions-place-in-on-at.jpg';
 
 
 const PrepositionsOfTimePractice = () => {
@@ -281,6 +282,19 @@ const PrepositionsOfTimePractice = () => {
                     <em> at the station, at home, at the hospital, at the table</em>
                   </li>
                 </ul>
+                <figure className="pt-2">
+                  <img
+                    src={inOnAtPlaceImage}
+                    alt="Infographic: IN for being inside an area such as a house, Italy or the fridge; ON for touching a surface such as a desk, wall or the ground; AT for an exact point or place such as the station, home or the table"
+                    loading="lazy"
+                    width={1536}
+                    height={768}
+                    className="w-full rounded-lg border border-brand-accent/20"
+                  />
+                  <figcaption className="mt-2 text-xs text-muted-foreground text-center">
+                    <strong>in</strong> = inside a space, <strong>on</strong> = on a surface, <strong>at</strong> = an exact point.
+                  </figcaption>
+                </figure>
                 <p className="rounded-lg border border-primary/30 bg-primary/5 p-3 text-primary">
                   Tip: choose <strong>at</strong> when we think of the place as an activity or a meeting point
                   ("she works <strong>at</strong> the hospital"), but <strong>in</strong> when we think of the
