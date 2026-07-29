@@ -16,7 +16,7 @@ const prepositionCards = [
   },
   {
     title: 'Prepositions of Place',
-    description: 'Practice in front of, behind, above, below, into, out of, up, over and more with interactive choose-the-correct-word exercises',
+    description: 'Practice in, on, at for position plus in front of, behind, above, below, into, out of, up and over with interactive exercises',
     icon: MapPin,
     path: '/prepositions-of-place',
     color: 'text-emerald-600',
