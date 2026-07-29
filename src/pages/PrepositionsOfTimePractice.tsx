@@ -159,7 +159,7 @@ const PrepositionsOfTimePractice = () => {
                     loading="lazy"
                     width={1536}
                     height={768}
-                    className="w-full rounded-lg border border-primary/20"
+                    className="w-[90%] mx-auto rounded-lg border border-primary/20"
                   />
                   <figcaption className="mt-2 text-xs text-muted-foreground text-center">
                     Think of size: <strong>in</strong> = big containers of time, <strong>on</strong> = points marked on a calendar line, <strong>at</strong> = precise moments.
@@ -289,7 +289,7 @@ const PrepositionsOfTimePractice = () => {
                     loading="lazy"
                     width={1536}
                     height={768}
-                    className="w-full rounded-lg border border-brand-accent/20"
+                    className="w-[90%] mx-auto rounded-lg border border-brand-accent/20"
                   />
                   <figcaption className="mt-2 text-xs text-muted-foreground text-center">
                     <strong>in</strong> = inside a space, <strong>on</strong> = on a surface, <strong>at</strong> = an exact point.
