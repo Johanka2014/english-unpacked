@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, CheckCircle, XCircle, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
+import inOnAtPlaceImage from '@/assets/prepositions-place-in-on-at.jpg';
 
 interface ChoiceQuestion {
   before: string;
