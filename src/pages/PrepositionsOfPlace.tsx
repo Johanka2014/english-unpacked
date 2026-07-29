@@ -131,6 +131,31 @@ const PrepositionsOfPlace = () => {
           <PrepositionDropdownExercise />
         </div>
 
+        <Card className="mb-6 hover:shadow-lg transition-all duration-200">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">
+                🎮 Interactive Activity: Prepositions of Place
+              </CardTitle>
+              <Badge variant="secondary">LearningApps</Badge>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Practice prepositions of place with this fun interactive matching activity on LearningApps.
+            </p>
+            <Button
+              className="bg-brand-royal hover:bg-brand-navy text-white"
+              asChild
+            >
+              <a href="https://learningapps.org/watch?v=pov7n6mqa23" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Open Activity
+              </a>
+            </Button>
+          </CardContent>
+        </Card>
+
 
         <Card className="bg-gradient-to-br from-card via-emerald-50 dark:via-emerald-950/10 to-card border-brand-accent/20">
           <CardHeader className="pb-3 border-b border-brand-accent/20">
