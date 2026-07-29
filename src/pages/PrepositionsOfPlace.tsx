@@ -74,8 +74,63 @@ const PrepositionsOfPlace = () => {
         <div className="mb-8 text-center">
           <Badge className="mb-4" variant="secondary">Grammar Practice</Badge>
           <h1 className="text-3xl font-bold text-foreground mb-2">Prepositions of Place</h1>
-          <p className="text-muted-foreground">Choose the correct preposition to complete each sentence.</p>
+          <p className="text-muted-foreground">Learn in, on and at for position, then practise in front of, behind, above, below and more.</p>
         </div>
+
+        {/* Explanation: in, on, at for PLACE */}
+        <Card className="mb-6 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+          <CardHeader className="pb-3 border-b border-brand-accent/20">
+            <div className="flex items-center gap-3">
+              <Badge className="bg-brand-accent text-white">Before you start</Badge>
+              <CardTitle className="text-xl text-brand-navy dark:text-brand-royal">
+                in, on, at for PLACE
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="space-y-3 pt-4 text-sm text-foreground/80">
+            <p>
+              <strong>in</strong>, <strong>on</strong> and <strong>at</strong> are also used for time, but here they
+              describe <strong>position</strong>. The same "size" idea helps.
+            </p>
+            <ul className="space-y-2">
+              <li>
+                <strong>in</strong> = inside something with space or borders —
+                <em> in Italy, in a house, in the fridge, in the street</em>
+              </li>
+              <li>
+                <strong>on</strong> = touching a surface or a line —
+                <em> on the bed, on the desk, on the ground, on the wall</em>
+              </li>
+              <li>
+                <strong>at</strong> = a point or a place with a purpose —
+                <em> at the station, at home, at the hospital, at the table</em>
+              </li>
+            </ul>
+            <figure className="pt-2">
+              <img
+                src={inOnAtPlaceImage}
+                alt="Infographic: IN for being inside an area such as a house, Italy or the fridge; ON for touching a surface such as a desk, wall or the ground; AT for an exact point or place such as the station, home or the table"
+                loading="lazy"
+                width={1536}
+                height={768}
+                className="w-[90%] mx-auto rounded-lg border border-brand-accent/20"
+              />
+              <figcaption className="mt-2 text-xs text-muted-foreground text-center">
+                <strong>in</strong> = inside a space, <strong>on</strong> = on a surface, <strong>at</strong> = an exact point.
+              </figcaption>
+            </figure>
+            <p className="rounded-lg border border-primary/30 bg-primary/5 p-3 text-primary">
+              Tip: choose <strong>at</strong> when we think of the place as an activity or a meeting point
+              ("she works <strong>at</strong> the hospital"), but <strong>in</strong> when we think of the
+              building itself ("she is waiting <strong>in</strong> the hospital").
+            </p>
+          </CardContent>
+        </Card>
+
+        <div className="mb-6">
+          <PrepositionDropdownExercise />
+        </div>
+
 
         <Card className="bg-gradient-to-br from-card via-emerald-50 dark:via-emerald-950/10 to-card border-brand-accent/20">
           <CardHeader className="pb-3 border-b border-brand-accent/20">
