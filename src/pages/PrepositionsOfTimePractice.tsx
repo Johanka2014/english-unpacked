@@ -10,6 +10,8 @@ import { ArrowLeft, ArrowRight, Home, CheckCircle, XCircle, PenLine, AlertTriang
 import { Link } from 'react-router-dom';
 import { prepositionModules, type PrepositionModule } from '@/data/prepositionsOfTimeData';
 import PrepositionDropdownExercise from '@/components/PrepositionDropdownExercise';
+import inOnAtImage from '@/assets/prepositions-time-in-on-at.jpg';
+
 
 const PrepositionsOfTimePractice = () => {
   const [selectedUnit, setSelectedUnit] = useState<PrepositionModule | null>(null);
