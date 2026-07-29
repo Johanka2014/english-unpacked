@@ -148,6 +148,22 @@ const PrepositionsOfTimePractice = () => {
               {selectedUnit.explanation.map((line, i) => (
                 <p key={i} className="text-sm text-foreground/80">{line}</p>
               ))}
+              {selectedUnit.id === 1 && (
+                <figure className="pt-4">
+                  <img
+                    src={inOnAtImage}
+                    alt="Infographic: IN as a bucket holding long periods like years, months and seasons; ON as a timeline marked with days and dates; AT as small dots for exact points in time"
+                    loading="lazy"
+                    width={1536}
+                    height={768}
+                    className="w-full rounded-lg border border-primary/20"
+                  />
+                  <figcaption className="mt-2 text-xs text-muted-foreground text-center">
+                    Think of size: <strong>in</strong> = big containers of time, <strong>on</strong> = points marked on a calendar line, <strong>at</strong> = precise moments.
+                  </figcaption>
+                </figure>
+              )}
+
               {selectedUnit.tip && (
                 <div className={`mt-4 flex gap-2 rounded-lg border p-3 text-sm ${
                   selectedUnit.tip.type === 'warning'
