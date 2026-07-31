@@ -62,7 +62,7 @@ const SleepLesson = () => {
         description="Upper-intermediate English lesson on sleep: reading, vocabulary, listening, 'used to / be used to / get used to' grammar and a mixed quiz."
       />
       <Navigation />
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-6 sm:py-12">
         <div className="max-w-5xl mx-auto">
           <div className="mb-4">
             <Link to="/members/activities?tab=topics">
