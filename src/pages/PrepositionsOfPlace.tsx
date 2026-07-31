@@ -127,7 +127,6 @@ const PrepositionsOfPlace = () => {
           </CardContent>
         </Card>
 
-        <div className="mb-6">
         <div className="mb-4 sm:mb-6">
           <PrepositionDropdownExercise />
         </div>
