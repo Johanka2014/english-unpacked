@@ -137,7 +137,11 @@ const SleepLesson = () => {
                 description="Choose the best answer based on the text."
                 questions={readingComprehension}
               />
+
+              <TechnicalRenderer activities={dreamySleepReading} />
+              <TechnicalRenderer activities={nefReviewActivities.slice(0, 2)} />
             </TabsContent>
+
 
             {/* VOCABULARY */}
             <TabsContent value="vocab" className="space-y-4 sm:space-y-6">
