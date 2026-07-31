@@ -106,14 +106,14 @@ const PrepositionsOfPlace = () => {
                 <em> at the station, at home, at the hospital, at the table</em>
               </li>
             </ul>
-            <figure className="pt-2">
+            <figure className="pt-1 sm:pt-2">
               <img
                 src={inOnAtPlaceImage}
                 alt="Infographic: IN for being inside an area such as a house, Italy or the fridge; ON for touching a surface such as a desk, wall or the ground; AT for an exact point or place such as the station, home or the table"
                 loading="lazy"
                 width={1536}
                 height={768}
-                className="w-[90%] mx-auto rounded-lg border border-brand-accent/20"
+                className="w-full sm:w-[90%] mx-auto rounded-lg border border-brand-accent/20"
               />
               <figcaption className="mt-2 text-xs text-muted-foreground text-center">
                 <strong>in</strong> = inside a space, <strong>on</strong> = on a surface, <strong>at</strong> = an exact point.
