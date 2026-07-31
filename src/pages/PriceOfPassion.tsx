@@ -4,7 +4,9 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, Trophy } from 'lucide-react';
+import { ArrowLeft, Trophy, BookOpen, Sparkles, GraduationCap, Headphones, MessagesSquare } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
 import type { Activity } from '@/data/engineeringData';
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
 import Flashcards, { type FlashcardItem } from '@/components/presentations/Flashcards';
@@ -205,46 +207,75 @@ const PriceOfPassion = () => {
           </p>
         </header>
 
-        <TechnicalRenderer activities={introActivities.slice(0, 1)} />
+        <Tabs defaultValue="reading" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-6 h-auto">
+            <TabsTrigger value="reading" className="gap-1.5 py-2">
+              <BookOpen className="h-4 w-4" /> Reading
+            </TabsTrigger>
+            <TabsTrigger value="vocab" className="gap-1.5 py-2">
+              <Sparkles className="h-4 w-4" /> Vocabulary
+            </TabsTrigger>
+            <TabsTrigger value="grammar" className="gap-1.5 py-2">
+              <GraduationCap className="h-4 w-4" /> Grammar
+            </TabsTrigger>
+            <TabsTrigger value="listening" className="gap-1.5 py-2">
+              <Headphones className="h-4 w-4" /> Listening
+            </TabsTrigger>
+            <TabsTrigger value="speaking" className="gap-1.5 py-2">
+              <MessagesSquare className="h-4 w-4" /> Speaking
+            </TabsTrigger>
+          </TabsList>
 
-        <div className="mt-6">
-          <Flashcards
-            title="1b · Vocabulary Flashcards"
-            description="Preview the key vocabulary you will meet in the reading. Click a card to flip it, then use Next or Shuffle to keep practising."
-            cards={vocabFlashcards}
-          />
-        </div>
+          {/* READING */}
+          <TabsContent value="reading" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={[introActivities[0], introActivities[1], introActivities[2]]} />
+          </TabsContent>
 
-        <div className="mt-6">
-          <TechnicalRenderer activities={introActivities.slice(1)} />
-        </div>
+          {/* VOCABULARY */}
+          <TabsContent value="vocab" className="space-y-4 sm:space-y-6">
+            <Flashcards
+              title="1b · Vocabulary Flashcards"
+              description="Preview the key vocabulary you will meet in the reading. Click a card to flip it, then use Next or Shuffle to keep practising."
+              cards={vocabFlashcards}
+            />
+            <TechnicalRenderer activities={[introActivities[3], introActivities[4]]} />
+          </TabsContent>
 
-        {/* Listening section with embedded video */}
-        <div className="mt-6">
-          <Card className="service-card">
-            <CardContent className="p-6">
-              <h3 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-                6 · Listening: The Spread of Surge Pricing
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Watch the Financial Times video clip and then complete the gap-fill transcript below.
-              </p>
-              <div className="aspect-video w-full overflow-hidden rounded-lg border border-border shadow-sm">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/W00ALu-N9Sw"
-                  title="The spread of surge pricing — Financial Times"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+          {/* GRAMMAR */}
+          <TabsContent value="grammar" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={[introActivities[5]]} />
+          </TabsContent>
 
-        <div className="mt-6">
-          <TechnicalRenderer activities={listeningActivities} />
-        </div>
+          {/* LISTENING */}
+          <TabsContent value="listening" className="space-y-4 sm:space-y-6">
+            <Card className="service-card p-0">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                  6 · Listening: The Spread of Surge Pricing
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  Watch the Financial Times video clip and then complete the gap-fill transcript below.
+                </p>
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-border shadow-sm">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/W00ALu-N9Sw"
+                    title="The spread of surge pricing — Financial Times"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </CardContent>
+            </Card>
+            <TechnicalRenderer activities={listeningActivities} />
+          </TabsContent>
+
+          {/* SPEAKING */}
+          <TabsContent value="speaking" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={[introActivities[6]]} />
+          </TabsContent>
+        </Tabs>
+
 
         <div className="mt-12 border-t border-border pt-6">
           <Button asChild variant="outline">
