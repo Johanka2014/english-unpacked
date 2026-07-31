@@ -4,7 +4,9 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, Trophy } from 'lucide-react';
+import { ArrowLeft, Trophy, BookOpen, Sparkles, GraduationCap, Headphones, MessagesSquare } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
 import type { Activity } from '@/data/engineeringData';
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
 import Flashcards, { type FlashcardItem } from '@/components/presentations/Flashcards';
