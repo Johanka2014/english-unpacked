@@ -70,6 +70,7 @@ const ConnectedSpeechLesson = lazy(() => import("./pages/ConnectedSpeechLesson")
 const PriceOfPassion = lazy(() => import("./pages/PriceOfPassion"));
 const TopicsSport = lazy(() => import("./pages/TopicsSport"));
 const SleepLesson = lazy(() => import("./pages/SleepLesson"));
+const MusicFestivals = lazy(() => import("./pages/MusicFestivals"));
 const WordScramble = lazy(() => import("./pages/WordScramble"));
 const PETWordQuest = lazy(() => import("./pages/PETWordQuest"));
 const FCEWordQuest = lazy(() => import("./pages/FCEWordQuest"));
