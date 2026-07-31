@@ -231,6 +231,13 @@ const TABS: TabDef[] = [
         path: '/topics/sleep',
         color: 'text-indigo-600',
       },
+      {
+        title: 'Music Festivals',
+        description: 'B1–B2 lesson on music festivals — festival vocabulary, a British Council video, compound nouns and readings on Glastonbury, Notting Hill Carnival, the Sahara and the BBC Proms',
+        icon: Music,
+        path: '/topics/music-festivals',
+        color: 'text-pink-600',
+      },
     ],
   },
   {
