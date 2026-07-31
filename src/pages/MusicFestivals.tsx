@@ -52,108 +52,104 @@ const MusicFestivals = () => {
           </p>
         </header>
 
-        <TechnicalRenderer activities={warmUp} />
+        <Tabs defaultValue="warmup" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 mb-6 h-auto">
+            <TabsTrigger value="warmup" className="gap-1.5 py-2">
+              <Sparkles className="h-4 w-4" /> Warm-up
+            </TabsTrigger>
+            <TabsTrigger value="vocab" className="gap-1.5 py-2">
+              <BookOpen className="h-4 w-4" /> Vocabulary
+            </TabsTrigger>
+            <TabsTrigger value="video" className="gap-1.5 py-2">
+              <Video className="h-4 w-4" /> Video
+            </TabsTrigger>
+            <TabsTrigger value="reading" className="gap-1.5 py-2">
+              <Newspaper className="h-4 w-4" /> Reading
+            </TabsTrigger>
+            <TabsTrigger value="tasks" className="gap-1.5 py-2">
+              <MessagesSquare className="h-4 w-4" /> Tasks
+            </TabsTrigger>
+          </TabsList>
 
-        <div className="mt-4 sm:mt-6">
-          <Flashcards
-            title="2 · Festival Vocabulary Flashcards"
-            description="Preview the key words you will meet in the video and readings. Click a card to flip it, then use Next or Shuffle to keep practising."
-            cards={festivalFlashcards}
-          />
-        </div>
+          {/* WARM-UP */}
+          <TabsContent value="warmup" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={warmUp} />
+          </TabsContent>
 
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={vocabMatching} />
-        </div>
+          {/* VOCABULARY */}
+          <TabsContent value="vocab" className="space-y-4 sm:space-y-6">
+            <Flashcards
+              title="2 · Festival Vocabulary Flashcards"
+              description="Preview the key words you will meet in the video and readings. Click a card to flip it, then use Next or Shuffle to keep practising."
+              cards={festivalFlashcards}
+            />
+            <TechnicalRenderer activities={vocabMatching} />
+            <Card className="service-card p-0">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                  3d · Interactive Activity: Festival Vocabulary
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Drag and drop your way through this LearningApps activity to review the festival
+                  vocabulary before you move on to the readings.
+                </p>
+                <div className="w-full overflow-hidden rounded-lg border border-border shadow-sm">
+                  <iframe
+                    src="https://learningapps.org/watch?app=ph3fskiwc21"
+                    title="Music festivals vocabulary — LearningApps"
+                    className="w-full h-[420px] sm:h-[620px]"
+                    allowFullScreen
+                  />
+                </div>
+              </CardContent>
+            </Card>
+            <TechnicalRenderer activities={compoundActivities} />
+          </TabsContent>
 
-        {/* Video */}
-        <div className="mt-4 sm:mt-6">
-          <Card className="service-card p-0">
-            <CardContent className="p-4 sm:p-6">
-              <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
-                3 · Video: Live music (British Council)
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Amandeep goes backstage with the band British Sea Power at Reading Festival and
-                talks to festival-goers about what festival life is really like. Watch the video on
-                LearnEnglish Teens, then come back and do the exercises below. You can read the
-                transcript on that page at any time.
-              </p>
-              <Button asChild>
-                <a
-                  href="https://learnenglishteens.britishcouncil.org/study-break/video-series/word-street/live-music"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Watch the video <ExternalLink className="h-4 w-4 ml-2" />
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+          {/* VIDEO */}
+          <TabsContent value="video" className="space-y-4 sm:space-y-6">
+            <Card className="service-card p-0">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                  3 · Video: Live music (British Council)
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Amandeep goes backstage with the band British Sea Power at Reading Festival and
+                  talks to festival-goers about what festival life is really like. Watch the video on
+                  LearnEnglish Teens, then come back and do the exercises below. You can read the
+                  transcript on that page at any time.
+                </p>
+                <Button asChild>
+                  <a
+                    href="https://learnenglishteens.britishcouncil.org/study-break/video-series/word-street/live-music"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Watch the video <ExternalLink className="h-4 w-4 ml-2" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+            <TechnicalRenderer activities={videoActivities} />
+          </TabsContent>
 
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={videoActivities} />
-        </div>
+          {/* READING */}
+          <TabsContent value="reading" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={europeReading} />
+            <TechnicalRenderer activities={oxegenReading} />
+            <TechnicalRenderer activities={examReading} />
+            <TechnicalRenderer activities={neighboursActivities} />
+            <TechnicalRenderer activities={nottingHill} />
+            <TechnicalRenderer activities={desertFestival} />
+            <TechnicalRenderer activities={promsActivities} />
+          </TabsContent>
 
-        {/* LearningApps interactive */}
-        <div className="mt-4 sm:mt-6">
-          <Card className="service-card p-0">
-            <CardContent className="p-4 sm:p-6">
-              <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
-                3d · Interactive Activity: Festival Vocabulary
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Drag and drop your way through this LearningApps activity to review the festival
-                vocabulary before you move on to the readings.
-              </p>
-              <div className="w-full overflow-hidden rounded-lg border border-border shadow-sm">
-                <iframe
-                  src="https://learningapps.org/watch?app=ph3fskiwc21"
-                  title="Music festivals vocabulary — LearningApps"
-                  className="w-full h-[420px] sm:h-[620px]"
-                  allowFullScreen
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+          {/* TASKS */}
+          <TabsContent value="tasks" className="space-y-4 sm:space-y-6">
+            <TechnicalRenderer activities={finalTasks} />
+          </TabsContent>
+        </Tabs>
 
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={compoundActivities} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={europeReading} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={oxegenReading} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={examReading} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={neighboursActivities} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={nottingHill} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={desertFestival} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={promsActivities} />
-        </div>
-
-        <div className="mt-4 sm:mt-6">
-          <TechnicalRenderer activities={finalTasks} />
-        </div>
 
         <div className="mt-8 sm:mt-12 border-t border-border pt-6">
           <Button asChild variant="outline">
