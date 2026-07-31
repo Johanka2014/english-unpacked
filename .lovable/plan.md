@@ -1,27 +1,51 @@
 ## Goal
 
-Unit 1 of "Prepositions of Time" currently ends with place material (an in/on/at **place** explanation card with infographic, and a 10-question in/on/at dropdown exercise). That content belongs on the "Prepositions of Place" page. Move it, so each page covers exactly one topic.
+Add a **Music Festivals** lesson to Practice → Topics, matching the existing topic-lesson format (like *The Price of Passion* / *Sport*): a single scrollable page of numbered interactive activities built with the shared renderer and exercise components.
 
-## Changes
+## What the source material contains
 
-**1. Prepositions of Time — Unit 1 (`src/pages/PrepositionsOfTimePractice.tsx`)**
-- Remove the "Same words, different job: in, on, at for PLACE" card (explanation, bullets, place infographic, tip).
-- Remove the `<PrepositionDropdownExercise />` block.
-- Remove the now-unused imports (`inOnAtPlaceImage`, `PrepositionDropdownExercise`).
-- Keep the time infographic and the time quiz untouched.
+I downloaded and read every Drive link — all are publicly readable. Contents:
 
-**2. Prepositions of Place (`src/pages/PrepositionsOfPlace.tsx`)**
-- Add the in/on/at place explanation card (same wording, bullets, infographic, and tip) as the **first** section, above the existing "Choose the correct word" quiz — so students get the theory before practising.
-- Add `<PrepositionDropdownExercise />` directly after the explanation card, before the existing multiple-choice quiz.
-- Reorder result: Explanation → in/on/at dropdown practice → choose-the-correct-word quiz → LearningApps activity.
-- Update the page intro line so it covers both in/on/at position and the other place prepositions.
+| Source | Usable content |
+| --- | --- |
+| British Council "Live music" video page | Video + preparation matching task (8 festival words), comprehension exercises |
+| Notting Hill Carnival reading (scan) | Culture reading: origins, steel bands, food stalls |
+| Cool for Kids / Underage Festival (scan) | Teen festival reading, no-adults festival |
+| Glastonbury neighbours text + verb+ing pronunciation | Reading with tick-the-problems task, -ing pronunciation set, "more words to learn" list |
+| Glastonbury (B1 exam-style, 2 scans) | Longer reading + Part 5 multiple-choice questions |
+| Rock Werchter / Croatia / Benicàssim culture page | True–false set + compound-noun exercise (headline acts, campsite, shuttle buses…) |
+| Oxegen / compound-noun workbook page | Matching 1–8 compound nouns + gap-fill text |
+| Festival in the Desert (Timbouctou) | Advanced reading on the Festival au Désert |
+| BreakingNews: first woman to conduct the BBC Proms | Article, True/False, synonym match, discussion questions |
+| 1 JPEG page + a .ppt and a .doc | To be OCR'd/extracted during the build and folded into the relevant sections |
+| LearningApps ph3fskiwc21 | Embedded as an interactive activity iframe |
 
-**3. Section descriptions (`src/pages/Prepositions.tsx`)**
-- Update the "Prepositions of Place" card description to mention in, on, at alongside in front of, behind, above, below, etc.
-- Update the "Prepositions of Time" card description if it implies place coverage (it currently lists only time words, so likely no change).
+## Lesson structure (planned)
 
-## Technical notes
+1. **Warm-up discussion** — festival experience questions.
+2. **Vocabulary flashcards** — festival words (line-up, headline act, campsite, wellies, festival-goer, stall, rehearse, up for it…), using the existing `Flashcards` component.
+3. **Preparation matching** — the 8 British Council vocabulary/definition pairs (`MatchingExercise`).
+4. **Video: Live music (British Council)** — embedded link/video card with the vocabulary in context.
+5. **Interactive activity** — LearningApps iframe tile (same pattern as Prepositions of Place).
+6. **Reading A: Glastonbury** — text + tick-the-problems and comprehension MCQs.
+7. **Reading B: Festivals across Europe** — true/false set.
+8. **Compound nouns** — matching + gap-fill (drag/type-to-complete components).
+9. **Pronunciation: verb + -ing** — "circle the odd one out" as a click-to-choose exercise.
+10. **Reading C: Notting Hill Carnival** — culture reading + MCQs.
+11. **Reading D: BBC Proms / first woman conductor** — true/false + synonym matching.
+12. **Extension: Festival in the Desert** — advanced reading + discussion.
+13. **Speaking / writing task** — discussion prompts and a writing brief from the sources.
 
-- `PrepositionDropdownExercise` is a self-contained component with its own state and check/reset buttons, so it moves as a single JSX line with no prop changes.
-- The place infographic asset `src/assets/prepositions-place-in-on-at.jpg` stays in place; only the import moves from the Time page to the Place page, keeping the same 90% width styling, alt text and caption.
-- No data, routing, or backend changes; both routes keep their current URLs.
+## Technical details
+
+- New data file `src/data/musicFestivalsData.ts` typed with the existing `Activity` shape, rendered by `TechnicalRenderer` (already supports reading, word-list, fill-blanks, drag-fill, type-blanks, matching, multiple-choice, task, discussion).
+- New page `src/pages/MusicFestivals.tsx`, styled like `PriceOfPassion.tsx` (SEO tag, Navigation, back link to Topics, Footer).
+- New route `/music-festivals` in `App.tsx`.
+- Add a **Music Festivals** tile to `src/pages/TopicsSport.tsx`'s sibling structure: create a Topics landing entry so Topics shows both *Sport* and *Music Festivals* (update `src/pages/MembersActivities.tsx` Topics tab).
+- Any images worth keeping (carnival/festival photos from the scans) uploaded via the assets CLI rather than committed as binaries.
+- Lesson prompts will be written to satisfy `scripts/validate-lesson-blanks.mjs` rules if type-blanks are used.
+
+## Notes
+
+- The two Office files (.ppt, .doc) will be extracted during the build; if their content duplicates the PDFs I'll fold it into the matching section rather than adding a redundant activity.
+- Level: the material spans A2–C1, so activities will be ordered easiest-first and each section labelled with a level badge.
