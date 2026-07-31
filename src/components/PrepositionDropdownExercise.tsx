@@ -69,18 +69,18 @@ const PrepositionDropdownExercise = () => {
 
   return (
     <Card className="bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
-      <CardHeader className="pb-3 border-b border-brand-accent/20">
-        <div className="flex items-center justify-between">
+      <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-3 border-b border-brand-accent/20">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <PenLine className="h-5 w-5 text-brand-accent" />
-            <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">
+            <PenLine className="h-5 w-5 shrink-0 text-brand-accent" />
+            <CardTitle className="text-base sm:text-lg text-brand-navy dark:text-brand-royal">
               On, In or At? — Choose the correct preposition
             </CardTitle>
           </div>
-          <Badge className="bg-brand-accent text-white">Dropdown</Badge>
+          <Badge className="bg-brand-accent text-white shrink-0">Dropdown</Badge>
         </div>
       </CardHeader>
-      <CardContent className="space-y-5 pt-5">
+      <CardContent className="space-y-3 sm:space-y-5 p-4 pt-4 sm:p-6 sm:pt-5">
         {exercises.map((ex, qIdx) => {
           const gapStartIdx = globalGapIdx;
           const gapElements: JSX.Element[] = [];
