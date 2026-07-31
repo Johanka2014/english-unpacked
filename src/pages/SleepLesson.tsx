@@ -140,13 +140,21 @@ const SleepLesson = () => {
             </TabsContent>
 
             {/* VOCABULARY */}
-            <TabsContent value="vocab" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-                    Sleep vocabulary
+            <TabsContent value="vocab" className="space-y-4 sm:space-y-6">
+              <TechnicalRenderer activities={globalWarmUp} />
+
+              <Flashcards
+                title="2 · Sleep vocabulary flashcards"
+                description="Preview the key words and expressions you will meet in the readings and the TED talks. Click a card to flip it, then use Next or Shuffle to keep practising."
+                cards={sleepFlashcards}
+              />
+
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h2 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    3 · Sleep vocabulary race
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     Complete each sentence with the correct sleep-related word. The first letter is
                     given.
                   </p>
@@ -154,6 +162,8 @@ const SleepLesson = () => {
               </Card>
 
               <TypeBlanks title="Sleep race" blanks={sleepVocabBlanks} />
+
+              <TechnicalRenderer activities={globalVocabActivities} />
 
               <MatchingExercise
                 title="Similes with sleep and the body"
@@ -163,6 +173,7 @@ const SleepLesson = () => {
                 rightLabel="Noun"
               />
             </TabsContent>
+
 
             {/* GRAMMAR */}
             <TabsContent value="grammar" className="space-y-6">
