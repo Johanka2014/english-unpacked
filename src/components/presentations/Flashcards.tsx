@@ -53,10 +53,10 @@ const Flashcards = ({ title, description, cards }: Props) => {
   };
 
   return (
-    <Card className="service-card">
-      <CardContent className="p-6">
+    <Card className="service-card p-0">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex items-start justify-between gap-3 mb-2">
-          <h3 className="text-2xl font-semibold font-merriweather text-foreground">{title}</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold font-merriweather text-foreground">{title}</h3>
           <span className="text-sm text-muted-foreground shrink-0 mt-1">{progress}</span>
         </div>
         {description && <p className="text-muted-foreground mb-4 text-sm">{description}</p>}

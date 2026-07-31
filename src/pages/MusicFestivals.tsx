@@ -31,14 +31,14 @@ const MusicFestivals = () => {
         description="A B1–B2 English lesson on music festivals: festival vocabulary, a British Council video, compound nouns, exam-style readings on Glastonbury, Oxegen, Notting Hill Carnival, the Festival in the Desert and the BBC Proms."
       />
       <Navigation />
-      <main className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
+      <main className="container mx-auto px-4 py-6 sm:py-12 max-w-4xl">
         <Button asChild variant="ghost" size="sm" className="mb-4">
           <Link to="/members/activities?tab=topics">
             <ArrowLeft className="h-4 w-4 mr-2" /> Back to Topics
           </Link>
         </Button>
 
-        <header className="mb-8">
+        <header className="mb-6 sm:mb-8">
           <p className="text-sm text-muted-foreground mb-1 flex items-center gap-2">
             <Music className="h-4 w-4 text-primary" /> Topics · B1–B2
           </p>
@@ -54,7 +54,7 @@ const MusicFestivals = () => {
 
         <TechnicalRenderer activities={warmUp} />
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <Flashcards
             title="2 · Festival Vocabulary Flashcards"
             description="Preview the key words you will meet in the video and readings. Click a card to flip it, then use Next or Shuffle to keep practising."
@@ -62,15 +62,15 @@ const MusicFestivals = () => {
           />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={vocabMatching} />
         </div>
 
         {/* Video */}
-        <div className="mt-6">
-          <Card className="service-card">
+        <div className="mt-4 sm:mt-6">
+          <Card className="service-card p-0">
             <CardContent className="p-4 sm:p-6">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+              <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
                 3 · Video: Live music (British Council)
               </h3>
               <p className="text-muted-foreground text-sm mb-4">
@@ -92,15 +92,15 @@ const MusicFestivals = () => {
           </Card>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={videoActivities} />
         </div>
 
         {/* LearningApps interactive */}
-        <div className="mt-6">
-          <Card className="service-card">
+        <div className="mt-4 sm:mt-6">
+          <Card className="service-card p-0">
             <CardContent className="p-4 sm:p-6">
-              <h3 className="text-xl sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+              <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
                 3d · Interactive Activity: Festival Vocabulary
               </h3>
               <p className="text-muted-foreground text-sm mb-4">
@@ -111,7 +111,7 @@ const MusicFestivals = () => {
                 <iframe
                   src="https://learningapps.org/watch?app=ph3fskiwc21"
                   title="Music festivals vocabulary — LearningApps"
-                  className="w-full h-[500px] sm:h-[620px]"
+                  className="w-full h-[420px] sm:h-[620px]"
                   allowFullScreen
                 />
               </div>
@@ -119,43 +119,43 @@ const MusicFestivals = () => {
           </Card>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={compoundActivities} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={europeReading} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={oxegenReading} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={examReading} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={neighboursActivities} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={nottingHill} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={desertFestival} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={promsActivities} />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-4 sm:mt-6">
           <TechnicalRenderer activities={finalTasks} />
         </div>
 
-        <div className="mt-12 border-t border-border pt-6">
+        <div className="mt-8 sm:mt-12 border-t border-border pt-6">
           <Button asChild variant="outline">
             <Link to="/members/activities?tab=topics">
               <ArrowLeft className="h-4 w-4 mr-2" /> Back to Topics

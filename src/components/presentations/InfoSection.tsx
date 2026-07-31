@@ -7,9 +7,9 @@ interface InfoSectionProps {
 
 const InfoSection = ({ title, children }: InfoSectionProps) => {
   return (
-    <Card className="service-card">
-      <CardContent className="p-6">
-        <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">{title}</h3>
+    <Card className="service-card p-0">
+      <CardContent className="p-4 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 font-merriweather text-foreground">{title}</h3>
         {children}
       </CardContent>
     </Card>

@@ -102,7 +102,7 @@ const DragFillCollocations = ({ title, body, blanks }: Props) => {
 
   return (
     <Card>
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
         {body && <p className="text-muted-foreground mb-4 text-sm">{body}</p>}
         <p className="text-xs text-muted-foreground mb-3 italic">
