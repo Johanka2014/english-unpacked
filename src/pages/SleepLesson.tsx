@@ -214,7 +214,10 @@ const SleepLesson = () => {
                 body="Add the missing word or phrase to complete each sentence."
                 blanks={usedToTransform}
               />
+
+              <TechnicalRenderer activities={nefReviewActivities.slice(2)} />
             </TabsContent>
+
 
             {/* LISTENING */}
             <TabsContent value="listening" className="space-y-6">
