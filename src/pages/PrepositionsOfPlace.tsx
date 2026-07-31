@@ -62,8 +62,8 @@ const PrepositionsOfPlace = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-4 py-20 max-w-3xl">
-        <div className="mb-4">
+      <main className="container mx-auto px-4 py-8 sm:py-20 max-w-3xl">
+        <div className="mb-3 sm:mb-4">
           <Link to="/prepositions">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               <ArrowLeft className="h-4 w-4 mr-1" /> Back to Prepositions
@@ -71,10 +71,10 @@ const PrepositionsOfPlace = () => {
           </Link>
         </div>
 
-        <div className="mb-8 text-center">
-          <Badge className="mb-4" variant="secondary">Grammar Practice</Badge>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Prepositions of Place</h1>
-          <p className="text-muted-foreground">Learn in, on and at for position, then practise in front of, behind, above, below and more.</p>
+        <div className="mb-5 sm:mb-8 text-center">
+          <Badge className="mb-3 sm:mb-4" variant="secondary">Grammar Practice</Badge>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">Prepositions of Place</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Learn in, on and at for position, then practise in front of, behind, above, below and more.</p>
         </div>
 
         {/* Explanation: in, on, at for PLACE */}
