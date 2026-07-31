@@ -11,6 +11,8 @@ import { ArrowLeft, BookOpen, Headphones, GraduationCap, Sparkles, HelpCircle, M
 import MatchingExercise from "@/components/presentations/MatchingExercise";
 import MultipleChoiceQuiz from "@/components/presentations/MultipleChoiceQuiz";
 import TypeBlanks from "@/components/technical/TypeBlanks";
+import TechnicalRenderer from "@/components/technical/TechnicalRenderer";
+import Flashcards from "@/components/presentations/Flashcards";
 import {
   readingPassage,
   readingComprehension,
@@ -22,6 +24,20 @@ import {
   finalQuiz,
   videoComprehension,
 } from "@/data/sleepLessonData";
+import {
+  sleepFlashcards,
+  globalWarmUp,
+  globalVocabActivities,
+  dreamySleepReading,
+  gambleBeforeWatching,
+  gambleActivities,
+  huffingtonActivities,
+  gartenbergActivities,
+  nefReviewActivities,
+  advancedStretch,
+  wrapUpTasks,
+} from "@/data/sleepLessonExtras";
+
 import audio510 from "@/assets/sleep-5-10.mp3.asset.json";
 import audio511 from "@/assets/sleep-5-11.mp3.asset.json";
 import audio512 from "@/assets/sleep-5-12.mp3.asset.json";
@@ -46,7 +62,7 @@ const SleepLesson = () => {
         description="Upper-intermediate English lesson on sleep: reading, vocabulary, listening, 'used to / be used to / get used to' grammar and a mixed quiz."
       />
       <Navigation />
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-6 sm:py-12">
         <div className="max-w-5xl mx-auto">
           <div className="mb-4">
             <Link to="/members/activities?tab=topics">
@@ -137,16 +153,28 @@ const SleepLesson = () => {
                 description="Choose the best answer based on the text."
                 questions={readingComprehension}
               />
+
+              <TechnicalRenderer activities={dreamySleepReading} />
+              <TechnicalRenderer activities={nefReviewActivities.slice(0, 2)} />
             </TabsContent>
 
+
             {/* VOCABULARY */}
-            <TabsContent value="vocab" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
-                    Sleep vocabulary
+            <TabsContent value="vocab" className="space-y-4 sm:space-y-6">
+              <TechnicalRenderer activities={globalWarmUp} />
+
+              <Flashcards
+                title="2 · Sleep vocabulary flashcards"
+                description="Preview the key words and expressions you will meet in the readings and the TED talks. Click a card to flip it, then use Next or Shuffle to keep practising."
+                cards={sleepFlashcards}
+              />
+
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h2 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    3 · Sleep vocabulary race
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     Complete each sentence with the correct sleep-related word. The first letter is
                     given.
                   </p>
@@ -154,6 +182,8 @@ const SleepLesson = () => {
               </Card>
 
               <TypeBlanks title="Sleep race" blanks={sleepVocabBlanks} />
+
+              <TechnicalRenderer activities={globalVocabActivities} />
 
               <MatchingExercise
                 title="Similes with sleep and the body"
@@ -163,6 +193,7 @@ const SleepLesson = () => {
                 rightLabel="Noun"
               />
             </TabsContent>
+
 
             {/* GRAMMAR */}
             <TabsContent value="grammar" className="space-y-6">
@@ -214,7 +245,10 @@ const SleepLesson = () => {
                 body="Add the missing word or phrase to complete each sentence."
                 blanks={usedToTransform}
               />
+
+              <TechnicalRenderer activities={nefReviewActivities.slice(2)} />
             </TabsContent>
+
 
             {/* LISTENING */}
             <TabsContent value="listening" className="space-y-6">
@@ -353,7 +387,84 @@ const SleepLesson = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Jessa Gamble */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    10 · Video: Our natural sleep cycle (Jessa Gamble)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    A four-minute TED talk about body clocks, horseshoe crabs and what our sleep
+                    would look like without modern life getting in the way.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/N6eN6mrK0ZQ"
+                      title="Jessa Gamble: Our natural sleep cycle — TED"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={gambleBeforeWatching} />
+              <TechnicalRenderer activities={gambleActivities} />
+
+              {/* Arianna Huffington */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    11 · Video: How to succeed? Get more sleep (Arianna Huffington)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Arianna Huffington describes how collapsing from exhaustion changed the way she
+                    thinks about success — and why sleep deprivation has become a badge of honour.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://embed.ted.com/talks/arianna_huffington_how_to_succeed_get_more_sleep"
+                      title="Arianna Huffington: How to succeed? Get more sleep — TED"
+                      allow="autoplay; fullscreen; encrypted-media"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={huffingtonActivities} />
+
+              {/* Dan Gartenberg */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    12 · Video: The brain benefits of deep sleep (Dan Gartenberg)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Sleep scientist Dan Gartenberg explains slow-wave sleep and how sound played in
+                    time with your brainwaves may make deep sleep even deeper.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://embed.ted.com/talks/dan_gartenberg_the_brain_benefits_of_deep_sleep_and_how_to_get_more_of_it"
+                      title="Dan Gartenberg: The brain benefits of deep sleep — TED"
+                      allow="autoplay; fullscreen; encrypted-media"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={gartenbergActivities} />
             </TabsContent>
+
 
 
             {/* QUIZ */}
@@ -375,7 +486,11 @@ const SleepLesson = () => {
                 description="Choose the best answer for each question."
                 questions={finalQuiz}
               />
+
+              <TechnicalRenderer activities={advancedStretch} />
+              <TechnicalRenderer activities={wrapUpTasks} />
             </TabsContent>
+
           </Tabs>
         </div>
       </main>
