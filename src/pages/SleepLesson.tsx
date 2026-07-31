@@ -11,6 +11,8 @@ import { ArrowLeft, BookOpen, Headphones, GraduationCap, Sparkles, HelpCircle, M
 import MatchingExercise from "@/components/presentations/MatchingExercise";
 import MultipleChoiceQuiz from "@/components/presentations/MultipleChoiceQuiz";
 import TypeBlanks from "@/components/technical/TypeBlanks";
+import TechnicalRenderer from "@/components/technical/TechnicalRenderer";
+import Flashcards from "@/components/presentations/Flashcards";
 import {
   readingPassage,
   readingComprehension,
@@ -22,6 +24,20 @@ import {
   finalQuiz,
   videoComprehension,
 } from "@/data/sleepLessonData";
+import {
+  sleepFlashcards,
+  globalWarmUp,
+  globalVocabActivities,
+  dreamySleepReading,
+  gambleBeforeWatching,
+  gambleActivities,
+  huffingtonActivities,
+  gartenbergActivities,
+  nefReviewActivities,
+  advancedStretch,
+  wrapUpTasks,
+} from "@/data/sleepLessonExtras";
+
 import audio510 from "@/assets/sleep-5-10.mp3.asset.json";
 import audio511 from "@/assets/sleep-5-11.mp3.asset.json";
 import audio512 from "@/assets/sleep-5-12.mp3.asset.json";
