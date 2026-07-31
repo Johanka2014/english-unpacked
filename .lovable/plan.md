@@ -1,51 +1,60 @@
 ## Goal
 
-Add a **Music Festivals** lesson to Practice → Topics, matching the existing topic-lesson format (like *The Price of Passion* / *Sport*): a single scrollable page of numbered interactive activities built with the shared renderer and exercise components.
+Bring the Sleep lesson (`/lessons/sleep` — `src/pages/SleepLesson.tsx`) up to the same depth and interactivity as the Music Festivals lesson, using the five shared files plus the two TED resources.
 
-## What the source material contains
+## Confirmed source material
 
-I downloaded and read every Drive link — all are publicly readable. Contents:
+All five Drive links are publicly downloadable:
 
-| Source | Usable content |
-| --- | --- |
-| British Council "Live music" video page | Video + preparation matching task (8 festival words), comprehension exercises |
-| Notting Hill Carnival reading (scan) | Culture reading: origins, steel bands, food stalls |
-| Cool for Kids / Underage Festival (scan) | Teen festival reading, no-adults festival |
-| Glastonbury neighbours text + verb+ing pronunciation | Reading with tick-the-problems task, -ing pronunciation set, "more words to learn" list |
-| Glastonbury (B1 exam-style, 2 scans) | Longer reading + Part 5 multiple-choice questions |
-| Rock Werchter / Croatia / Benicàssim culture page | True–false set + compound-noun exercise (headline acts, campsite, shuttle buses…) |
-| Oxegen / compound-noun workbook page | Matching 1–8 compound nouns + gap-fill text |
-| Festival in the Desert (Timbouctou) | Advanced reading on the Festival au Désert |
-| BreakingNews: first woman to conduct the BBC Proms | Article, True/False, synonym match, discussion questions |
-| 1 JPEG page + a .ppt and a .doc | To be OCR'd/extracted during the build and folded into the relevant sections |
-| LearningApps ph3fskiwc21 | Embedded as an interactive activity iframe |
+- `NEF Upper Inter 5 Extras – SB module review.pdf` (New English File Upper-Int, File 5 review — *used to* / *be used to* practice)
+- `pg 16 – dreamy sleep.jpg` (worksheet page, image)
+- `global_elesson081_sleep_TN.pdf` (Macmillan Global e-lesson, teacher's notes)
+- `Advanced – Vocabulary and Structure Practice – test 9.pdf`
+  &nbsp;
 
-## Lesson structure (planned)
+Plus:
 
-1. **Warm-up discussion** — festival experience questions.
-2. **Vocabulary flashcards** — festival words (line-up, headline act, campsite, wellies, festival-goer, stall, rehearse, up for it…), using the existing `Flashcards` component.
-3. **Preparation matching** — the 8 British Council vocabulary/definition pairs (`MatchingExercise`).
-4. **Video: Live music (British Council)** — embedded link/video card with the vocabulary in context.
-5. **Interactive activity** — LearningApps iframe tile (same pattern as Prepositions of Place).
-6. **Reading A: Glastonbury** — text + tick-the-problems and comprehension MCQs.
-7. **Reading B: Festivals across Europe** — true/false set.
-8. **Compound nouns** — matching + gap-fill (drag/type-to-complete components).
-9. **Pronunciation: verb + -ing** — "circle the odd one out" as a click-to-choose exercise.
-10. **Reading C: Notting Hill Carnival** — culture reading + MCQs.
-11. **Reading D: BBC Proms / first woman conductor** — true/false + synonym matching.
-12. **Extension: Festival in the Desert** — advanced reading + discussion.
-13. **Speaking / writing task** — discussion prompts and a writing brief from the sources.
+- ted-ielts.com Arianna Huffington "How to Succeed? Get More Sleep" page (vocabulary list + comprehension questions — already fetched)
+- TED talk: Dan Gartenberg, "The brain benefits of deep sleep and how to get more of it"
 
-## Technical details
+Content extraction (text + OCR for the JPG and scanned pages) happens first; every activity below is built from what those files actually contain, so exact item counts may shift slightly.
 
-- New data file `src/data/musicFestivalsData.ts` typed with the existing `Activity` shape, rendered by `TechnicalRenderer` (already supports reading, word-list, fill-blanks, drag-fill, type-blanks, matching, multiple-choice, task, discussion).
-- New page `src/pages/MusicFestivals.tsx`, styled like `PriceOfPassion.tsx` (SEO tag, Navigation, back link to Topics, Footer).
-- New route `/music-festivals` in `App.tsx`.
-- Add a **Music Festivals** tile to `src/pages/TopicsSport.tsx`'s sibling structure: create a Topics landing entry so Topics shows both *Sport* and *Music Festivals* (update `src/pages/MembersActivities.tsx` Topics tab).
-- Any images worth keeping (carnival/festival photos from the scans) uploaded via the assets CLI rather than committed as binaries.
-- Lesson prompts will be written to satisfy `scripts/validate-lesson-blanks.mjs` rules if type-blanks are used.
+## What gets built
 
-## Notes
+Keep the existing 5-tab layout (Reading · Vocabulary · Grammar · Listening · Quiz) but enrich each tab, Music-Festivals style: numbered sections, a flashcard warm-up, `TechnicalRenderer` activity blocks, and exam-style readings.
 
-- The two Office files (.ppt, .doc) will be extracted during the build; if their content duplicates the PDFs I'll fold it into the matching section rather than adding a redundant activity.
-- Level: the material spans A2–C1, so activities will be ordered easiest-first and each section labelled with a level badge.
+**Vocabulary tab**
+
+1. New `Flashcards` deck (reuses `src/components/presentations/Flashcards.tsx`) introducing sleep vocabulary + the Huffington vocabulary (deprived, exhaustion, brag, one-upmanship, hyper-connected, crisis/crises, faint) before the gap-fills.
+2. Keep the existing "Sleep race" gap-fill and similes matching.
+3. Add a collocations / phrasal-verbs activity (drop off, nod off, doze off, sleep in, lie in, oversleep…) from the Linguahouse and Global worksheets — drag-fill or matching.
+
+**Reading tab**
+4. Keep the existing "Sleep Matters" passage and its exercises.
+5. Add a second, exam-style reading built from the Linguahouse *How to Sleep* worksheet: passage + multiple-choice / true-false comprehension + vocabulary-in-context matching.
+6. Add a short discussion block from the Global e-lesson warm-up questions.
+
+**Grammar tab**
+7. Keep the explanation grid and the two existing exercises.
+8. Add a third exercise set from the NEF File 5 review (mixed *used to / be used to / get used to* plus the other File 5 review points that fit — e.g. verb patterns / adverbs, only where they support the lesson).
+9. Add a sentence-transformation / error-correction activity from the Advanced Vocabulary & Structure test 9 (kept at a level that suits B2 students, with a "stretch" label).
+
+**Listening tab**
+10. Keep the TED-Ed video, transcript and its comprehension quiz.
+11. New section: Arianna Huffington, *How to Succeed? Get More Sleep* — embedded TED/YouTube video, pre-watching vocabulary, and comprehension questions adapted from the ted-ielts lesson.
+12. New section: Dan Gartenberg, *The brain benefits of deep sleep* — embedded video, gap-fill note-taking task and comprehension MCQs.
+13. Keep the three existing Unit 5 audio tracks.
+
+**Quiz tab**
+14. Extend the final mixed quiz with items drawn from the new readings, videos and grammar work.
+
+**Speaking / writing wrap-up**
+15. Closing task card (discussion prompts + a short writing task on sleep habits), matching the Music Festivals ending.
+
+## Technical notes
+
+- New/expanded content lives in `src/data/sleepLessonData.ts`, typed with the existing `Activity` shape from `src/data/technicalEnglishData.ts` so it renders through `TechnicalRenderer`.
+- `src/pages/SleepLesson.tsx` gains the new sections, the `Flashcards` deck and the two video cards; mobile spacing follows the tightened Music Festivals pattern (`p-4 sm:p-6`, reduced section gaps).
+- The `pg 16 – dreamy sleep.jpg` worksheet is transcribed into interactive exercises rather than embedded as an image.
+- Every new gap-fill prompt must satisfy `scripts/validate-lesson-blanks.mjs` (exactly one `x___` blank, hint letter matching a single-word answer); `bun run validate:lessons` and a typecheck run before finishing.
+- Videos are embedded from their official TED/YouTube embed URLs; PDF material is adapted into original interactive items rather than reproduced verbatim.
