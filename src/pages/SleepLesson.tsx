@@ -375,7 +375,11 @@ const SleepLesson = () => {
                 description="Choose the best answer for each question."
                 questions={finalQuiz}
               />
+
+              <TechnicalRenderer activities={advancedStretch} />
+              <TechnicalRenderer activities={wrapUpTasks} />
             </TabsContent>
+
           </Tabs>
         </div>
       </main>
