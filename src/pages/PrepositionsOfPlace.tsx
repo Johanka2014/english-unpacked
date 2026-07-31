@@ -62,8 +62,8 @@ const PrepositionsOfPlace = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main className="container mx-auto px-4 py-20 max-w-3xl">
-        <div className="mb-4">
+      <main className="container mx-auto px-4 py-8 sm:py-20 max-w-3xl">
+        <div className="mb-3 sm:mb-4">
           <Link to="/prepositions">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               <ArrowLeft className="h-4 w-4 mr-1" /> Back to Prepositions
@@ -71,23 +71,23 @@ const PrepositionsOfPlace = () => {
           </Link>
         </div>
 
-        <div className="mb-8 text-center">
-          <Badge className="mb-4" variant="secondary">Grammar Practice</Badge>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Prepositions of Place</h1>
-          <p className="text-muted-foreground">Learn in, on and at for position, then practise in front of, behind, above, below and more.</p>
+        <div className="mb-5 sm:mb-8 text-center">
+          <Badge className="mb-3 sm:mb-4" variant="secondary">Grammar Practice</Badge>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">Prepositions of Place</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">Learn in, on and at for position, then practise in front of, behind, above, below and more.</p>
         </div>
 
         {/* Explanation: in, on, at for PLACE */}
-        <Card className="mb-6 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
-          <CardHeader className="pb-3 border-b border-brand-accent/20">
-            <div className="flex items-center gap-3">
+        <Card className="mb-4 sm:mb-6 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+          <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-3 border-b border-brand-accent/20">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <Badge className="bg-brand-accent text-white">Before you start</Badge>
-              <CardTitle className="text-xl text-brand-navy dark:text-brand-royal">
+              <CardTitle className="text-lg sm:text-xl text-brand-navy dark:text-brand-royal">
                 in, on, at for PLACE
               </CardTitle>
             </div>
           </CardHeader>
-          <CardContent className="space-y-3 pt-4 text-sm text-foreground/80">
+          <CardContent className="space-y-3 p-4 pt-4 sm:p-6 sm:pt-4 text-sm text-foreground/80">
             <p>
               <strong>in</strong>, <strong>on</strong> and <strong>at</strong> are also used for time, but here they
               describe <strong>position</strong>. The same "size" idea helps.
@@ -106,14 +106,14 @@ const PrepositionsOfPlace = () => {
                 <em> at the station, at home, at the hospital, at the table</em>
               </li>
             </ul>
-            <figure className="pt-2">
+            <figure className="pt-1 sm:pt-2">
               <img
                 src={inOnAtPlaceImage}
                 alt="Infographic: IN for being inside an area such as a house, Italy or the fridge; ON for touching a surface such as a desk, wall or the ground; AT for an exact point or place such as the station, home or the table"
                 loading="lazy"
                 width={1536}
                 height={768}
-                className="w-[90%] mx-auto rounded-lg border border-brand-accent/20"
+                className="w-full sm:w-[90%] mx-auto rounded-lg border border-brand-accent/20"
               />
               <figcaption className="mt-2 text-xs text-muted-foreground text-center">
                 <strong>in</strong> = inside a space, <strong>on</strong> = on a surface, <strong>at</strong> = an exact point.
@@ -127,25 +127,25 @@ const PrepositionsOfPlace = () => {
           </CardContent>
         </Card>
 
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <PrepositionDropdownExercise />
         </div>
 
-        <Card className="mb-6 hover:shadow-lg transition-all duration-200">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">
+        <Card className="mb-4 sm:mb-6 hover:shadow-lg transition-all duration-200">
+          <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <CardTitle className="text-base sm:text-lg text-brand-navy dark:text-brand-royal">
                 🎮 Interactive Activity: Prepositions of Place
               </CardTitle>
-              <Badge variant="secondary">LearningApps</Badge>
+              <Badge variant="secondary" className="shrink-0">LearningApps</Badge>
             </div>
           </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
+          <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
+            <p className="text-sm text-muted-foreground mb-3 sm:mb-4">
               Practice prepositions of place with this fun interactive matching activity on LearningApps.
             </p>
             <Button
-              className="bg-brand-royal hover:bg-brand-navy text-white"
+              className="w-full sm:w-auto bg-brand-royal hover:bg-brand-navy text-white"
               asChild
             >
               <a href="https://learningapps.org/watch?v=pov7n6mqa23" target="_blank" rel="noopener noreferrer">
@@ -156,17 +156,16 @@ const PrepositionsOfPlace = () => {
           </CardContent>
         </Card>
 
-
         <Card className="bg-gradient-to-br from-card via-emerald-50 dark:via-emerald-950/10 to-card border-brand-accent/20">
-          <CardHeader className="pb-3 border-b border-brand-accent/20">
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-lg text-brand-navy dark:text-brand-royal">
+          <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-3 border-b border-brand-accent/20">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <CardTitle className="text-base sm:text-lg text-brand-navy dark:text-brand-royal">
                 Choose the correct word
               </CardTitle>
-              <Badge className="bg-brand-accent text-white">Multiple Choice</Badge>
+              <Badge className="bg-brand-accent text-white shrink-0">Multiple Choice</Badge>
             </div>
           </CardHeader>
-          <CardContent className="space-y-5 pt-5">
+          <CardContent className="space-y-3 sm:space-y-5 p-4 pt-4 sm:p-6 sm:pt-5">
             {questions.map((q, qIdx) => {
               const isCorrect = checked ? results[qIdx] : undefined;
               return (
