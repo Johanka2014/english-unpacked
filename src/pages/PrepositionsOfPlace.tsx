@@ -78,16 +78,16 @@ const PrepositionsOfPlace = () => {
         </div>
 
         {/* Explanation: in, on, at for PLACE */}
-        <Card className="mb-6 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
-          <CardHeader className="pb-3 border-b border-brand-accent/20">
-            <div className="flex items-center gap-3">
+        <Card className="mb-4 sm:mb-6 bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+          <CardHeader className="p-4 pb-3 sm:p-6 sm:pb-3 border-b border-brand-accent/20">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <Badge className="bg-brand-accent text-white">Before you start</Badge>
-              <CardTitle className="text-xl text-brand-navy dark:text-brand-royal">
+              <CardTitle className="text-lg sm:text-xl text-brand-navy dark:text-brand-royal">
                 in, on, at for PLACE
               </CardTitle>
             </div>
           </CardHeader>
-          <CardContent className="space-y-3 pt-4 text-sm text-foreground/80">
+          <CardContent className="space-y-3 p-4 pt-4 sm:p-6 sm:pt-4 text-sm text-foreground/80">
             <p>
               <strong>in</strong>, <strong>on</strong> and <strong>at</strong> are also used for time, but here they
               describe <strong>position</strong>. The same "size" idea helps.
