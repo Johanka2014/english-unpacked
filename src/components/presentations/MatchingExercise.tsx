@@ -84,7 +84,7 @@ const MatchingExercise = ({
       <CardContent className="p-4 sm:p-6">
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
-            <h3 className="text-2xl font-semibold mb-1 font-merriweather text-foreground">{title}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-1 font-merriweather text-foreground">{title}</h3>
             {description && <p className="text-muted-foreground">{description}</p>}
           </div>
           <button
