@@ -353,7 +353,84 @@ const SleepLesson = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Jessa Gamble */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    10 · Video: Our natural sleep cycle (Jessa Gamble)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    A four-minute TED talk about body clocks, horseshoe crabs and what our sleep
+                    would look like without modern life getting in the way.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/N6eN6mrK0ZQ"
+                      title="Jessa Gamble: Our natural sleep cycle — TED"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={gambleBeforeWatching} />
+              <TechnicalRenderer activities={gambleActivities} />
+
+              {/* Arianna Huffington */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    11 · Video: How to succeed? Get more sleep (Arianna Huffington)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Arianna Huffington describes how collapsing from exhaustion changed the way she
+                    thinks about success — and why sleep deprivation has become a badge of honour.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://embed.ted.com/talks/arianna_huffington_how_to_succeed_get_more_sleep"
+                      title="Arianna Huffington: How to succeed? Get more sleep — TED"
+                      allow="autoplay; fullscreen; encrypted-media"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={huffingtonActivities} />
+
+              {/* Dan Gartenberg */}
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                    12 · Video: The brain benefits of deep sleep (Dan Gartenberg)
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Sleep scientist Dan Gartenberg explains slow-wave sleep and how sound played in
+                    time with your brainwaves may make deep sleep even deeper.
+                  </p>
+                  <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ paddingTop: "56.25%" }}>
+                    <iframe
+                      src="https://embed.ted.com/talks/dan_gartenberg_the_brain_benefits_of_deep_sleep_and_how_to_get_more_of_it"
+                      title="Dan Gartenberg: The brain benefits of deep sleep — TED"
+                      allow="autoplay; fullscreen; encrypted-media"
+                      allowFullScreen
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <TechnicalRenderer activities={gartenbergActivities} />
             </TabsContent>
+
 
 
             {/* QUIZ */}
