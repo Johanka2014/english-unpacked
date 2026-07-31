@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -230,6 +230,13 @@ const TABS: TabDef[] = [
         icon: Moon,
         path: '/topics/sleep',
         color: 'text-indigo-600',
+      },
+      {
+        title: 'Music Festivals',
+        description: 'B1–B2 lesson on music festivals — festival vocabulary, a British Council video, compound nouns and readings on Glastonbury, Notting Hill Carnival, the Sahara and the BBC Proms',
+        icon: Music,
+        path: '/topics/music-festivals',
+        color: 'text-pink-600',
       },
     ],
   },
