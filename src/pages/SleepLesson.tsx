@@ -106,9 +106,9 @@ const SleepLesson = () => {
             </TabsList>
 
             {/* READING */}
-            <TabsContent value="reading" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6">
+            <TabsContent value="reading" className="space-y-4 sm:space-y-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <h2 className="text-2xl font-semibold mb-3 font-merriweather text-foreground">
                     Warm-up: Can you guess?
                   </h2>
@@ -127,8 +127,8 @@ const SleepLesson = () => {
                 </CardContent>
               </Card>
 
-              <Card className="service-card">
-                <CardContent className="p-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <h2 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
                     Reading: Sleep Matters
                   </h2>
@@ -196,9 +196,9 @@ const SleepLesson = () => {
 
 
             {/* GRAMMAR */}
-            <TabsContent value="grammar" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6 space-y-5">
+            <TabsContent value="grammar" className="space-y-4 sm:space-y-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6 space-y-5">
                   <h2 className="text-2xl font-semibold font-merriweather text-foreground">
                     Grammar: <em>used to</em> / <em>be used to</em> / <em>get used to</em>
                   </h2>
@@ -251,9 +251,9 @@ const SleepLesson = () => {
 
 
             {/* LISTENING */}
-            <TabsContent value="listening" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6">
+            <TabsContent value="listening" className="space-y-4 sm:space-y-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <Headphones className="h-6 w-6 text-primary" />
                     <h2 className="text-2xl font-semibold font-merriweather text-foreground">
@@ -277,8 +277,8 @@ const SleepLesson = () => {
                 </CardContent>
               </Card>
 
-              <Card className="service-card">
-                <CardContent className="p-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
                     <div className="flex items-center gap-3">
                       <FileText className="h-5 w-5 text-primary" />
@@ -323,8 +323,8 @@ const SleepLesson = () => {
               </Card>
 
 
-              <Card className="service-card">
-                <CardContent className="p-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <h3 className="text-lg font-semibold mb-3 font-merriweather text-foreground">
                     Discussion — before you watch
                   </h3>
@@ -343,8 +343,8 @@ const SleepLesson = () => {
                 questions={videoComprehension}
               />
 
-              <Card className="service-card">
-                <CardContent className="p-6 space-y-5">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6 space-y-5">
                   <div className="flex items-center gap-3">
                     <Headphones className="h-6 w-6 text-primary" />
                     <h3 className="text-xl font-semibold font-merriweather text-foreground">
@@ -468,9 +468,9 @@ const SleepLesson = () => {
 
 
             {/* QUIZ */}
-            <TabsContent value="quiz" className="space-y-6">
-              <Card className="service-card">
-                <CardContent className="p-6">
+            <TabsContent value="quiz" className="space-y-4 sm:space-y-6">
+              <Card className="service-card p-0">
+                <CardContent className="p-4 sm:p-6">
                   <h2 className="text-2xl font-semibold mb-2 font-merriweather text-foreground">
                     Final quiz — mixed review
                   </h2>
