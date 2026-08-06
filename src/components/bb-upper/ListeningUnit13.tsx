@@ -133,7 +133,7 @@ const ListeningUnit13 = () => {
       <Card className="service-card mt-8">
         <CardContent className="p-6 space-y-4">
           <p className="text-muted-foreground">
-            <strong>3</strong> Complete these sentences from the conversation. <strong>4</strong> Then say which speaker said each sentence.
+            <strong>3</strong> Complete these sentences from the conversation. Then say which speaker said each sentence.
           </p>
           {sentences.map((s) => (
             <div key={s.id} className="space-y-1">
