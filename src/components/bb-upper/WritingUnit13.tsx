@@ -143,14 +143,20 @@ const WritingUnit13 = () => {
       <Card className="service-card">
         <CardContent className="p-6 space-y-4">
           <Bar title="What is your favourite hotel chain?" data={chart2} />
-          <Textarea rows={4} value={p2} onChange={(e) => setP2(e.target.value)} placeholder="Write your paragraph here…" />
+          <WritingBox
+            storageKey="bb13-writing-chart2"
+            model="In our survey of 1,200 business travellers, we found that Marriott was the most popular hotel chain, with 24% of respondents choosing it as their favourite. Hilton was named by 12%, whereas only 7% preferred Westin. However, the remaining respondents mentioned a wide range of other chains."
+          />
         </CardContent>
       </Card>
 
       <Card className="service-card">
         <CardContent className="p-6 space-y-4">
           <Bar title="How important is the hotel's cost in making your travel plans?" data={chart3} />
-          <Textarea rows={4} value={p3} onChange={(e) => setP3(e.target.value)} placeholder="Write your paragraph here…" />
+          <WritingBox
+            storageKey="bb13-writing-chart3"
+            model="Cost clearly matters to business travellers: 56% said that the price of the hotel was quite important when making their travel plans, while 41% considered it very important. However, only 3% felt that cost was not important at all."
+          />
         </CardContent>
       </Card>
 
