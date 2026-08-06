@@ -81,42 +81,46 @@ const ReadingUnit13 = () => {
         </CardContent>
       </Card>
 
-      <div className="space-y-3">
-        {gaps.map((g) => (
-          <Card key={g.id} className="service-card">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="font-bold text-brand-royal">Gap {g.id}:</span>
-                {res && (res[g.id]
-                  ? <CheckCircle2 className="h-5 w-5 text-green-600" />
-                  : <span className="text-sm text-red-600">Correct: {g.answer}</span>)}
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {sentences.map((s) => (
-                  <button
-                    key={s.letter}
-                    onClick={() => { setSel((p) => ({ ...p, [g.id]: s.letter })); setRes(null); }}
-                    className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
-                      sel[g.id] === s.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
-                    }`}
-                  >{s.letter}</button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <div className="space-y-3">
+          <h4 className="font-semibold text-brand-royal">Your answers</h4>
+          {gaps.map((g) => (
+            <Card key={g.id} className="service-card">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-bold text-brand-royal">Gap {g.id}:</span>
+                  {res && (res[g.id]
+                    ? <CheckCircle2 className="h-5 w-5 text-green-600" />
+                    : <span className="text-sm text-red-600">Correct: {g.answer}</span>)}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {sentences.map((s) => (
+                    <button
+                      key={s.letter}
+                      onClick={() => { setSel((p) => ({ ...p, [g.id]: s.letter })); setRes(null); }}
+                      className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
+                        sel[g.id] === s.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
+                      }`}
+                    >{s.letter}</button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <Card className="service-card lg:sticky lg:top-24">
+          <CardContent className="p-6">
+            <h4 className="font-semibold text-brand-royal mb-3">Sentence options (A–H)</h4>
+            <div className="space-y-2 text-sm">
+              {sentences.map((s) => (
+                <p key={s.letter} className="text-foreground"><strong>{s.letter}</strong> — {s.text}</p>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      <Card className="service-card">
-        <CardContent className="p-6">
-          <h4 className="font-semibold text-brand-royal mb-3">Sentence options (A–H)</h4>
-          <div className="space-y-2 text-sm">
-            {sentences.map((s) => (
-              <p key={s.letter} className="text-foreground"><strong>{s.letter}</strong> — {s.text}</p>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
 
       <Button onClick={check} className="bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
     </div>
