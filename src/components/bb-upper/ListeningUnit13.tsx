@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle2, XCircle } from "lucide-react";
 
 import audioAsset from "@/assets/bb-upper/unit13-listening.mp3.asset.json";
+import brainstormImg from "@/assets/bb-upper/conference-brainstorm.jpg";
 
 const AUDIO_URL = audioAsset.url;
 
