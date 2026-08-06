@@ -81,7 +81,7 @@ const Reading2Unit13 = () => {
         </CardContent>
       </Card>
 
-      <div className="space-y-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start">
         {questions.map((q) => (
           <Card key={q.id} className="service-card">
             <CardContent className="p-4">
