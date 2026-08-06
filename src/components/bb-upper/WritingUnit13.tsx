@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,11 +42,54 @@ const Bar = ({ data, title }: { data: { label: string; value: number }[]; title:
   </div>
 );
 
+const WritingBox = ({
+  storageKey,
+  model,
+}: {
+  storageKey: string;
+  model: string;
+}) => {
+  const [text, setText] = useState(() => localStorage.getItem(storageKey) || "");
+  const [showModel, setShowModel] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => localStorage.setItem(storageKey, text), 400);
+    return () => clearTimeout(t);
+  }, [text, storageKey]);
+
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  return (
+    <div className="space-y-3">
+      <Textarea
+        rows={6}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Write your paragraph here… (try to use while / whereas / however)"
+        className="min-h-[140px] text-base leading-relaxed bg-background"
+      />
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-xs text-muted-foreground">{words} word{words === 1 ? "" : "s"} · saved automatically</span>
+        <div className="flex gap-2 ml-auto">
+          <Button variant="outline" size="sm" onClick={() => setShowModel((s) => !s)}>
+            {showModel ? "Hide model answer" : "Show model answer"}
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setText("")}>Clear</Button>
+        </div>
+      </div>
+      {showModel && (
+        <div className="rounded-md border border-brand-royal/30 bg-brand-royal/5 p-4 text-sm text-foreground">
+          <p className="font-semibold text-brand-royal mb-1">Model answer</p>
+          <p className="leading-relaxed">{model}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const WritingUnit13 = () => {
   const [ans, setAns] = useState<Record<number, string>>({});
   const [res, setRes] = useState<Record<number, boolean> | null>(null);
-  const [p2, setP2] = useState("");
-  const [p3, setP3] = useState("");
 
   const check = () => {
     const r: Record<number, boolean> = {};
@@ -100,14 +143,20 @@ const WritingUnit13 = () => {
       <Card className="service-card">
         <CardContent className="p-6 space-y-4">
           <Bar title="What is your favourite hotel chain?" data={chart2} />
-          <Textarea rows={4} value={p2} onChange={(e) => setP2(e.target.value)} placeholder="Write your paragraph here…" />
+          <WritingBox
+            storageKey="bb13-writing-chart2"
+            model="In our survey of 1,200 business travellers, we found that Marriott was the most popular hotel chain, with 24% of respondents choosing it as their favourite. Hilton was named by 12%, whereas only 7% preferred Westin. However, the remaining respondents mentioned a wide range of other chains."
+          />
         </CardContent>
       </Card>
 
       <Card className="service-card">
         <CardContent className="p-6 space-y-4">
           <Bar title="How important is the hotel's cost in making your travel plans?" data={chart3} />
-          <Textarea rows={4} value={p3} onChange={(e) => setP3(e.target.value)} placeholder="Write your paragraph here…" />
+          <WritingBox
+            storageKey="bb13-writing-chart3"
+            model="Cost clearly matters to business travellers: 56% said that the price of the hotel was quite important when making their travel plans, while 41% considered it very important. However, only 3% felt that cost was not important at all."
+          />
         </CardContent>
       </Card>
 
