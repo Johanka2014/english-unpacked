@@ -42,11 +42,54 @@ const Bar = ({ data, title }: { data: { label: string; value: number }[]; title:
   </div>
 );
 
+const WritingBox = ({
+  storageKey,
+  model,
+}: {
+  storageKey: string;
+  model: string;
+}) => {
+  const [text, setText] = useState(() => localStorage.getItem(storageKey) || "");
+  const [showModel, setShowModel] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => localStorage.setItem(storageKey, text), 400);
+    return () => clearTimeout(t);
+  }, [text, storageKey]);
+
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+  return (
+    <div className="space-y-3">
+      <Textarea
+        rows={6}
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Write your paragraph here… (try to use while / whereas / however)"
+        className="min-h-[140px] text-base leading-relaxed bg-background"
+      />
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-xs text-muted-foreground">{words} word{words === 1 ? "" : "s"} · saved automatically</span>
+        <div className="flex gap-2 ml-auto">
+          <Button variant="outline" size="sm" onClick={() => setShowModel((s) => !s)}>
+            {showModel ? "Hide model answer" : "Show model answer"}
+          </Button>
+          <Button variant="ghost" size="sm" onClick={() => setText("")}>Clear</Button>
+        </div>
+      </div>
+      {showModel && (
+        <div className="rounded-md border border-brand-royal/30 bg-brand-royal/5 p-4 text-sm text-foreground">
+          <p className="font-semibold text-brand-royal mb-1">Model answer</p>
+          <p className="leading-relaxed">{model}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const WritingUnit13 = () => {
   const [ans, setAns] = useState<Record<number, string>>({});
   const [res, setRes] = useState<Record<number, boolean> | null>(null);
-  const [p2, setP2] = useState("");
-  const [p3, setP3] = useState("");
 
   const check = () => {
     const r: Record<number, boolean> = {};
