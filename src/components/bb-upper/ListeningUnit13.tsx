@@ -161,12 +161,6 @@ const ListeningUnit13 = () => {
         </CardContent>
       </Card>
 
-      <Card className="service-card bg-muted/30">
-        <CardContent className="p-6 text-sm space-y-2">
-          <p className="font-semibold text-brand-royal">Grammar note — Modal verbs: perfect forms</p>
-          <p className="text-foreground"><em>should have</em> + past participle = used to criticise past actions or to say what was the right thing to do.</p>
-        </CardContent>
-      </Card>
 
       <Accordion type="single" collapsible>
         <AccordionItem value="t">
