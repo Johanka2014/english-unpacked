@@ -94,12 +94,47 @@ const modalGaps: { id: string; answers: string[]; hint: string }[] = [
   { id: 'm7', answers: ['should have told', 'ought to have told'], hint: 'tell' },
 ];
 
+const passives1 = [
+  { id: 'p1', prompt: "We've sent your application to head office.", start: 'Your application ', answers: ['has been sent to head office'] },
+  { id: 'p2', prompt: 'The Minister for Trade and Industry will open the conference.', start: 'The conference ', answers: ['will be opened by the minister for trade and industry'] },
+  { id: 'p3', prompt: 'You must submit your application by 19 March.', start: 'Your application ', answers: ['must be submitted by 19 march'] },
+  { id: 'p4', prompt: 'The Board of Directors has taken a number of important decisions this morning.', start: 'A number of important decisions ', answers: ['have been taken by the board of directors this morning', 'have been taken this morning'] },
+  { id: 'p5', prompt: "They're interviewing candidates for the job at the moment.", start: 'Candidates ', answers: ['are being interviewed for the job at the moment', 'are being interviewed for the job'] },
+  { id: 'p6', prompt: 'In our manufacturing process, we reject 9% of finished articles as substandard.', start: 'In our manufacturing process, 9% ', answers: ['of finished articles are rejected as substandard', 'of finished articles is rejected as substandard'] },
+];
+
+const passives2 = [
+  { id: 'q1', prompt: 'We expect that turnover will fall next year due to increased competition.', start: 'Turnover is ', answers: ['expected to fall next year due to increased competition', 'expected to fall next year'] },
+  { id: 'q2', prompt: 'We expect prices of raw materials will rise by 50% in the next six months.', start: 'Prices of raw materials ', answers: ['are expected to rise by 50% in the next six months', 'are expected to rise by 50%'] },
+  { id: 'q3', prompt: 'According to the announcement, profits have reached record levels.', start: 'It has ', answers: ['been announced that profits have reached record levels'] },
+  { id: 'q4', prompt: 'It is reported that Sunshine Cruises Ltd is losing money.', start: 'Sunshine Cruises Ltd is ', answers: ['reported to be losing money'] },
+  { id: 'q5', prompt: 'Most people think he is an excellent personnel director.', start: 'He is ', answers: ['thought to be an excellent personnel director'] },
+  { id: 'q6', prompt: 'We expect the project will meet its deadlines.', start: 'The project is ', answers: ['expected to meet its deadlines'] },
+];
+
+const tooEnough: { parts: string[]; answers: string[][] }[] = [
+  { parts: ['Top executives of big corporations get salaries which are ', ' high.'], answers: [['too']] },
+  { parts: ['There are not ', ' jobs for recently qualified graduates.'], answers: [['enough']] },
+  { parts: ['University courses are not focused ', ' on the needs of industry.'], answers: [['enough']] },
+  { parts: ['Most people spend ', ' time in the same job. They should change jobs more often.'], answers: [['too much']] },
+  { parts: ['There are ', ' men in the top jobs in industry. Women aren\u2019t given ', ' opportunities.'], answers: [['too many'], ['enough']] },
+  { parts: ['When travelling on business, I don\u2019t have ', ' time to do much sightseeing.'], answers: [['enough']] },
+];
+
 const GrammarUnit13 = () => {
   const [whileAnswers, setWhileAnswers] = useState<Record<number, string>>({});
   const [whileShown, setWhileShown] = useState(false);
 
   const [modalVals, setModalVals] = useState<Record<string, string>>({});
   const [modalChecked, setModalChecked] = useState(false);
+
+  const [passVals, setPassVals] = useState<Record<string, string>>({});
+  const [passChecked, setPassChecked] = useState(false);
+  const [pass2Vals, setPass2Vals] = useState<Record<string, string>>({});
+  const [pass2Checked, setPass2Checked] = useState(false);
+  const [teVals, setTeVals] = useState<Record<string, string>>({});
+  const [teChecked, setTeChecked] = useState(false);
+
 
   return (
     <div className="space-y-10">
@@ -213,6 +248,89 @@ const GrammarUnit13 = () => {
           <Button className="mt-5" onClick={() => setModalChecked(true)}>
             Check Answers
           </Button>
+        </CardContent>
+      </Card>
+
+      {/* Passives 1 */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold font-merriweather text-foreground mb-3">3. Passives 1</h3>
+          <div className="bg-muted/30 rounded-lg p-4 border border-border mb-5 text-sm space-y-2">
+            <p>Use the passive when you want to emphasise what happened rather than who did it, when the agent is unknown or unimportant, or when you want a more formal style.</p>
+            <p className="italic">Renault launched the Megane in 1997. → The Megane was launched in 1997.</p>
+          </div>
+          <p className="text-foreground mb-4">Make the following statements more formal by using the passive.</p>
+          <div className="space-y-4">
+            {passives1.map((p, i) => (
+              <div key={p.id} className="border-l-4 border-primary/40 pl-4">
+                <p className="text-sm text-muted-foreground mb-1"><strong>{i + 1}.</strong> {p.prompt}</p>
+                <p className="text-foreground text-sm">
+                  {p.start}
+                  <Gap id={p.id} answers={p.answers} placeholder="passive form" width="w-72" values={passVals} setValues={setPassVals} checked={passChecked} />
+                </p>
+              </div>
+            ))}
+          </div>
+          <Button className="mt-5" onClick={() => setPassChecked(true)}>Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      {/* Passives 2 */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold font-merriweather text-foreground mb-3">4. Passives 2</h3>
+          <div className="bg-muted/30 rounded-lg p-4 border border-border mb-5 text-sm space-y-2">
+            <p><strong>X is/was believed (reported, said, considered, expected, thought) + to</strong> + infinitive.<br /><em>His personal fortune is believed to exceed €500 million.</em></p>
+            <p><strong>It is/was/has been agreed (announced, decided, reported, suggested…) + that</strong> + clause.<br /><em>It was agreed that we should implement the new measures.</em></p>
+          </div>
+          <p className="text-foreground mb-4">Complete the second sentence so that it means the same as the first.</p>
+          <div className="space-y-4">
+            {passives2.map((p, i) => (
+              <div key={p.id} className="border-l-4 border-primary/40 pl-4">
+                <p className="text-sm text-muted-foreground mb-1"><strong>{i + 1}.</strong> {p.prompt}</p>
+                <p className="text-foreground text-sm">
+                  {p.start}
+                  <Gap id={p.id} answers={p.answers} placeholder="complete it" width="w-80" values={pass2Vals} setValues={setPass2Vals} checked={pass2Checked} />
+                </p>
+              </div>
+            ))}
+          </div>
+          <Button className="mt-5" onClick={() => setPass2Checked(true)}>Check Answers</Button>
+        </CardContent>
+      </Card>
+
+      {/* Too / enough */}
+      <Card className="service-card">
+        <CardContent className="p-6">
+          <h3 className="text-xl font-semibold font-merriweather text-foreground mb-3">5. Too / enough</h3>
+          <div className="bg-muted/30 rounded-lg p-4 border border-border mb-5 text-sm space-y-2">
+            <p><strong>too</strong> + adjective/adverb — <em>Business class is too expensive.</em></p>
+            <p><strong>too much / too many</strong> + noun — <em>This project has too many costs.</em></p>
+            <p>adjective/adverb + <strong>enough</strong> — <em>She isn't qualified enough for this job.</em></p>
+            <p><strong>enough</strong> + (adjective) + noun — <em>We don't have enough vans to deliver all our orders.</em></p>
+          </div>
+          <p className="text-foreground mb-4">
+            Write <em>too</em>, <em>too many</em>, <em>too much</em> or <em>enough</em> in the gaps.
+          </p>
+          <div className="space-y-4 text-foreground text-sm">
+            {tooEnough.map((s, i) => (
+              <p key={i} className="border-l-4 border-primary/40 pl-4">
+                <strong>{i + 1}.</strong> {s.parts[0]}
+                <Gap id={`te${i}a`} answers={s.answers[0]} placeholder="too / enough" width="w-36" values={teVals} setValues={setTeVals} checked={teChecked} />
+                {s.parts[1]}
+                {s.answers[1] && (
+                  <>
+                    <Gap id={`te${i}b`} answers={s.answers[1]} placeholder="too / enough" width="w-36" values={teVals} setValues={setTeVals} checked={teChecked} />
+                    {s.parts[2]}
+                  </>
+                )}
+              </p>
+            ))}
+          </div>
+          <p className="text-muted-foreground text-sm mt-4">
+            <strong>2</strong> Discuss with a partner which of the sentences you agree with and which you disagree with.
+          </p>
+          <Button className="mt-5" onClick={() => setTeChecked(true)}>Check Answers</Button>
         </CardContent>
       </Card>
     </div>
