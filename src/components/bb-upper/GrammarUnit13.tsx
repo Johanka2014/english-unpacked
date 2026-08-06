@@ -94,12 +94,47 @@ const modalGaps: { id: string; answers: string[]; hint: string }[] = [
   { id: 'm7', answers: ['should have told', 'ought to have told'], hint: 'tell' },
 ];
 
+const passives1 = [
+  { id: 'p1', prompt: "We've sent your application to head office.", start: 'Your application ', answers: ['has been sent to head office'] },
+  { id: 'p2', prompt: 'The Minister for Trade and Industry will open the conference.', start: 'The conference ', answers: ['will be opened by the minister for trade and industry'] },
+  { id: 'p3', prompt: 'You must submit your application by 19 March.', start: 'Your application ', answers: ['must be submitted by 19 march'] },
+  { id: 'p4', prompt: 'The Board of Directors has taken a number of important decisions this morning.', start: 'A number of important decisions ', answers: ['have been taken by the board of directors this morning', 'have been taken this morning'] },
+  { id: 'p5', prompt: "They're interviewing candidates for the job at the moment.", start: 'Candidates ', answers: ['are being interviewed for the job at the moment', 'are being interviewed for the job'] },
+  { id: 'p6', prompt: 'In our manufacturing process, we reject 9% of finished articles as substandard.', start: 'In our manufacturing process, 9% ', answers: ['of finished articles are rejected as substandard', 'of finished articles is rejected as substandard'] },
+];
+
+const passives2 = [
+  { id: 'q1', prompt: 'We expect that turnover will fall next year due to increased competition.', start: 'Turnover is ', answers: ['expected to fall next year due to increased competition', 'expected to fall next year'] },
+  { id: 'q2', prompt: 'We expect prices of raw materials will rise by 50% in the next six months.', start: 'Prices of raw materials ', answers: ['are expected to rise by 50% in the next six months', 'are expected to rise by 50%'] },
+  { id: 'q3', prompt: 'According to the announcement, profits have reached record levels.', start: 'It has ', answers: ['been announced that profits have reached record levels'] },
+  { id: 'q4', prompt: 'It is reported that Sunshine Cruises Ltd is losing money.', start: 'Sunshine Cruises Ltd is ', answers: ['reported to be losing money'] },
+  { id: 'q5', prompt: 'Most people think he is an excellent personnel director.', start: 'He is ', answers: ['thought to be an excellent personnel director'] },
+  { id: 'q6', prompt: 'We expect the project will meet its deadlines.', start: 'The project is ', answers: ['expected to meet its deadlines'] },
+];
+
+const tooEnough: { parts: string[]; answers: string[][] }[] = [
+  { parts: ['Top executives of big corporations get salaries which are ', ' high.'], answers: [['too']] },
+  { parts: ['There are not ', ' jobs for recently qualified graduates.'], answers: [['enough']] },
+  { parts: ['University courses are not focused ', ' on the needs of industry.'], answers: [['enough']] },
+  { parts: ['Most people spend ', ' time in the same job. They should change jobs more often.'], answers: [['too much']] },
+  { parts: ['There are ', ' men in the top jobs in industry. Women aren\u2019t given ', ' opportunities.'], answers: [['too many'], ['enough']] },
+  { parts: ['When travelling on business, I don\u2019t have ', ' time to do much sightseeing.'], answers: [['enough']] },
+];
+
 const GrammarUnit13 = () => {
   const [whileAnswers, setWhileAnswers] = useState<Record<number, string>>({});
   const [whileShown, setWhileShown] = useState(false);
 
   const [modalVals, setModalVals] = useState<Record<string, string>>({});
   const [modalChecked, setModalChecked] = useState(false);
+
+  const [passVals, setPassVals] = useState<Record<string, string>>({});
+  const [passChecked, setPassChecked] = useState(false);
+  const [pass2Vals, setPass2Vals] = useState<Record<string, string>>({});
+  const [pass2Checked, setPass2Checked] = useState(false);
+  const [teVals, setTeVals] = useState<Record<string, string>>({});
+  const [teChecked, setTeChecked] = useState(false);
+
 
   return (
     <div className="space-y-10">
