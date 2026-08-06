@@ -86,47 +86,49 @@ const ListeningUnit13 = () => {
         </CardContent>
       </Card>
 
-      <Card className="service-card">
-        <CardContent className="p-6">
-          <h4 className="font-semibold text-brand-royal mb-3">Possible problems</h4>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-            {problems.map((p) => (
-              <div key={p.letter} className="px-3 py-2 rounded-md border border-border bg-muted/30 text-sm">
-                <span className="font-bold text-brand-royal">{p.letter}</span> — {p.label}
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <Card className="service-card lg:sticky lg:top-24">
+          <CardContent className="p-4 sm:p-6">
+            <h4 className="font-semibold text-brand-royal mb-3">Possible problems</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
+              {problems.map((p) => (
+                <div key={p.letter} className="px-3 py-2 rounded-md border border-border bg-muted/30 text-sm">
+                  <span className="font-bold text-brand-royal">{p.letter}</span> — {p.label}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
-      <div className="space-y-3">
-        {speakers.map((s) => (
-          <Card key={s.id} className="service-card">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="font-bold text-brand-royal w-8">{s.id}.</span>
-                <span className="font-semibold text-foreground flex-1">{s.name}</span>
-                {matchRes && (matchRes[s.id]
-                  ? <CheckCircle2 className="h-5 w-5 text-green-600" />
-                  : <span className="text-sm text-red-600">Correct: {s.answer}</span>)}
-              </div>
-              <div className="flex flex-wrap gap-2 ml-11">
-                {problems.map((p) => (
-                  <button
-                    key={p.letter}
-                    onClick={() => { setSel((x) => ({ ...x, [s.id]: p.letter })); setMatchRes(null); }}
-                    className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
-                      sel[s.id] === p.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
-                    }`}
-                  >{p.letter}</button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+        <div className="space-y-3">
+          {speakers.map((s) => (
+            <Card key={s.id} className="service-card">
+              <CardContent className="p-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-bold text-brand-royal w-8">{s.id}.</span>
+                  <span className="font-semibold text-foreground flex-1">{s.name}</span>
+                  {matchRes && (matchRes[s.id]
+                    ? <CheckCircle2 className="h-5 w-5 text-green-600" />
+                    : <span className="text-sm text-red-600">Correct: {s.answer}</span>)}
+                </div>
+                <div className="flex flex-wrap gap-2 ml-11">
+                  {problems.map((p) => (
+                    <button
+                      key={p.letter}
+                      onClick={() => { setSel((x) => ({ ...x, [s.id]: p.letter })); setMatchRes(null); }}
+                      className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
+                        sel[s.id] === p.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
+                      }`}
+                    >{p.letter}</button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+          <Button onClick={checkMatch} className="bg-brand-royal hover:bg-brand-navy">Check Matching</Button>
+        </div>
       </div>
 
-      <Button onClick={checkMatch} className="bg-brand-royal hover:bg-brand-navy">Check Matching</Button>
 
       <Card className="service-card mt-8">
         <CardContent className="p-6 space-y-4">
