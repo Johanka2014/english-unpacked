@@ -177,8 +177,18 @@ const ListeningUnit13 = () => {
       </Accordion>
 
       <Card className="service-card">
-        <CardContent className="p-6">
-          <p className="text-muted-foreground"><strong>6</strong> Discuss in small groups what the organisers could / should have done to avoid the problems mentioned.</p>
+        <CardContent className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <img
+              src={brainstormImg}
+              alt="Colleagues brainstorming conference problems around a meeting table"
+              loading="lazy"
+              width={1024}
+              height={768}
+              className="w-full h-auto rounded-lg object-cover"
+            />
+            <p className="text-muted-foreground"><strong>6</strong> Discuss in small groups what the organisers could / should have done to avoid the problems mentioned.</p>
+          </div>
         </CardContent>
       </Card>
     </div>
