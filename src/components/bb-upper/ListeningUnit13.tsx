@@ -5,7 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit13-listening.mp3";
+import audioAsset from "@/assets/bb-upper/unit13-listening.mp3.asset.json";
+
+const AUDIO_URL = audioAsset.url;
 
 const problems = [
   { letter: "A", label: "the access" },
