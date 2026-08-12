@@ -184,6 +184,14 @@ const Weddings = () => {
                     allowFullScreen
                   />
                 </div>
+                <a
+                  href="https://www.ted.com/talks/alex_gendler_the_history_of_marriage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-3 text-sm text-primary underline underline-offset-4"
+                >
+                  Open the talk on TED.com
+                </a>
               </CardContent>
             </Card>
             <TechnicalRenderer activities={videoPreTeach} />
