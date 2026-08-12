@@ -1,60 +1,54 @@
-## Goal
-
-Bring the Sleep lesson (`/lessons/sleep` — `src/pages/SleepLesson.tsx`) up to the same depth and interactivity as the Music Festivals lesson, using the five shared files plus the two TED resources.
+# Weddings — new B2 lesson (Practice › Topics)
 
 ## Confirmed source material
 
-All five Drive links are publicly downloadable:
+All eight links download successfully:
 
-- `NEF Upper Inter 5 Extras – SB module review.pdf` (New English File Upper-Int, File 5 review — *used to* / *be used to* practice)
-- `pg 16 – dreamy sleep.jpg` (worksheet page, image)
-- `global_elesson081_sleep_TN.pdf` (Macmillan Global e-lesson, teacher's notes)
-- `Advanced – Vocabulary and Structure Practice – test 9.pdf`
-  &nbsp;
+- Macmillan onestopenglish "Weddings: reading" (PDF) — six first-person accounts (Germany, Colombia, Turkey, Maasai, China, US) with country gaps
+- Macmillan teacher's notes (PDF) — pre-reading tasks, the 10-items scanning task, answer keys
+- Wedding vocabulary document (Word) — ~40 terms with definitions and example sentences
+- Marriage and wedding vocabulary document (Word) — gap-fill text with word bank (pop the question, fiancée, break off the engagement...)
+- Wedding vocabulary list (text) — hen party / stag night, wedding breakfast, venue, etc.
+- Wedding presentation (PowerPoint) — slide material
+- Wedding worksheet image (JPG, tall single page)
+- hitched.co.uk "Giving notice of marriage" article
+- TED-Ed: Alex Gendler, *The history of marriage*
 
-Plus:
-
-- ted-ielts.com Arianna Huffington "How to Succeed? Get More Sleep" page (vocabulary list + comprehension questions — already fetched)
-- TED talk: Dan Gartenberg, "The brain benefits of deep sleep and how to get more of it"
-
-Content extraction (text + OCR for the JPG and scanned pages) happens first; every activity below is built from what those files actually contain, so exact item counts may shift slightly.
+Content is extracted first (including OCR of the JPG and the slides); exact item counts may shift slightly once extraction is done.
 
 ## What gets built
 
-Keep the existing 5-tab layout (Reading · Vocabulary · Grammar · Listening · Quiz) but enrich each tab, Music-Festivals style: numbered sections, a flashcard warm-up, `TechnicalRenderer` activity blocks, and exam-style readings.
+A new page at `/weddings`, built with the same tabbed layout as the Sleep and Music Festivals lessons, plus a new tile in the Topics tab.
 
-**Vocabulary tab**
+**Tab 1 — Warm-up**
+1. Discussion block: *a wedding* vs *a marriage*, weddings you have been to, wedding customs in your culture.
+2. Speculation task with the ten items (jewellery, tie, candles, rice, red, blue, nuts, porcelain, money, shoes) from the teacher's notes.
 
-1. New `Flashcards` deck (reuses `src/components/presentations/Flashcards.tsx`) introducing sleep vocabulary + the Huffington vocabulary (deprived, exhaustion, brag, one-upmanship, hyper-connected, crisis/crises, faint) before the gap-fills.
-2. Keep the existing "Sleep race" gap-fill and similes matching.
-3. Add a collocations / phrasal-verbs activity (drop off, nod off, doze off, sleep in, lie in, oversleep…) from the Linguahouse and Global worksheets — drag-fill or matching.
+**Tab 2 — Vocabulary**
+3. Flashcard deck (reuses the existing `Flashcards` component) introducing the core terms: propose, engagement, fiancé(e), bride, groom, best man, maid of honour, bridesmaids, ring bearer, aisle, vows, reception, newlyweds.
+4. Gap-fill "From proposal to wedding day" built from the second Word doc's word bank (goes down on one knee, pop the question, engaged, engagement ring, breaks off the engagement).
+5. Matching: wedding people and things to their definitions (from the vocabulary document).
+6. British vs American / event vocabulary set: hen party–bachelorette, stag night–bachelor party, wedding breakfast, registry office, church wedding, venue, RSVP.
 
-**Reading tab**
-4. Keep the existing "Sleep Matters" passage and its exercises.
-5. Add a second, exam-style reading built from the Linguahouse *How to Sleep* worksheet: passage + multiple-choice / true-false comprehension + vocabulary-in-context matching.
-6. Add a short discussion block from the Global e-lesson warm-up questions.
+**Tab 3 — Reading**
+7. The six-account Macmillan text as an interactive country gap-fill (choose the country for each speaker) with a scanning warm-up: which four of the ten items are *not* mentioned.
+8. Comprehension multiple-choice and vocabulary-in-context matching drawn from the same text.
+9. Second reading from the hitched.co.uk article — giving notice of marriage: passage plus true/false and detail questions on the legal process (28-day notice, register office, documents needed).
 
-**Grammar tab**
-7. Keep the explanation grid and the two existing exercises.
-8. Add a third exercise set from the NEF File 5 review (mixed *used to / be used to / get used to* plus the other File 5 review points that fit — e.g. verb patterns / adverbs, only where they support the lesson).
-9. Add a sentence-transformation / error-correction activity from the Advanced Vocabulary & Structure test 9 (kept at a level that suits B2 students, with a "stretch" label).
+**Tab 4 — Listening / Video**
+10. Embedded TED-Ed talk *The history of marriage* (Alex Gendler) with pre-watching vocabulary, gap-fill note-taking and comprehension MCQs.
 
-**Listening tab**
-10. Keep the TED-Ed video, transcript and its comprehension quiz.
-11. New section: Arianna Huffington, *How to Succeed? Get More Sleep* — embedded TED/YouTube video, pre-watching vocabulary, and comprehension questions adapted from the ted-ielts lesson.
-12. New section: Dan Gartenberg, *The brain benefits of deep sleep* — embedded video, gap-fill note-taking task and comprehension MCQs.
-13. Keep the three existing Unit 5 audio tracks.
-
-**Quiz tab**
-14. Extend the final mixed quiz with items drawn from the new readings, videos and grammar work.
-
-**Speaking / writing wrap-up**
-15. Closing task card (discussion prompts + a short writing task on sleep habits), matching the Music Festivals ending.
+**Tab 5 — Speaking & Writing**
+11. Discussion prompts from the presentation and worksheet material (changing traditions, cost of weddings, big wedding vs elopement).
+12. Roleplay: planning a wedding on a budget / giving notice at the register office.
+13. Writing task with an editable, autosaving text box (same `WritingBox` pattern as Business Benchmark Unit 13): a short article or email about a wedding you attended, with a model answer to reveal.
 
 ## Technical notes
 
-- New/expanded content lives in `src/data/sleepLessonData.ts`, typed with the existing `Activity` shape from `src/data/technicalEnglishData.ts` so it renders through `TechnicalRenderer`.
-- `src/pages/SleepLesson.tsx` gains the new sections, the `Flashcards` deck and the two video cards; mobile spacing follows the tightened Music Festivals pattern (`p-4 sm:p-6`, reduced section gaps).
-- The `pg 16 – dreamy sleep.jpg` worksheet is transcribed into interactive exercises rather than embedded as an image.
-- Every new gap-fill prompt must satisfy `scripts/validate-lesson-blanks.mjs` (exactly one `x___` blank, hint letter matching a single-word answer); `bun run validate:lessons` and a typecheck run before finishing.
-- Videos are embedded from their official TED/YouTube embed URLs; PDF material is adapted into original interactive items rather than reproduced verbatim.
+- New `src/data/weddingsData.ts` typed with the existing `Activity` shape so it renders through `TechnicalRenderer`.
+- New page `src/pages/Weddings.tsx` following the `MusicFestivals.tsx` / `SleepLesson.tsx` tab pattern; responsive padding `p-4 sm:p-6`, `space-y-4 sm:space-y-6`, `p-0` on `service-card` wrappers.
+- Route registered in `src/App.tsx`; a "Weddings" tile added to the Topics tab in `src/pages/MembersActivities.tsx` (as a Topics sub-page entry, alongside Sport).
+- One generated hero/illustration image for the page, matching the site's existing lesson pages.
+- All gap-fill prompts must pass `scripts/validate-lesson-blanks.mjs`; `bun run validate:lessons` and a typecheck run before finishing.
+- PDF, slide and worksheet material is adapted into original interactive items rather than reproduced verbatim; the TED-Ed video is embedded from its official embed URL.
+- SEO: page-specific title, description and single H1 via the existing `SEO` component.
