@@ -157,11 +157,25 @@ const ListeningUnit4 = () => {
       {/* Appraisal interview listening */}
       <Card className="service-card">
         <CardContent className="p-6">
-          <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">🎧 Activity 6: Appraisal Interview</h3>
-          <p className="text-muted-foreground mb-4">
-            Gaby Meyer, a line manager at Aus-pharma, is carrying out an appraisal interview with Peter Grahame, an employee from Edinburgh on secondment in Vienna for two years.
-          </p>
-          <audio controls src="/audio/hr/unit4-14.mp3" className="w-full mb-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">🎧 Activity 6: Appraisal Interview</h3>
+              <p className="text-muted-foreground mb-4">
+                Gaby Meyer, a line manager at Aus-pharma, is carrying out an appraisal interview with Peter Grahame, an employee from Edinburgh on secondment in Vienna for two years.
+              </p>
+              <audio controls src="/audio/hr/unit4-14.mp3" className="w-full" />
+            </div>
+            <div>
+              <img
+                src={appraisalInterviewImg.url}
+                alt="A professional appraisal interview in a modern office"
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="rounded-lg shadow-md w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </CardContent>
       </Card>
 
