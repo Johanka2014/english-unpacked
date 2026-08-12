@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -237,6 +237,13 @@ const TABS: TabDef[] = [
         icon: Music,
         path: '/topics/music-festivals',
         color: 'text-pink-600',
+      },
+      {
+        title: 'Weddings',
+        description: 'B2 lesson on weddings — wedding vocabulary and flashcards, customs around the world, giving notice of marriage in the UK, a TED-Ed talk on the history of marriage, and speaking & writing tasks',
+        icon: Heart,
+        path: '/topics/weddings',
+        color: 'text-rose-600',
       },
     ],
   },
