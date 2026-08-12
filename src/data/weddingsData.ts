@@ -95,7 +95,7 @@ export const proposalGapFill: Activity[] = [
     blanks: [
       { prompt: 'The bride arrives last, in a long white dress with a ___ behind her.', answer: 'train' },
       { prompt: 'Her face is covered by a ___.', answer: 'veil' },
-      { prompt: "Her father ___ until they reach the vicar at the ___.", answer: 'walks her down the aisle' },
+      { prompt: 'Usually the bride’s father ___ until they reach the vicar.', answer: 'walks her down the aisle' },
       { prompt: 'The couple stand in front of the priest at the ___.', answer: 'altar' },
       { prompt: 'The organ plays the ___ and the guests rise to their feet.', answer: 'Wedding March' },
       { prompt: 'The service contains readings from the Bible and a couple of ___.', answer: 'hymns' },
