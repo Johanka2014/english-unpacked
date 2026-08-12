@@ -157,4 +157,24 @@ All colors MUST be HSL.
   .nav-link:hover::after {
     @apply w-full;
   }
+
+  .paper-sheet {
+    @apply relative bg-[hsl(45,25%,97%)] border border-[hsl(45,15%,85%)] 
+           shadow-md rounded-md;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 95%,
+      hsl(45 15% 85% / 0.5) 95%
+    );
+    background-size: 100% 1.8rem;
+  }
+
+  .dark .paper-sheet {
+    @apply bg-[hsl(45,10%,15%)] border-[hsl(45,10%,25%)];
+    background-image: linear-gradient(
+      to bottom,
+      transparent 95%,
+      hsl(45 10% 25% / 0.5) 95%
+    );
+  }
 }

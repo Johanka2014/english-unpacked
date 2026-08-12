@@ -205,11 +205,11 @@ const AppraisalReportActivity = () => {
         </div>
 
         {/* Formal report */}
-        <div className="bg-slate-50 border border-slate-300 rounded-md p-6 md:p-8 shadow-inner font-serif text-slate-800">
+        <div className="paper-sheet p-6 md:p-8 font-serif text-foreground">
           {/* Header */}
-          <div className="flex items-end justify-between border-b-2 border-slate-700 pb-2 mb-5">
+          <div className="flex items-end justify-between border-b-2 border-[hsl(45,15%,65%)] pb-2 mb-5">
             <h4 className="text-xl font-bold tracking-wide">Appraisal Report</h4>
-            <span className="text-2xl font-extrabold italic text-blue-700 tracking-tight">
+            <span className="text-2xl font-extrabold italic text-[hsl(var(--brand-royal))] tracking-tight">
               Aus-pharma AG
             </span>
           </div>
@@ -255,14 +255,14 @@ const AppraisalReportActivity = () => {
           </div>
 
           {/* Signatures */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 pt-4 border-t border-slate-300 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 pt-4 border-t border-[hsl(45,15%,75%)] text-sm">
             <p>
               <span className="font-bold">Signed:</span> Appraiser{" "}
-              <span className="inline-block border-b border-slate-500 w-40 align-bottom" />
+              <span className="inline-block border-b border-[hsl(45,15%,65%)] w-40 align-bottom" />
             </p>
             <p>
               Appraisee{" "}
-              <span className="inline-block border-b border-slate-500 w-40 align-bottom" />
+              <span className="inline-block border-b border-[hsl(45,15%,65%)] w-40 align-bottom" />
             </p>
           </div>
         </div>
