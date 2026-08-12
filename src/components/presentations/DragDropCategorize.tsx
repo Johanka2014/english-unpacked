@@ -89,7 +89,7 @@ const DragDropCategorize = ({ phrases, categories, title, description, imageUrl,
       <CardContent className="p-6">
         <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">{title}</h3>
         <p className="text-muted-foreground mb-6">{description}</p>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className={`flex flex-col md:flex-row gap-8 ${centered ? 'justify-center items-start' : ''}`}>
           {imageUrl && (
             <div className="w-full md:w-1/3">
               <img src={imageUrl} alt={imageAlt || ""} className="rounded-lg shadow-md w-full" loading="lazy" />
