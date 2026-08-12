@@ -238,6 +238,13 @@ const TABS: TabDef[] = [
         path: '/topics/music-festivals',
         color: 'text-pink-600',
       },
+      {
+        title: 'Weddings',
+        description: 'B2 lesson on weddings — wedding vocabulary and flashcards, customs around the world, giving notice of marriage in the UK, a TED-Ed talk on the history of marriage, and speaking & writing tasks',
+        icon: Heart,
+        path: '/topics/weddings',
+        color: 'text-rose-600',
+      },
     ],
   },
   {
