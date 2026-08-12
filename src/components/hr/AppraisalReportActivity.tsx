@@ -173,7 +173,7 @@ const AppraisalReportActivity = () => {
     <Card className="service-card">
       <CardContent className="p-6">
         <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
-          Activity 7: Complete the Appraisal Report
+          Complete the Appraisal Report
         </h3>
         <p className="text-muted-foreground mb-6">
           Listen to the interview again and drag the words below into the correct gaps in the
