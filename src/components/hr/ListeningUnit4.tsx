@@ -5,6 +5,7 @@ import AppraisalReportActivity from '@/components/hr/AppraisalReportActivity';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import appraisalInterviewImg from '@/assets/hr/hr-appraisal-interview.jpg.asset.json';
 
 const staffProblems = [
   {
