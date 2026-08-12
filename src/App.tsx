@@ -135,6 +135,7 @@ const App = () => (
               <Route path="/topics/sport" element={<ProtectedRoute><TopicsSport /></ProtectedRoute>} />
               <Route path="/topics/sleep" element={<ProtectedRoute><SleepLesson /></ProtectedRoute>} />
               <Route path="/topics/music-festivals" element={<ProtectedRoute><MusicFestivals /></ProtectedRoute>} />
+              <Route path="/topics/weddings" element={<ProtectedRoute><Weddings /></ProtectedRoute>} />
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
