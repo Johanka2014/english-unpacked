@@ -183,6 +183,7 @@ const ListeningUnit4 = () => {
       <DragDropCategorize
         title="Appraisal Goals"
         description="Put the problems and solutions discussed in the appraisal below the appropriate appraisal goal."
+        centered
         categories={[
           { id: 'communication', title: 'Encouraging Better Communication' },
           { id: 'motivating', title: 'Motivating Staff' },
