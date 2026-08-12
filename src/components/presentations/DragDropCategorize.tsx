@@ -20,6 +20,7 @@ interface DragDropCategorizeProps {
   description: string;
   imageUrl?: string;
   imageAlt?: string;
+  centered?: boolean;
 }
 
 const DragDropCategorize = ({ phrases, categories, title, description, imageUrl, imageAlt }: DragDropCategorizeProps) => {
