@@ -23,7 +23,7 @@ interface DragDropCategorizeProps {
   centered?: boolean;
 }
 
-const DragDropCategorize = ({ phrases, categories, title, description, imageUrl, imageAlt }: DragDropCategorizeProps) => {
+const DragDropCategorize = ({ phrases, categories, title, description, imageUrl, imageAlt, centered = false }: DragDropCategorizeProps) => {
   const [bank, setBank] = useState(() => [...phrases].sort(() => Math.random() - 0.5));
   const [categoryItems, setCategoryItems] = useState<Record<string, Phrase[]>>(() => {
     const init: Record<string, Phrase[]> = {};
