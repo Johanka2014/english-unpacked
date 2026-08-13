@@ -5,7 +5,15 @@
 // not clickable until their source pages are added.
 
 import type { Activity } from './engineeringData';
+import sb15 from '@/assets/ef/sb-1-5.mp3.asset.json';
+import sb16 from '@/assets/ef/sb-1-6.mp3.asset.json';
+import sb17 from '@/assets/ef/sb-1-7.mp3.asset.json';
+import sb18 from '@/assets/ef/sb-1-8.mp3.asset.json';
+import wb12 from '@/assets/ef/wb-1-2.mp3.asset.json';
+import wb13 from '@/assets/ef/wb-1-3.mp3.asset.json';
+import libraryDiscussion from '@/assets/ef-library-discussion.jpg';
 export type { Activity };
+
 
 export interface EFSection {
   id: string;
@@ -67,6 +75,17 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'notes',
+          title: 'Write your list',
+          body: 'Write the food items you remember in each category. Your answers are saved automatically.',
+          fields: [
+            { id: 'fruit', label: 'Fruit (3 items)', placeholder: 'e.g. oranges…' },
+            { id: 'veg', label: 'Vegetables (4 items)', placeholder: 'e.g. potatoes…' },
+            { id: 'protein', label: 'Protein (3 items)', placeholder: 'e.g. chicken…' },
+            { id: 'cupboard', label: 'Store cupboard / other (4 items)', placeholder: 'e.g. pasta…' },
+          ],
+        },
+        {
           type: 'fill-blanks',
           title: 'Check your list — the 16 circled items',
           body: 'Click "Show answers" once you have written your own list.',
@@ -78,15 +97,48 @@ const lesson1A: EFLesson = {
           ],
         },
         {
-          type: 'word-list',
+          type: 'flashcards',
           title: 'Vocabulary Bank · Fish, seafood and meat',
-          words: ['crab', 'lobster', 'mussels', 'prawns', 'salmon', 'squid', 'tuna', 'beef', 'chicken', 'duck', 'lamb', 'pork'],
+          body: 'Flip each card to see the meaning, then say the word aloud.',
+          cards: [
+            { term: 'crab', definition: 'a sea creature with a hard shell, ten legs and two large claws', example: 'We had fresh crab by the sea.' },
+            { term: 'lobster', definition: 'a large shellfish with a long body, a hard shell and big claws', example: 'Lobster is expensive in restaurants.' },
+            { term: 'mussels', definition: 'small black shellfish that live in pairs of shells', example: 'Mussels cooked in white wine.' },
+            { term: 'prawns', definition: 'small pink shellfish (AmE shrimp)', example: 'A prawn curry.' },
+            { term: 'salmon', definition: 'a large pink-fleshed fish', example: 'Grilled salmon with lemon.' },
+            { term: 'squid', definition: 'a sea creature with a long soft body and ten arms', example: 'Fried squid rings.' },
+            { term: 'tuna', definition: 'a large sea fish, often sold tinned', example: 'A tuna sandwich.' },
+            { term: 'beef', definition: 'meat from a cow', example: 'Roast beef on Sunday.' },
+            { term: 'chicken', definition: 'meat from a chicken', example: 'Spicy chicken wings.' },
+            { term: 'duck', definition: 'meat from a duck — dark and quite fatty', example: 'Crispy duck pancakes.' },
+            { term: 'lamb', definition: 'meat from a young sheep', example: 'Slow-roasted lamb.' },
+            { term: 'pork', definition: 'meat from a pig', example: 'Raw pork must be cooked well.' },
+          ],
         },
         {
-          type: 'word-list',
+          type: 'flashcards',
           title: 'Vocabulary Bank · Fruit and vegetables',
-          words: ['aubergine (AmE eggplant)', 'avocado', 'beans', 'beetroot', 'cabbage', 'cherries', 'courgette (AmE zucchini)', 'cucumber', 'grapes', 'lemon', 'mango', 'melon', 'peach', 'pear', 'raspberries', 'red pepper'],
+          body: 'Flip each card and check the British and American names.',
+          cards: [
+            { term: 'aubergine', definition: 'a long purple vegetable (AmE eggplant)', example: 'Grilled aubergine slices.' },
+            { term: 'avocado', definition: 'a green fruit with a large stone, eaten as a vegetable', example: 'Avocado on toast.' },
+            { term: 'beans', definition: 'the seeds of a climbing plant, eaten as a vegetable', example: 'Green beans with butter.' },
+            { term: 'beetroot', definition: 'a dark red root vegetable', example: 'You need raw beetroot for this soup.' },
+            { term: 'cabbage', definition: 'a large round vegetable with thick green or purple leaves', example: 'Boiled cabbage.' },
+            { term: 'cherries', definition: 'small round red fruit with a stone in the middle', example: 'A bowl of cherries.' },
+            { term: 'courgette', definition: 'a long green vegetable (AmE zucchini)', example: 'Courgette and tomato bake.' },
+            { term: 'cucumber', definition: 'a long green vegetable eaten raw in salads', example: 'Cucumber sandwiches.' },
+            { term: 'grapes', definition: 'small green or purple fruit growing in bunches', example: 'Wine is made from grapes.' },
+            { term: 'lemon', definition: 'a yellow citrus fruit with a sour taste', example: 'A slice of lemon in your tea.' },
+            { term: 'mango', definition: 'a sweet tropical fruit with orange flesh', example: 'A ripe mango.' },
+            { term: 'melon', definition: 'a large round fruit with sweet, juicy flesh', example: 'Melon with ham.' },
+            { term: 'peach', definition: 'a round fruit with soft yellow-red skin and a stone', example: 'A tinned peach.' },
+            { term: 'pear', definition: 'a fruit that is narrow at the top and wide at the bottom', example: 'Pears and cheese.' },
+            { term: 'raspberries', definition: 'small soft red berries', example: 'I never buy frozen raspberries.' },
+            { term: 'red pepper', definition: 'a sweet red vegetable, eaten raw or cooked', example: 'Tinned red peppers.' },
+          ],
         },
+
         {
           type: 'matching',
           title: 'Cooking — match the word to the meaning',
@@ -117,6 +169,16 @@ const lesson1A: EFLesson = {
           type: 'fill-blanks',
           title: 'Listening 1.5 — food phrases',
           body: 'Six short conversations. Which food phrase goes with each adjective? Number 1 is done for you.',
+          track: '1.5',
+          audioSrc: sb15.url,
+          transcript: [
+            '1 A Shall I put the beetroot in the oven? B No, don\'t cook it — we want raw beetroot for the salad.',
+            '2 A This crab is delicious. B It should be — it\'s fresh crab, straight from the market this morning.',
+            '3 A Did you buy the prawns? B Yes, but only frozen prawns — they didn\'t have any fresh ones.',
+            '4 A Careful with that! B I know, it\'s spicy chicken — there are three chillies in the sauce.',
+            '5 A Is there anything for breakfast? B There\'s some low-fat yogurt in the fridge.',
+            '6 A What\'s in the sandwich? B Tinned tuna and a bit of mayonnaise.',
+          ],
           blanks: [
             { prompt: '1 raw…', answer: 'raw beetroot' },
             { prompt: '2 fresh…', answer: 'fresh crab' },
@@ -127,9 +189,36 @@ const lesson1A: EFLesson = {
           ],
         },
         {
-          type: 'fill-blanks',
-          title: 'Phrasal verbs — eat out, cut down on, cut out',
-          body: 'Complete the phrasal verbs with down, on or out (x2). Then check.',
+          type: 'audio',
+          title: 'Listening 1.6 — vowel sounds',
+          body: 'Listen and repeat the sound pictures and the example words.',
+          track: '1.6',
+          audioSrc: sb16.url,
+          transcript: [
+            'fish /ɪ/ — squid, chicken, spinach',
+            'tree /iː/ — green beans, steamed, cheese',
+            'cat /æ/ — crab, salad, jam',
+            'car /ɑː/ — jar, raspberry, glass',
+            'clock /ɒ/ — hot, sausages, chocolate',
+            'horse /ɔː/ — raw, pork, sauce',
+            'bull /ʊ/ — good, cook, sugar',
+            'boot /uː/ — tuna, beetroot, soup',
+          ],
+        },
+        {
+          type: 'flashcards',
+          title: 'Phrasal verbs — meet them first',
+          body: 'Flip the cards to learn the three phrasal verbs before you use them.',
+          cards: [
+            { term: 'eat out', definition: 'to eat in a restaurant rather than at home', example: 'We eat out about twice a month.' },
+            { term: 'cut down on (something)', definition: 'to have less of something than before', example: 'I\'m cutting down on sugar.' },
+            { term: 'cut out (something)', definition: 'to stop having something completely', example: 'She cut out dairy from her diet.' },
+          ],
+        },
+        {
+          type: 'type-blanks',
+          title: 'Phrasal verbs — complete the sentences',
+          body: 'Type down, on or out to complete each sentence, then check your answers.',
           blanks: [
             { prompt: 'I eat ___ a lot because I often don\'t have time to cook. Luckily, there are lots of good restaurants near where I live.', answer: 'out' },
             { prompt: 'I\'m trying to cut ___ on coffee at the moment. I\'m only having one cup at breakfast.', answer: 'down' },
@@ -139,12 +228,15 @@ const lesson1A: EFLesson = {
         {
           type: 'discussion',
           title: 'Activation · Talk to a partner',
+          image: libraryDiscussion,
+          imageAlt: 'Students having a discussion around a table in a library',
           bullets: [
             'Are there any foods in the lists that you love, hate, or have never eaten?',
             'How do you prefer these things to be cooked: chicken, eggs, fish, potatoes?',
             'What kinds of fish, meat, fruit or vegetables are very common in your country?',
           ],
         },
+
       ],
     },
 
@@ -221,6 +313,16 @@ const lesson1A: EFLesson = {
           type: 'fill-blanks',
           title: 'Listening 1.7 — what did each speaker mention?',
           body: 'Six people each answer one question from the questionnaire. Listen, then check the food or drink they talk about.',
+          track: '1.7',
+          audioSrc: sb17.url,
+          transcript: [
+            'Emma: I couldn\'t live without tea. I drink it all day long — the first thing I do in the morning is put the kettle on.',
+            'Sarah: For me it\'s pasta. If I\'m tired and I need something quick, I always make pasta with a simple tomato sauce.',
+            'John: I love hot, spicy food — curries, Indonesian food, Thai food. The spicier the better, really.',
+            'Rob: When I\'m feeling a bit down I eat chocolate, or ice cream. It always cheers me up.',
+            'James: I\'ve cut down on caffeine — I used to drink five or six coffees a day and I couldn\'t sleep.',
+            'Sean: I couldn\'t give up meat. My favourite pizza topping is pepperoni, so a vegetarian diet wouldn\'t work for me.',
+          ],
           blanks: [
             { prompt: 'Emma', answer: 'tea' },
             { prompt: 'Sarah', answer: 'pasta' },
@@ -230,6 +332,20 @@ const lesson1A: EFLesson = {
             { prompt: 'Sean', answer: 'meat / pepperoni' },
           ],
         },
+        {
+          type: 'audio',
+          title: 'Listening 1.8 — talking about cooking',
+          body: 'Listen to the speakers talking about how they cook, then compare with a partner.',
+          track: '1.8',
+          audioSrc: sb18.url,
+          transcript: [
+            'Speaker 1: I always follow a recipe — I have a shelf full of cookbooks and I read them like novels.',
+            'Speaker 2: I never use recipes. I just look in the fridge and see what\'s there, and I invent something.',
+            'Speaker 3: I learnt to cook from my grandmother. Nothing was written down, you just watched and copied.',
+            'Speaker 4: I cook the same five or six dishes again and again. They\'re quick, they\'re cheap and everyone eats them.',
+          ],
+        },
+
         {
           type: 'discussion',
           title: 'Speaking · Your turn',
@@ -485,6 +601,26 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'audio',
+          title: 'Workbook 1.2 — short and long vowel sounds',
+          body: 'Listen and write each word in the correct sound group, then listen again and repeat.',
+          track: 'WB 1.2',
+          audioSrc: wb12.url,
+          transcript: [
+            'chicken, beef, crab, prawns, lamb, duck, salmon, tuna, squid, mussels, pork, lobster',
+          ],
+        },
+        {
+          type: 'audio',
+          title: 'Workbook 1.3 — food and cooking vocabulary',
+          body: 'Listen and repeat the words. Check the stress on the longer words.',
+          track: 'WB 1.3',
+          audioSrc: wb13.url,
+          transcript: [
+            'boiled, baked, roast, grilled, fried, steamed, raw, fresh, frozen, tinned, low-fat, spicy, cabbage, beetroot, aubergine, courgette',
+          ],
+        },
+        {
           type: 'discussion',
           title: 'Self-check',
           bullets: [
@@ -494,6 +630,7 @@ const lesson1A: EFLesson = {
             'Can you give three examples of non-action verbs?',
           ],
         },
+
       ],
     },
   ],

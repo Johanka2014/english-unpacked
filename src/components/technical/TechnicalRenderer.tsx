@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
 import DragFillCollocations from './DragFillCollocations';
 import TypeBlanks from './TypeBlanks';
+import NotesBoxes from './NotesBoxes';
+import AudioWithTranscript from './AudioWithTranscript';
+import Flashcards from '@/components/presentations/Flashcards';
+
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
@@ -45,16 +49,39 @@ const WordList = ({ activity }: { activity: Activity }) => (
   </InfoSection>
 );
 
-const Discussion = ({ activity }: { activity: Activity }) => (
-  <InfoSection title={activity.title || 'Discussion'}>
-    {activity.body && <p className="text-foreground mb-3">{activity.body}</p>}
-    {activity.bullets && (
-      <ul className="space-y-2 list-disc list-inside text-foreground">
-        {activity.bullets.map((b, i) => <li key={i}>{b}</li>)}
-      </ul>
-    )}
-  </InfoSection>
-);
+const Discussion = ({ activity }: { activity: Activity }) => {
+  const content = (
+    <>
+      {activity.body && <p className="text-foreground mb-3">{activity.body}</p>}
+      {activity.bullets && (
+        <ul className="space-y-2 list-disc list-inside text-foreground">
+          {activity.bullets.map((b, i) => <li key={i}>{b}</li>)}
+        </ul>
+      )}
+    </>
+  );
+
+  if (activity.image) {
+    return (
+      <InfoSection title={activity.title || 'Discussion'}>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 items-center">
+          <div>{content}</div>
+          <img
+            src={activity.image}
+            alt={activity.imageAlt || ''}
+            loading="lazy"
+            width={1024}
+            height={768}
+            className="w-full h-auto rounded-xl object-cover shadow-sm"
+          />
+        </div>
+      </InfoSection>
+    );
+  }
+
+  return <InfoSection title={activity.title || 'Discussion'}>{content}</InfoSection>;
+};
+
 
 const Reading = ({ activity }: { activity: Activity }) => (
   <InfoSection title={activity.title || 'Reading'}>
@@ -78,71 +105,101 @@ const Task = ({ activity }: { activity: Activity }) => (
   </Card>
 );
 
+const renderActivity = (a: Activity, idx: number) => {
+  switch (a.type) {
+    case 'discussion':
+    case 'intro':
+      return <Discussion activity={a} />;
+    case 'reading':
+      return <Reading activity={a} />;
+    case 'word-list':
+      return <WordList activity={a} />;
+    case 'flashcards':
+      return (
+        <Flashcards
+          title={a.title || 'Flashcards'}
+          description={a.body}
+          cards={a.cards || []}
+        />
+      );
+    case 'notes':
+      return (
+        <NotesBoxes
+          title={a.title || 'Write your answers'}
+          body={a.body}
+          fields={a.fields || []}
+          storageKey={`${a.title || 'notes'}-${idx}`}
+        />
+      );
+    case 'audio':
+      return a.body || a.bullets ? <Discussion activity={a} /> : null;
+
+    case 'fill-blanks':
+      return <FillBlanks activity={a} />;
+    case 'drag-fill':
+      return (
+        <DragFillCollocations
+          title={a.title || 'Drag to complete'}
+          body={a.body}
+          blanks={a.blanks || []}
+        />
+      );
+    case 'type-blanks':
+      return (
+        <TypeBlanks
+          title={a.title || 'Type to complete'}
+          body={a.body}
+          blanks={a.blanks || []}
+        />
+      );
+    case 'matching':
+      return (
+        <MatchingExercise
+          title={a.title || 'Matching exercise'}
+          description={a.body || ''}
+          pairs={a.pairs || []}
+          leftLabel="Item"
+          rightLabel="Match"
+        />
+      );
+    case 'multiple-choice':
+      return (
+        <MultipleChoiceQuiz
+          title={a.title || 'Quiz'}
+          description={a.body || ''}
+          questions={(a.mcq || []).map((q, i) => ({
+            id: i + 1,
+            text: q.question,
+            options: q.options,
+            answer: q.options[q.answerIndex],
+          }))}
+        />
+      );
+    case 'task':
+      return <Task activity={a} />;
+    default:
+      return null;
+  }
+};
+
 const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
   return (
     <div className="space-y-6">
-      {activities.map((a, idx) => {
-        switch (a.type) {
-          case 'discussion':
-          case 'intro':
-            return <Discussion key={idx} activity={a} />;
-          case 'reading':
-            return <Reading key={idx} activity={a} />;
-          case 'word-list':
-            return <WordList key={idx} activity={a} />;
-          case 'fill-blanks':
-            return <FillBlanks key={idx} activity={a} />;
-          case 'drag-fill':
-            return (
-              <DragFillCollocations
-                key={idx}
-                title={a.title || 'Drag to complete'}
-                body={a.body}
-                blanks={a.blanks || []}
-              />
-            );
-          case 'type-blanks':
-            return (
-              <TypeBlanks
-                key={idx}
-                title={a.title || 'Type to complete'}
-                body={a.body}
-                blanks={a.blanks || []}
-              />
-            );
-          case 'matching':
-            return (
-              <MatchingExercise
-                key={idx}
-                title={a.title || 'Matching exercise'}
-                description={a.body || ''}
-                pairs={a.pairs || []}
-                leftLabel="Item"
-                rightLabel="Match"
-              />
-            );
-          case 'multiple-choice':
-            return (
-              <MultipleChoiceQuiz
-                key={idx}
-                title={a.title || 'Quiz'}
-                description={a.body || ''}
-                questions={(a.mcq || []).map((q, i) => ({
-                  id: i + 1,
-                  text: q.question,
-                  options: q.options,
-                  answer: q.options[q.answerIndex],
-                }))}
-              />
-            );
-          case 'task':
-            return <Task key={idx} activity={a} />;
-          default:
-            return null;
-        }
-      })}
+      {activities.map((a, idx) => (
+        <div key={idx} className="space-y-3">
+          {a.audioSrc && (
+            <AudioWithTranscript
+              src={a.audioSrc}
+              label={a.track ? `Audio ${a.track}` : a.title}
+              transcript={a.transcript}
+            />
+          )}
+          {renderActivity(a, idx)}
+        </div>
+      ))}
     </div>
   );
 };
+
 
 export default TechnicalRenderer;
