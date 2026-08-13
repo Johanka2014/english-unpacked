@@ -75,28 +75,28 @@ interface Rule {
 }
 
 const soRules: Rule[] = [
-  { pattern: 'so + adjective / adverb', meaning: 'very, extremely', examples: ['It\u2019s so hot in here!', 'She could run so fast!'] },
-  { pattern: 'so + adjective / adverb (+ that)', meaning: 'emphasises the degree by giving the result', examples: ['My car is so old (that) I can\u2019t get any spare parts for it.', 'She drives so fast (that) nobody can keep up with her.'] },
+  { pattern: 'so + adjective / adverb', meaning: 'very, extremely', examples: ['It’s so hot in here!', 'She could run so fast!'] },
+  { pattern: 'so + adjective / adverb (+ that)', meaning: 'emphasises the degree by giving the result', examples: ['My car is so old (that) I can’t get any spare parts for it.', 'She drives so fast (that) nobody can keep up with her.'] },
   { pattern: 'so + many / much / few / little', meaning: 'emphasises a quantity or amount', examples: ['How did you make so much money?', 'There were so many people queuing (that) we went home.'] },
 ];
 
 const suchRules: Rule[] = [
-  { pattern: 'such + adjective + plural / uncountable noun', meaning: 'very, extremely', examples: ['She\u2019s got such lovely hair!', 'They\u2019re such good friends.'] },
-  { pattern: 'such a / an + adjective + singular noun', meaning: 'very, extremely', examples: ['It was such a beautiful day!', 'You\u2019re such an optimist.'] },
+  { pattern: 'such + adjective + plural / uncountable noun', meaning: 'very, extremely', examples: ['She’s got such lovely hair!', 'They’re such good friends.'] },
+  { pattern: 'such a / an + adjective + singular noun', meaning: 'very, extremely', examples: ['It was such a beautiful day!', 'You’re such an optimist.'] },
   { pattern: 'such (+ adjective) + noun (+ that)', meaning: 'emphasises the degree by giving the result', examples: ['It was such a hot day (that) we decided to go for a swim.', 'It was such nice weather (that) we spent the whole day on the beach.'] },
 ];
 
 const comparePairs = [
-  { so: 'so long', such: 'such a long time', soEx: 'I haven\u2019t seen her for so long I\u2019ve forgotten what she looks like.', suchEx: 'I haven\u2019t seen her for such a long time.' },
-  { so: 'so far', such: 'such a long way', soEx: 'I didn\u2019t know it was so far.', suchEx: 'I didn\u2019t know it was such a long way.' },
-  { so: 'so much / so many', such: 'such a lot (of)', soEx: 'I\u2019m sorry I\u2019m late \u2014 there was so much traffic.', suchEx: 'I\u2019m sorry I\u2019m late \u2014 there was such a lot of traffic.' },
+  { so: 'so long', such: 'such a long time', soEx: 'I haven’t seen her for so long I’ve forgotten what she looks like.', suchEx: 'I haven’t seen her for such a long time.' },
+  { so: 'so far', such: 'such a long way', soEx: 'I didn’t know it was so far.', suchEx: 'I didn’t know it was such a long way.' },
+  { so: 'so much / so many', such: 'such a lot (of)', soEx: 'I’m sorry I’m late — there was so much traffic.', suchEx: 'I’m sorry I’m late — there was such a lot of traffic.' },
 ];
 
 const mistakes = [
   { wrong: 'It was a so stupid story.', right: 'It was such a stupid story.', why: 'Use such (not so) before a noun.' },
   { wrong: 'a such big dog', right: 'such a big dog', why: 'The order is such + a/an + adjective + noun.' },
   { wrong: 'They are so nice people.', right: 'They are such nice people.', why: 'Use such before a plural noun.' },
-  { wrong: 'I haven\u2019t seen you for so long time.', right: 'I haven\u2019t seen you for such a long time.', why: '\u201clong time\u201d is a noun phrase, so it takes such a.' },
+  { wrong: 'I haven’t seen you for so long time.', right: 'I haven’t seen you for such a long time.', why: '“long time” is a noun phrase, so it takes such a.' },
 ];
 
 // ── 1. Grammar explanation ───────────────────────────────────────────────
@@ -254,42 +254,42 @@ const GapFill = ({
 };
 
 const murphyGaps: Gap[] = [
-  { sentence: 'It\u2019s difficult to understand him because he speaks ___ quietly.', answer: 'so', note: 'so + adverb' },
-  { sentence: 'I like Liz and Joe. They\u2019re ___ nice people.', answer: 'such', note: 'such + adjective + plural noun' },
+  { sentence: 'It’s difficult to understand him because he speaks ___ quietly.', answer: 'so', note: 'so + adverb' },
+  { sentence: 'I like Liz and Joe. They’re ___ nice people.', answer: 'such', note: 'such + adjective + plural noun' },
   { sentence: 'It was a great holiday. We had ___ good time.', answer: 'such a', note: 'such a + adjective + singular noun' },
   { sentence: 'I was surprised that he looked ___ well after his recent illness.', answer: 'so' },
-  { sentence: 'Everything is ___ expensive these days, isn\u2019t it?', answer: 'so' },
-  { sentence: 'The weather is beautiful, isn\u2019t it? I didn\u2019t expect it to be ___ nice day.', answer: 'such a' },
+  { sentence: 'Everything is ___ expensive these days, isn’t it?', answer: 'so' },
+  { sentence: 'The weather is beautiful, isn’t it? I didn’t expect it to be ___ nice day.', answer: 'such a' },
   { sentence: 'I think she works too hard. She looks ___ tired all the time.', answer: 'so' },
   { sentence: 'He always looks good. He wears ___ nice clothes.', answer: 'such' },
   { sentence: 'It was ___ boring film that I fell asleep while I was watching it.', answer: 'such a' },
-  { sentence: 'I couldn\u2019t believe the news. It was ___ shock.', answer: 'such a' },
-  { sentence: 'I have to go. I didn\u2019t realise it was ___ late.', answer: 'so' },
+  { sentence: 'I couldn’t believe the news. It was ___ shock.', answer: 'such a' },
+  { sentence: 'I have to go. I didn’t realise it was ___ late.', answer: 'so' },
   { sentence: 'The food at the hotel was ___ awful.', answer: 'so' },
-  { sentence: 'I\u2019ve never eaten ___ awful food.', answer: 'such' },
-  { sentence: 'They\u2019ve got ___ much money they don\u2019t know what to do with it.', answer: 'so' },
-  { sentence: 'I didn\u2019t realise you lived ___ long way from the city centre.', answer: 'such a' },
-  { sentence: 'The party was really great. It was ___ shame you couldn\u2019t come.', answer: 'such a' },
+  { sentence: 'I’ve never eaten ___ awful food.', answer: 'such' },
+  { sentence: 'They’ve got ___ much money they don’t know what to do with it.', answer: 'so' },
+  { sentence: 'I didn’t realise you lived ___ long way from the city centre.', answer: 'such a' },
+  { sentence: 'The party was really great. It was ___ shame you couldn’t come.', answer: 'such a' },
 ];
 
 const nefGaps: Gap[] = [
   { sentence: 'My case is ___ heavy (that) I can hardly pick it up.', answer: 'so' },
   { sentence: 'It was ___ long flight (that) the children got very bored.', answer: 'such a' },
-  { sentence: 'There were ___ many people at the airport (that) we couldn\u2019t see him.', answer: 'so' },
-  { sentence: 'It was ___ awful weather (that) we couldn\u2019t leave the hotel.', answer: 'such' },
+  { sentence: 'There were ___ many people at the airport (that) we couldn’t see him.', answer: 'so' },
+  { sentence: 'It was ___ awful weather (that) we couldn’t leave the hotel.', answer: 'such' },
   { sentence: 'We had ___ much luggage (that) we had to ask a porter to help us.', answer: 'so' },
-  { sentence: 'Jim is ___ selfish (that) he can\u2019t think about anybody else.', answer: 'so' },
-  { sentence: 'Jim is ___ selfish person (that) he can\u2019t think about anybody else.', answer: 'such a' },
+  { sentence: 'Jim is ___ selfish (that) he can’t think about anybody else.', answer: 'so' },
+  { sentence: 'Jim is ___ selfish person (that) he can’t think about anybody else.', answer: 'such a' },
   { sentence: 'They were ___ cheap tickets (that) we decided to buy them.', answer: 'such' },
 ];
 
 const dialogueGaps: Gap[] = [
-  { sentence: 'Izzy: That\u2019s ___ late! I need an early night. I\u2019m exhausted.', answer: 'so' },
+  { sentence: 'Izzy: That’s ___ late! I need an early night. I’m exhausted.', answer: 'so' },
   { sentence: 'Jim: Why are you ___ tired?', answer: 'so' },
-  { sentence: 'Izzy: I went to Jack\u2019s party last night. I was having ___ fun, I didn\u2019t want to leave!', answer: 'such' },
-  { sentence: 'Jim: But I don\u2019t want to go to the cinema on my own. It\u2019s ___ boring.', answer: 'so' },
-  { sentence: 'Jim: I\u2019m not sure she\u2019d like this film. She\u2019s got ___ good taste.', answer: 'such' },
-  { sentence: 'Izzy: Jim! You\u2019re ___ rude.', answer: 'so' },
+  { sentence: 'Izzy: I went to Jack’s party last night. I was having ___ fun, I didn’t want to leave!', answer: 'such' },
+  { sentence: 'Jim: But I don’t want to go to the cinema on my own. It’s ___ boring.', answer: 'so' },
+  { sentence: 'Jim: I’m not sure she’d like this film. She’s got ___ good taste.', answer: 'such' },
+  { sentence: 'Izzy: Jim! You’re ___ rude.', answer: 'so' },
 ];
 
 // ── Sentence combining ───────────────────────────────────────────────────
@@ -299,14 +299,14 @@ interface Combine { prompt: string[]; model: string }
 const combines: Combine[] = [
   { prompt: ['She worked hard.', 'She made herself ill.'], model: 'She worked so hard (that) she made herself ill.' },
   { prompt: ['It was a beautiful day.', 'We decided to go to the beach.'], model: 'It was such a beautiful day (that) we decided to go to the beach.' },
-  { prompt: ['I was tired.', 'I couldn\u2019t keep my eyes open.'], model: 'I was so tired (that) I couldn\u2019t keep my eyes open.' },
-  { prompt: ['We had a good time on holiday.', 'We didn\u2019t want to come home.'], model: 'We had such a good time on holiday (that) we didn\u2019t want to come home.' },
-  { prompt: ['She speaks English well.', 'You would think it was her native language.'], model: 'She speaks English so well (that) you would think it was her native language. / She speaks such good English (that) \u2026' },
-  { prompt: ['I\u2019ve got a lot to do.', 'I don\u2019t know where to begin.'], model: 'I\u2019ve got such a lot to do (that) I don\u2019t know where to begin. / I\u2019ve got so much to do (that) \u2026' },
+  { prompt: ['I was tired.', 'I couldn’t keep my eyes open.'], model: 'I was so tired (that) I couldn’t keep my eyes open.' },
+  { prompt: ['We had a good time on holiday.', 'We didn’t want to come home.'], model: 'We had such a good time on holiday (that) we didn’t want to come home.' },
+  { prompt: ['She speaks English well.', 'You would think it was her native language.'], model: 'She speaks English so well (that) you would think it was her native language. / She speaks such good English (that) …' },
+  { prompt: ['I’ve got a lot to do.', 'I don’t know where to begin.'], model: 'I’ve got such a lot to do (that) I don’t know where to begin. / I’ve got so much to do (that) …' },
   { prompt: ['The music was loud.', 'You could hear it from miles away.'], model: 'The music was so loud (that) you could hear it from miles away.' },
-  { prompt: ['I had a big breakfast.', 'I didn\u2019t eat anything else for the rest of the day.'], model: 'I had such a big breakfast (that) I didn\u2019t eat anything else for the rest of the day.' },
+  { prompt: ['I had a big breakfast.', 'I didn’t eat anything else for the rest of the day.'], model: 'I had such a big breakfast (that) I didn’t eat anything else for the rest of the day.' },
   { prompt: ['It was horrible weather.', 'We spent the whole day indoors.'], model: 'It was such horrible weather (that) we spent the whole day indoors.' },
-  { prompt: ['I was surprised.', 'I didn\u2019t know what to say.'], model: 'I was so surprised (that) I didn\u2019t know what to say.' },
+  { prompt: ['I was surprised.', 'I didn’t know what to say.'], model: 'I was so surprised (that) I didn’t know what to say.' },
 ];
 
 const SentenceCombining = () => {
@@ -325,7 +325,7 @@ const SentenceCombining = () => {
               value={answers[i] || ''}
               aria-label={`Your sentence ${i + 1}`}
               onChange={(e) => setAnswers((p) => ({ ...p, [i]: e.target.value }))}
-              placeholder="Write your sentence\u2026"
+              placeholder="Write your sentence…"
               className="min-h-[60px] text-sm"
             />
             {shown && <p className="mt-2 text-sm text-green-700 italic">{c.model}</p>}
@@ -344,18 +344,18 @@ const SentenceCombining = () => {
 const matchStarts = [
   'The kids were so tired that',
   'The food was so bad that',
-  'She\u2019s got so many clothes that',
-  'It\u2019s such a tiny kitchen that',
+  'She’s got so many clothes that',
+  'It’s such a tiny kitchen that',
   'He eats so much sugar that',
   'They were making so much noise that',
 ];
 
 const matchEnds = [
-  { id: 'a', text: 'I don\u2019t have to do much to keep it clean.' },
+  { id: 'a', text: 'I don’t have to do much to keep it clean.' },
   { id: 'b', text: 'they went straight to bed.' },
   { id: 'c', text: 'she never wears the same thing twice.' },
   { id: 'd', text: 'his teeth will rot.' },
-  { id: 'f', text: 'I couldn\u2019t concentrate.' },
+  { id: 'f', text: 'I couldn’t concentrate.' },
   { id: 'g', text: 'nobody could eat it.' },
 ];
 
@@ -367,7 +367,7 @@ const MatchingSection = () => {
   const score = matchKey.filter((k, i) => answers[i] === k).length;
 
   return (
-    <SectionShell icon={Link2} number={7} title="Match the halves" intro="Choose the ending that completes each sentence. Example: The pianist played so badly that \u2192 the audience walked out.">
+    <SectionShell icon={Link2} number={7} title="Match the halves" intro="Choose the ending that completes each sentence. Example: The pianist played so badly that → the audience walked out.">
       <div className="space-y-4">
         {matchStarts.map((s, i) => (
           <div key={i} className="border-l-4 border-primary/30 pl-4">
@@ -406,13 +406,13 @@ const MatchingSection = () => {
 interface Choice { sentence: string; options: string[]; answer: string; note: string }
 
 const choiceItems: Choice[] = [
-  { sentence: 'Passing my driving test was ___ relief!', options: ['so', 'such a'], answer: 'such a', note: 'relief is a singular noun \u2192 such a' },
-  { sentence: 'We\u2019re having ___ awful weather that we can\u2019t go for a swim.', options: ['such', 'such an'], answer: 'such', note: 'weather is uncountable \u2192 such (no article)' },
-  { sentence: 'We had ___ terrible time that we swore we wouldn\u2019t do it again.', options: ['so', 'such a'], answer: 'such a', note: 'such a + adjective + singular noun' },
-  { sentence: 'She loved him ___ deeply that she couldn\u2019t bear it when he was away.', options: ['so', 'such'], answer: 'so', note: 'so + adverb' },
+  { sentence: 'Passing my driving test was ___ relief!', options: ['so', 'such a'], answer: 'such a', note: 'relief is a singular noun → such a' },
+  { sentence: 'We’re having ___ awful weather that we can’t go for a swim.', options: ['such', 'such an'], answer: 'such', note: 'weather is uncountable → such (no article)' },
+  { sentence: 'We had ___ terrible time that we swore we wouldn’t do it again.', options: ['so', 'such a'], answer: 'such a', note: 'such a + adjective + singular noun' },
+  { sentence: 'She loved him ___ deeply that she couldn’t bear it when he was away.', options: ['so', 'such'], answer: 'so', note: 'so + adverb' },
   { sentence: 'There were ___ few people there they nearly cancelled the performance.', options: ['so', 'such'], answer: 'so', note: 'so + few' },
   { sentence: 'The film was ___ boring I wanted to leave.', options: ['so', 'such a'], answer: 'so', note: 'so + adjective (no noun)' },
-  { sentence: 'I had ___ many things to do I didn\u2019t know where to start.', options: ['so', 'such'], answer: 'so', note: 'so + many' },
+  { sentence: 'I had ___ many things to do I didn’t know where to start.', options: ['so', 'such'], answer: 'so', note: 'so + many' },
   { sentence: 'It was ___ lovely day we decided to have a picnic in the park.', options: ['so', 'such a'], answer: 'such a', note: 'such a + adjective + singular noun' },
   { sentence: 'There was ___ much noise I could hardly hear myself think!', options: ['so', 'such'], answer: 'so', note: 'so + much' },
   { sentence: 'Joe was ___ angry that he started shouting at me.', options: ['so', 'such an'], answer: 'so', note: 'so + adjective' },
@@ -475,8 +475,8 @@ const kwtItems: KWT[] = [
     accepted: ['so sad that'],
   },
   {
-    first: 'Nobody can believe she\u2019s Spanish because her English is very good.',
-    word: 'SUCH', before: 'She speaks', after: 'that nobody can believe she\u2019s Spanish.',
+    first: 'Nobody can believe she’s Spanish because her English is very good.',
+    word: 'SUCH', before: 'She speaks', after: 'that nobody can believe she’s Spanish.',
     accepted: ['such good english'],
   },
   {
@@ -485,8 +485,8 @@ const kwtItems: KWT[] = [
     accepted: ['so many people'],
   },
   {
-    first: 'He couldn\u2019t sleep because the coffee was very strong.',
-    word: 'SO', before: 'The coffee was', after: 'he couldn\u2019t sleep.',
+    first: 'He couldn’t sleep because the coffee was very strong.',
+    word: 'SO', before: 'The coffee was', after: 'he couldn’t sleep.',
     accepted: ['so strong that'],
   },
 ];
@@ -515,7 +515,7 @@ const KwtSection = () => {
                   aria-label={`Transformation ${i + 1}`}
                   onChange={(e) => setAnswers((p) => ({ ...p, [i]: e.target.value }))}
                   className={`inline-block w-56 h-8 text-sm ${correct ? 'border-green-500 bg-green-50' : wrong ? 'border-red-500 bg-red-50' : ''}`}
-                  placeholder="2\u20135 words"
+                  placeholder="2–5 words"
                 />
                 <span>{q.after}</span>
                 {correct && <CheckCircle2 className="h-4 w-4 text-green-600" />}
@@ -592,16 +592,16 @@ interface LyricLine { line: string; blanks: { answer: string }[] }
 const lyrics: LyricLine[] = [
   { line: "I'm not saying it was your fault", blanks: [] },
   { line: 'Although you could have done more', blanks: [] },
-  { line: 'Oh you\u2019re ___ naive yet ___ true', blanks: [{ answer: 'so' }, { answer: 'so' }] },
+  { line: 'Oh you’re ___ naive yet ___ true', blanks: [{ answer: 'so' }, { answer: 'so' }] },
   { line: 'How could this be done', blanks: [] },
   { line: 'By ___ smiling sweetheart', blanks: [{ answer: 'such a' }] },
   { line: 'Oh and your sweet and pretty face', blanks: [] },
   { line: 'In ___ ugly way', blanks: [{ answer: 'such an' }] },
   { line: 'Something ___ beautiful', blanks: [{ answer: 'so' }] },
   { line: 'That every time I look inside', blanks: [] },
-  { line: 'I know she knows that I\u2019m not fond of asking', blanks: [] },
+  { line: 'I know she knows that I’m not fond of asking', blanks: [] },
   { line: 'True or false it may be', blanks: [] },
-  { line: 'She\u2019s still out to get me', blanks: [] },
+  { line: 'She’s still out to get me', blanks: [] },
 ];
 
 const ListeningSection = () => {
@@ -615,7 +615,7 @@ const ListeningSection = () => {
     <SectionShell
       icon={Music}
       number={14}
-      title="Listening \u2014 The Kooks, &ldquo;Na\u00efve&rdquo;"
+      title="Listening — The Kooks, &ldquo;Naïve&rdquo;"
       intro={<>Listen to the song and fill in the missing <em>so</em> and <em>such</em> patterns.</>}
     >
       <div className="aspect-video rounded-lg overflow-hidden bg-muted mb-6 max-w-3xl mx-auto">
@@ -682,16 +682,16 @@ const ListeningSection = () => {
 // ── Your turn ────────────────────────────────────────────────────────────
 
 const personalise = [
-  { prompt: 'I like my best friend. He/She is so \u2026', model: 'He\u2019s so funny.' },
-  { prompt: 'I like my best friend. He/She is such \u2026', model: 'She\u2019s such a kind person.' },
-  { prompt: 'I like my home town. It\u2019s so \u2026', model: 'It\u2019s so lively.' },
-  { prompt: 'I like my home town. It\u2019s such \u2026', model: 'It\u2019s such an exciting place.' },
-  { prompt: 'It\u2019s great to see you again! I haven\u2019t seen you for so \u2026', model: 'I haven\u2019t seen you for so long.' },
-  { prompt: 'It\u2019s great to see you again! I haven\u2019t seen you for such \u2026', model: 'I haven\u2019t seen you for such a long time.' },
-  { prompt: 'It was such a hot day (that) \u2026', model: 'It was such a hot day that we swam in the river.' },
-  { prompt: 'I have so much work (that) \u2026', model: 'I have so much work that I can\u2019t go out tonight.' },
-  { prompt: 'We were so tired (that) \u2026', model: 'We were so tired that we fell asleep on the sofa.' },
-  { prompt: 'They were playing such loud music (that) \u2026', model: 'They were playing such loud music that the neighbours complained.' },
+  { prompt: 'I like my best friend. He/She is so …', model: 'He’s so funny.' },
+  { prompt: 'I like my best friend. He/She is such …', model: 'She’s such a kind person.' },
+  { prompt: 'I like my home town. It’s so …', model: 'It’s so lively.' },
+  { prompt: 'I like my home town. It’s such …', model: 'It’s such an exciting place.' },
+  { prompt: 'It’s great to see you again! I haven’t seen you for so …', model: 'I haven’t seen you for so long.' },
+  { prompt: 'It’s great to see you again! I haven’t seen you for such …', model: 'I haven’t seen you for such a long time.' },
+  { prompt: 'It was such a hot day (that) …', model: 'It was such a hot day that we swam in the river.' },
+  { prompt: 'I have so much work (that) …', model: 'I have so much work that I can’t go out tonight.' },
+  { prompt: 'We were so tired (that) …', model: 'We were so tired that we fell asleep on the sofa.' },
+  { prompt: 'They were playing such loud music (that) …', model: 'They were playing such loud music that the neighbours complained.' },
 ];
 
 const YourTurn = () => {
@@ -708,7 +708,7 @@ const YourTurn = () => {
               value={answers[i] || ''}
               aria-label={`Your idea ${i + 1}`}
               onChange={(e) => setAnswers((prev) => ({ ...prev, [i]: e.target.value }))}
-              placeholder="Write your idea\u2026"
+              placeholder="Write your idea…"
               className="min-h-[54px] text-sm"
             />
             {shown && <p className="mt-1.5 text-sm text-green-700 italic">Example: {p.model}</p>}
@@ -732,7 +732,7 @@ const FurtherReading = () => (
       rel="noopener noreferrer"
       className="inline-flex items-center gap-2 rounded-lg border-2 border-primary/40 px-4 py-3 text-sm font-medium text-primary hover:bg-primary/5 transition-colors"
     >
-      British Council \u2014 Intensifiers: so and such
+      British Council — Intensifiers: so and such
       <ExternalLink className="h-4 w-4" />
     </a>
   </SectionShell>
@@ -755,28 +755,28 @@ const SoSuchLesson = () => (
     <GrammarExplanation />
     <CommonMistakes />
 
-    <SectionShell icon={Gamepad2} number={3} title="Game 1 \u2014 so or such?" intro="A quick warm-up quiz.">
+    <SectionShell icon={Gamepad2} number={3} title="Game 1 — so or such?" intro="A quick warm-up quiz.">
       <WordwallEmbed src="https://wordwall.net/embed/34faf6446a194bf794e1b2406464415a?themeId=1&templateId=5&fontStackId=0" title="So or such quiz 1" />
     </SectionShell>
 
     <GapFill
       items={murphyGaps}
       number={4}
-      title="Gap fill \u2014 so, such or such a"
+      title="Gap fill — so, such or such a"
       intro={<>Write <em>so</em>, <em>such</em> or <em>such a</em> in each gap.</>}
     />
 
     <GapFill
       items={nefGaps}
       number={5}
-      title="Gap fill \u2014 travel sentences"
+      title="Gap fill — travel sentences"
       intro={<>Complete the sentences with <em>so</em>, <em>such</em> or <em>such a</em>.</>}
     />
 
     <SentenceCombining />
     <MatchingSection />
 
-    <SectionShell icon={Gamepad2} number={8} title="Game 2 \u2014 so / such practice" intro="Another round of practice.">
+    <SectionShell icon={Gamepad2} number={8} title="Game 2 — so / such practice" intro="Another round of practice.">
       <WordwallEmbed src="https://wordwall.net/embed/5a41bebf075e4608beabdbcb9438be70?themeId=46&templateId=5&fontStackId=0" title="So or such quiz 2" />
     </SectionShell>
 
@@ -786,11 +786,11 @@ const SoSuchLesson = () => (
     <GapFill
       items={dialogueGaps}
       number={11}
-      title="Dialogue \u2014 Jim &amp; Izzy"
+      title="Dialogue — Jim &amp; Izzy"
       intro={<>Complete the conversation with <em>so</em> or <em>such</em>.</>}
     />
 
-    <SectionShell icon={MessagesSquare} number={12} title="Game 3 \u2014 match it up" intro="Match the sentence halves against the clock.">
+    <SectionShell icon={MessagesSquare} number={12} title="Game 3 — match it up" intro="Match the sentence halves against the clock.">
       <WordwallEmbed src="https://wordwall.net/embed/ebc24a40f3ab47388cb94bf06008454d?themeId=1&templateId=2&fontStackId=0" title="So or such quiz 3" />
     </SectionShell>
 
