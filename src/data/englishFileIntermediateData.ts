@@ -12,6 +12,7 @@ import sb18 from '@/assets/ef/sb-1-8.mp3.asset.json';
 import wb12 from '@/assets/ef/wb-1-2.mp3.asset.json';
 import wb13 from '@/assets/ef/wb-1-3.mp3.asset.json';
 import libraryDiscussion from '@/assets/ef-library-discussion.jpg';
+import vowelPictures from '@/assets/ef-pronunciation-vowel-pictures.jpg.asset.json';
 export type { Activity };
 
 
@@ -305,6 +306,13 @@ const lesson1A: EFLesson = {
           type: 'intro',
           title: 'Long or short?',
           body: 'In the English File sound pictures, two dots (ː) after the symbol tell you that the sound is long: /iː/, /ɑː/, /ɔː/, /uː/. Watch the video, then repeat the words and sounds.',
+        },
+        {
+          type: 'discussion',
+          title: 'Sound pictures',
+          body: 'Look at the sound pictures. What are the sound words and vowel sounds? Write them in your notebook, then listen and check.',
+          image: vowelPictures.url,
+          imageAlt: 'English File sound pictures for short and long vowel sounds',
         },
         {
           type: 'audio',
