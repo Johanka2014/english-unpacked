@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import airportCouple from '@/assets/sosuch-airport-couple.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -201,14 +201,14 @@ const CommonMistakes = () => (
 interface Gap { sentence: string; answer: string; note?: string }
 
 const GapFill = ({
-  items, number, title, intro,
-}: { items: Gap[]; number: number; title: string; intro: React.ReactNode }) => {
+  items, number, title, intro, image,
+}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
   const score = items.filter((f, i) => norm(answers[i] || '') === norm(f.answer)).length;
 
-  return (
-    <SectionShell icon={PenTool} number={number} title={title} intro={intro}>
+  const exercise = (
+    <>
       <div className="space-y-4">
         {items.map((f, i) => {
           const parts = f.sentence.split('___');
@@ -249,6 +249,28 @@ const GapFill = ({
         onCheck={() => setChecked(true)}
         onReset={() => { setAnswers({}); setChecked(false); }}
       />
+    </>
+  );
+
+  return (
+    <SectionShell icon={PenTool} number={number} title={title} intro={intro}>
+      {image ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <div>
+            <img
+              src={image}
+              alt="A couple struggling to lift a heavy suitcase at the airport"
+              loading="lazy"
+              width={1024}
+              height={1536}
+              className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-md"
+            />
+          </div>
+          <div>{exercise}</div>
+        </div>
+      ) : (
+        exercise
+      )}
     </SectionShell>
   );
 };
@@ -756,6 +778,7 @@ const SoSuchLesson = () => (
       number={5}
       title="Gap fill — travel sentences"
       intro={<>Complete the sentences with <em>so</em>, <em>such</em> or <em>such a</em>.</>}
+      image={airportCouple}
     />
 
     <SentenceCombining />
