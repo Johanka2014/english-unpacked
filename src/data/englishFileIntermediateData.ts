@@ -12,6 +12,7 @@ import sb18 from '@/assets/ef/sb-1-8.mp3.asset.json';
 import wb12 from '@/assets/ef/wb-1-2.mp3.asset.json';
 import wb13 from '@/assets/ef/wb-1-3.mp3.asset.json';
 import libraryDiscussion from '@/assets/ef-library-discussion.jpg';
+import vowelPictures from '@/assets/ef-pronunciation-vowel-pictures.jpg.asset.json';
 export type { Activity };
 
 
