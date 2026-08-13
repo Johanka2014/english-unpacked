@@ -188,7 +188,13 @@ const lesson1A: EFLesson = {
             { term: 'red pepper', definition: 'a sweet red vegetable, eaten raw or cooked', example: 'Tinned red peppers.' },
           ],
         },
-
+        {
+          type: 'embed',
+          title: 'Practice · Fruit and vegetables',
+          body: 'Play the interactive game to check you remember the words.',
+          embedUrl: 'https://wordwall.net/embed/b409c47e5cb24ddbafe0d08fca844fca?themeId=62&templateId=22&fontStackId=0',
+          embedHeight: 440,
+        },
         {
           type: 'matching',
           title: 'Cooking — match the word to the meaning',
