@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
   CheckCircle2, XCircle, Music, Play, BookOpen, Target, PenTool, Search,
-  Gamepad2, AlertTriangle, Shuffle, Link2, MessagesSquare, Sparkles, ExternalLink, GraduationCap,
+  Gamepad2, AlertTriangle, Shuffle, Link2, MessagesSquare, Sparkles, GraduationCap,
 } from 'lucide-react';
 
 // ── Shared helpers ───────────────────────────────────────────────────────
@@ -722,21 +722,6 @@ const YourTurn = () => {
   );
 };
 
-// ── Further reading ──────────────────────────────────────────────────────
-
-const FurtherReading = () => (
-  <SectionShell icon={ExternalLink} number={16} title="Further reading" intro="More explanations and extra practice from the British Council.">
-    <a
-      href="https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/intensifiers-so-such"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg border-2 border-primary/40 px-4 py-3 text-sm font-medium text-primary hover:bg-primary/5 transition-colors"
-    >
-      British Council — Intensifiers: so and such
-      <ExternalLink className="h-4 w-4" />
-    </a>
-  </SectionShell>
-);
 
 // ── Main ─────────────────────────────────────────────────────────────────
 
@@ -797,7 +782,7 @@ const SoSuchLesson = () => (
     <PatternRecognition />
     <ListeningSection />
     <YourTurn />
-    <FurtherReading />
+    
   </div>
 );
 
