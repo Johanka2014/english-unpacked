@@ -12,6 +12,37 @@ import NotesBoxes from './NotesBoxes';
 import AudioWithTranscript from './AudioWithTranscript';
 import Flashcards from '@/components/presentations/Flashcards';
 
+const VideoEmbed = ({ activity }: { activity: Activity }) => {
+  if (!activity.videoId) return null;
+  return (
+    <Card>
+      <CardContent className="p-4 sm:p-6">
+        <h3 className="text-lg font-semibold mb-3 text-foreground">
+          {activity.videoLabel || activity.title || 'Video'}
+        </h3>
+        <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingTop: '56.25%' }}>
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={`https://www.youtube.com/embed/${activity.videoId}`}
+            title={activity.videoLabel || activity.title || 'Lesson video'}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
+        <a
+          href={`https://www.youtube.com/watch?v=${activity.videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-3 text-sm text-primary underline underline-offset-4"
+        >
+          Open the video on YouTube
+        </a>
+      </CardContent>
+    </Card>
+  );
+};
+
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
