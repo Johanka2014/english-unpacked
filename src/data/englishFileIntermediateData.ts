@@ -209,6 +209,13 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'embed',
+          title: 'Practice · Cooking methods',
+          body: 'Play the interactive game to practise the cooking verbs.',
+          embedUrl: 'https://wordwall.net/embed/79aa99a727264644b078b1d811b1aa0e?themeId=62&templateId=22&fontStackId=0',
+          embedHeight: 440,
+        },
+        {
           type: 'matching',
           title: 'Adjectives to describe food',
           body: 'Match each adjective to its meaning, then say what kind of food you often use it with.',
