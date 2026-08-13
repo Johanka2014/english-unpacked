@@ -127,9 +127,9 @@ const lesson1A: EFLesson = {
           ],
         },
         {
-          type: 'drag-fill',
+          type: 'fill-blanks',
           title: 'Phrasal verbs — eat out, cut down on, cut out',
-          body: 'Drag the missing word into each gap.',
+          body: 'Complete the phrasal verbs with down, on or out (x2). Then check.',
           blanks: [
             { prompt: 'I eat ___ a lot because I often don\'t have time to cook. Luckily, there are lots of good restaurants near where I live.', answer: 'out' },
             { prompt: 'I\'m trying to cut ___ on coffee at the moment. I\'m only having one cup at breakfast.', answer: 'down' },
@@ -417,7 +417,7 @@ const lesson1A: EFLesson = {
             { prompt: 'I usually ___ tea, but I want a coffee today.', answer: 'drink' },
             { prompt: 'You can turn off the radio. I ___ listening to it.', answer: 'am not' },
             { prompt: 'My wife ___ from 9.00 a.m. to 5.00 p.m. She\'s a bank manager.', answer: 'works' },
-            { prompt: 'Be careful! The baby ___ putting your pen in her mouth!', answer: 'is' },
+            { prompt: 'Be careful! The baby ___ your pen in her mouth!', answer: 'is putting' },
             { prompt: 'Marc lives in Paris, but he ___ working in Nice at the moment.', answer: 'is' },
           ],
         },
