@@ -196,6 +196,13 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'embed',
+          title: 'Practice · Fruit and vegetables',
+          body: 'Play the interactive game to practise the fruit and vegetable vocabulary.',
+          embedUrl: 'https://wordwall.net/embed/46740d48905f4348bcff7cf8f9da400e?themeId=62&templateId=22&fontStackId=0',
+          embedHeight: 440,
+        },
+        {
           type: 'matching',
           title: 'Cooking — match the word to the meaning',
           body: 'Click a cooking verb, then click its definition.',
