@@ -788,6 +788,8 @@ const SoSuchLesson = () => (
       number={4}
       title="Gap fill — so, such or such a"
       intro={<>Write <em>so</em>, <em>such</em> or <em>such a</em> in each gap.</>}
+      image={tiredWoman}
+      imagePosition="right"
     />
 
     <GapFill
