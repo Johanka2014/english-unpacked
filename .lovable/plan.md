@@ -28,6 +28,8 @@ Convert the "Activation · Talk to a partner" block into a two-column layout: di
 ## Technical notes
 - New activity types added to the shared `Activity` union in `src/data/engineeringData.ts`: `flashcards`, `notes`, `two-col`, plus optional `audioSrc` / `transcript` fields on existing types.
 - `TechnicalRenderer` gains cases for the new types: `Flashcards` (existing component), a new `NotesBoxes` component (textarea + localStorage autosave, same pattern as the writing boxes in Unit 13), and a two-column wrapper.
-- Listening activities render an inline `<audio>` player when `audioSrc` is present and a shadcn `Accordion` transcript when `transcript` is present.
+- Listening activities render an inline audio player when `audioSrc` is present and a shadcn `Accordion` transcript when `transcript` is present.
+- The four MP3s are pushed to CDN storage via `lovable-assets` and referenced through `.asset.json` pointers in `src/assets/ef/` — no binaries added to the repo.
+
 - Phrasal-verb gap-fill switches from `fill-blanks` to the existing `type-blanks` renderer.
 - Image generated to `src/assets/ef-library-discussion.jpg`.
