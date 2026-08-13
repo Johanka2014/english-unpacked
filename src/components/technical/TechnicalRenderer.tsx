@@ -132,7 +132,8 @@ const renderActivity = (a: Activity, idx: number) => {
         />
       );
     case 'audio':
-      return null; // rendered by the audio wrapper below
+      return a.body || a.bullets ? <Discussion activity={a} /> : null;
+
     case 'fill-blanks':
       return <FillBlanks activity={a} />;
     case 'drag-fill':
