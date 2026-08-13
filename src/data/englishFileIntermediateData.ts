@@ -601,6 +601,26 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'audio',
+          title: 'Workbook 1.2 — short and long vowel sounds',
+          body: 'Listen and write each word in the correct sound group, then listen again and repeat.',
+          track: 'WB 1.2',
+          audioSrc: wb12.url,
+          transcript: [
+            'chicken, beef, crab, prawns, lamb, duck, salmon, tuna, squid, mussels, pork, lobster',
+          ],
+        },
+        {
+          type: 'audio',
+          title: 'Workbook 1.3 — food and cooking vocabulary',
+          body: 'Listen and repeat the words. Check the stress on the longer words.',
+          track: 'WB 1.3',
+          audioSrc: wb13.url,
+          transcript: [
+            'boiled, baked, roast, grilled, fried, steamed, raw, fresh, frozen, tinned, low-fat, spicy, cabbage, beetroot, aubergine, courgette',
+          ],
+        },
+        {
           type: 'discussion',
           title: 'Self-check',
           bullets: [
@@ -610,6 +630,7 @@ const lesson1A: EFLesson = {
             'Can you give three examples of non-action verbs?',
           ],
         },
+
       ],
     },
   ],
