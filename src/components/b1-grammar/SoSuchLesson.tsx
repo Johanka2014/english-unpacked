@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import sofaCouple from '@/assets/sosuch-sofa-couple.jpg';
 import airportCouple from '@/assets/sosuch-airport-couple.jpg';
 import tiredWoman from '@/assets/sosuch-tired-woman.jpg';
 import drivingTest from '@/assets/sosuch-driving-test.jpg';
+
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -204,8 +206,9 @@ const CommonMistakes = () => (
 interface Gap { sentence: string; answer: string; note?: string }
 
 const GapFill = ({
-  items, number, title, intro, image, imagePosition = 'left',
-}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string; imagePosition?: 'left' | 'right' }) => {
+  items, number, title, intro, image, imagePosition = 'left', imageAlt,
+}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string; imagePosition?: 'left' | 'right'; imageAlt?: string }) => {
+
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
   const score = items.filter((f, i) => norm(answers[i] || '') === norm(f.answer)).length;
@@ -259,9 +262,9 @@ const GapFill = ({
     <div>
       <img
         src={image}
-        alt={imagePosition === 'right'
+        alt={imageAlt || (imagePosition === 'right'
           ? 'A tired woman sitting at her desk at work'
-          : 'A couple struggling to lift a heavy suitcase at the airport'}
+          : 'A couple struggling to lift a heavy suitcase at the airport')}
         loading="lazy"
         width={1024}
         height={1536}
@@ -269,6 +272,7 @@ const GapFill = ({
       />
     </div>
   ) : null;
+
 
   return (
     <SectionShell icon={PenTool} number={number} title={title} intro={intro}>
@@ -863,7 +867,10 @@ const SoSuchLesson = () => (
       number={11}
       title="Dialogue — Jim &amp; Izzy"
       intro={<>Complete the conversation with <em>so</em> or <em>such</em>.</>}
+      image={sofaCouple}
+      imageAlt="A couple sitting on a sofa together in their living room and talking"
     />
+
 
     <SectionShell icon={MessagesSquare} number={12} title="Game 3 — match it up" intro="Match the sentence halves against the clock.">
       <WordwallEmbed src="https://wordwall.net/embed/ebc24a40f3ab47388cb94bf06008454d?themeId=1&templateId=2&fontStackId=0" title="So or such quiz 3" />
