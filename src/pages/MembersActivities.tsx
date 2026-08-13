@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -167,6 +167,14 @@ const TABS: TabDef[] = [
         icon: Gamepad2,
         path: '/pet-word-quest',
         color: 'text-violet-600',
+        group: 'PET (B1)',
+      },
+      {
+        title: 'English File Intermediate',
+        description: 'New English File 5th edition (B1+) — File 1 "How we eat" with vocabulary, pronunciation, reading, video interviews and grammar. Files 2–12 coming soon.',
+        icon: Library,
+        path: '/english-file-intermediate',
+        color: 'text-sky-600',
         group: 'PET (B1)',
       },
       {
