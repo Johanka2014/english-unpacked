@@ -177,6 +177,8 @@ const renderActivity = (a: Activity, idx: number) => {
       );
     case 'video':
       return <VideoEmbed activity={a} />;
+    case 'embed':
+      return <EmbedActivity activity={a} />;
     case 'notes':
       return (
         <NotesBoxes
