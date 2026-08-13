@@ -313,6 +313,16 @@ const lesson1A: EFLesson = {
           type: 'fill-blanks',
           title: 'Listening 1.7 — what did each speaker mention?',
           body: 'Six people each answer one question from the questionnaire. Listen, then check the food or drink they talk about.',
+          track: '1.7',
+          audioSrc: sb17.url,
+          transcript: [
+            'Emma: I couldn\'t live without tea. I drink it all day long — the first thing I do in the morning is put the kettle on.',
+            'Sarah: For me it\'s pasta. If I\'m tired and I need something quick, I always make pasta with a simple tomato sauce.',
+            'John: I love hot, spicy food — curries, Indonesian food, Thai food. The spicier the better, really.',
+            'Rob: When I\'m feeling a bit down I eat chocolate, or ice cream. It always cheers me up.',
+            'James: I\'ve cut down on caffeine — I used to drink five or six coffees a day and I couldn\'t sleep.',
+            'Sean: I couldn\'t give up meat. My favourite pizza topping is pepperoni, so a vegetarian diet wouldn\'t work for me.',
+          ],
           blanks: [
             { prompt: 'Emma', answer: 'tea' },
             { prompt: 'Sarah', answer: 'pasta' },
@@ -322,6 +332,20 @@ const lesson1A: EFLesson = {
             { prompt: 'Sean', answer: 'meat / pepperoni' },
           ],
         },
+        {
+          type: 'audio',
+          title: 'Listening 1.8 — talking about cooking',
+          body: 'Listen to the speakers talking about how they cook, then compare with a partner.',
+          track: '1.8',
+          audioSrc: sb18.url,
+          transcript: [
+            'Speaker 1: I always follow a recipe — I have a shelf full of cookbooks and I read them like novels.',
+            'Speaker 2: I never use recipes. I just look in the fridge and see what\'s there, and I invent something.',
+            'Speaker 3: I learnt to cook from my grandmother. Nothing was written down, you just watched and copied.',
+            'Speaker 4: I cook the same five or six dishes again and again. They\'re quick, they\'re cheap and everyone eats them.',
+          ],
+        },
+
         {
           type: 'discussion',
           title: 'Speaking · Your turn',
