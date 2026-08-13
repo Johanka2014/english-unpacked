@@ -49,16 +49,39 @@ const WordList = ({ activity }: { activity: Activity }) => (
   </InfoSection>
 );
 
-const Discussion = ({ activity }: { activity: Activity }) => (
-  <InfoSection title={activity.title || 'Discussion'}>
-    {activity.body && <p className="text-foreground mb-3">{activity.body}</p>}
-    {activity.bullets && (
-      <ul className="space-y-2 list-disc list-inside text-foreground">
-        {activity.bullets.map((b, i) => <li key={i}>{b}</li>)}
-      </ul>
-    )}
-  </InfoSection>
-);
+const Discussion = ({ activity }: { activity: Activity }) => {
+  const content = (
+    <>
+      {activity.body && <p className="text-foreground mb-3">{activity.body}</p>}
+      {activity.bullets && (
+        <ul className="space-y-2 list-disc list-inside text-foreground">
+          {activity.bullets.map((b, i) => <li key={i}>{b}</li>)}
+        </ul>
+      )}
+    </>
+  );
+
+  if (activity.image) {
+    return (
+      <InfoSection title={activity.title || 'Discussion'}>
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 items-center">
+          <div>{content}</div>
+          <img
+            src={activity.image}
+            alt={activity.imageAlt || ''}
+            loading="lazy"
+            width={1024}
+            height={768}
+            className="w-full h-auto rounded-xl object-cover shadow-sm"
+          />
+        </div>
+      </InfoSection>
+    );
+  }
+
+  return <InfoSection title={activity.title || 'Discussion'}>{content}</InfoSection>;
+};
+
 
 const Reading = ({ activity }: { activity: Activity }) => (
   <InfoSection title={activity.title || 'Reading'}>
