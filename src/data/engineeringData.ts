@@ -7,6 +7,7 @@ export type ActivityType =
   | 'intro'
   | 'discussion'
   | 'audio'
+  | 'video'
   | 'reading'
   | 'matching'
   | 'multiple-choice'
@@ -32,6 +33,8 @@ export interface Activity {
   track?: string;           // audio reference, e.g. "1.1"
   audioSrc?: string;        // playable audio URL
   transcript?: string[];    // collapsible transcript lines
+  videoId?: string;         // YouTube video id
+  videoLabel?: string;      // heading above the embedded video
   passage?: string[];       // reading passage paragraphs
   pairs?: MatchingPair[];
   mcq?: MCQItem[];
