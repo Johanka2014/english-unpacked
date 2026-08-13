@@ -68,23 +68,69 @@ const EmbedActivity = ({ activity }: { activity: Activity }) => {
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
+  const [values, setValues] = useState<Record<number, string>>({});
+  const [results, setResults] = useState<Record<number, 'correct' | 'incorrect' | null>>({});
+
+  const check = () => {
+    const r: Record<number, 'correct' | 'incorrect'> = {};
+    activity.blanks?.forEach((b, i) => {
+      const typed = (values[i] || '').trim().toLowerCase();
+      const expected = b.answer.toLowerCase();
+      r[i] = typed === expected ? 'correct' : 'incorrect';
+    });
+    setResults(r);
+  };
+
   return (
     <InfoSection title={activity.title || 'Fill in the blanks'}>
       {activity.body && <p className="text-muted-foreground mb-3">{activity.body}</p>}
       <div className="space-y-3">
         {activity.blanks?.map((b, i) => (
           <div key={i} className="p-3 rounded-lg border border-border">
-            <p className="text-foreground">{b.prompt}</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <span className="text-foreground flex-shrink-0">{b.prompt}</span>
+              <input
+                type="text"
+                value={values[i] || ''}
+                onChange={(e) => {
+                  setValues((v) => ({ ...v, [i]: e.target.value }));
+                  setResults((r) => ({ ...r, [i]: null }));
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') check();
+                }}
+                placeholder="Type your answer"
+                className={`flex-1 px-3 py-1.5 rounded-md border bg-background text-foreground outline-none transition-colors ${
+                  results[i] === 'correct'
+                    ? 'border-green-500 focus:border-green-500'
+                    : results[i] === 'incorrect'
+                    ? 'border-red-500 focus:border-red-500'
+                    : 'border-border focus:border-primary'
+                }`}
+                aria-label={`Answer ${i + 1}`}
+              />
+              {results[i] === 'correct' && (
+                <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+              )}
+              {results[i] === 'incorrect' && (
+                <span className="text-sm text-red-600 shrink-0">{b.answer}</span>
+              )}
+            </div>
             {reveal && (
-              <p className="mt-1 text-sm text-green-700 dark:text-green-400 flex items-center gap-1">
+              <p className="mt-2 text-sm text-green-700 dark:text-green-400 flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4" /> {b.answer}
               </p>
             )}
           </div>
         ))}
-        <Button variant="outline" size="sm" onClick={() => setReveal((r) => !r)}>
-          {reveal ? 'Hide answers' : 'Show answers'}
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" onClick={() => setReveal((r) => !r)}>
+            {reveal ? 'Hide answers' : 'Show answers'}
+          </Button>
+          <Button size="sm" onClick={check}>
+            Check answers
+          </Button>
+        </div>
       </div>
     </InfoSection>
   );
