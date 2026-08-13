@@ -308,6 +308,13 @@ const lesson1A: EFLesson = {
           body: 'In the English File sound pictures, two dots (ː) after the symbol tell you that the sound is long: /iː/, /ɑː/, /ɔː/, /uː/. Watch the video, then repeat the words and sounds.',
         },
         {
+          type: 'discussion',
+          title: 'Sound pictures',
+          body: 'Look at the sound pictures. What are the sound words and vowel sounds? Write them in your notebook, then listen and check.',
+          image: vowelPictures.url,
+          imageAlt: 'English File sound pictures for short and long vowel sounds',
+        },
+        {
           type: 'audio',
           title: 'Listening 1.6 — vowel sounds',
           body: 'Listen and repeat the sound pictures and the example words.',
