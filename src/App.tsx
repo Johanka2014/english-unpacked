@@ -76,6 +76,9 @@ const WordScramble = lazy(() => import("./pages/WordScramble"));
 const PETWordQuest = lazy(() => import("./pages/PETWordQuest"));
 const FCEWordQuest = lazy(() => import("./pages/FCEWordQuest"));
 const CAEWordQuest = lazy(() => import("./pages/CAEWordQuest"));
+const EnglishFileIntermediate = lazy(() => import("./pages/EnglishFileIntermediate"));
+const EnglishFileUnit = lazy(() => import("./pages/EnglishFileUnit"));
+const EnglishFileLesson = lazy(() => import("./pages/EnglishFileLesson"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -156,6 +159,9 @@ const App = () => (
               <Route path="/tech-talk/:unitId/:sectionId" element={<ProtectedRoute><TechTalkSection /></ProtectedRoute>} />
               <Route path="/technical-english" element={<ProtectedRoute><TechnicalEnglish /></ProtectedRoute>} />
               <Route path="/technical-english/:topicId" element={<ProtectedRoute><TechnicalEnglishTopic /></ProtectedRoute>} />
+              <Route path="/english-file-intermediate" element={<ProtectedRoute><EnglishFileIntermediate /></ProtectedRoute>} />
+              <Route path="/english-file-intermediate/:fileId" element={<ProtectedRoute><EnglishFileUnit /></ProtectedRoute>} />
+              <Route path="/english-file-intermediate/:fileId/:lessonId" element={<ProtectedRoute><EnglishFileLesson /></ProtectedRoute>} />
 
               <Route path="/pronunciation" element={<ProtectedRoute><PronunciationCourse /></ProtectedRoute>} />
               <Route path="/pronunciation/:sectionId" element={<ProtectedRoute><PronunciationSection /></ProtectedRoute>} />
