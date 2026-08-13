@@ -32,28 +32,33 @@ const NotesBoxes = ({ title, body, fields, storageKey = 'notes' }: Props) => {
     }
   };
 
+  const headingId = `notes-heading-${storageKey}`;
+
   return (
     <Card>
       <CardContent className="p-4 sm:p-6">
-        <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
-        {body && <p className="text-muted-foreground mb-4 text-sm">{body}</p>}
-        <div className="grid gap-4 sm:grid-cols-2">
-          {fields.map((f) => (
-            <div key={f.id}>
-              <label htmlFor={`note-${storageKey}-${f.id}`} className="block text-sm font-medium text-foreground mb-1">
-                {f.label}
-              </label>
-              <Textarea
-                id={`note-${storageKey}-${f.id}`}
-                value={values[f.id] || ''}
-                placeholder={f.placeholder}
-                onChange={(e) => update(f.id, e.target.value)}
-                rows={3}
-              />
-            </div>
-          ))}
-        </div>
-        <p className="text-xs text-muted-foreground mt-3 italic">Your answers are saved in this browser.</p>
+        <section aria-labelledby={headingId}>
+          <h3 id={headingId} className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
+          {body && <p className="text-muted-foreground mb-4 text-sm">{body}</p>}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {fields.map((f) => (
+              <div key={f.id}>
+                <label htmlFor={`note-${storageKey}-${f.id}`} className="block text-sm font-medium text-foreground mb-1">
+                  {f.label}
+                </label>
+                <Textarea
+                  id={`note-${storageKey}-${f.id}`}
+                  value={values[f.id] || ''}
+                  placeholder={f.placeholder}
+                  onChange={(e) => update(f.id, e.target.value)}
+                  rows={3}
+                  className="focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                />
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground mt-3 italic" aria-live="polite">Your answers are saved in this browser.</p>
+        </section>
       </CardContent>
     </Card>
   );
