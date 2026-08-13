@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import airportCouple from '@/assets/sosuch-airport-couple.jpg';
 import tiredWoman from '@/assets/sosuch-tired-woman.jpg';
+import drivingTest from '@/assets/sosuch-driving-test.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -457,13 +458,21 @@ const choiceItems: Choice[] = [
   { sentence: 'Joe was ___ angry that he started shouting at me.', options: ['so', 'such an'], answer: 'so', note: 'so + adjective' },
 ];
 
-const ChoiceSection = () => {
+const ChoiceSection = ({
+  image,
+  imagePosition = 'right',
+  imageAlt,
+}: {
+  image?: string;
+  imagePosition?: 'left' | 'right';
+  imageAlt?: string;
+}) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
   const score = choiceItems.filter((q, i) => answers[i] === q.answer).length;
 
-  return (
-    <SectionShell icon={Target} number={9} title="Choose the correct answer" intro="Pick so or such in each sentence.">
+  const exercise = (
+    <>
       <div className="space-y-5">
         {choiceItems.map((q, i) => (
           <div key={i} className="border-l-4 border-primary/30 pl-4">
@@ -494,6 +503,41 @@ const ChoiceSection = () => {
         ))}
       </div>
       <ScoreBar checked={checked} score={score} total={choiceItems.length} onCheck={() => setChecked(true)} onReset={() => { setAnswers({}); setChecked(false); }} />
+    </>
+  );
+
+  const imageNode = image ? (
+    <div>
+      <img
+        src={image}
+        alt={imageAlt || ''}
+        loading="lazy"
+        width={1024}
+        height={1536}
+        className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-md"
+      />
+    </div>
+  ) : null;
+
+  return (
+    <SectionShell icon={Target} number={9} title="Choose the correct answer" intro="Pick so or such in each sentence.">
+      {image ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          {imagePosition === 'left' ? (
+            <>
+              {imageNode}
+              <div>{exercise}</div>
+            </>
+          ) : (
+            <>
+              <div>{exercise}</div>
+              {imageNode}
+            </>
+          )}
+        </div>
+      ) : (
+        exercise
+      )}
     </SectionShell>
   );
 };
@@ -807,7 +851,11 @@ const SoSuchLesson = () => (
       <WordwallEmbed src="https://wordwall.net/embed/5a41bebf075e4608beabdbcb9438be70?themeId=46&templateId=5&fontStackId=0" title="So or such quiz 2" />
     </SectionShell>
 
-    <ChoiceSection />
+    <ChoiceSection
+      image={drivingTest}
+      imagePosition="right"
+      imageAlt="A young person sitting in a car with their driving instructor, smiling happily and holding their driving licence after passing the test"
+    />
     <KwtSection />
 
     <GapFill
