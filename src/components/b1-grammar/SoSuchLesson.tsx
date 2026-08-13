@@ -272,9 +272,18 @@ const GapFill = ({
   return (
     <SectionShell icon={PenTool} number={number} title={title} intro={intro}>
       {image ? (
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 items-start ${imagePosition === 'right' ? 'md:[direction:rtl]' : ''}`}>
-          <div className={imagePosition === 'right' ? 'md:[direction:ltr]' : ''}>{imageNode}</div>
-          <div className={imagePosition === 'right' ? 'md:[direction:ltr]' : ''}>{exercise}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          {imagePosition === 'left' ? (
+            <>
+              {imageNode}
+              <div>{exercise}</div>
+            </>
+          ) : (
+            <>
+              <div>{exercise}</div>
+              {imageNode}
+            </>
+          )}
         </div>
       ) : (
         exercise
