@@ -170,6 +170,14 @@ const TABS: TabDef[] = [
         group: 'PET (B1)',
       },
       {
+        title: 'English File Intermediate',
+        description: 'New English File 5th edition (B1+) — File 1 "How we eat" with vocabulary, pronunciation, reading, video interviews and grammar. Files 2–12 coming soon.',
+        icon: Library,
+        path: '/english-file-intermediate',
+        color: 'text-sky-600',
+        group: 'PET (B1)',
+      },
+      {
         title: 'FCE Vocabulary Practice',
         description: 'Build your FCE vocabulary with comprehensive exercises',
         icon: BookOpen,
