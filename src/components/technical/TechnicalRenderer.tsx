@@ -153,6 +153,8 @@ const renderActivity = (a: Activity, idx: number) => {
           cards={a.cards || []}
         />
       );
+    case 'video':
+      return <VideoEmbed activity={a} />;
     case 'notes':
       return (
         <NotesBoxes
