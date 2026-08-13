@@ -61,8 +61,6 @@ const lesson1A: EFLesson = {
       id: 'vocabulary',
       title: 'Vocabulary',
       description: 'Food and cooking — Vocabulary Bank p.160',
-      videoId: 'MC7RCZWw98E',
-      videoLabel: 'Video · Food items (16 circled items)',
       activities: [
         {
           type: 'intro',
@@ -103,7 +101,12 @@ const lesson1A: EFLesson = {
             { prompt: 'Six breakfast foods', answer: 'toast, cereal, eggs, bacon, yogurt, fruit, croissants, porridge' },
           ],
         },
-
+        {
+          type: 'video',
+          title: 'Video · Food items (16 circled items)',
+          videoId: 'MC7RCZWw98E',
+          videoLabel: 'Video · Food items (16 circled items)',
+        },
         {
           type: 'intro',
           title: 'Watch and remember',
