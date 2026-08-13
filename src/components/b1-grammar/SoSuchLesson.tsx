@@ -851,7 +851,11 @@ const SoSuchLesson = () => (
       <WordwallEmbed src="https://wordwall.net/embed/5a41bebf075e4608beabdbcb9438be70?themeId=46&templateId=5&fontStackId=0" title="So or such quiz 2" />
     </SectionShell>
 
-    <ChoiceSection />
+    <ChoiceSection
+      image={drivingTest}
+      imagePosition="right"
+      imageAlt="A young person sitting in a car with their driving instructor, smiling happily and holding their driving licence after passing the test"
+    />
     <KwtSection />
 
     <GapFill
