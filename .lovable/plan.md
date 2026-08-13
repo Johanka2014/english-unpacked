@@ -15,6 +15,9 @@ The four Student's Book tracks for File 1 (1.5, 1.6, 1.7, 1.8) are now available
 - 1.7 → "Listening 1.7 — what did each speaker mention?" (Listening & Speaking tab)
 - 1.8 → added to the Listening & Speaking tab
 
+The two Workbook tracks (WB 1.2 and WB 1.3) go into the Homework / extra practice section of 1A as listening exercises with the same player and transcript panel.
+
+
 ## 4. Transcript behind a collapsible button
 Each audio gets a "Show transcript" collapsible panel underneath the player, closed by default. Transcripts are written out from the tracks themselves and cross-checked against the Teacher's Book answer key so they match what students hear.
 
