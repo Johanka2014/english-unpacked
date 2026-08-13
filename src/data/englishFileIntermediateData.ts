@@ -77,7 +77,8 @@ const lesson1A: EFLesson = {
             'six things that people sometimes have for breakfast',
           ],
           image: buffetTable.url,
-          imageAlt: 'A large buffet table showing different fruits, vegetables, seafood, meat, dairy and breakfast foods',
+          imageAlt:
+            'A long buffet table laid out with food: bowls of strawberries, bananas, kiwis and grapes, platters of prawns and fish, sliced roast meats, cheeses, yoghurt and milk jugs, salad vegetables such as lettuce, cucumber, tomatoes and peppers, plus breakfast items like bread, eggs, cereal and jars and cans of food',
         },
         {
           type: 'notes',

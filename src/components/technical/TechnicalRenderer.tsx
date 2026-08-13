@@ -107,10 +107,10 @@ const FillBlanks = ({ activity }: { activity: Activity }) => {
                     ? 'border-red-500 focus:border-red-500'
                     : 'border-border focus:border-primary'
                 }`}
-                aria-label={`Answer ${i + 1}`}
+                aria-label={b.prompt || `Answer ${i + 1}`}
               />
               {results[i] === 'correct' && (
-                <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" aria-hidden="true" />
               )}
               {results[i] === 'incorrect' && (
                 <span className="text-sm text-red-600 shrink-0">{b.answer}</span>
