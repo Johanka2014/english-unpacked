@@ -105,71 +105,100 @@ const Task = ({ activity }: { activity: Activity }) => (
   </Card>
 );
 
+const renderActivity = (a: Activity, idx: number) => {
+  switch (a.type) {
+    case 'discussion':
+    case 'intro':
+      return <Discussion activity={a} />;
+    case 'reading':
+      return <Reading activity={a} />;
+    case 'word-list':
+      return <WordList activity={a} />;
+    case 'flashcards':
+      return (
+        <Flashcards
+          title={a.title || 'Flashcards'}
+          description={a.body}
+          cards={a.cards || []}
+        />
+      );
+    case 'notes':
+      return (
+        <NotesBoxes
+          title={a.title || 'Write your answers'}
+          body={a.body}
+          fields={a.fields || []}
+          storageKey={`${a.title || 'notes'}-${idx}`}
+        />
+      );
+    case 'audio':
+      return null; // rendered by the audio wrapper below
+    case 'fill-blanks':
+      return <FillBlanks activity={a} />;
+    case 'drag-fill':
+      return (
+        <DragFillCollocations
+          title={a.title || 'Drag to complete'}
+          body={a.body}
+          blanks={a.blanks || []}
+        />
+      );
+    case 'type-blanks':
+      return (
+        <TypeBlanks
+          title={a.title || 'Type to complete'}
+          body={a.body}
+          blanks={a.blanks || []}
+        />
+      );
+    case 'matching':
+      return (
+        <MatchingExercise
+          title={a.title || 'Matching exercise'}
+          description={a.body || ''}
+          pairs={a.pairs || []}
+          leftLabel="Item"
+          rightLabel="Match"
+        />
+      );
+    case 'multiple-choice':
+      return (
+        <MultipleChoiceQuiz
+          title={a.title || 'Quiz'}
+          description={a.body || ''}
+          questions={(a.mcq || []).map((q, i) => ({
+            id: i + 1,
+            text: q.question,
+            options: q.options,
+            answer: q.options[q.answerIndex],
+          }))}
+        />
+      );
+    case 'task':
+      return <Task activity={a} />;
+    default:
+      return null;
+  }
+};
+
 const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
   return (
     <div className="space-y-6">
-      {activities.map((a, idx) => {
-        switch (a.type) {
-          case 'discussion':
-          case 'intro':
-            return <Discussion key={idx} activity={a} />;
-          case 'reading':
-            return <Reading key={idx} activity={a} />;
-          case 'word-list':
-            return <WordList key={idx} activity={a} />;
-          case 'fill-blanks':
-            return <FillBlanks key={idx} activity={a} />;
-          case 'drag-fill':
-            return (
-              <DragFillCollocations
-                key={idx}
-                title={a.title || 'Drag to complete'}
-                body={a.body}
-                blanks={a.blanks || []}
-              />
-            );
-          case 'type-blanks':
-            return (
-              <TypeBlanks
-                key={idx}
-                title={a.title || 'Type to complete'}
-                body={a.body}
-                blanks={a.blanks || []}
-              />
-            );
-          case 'matching':
-            return (
-              <MatchingExercise
-                key={idx}
-                title={a.title || 'Matching exercise'}
-                description={a.body || ''}
-                pairs={a.pairs || []}
-                leftLabel="Item"
-                rightLabel="Match"
-              />
-            );
-          case 'multiple-choice':
-            return (
-              <MultipleChoiceQuiz
-                key={idx}
-                title={a.title || 'Quiz'}
-                description={a.body || ''}
-                questions={(a.mcq || []).map((q, i) => ({
-                  id: i + 1,
-                  text: q.question,
-                  options: q.options,
-                  answer: q.options[q.answerIndex],
-                }))}
-              />
-            );
-          case 'task':
-            return <Task key={idx} activity={a} />;
-          default:
-            return null;
-        }
-      })}
+      {activities.map((a, idx) => (
+        <div key={idx} className="space-y-3">
+          {a.audioSrc && (
+            <AudioWithTranscript
+              src={a.audioSrc}
+              label={a.track ? `Audio ${a.track}` : a.title}
+              transcript={a.transcript}
+            />
+          )}
+          {renderActivity(a, idx)}
+        </div>
+      ))}
     </div>
   );
 };
+
 
 export default TechnicalRenderer;
