@@ -169,6 +169,16 @@ const lesson1A: EFLesson = {
           type: 'fill-blanks',
           title: 'Listening 1.5 — food phrases',
           body: 'Six short conversations. Which food phrase goes with each adjective? Number 1 is done for you.',
+          track: '1.5',
+          audioSrc: sb15.url,
+          transcript: [
+            '1 A Shall I put the beetroot in the oven? B No, don\'t cook it — we want raw beetroot for the salad.',
+            '2 A This crab is delicious. B It should be — it\'s fresh crab, straight from the market this morning.',
+            '3 A Did you buy the prawns? B Yes, but only frozen prawns — they didn\'t have any fresh ones.',
+            '4 A Careful with that! B I know, it\'s spicy chicken — there are three chillies in the sauce.',
+            '5 A Is there anything for breakfast? B There\'s some low-fat yogurt in the fridge.',
+            '6 A What\'s in the sandwich? B Tinned tuna and a bit of mayonnaise.',
+          ],
           blanks: [
             { prompt: '1 raw…', answer: 'raw beetroot' },
             { prompt: '2 fresh…', answer: 'fresh crab' },
@@ -179,9 +189,36 @@ const lesson1A: EFLesson = {
           ],
         },
         {
-          type: 'fill-blanks',
-          title: 'Phrasal verbs — eat out, cut down on, cut out',
-          body: 'Complete the phrasal verbs with down, on or out (x2). Then check.',
+          type: 'audio',
+          title: 'Listening 1.6 — vowel sounds',
+          body: 'Listen and repeat the sound pictures and the example words.',
+          track: '1.6',
+          audioSrc: sb16.url,
+          transcript: [
+            'fish /ɪ/ — squid, chicken, spinach',
+            'tree /iː/ — green beans, steamed, cheese',
+            'cat /æ/ — crab, salad, jam',
+            'car /ɑː/ — jar, raspberry, glass',
+            'clock /ɒ/ — hot, sausages, chocolate',
+            'horse /ɔː/ — raw, pork, sauce',
+            'bull /ʊ/ — good, cook, sugar',
+            'boot /uː/ — tuna, beetroot, soup',
+          ],
+        },
+        {
+          type: 'flashcards',
+          title: 'Phrasal verbs — meet them first',
+          body: 'Flip the cards to learn the three phrasal verbs before you use them.',
+          cards: [
+            { term: 'eat out', definition: 'to eat in a restaurant rather than at home', example: 'We eat out about twice a month.' },
+            { term: 'cut down on (something)', definition: 'to have less of something than before', example: 'I\'m cutting down on sugar.' },
+            { term: 'cut out (something)', definition: 'to stop having something completely', example: 'She cut out dairy from her diet.' },
+          ],
+        },
+        {
+          type: 'type-blanks',
+          title: 'Phrasal verbs — complete the sentences',
+          body: 'Type down, on or out to complete each sentence, then check your answers.',
           blanks: [
             { prompt: 'I eat ___ a lot because I often don\'t have time to cook. Luckily, there are lots of good restaurants near where I live.', answer: 'out' },
             { prompt: 'I\'m trying to cut ___ on coffee at the moment. I\'m only having one cup at breakfast.', answer: 'down' },
@@ -191,12 +228,15 @@ const lesson1A: EFLesson = {
         {
           type: 'discussion',
           title: 'Activation · Talk to a partner',
+          image: libraryDiscussion,
+          imageAlt: 'Students having a discussion around a table in a library',
           bullets: [
             'Are there any foods in the lists that you love, hate, or have never eaten?',
             'How do you prefer these things to be cooked: chicken, eggs, fish, potatoes?',
             'What kinds of fish, meat, fruit or vegetables are very common in your country?',
           ],
         },
+
       ],
     },
 
