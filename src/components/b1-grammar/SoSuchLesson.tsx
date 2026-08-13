@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import airportCouple from '@/assets/sosuch-airport-couple.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
