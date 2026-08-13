@@ -67,7 +67,7 @@ const lesson1A: EFLesson = {
         {
           type: 'intro',
           title: 'Warm-up · Books closed',
-          body: 'Work in pairs or small groups. You have three minutes — how many can you name?',
+          body: 'Work in pairs or small groups. You have three minutes — how many can you name? Use the picture to help you think of ideas.',
           bullets: [
             'one red fruit, one yellow fruit, one green fruit',
             'two kinds of food that some people are allergic to',
@@ -76,6 +76,8 @@ const lesson1A: EFLesson = {
             'five containers that you can buy food in',
             'six things that people sometimes have for breakfast',
           ],
+          image: buffetTable.url,
+          imageAlt: 'A large buffet table showing different fruits, vegetables, seafood, meat, dairy and breakfast foods',
         },
         {
           type: 'notes',
