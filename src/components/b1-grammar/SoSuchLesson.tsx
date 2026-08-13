@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import airportCouple from '@/assets/sosuch-airport-couple.jpg';
 import tiredWoman from '@/assets/sosuch-tired-woman.jpg';
+import drivingTest from '@/assets/sosuch-driving-test.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
