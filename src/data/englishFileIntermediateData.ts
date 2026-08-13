@@ -66,6 +66,46 @@ const lesson1A: EFLesson = {
       activities: [
         {
           type: 'intro',
+          title: 'Warm-up · Books closed',
+          body: 'Work in pairs or small groups. You have three minutes — how many can you name?',
+          bullets: [
+            'one red fruit, one yellow fruit, one green fruit',
+            'two kinds of food that some people are allergic to',
+            'three kinds of food that come from milk',
+            'four vegetables that you can put in a salad',
+            'five containers that you can buy food in',
+            'six things that people sometimes have for breakfast',
+          ],
+        },
+        {
+          type: 'notes',
+          title: 'Warm-up · Write your answers',
+          body: 'Write your group\'s answers here, then compare with the rest of the class and check your spelling.',
+          fields: [
+            { id: 'fruit-colours', label: 'One red / yellow / green fruit', placeholder: 'e.g. strawberry, banana, kiwi' },
+            { id: 'allergies', label: 'Two foods some people are allergic to', placeholder: 'e.g. peanuts…' },
+            { id: 'milk', label: 'Three foods that come from milk', placeholder: 'e.g. cheese…' },
+            { id: 'salad', label: 'Four vegetables for a salad', placeholder: 'e.g. cucumber…' },
+            { id: 'containers', label: 'Five containers you can buy food in', placeholder: 'e.g. a tin, a jar…' },
+            { id: 'breakfast', label: 'Six things people have for breakfast', placeholder: 'e.g. toast…' },
+          ],
+        },
+        {
+          type: 'fill-blanks',
+          title: 'Warm-up · Possible answers',
+          body: 'Compare after you have written your own ideas.',
+          blanks: [
+            { prompt: 'One red / yellow / green fruit', answer: 'red: strawberry, cherry · yellow: banana, lemon · green: apple, kiwi, grapes' },
+            { prompt: 'Two foods people are allergic to', answer: 'peanuts, shellfish, eggs, milk, gluten' },
+            { prompt: 'Three foods that come from milk', answer: 'cheese, butter, yogurt, cream, ice cream' },
+            { prompt: 'Four salad vegetables', answer: 'lettuce, tomato, cucumber, red pepper, onion, beetroot' },
+            { prompt: 'Five food containers', answer: 'a tin / can, a jar, a bottle, a packet, a carton, a box, a bag' },
+            { prompt: 'Six breakfast foods', answer: 'toast, cereal, eggs, bacon, yogurt, fruit, croissants, porridge' },
+          ],
+        },
+
+        {
+          type: 'intro',
           title: 'Watch and remember',
           body: 'Watch the video. Sixteen food items are circled. How many can you remember? Write your list, then check with the answers below.',
           bullets: [
