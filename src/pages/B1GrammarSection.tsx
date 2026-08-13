@@ -51,7 +51,7 @@ const B1GrammarSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {section.modules.map((mod) => {
-              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchMasteryLesson || mod.compoundAdjectivesLesson || mod.externalUrl);
+              const hasContent = !!(mod.theory || mod.exercises || mod.examPractice || mod.tenseMaster || mod.wordwall || mod.holidayLesson || mod.cambridgeLesson || mod.modalMasteryLesson || mod.soSuchLesson || mod.compoundAdjectivesLesson || mod.externalUrl);
               const showComingSoon = !hasContent && mod.id !== 'so-such-too-enough';
               const cardInner = (
                 <Card className={`service-card overflow-hidden group shadow-lg transition-all duration-300 h-full ${showComingSoon ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl'}`}>
