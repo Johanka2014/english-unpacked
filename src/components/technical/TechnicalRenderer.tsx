@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
 import DragFillCollocations from './DragFillCollocations';
 import TypeBlanks from './TypeBlanks';
+import NotesBoxes from './NotesBoxes';
+import AudioWithTranscript from './AudioWithTranscript';
+import Flashcards from '@/components/presentations/Flashcards';
+
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
