@@ -206,8 +206,8 @@ const CommonMistakes = () => (
 interface Gap { sentence: string; answer: string; note?: string }
 
 const GapFill = ({
-  items, number, title, intro, image, imagePosition = 'left', imageAlt,
-}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string; imagePosition?: 'left' | 'right'; imageAlt?: string }) => {
+  items, number, title, intro, image, imagePosition = 'left', imageAlt, imageSize = 'md',
+}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string; imagePosition?: 'left' | 'right'; imageAlt?: string; imageSize?: 'sm' | 'md' }) => {
 
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
@@ -268,10 +268,13 @@ const GapFill = ({
         loading="lazy"
         width={1024}
         height={1536}
-        className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-md"
+        className={`w-full mx-auto rounded-xl object-cover shadow-md ${
+          imageSize === 'sm' ? 'max-w-[240px] max-h-[360px]' : 'max-w-sm max-h-[480px]'
+        }`}
       />
     </div>
   ) : null;
+
 
 
   return (
@@ -869,6 +872,7 @@ const SoSuchLesson = () => (
       intro={<>Complete the conversation with <em>so</em> or <em>such</em>.</>}
       image={sofaCouple}
       imageAlt="A couple sitting on a sofa together in their living room and talking"
+      imageSize="sm"
     />
 
 
