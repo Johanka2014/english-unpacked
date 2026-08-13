@@ -44,6 +44,28 @@ const VideoEmbed = ({ activity }: { activity: Activity }) => {
 };
 
 
+const EmbedActivity = ({ activity }: { activity: Activity }) => {
+  if (!activity.embedUrl) return null;
+  return (
+    <Card>
+      <CardContent className="p-4 sm:p-6">
+        <h3 className="text-lg font-semibold mb-3 text-foreground">
+          {activity.title || 'Interactive activity'}
+        </h3>
+        {activity.body && <p className="text-muted-foreground mb-3">{activity.body}</p>}
+        <iframe
+          src={activity.embedUrl}
+          title={activity.title || 'Interactive activity'}
+          className="w-full max-w-full rounded-lg border border-border"
+          height={activity.embedHeight || 420}
+          allowFullScreen
+          loading="lazy"
+        />
+      </CardContent>
+    </Card>
+  );
+};
+
 const FillBlanks = ({ activity }: { activity: Activity }) => {
   const [reveal, setReveal] = useState(false);
   return (
