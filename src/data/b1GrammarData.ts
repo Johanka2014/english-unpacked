@@ -95,7 +95,7 @@ export interface B1GrammarModule {
   holidayLesson?: true;
   cambridgeLesson?: true;
   modalMasteryLesson?: true;
-  soSuchMasteryLesson?: true;
+  soSuchLesson?: true;
   compoundAdjectivesLesson?: true;
   externalUrl?: string;
   examPractice?: {
