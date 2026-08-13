@@ -5,7 +5,15 @@
 // not clickable until their source pages are added.
 
 import type { Activity } from './engineeringData';
+import sb15 from '@/assets/ef/sb-1-5.mp3.asset.json';
+import sb16 from '@/assets/ef/sb-1-6.mp3.asset.json';
+import sb17 from '@/assets/ef/sb-1-7.mp3.asset.json';
+import sb18 from '@/assets/ef/sb-1-8.mp3.asset.json';
+import wb12 from '@/assets/ef/wb-1-2.mp3.asset.json';
+import wb13 from '@/assets/ef/wb-1-3.mp3.asset.json';
+import libraryDiscussion from '@/assets/ef-library-discussion.jpg';
 export type { Activity };
+
 
 export interface EFSection {
   id: string;
