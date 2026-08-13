@@ -166,6 +166,13 @@ const lesson1A: EFLesson = {
           embedHeight: 440,
         },
         {
+          type: 'embed',
+          title: 'Practice · Meat types',
+          body: 'Play the interactive game to check the meat vocabulary.',
+          embedUrl: 'https://wordwall.net/embed/b409c47e5cb24ddbafe0d08fca844fca?themeId=62&templateId=22&fontStackId=0',
+          embedHeight: 440,
+        },
+        {
           type: 'flashcards',
           title: 'Vocabulary Bank · Fruit and vegetables',
           body: 'Flip each card and check the British and American names.',
@@ -187,13 +194,6 @@ const lesson1A: EFLesson = {
             { term: 'raspberries', definition: 'small soft red berries', example: 'I never buy frozen raspberries.' },
             { term: 'red pepper', definition: 'a sweet red vegetable, eaten raw or cooked', example: 'Tinned red peppers.' },
           ],
-        },
-        {
-          type: 'embed',
-          title: 'Practice · Fruit and vegetables',
-          body: 'Play the interactive game to check you remember the words.',
-          embedUrl: 'https://wordwall.net/embed/b409c47e5cb24ddbafe0d08fca844fca?themeId=62&templateId=22&fontStackId=0',
-          embedHeight: 440,
         },
         {
           type: 'matching',
