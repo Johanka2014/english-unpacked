@@ -8,6 +8,7 @@ export type ActivityType =
   | 'discussion'
   | 'audio'
   | 'video'
+  | 'embed'
   | 'reading'
   | 'matching'
   | 'multiple-choice'
@@ -35,6 +36,8 @@ export interface Activity {
   transcript?: string[];    // collapsible transcript lines
   videoId?: string;         // YouTube video id
   videoLabel?: string;      // heading above the embedded video
+  embedUrl?: string;        // external interactive activity (iframe)
+  embedHeight?: number;     // iframe height in px
   passage?: string[];       // reading passage paragraphs
   pairs?: MatchingPair[];
   mcq?: MCQItem[];

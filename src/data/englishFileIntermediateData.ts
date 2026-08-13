@@ -159,6 +159,13 @@ const lesson1A: EFLesson = {
           ],
         },
         {
+          type: 'embed',
+          title: 'Practice · Fish, seafood and meat',
+          body: 'Play the interactive game to check you remember the words.',
+          embedUrl: 'https://wordwall.net/embed/6903d116ca8641a49c00b8068f33d3d2?themeId=62&templateId=22&fontStackId=0',
+          embedHeight: 440,
+        },
+        {
           type: 'flashcards',
           title: 'Vocabulary Bank · Fruit and vegetables',
           body: 'Flip each card and check the British and American names.',
