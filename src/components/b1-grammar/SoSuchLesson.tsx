@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import airportCouple from '@/assets/sosuch-airport-couple.jpg';
+import tiredWoman from '@/assets/sosuch-tired-woman.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -202,8 +203,8 @@ const CommonMistakes = () => (
 interface Gap { sentence: string; answer: string; note?: string }
 
 const GapFill = ({
-  items, number, title, intro, image,
-}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string }) => {
+  items, number, title, intro, image, imagePosition = 'left',
+}: { items: Gap[]; number: number; title: string; intro: React.ReactNode; image?: string; imagePosition?: 'left' | 'right' }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
   const score = items.filter((f, i) => norm(answers[i] || '') === norm(f.answer)).length;
@@ -253,21 +254,27 @@ const GapFill = ({
     </>
   );
 
+  const imageNode = image ? (
+    <div>
+      <img
+        src={image}
+        alt={imagePosition === 'right'
+          ? 'A tired woman sitting at her desk at work'
+          : 'A couple struggling to lift a heavy suitcase at the airport'}
+        loading="lazy"
+        width={1024}
+        height={1536}
+        className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-md"
+      />
+    </div>
+  ) : null;
+
   return (
     <SectionShell icon={PenTool} number={number} title={title} intro={intro}>
       {image ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          <div>
-            <img
-              src={image}
-              alt="A couple struggling to lift a heavy suitcase at the airport"
-              loading="lazy"
-              width={1024}
-              height={1536}
-              className="w-full max-w-sm mx-auto rounded-xl object-cover shadow-md"
-            />
-          </div>
-          <div>{exercise}</div>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 items-start ${imagePosition === 'right' ? 'md:[direction:rtl]' : ''}`}>
+          <div className={imagePosition === 'right' ? 'md:[direction:ltr]' : ''}>{imageNode}</div>
+          <div className={imagePosition === 'right' ? 'md:[direction:ltr]' : ''}>{exercise}</div>
         </div>
       ) : (
         exercise
