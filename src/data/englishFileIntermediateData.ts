@@ -307,6 +307,23 @@ const lesson1A: EFLesson = {
           body: 'In the English File sound pictures, two dots (ː) after the symbol tell you that the sound is long: /iː/, /ɑː/, /ɔː/, /uː/. Watch the video, then repeat the words and sounds.',
         },
         {
+          type: 'audio',
+          title: 'Listening 1.6 — vowel sounds',
+          body: 'Listen and repeat the sound pictures and the example words.',
+          track: '1.6',
+          audioSrc: sb16.url,
+          transcript: [
+            'fish /ɪ/ — squid, chicken, spinach',
+            'tree /iː/ — green beans, steamed, cheese',
+            'cat /æ/ — crab, salad, jam',
+            'car /ɑː/ — jar, raspberry, glass',
+            'clock /ɒ/ — hot, sausages, chocolate',
+            'horse /ɔː/ — raw, pork, sauce',
+            'bull /ʊ/ — good, cook, sugar',
+            'boot /uː/ — tuna, beetroot, soup',
+          ],
+        },
+        {
           type: 'matching',
           title: 'Match a phrase to each sound',
           body: 'Click the sound picture, then click the phrase that contains it.',
