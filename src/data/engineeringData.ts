@@ -14,11 +14,15 @@ export type ActivityType =
   | 'type-blanks'
   | 'drag-fill'
   | 'word-list'
+  | 'flashcards'
+  | 'notes'
   | 'task';
 
 export interface MatchingPair { id: number; left: string; right: string; hint?: string }
 export interface MCQItem { question: string; options: string[]; answerIndex: number }
 export interface FillBlanksItem { prompt: string; answer: string }
+export interface FlashcardEntry { term: string; definition: string; example?: string }
+export interface NoteField { id: string; label: string; placeholder?: string }
 
 export interface Activity {
   type: ActivityType;
@@ -26,12 +30,19 @@ export interface Activity {
   body?: string;            // paragraph / instructions
   bullets?: string[];       // discussion prompts, list items
   track?: string;           // audio reference, e.g. "1.1"
+  audioSrc?: string;        // playable audio URL
+  transcript?: string[];    // collapsible transcript lines
   passage?: string[];       // reading passage paragraphs
   pairs?: MatchingPair[];
   mcq?: MCQItem[];
   blanks?: FillBlanksItem[];
   words?: string[];         // key vocabulary list
+  cards?: FlashcardEntry[]; // flashcard deck
+  fields?: NoteField[];     // writable note boxes
+  image?: string;           // optional illustration (two-column layout)
+  imageAlt?: string;
 }
+
 
 export interface EngineeringSection {
   id: string;
