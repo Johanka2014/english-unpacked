@@ -1255,15 +1255,9 @@ export const b1GrammarSections: B1GrammarSection[] = [
       {
         id: 'so-such-too-enough',
         number: 28,
-        title: 'So/Such; Too/Enough',
-        subtitle: 'so/such (+ that); enough and too (+ to infinitive and for)',
-      },
-      {
-        id: 'so-such-master',
-        number: 28,
-        title: 'So/Such Master',
-        subtitle: 'patterns reference, multiple choice, fill-in-the-blanks, pattern recognition, and song listening',
-        soSuchMasteryLesson: true,
+        title: 'So & Such',
+        subtitle: 'so/such (+ that): grammar, gap fills, matching, exam transformations, games and a song',
+        soSuchLesson: true,
       },
       {
         id: 'linking-words-1',
