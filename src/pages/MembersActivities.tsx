@@ -253,6 +253,13 @@ const TABS: TabDef[] = [
         path: '/topics/weddings',
         color: 'text-rose-600',
       },
+      {
+        title: 'Insurance',
+        description: 'B2 lesson on travel and health insurance — policy vocabulary and flashcards, a dental emergency abroad, lost baggage, UK and US health systems, a TED talk on the psychology of insurance, roleplays and an essay',
+        icon: ShieldCheck,
+        path: '/topics/insurance',
+        color: 'text-emerald-600',
+      },
     ],
   },
   {

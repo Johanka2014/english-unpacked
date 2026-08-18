@@ -72,6 +72,7 @@ const TopicsSport = lazy(() => import("./pages/TopicsSport"));
 const SleepLesson = lazy(() => import("./pages/SleepLesson"));
 const MusicFestivals = lazy(() => import("./pages/MusicFestivals"));
 const Weddings = lazy(() => import("./pages/Weddings"));
+const InsuranceLesson = lazy(() => import("./pages/InsuranceLesson"));
 const WordScramble = lazy(() => import("./pages/WordScramble"));
 const PETWordQuest = lazy(() => import("./pages/PETWordQuest"));
 const FCEWordQuest = lazy(() => import("./pages/FCEWordQuest"));
@@ -139,6 +140,7 @@ const App = () => (
               <Route path="/topics/sleep" element={<ProtectedRoute><SleepLesson /></ProtectedRoute>} />
               <Route path="/topics/music-festivals" element={<ProtectedRoute><MusicFestivals /></ProtectedRoute>} />
               <Route path="/topics/weddings" element={<ProtectedRoute><Weddings /></ProtectedRoute>} />
+              <Route path="/topics/insurance" element={<ProtectedRoute><InsuranceLesson /></ProtectedRoute>} />
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
