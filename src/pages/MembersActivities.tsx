@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, ShieldCheck, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -252,6 +252,13 @@ const TABS: TabDef[] = [
         icon: Heart,
         path: '/topics/weddings',
         color: 'text-rose-600',
+      },
+      {
+        title: 'Insurance',
+        description: 'B2 lesson on travel and health insurance — policy vocabulary and flashcards, a dental emergency abroad, lost baggage, UK and US health systems, a TED talk on the psychology of insurance, roleplays and an essay',
+        icon: ShieldCheck,
+        path: '/topics/insurance',
+        color: 'text-emerald-600',
       },
     ],
   },
