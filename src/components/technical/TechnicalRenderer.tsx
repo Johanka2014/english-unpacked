@@ -203,11 +203,19 @@ const Task = ({ activity }: { activity: Activity }) => {
     </>
   );
 
+  const imageSize = activity.imageSize || 'lg';
+  const imageClasses =
+    imageSize === 'sm'
+      ? 'h-auto max-h-[260px] w-auto mx-auto rounded-xl object-contain shadow-sm'
+      : imageSize === 'md'
+      ? 'h-auto max-h-[380px] w-auto mx-auto rounded-xl object-contain shadow-sm'
+      : 'w-full h-auto rounded-xl object-cover shadow-sm';
+
   return (
     <Card className="border-l-4 border-l-primary">
       <CardContent className="p-5">
         {activity.image ? (
-          <div className="grid gap-5 md:grid-cols-2 items-center">
+          <div className={`grid gap-5 md:grid-cols-2 ${imageSize === 'lg' ? 'items-center' : 'items-start'}`}>
             <div>{content}</div>
             <img
               src={activity.image}
@@ -215,7 +223,7 @@ const Task = ({ activity }: { activity: Activity }) => {
               loading="lazy"
               width={768}
               height={1024}
-              className="w-full h-auto rounded-xl object-cover shadow-sm"
+              className={imageClasses}
             />
           </div>
         ) : (
@@ -225,6 +233,7 @@ const Task = ({ activity }: { activity: Activity }) => {
     </Card>
   );
 };
+
 
 const renderActivity = (a: Activity, idx: number) => {
   switch (a.type) {
