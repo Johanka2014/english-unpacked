@@ -131,12 +131,26 @@ export const vocabGapFill: Activity[] = [
     ],
   },
   {
-    type: 'word-list',
+    type: 'flashcards',
     title: '2e · Advanced insurance words',
-    body: 'Higher-level terms from the world of insurance.',
-    words: ['actuary', 'assessor', 'loss adjuster', 'underwriter', 'indemnity', 'consequential loss', 'no-claims bonus', 'act of God', 'renewal', 'endorsement', 'sum insured', 'proposal form'],
+    body: 'Higher-level terms from the world of insurance. Flip each card to check the meaning.',
+    cards: [
+      { term: 'actuary', definition: 'a specialist who calculates risk and sets the price of policies', example: 'Actuaries use statistics to predict how often people claim.' },
+      { term: 'assessor', definition: 'the person who inspects the damage and decides the value of a claim', example: 'The assessor came to look at the flooded kitchen.' },
+      { term: 'loss adjuster', definition: 'an insurance specialist who investigates large claims and negotiates the payout', example: 'The loss adjuster visited the factory after the fire.' },
+      { term: 'underwriter', definition: 'the person or company that decides whether to accept a risk and insure it', example: 'No company would underwrite the trip to the war zone.' },
+      { term: 'indemnity', definition: 'protection against loss or damage; compensation that puts you back in your original position', example: 'The policy offers indemnity for legal costs up to £1 million.' },
+      { term: 'consequential loss', definition: 'money lost as an indirect result of damage or an accident', example: 'The fire closed the shop for a month — that is consequential loss.' },
+      { term: 'no-claims bonus', definition: 'a discount on your premium for not making any claims over a period', example: 'After five years without a claim, my no-claims bonus is 50%.' },
+      { term: 'act of God', definition: 'damage caused by natural forces that no one could prevent, such as floods or lightning', example: 'The insurer argued that the storm was an act of God.' },
+      { term: 'renewal', definition: 'continuing an insurance policy for another period', example: 'They refused to renew my policy after two claims.' },
+      { term: 'endorsement', definition: 'a written change or addition to an insurance policy', example: 'We added an endorsement to cover business equipment in the car.' },
+      { term: 'sum insured', definition: 'the maximum amount the insurer will pay for a particular loss', example: 'Make sure the sum insured covers the full cost of rebuilding your house.' },
+      { term: 'proposal form', definition: 'the document you complete when applying for insurance', example: 'Always answer every question on the proposal form honestly.' },
+    ],
   },
 ];
+
 
 /* ───────────────── 3 · Health & illness language ───────────────── */
 
