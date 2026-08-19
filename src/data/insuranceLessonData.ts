@@ -168,6 +168,7 @@ export const vocabGapFill: Activity[] = [
       { id: 27, left: 'proposal form', right: 'document you complete when applying for insurance' },
     ],
   },
+];
 
 
 /* ───────────────── 3 · Health & illness language ───────────────── */
