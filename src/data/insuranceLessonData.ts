@@ -53,8 +53,10 @@ export const warmUpAfterRanking: Activity[] = [
     ],
     image: footballerInjury,
     imageAlt: 'A footballer lying on the pitch holding his leg after an injury while the team medic and two teammates look on',
+    imageSize: 'sm',
   },
 ];
+
 
 
 /* ───────────────────────── 2 · Vocabulary ───────────────────────── */
