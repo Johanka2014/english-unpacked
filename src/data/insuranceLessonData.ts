@@ -51,6 +51,8 @@ export const warmUpAfterRanking: Activity[] = [
       'Insurance against being abducted by aliens',
       'Insurance against a hole-in-one prize at a golf tournament',
     ],
+    image: footballerInjury,
+    imageAlt: 'A footballer lying on the pitch holding his leg after an injury while the team medic and two teammates look on',
   },
 ];
 
