@@ -149,7 +149,25 @@ export const vocabGapFill: Activity[] = [
       { term: 'proposal form', definition: 'the document you complete when applying for insurance', example: 'Always answer every question on the proposal form honestly.' },
     ],
   },
-];
+  {
+    type: 'matching',
+    title: '2f · Advanced insurance words — quick check',
+    body: 'Match each advanced term with the correct definition.',
+    pairs: [
+      { id: 16, left: 'actuary', right: 'calculates risk and sets the price of policies' },
+      { id: 17, left: 'assessor', right: 'inspects the damage and decides the value of a claim' },
+      { id: 18, left: 'loss adjuster', right: 'investigates large claims and negotiates the payout' },
+      { id: 19, left: 'underwriter', right: 'decides whether to accept a risk and insure it' },
+      { id: 20, left: 'indemnity', right: 'protection against loss; compensation that restores your position' },
+      { id: 21, left: 'consequential loss', right: 'indirect money lost after damage or an accident' },
+      { id: 22, left: 'no-claims bonus', right: 'premium discount for not claiming over a period' },
+      { id: 23, left: 'act of God', right: 'damage from unpreventable natural forces' },
+      { id: 24, left: 'renewal', right: 'continuing a policy for another period' },
+      { id: 25, left: 'endorsement', right: 'a written change or addition to a policy' },
+      { id: 26, left: 'sum insured', right: 'maximum amount the insurer will pay for a loss' },
+      { id: 27, left: 'proposal form', right: 'document you complete when applying for insurance' },
+    ],
+  },
 
 
 /* ───────────────── 3 · Health & illness language ───────────────── */
