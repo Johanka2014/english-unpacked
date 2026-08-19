@@ -10,6 +10,7 @@
 
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
+import footballerInjury from '@/assets/topics/insurance-footballer-injury.jpg';
 
 /* ───────────────────────── 1 · Warm-up ───────────────────────── */
 
