@@ -47,7 +47,9 @@ export interface Activity {
   fields?: NoteField[];     // writable note boxes
   image?: string;           // optional illustration (two-column layout)
   imageAlt?: string;
+  imageSize?: 'sm' | 'md' | 'lg'; // controls image height relative to adjacent text
 }
+
 
 
 export interface EngineeringSection {
