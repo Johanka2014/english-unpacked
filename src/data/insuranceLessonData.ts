@@ -221,6 +221,8 @@ export const travelReading: Activity[] = [
   {
     type: 'reading',
     title: '4 · A dental emergency abroad',
+    newspaper: true,
+    source: 'The Traveller · Health & Money',
     passage: [
       'Ingrid is in London on business when she loses a filling and breaks half a tooth at breakfast. She rings her colleague John.',
       '"I lost a filling and half a tooth during breakfast. Do you know where I can get some emergency dental treatment?" — "Oh, bad luck. It can’t wait until you get back home on Thursday?" — "No, it’s quite painful. And I’ve got that presentation tomorrow."',
@@ -243,6 +245,8 @@ export const travelReading: Activity[] = [
   {
     type: 'reading',
     title: '5 · Lost baggage',
+    newspaper: true,
+    source: 'Airport Gazette · Travel Desk',
     passage: [
       'Harald lands after a flight from Berlin, but his bag never appears on the carousel. An official advises him: "Sometimes they come with some late offloads. If it doesn’t, I suggest you report it to the lost-baggage desk."',
       'At the desk the representative registers the loss, takes the baggage stub from the check-in, the flight number and Harald’s name, and asks him to identify a similar bag from a set of photographs. Harald is given a reference number: GV604/03/HW.',
@@ -275,6 +279,8 @@ export const healthSystems: Activity[] = [
   {
     type: 'reading',
     title: '6 · Who pays when you are ill?',
+    newspaper: true,
+    source: 'The Global Review · Health Report',
     passage: [
       'In Britain healthcare is paid for through taxes and national insurance payments taken directly from wages. Hospital treatment and visits to a GP are free at the point of use, although there is a prescription charge, and dentists and opticians charge fees. Private healthcare exists alongside the NHS for those who want to "go private".',
       'The United States is different: there is no national health service. Employers are not required to provide health insurance, and insurance does not automatically cover dental treatment, pregnancy or prescriptions. Emergency rooms, however, must treat anyone who arrives.',
@@ -298,6 +304,8 @@ export const healthSystems: Activity[] = [
   {
     type: 'reading',
     title: '7 · Insurance and risk management',
+    newspaper: true,
+    source: 'Business Weekly · Risk & Insurance',
     passage: [
       'For a business, insurance is only one part of risk management. Managers first identify the risks they face, then decide whether to avoid them, reduce them, accept them or transfer them to an insurer.',
       'Risks are usually grouped as strategic (a competitor launches a better product), operational (a machine breaks down, a supplier fails) and financial (a customer does not pay, exchange rates move).',

@@ -182,13 +182,45 @@ const Discussion = ({ activity }: { activity: Activity }) => {
 };
 
 
-const Reading = ({ activity }: { activity: Activity }) => (
-  <InfoSection title={activity.title || 'Reading'}>
-    <div className="space-y-3 text-foreground leading-relaxed">
-      {activity.passage?.map((p, i) => <p key={i}>{p}</p>)}
+const NewspaperReading = ({ activity }: { activity: Activity }) => (
+  <article className="rounded-lg border border-border bg-muted/40 shadow-sm overflow-hidden">
+    <div className="border-b-4 border-double border-foreground/40 px-4 sm:px-6 py-3 bg-background/60">
+      <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground text-center">
+        {activity.source || 'The Daily Cover'}
+      </p>
     </div>
-  </InfoSection>
+    <div className="px-4 sm:px-8 py-5 sm:py-7">
+      <h3 className="font-merriweather text-xl sm:text-3xl font-bold text-foreground leading-tight text-center">
+        {activity.title || 'Reading'}
+      </h3>
+      <div className="mx-auto my-4 h-px w-24 bg-foreground/30" />
+      {activity.body && (
+        <p className="text-sm italic text-muted-foreground text-center mb-4">{activity.body}</p>
+      )}
+      <div className="space-y-4 text-foreground leading-7 text-justify font-merriweather text-[0.95rem] sm:columns-2 sm:gap-8 [&>p]:break-inside-avoid">
+        {activity.passage?.map((p, i) => (
+          <p
+            key={i}
+            className={i === 0 ? 'first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:font-bold first-letter:leading-[0.85] first-letter:text-primary' : ''}
+          >
+            {p}
+          </p>
+        ))}
+      </div>
+    </div>
+  </article>
 );
+
+const Reading = ({ activity }: { activity: Activity }) =>
+  activity.newspaper ? (
+    <NewspaperReading activity={activity} />
+  ) : (
+    <InfoSection title={activity.title || 'Reading'}>
+      <div className="space-y-3 text-foreground leading-relaxed">
+        {activity.passage?.map((p, i) => <p key={i}>{p}</p>)}
+      </div>
+    </InfoSection>
+  );
 
 const Task = ({ activity }: { activity: Activity }) => {
   const content = (

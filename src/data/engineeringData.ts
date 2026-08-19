@@ -48,6 +48,8 @@ export interface Activity {
   image?: string;           // optional illustration (two-column layout)
   imageAlt?: string;
   imageSize?: 'sm' | 'md' | 'lg'; // controls image height relative to adjacent text
+  newspaper?: boolean;      // render a reading passage styled as a news article
+  source?: string;          // optional masthead / byline for newspaper readings
 }
 
 
