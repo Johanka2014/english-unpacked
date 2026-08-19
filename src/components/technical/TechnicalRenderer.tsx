@@ -190,9 +190,9 @@ const Reading = ({ activity }: { activity: Activity }) => (
   </InfoSection>
 );
 
-const Task = ({ activity }: { activity: Activity }) => (
-  <Card className="border-l-4 border-l-primary">
-    <CardContent className="p-5">
+const Task = ({ activity }: { activity: Activity }) => {
+  const content = (
+    <>
       <h4 className="font-semibold text-foreground mb-2">{activity.title || 'Task'}</h4>
       {activity.body && <p className="text-foreground">{activity.body}</p>}
       {activity.bullets && (
@@ -200,9 +200,31 @@ const Task = ({ activity }: { activity: Activity }) => (
           {activity.bullets.map((b, i) => <li key={i}>{b}</li>)}
         </ul>
       )}
-    </CardContent>
-  </Card>
-);
+    </>
+  );
+
+  return (
+    <Card className="border-l-4 border-l-primary">
+      <CardContent className="p-5">
+        {activity.image ? (
+          <div className="grid gap-5 md:grid-cols-2 items-center">
+            <div>{content}</div>
+            <img
+              src={activity.image}
+              alt={activity.imageAlt || ''}
+              loading="lazy"
+              width={768}
+              height={1024}
+              className="w-full h-auto rounded-xl object-cover shadow-sm"
+            />
+          </div>
+        ) : (
+          content
+        )}
+      </CardContent>
+    </Card>
+  );
+};
 
 const renderActivity = (a: Activity, idx: number) => {
   switch (a.type) {
