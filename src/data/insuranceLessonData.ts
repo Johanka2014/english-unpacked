@@ -26,19 +26,18 @@ export const warmUp: Activity[] = [
       'Would you travel abroad without travel insurance? Where is the line between being careful and being paranoid?',
     ],
   },
-  {
-    type: 'task',
-    title: '1b · How risky is it?',
-    body: 'Put these situations in order, from the one you would most want to be insured against to the one you would least worry about. Then compare with a partner and justify your order.',
-    bullets: [
-      'You break a tooth on the second day of a business trip abroad.',
-      'The airline loses your suitcase and never finds it.',
-      'You have to cancel a holiday two days before departure because a parent is ill.',
-      'You need an ambulance and three days in hospital in the USA.',
-      'Your laptop is stolen from a hotel room.',
-      'Your flight is delayed by nine hours.',
-    ],
-  },
+];
+
+export const riskRankingSituations: string[] = [
+  'You break a tooth on the second day of a business trip abroad.',
+  'The airline loses your suitcase and never finds it.',
+  'You have to cancel a holiday two days before departure because a parent is ill.',
+  'You need an ambulance and three days in hospital in the USA.',
+  'Your laptop is stolen from a hotel room.',
+  'Your flight is delayed by nine hours.',
+];
+
+export const warmUpAfterRanking: Activity[] = [
   {
     type: 'task',
     title: '1c · Insurance or not?',
@@ -53,6 +52,7 @@ export const warmUp: Activity[] = [
     ],
   },
 ];
+
 
 /* ───────────────────────── 2 · Vocabulary ───────────────────────── */
 

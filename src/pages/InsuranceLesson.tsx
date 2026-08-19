@@ -11,9 +11,12 @@ import { ArrowLeft, ShieldCheck, Sparkles, BookOpen, Newspaper, Video, MessagesS
 
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
 import Flashcards from '@/components/presentations/Flashcards';
+import RankingActivity from '@/components/presentations/RankingActivity';
 import insuranceHero from '@/assets/topics/insurance-hero.jpg';
 import {
   warmUp,
+  riskRankingSituations,
+  warmUpAfterRanking,
   insuranceFlashcards,
   vocabGapFill,
   healthLanguage,
@@ -125,6 +128,14 @@ const InsuranceLesson = () => {
           {/* WARM-UP */}
           <TabsContent value="warmup" className="space-y-4 sm:space-y-6">
             <TechnicalRenderer activities={warmUp} />
+            <RankingActivity
+              title="1b · How risky is it?"
+              description="Put these situations in order, from the one you would most want to be insured against to the one you would least worry about. Then compare with a partner and justify your order."
+              items={riskRankingSituations}
+              topLabel="most want to be insured against"
+              bottomLabel="least worried about"
+            />
+            <TechnicalRenderer activities={warmUpAfterRanking} />
           </TabsContent>
 
           {/* VOCABULARY */}
