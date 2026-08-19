@@ -307,6 +307,7 @@ export const travelReading: Activity[] = [
       { id: 41, left: 'insurer', right: 'the company that provides insurance and pays claims' },
     ],
   },
+];
 
 /* ───────────────────── 6 · Health systems reading ───────────────────── */
 
