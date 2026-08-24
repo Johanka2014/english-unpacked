@@ -140,6 +140,7 @@ export interface SpeakingData {
   sceneImage: string;
   objectCardsImage: string;
   instructions: string[];
+  wordwallLink?: string;
 }
 
 // ─── Test 1 Data ───

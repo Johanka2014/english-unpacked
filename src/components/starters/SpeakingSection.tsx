@@ -66,7 +66,7 @@ const SpeakingSection = ({ data = test1Speaking }: { data?: SpeakingData }) => {
             className="w-full bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white font-semibold rounded-xl shadow-md"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
-            <a href="https://wordwall.net/resource/110056611" target="_blank" rel="noopener noreferrer">
+            <a href={data.wordwallLink ?? "https://wordwall.net/resource/110056611"} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-5 w-5 mr-2" />
               Speaking Practice on Wordwall
             </a>

@@ -227,4 +227,5 @@ export const test2Speaking: SpeakingData = {
     "The examiner will show you object cards (a shell, a guitar, a motorbike, a mango, socks and a television) and ask you questions.",
     "Listen to the audio for the example questions, then listen again with the answers to check!",
   ],
+  wordwallLink: "https://wordwall.net/resource/117823910/collins-test-2-speaking?wwmethod=link",
 };
