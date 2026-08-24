@@ -221,6 +221,7 @@ export const test3Speaking: SpeakingData = {
   audio: "/audio/starters/test3-speaking.mp3",
   sceneImage: speakingScene,
   objectCardsImage: speakingObjects,
+  wordwallLink: "https://wordwall.net/resource/117827523/collins-test-3-speaking?wwmethod=link",
   instructions: [
     "Look at the hallway scene picture. The examiner will ask you questions about it.",
     "Point to the things in the picture (the clock, the mirror, the flowers, the shoes, the dog in its basket) and say what they are.",
