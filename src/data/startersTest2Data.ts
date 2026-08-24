@@ -16,7 +16,7 @@ import type {
 // ─── Images ───
 import l1Scene from "@/assets/starters/t2-l1-scene.jpg";
 import l2Scene from "@/assets/starters/t2-l2-scene.jpg";
-import l3Example from "@/assets/starters/t2-l3-example.png.asset.json";
+import l3Example from "@/assets/starters/t2-l3-example.jpg";
 import l3Q1 from "@/assets/starters/t2-l3-q1.jpg";
 import l3Q2 from "@/assets/starters/t2-l3-q2.jpg";
 import l3Q3 from "@/assets/starters/t2-l3-q3.jpg";
@@ -75,7 +75,7 @@ export const test2ListeningPart2: ListeningPart2Data = {
 
 export const test2ListeningPart3: ListeningPart3Data = {
   audio: "/audio/starters/test2-listening-part3.mp3",
-  images: [l3Example.url],
+  images: [l3Example],
   questions: [
     {
       id: 1,
