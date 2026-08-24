@@ -177,7 +177,7 @@ export const test2ReadingPart3: ReadingPart3Data = {
   image: r3Image,
   example: { letters: ["l", "m", "k", "i"], answer: "milk", emoji: "🥛" },
   questions: [
-    { id: 1, scrambledLetters: ["l", "e", "i", "m"], answer: "lime", emoji: "🍋" },
+    { id: 1, scrambledLetters: ["l", "e", "i", "m"], answer: "lime", emoji: "🍋‍🟩" },
     { id: 2, scrambledLetters: ["o", "n", "o", "n", "i"], answer: "onion", emoji: "🧅" },
     { id: 3, scrambledLetters: ["e", "j", "c", "i", "u"], answer: "juice", emoji: "🧃" },
     { id: 4, scrambledLetters: ["g", "e", "n", "a", "o", "r"], answer: "orange", emoji: "🍊" },
