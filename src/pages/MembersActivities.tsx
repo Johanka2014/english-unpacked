@@ -21,6 +21,7 @@ interface Activity {
   path: string;
   color: string;
   group?: string;
+  external?: boolean;
 }
 
 interface TabDef {
@@ -282,6 +283,14 @@ const TABS: TabDef[] = [
         path: '/starters-practice',
         color: 'text-pink-600',
       },
+      {
+        title: 'Starters Word Games',
+        description: 'Picture flashcards and word games for the full Cambridge Pre A1 Starters vocabulary — listen, match and spell',
+        icon: Gamepad2,
+        path: 'https://sara-vocab-challenge.lovable.app',
+        color: 'text-amber-600',
+        external: true,
+      },
     ],
   },
 ];
@@ -339,8 +348,16 @@ const ActivityTile = ({
 }) => {
   const Icon = activity.icon;
   const tabLabel = TABS.find((t) => t.value === tabValue)?.label;
+  const Wrapper = ({ children }: { children: React.ReactNode }) =>
+    activity.external ? (
+      <a href={activity.path} target="_blank" rel="noopener noreferrer" onClick={() => onOpen(activity, tabValue)}>
+        {children}
+      </a>
+    ) : (
+      <Link to={activity.path} onClick={() => onOpen(activity, tabValue)}>{children}</Link>
+    );
   return (
-    <Link to={activity.path} onClick={() => onOpen(activity, tabValue)}>
+    <Wrapper>
       <Card className="h-full hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
         <CardHeader>
           <div className="flex items-center justify-between gap-3 mb-2">
@@ -357,7 +374,7 @@ const ActivityTile = ({
           <CardDescription className="text-base">{activity.description}</CardDescription>
         </CardContent>
       </Card>
-    </Link>
+    </Wrapper>
   );
 };
 
