@@ -132,6 +132,14 @@ const TABS: TabDef[] = [
         color: 'text-blue-600',
         group: 'Single lessons',
       },
+      {
+        title: 'Word Scramble',
+        description: 'Timed letter-tile game — build as many words as you can in 60 seconds. Themed sets for everyday, travel and business English.',
+        icon: Shuffle,
+        path: '/word-scramble',
+        color: 'text-indigo-600',
+        group: 'Single lessons',
+      },
     ],
   },
   {
