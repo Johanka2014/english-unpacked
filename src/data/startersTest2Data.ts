@@ -38,22 +38,22 @@ import speakingObjects from "@/assets/starters/t2-speaking-objects.jpg";
 export const test2ListeningPart1: ListeningPart1Data = {
   audio: "/audio/starters/test2-listening-part1.mp3",
   sceneImage: l1Scene,
-  names: ["Kim", "Anna", "Lucy", "Tom", "Sue", "Bill"],
+  names: ["Sue", "Anna", "Lucy", "Bill", "Dan", "Tom"],
   people: [
-    { id: "p1", label: "Girl coming into the classroom with books", position: "left" },
-    { id: "p2", label: "Girl writing numbers on the board", position: "top-center" },
-    { id: "p3", label: "Teacher standing and smiling", position: "top-right" },
-    { id: "p4", label: "Boy with glasses putting his hand up", position: "center" },
-    { id: "p5", label: "Girl looking in her bag", position: "bottom-left" },
-    { id: "p6", label: "Boy sitting next to the girl with the bag", position: "bottom-right" },
+    { id: "p1", label: "Boy on the left with books on his desk", position: "bottom-left" },
+    { id: "p2", label: "Boy with glasses putting his hand up", position: "bottom-left" },
+    { id: "p3", label: "Girl looking in her bag", position: "center" },
+    { id: "p4", label: "Boy writing in his book", position: "center-right" },
+    { id: "p5", label: "Woman in the blue jacket, smiling", position: "top-center" },
+    { id: "p6", label: "Girl writing numbers on the board", position: "top-right" },
+    { id: "p7", label: "Girl at the door with a backpack (example: Kim)", position: "top-center" },
   ],
   correctMatches: {
-    Kim: "p1",
-    Anna: "p2",
-    Lucy: "p3",
-    Tom: "p4",
-    Sue: "p5",
-    Bill: "p6",
+    Anna: "p6",
+    Lucy: "p5",
+    Tom: "p2",
+    Sue: "p3",
+    Bill: "p4",
   },
 };
 
@@ -61,15 +61,15 @@ export const test2ListeningPart2: ListeningPart2Data = {
   audio: "/audio/starters/test2-listening-part2.mp3",
   sceneImage: l2Scene,
   examples: [
-    { question: "What's the girl's name?", answer: "May" },
-    { question: "How many people are in her family?", answer: "4" },
+    { question: "What's the girl's name?", answer: "Jill" },
+    { question: "How old is she?", answer: "8" },
   ],
   questions: [
-    { id: 1, question: "How old is May's brother?", answer: "7", type: "number" },
-    { id: 2, question: "What's May's friend's name?", answer: "Grace", type: "name" },
-    { id: 3, question: "How many friends are at the party?", answer: "6", type: "number" },
-    { id: 4, question: "What's the name of the boy with the ball?", answer: "Ben", type: "name" },
-    { id: 5, question: "How many children are in May's class?", answer: "19", type: "number" },
+    { id: 1, question: "How old is Alex?", answer: "7", type: "number" },
+    { id: 2, question: "What's Alex's cousin's name?", answer: "Grace", type: "name" },
+    { id: 3, question: "How many friends has Alex got?", answer: "6", type: "number" },
+    { id: 4, question: "There is a boy with black hair. What's his name?", answer: "Ben", type: "name" },
+    { id: 5, question: "How many children are in Alex's class?", answer: "19", type: "number" },
   ],
 };
 
@@ -139,7 +139,7 @@ export const test2ListeningPart4: ListeningPart4Data = {
   audio: "/audio/starters/test2-listening-part4.mp3",
   sceneImage: l4Scene,
   instructions:
-    "Listen and colour the picture. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (blue kite, orange ball, purple book, yellow pencil, pink clock)",
+    "Listen and colour the lorries in the playground. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (Example: the lorry next to the tree is red.)",
 };
 
 export const test2ReadingPart1: ReadingPart1Data = {
@@ -160,21 +160,21 @@ export const test2ReadingPart1: ReadingPart1Data = {
 export const test2ReadingPart2: ReadingPart2Data = {
   sceneImage: r2Scene,
   examples: [
-    { statement: "The children are in a park.", answer: "yes" },
-    { statement: "There is a lion in the tree.", answer: "no" },
+    { statement: "The boy has got an ice cream.", answer: "yes" },
+    { statement: "The man is flying a kite.", answer: "no" },
   ],
   questions: [
-    { id: 1, statement: "The boy is riding a horse.", answer: "no" },
-    { id: 2, statement: "There are three birds in the picture.", answer: "yes" },
-    { id: 3, statement: "The girl is wearing a red T-shirt.", answer: "yes" },
-    { id: 4, statement: "There is a dog under the table.", answer: "no" },
-    { id: 5, statement: "The woman is eating an ice cream.", answer: "no" },
+    { id: 1, statement: "The lizard is sitting under the tree.", answer: "no" },
+    { id: 2, statement: "The young girl is playing on the sand.", answer: "yes" },
+    { id: 3, statement: "There is some bread between the pineapple and the grapes.", answer: "yes" },
+    { id: 4, statement: "The young girl's T-shirt is green and white.", answer: "no" },
+    { id: 5, statement: "There are a lot of shells in the water.", answer: "no" },
   ],
 };
 
 export const test2ReadingPart3: ReadingPart3Data = {
   image: r3Image,
-  example: { letters: ["p", "a", "e", "r"], answer: "pear", emoji: "🍐" },
+  example: { letters: ["l", "m", "k", "i"], answer: "milk", emoji: "🥛" },
   questions: [
     { id: 1, scrambledLetters: ["l", "e", "i", "m"], answer: "lime", emoji: "🍋" },
     { id: 2, scrambledLetters: ["o", "n", "o", "n", "i"], answer: "onion", emoji: "🧅" },
@@ -202,15 +202,15 @@ export const test2ReadingPart4: ReadingPart4Data = {
 export const test2ReadingPart5: ReadingPart5Data = {
   images: [r5P1, r5P2, r5P3],
   examples: [
-    { question: "Where are the people?", answer: "in a kitchen" },
-    { question: "What is the woman making?", answer: "a cake" },
+    { question: "How many cars are there in the street?", answer: "one" },
+    { question: "Where is the bus?", answer: "behind the car" },
   ],
   questions: [
-    { id: 1, question: "Who is wearing an apron?", answer: "woman" },
-    { id: 2, question: "Who is drinking a cup of tea?", answer: "man" },
-    { id: 3, question: "What is the boy eating?", answer: "banana" },
+    { id: 1, question: "Who is pointing at the watermelons?", answer: "woman" },
+    { id: 2, question: "Who is wearing glasses?", answer: "man" },
+    { id: 3, question: "What has the boy got in his hand?", answer: "banana" },
     { id: 4, question: "What colour is the cat?", answer: "black", partialAnswer: "and white" },
-    { id: 5, question: "What is on the table?", answer: "apple", partialAnswer: "" },
+    { id: 5, question: "What are the birds eating?", answer: "apple" },
   ],
 };
 
