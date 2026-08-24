@@ -282,13 +282,6 @@ const TABS: TabDef[] = [
         path: '/starters-practice',
         color: 'text-pink-600',
       },
-      {
-        title: 'Word Scramble',
-        description: 'Timed letter-tile game — build as many words as you can in 60 seconds. Themed sets for everyday, travel and business English.',
-        icon: Shuffle,
-        path: '/word-scramble',
-        color: 'text-indigo-600',
-      },
     ],
   },
 ];
