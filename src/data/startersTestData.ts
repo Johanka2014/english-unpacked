@@ -81,7 +81,7 @@ export interface ReadingPart1Question {
 }
 
 export interface ReadingPart1Data {
-  images: string[];
+  images?: string[];
   examples: { statement: string; answer: boolean; emoji: string }[];
   questions: ReadingPart1Question[];
 }

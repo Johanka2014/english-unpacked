@@ -38,13 +38,15 @@ const ReadingPart1 = ({ data = test1ReadingPart1 }: { data?: ReadingPart1Data })
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className={`grid gap-6 ${data.images?.length ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1 max-w-3xl mx-auto'}`}>
         {/* Left column — images */}
-        <div className="flex flex-col gap-4">
-          {data.images.map((img, i) => (
-            <img key={i} src={img} alt={`Reference page ${i + 1}`} className="w-full rounded-xl shadow-md sticky top-4" />
-          ))}
-        </div>
+        {data.images?.length > 0 && (
+          <div className="flex flex-col gap-4">
+            {data.images.map((img, i) => (
+              <img key={i} src={img} alt={`Reference page ${i + 1}`} className="w-full rounded-xl shadow-md sticky top-4" />
+            ))}
+          </div>
+        )}
 
         {/* Right column — questions + buttons */}
         <div>
@@ -79,7 +81,7 @@ const ReadingPart1 = ({ data = test1ReadingPart1 }: { data?: ReadingPart1Data })
                       className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-bold transition-all ${
                         userAnswer === false
                           ? 'bg-red-500 text-white scale-110 shadow-md'
-                          : 'bg-red-100 text-red-600 hover:bg-red-200'
+                          : 'bg-red-100 text-red-600 hover:bg-green-200'
                       }`}
                     >
                       <X className="h-5 w-5" />

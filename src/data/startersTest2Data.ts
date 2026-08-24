@@ -23,8 +23,6 @@ import l3Q3 from "@/assets/starters/t2-l3-q3.jpg";
 import l3Q4 from "@/assets/starters/t2-l3-q4.jpg";
 import l3Q5 from "@/assets/starters/t2-l3-q5.jpg";
 import l4Scene from "@/assets/starters/t2-l4-scene.jpg";
-import r1P1 from "@/assets/starters/t2-r1-p1.jpg";
-import r1P2 from "@/assets/starters/t2-r1-p2.jpg";
 import r2Scene from "@/assets/starters/t2-r2-scene.jpg";
 import r3Image from "@/assets/starters/t2-r3.jpg";
 import r4Tree from "@/assets/starters/t2-r4-tree.jpg";
@@ -144,7 +142,6 @@ export const test2ListeningPart4: ListeningPart4Data = {
 };
 
 export const test2ReadingPart1: ReadingPart1Data = {
-  images: [r1P1, r1P2],
   examples: [
     { statement: "This is a polar bear.", answer: false, emoji: "🦒" },
     { statement: "This is a shop.", answer: true, emoji: "🏬" },
