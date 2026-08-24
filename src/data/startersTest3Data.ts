@@ -14,7 +14,7 @@ import type {
 } from "./startersTestData";
 
 // ─── Images ───
-import l1Scene from "@/assets/starters/t3-l1-scene.jpg";
+import l1Scene from "@/assets/starters/t3-l1-scene.png.asset.json";
 import l2Scene from "@/assets/starters/t3-l2-scene.jpg";
 import l3Example from "@/assets/starters/t3-l3-example.jpg";
 import l3Q1 from "@/assets/starters/t3-l3-q1.jpg";
@@ -36,7 +36,7 @@ import speakingObjects from "@/assets/starters/t3-speaking-objects.jpg";
 
 export const test3ListeningPart1: ListeningPart1Data = {
   audio: "/audio/starters/test3-listening-part1.mp3",
-  sceneImage: l1Scene,
+  sceneImage: l1Scene.url,
   names: ["Alex", "Ben", "Mark", "Sam", "May", "Jill", "Ann"],
   people: [
     { id: "p1", label: "Man playing the guitar on the bench", position: "center-left" },
