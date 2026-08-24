@@ -40,7 +40,7 @@ export const test3ListeningPart1: ListeningPart1Data = {
   names: ["Alex", "Ben", "Mark", "Sam", "May", "Jill", "Ann"],
   people: [
     { id: "p1", label: "Man playing the guitar on the bench", position: "center-left" },
-    { id: "p2", label: "Boy standing and eating a watermelon", position: "center" },
+    { id: "p2", label: "Boy sitting and eating a watermelon", position: "center" },
     { id: "p3", label: "Boy sitting under the tree (example: Ben)", position: "bottom-left" },
     { id: "p4", label: "Girl sitting on the grass and drawing", position: "center-right" },
     { id: "p5", label: "Boy sitting on the grass next to her", position: "center-right" },
