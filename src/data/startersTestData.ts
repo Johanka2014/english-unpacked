@@ -114,6 +114,8 @@ export interface ReadingPart3Data {
 export interface ReadingPart4Data {
   image: string;
   wordBoxImage?: string;
+  title?: string;
+  emoji?: string;
   passage: string; // with {1}, {2} etc. placeholders
   wordBox: string[];
   example: { word: string };
