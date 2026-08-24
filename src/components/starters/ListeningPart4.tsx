@@ -1,11 +1,10 @@
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
-import { test1ListeningPart4 } from '@/data/startersTestData';
+import { test1ListeningPart4, type ListeningPart4Data } from '@/data/startersTestData';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 
-const ListeningPart4 = () => {
-  const data = test1ListeningPart4;
+const ListeningPart4 = ({ data = test1ListeningPart4 }: { data?: ListeningPart4Data }) => {
 
   return (
     <StartersPartCard

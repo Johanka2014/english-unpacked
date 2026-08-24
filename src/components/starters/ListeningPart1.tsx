@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
-import { test1ListeningPart1 } from '@/data/startersTestData';
+import { test1ListeningPart1, type ListeningPart1Data } from '@/data/startersTestData';
 
-const ListeningPart1 = () => {
-  const data = test1ListeningPart1;
+const ListeningPart1 = ({ data = test1ListeningPart1 }: { data?: ListeningPart1Data }) => {
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [matches, setMatches] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);

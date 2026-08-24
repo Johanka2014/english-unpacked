@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
-import { test1ReadingPart5 } from '@/data/startersTestData';
-import readingPart5P3 from '@/assets/starters/test1-reading-part5-p3.jpg';
+import { test1ReadingPart5, type ReadingPart5Data } from '@/data/startersTestData';
 
-const ReadingPart5 = () => {
-  const data = test1ReadingPart5;
+const ReadingPart5 = ({ data = test1ReadingPart5 }: { data?: ReadingPart5Data }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
 
@@ -76,7 +74,7 @@ const ReadingPart5 = () => {
       </div>
 
       {/* Third image */}
-      <img src={readingPart5P3} alt="Scene 3" className="w-full rounded-xl shadow-md my-6" />
+      {data.images[2] && <img src={data.images[2]} alt="Scene 3" className="w-full rounded-xl shadow-md my-6" />}
 
       {/* Questions 4-5 */}
       <div className="space-y-4">

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
-import { test1ReadingPart1 } from '@/data/startersTestData';
+import { test1ReadingPart1, type ReadingPart1Data } from '@/data/startersTestData';
 import { Check, X } from 'lucide-react';
 
-const ReadingPart1 = () => {
-  const data = test1ReadingPart1;
+const ReadingPart1 = ({ data = test1ReadingPart1 }: { data?: ReadingPart1Data }) => {
   const [answers, setAnswers] = useState<Record<number, boolean | null>>({});
   const [checked, setChecked] = useState(false);
 

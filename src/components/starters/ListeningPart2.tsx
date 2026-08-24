@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
-import { test1ListeningPart2 } from '@/data/startersTestData';
-import sceneImage from '@/assets/starters/test1-listening-part2-scene.jpg';
+import { test1ListeningPart2, type ListeningPart2Data } from '@/data/startersTestData';
 
-const ListeningPart2 = () => {
-  const data = test1ListeningPart2;
+const ListeningPart2 = ({ data = test1ListeningPart2 }: { data?: ListeningPart2Data }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
 
@@ -34,7 +32,7 @@ const ListeningPart2 = () => {
 
       {/* 2-col layout: image left, activity right */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        <img src={sceneImage} alt="Scene with children" className="w-full rounded-xl shadow-md" />
+        <img src={data.sceneImage} alt="Scene with children" className="w-full rounded-xl shadow-md" />
 
         <div className="flex flex-col gap-4">
           {/* Examples */}
