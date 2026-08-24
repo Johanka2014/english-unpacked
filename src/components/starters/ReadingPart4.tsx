@@ -126,7 +126,7 @@ const ReadingPart4 = ({ data = test1ReadingPart4 }: { data?: ReadingPart4Data })
 
       {/* Passage */}
       <div className="bg-white rounded-xl p-6 border-2 border-indigo-100 text-lg leading-relaxed">
-        <h3 className="text-2xl font-bold text-indigo-700 mb-4" style={{ fontFamily: 'Fredoka, sans-serif' }}>🦎 Lizards</h3>
+        <h3 className="text-2xl font-bold text-indigo-700 mb-4" style={{ fontFamily: 'Fredoka, sans-serif' }}>{data.emoji ?? '🦎'} {data.title ?? 'Lizards'}</h3>
         <p className="leading-loose">{renderPassage()}</p>
       </div>
 
