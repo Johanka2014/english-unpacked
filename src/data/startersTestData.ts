@@ -309,6 +309,8 @@ export const test1ReadingPart3: ReadingPart3Data = {
 export const test1ReadingPart4: ReadingPart4Data = {
   image: readingPart4,
   wordBoxImage: readingPart4WordBox,
+  title: "Lizards",
+  emoji: "🦎",
   passage: `Lizards are animals with four {example}. They have got two {1} and they can see very well. They have got a long {2} too. Their babies come from {3}. Lizards like sitting in the {4} on hot days. They can run and they can {5}, but they cannot fly.`,
   wordBox: ["legs", "tree", "eyes", "swim", "apples", "eggs", "sun", "tail"],
   example: { word: "legs" },

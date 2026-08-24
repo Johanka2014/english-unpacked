@@ -188,6 +188,8 @@ export const test2ReadingPart3: ReadingPart3Data = {
 export const test2ReadingPart4: ReadingPart4Data = {
   image: r4Tree,
   wordBoxImage: r4WordBox,
+  title: "Trees",
+  emoji: "🌳",
   passage: `Trees are very big. They are {example} and {1}. You find trees in a park or a {2}. You do not find them in a room in a {3}. Birds, small animals and {4} live in them. Boys and {5} like sitting under trees when it is hot.`,
   wordBox: ["brown", "girls", "burger", "spiders", "green", "picture", "garden", "house"],
   example: { word: "brown" },
