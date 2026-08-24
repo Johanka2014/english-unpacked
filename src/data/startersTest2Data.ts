@@ -75,7 +75,7 @@ export const test2ListeningPart2: ListeningPart2Data = {
 
 export const test2ListeningPart3: ListeningPart3Data = {
   audio: "/audio/starters/test2-listening-part3.mp3",
-  images: [l3Example],
+  images: [l3Example.url],
   questions: [
     {
       id: 1,
