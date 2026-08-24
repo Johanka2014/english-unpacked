@@ -27,6 +27,19 @@ const ListeningPart3 = ({ data = test1ListeningPart3 }: { data?: ListeningPart3D
     >
       <AudioPlayer src={data.audio} label="Listen to Part 3" />
 
+      {data.images?.[0] && (
+        <div className="mt-6 bg-white rounded-xl p-5 border-2 border-green-100">
+          <p className="text-lg font-medium text-gray-700 mb-4" style={{ fontFamily: 'Fredoka, sans-serif' }}>
+            Example
+          </p>
+          <img
+            src={data.images[0]}
+            alt="Example question: Where's May? Three pictures show May at a table, on a sofa, and drawing at a desk. The answer is C."
+            className="w-full max-w-2xl mx-auto rounded-xl shadow-md"
+          />
+        </div>
+      )}
+
       <div className="mt-6 space-y-6">
         {data.questions.map((q) => (
           <div key={q.id} className="bg-white rounded-xl p-5 border-2 border-green-100">
