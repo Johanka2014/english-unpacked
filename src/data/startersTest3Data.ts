@@ -140,6 +140,7 @@ export const test3ListeningPart4: ListeningPart4Data = {
   sceneImage: l4Scene,
   instructions:
     "Listen and colour the shells in the bedroom. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (Example: the shell on the floor is blue.)",
+  wordwallLink: "https://wordwall.net/resource/117826774/collins-test-3-colouring?wwmethod=link",
 };
 
 export const test3ReadingPart1: ReadingPart1Data = {
