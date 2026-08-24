@@ -144,7 +144,6 @@ export const test2ListeningPart4: ListeningPart4Data = {
 };
 
 export const test2ReadingPart1: ReadingPart1Data = {
-  images: [r1P1, r1P2],
   examples: [
     { statement: "This is a polar bear.", answer: false, emoji: "🦒" },
     { statement: "This is a shop.", answer: true, emoji: "🏬" },
