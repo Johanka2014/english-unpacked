@@ -70,6 +70,7 @@ export interface ListeningPart4Data {
   audio: string;
   sceneImage: string;
   instructions: string;
+  wordwallLink?: string;
 }
 
 export interface ReadingPart1Question {

@@ -140,6 +140,7 @@ export const test2ListeningPart4: ListeningPart4Data = {
   sceneImage: l4Scene,
   instructions:
     "Listen and colour the lorries in the playground. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (Example: the lorry next to the tree is red.)",
+  wordwallLink: "https://wordwall.net/resource/117822043/collins-test-2-listen-and-colour?wwmethod=link",
 };
 
 export const test2ReadingPart1: ReadingPart1Data = {

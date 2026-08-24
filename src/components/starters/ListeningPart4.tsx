@@ -32,7 +32,7 @@ const ListeningPart4 = ({ data = test1ListeningPart4 }: { data?: ListeningPart4D
             className="bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white font-semibold rounded-xl shadow-md"
             style={{ fontFamily: 'Fredoka, sans-serif' }}
           >
-            <a href="https://wordwall.net/resource/109590812" target="_blank" rel="noopener noreferrer">
+            <a href={data.wordwallLink ?? "https://wordwall.net/resource/109590812"} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-5 w-5 mr-2" />
               Choose the Right Colours on Wordwall
             </a>
