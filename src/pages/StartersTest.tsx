@@ -16,6 +16,7 @@ import ReadingPart5 from '@/components/starters/ReadingPart5';
 import SpeakingSection from '@/components/starters/SpeakingSection';
 import * as test1 from '@/data/startersTestData';
 import * as test2 from '@/data/startersTest2Data';
+import * as test3 from '@/data/startersTest3Data';
 
 const TESTS = {
   'test-1': {
@@ -29,6 +30,12 @@ const TESTS = {
     listening: [test2.test2ListeningPart1, test2.test2ListeningPart2, test2.test2ListeningPart3, test2.test2ListeningPart4] as const,
     reading: [test2.test2ReadingPart1, test2.test2ReadingPart2, test2.test2ReadingPart3, test2.test2ReadingPart4, test2.test2ReadingPart5] as const,
     speaking: test2.test2Speaking,
+  },
+  'test-3': {
+    title: 'Test 3',
+    listening: [test3.test3ListeningPart1, test3.test3ListeningPart2, test3.test3ListeningPart3, test3.test3ListeningPart4] as const,
+    reading: [test3.test3ReadingPart1, test3.test3ReadingPart2, test3.test3ReadingPart3, test3.test3ReadingPart4, test3.test3ReadingPart5] as const,
+    speaking: test3.test3Speaking,
   },
 } as const;
 
