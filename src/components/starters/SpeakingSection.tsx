@@ -2,10 +2,9 @@ import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
-import { test1Speaking } from '@/data/startersTestData';
+import { test1Speaking, type SpeakingData } from '@/data/startersTestData';
 
-const SpeakingSection = () => {
-  const data = test1Speaking;
+const SpeakingSection = ({ data = test1Speaking }: { data?: SpeakingData }) => {
 
   return (
     <StartersPartCard

@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
 import AudioPlayer from './AudioPlayer';
-import { test1ListeningPart3 } from '@/data/startersTestData';
-import exampleImage from '@/assets/starters/test1-listening-part3-example.jpg';
-import q2Image from '@/assets/starters/test1-listening-part3-q2.jpg';
-import q3Image from '@/assets/starters/test1-listening-part3-q3.jpg';
-import q4Image from '@/assets/starters/test1-listening-part3-q4.jpg';
-import q5Image from '@/assets/starters/test1-listening-part3-q5.jpg';
-import q6Image from '@/assets/starters/test1-listening-part3-q6.jpg';
+import { test1ListeningPart3, type ListeningPart3Data } from '@/data/startersTestData';
 
-const ListeningPart3 = () => {
-  const data = test1ListeningPart3;
+const ListeningPart3 = ({ data = test1ListeningPart3 }: { data?: ListeningPart3Data }) => {
   const [selected, setSelected] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
 
@@ -43,23 +36,8 @@ const ListeningPart3 = () => {
               </span>
               <span className="text-lg font-medium text-gray-700">{q.question}</span>
             </div>
-            {q.id === 1 && (
-              <img src={exampleImage} alt="Example: What's Kim wearing?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
-            )}
-            {q.id === 2 && (
-              <img src={q2Image} alt="Where's Dad's camera?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
-            )}
-            {q.id === 3 && (
-              <img src={q3Image} alt="What does Tom like?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
-            )}
-            {q.id === 4 && (
-              <img src={q4Image} alt="What's Jill drawing?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
-            )}
-            {q.id === 5 && (
-              <img src={q5Image} alt="What sport does Bill play at school?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
-            )}
-            {q.id === 6 && (
-              <img src={q6Image} alt="Which is Sue's bike?" className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
+                                                                                    {q.image && (
+              <img src={q.image} alt={q.question} className="w-full max-w-lg mx-auto rounded-xl shadow-md mb-4" />
             )}
             <div className="grid grid-cols-3 gap-3">
               {q.options.map((opt, i) => {

@@ -12,6 +12,15 @@ import readingPart3 from "@/assets/starters/test1-reading-part3.jpg";
 import readingPart4 from "@/assets/starters/test1-reading-part4.jpg";
 import readingPart5P1 from "@/assets/starters/test1-reading-part5-p1.jpg";
 import readingPart5P2 from "@/assets/starters/test1-reading-part5-p2.jpg";
+import listeningPart2Scene from "@/assets/starters/test1-listening-part2-scene.jpg";
+import listeningPart3Example from "@/assets/starters/test1-listening-part3-example.jpg";
+import listeningPart3Q2 from "@/assets/starters/test1-listening-part3-q2.jpg";
+import listeningPart3Q3 from "@/assets/starters/test1-listening-part3-q3.jpg";
+import listeningPart3Q4 from "@/assets/starters/test1-listening-part3-q4.jpg";
+import listeningPart3Q5 from "@/assets/starters/test1-listening-part3-q5.jpg";
+import listeningPart3Q6 from "@/assets/starters/test1-listening-part3-q6.jpg";
+import readingPart4WordBox from "@/assets/starters/test1-reading-part4-wordbox.png";
+import readingPart5P3 from "@/assets/starters/test1-reading-part5-p3.jpg";
 import speakingScene from "@/assets/starters/test1-speaking-scene.jpg";
 import speakingObjects from "@/assets/starters/test1-speaking-objects.jpg";
 
@@ -33,6 +42,7 @@ export interface ListeningPart2Question {
 
 export interface ListeningPart2Data {
   audio: string;
+  sceneImage?: string;
   examples: { question: string; answer: string }[];
   questions: ListeningPart2Question[];
 }
@@ -45,6 +55,7 @@ export interface ListeningPart3Option {
 export interface ListeningPart3Question {
   id: number;
   question: string;
+  image?: string;
   options: ListeningPart3Option[];
   correctOption: string;
 }
@@ -101,6 +112,7 @@ export interface ReadingPart3Data {
 
 export interface ReadingPart4Data {
   image: string;
+  wordBoxImage?: string;
   passage: string; // with {1}, {2} etc. placeholders
   wordBox: string[];
   example: { word: string };
@@ -155,6 +167,7 @@ export const test1ListeningPart1: ListeningPart1Data = {
 
 export const test1ListeningPart2: ListeningPart2Data = {
   audio: "/audio/starters/test1-listening-part2.mp3",
+  sceneImage: listeningPart2Scene,
   examples: [
     { question: "What's the number of Lucy's house?", answer: "18" },
     { question: "What's the boy's name?", answer: "Tom" },
@@ -174,6 +187,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
   questions: [
     {
       id: 1,
+      image: listeningPart3Example,
       question: "What's Kim wearing?",
       options: [
         { id: "A", description: "A blue cardigan" },
@@ -184,6 +198,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
     },
     {
       id: 2,
+      image: listeningPart3Q2,
       question: "Where's Dad's camera?",
       options: [
         { id: "A", description: "On the desk" },
@@ -194,6 +209,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
     },
     {
       id: 3,
+      image: listeningPart3Q3,
       question: "What does Tom like?",
       options: [
         { id: "A", description: "Chicken and rice" },
@@ -204,6 +220,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
     },
     {
       id: 4,
+      image: listeningPart3Q4,
       question: "What's Jill drawing?",
       options: [
         { id: "A", description: "A brown and orange cat" },
@@ -214,6 +231,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
     },
     {
       id: 5,
+      image: listeningPart3Q5,
       question: "What sport does Bill play at school?",
       options: [
         { id: "A", description: "Hockey" },
@@ -224,6 +242,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
     },
     {
       id: 6,
+      image: listeningPart3Q6,
       question: "Where is Sue's bike?",
       options: [
         { id: "A", description: "At school" },
@@ -286,6 +305,7 @@ export const test1ReadingPart3: ReadingPart3Data = {
 
 export const test1ReadingPart4: ReadingPart4Data = {
   image: readingPart4,
+  wordBoxImage: readingPart4WordBox,
   passage: `Lizards are animals with four {example}. They have got two {1} and they can see very well. They have got a long {2} too. Their babies come from {3}. Lizards like sitting in the {4} on hot days. They can run and they can {5}, but they cannot fly.`,
   wordBox: ["legs", "tree", "eyes", "swim", "apples", "eggs", "sun", "tail"],
   example: { word: "legs" },
@@ -299,7 +319,7 @@ export const test1ReadingPart4: ReadingPart4Data = {
 };
 
 export const test1ReadingPart5: ReadingPart5Data = {
-  images: [readingPart5P1, readingPart5P2],
+  images: [readingPart5P1, readingPart5P2, readingPart5P3],
   examples: [
     { question: "How many monkeys are there?", answer: "three" },
     { question: "Where is the elephant?", answer: "behind the tree" },

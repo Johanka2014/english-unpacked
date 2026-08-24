@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
-import { test1ReadingPart4 } from '@/data/startersTestData';
-import wordBoxImage from '@/assets/starters/test1-reading-part4-wordbox.png';
+import { test1ReadingPart4, type ReadingPart4Data } from '@/data/startersTestData';
 
-const ReadingPart4 = () => {
-  const data = test1ReadingPart4;
+const ReadingPart4 = ({ data = test1ReadingPart4 }: { data?: ReadingPart4Data }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [draggedWord, setDraggedWord] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -94,7 +92,7 @@ const ReadingPart4 = () => {
       icon="📝"
     >
       {/* Word box image */}
-      <img src={wordBoxImage} alt="Word box with pictures" className="w-full max-w-xl mx-auto rounded-xl shadow-md mb-6" />
+      {data.wordBoxImage && <img src={data.wordBoxImage} alt="Word box with pictures" className="w-full max-w-xl mx-auto rounded-xl shadow-md mb-6" />}
 
       {/* Word box */}
       <div className="bg-indigo-50 rounded-xl p-4 mb-6">

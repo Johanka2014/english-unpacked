@@ -5,7 +5,7 @@ import { ArrowLeft, Star, Lock } from 'lucide-react';
 
 const tests = [
   { id: 'test-1', title: 'Test 1', available: true, color: 'from-pink-400 to-purple-500' },
-  { id: 'test-2', title: 'Test 2', available: false, color: 'from-green-400 to-teal-500' },
+  { id: 'test-2', title: 'Test 2', available: true, color: 'from-green-400 to-teal-500' },
   { id: 'test-3', title: 'Test 3', available: false, color: 'from-amber-400 to-orange-500' },
 ];
 

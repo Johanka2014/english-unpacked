@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import StartersPartCard from './StartersPartCard';
-import { test1ReadingPart3 } from '@/data/startersTestData';
+import { test1ReadingPart3, type ReadingPart3Data } from '@/data/startersTestData';
 
-const ReadingPart3 = () => {
-  const data = test1ReadingPart3;
+const ReadingPart3 = ({ data = test1ReadingPart3 }: { data?: ReadingPart3Data }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState(false);
 
