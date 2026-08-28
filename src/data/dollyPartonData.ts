@@ -12,7 +12,7 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 import dollywoodImg from '@/assets/topics/dolly-dollywood.jpg';
-import beautyImg from '@/assets/topics/dolly-beauty.jpg';
+import beautyImg from '@/assets/topics/dolly-beauty.png.asset.json';
 
 /* ───────────────────────── 1 · Warm-up ───────────────────────── */
 
@@ -228,8 +228,8 @@ export const businessAnalysis: Activity[] = [
       'KEEP: nobody else can use your songs in ways you dislike.',
       'Decide: which side has the stronger arguments? Would you have done the same?',
     ],
-    image: beautyImg,
-    imageAlt: 'A pink perfume bottle with a crystal butterfly stopper next to two pink lip gloss tubes with gold caps on a marble surface',
+    image: beautyImg.url,
+    imageAlt: 'Dolly Parton in a pink and blue western-style outfit leaning towards a brindle dog sitting on a beige sofa against a pink background',
     imageSize: 'md',
   },
   {
