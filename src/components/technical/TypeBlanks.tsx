@@ -81,7 +81,7 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
                 key={i}
                 type="button"
                 onClick={() => insertPhrase(phrase)}
-                className="px-3 py-1.5 text-sm rounded-md border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+                className="flex-1 min-w-[140px] max-w-full px-3 py-2 text-sm rounded-md border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors text-left whitespace-normal break-words"
               >
                 {phrase}
               </button>
