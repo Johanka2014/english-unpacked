@@ -104,6 +104,7 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
                   {hint && <span className="font-semibold">{hint}</span>}
                   <input
                     type="text"
+                    data-blank-index={i}
                     value={values[i] || ''}
                     onChange={(e) => {
                       setValues((v) => ({ ...v, [i]: e.target.value }));
