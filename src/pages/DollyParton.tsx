@@ -12,7 +12,7 @@ import { ArrowLeft, Music, Sparkles, BookOpen, Newspaper, Briefcase, MessagesSqu
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
 import Flashcards from '@/components/presentations/Flashcards';
 import RankingActivity from '@/components/presentations/RankingActivity';
-import dollyHero from '@/assets/topics/dolly-hero.jpg';
+import dollyHeroAsset from '@/assets/topics/dolly-hero.jpg.asset.json';
 import {
   warmUp,
   rankingItems,
@@ -97,8 +97,8 @@ const DollyParton = () => {
             vocabulary to talk about it.
           </p>
           <img
-            src={dollyHero}
-            alt="A confident blonde businesswoman in a smart blazer standing behind an office desk with papers and a pen, in a retro-styled office with vertical blinds"
+            src={dollyHeroAsset.url}
+            alt="Dolly Parton performing on stage with her arms open, wearing a sparkling white outfit"
             width={1600}
             height={900}
             className="w-full h-auto rounded-lg border border-border shadow-sm mt-4"
