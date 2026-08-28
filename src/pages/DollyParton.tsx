@@ -12,7 +12,7 @@ import { ArrowLeft, Music, Sparkles, BookOpen, Newspaper, Briefcase, MessagesSqu
 import TechnicalRenderer from '@/components/technical/TechnicalRenderer';
 import Flashcards from '@/components/presentations/Flashcards';
 import RankingActivity from '@/components/presentations/RankingActivity';
-import dollyHero from '@/assets/topics/dolly-hero.jpg';
+import dollyHeroAsset from '@/assets/topics/dolly-hero.jpg.asset.json';
 import {
   warmUp,
   rankingItems,
