@@ -413,6 +413,7 @@ const renderActivity = (a: Activity, idx: number) => {
           title={a.title || 'Type to complete'}
           body={a.body}
           blanks={a.blanks || []}
+          showPhraseBank={a.phraseBank}
         />
       );
     case 'matching':

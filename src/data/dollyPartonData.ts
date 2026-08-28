@@ -246,6 +246,7 @@ export const businessAnalysis: Activity[] = [
   {
     type: 'type-blanks',
     title: '4c · Language focus: evaluative language',
+    phraseBank: true,
     body: 'Business writers use phrases like these to give opinions about decisions and results. Complete the sentences with the phrases below. (a smart move · it is widely seen as · this proved lucrative · a risky venture · the driving force behind)',
     blanks: [
       { prompt: 'Keeping the catalogue instead of selling it was ___, because its value kept rising for decades.', answer: 'a smart move' },

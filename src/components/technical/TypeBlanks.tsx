@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
@@ -8,6 +8,7 @@ interface Props {
   title: string;
   body?: string;
   blanks: FillBlanksItem[];
+  showPhraseBank?: boolean; // opt-in: render clickable answer buttons
 }
 
 // Splits a prompt like "...is known as a b___." into
@@ -29,9 +30,10 @@ const parsePrompt = (prompt: string) => {
   return { before: prompt, hint: '', after: '' };
 };
 
-const TypeBlanks = ({ title, body, blanks }: Props) => {
+const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
   const [values, setValues] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, 'correct' | 'incorrect' | null>>({});
+  const lastFocused = useRef<number | null>(null);
 
   const check = () => {
     const r: Record<number, 'correct' | 'incorrect'> = {};
@@ -55,16 +57,27 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
     setResults({});
   };
 
-  const phraseBank = blanks.map((b) => b.answer);
+  // Shuffled so button order doesn't reveal the gap order.
+  const [phraseBank] = useState<string[]>(() => {
+    const bank = blanks.map((b) => b.answer);
+    for (let i = bank.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [bank[i], bank[j]] = [bank[j], bank[i]];
+    }
+    return bank;
+  });
 
   const insertPhrase = (phrase: string) => {
     const active = document.activeElement as HTMLInputElement | null;
-    if (active && active.tagName === 'INPUT' && active.dataset.blankIndex) {
-      const idx = Number(active.dataset.blankIndex);
-      setValues((v) => ({ ...v, [idx]: phrase }));
-      setResults((r) => ({ ...r, [idx]: null }));
-      active.blur();
-    }
+    const fromDom =
+      active && active.tagName === 'INPUT' && active.dataset.blankIndex
+        ? Number(active.dataset.blankIndex)
+        : null;
+    const idx = fromDom ?? lastFocused.current;
+    if (idx === null) return;
+    setValues((v) => ({ ...v, [idx]: phrase }));
+    setResults((r) => ({ ...r, [idx]: null }));
+    lastFocused.current = null;
   };
 
   return (
@@ -73,13 +86,14 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
         {body && <p className="text-muted-foreground mb-4 text-sm">{body}</p>}
 
-        <div className="mb-4">
-          <p className="text-xs font-medium text-muted-foreground mb-2">Phrase bank — click a phrase to use it:</p>
+        {showPhraseBank && <div className="mb-4">
+          <p className="text-xs font-medium text-muted-foreground mb-2">Phrase bank — click a gap first, then click a phrase to fill it:</p>
           <div className="flex flex-wrap gap-2">
             {phraseBank.map((phrase, i) => (
               <button
                 key={i}
                 type="button"
+                onMouseDown={(e) => e.preventDefault()}
                 onClick={() => insertPhrase(phrase)}
                 className="flex-1 min-w-[140px] max-w-full px-3 py-2 text-sm rounded-md border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors text-left whitespace-normal break-words"
               >
@@ -87,7 +101,7 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
               </button>
             ))}
           </div>
-        </div>
+        </div>}
 
         <p className="text-xs text-muted-foreground mb-4 italic">
           The first letter is given. Type the rest of the word in the box.
@@ -110,6 +124,7 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
                       setValues((v) => ({ ...v, [i]: e.target.value }));
                       setResults((r) => ({ ...r, [i]: null }));
                     }}
+                    onFocus={() => { lastFocused.current = i; }}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') check();
                     }}
