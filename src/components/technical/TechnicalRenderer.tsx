@@ -136,6 +136,103 @@ const FillBlanks = ({ activity }: { activity: Activity }) => {
   );
 };
 
+const shuffleWords = (sentence: string) => {
+  const words = sentence.split(/\s+/);
+  const shuffled = [...words];
+  do {
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+  } while (shuffled.join(' ') === sentence);
+  return shuffled;
+};
+
+const WordOrderSentence = ({ sentence, index }: { sentence: string; index: number }) => {
+  const [pool, setPool] = useState<string[]>(() => shuffleWords(sentence));
+  const [picked, setPicked] = useState<string[]>([]);
+  const [result, setResult] = useState<'correct' | 'incorrect' | null>(null);
+
+  const pick = (i: number) => {
+    if (result === 'correct') return;
+    setPicked((p) => [...p, pool[i]]);
+    setPool((p) => p.filter((_, idx) => idx !== i));
+    setResult(null);
+  };
+
+  const unpick = (i: number) => {
+    if (result === 'correct') return;
+    setPool((p) => [...p, picked[i]]);
+    setPicked((p) => p.filter((_, idx) => idx !== i));
+    setResult(null);
+  };
+
+  const check = () => setResult(picked.join(' ') === sentence ? 'correct' : 'incorrect');
+  const reset = () => {
+    setPool(shuffleWords(sentence));
+    setPicked([]);
+    setResult(null);
+  };
+
+  return (
+    <div className="p-3 rounded-lg border border-border space-y-3">
+      <p className="text-xs font-semibold text-muted-foreground">Sentence {index + 1}</p>
+      <div
+        className={`flex flex-wrap gap-1.5 min-h-[2.5rem] p-2 rounded-md border bg-background ${
+          result === 'correct' ? 'border-green-500' : result === 'incorrect' ? 'border-red-500' : 'border-border'
+        }`}
+        aria-live="polite"
+        aria-label={`Your answer for sentence ${index + 1}`}
+      >
+        {picked.map((w, i) => (
+          <button
+            key={`picked-${i}`}
+            type="button"
+            onClick={() => unpick(i)}
+            className="px-2.5 py-1 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {w}
+          </button>
+        ))}
+        {picked.length === 0 && (
+          <span className="text-sm text-muted-foreground italic px-1 py-1">Tap the words below to build the sentence…</span>
+        )}
+      </div>
+      <div className="flex flex-wrap gap-1.5" aria-label={`Available words for sentence ${index + 1}`}>
+        {pool.map((w, i) => (
+          <button
+            key={`pool-${i}`}
+            type="button"
+            onClick={() => pick(i)}
+            className="px-2.5 py-1 rounded-md bg-muted text-foreground text-sm font-medium border border-border hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {w}
+          </button>
+        ))}
+      </div>
+      <div className="flex items-center gap-2">
+        <Button size="sm" onClick={check} disabled={picked.length === 0}>Check</Button>
+        <Button variant="outline" size="sm" onClick={reset}>Reset</Button>
+        {result === 'correct' && (
+          <span className="text-sm text-green-600 flex items-center gap-1">
+            <CheckCircle2 className="h-4 w-4" /> Correct!
+          </span>
+        )}
+        {result === 'incorrect' && <span className="text-sm text-red-600">Not quite — try again.</span>}
+      </div>
+    </div>
+  );
+};
+
+const WordOrder = ({ activity }: { activity: Activity }) => (
+  <InfoSection title={activity.title || 'Word order'}>
+    {activity.body && <p className="text-muted-foreground mb-3">{activity.body}</p>}
+    <div className="space-y-4">
+      {activity.sentences?.map((s, i) => <WordOrderSentence key={i} sentence={s} index={i} />)}
+    </div>
+  </InfoSection>
+);
+
 const WordList = ({ activity }: { activity: Activity }) => (
   <InfoSection title={activity.title || 'Key vocabulary'}>
     <div className="flex flex-wrap gap-2">
@@ -341,6 +438,8 @@ const renderActivity = (a: Activity, idx: number) => {
           }))}
         />
       );
+    case 'word-order':
+      return <WordOrder activity={a} />;
     case 'task':
       return <Task activity={a} />;
     default:

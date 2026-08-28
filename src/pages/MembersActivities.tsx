@@ -269,6 +269,13 @@ const TABS: TabDef[] = [
         path: '/topics/insurance',
         color: 'text-emerald-600',
       },
+      {
+        title: 'Dolly Parton: Building an Empire',
+        description: 'B2 business lesson — how Dolly Parton turned fame into a $450m empire: business vocabulary flashcards, a word-order activity, readings on Dollywood and 9 to 5, a licensing roleplay and a writing task',
+        icon: Music,
+        path: '/topics/dolly-parton',
+        color: 'text-amber-600',
+      },
     ],
   },
   {

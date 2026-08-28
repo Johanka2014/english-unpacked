@@ -18,6 +18,7 @@ export type ActivityType =
   | 'word-list'
   | 'flashcards'
   | 'notes'
+  | 'word-order'
   | 'task';
 
 export interface MatchingPair { id: number; left: string; right: string; hint?: string }
@@ -49,6 +50,7 @@ export interface Activity {
   imageAlt?: string;
   imageSize?: 'sm' | 'md' | 'lg'; // controls image height relative to adjacent text
   newspaper?: boolean;      // render a reading passage styled as a news article
+  sentences?: string[];     // word-order: target sentences to rebuild from shuffled words
   source?: string;          // optional masthead / byline for newspaper readings
 }
 
