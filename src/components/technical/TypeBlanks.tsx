@@ -55,11 +55,40 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
     setResults({});
   };
 
+  const phraseBank = blanks.map((b) => b.answer);
+
+  const insertPhrase = (phrase: string) => {
+    const active = document.activeElement as HTMLInputElement | null;
+    if (active && active.tagName === 'INPUT' && active.dataset.blankIndex) {
+      const idx = Number(active.dataset.blankIndex);
+      setValues((v) => ({ ...v, [idx]: phrase }));
+      setResults((r) => ({ ...r, [idx]: null }));
+      active.blur();
+    }
+  };
+
   return (
     <Card>
       <CardContent className="p-4 sm:p-6">
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
         {body && <p className="text-muted-foreground mb-4 text-sm">{body}</p>}
+
+        <div className="mb-4">
+          <p className="text-xs font-medium text-muted-foreground mb-2">Phrase bank — click a phrase to use it:</p>
+          <div className="flex flex-wrap gap-2">
+            {phraseBank.map((phrase, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => insertPhrase(phrase)}
+                className="px-3 py-1.5 text-sm rounded-md border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
+              >
+                {phrase}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <p className="text-xs text-muted-foreground mb-4 italic">
           The first letter is given. Type the rest of the word in the box.
         </p>
@@ -75,6 +104,7 @@ const TypeBlanks = ({ title, body, blanks }: Props) => {
                   {hint && <span className="font-semibold">{hint}</span>}
                   <input
                     type="text"
+                    data-blank-index={i}
                     value={values[i] || ''}
                     onChange={(e) => {
                       setValues((v) => ({ ...v, [i]: e.target.value }));
