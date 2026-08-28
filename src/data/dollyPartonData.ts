@@ -228,8 +228,8 @@ export const businessAnalysis: Activity[] = [
       'KEEP: nobody else can use your songs in ways you dislike.',
       'Decide: which side has the stronger arguments? Would you have done the same?',
     ],
-    image: beautyImg,
-    imageAlt: 'A pink perfume bottle with a crystal butterfly stopper next to two pink lip gloss tubes with gold caps on a marble surface',
+    image: beautyImg.url,
+    imageAlt: 'Dolly Parton in a pink and blue western-style outfit leaning towards a brindle dog sitting on a beige sofa against a pink background',
     imageSize: 'md',
   },
   {
