@@ -97,8 +97,8 @@ const DollyParton = () => {
             vocabulary to talk about it.
           </p>
           <img
-            src={dollyHero}
-            alt="A confident blonde businesswoman in a smart blazer standing behind an office desk with papers and a pen, in a retro-styled office with vertical blinds"
+            src={dollyHeroAsset.url}
+            alt="Dolly Parton performing on stage with her arms open, wearing a sparkling white outfit"
             width={1600}
             height={900}
             className="w-full h-auto rounded-lg border border-border shadow-sm mt-4"
