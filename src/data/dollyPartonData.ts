@@ -12,7 +12,7 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 import dollywoodImg from '@/assets/topics/dolly-dollywood.jpg';
-import beautyImg from '@/assets/topics/dolly-beauty.jpg';
+import beautyImg from '@/assets/topics/dolly-beauty.png.asset.json';
 
 /* ───────────────────────── 1 · Warm-up ───────────────────────── */
 
