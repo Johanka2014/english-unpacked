@@ -101,7 +101,7 @@ const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
               </button>
             ))}
           </div>
-        </div>
+        </div>}
 
         <p className="text-xs text-muted-foreground mb-4 italic">
           The first letter is given. Type the rest of the word in the box.
@@ -124,6 +124,7 @@ const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
                       setValues((v) => ({ ...v, [i]: e.target.value }));
                       setResults((r) => ({ ...r, [i]: null }));
                     }}
+                    onFocus={() => { lastFocused.current = i; }}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') check();
                     }}
