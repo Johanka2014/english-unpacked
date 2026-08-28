@@ -438,6 +438,8 @@ const renderActivity = (a: Activity, idx: number) => {
           }))}
         />
       );
+    case 'word-order':
+      return <WordOrder activity={a} />;
     case 'task':
       return <Task activity={a} />;
     default:
