@@ -52,6 +52,7 @@ export interface Activity {
   newspaper?: boolean;      // render a reading passage styled as a news article
   sentences?: string[];     // word-order: target sentences to rebuild from shuffled words
   source?: string;          // optional masthead / byline for newspaper readings
+  phraseBank?: boolean;     // type-blanks: show clickable answer buttons (opt-in; off by default)
 }
 
 
