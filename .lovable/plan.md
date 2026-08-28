@@ -1,6 +1,6 @@
 # Dolly Parton — C1 Business Topic Lesson
 
-A new lesson in Practice > Topics: "Dolly Parton — Building an Empire", C1 level, business focus. Same tabbed layout, colours and components as Weddings / Insurance / Music Festivals.
+A new lesson in Practice > Topics: "Dolly Parton — Building an Empire", B2 level, business focus. Same tabbed layout, colours and components as Weddings / Insurance / Music Festivals.
 
 ## Content (five tabs)
 
