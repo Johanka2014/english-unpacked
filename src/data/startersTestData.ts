@@ -187,7 +187,7 @@ export const test1ListeningPart2: ListeningPart2Data = {
 
 export const test1ListeningPart3: ListeningPart3Data = {
   audio: "/audio/starters/test1-listening-part3.mp3",
-  images: [listeningPart3P1, listeningPart3P2],
+  images: [listeningPart3Example],
   questions: [
     {
       id: 1,
