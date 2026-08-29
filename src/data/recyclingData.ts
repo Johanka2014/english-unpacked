@@ -444,7 +444,7 @@ export const songActivities: Activity[] = [
 export const finalTasks: Activity[] = [
   {
     type: 'task',
-    title: '6a · Roleplay: the council meeting',
+    title: '7a · Roleplay: the council meeting',
     body: 'Work in groups of four. Your town council is voting on a deposit return scheme of 20p per bottle and can. Take a role, prepare for three minutes, then hold the meeting and vote.',
     bullets: [
       'Councillor for the environment: you propose the scheme. Use the Scottish evidence.',
@@ -456,7 +456,7 @@ export const finalTasks: Activity[] = [
   },
   {
     type: 'task',
-    title: '6b · Headlines',
+    title: '7b · Headlines',
     body: 'Sum the topic up in one line. Write a newspaper headline that captures what you think is the most important idea in this lesson, using vocabulary from the Vocabulary tab. Then share it with the class and explain the thinking behind it.',
     bullets: [
       'Examples of the routine: "Immortal plastic, mortal planet" · "20p is all it takes" · "There is no away".',
@@ -466,7 +466,7 @@ export const finalTasks: Activity[] = [
   },
   {
     type: 'discussion',
-    title: '6c · Final discussion',
+    title: '7c · Final discussion',
     bullets: [
       'Is recycling mostly a way of making consumers feel better?',
       'Which is more effective: charging people, paying people, or banning things?',
@@ -476,7 +476,7 @@ export const finalTasks: Activity[] = [
 ];
 
 export const writingPrompt = {
-  title: '6d · Writing: an opinion essay (140\u2013190 words)',
+  title: '7d · Writing: an opinion essay (140\u2013190 words)',
   brief:
     'Your English class has watched a talk arguing that "we cannot recycle our way out of" the waste problem. Now write an essay for your teacher answering the question: Is recycling enough to solve the problem of waste? Give reasons and examples from the lesson.',
   checklist: [
