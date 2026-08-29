@@ -405,12 +405,21 @@ const GappedSentences = ({ activity }: { activity: Activity }) => {
     );
   };
 
+  const articleTitle = (activity.title || 'Gapped text').replace(/^\w+\s*·\s*/, '');
+
   return (
     <InfoSection title={activity.title || 'Gapped text'}>
       {activity.body && <p className="text-muted-foreground mb-3">{activity.body}</p>}
-      <div className="space-y-3 font-merriweather text-[0.95rem]">
-        {activity.gapParagraphs?.map(renderParagraph)}
-      </div>
+      <article className="rounded-lg border border-border bg-card shadow-sm overflow-hidden">
+        <header className="border-b-2 border-double border-border px-6 pt-5 pb-4">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1">News feature</p>
+          <h3 className="font-merriweather font-bold text-xl sm:text-2xl text-foreground leading-snug">{articleTitle}</h3>
+          <p className="text-xs text-muted-foreground mt-2 italic">An interview with Gary Anderson, designer of the recycling symbol</p>
+        </header>
+        <div className="px-6 py-5 space-y-4 font-merriweather text-[0.95rem] first:[&_p]:text-justify [&_p]:text-justify">
+          {activity.gapParagraphs?.map(renderParagraph)}
+        </div>
+      </article>
       <div className="mt-5 rounded-lg border border-border bg-muted/40 p-4 space-y-2">
         {activity.gapOptions?.map((o) => (
           <p key={o.letter} className="text-sm text-foreground">
