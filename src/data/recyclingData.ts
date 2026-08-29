@@ -31,7 +31,7 @@ export const warmUp: Activity[] = [
   {
     type: 'task',
     title: '1b · The immortal plastic cup',
-    body: 'A well-known cartoon shows a paper cup saying goodbye to a plastic cup: the paper cup breaks down, but the plastic one cries "Curse this immortality!" because it will still be here in 450 years. Discuss the idea in pairs.',
+    body: '\u00a0"Curse this immortality!"\u00a0 -\u00a0Discuss the idea in pairs.',
     bullets: [
       'Why is being "immortal" a problem for a plastic cup and not for a stone?',
       'Which single-use items do you use most often? Could you replace them?',
