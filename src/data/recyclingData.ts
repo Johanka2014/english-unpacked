@@ -418,7 +418,7 @@ export const songActivities: Activity[] = [
     ],
   },
   {
-    type: 'notes',
+    type: 'discussion',
     title: '6c · Song language',
     bullets: [
       'pave: to cover a surface with concrete or asphalt — They paved paradise.',
