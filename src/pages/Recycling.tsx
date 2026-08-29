@@ -23,6 +23,7 @@ import {
   bikeReading,
   cloze,
   videoPreTeach,
+  songActivities,
   finalTasks,
   writingPrompt,
 } from '@/data/recyclingData';
@@ -190,6 +191,35 @@ const Recycling = () => {
               </CardContent>
             </Card>
             <TechnicalRenderer activities={videoPreTeach} />
+            <Card className="service-card p-0">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-2xl font-semibold mb-2 font-merriweather text-foreground">
+                  6 · Song: Big Yellow Taxi (Joni Mitchell)
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Joni Mitchell wrote this classic in 1970 after seeing a parking lot where paradise
+                  used to be. Watch the video, then work through the activities below.
+                </p>
+                <div className="w-full aspect-video overflow-hidden rounded-lg border border-border shadow-sm">
+                  <iframe
+                    src="https://www.youtube.com/embed/2595abcvh2M"
+                    title="Joni Mitchell — Big Yellow Taxi (YouTube)"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <a
+                  href="https://youtu.be/2595abcvh2M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-3 text-sm text-primary underline underline-offset-4"
+                >
+                  Open the video on YouTube
+                </a>
+              </CardContent>
+            </Card>
+            <TechnicalRenderer activities={songActivities} />
             <TechnicalRenderer activities={finalTasks} />
             <Card className="service-card p-0">
               <CardContent className="p-4 sm:p-6 space-y-4">
