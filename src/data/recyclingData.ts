@@ -354,19 +354,20 @@ export const cloze: Activity[] = [
 
 export const videoPreTeach: Activity[] = [
   {
-    type: 'word-list',
+    type: 'flashcards',
     title: '5b · Pre-teach: words from the talk',
-    words: [
-      'the circular economy',
-      'linear "take-make-waste" model',
-      'raw materials',
-      'to extract',
-      'reuse and repair',
-      'by-product',
-      'supply chain',
-      'downcycling',
-      'infrastructure',
-      'incentive',
+    body: 'Learn these words before you watch. Click a card to flip it and see the meaning, then use Next or Shuffle to keep practising.',
+    cards: [
+      { term: 'the circular economy', definition: 'an economy in which products and materials are reused rather than thrown away', example: 'In a circular economy, waste becomes a raw material.' },
+      { term: 'linear "take-make-waste" model', definition: 'the traditional system: take resources, make products, then throw them away', example: 'The linear take-make-waste model relies on cheap landfill.' },
+      { term: 'raw materials', definition: 'basic natural materials used to make products, such as metal, oil or wood', example: 'Extracting raw materials damages ecosystems.' },
+      { term: 'to extract', definition: 'to remove a natural resource from the earth', example: 'Oil is extracted from deep beneath the seabed.' },
+      { term: 'reuse and repair', definition: 'to use things again and fix them instead of replacing them', example: 'A repair café helps people reuse and repair old appliances.' },
+      { term: 'by-product', definition: 'something produced during the making of something else', example: 'Ash is a by-product of burning waste.' },
+      { term: 'supply chain', definition: 'the whole process of making and delivering a product, from materials to customer', example: 'The supply chain of a T-shirt spans several countries.' },
+      { term: 'downcycling', definition: 'recycling something into a product of lower quality', example: 'Plastic bottles are often downcycled into fleece fabric.' },
+      { term: 'infrastructure', definition: 'the basic systems and facilities a society needs to function', example: 'Recycling requires infrastructure, not just good intentions.' },
+      { term: 'incentive', definition: 'something that encourages people to do something', example: 'A deposit is a financial incentive to return bottles.' },
     ],
   },
   {
