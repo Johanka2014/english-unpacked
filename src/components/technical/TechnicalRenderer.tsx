@@ -364,6 +364,74 @@ const Task = ({ activity }: { activity: Activity }) => {
 };
 
 
+const GappedSentences = ({ activity }: { activity: Activity }) => {
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [checked, setChecked] = useState(false);
+  const key = (g: string) => activity.gapAnswers?.find((a) => a.gap === g)?.letter;
+
+  const renderParagraph = (text: string, i: number) => {
+    const parts = text.split(/(\{\{\d+\}\})/g);
+    return (
+      <p key={i} className="text-foreground leading-7">
+        {parts.map((part, j) => {
+          const m = part.match(/^\{\{(\d+)\}\}$/);
+          if (!m) return <span key={j}>{part}</span>;
+          const gap = m[1];
+          const correct = checked && answers[gap] === key(gap);
+          const wrong = checked && answers[gap] && answers[gap] !== key(gap);
+          return (
+            <span key={j} className="inline-flex items-center gap-1 align-middle mx-1">
+              <span className="text-sm font-semibold text-primary">{gap}</span>
+              <select
+                value={answers[gap] || ''}
+                onChange={(e) => {
+                  setAnswers((a) => ({ ...a, [gap]: e.target.value }));
+                  setChecked(false);
+                }}
+                aria-label={`Answer for gap ${gap}`}
+                className={`px-2 py-1 rounded-md border bg-background text-foreground text-sm ${
+                  correct ? 'border-green-500' : wrong ? 'border-red-500' : 'border-border'
+                }`}
+              >
+                <option value="">—</option>
+                {activity.gapOptions?.map((o) => (
+                  <option key={o.letter} value={o.letter}>{o.letter}</option>
+                ))}
+              </select>
+            </span>
+          );
+        })}
+      </p>
+    );
+  };
+
+  return (
+    <InfoSection title={activity.title || 'Gapped text'}>
+      {activity.body && <p className="text-muted-foreground mb-3">{activity.body}</p>}
+      <div className="space-y-3 font-merriweather text-[0.95rem]">
+        {activity.gapParagraphs?.map(renderParagraph)}
+      </div>
+      <div className="mt-5 rounded-lg border border-border bg-muted/40 p-4 space-y-2">
+        {activity.gapOptions?.map((o) => (
+          <p key={o.letter} className="text-sm text-foreground">
+            <span className="font-semibold text-primary mr-2">{o.letter}</span>
+            {o.text}
+          </p>
+        ))}
+      </div>
+      <div className="flex flex-wrap items-center gap-2 mt-4">
+        <Button size="sm" onClick={() => setChecked(true)}>Check answers</Button>
+        <Button variant="outline" size="sm" onClick={() => { setAnswers({}); setChecked(false); }}>Reset</Button>
+        {checked && (
+          <span className="text-sm text-muted-foreground">
+            {activity.gapAnswers?.filter((a) => answers[a.gap] === a.letter).length} / {activity.gapAnswers?.length} correct
+          </span>
+        )}
+      </div>
+    </InfoSection>
+  );
+};
+
 const renderActivity = (a: Activity, idx: number) => {
   switch (a.type) {
     case 'discussion':
@@ -371,6 +439,8 @@ const renderActivity = (a: Activity, idx: number) => {
       return <Discussion activity={a} />;
     case 'reading':
       return <Reading activity={a} />;
+    case 'gapped-sentences':
+      return <GappedSentences activity={a} />;
     case 'word-list':
       return <WordList activity={a} />;
     case 'flashcards':
