@@ -392,6 +392,55 @@ export const videoPreTeach: Activity[] = [
   },
 ];
 
+export const songActivities: Activity[] = [
+  {
+    type: 'type-blanks',
+    title: '6a · Song gap-fill: listen and complete',
+    body: 'Watch and listen to Big Yellow Taxi (1970). Complete the missing words from the chorus and key lines — they are all words you have studied in this lesson.',
+    blanks: [
+      { prompt: 'They paved paradise and put up a parking ______.', answer: 'lot' },
+      { prompt: 'Don\u2019t it always seem to go that you don\u2019t know what you\u2019ve got till it\u2019s ______.', answer: 'gone' },
+      { prompt: 'They took all the trees and put them in a tree ______.', answer: 'museum' },
+      { prompt: 'And they charged all the people a dollar and a half just to see ______.', answer: 'them' },
+      { prompt: 'Hey farmer, farmer, put away that ______ now.', answer: 'DDT' },
+      { prompt: 'Give me spots on my apples, but leave me the birds and the ______, please.', answer: 'bees' },
+    ],
+  },
+  {
+    type: 'multiple-choice',
+    title: '6b · Understand the song',
+    body: 'Choose the best answer.',
+    mcq: [
+      { question: 'What is the main message of the song?', options: ['We only value nature after we have destroyed it', 'Parking lots are convenient', 'Museums are good for trees'], answerIndex: 0 },
+      { question: '"They paved paradise" means they…', options: ['covered a beautiful place with concrete', 'improved paradise', 'built a garden'], answerIndex: 0 },
+      { question: 'DDT is…', options: ['a harmful pesticide', 'a kind of apple', 'a taxi company'], answerIndex: 0 },
+      { question: 'The "big yellow taxi" that takes away her "old man" is often interpreted as…', options: ['life (or authority) taking away what we love, without warning', 'an airport shuttle', 'a recycling truck'], answerIndex: 0 },
+    ],
+  },
+  {
+    type: 'notes',
+    title: '6c · Song language',
+    bullets: [
+      'pave: to cover a surface with concrete or asphalt — They paved paradise.',
+      'don\u2019t know what you\u2019ve got till it\u2019s gone: you only appreciate something after losing it.',
+      'put away: to stop using something — Put away that DDT now.',
+      'spots on my apples: small marks; she would rather eat imperfect fruit than poisoned fruit.',
+      'Note the contrast: paradise vs parking lot · birds and bees vs DDT · free nature vs a tree museum with an entrance fee.',
+    ],
+  },
+  {
+    type: 'discussion',
+    title: '6d · Talk about the song',
+    bullets: [
+      'The song was written in 1970. Are its warnings more or less relevant today?',
+      '"You don\u2019t know what you\u2019ve got till it\u2019s gone." Give a modern example of this — something we might lose.',
+      'Is there a "tree museum" in your country — somewhere nature only exists behind glass or fences?',
+      'The song was written before modern recycling existed. Would a "circular economy" have saved Joni Mitchell\u2019s paradise?',
+      'Can a pop song change how people treat the environment? Can you think of other protest songs about nature?',
+    ],
+  },
+];
+
 export const finalTasks: Activity[] = [
   {
     type: 'task',
