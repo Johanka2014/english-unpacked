@@ -291,9 +291,20 @@ export const bikeReading: Activity[] = [
 
 export const cloze: Activity[] = [
   {
+    type: 'reading',
+    newspaper: true,
+    source: 'Council leaflet · Community',
+    title: 'Turn trash into treasure',
+    body: 'A local recycling-for-art programme invites residents to transform household waste into original works of art.',
+    passage: [
+      'The amounts of annual household waste are on the increase. Consequently, disposing of such large amounts is becoming a problem which needs addressing. Our recycling-for-art programme, Turning trash into treasure, is currently one way of tackling this problem. This is a great way of producing original works of art such as mosaics and collages, which are inexpensive to make. Projects may vary from area to area, but everyone is eligible to participate.',
+      'Recycling has many advantages, such as cutting down on landfill space and limiting environmental damage. This leads to a reduction both in energy use and pollution levels, but it can also encourage people to be creative. Paper, magazines and broken pottery and glass can all be recycled. Our main aim in recycling these materials is that they can be transformed into exciting new creations. Our website will keep you informed of the progress of our new and exciting venture.',
+    ],
+  },
+  {
     type: 'multiple-choice',
-    title: '4a · Multiple-choice cloze: Turn trash into treasure',
-    body: 'Read the leaflet below about a recycling project, then choose the word that best fits each gap. — "The amounts of annual household waste are on the (0) ____. Consequently, (1) ____ of such large amounts is becoming a problem which needs addressing. Our recycling-for-art programme, Turning trash into treasure, is currently one way of tackling this problem. This is a great way of producing original works of art such as mosaics and collages, which are inexpensive to make. Projects may vary from area to area, but everyone is eligible to (2) ____. Recycling has many advantages, such as (3) ____ down on landfill space and limiting environmental damage. This leads to a reduction both in energy use and pollution (4) ____, but it can also encourage people to be creative. Paper, magazines and broken pottery and glass can all be recycled. Our main (5) ____ in recycling these materials is that they can be (6) ____ into exciting new creations. Our website will keep you (7) ____ of the progress of our new and exciting (8) ____."',
+    title: '4a · Multiple-choice cloze',
+    body: 'Choose the word that best fits each gap.',
     mcq: [
       { question: '0 · The amounts of annual household waste are on the ____.', options: ['increase', 'lift', 'raise', 'growth'], answerIndex: 0 },
       { question: '1 · Consequently, ____ of such large amounts is becoming a problem.', options: ['distributing', 'discarding', 'disposing', 'dumping'], answerIndex: 2 },
