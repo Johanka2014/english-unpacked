@@ -276,6 +276,13 @@ const TABS: TabDef[] = [
         path: '/topics/dolly-parton',
         color: 'text-amber-600',
       },
+      {
+        title: 'Recycling: Rubbish or Resource?',
+        description: 'B2 lesson on waste and recycling — vocabulary flashcards and gap-fills, Scotland\'s deposit return scheme, a Cambridge-style gapped text on the recycling symbol, a Use of English cloze, a TED talk on the circular economy, plus speaking and writing',
+        icon: Recycle,
+        path: '/topics/recycling',
+        color: 'text-green-600',
+      },
     ],
   },
   {
