@@ -10,7 +10,7 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 
-import depositImg from '@/assets/topics/recycling-deposit.jpg';
+import immortalCupImg from '@/assets/topics/recycling-immortal-cup.jpg.asset.json';
 import bikeImg from '@/assets/topics/recycling-cardboard-bike.jpg';
 
 /* ───────────────────────── 1 · Warm-up ───────────────────────── */
