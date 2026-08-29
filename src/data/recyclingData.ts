@@ -250,7 +250,10 @@ export const symbolReading: Activity[] = [
 export const bikeReading: Activity[] = [
   {
     type: 'reading',
+    newspaper: true,
+    source: 'The Daily Unpacked · Innovation',
     title: '3f · A cheap and long-lasting bike',
+    body: 'An Israeli inventor has found a way to turn cardboard into a durable, low-cost bicycle.',
     passage: [
       'Izhar Gafni, 50, from Israel, had a dream. He wanted to build a bicycle that almost everyone could afford. The bike should be lightweight but very strong, durable but cheap. With so many specifications, Gafni didn\u2019t know how he would manufacture it. Then one day the answer came to him \u2014 cardboard!',
       'Cardboard? Sure, cardboard can be used to make boxes. But the idea of using it to make a bike was radical; no one had ever done it before. According to Gafni, making a bike from cardboard was extremely difficult. "I had to find the right way to fold the cardboard in several different directions. It took a year and a half, with lots of testing, until I got it right," he explains.',
