@@ -104,7 +104,7 @@ const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
         </div>}
 
         <p className="text-xs text-muted-foreground mb-4 italic">
-          The first letter is given. Type the rest of the word in the box.
+          Type the word into the box.
         </p>
 
         <div className="space-y-3">
