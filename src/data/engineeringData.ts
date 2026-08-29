@@ -19,6 +19,7 @@ export type ActivityType =
   | 'flashcards'
   | 'notes'
   | 'word-order'
+  | 'gapped-sentences'
   | 'task';
 
 export interface MatchingPair { id: number; left: string; right: string; hint?: string }
@@ -53,6 +54,9 @@ export interface Activity {
   sentences?: string[];     // word-order: target sentences to rebuild from shuffled words
   source?: string;          // optional masthead / byline for newspaper readings
   phraseBank?: boolean;     // type-blanks: show clickable answer buttons (opt-in; off by default)
+  gapParagraphs?: string[]; // gapped-sentences: paragraphs containing {{37}} style gap markers
+  gapOptions?: { letter: string; text: string }[];
+  gapAnswers?: { gap: string; letter: string }[];
 }
 
 
