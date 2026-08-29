@@ -10,7 +10,7 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 
-import depositImg from '@/assets/topics/recycling-deposit.jpg';
+import immortalCupImg from '@/assets/topics/recycling-immortal-cup.jpg.asset.json';
 import bikeImg from '@/assets/topics/recycling-cardboard-bike.jpg';
 
 /* ───────────────────────── 1 · Warm-up ───────────────────────── */
@@ -37,8 +37,8 @@ export const warmUp: Activity[] = [
       'Which single-use items do you use most often? Could you replace them?',
       'Is a plastic bottle that is recycled five times still a problem? Why (not)?',
     ],
-    image: depositImg,
-    imageAlt: 'A hand putting an empty plastic drinks bottle into a blue reverse-vending machine in a supermarket',
+    image: immortalCupImg.url,
+    imageAlt: 'A four-panel cartoon in which a paper cup breaks down while a red plastic cup cries "Curse this immortality!" and ends with the message "hey kids, don\'t forget to RECYCLE!"',
   },
   {
     type: 'discussion',
