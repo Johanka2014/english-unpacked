@@ -134,6 +134,14 @@ const TABS: TabDef[] = [
         group: 'Single lessons',
       },
       {
+        title: 'Top 20 Business Vocabulary',
+        description: 'Mobile-first app covering 290+ essential business words across 14 areas — banking, contracts, marketing, law and more',
+        icon: Smartphone,
+        path: '/business-vocab-app',
+        color: 'text-blue-600',
+        group: 'Single lessons',
+      },
+      {
         title: 'Word Scramble',
         description: 'Timed letter-tile game — build as many words as you can in 60 seconds. Themed sets for everyday, travel and business English.',
         icon: Shuffle,

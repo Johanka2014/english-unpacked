@@ -16,6 +16,7 @@ const ExamPreparation = lazy(() => import("./pages/ExamPreparation"));
 const BookingWrapper = lazy(() => import("./pages/BookingWrapper"));
 const BusinessVocabAppWrapper = lazy(() => import("./pages/BusinessVocabAppWrapper"));
 const BizPhrasalAppWrapper = lazy(() => import("./pages/BizPhrasalAppWrapper"));
+const BizVocabAppWrapper = lazy(() => import("./pages/BizVocabAppWrapper"));
 const CaeExamPracticeWrapper = lazy(() => import("./pages/CaeExamPracticeWrapper"));
 const FceVocabPracticeWrapper = lazy(() => import("./pages/FceVocabPracticeWrapper"));
 const TenseMasterWrapper = lazy(() => import("./pages/TenseMasterWrapper"));
@@ -118,6 +119,7 @@ const App = () => (
               <Route path="/members/activities" element={<ProtectedRoute><MembersActivities /></ProtectedRoute>} />
               <Route path="/business-vocab-app" element={<ProtectedRoute><BusinessVocabAppWrapper /></ProtectedRoute>} />
               <Route path="/bizphrasal" element={<ProtectedRoute><BizPhrasalAppWrapper /></ProtectedRoute>} />
+              <Route path="/business-vocab-app" element={<ProtectedRoute><BizVocabAppWrapper /></ProtectedRoute>} />
               <Route path="/cae-exam-practice" element={<ProtectedRoute><CaeExamPracticeWrapper /></ProtectedRoute>} />
               <Route path="/fce-vocab-practice" element={<ProtectedRoute><FceVocabPracticeWrapper /></ProtectedRoute>} />
               <Route path="/insurance-vocabulary" element={<ProtectedRoute><InsuranceVocabulary /></ProtectedRoute>} />
