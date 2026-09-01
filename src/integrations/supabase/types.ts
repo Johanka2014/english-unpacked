@@ -14,6 +14,62 @@ export type Database = {
   }
   public: {
     Tables: {
+      activity_results: {
+        Row: {
+          activity_key: string
+          activity_title: string
+          activity_type: string | null
+          completed_at: string
+          created_at: string
+          id: string
+          lesson_slug: string | null
+          lesson_title: string | null
+          percentage: number
+          score: number
+          student_id: string
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          activity_key: string
+          activity_title: string
+          activity_type?: string | null
+          completed_at?: string
+          created_at?: string
+          id?: string
+          lesson_slug?: string | null
+          lesson_title?: string | null
+          percentage: number
+          score: number
+          student_id: string
+          total: number
+          updated_at?: string
+        }
+        Update: {
+          activity_key?: string
+          activity_title?: string
+          activity_type?: string | null
+          completed_at?: string
+          created_at?: string
+          id?: string
+          lesson_slug?: string | null
+          lesson_title?: string | null
+          percentage?: number
+          score?: number
+          student_id?: string
+          total?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "activity_results_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       lessons: {
         Row: {
           created_at: string | null
@@ -111,6 +167,18 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      record_activity_result: {
+        Args: {
+          p_activity_key: string
+          p_activity_title: string
+          p_activity_type: string
+          p_lesson_slug: string
+          p_lesson_title: string
+          p_score: number
+          p_total: number
+        }
+        Returns: undefined
       }
       update_my_lesson: {
         Args: {
