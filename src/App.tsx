@@ -15,7 +15,7 @@ const BusinessTravel = lazyWithRetry(() => import("./pages/BusinessTravel"));
 const ConversationalEnglish = lazyWithRetry(() => import("./pages/Conversation"));
 const ExamPreparation = lazyWithRetry(() => import("./pages/ExamPreparation"));
 const BookingWrapper = lazyWithRetry(() => import("./pages/BookingWrapper"));
-const BusinessVocabAppWrapper = lazyWithRetry(() => import("./pages/BusinessVocabAppWrapper"));
+
 const BizPhrasalAppWrapper = lazyWithRetry(() => import("./pages/BizPhrasalAppWrapper"));
 const BizVocabAppWrapper = lazyWithRetry(() => import("./pages/BizVocabAppWrapper"));
 const CaeExamPracticeWrapper = lazyWithRetry(() => import("./pages/CaeExamPracticeWrapper"));
@@ -118,7 +118,6 @@ const App = () => (
               <Route path="/admin/students/:studentId" element={<ProtectedRoute adminOnly><StudentLessons /></ProtectedRoute>} />
               <Route path="/email-management" element={<ProtectedRoute adminOnly><EmailManagement /></ProtectedRoute>} />
               <Route path="/members/activities" element={<ProtectedRoute><MembersActivities /></ProtectedRoute>} />
-              <Route path="/business-vocab-app" element={<ProtectedRoute><BusinessVocabAppWrapper /></ProtectedRoute>} />
               <Route path="/bizphrasal" element={<ProtectedRoute><BizPhrasalAppWrapper /></ProtectedRoute>} />
               <Route path="/business-vocab-app" element={<ProtectedRoute><BizVocabAppWrapper /></ProtectedRoute>} />
               <Route path="/cae-exam-practice" element={<ProtectedRoute><CaeExamPracticeWrapper /></ProtectedRoute>} />
