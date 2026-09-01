@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import ProgressSummary from '@/components/progress/ProgressSummary';
 import { supabase } from '@/integrations/supabase/client';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -254,6 +255,12 @@ const Dashboard = () => {
             )}
           </CardContent>
         </Card>
+
+        {user && (
+          <div className="mt-8">
+            <ProgressSummary studentId={user.id} />
+          </div>
+        )}
       </main>
       <Footer />
     </div>
