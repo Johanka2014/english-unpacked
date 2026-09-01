@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import ProgressSummary from '@/components/progress/ProgressSummary';
 import { supabase } from '@/integrations/supabase/client';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -171,6 +172,16 @@ const StudentLessons = () => {
             )}
           </CardContent>
         </Card>
+
+        {studentId && (
+          <div className="mt-8">
+            <ProgressSummary
+              studentId={studentId}
+              heading="Activity results"
+              description={`Best score for each activity ${student.full_name} has completed`}
+            />
+          </div>
+        )}
       </main>
       <Footer />
     </div>
