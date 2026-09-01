@@ -20,12 +20,12 @@ const parsePrompt = (prompt: string) => {
     return {
       before: prompt.slice(0, match.index),
       hint: match[1],
-      after: prompt.slice(match.index + match[0].length),
+      after: prompt.slice(match.index + match[0].length).replace(/^_+/, ''),
     };
   }
   const idx = prompt.indexOf('___');
   if (idx !== -1) {
-    return { before: prompt.slice(0, idx), hint: '', after: prompt.slice(idx + 3) };
+    return { before: prompt.slice(0, idx), hint: '', after: prompt.slice(idx + 3).replace(/^_+/, '') };
   }
   return { before: prompt, hint: '', after: '' };
 };
