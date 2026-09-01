@@ -15,6 +15,7 @@ interface WordOrderExerciseProps {
 }
 
 const WordOrderExercise = ({ title, description, items }: WordOrderExerciseProps) => {
+  const track = useActivityTracking();
   const initialState = useMemo(
     () =>
       items.map((item) => ({
@@ -80,6 +81,12 @@ const WordOrderExercise = ({ title, description, items }: WordOrderExerciseProps
       newResults[s.id] = userAnswer === correctAnswer ? "correct" : "incorrect";
     });
     setResults(newResults);
+    track({
+      activityTitle: title,
+      activityType: "word-order",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: Object.keys(newResults).length,
+    });
   };
 
   return (

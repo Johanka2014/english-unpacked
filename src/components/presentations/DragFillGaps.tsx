@@ -19,6 +19,7 @@ interface DragFillGapsProps {
 }
 
 const DragFillGaps = ({ title, description, words, sentences }: DragFillGapsProps) => {
+  const track = useActivityTracking();
   const [bank, setBank] = useState([...words]);
   const [filled, setFilled] = useState<Record<string, string | null>>({});
   const [results, setResults] = useState<Record<string, "correct" | "incorrect" | null>>({});
@@ -86,6 +87,12 @@ const DragFillGaps = ({ title, description, words, sentences }: DragFillGapsProp
       });
     });
     setResults(newResults);
+    track({
+      activityTitle: title,
+      activityType: "drag-fill",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: Object.keys(newResults).length,
+    });
   };
 
   return (

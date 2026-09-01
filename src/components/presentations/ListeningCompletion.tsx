@@ -23,6 +23,7 @@ interface ListeningCompletionProps {
 }
 
 const ListeningCompletion = ({ title, description, sentences, audioSources }: ListeningCompletionProps) => {
+  const track = useActivityTracking();
   const [results, setResults] = useState<Record<string, "correct" | "incorrect" | null>>({});
   const inputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
@@ -43,6 +44,12 @@ const ListeningCompletion = ({ title, description, sentences, audioSources }: Li
       });
     });
     setResults(newResults);
+    track({
+      activityTitle: title,
+      activityType: "listening-completion",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: Object.keys(newResults).length,
+    });
   };
 
   return (
