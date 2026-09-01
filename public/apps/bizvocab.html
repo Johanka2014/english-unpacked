@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Top 20 Business Vocabulary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .flipped { transform: rotateY(180deg); }
+        .flip-transition { transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        body { -webkit-tap-highlight-color: transparent; background-color: #f3f4f6; }
+        #app-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #f8fafc;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased font-sans">
+    <div id="app-container" class="flex flex-col h-screen">
+        <header class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-50 rounded-b-xl">
+            <div class="flex items-center gap-2">
+                <button id="back-btn" onclick="showSections()" class="hidden text-white/90 hover:text-white p-1 -ml-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+                </button>
+                <div class="flex-1">
+                    <h1 class="text-xl font-bold text-center tracking-wide">BizVocab</h1>
+                    <p id="header-sub" class="text-blue-100 text-xs text-center mt-1">Top 20 Business Vocabulary</p>
+                </div>
+                <span class="w-6"></span>
+            </div>
+        </header>
+        <main class="flex-1 overflow-y-auto p-4 relative">
+
+            <!-- SECTION PICKER -->
+            <section id="tab-sections" class="tab-section pb-8">
+                <div class="sticky top-0 bg-[#f8fafc] pt-2 pb-4 z-10">
+                    <input type="text" id="globalSearch" onkeyup="globalSearch()" placeholder="Search all 290+ words..."
+                           class="w-full p-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
+                </div>
+                <div id="global-results" class="hidden space-y-3 mb-6"></div>
+                <div id="section-list" class="grid grid-cols-2 gap-3"></div>
+            </section>
+
+            <!-- DICTIONARY -->
+            <section id="tab-learn" class="tab-section hidden pb-24">
+                <div class="sticky top-0 bg-[#f8fafc] pt-2 pb-4 z-10">
+                    <input type="text" id="searchInput" onkeyup="filterDictionary()" placeholder="Search words..."
+                           class="w-full p-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm">
+                </div>
+                <div id="dictionary-list" class="space-y-4"></div>
+            </section>
+
+            <!-- FLASHCARDS -->
+            <section id="tab-flashcards" class="tab-section hidden h-full pb-24">
+                <div class="flex flex-col justify-center h-full">
+                    <div class="text-center mb-4 text-slate-500 font-medium" id="flashcard-counter">Card 1 / 20</div>
+                    <div class="perspective-1000 w-full h-80 cursor-pointer" onclick="flipCard()">
+                        <div id="flashcard-inner" class="relative w-full h-full text-center transform-style-3d flip-transition shadow-lg rounded-2xl">
+                            <div class="absolute w-full h-full bg-white rounded-2xl backface-hidden flex flex-col items-center justify-center border-2 border-blue-100 p-6">
+                                <h2 id="fc-front-word" class="text-3xl font-bold text-blue-600 mb-2"></h2>
+                                <p class="text-slate-400 text-sm mt-4">Tap to reveal meaning</p>
+                            </div>
+                            <div class="absolute w-full h-full bg-blue-600 text-white rounded-2xl backface-hidden rotate-y-180 flex flex-col items-center justify-center p-6">
+                                <h3 class="text-xl font-bold mb-3 border-b border-blue-400 pb-2 w-full text-center">Meaning</h3>
+                                <p id="fc-back-meaning" class="text-md mb-6 text-center leading-relaxed"></p>
+                                <div class="bg-blue-700/50 p-3 rounded-lg w-full">
+                                    <p id="fc-back-example" class="text-sm italic text-blue-50 text-center"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mt-8 gap-4">
+                    <button onclick="prevCard()" class="flex-1 bg-slate-200 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-300 active:bg-slate-400 transition">Previous</button>
+                    <button onclick="nextCard()" class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 active:bg-blue-800 transition shadow-md">Next</button>
+                </div>
+            </section>
+
+            <!-- QUIZ -->
+            <section id="tab-quiz" class="tab-section hidden pb-24">
+                <div id="quiz-intro" class="text-center mt-4">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-2">Definition Quiz</h2>
+                        <p class="text-slate-600 mb-6">Read the definition and choose the correct word. 10 questions per round.</p>
+                        <button onclick="startQuiz()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg shadow-md active:transform active:scale-95 transition">Start Quiz</button>
+                    </div>
+                </div>
+                <div id="quiz-game" class="hidden mt-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="quiz-progress" class="text-sm font-bold text-slate-500">Question 1 / 10</span>
+                        <span id="quiz-score-display" class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-bold">Score: 0</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                        <p id="quiz-pos" class="text-xs uppercase tracking-wide text-blue-600 font-bold mb-2"></p>
+                        <p id="quiz-sentence" class="text-lg text-slate-800 leading-relaxed font-medium"></p>
+                    </div>
+                    <div id="quiz-options" class="space-y-3"></div>
+                </div>
+                <div id="quiz-result" class="hidden text-center mt-4">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                        <div id="result-icon" class="text-6xl mb-4">🏆</div>
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2">Quiz Complete!</h2>
+                        <p class="text-lg text-slate-600 mb-6">You scored <span id="final-score" class="font-bold text-blue-600"></span> out of <span id="final-total"></span>.</p>
+                        <button onclick="startQuiz()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg shadow-md active:transform active:scale-95 transition">Play Again</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav id="bottom-nav" class="hidden bg-white border-t border-slate-200 fixed bottom-0 w-full max-w-[480px] z-50 rounded-t-xl">
+            <div class="flex justify-around items-center h-16">
+                <button onclick="switchTab('learn')" id="nav-learn" class="flex flex-col items-center justify-center w-full h-full text-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <span class="text-[10px] font-semibold mt-1">Learn</span>
+                </button>
+                <button onclick="switchTab('flashcards')" id="nav-flashcards" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-blue-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                    <span class="text-[10px] font-semibold mt-1">Cards</span>
+                </button>
+                <button onclick="switchTab('quiz')" id="nav-quiz" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-blue-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 .54.54l5.603 2.952a.5.5 0 0 1 0 .876l-5.603 2.952a1 1 0 0 0-.54.54l-2.952 5.603a.5.5 0 0 1-.876 0L8.61 15.13a1 1 0 0 0-.54-.54L2.467 11.64a.5.5 0 0 1 0-.876l5.603-2.952a1 1 0 0 0 .54-.54l2.952-5.603Z"></path></svg>
+                    <span class="text-[10px] font-semibold mt-1">Practice</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <script>
+const VOCAB = {
+ "Advertising": [
+  {
+   "w": "ad",
+   "p": "abbr",
+   "d": "advertisement - advert abbr."
+  },
+  {
+   "w": "advertisement",
+   "p": "n",
+   "d": "item of publicity for a product or service, in magazine, on TV etc"
+  },
+  {
+   "w": "advertising agency",
+   "p": "n",
+   "d": "company specialising in producing and placing advertisements for clients"
+  },
+  {
+   "w": "AIDA",
+   "p": "abbr",
+   "d": "Attention, Interest, Desire, Action - the objective of most advertisements"
+  },
+  {
+   "w": "benefit",
+   "p": "n",
+   "d": "advantage of a product or service, usually derived from its features"
+  },
+  {
+   "w": "billboardUS",
+   "p": "n",
+   "d": "signboard, usually outdoors, for advertising posters; hoardingUK"
+  },
+  {
+   "w": "circulation",
+   "p": "n",
+   "d": "average number of copies of a magazine sold in a particular period"
+  },
+  {
+   "w": "classified ads",
+   "p": "n",
+   "d": "small advertisements in magazine or newspaper categorised by subject"
+  },
+  {
+   "w": "commercial",
+   "p": "n",
+   "d": "paid advertisement on radio or TV"
+  },
+  {
+   "w": "coupon",
+   "p": "n",
+   "d": "part of a printed advertisement used for ordering goods, samples etc"
+  },
+  {
+   "w": "double-page spread",
+   "p": "n",
+   "d": "advertisement printed across 2 pages in a magazine or newspaper"
+  },
+  {
+   "w": "eye-catcherUS",
+   "p": "n",
+   "d": "something that especially attracts one’s attention - eye-catching adj."
+  },
+  {
+   "w": "features",
+   "p": "n",
+   "d": "special characteristics of a product, usually leading to certain benefits"
+  },
+  {
+   "w": "hoardingUK",
+   "p": "n",
+   "d": "signboard, usually outdoors, for advertising posters; billboardUS"
+  },
+  {
+   "w": "poster",
+   "p": "n",
+   "d": "large sheet of paper, usually illustrated, used as advertisement"
+  },
+  {
+   "w": "prime time",
+   "p": "n",
+   "d": "hours on radio & TV with largest audience, esp. the evening hours"
+  },
+  {
+   "w": "promote",
+   "p": "v",
+   "d": "to (try to) increase sales of a product by publicising and advertising it"
+  },
+  {
+   "w": "slot",
+   "p": "n",
+   "d": "specific time in a broadcasting schedule, when a commercial may be shown"
+  },
+  {
+   "w": "target",
+   "p": "n",
+   "d": "objective; what one is aiming at - target audience n."
+  },
+  {
+   "w": "U.S.P.",
+   "p": "abbr",
+   "d": "Unique Selling Proposition; what makes a product different from others"
+  }
+ ],
+ "Banking": [
+  {
+   "w": "balance",
+   "p": "n",
+   "d": "the difference between credits and debits in an account"
+  },
+  {
+   "w": "bank charges",
+   "p": "n",
+   "d": "money paid to a bank for the bank’s services etc"
+  },
+  {
+   "w": "branch",
+   "p": "n",
+   "d": "local office or bureau of a bank"
+  },
+  {
+   "w": "checkbookUS",
+   "p": "n",
+   "d": "book containing detachable checks; chequebookUK"
+  },
+  {
+   "w": "checkUS",
+   "p": "n",
+   "d": "written order to a bank to pay the stated sum from one’s account; chequeUK"
+  },
+  {
+   "w": "credit",
+   "p": "n",
+   "d": "money in a bank a/c; sum added to a bank a/c; money lent by a bank - also v."
+  },
+  {
+   "w": "credit card",
+   "p": "n",
+   "d": "(plastic) card from a bank authorising the purchasing of goods on credit"
+  },
+  {
+   "w": "current account n. bank a/c from which money may be drawn at any time; checking accountUS",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "debit",
+   "p": "n",
+   "d": "a sum deducted from a bank account, as for a cheque - also v."
+  },
+  {
+   "w": "deposit account",
+   "p": "n",
+   "d": "bank a/c on which interest is paid; savings accountUS"
+  },
+  {
+   "w": "fill inUK",
+   "p": "v",
+   "d": "to add written information to a document to make it complete; to fill outUS"
+  },
+  {
+   "w": "interest",
+   "p": "n",
+   "d": "money paid for the use of money lent - interest rate n."
+  },
+  {
+   "w": "loan",
+   "p": "n",
+   "d": "money lent by a bank etc and that must be repaid with interest - also v."
+  },
+  {
+   "w": "overdraft",
+   "p": "n",
+   "d": "deficit in a bank account caused by withdrawing more money than is paid in"
+  },
+  {
+   "w": "pay in",
+   "p": "v",
+   "d": "[paid, paid] to deposit or put money in to a bank account"
+  },
+  {
+   "w": "payee",
+   "p": "n",
+   "d": "person to whom money is paid"
+  },
+  {
+   "w": "paying-in slip",
+   "p": "n",
+   "d": "small document recording money that you pay in to a bank account"
+  },
+  {
+   "w": "standing order",
+   "p": "n",
+   "d": "an instruction to a bank to make regular payments"
+  },
+  {
+   "w": "statement",
+   "p": "n",
+   "d": "a record of transactions in a bank account"
+  },
+  {
+   "w": "withdraw",
+   "p": "v",
+   "d": "[-drew, -drawn] to take money out of a bank account - withdrawal n."
+  }
+ ],
+ "Company Structure": [
+  {
+   "w": "Accounts Dept.",
+   "p": "n",
+   "d": "department responsible for administering a company’s financial affairs"
+  },
+  {
+   "w": "A.G.M.UK",
+   "p": "abbr",
+   "d": "Annual General Meeting of a company’s shareholders"
+  },
+  {
+   "w": "board of directors",
+   "p": "n",
+   "d": "a group of people chosen to establish policy for and direct or control a company"
+  },
+  {
+   "w": "chairmanUK",
+   "p": "n",
+   "d": "person who heads a Board of Directors; head of a company; chairperson"
+  },
+  {
+   "w": "director",
+   "p": "n",
+   "d": "a member of the board of directors"
+  },
+  {
+   "w": "executive officerUS",
+   "p": "n",
+   "d": "person who manages the affairs of a corporation - chief executive officer n."
+  },
+  {
+   "w": "headquarters",
+   "p": "n",
+   "d": "a company’s principal or main office or centre of control"
+  },
+  {
+   "w": "manager",
+   "p": "n",
+   "d": "person responsible for day-to-day running of a dept.; executive officerUS"
+  },
+  {
+   "w": "managing directorUK n. senior director after the chairman responsible for day-to-day direction",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "Marketing Dept.",
+   "p": "n",
+   "d": "dept. responsible for putting goods on market, inc. packaging, advertising etc"
+  },
+  {
+   "w": "organisation chart",
+   "p": "n",
+   "d": "a table or plan showing a company’s structure graphically"
+  },
+  {
+   "w": "Personnel Dept.",
+   "p": "n",
+   "d": "department responsible for recruitment and welfare of staff or employees"
+  },
+  {
+   "w": "presidentUS",
+   "p": "n",
+   "d": "the highest executive officer of a company; head of a company"
+  },
+  {
+   "w": "Production Dept.",
+   "p": "n",
+   "d": "department responsible for physical creation of product"
+  },
+  {
+   "w": "Purchasing Dept.",
+   "p": "n",
+   "d": "department responsible for finding and buying everything needed by a company"
+  },
+  {
+   "w": "R & D Department",
+   "p": "n",
+   "d": "department responsible for Research and Development of (new) products"
+  },
+  {
+   "w": "reception",
+   "p": "n",
+   "d": "the place where visitors and clients report on arrival at a company"
+  },
+  {
+   "w": "Sales Department",
+   "p": "n",
+   "d": "department responsible for finding customers and making sales"
+  },
+  {
+   "w": "shareholder",
+   "p": "n",
+   "d": "person who holds or owns shares in or a part of a company or corporation"
+  },
+  {
+   "w": "vice presidentUS",
+   "p": "n",
+   "d": "any of several executive officers, each responsible for a separate division"
+  }
+ ],
+ "Contracts": [
+  {
+   "w": "agreement",
+   "p": "n",
+   "d": "an arrangement between two or more people, countries etc; contract"
+  },
+  {
+   "w": "appendix",
+   "p": "n",
+   "d": "additional or supplementary material at end of contract, book etc"
+  },
+  {
+   "w": "arbitration",
+   "p": "n",
+   "d": "settlement of a dispute by a person chosen by both parties - to arbitrate v."
+  },
+  {
+   "w": "article",
+   "p": "n",
+   "d": "a particular statement or stipulation in a contract etc; clause"
+  },
+  {
+   "w": "clause",
+   "p": "n",
+   "d": "a particular statement or stipulation in a contract etc; article"
+  },
+  {
+   "w": "condition",
+   "p": "n",
+   "d": "anything necessary before the performance of something else"
+  },
+  {
+   "w": "force majeure",
+   "p": "n",
+   "d": "superior, power; unforeseeable event excusing one party from fulfilling contract"
+  },
+  {
+   "w": "fulfil",
+   "p": "v",
+   "d": "to satisfy a condition; to complete the required task; to fulfillUS"
+  },
+  {
+   "w": "herein",
+   "p": "adv",
+   "d": "in here; in this (document etc)"
+  },
+  {
+   "w": "hereinafter",
+   "p": "adv",
+   "d": "in the following part (of this document etc)"
+  },
+  {
+   "w": "hereto",
+   "p": "adv",
+   "d": "to this (document etc) [eg: attached hereto]"
+  },
+  {
+   "w": "heretofore",
+   "p": "adv",
+   "d": "up until now; until the present; before this"
+  },
+  {
+   "w": "in behalf of",
+   "p": "",
+   "d": "in the interests of (person etc); for (person etc); on behalf ofUK"
+  },
+  {
+   "w": "null and void",
+   "p": "",
+   "d": "invalid; without legal force; not binding"
+  },
+  {
+   "w": "on the one hand on one side - on the other hand on the other side",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "party",
+   "p": "n",
+   "d": "the person or persons forming one side of an agreement"
+  },
+  {
+   "w": "stipulate",
+   "p": "v",
+   "d": "to specify as an essential condition - stipulation n."
+  },
+  {
+   "w": "terms",
+   "p": "n",
+   "d": "conditions or stipulations"
+  },
+  {
+   "w": "warrant",
+   "p": "v",
+   "d": "to give formal assurance; to guarantee"
+  },
+  {
+   "w": "whereas",
+   "p": "conj",
+   "d": "it being the case that; in view of the fact that [in introduction to contracts]"
+  }
+ ],
+ "Employment": [
+  {
+   "w": "bonus",
+   "p": "n",
+   "d": "additional pay given to employee as incentive or reward"
+  },
+  {
+   "w": "curriculum vitaeUK n. short account of one’s education, career etc; CVUK; résuméUS; resumeUS",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "dismiss",
+   "p": "v",
+   "d": "to remove or discharge from employment; to sack [colloq.]; to fireUS"
+  },
+  {
+   "w": "employer",
+   "p": "n",
+   "d": "person or firm who employs people - employee n. person employed"
+  },
+  {
+   "w": "fireUS",
+   "p": "v",
+   "d": "[colloq.] to dismiss"
+  },
+  {
+   "w": "interview",
+   "p": "v",
+   "d": "an oral examination of an applicant for a job - also v."
+  },
+  {
+   "w": "make redundantUK v. [made, made] to dismiss because of not being needed - redundancyUK",
+   "p": "n",
+   "d": ""
+  },
+  {
+   "w": "maternity leave",
+   "p": "n",
+   "d": "period of absence from work (for a woman) when having a baby"
+  },
+  {
+   "w": "notice",
+   "p": "n",
+   "d": "advance warning of intention to resign - to give or tender one’s notice v."
+  },
+  {
+   "w": "perk",
+   "p": "abbr",
+   "d": "perquisite; something additional to regular salary [eg: free meals; a car]"
+  },
+  {
+   "w": "personnel",
+   "p": "n",
+   "d": "the people who work for a firm"
+  },
+  {
+   "w": "personnel officer",
+   "p": "n",
+   "d": "manager responsible for recruitment, training and welfare of personnel"
+  },
+  {
+   "w": "promotion",
+   "p": "n",
+   "d": "advancement in rank or position - to promote v."
+  },
+  {
+   "w": "prospects",
+   "p": "n",
+   "d": "opportunity for success, promotion etc"
+  },
+  {
+   "w": "recruit",
+   "p": "n",
+   "d": "to look for and employ personnel - recruitment n."
+  },
+  {
+   "w": "resign",
+   "p": "v",
+   "d": "to give up a job - letter of resignation n."
+  },
+  {
+   "w": "retire",
+   "p": "v",
+   "d": "to leave employment, esp. because of age - retirement n."
+  },
+  {
+   "w": "salary",
+   "p": "n",
+   "d": "a fixed, regular payment, usually monthly, made by employer to employee"
+  },
+  {
+   "w": "staff",
+   "p": "n",
+   "d": "the people who work for a firm or a particular department; employees"
+  },
+  {
+   "w": "take on",
+   "p": "v",
+   "d": "[took, taken] to employ; to hire"
+  }
+ ],
+ "Import/Export": [
+  {
+   "w": "bill of lading",
+   "p": "n",
+   "d": "list of goods and shipping instructions; waybill"
+  },
+  {
+   "w": "c.&f.",
+   "p": "abbr",
+   "d": "cost & freight: includes shipping to named port but not insurance"
+  },
+  {
+   "w": "c.i.f.",
+   "p": "abbr",
+   "d": "cost, insurance & freight: includes insurance and shipping to named port"
+  },
+  {
+   "w": "cargo",
+   "p": "n",
+   "d": "goods or products that are being transported or shipped"
+  },
+  {
+   "w": "certificate of origin n. a document that shows where goods come from",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "container",
+   "p": "n",
+   "d": "huge box to hold goods for transport - container port n. to containerise v."
+  },
+  {
+   "w": "customs",
+   "p": "n",
+   "d": "1 government tax or duty on imported goods 2 the people who collect this tax"
+  },
+  {
+   "w": "declare",
+   "p": "v",
+   "d": "to make a statement of taxable goods - customs declaration form n."
+  },
+  {
+   "w": "f.a.s.",
+   "p": "abbr",
+   "d": "free alongside ship [includes delivery to quayside but not loading]"
+  },
+  {
+   "w": "f.o.b.",
+   "p": "abbr",
+   "d": "free on board: includes loading onto ship"
+  },
+  {
+   "w": "freight",
+   "p": "n",
+   "d": "goods being transported; cargo"
+  },
+  {
+   "w": "irrevocable",
+   "p": "adj",
+   "d": "that cannot be undone; unalterable - irrevocable letter of credit n."
+  },
+  {
+   "w": "letter of credit",
+   "p": "n",
+   "d": "a letter from a bank authorising a person to draw money from another bank"
+  },
+  {
+   "w": "merchandise",
+   "p": "n",
+   "d": "things bought and sold; commodities; wares - also v."
+  },
+  {
+   "w": "packing list",
+   "p": "n",
+   "d": "a document that is sent with goods to show that they have been checked"
+  },
+  {
+   "w": "pro forma invoice",
+   "p": "n",
+   "d": "an invoice or request for payment sent in advance of goods supplied"
+  },
+  {
+   "w": "quay",
+   "p": "n",
+   "d": "a solid, artificial landing place for (un)loading ships; wharf - quayside n."
+  },
+  {
+   "w": "ship",
+   "p": "v",
+   "d": "to send or transport by land, sea or air - also n. shipment n."
+  },
+  {
+   "w": "shipping agent",
+   "p": "n",
+   "d": "a person acting for or representing a ship or ships at a port"
+  },
+  {
+   "w": "waybill",
+   "p": "n",
+   "d": "list of goods and shipping instructions; bill of lading - air waybill n."
+  }
+ ],
+ "Insurance": [
+  {
+   "w": "actuary",
+   "p": "n",
+   "d": "a person who calculates risks for insurance companies"
+  },
+  {
+   "w": "assessor",
+   "p": "n",
+   "d": "a person who calculates the value of something [eg: a building, car etc]"
+  },
+  {
+   "w": "claim",
+   "p": "n",
+   "d": "an application for payment under an insurance policy - to make a claim v."
+  },
+  {
+   "w": "comprehensive",
+   "p": "n",
+   "d": "[of an insurance policy] all-inclusive; providing complete protection"
+  },
+  {
+   "w": "consequential loss",
+   "p": "n",
+   "d": "a loss that happens as a consequence of or as a result of another"
+  },
+  {
+   "w": "coverUK",
+   "p": "n",
+   "d": "the protection given by an insurance policy [eg: public liability cover] n. liability or responsibility of a firm for damage caused to one of its"
+  },
+  {
+   "w": "employer’s liability",
+   "p": "",
+   "d": "employees"
+  },
+  {
+   "w": "goods in transit",
+   "p": "n",
+   "d": "property, merchandise or any goods in the process of being transported"
+  },
+  {
+   "w": "insurance broker",
+   "p": "n",
+   "d": "agent who arranges insurance; middleman between insurer & policyholder"
+  },
+  {
+   "w": "liability",
+   "p": "n",
+   "d": "1 the state of being liable 2 anything for which a person is liable"
+  },
+  {
+   "w": "liable",
+   "p": "adj",
+   "d": "legally obliged to pay for damage, injury etc; responsible - liability n."
+  },
+  {
+   "w": "loss",
+   "p": "n",
+   "d": "death, injury, damage etc that is the basis for a claim - to lose v."
+  },
+  {
+   "w": "loss adjuster",
+   "p": "n",
+   "d": "a person who assesses the amount of compensation arising from a claim"
+  },
+  {
+   "w": "policy",
+   "p": "n",
+   "d": "a contract of insurance [eg: a product liability policy]"
+  },
+  {
+   "w": "policyholder",
+   "p": "n",
+   "d": "the person to whom an insurance policy is issued"
+  },
+  {
+   "w": "premium",
+   "p": "n",
+   "d": "a payment, usually monthly, yearly etc, for an insurance policy n. liability or responsibility of a firm for damage caused by one of its"
+  },
+  {
+   "w": "product liability",
+   "p": "",
+   "d": "products"
+  },
+  {
+   "w": "public liability",
+   "p": "n",
+   "d": "responsibility of a firm for damage caused to a member of the public n. the insuring of a risk by one insurance company with another - to"
+  },
+  {
+   "w": "reinsurance",
+   "p": "",
+   "d": "reinsure v."
+  },
+  {
+   "w": "risk",
+   "p": "n",
+   "d": "1 chance or possibility of injury, loss etc 2 person or thing causing risk"
+  }
+ ],
+ "Law": [
+  {
+   "w": "attorney",
+   "p": "n",
+   "d": "1 a person appointed to act for or represent another 2US lawyer"
+  },
+  {
+   "w": "barristerUK",
+   "p": "n",
+   "d": "a lawyer who pleads before a superior court"
+  },
+  {
+   "w": "brief",
+   "p": "n",
+   "d": "1UK instructions to a barrister - also v. 2US written statement of facts for a court"
+  },
+  {
+   "w": "case",
+   "p": "n",
+   "d": "statement of the facts in a trial, esp. the argument of one side"
+  },
+  {
+   "w": "contract",
+   "p": "n",
+   "d": "a formal agreement, usually in writing, between two or more parties"
+  },
+  {
+   "w": "court of law",
+   "p": "n",
+   "d": "the place where law cases are hear and decided; court - courtroom n."
+  },
+  {
+   "w": "evidence",
+   "p": "n",
+   "d": "information presented to a court to prove or support a point in question"
+  },
+  {
+   "w": "guilty",
+   "p": "adj",
+   "d": "responsible for wrong; culpable - guilt n. not guilty adj."
+  },
+  {
+   "w": "judge",
+   "p": "n",
+   "d": "public official with authority to hear and decide cases in a court of law - also v."
+  },
+  {
+   "w": "jury",
+   "p": "n",
+   "d": "a group of people chosen to hear the evidence of a case and give a decision"
+  },
+  {
+   "w": "lawsuit",
+   "p": "n",
+   "d": "a trial at court between two private parties"
+  },
+  {
+   "w": "lawyer",
+   "p": "n",
+   "d": "a person trained in law and who advises or represents others"
+  },
+  {
+   "w": "plead",
+   "p": "v",
+   "d": "1 to defend a law case 2 to declare oneself to be guilty or not guilty - plea n."
+  },
+  {
+   "w": "sentence",
+   "p": "n",
+   "d": "1 decision of a court, esp. as to the punishment 2 the punishment - also v."
+  },
+  {
+   "w": "solicitor",
+   "p": "n",
+   "d": "1UK lawyer advising clients & briefing barristers 2US law officer for a city etc"
+  },
+  {
+   "w": "sue",
+   "p": "v",
+   "d": "to start legal action against someone in a court of law - lawsuit n."
+  },
+  {
+   "w": "sum up",
+   "p": "v",
+   "d": "to summarise & review the evidence of a case [said of a judge] - summing up n."
+  },
+  {
+   "w": "trial",
+   "p": "n",
+   "d": "a formal examination of a case in a court of law - to try v."
+  },
+  {
+   "w": "verdict",
+   "p": "n",
+   "d": "the formal decision or finding of a judge or jury"
+  },
+  {
+   "w": "without prejudice without detriment or damage to a legal right or claim",
+   "p": "",
+   "d": ""
+  }
+ ],
+ "Marketing": [
+  {
+   "w": "brand",
+   "p": "n",
+   "d": "a particular make of product - to brand v. - branded adj."
+  },
+  {
+   "w": "consumer",
+   "p": "n",
+   "d": "the person who buys and uses a product or service - to consume v."
+  },
+  {
+   "w": "cost",
+   "p": "v",
+   "d": "[cost, costed, costed] to estimate the price of making a product - costing n."
+  },
+  {
+   "w": "develop",
+   "p": "v",
+   "d": "to create a new product or improve an existing one - product development n."
+  },
+  {
+   "w": "distribution",
+   "p": "n",
+   "d": "the delivering of products to end-users, inc. advertising, storing etc"
+  },
+  {
+   "w": "end-user",
+   "p": "n",
+   "d": "the person, customer etc who is the ultimate (and so real) user of a product"
+  },
+  {
+   "w": "image",
+   "p": "n",
+   "d": "the concept or perception of a firm or product held by the general public"
+  },
+  {
+   "w": "label",
+   "p": "n",
+   "d": "small piece of paper, metal etc on a product giving information about it"
+  },
+  {
+   "w": "launch",
+   "p": "v",
+   "d": "to introduce a new product, with publicity etc - product launch n."
+  },
+  {
+   "w": "mail order",
+   "p": "n",
+   "d": "the selling of goods by post - mail-order catalogue n."
+  },
+  {
+   "w": "market research n. study of consumers’ needs & preferences, often for a particular product",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "packagingUK",
+   "p": "n",
+   "d": "the wrapping or container for a product"
+  },
+  {
+   "w": "point of sale",
+   "p": "n",
+   "d": "the place where a product is actually sold to the public - point-of-sale adj."
+  },
+  {
+   "w": "product",
+   "p": "n",
+   "d": "something made to be sold; merchandise [includes services] - to produce v."
+  },
+  {
+   "w": "public relations",
+   "p": "n",
+   "d": "creation and maintenance of a good public image - public relations officer n."
+  },
+  {
+   "w": "registered",
+   "p": "adj",
+   "d": "registered or officially recorded as a trademark - ® abbr. - to register v."
+  },
+  {
+   "w": "sponsor",
+   "p": "n",
+   "d": "firm supporting an organisation in return for advertising space - also v."
+  },
+  {
+   "w": "S.W.O.T.",
+   "p": "abbr",
+   "d": "Strength, Weaknesses, Opportunities, Threats"
+  },
+  {
+   "w": "total product",
+   "p": "n",
+   "d": "the whole product, inc. name, packaging, instructions, reliability, after-sales etc"
+  },
+  {
+   "w": "trademark",
+   "p": "n",
+   "d": "special symbol, design, word etc used to represent a product or firm - \" abbr."
+  }
+ ],
+ "Meetings": [
+  {
+   "w": "A.G.M.",
+   "p": "abbr",
+   "d": "Annual General Meeting"
+  },
+  {
+   "w": "A.O.B.",
+   "p": "abbr",
+   "d": "Any Other Business [usually the last item on an agenda]"
+  },
+  {
+   "w": "absent",
+   "p": "adj",
+   "d": "not here; not at the meeting; not present"
+  },
+  {
+   "w": "agenda",
+   "p": "n",
+   "d": "a written programme or schedule for a meeting"
+  },
+  {
+   "w": "apologies",
+   "p": "n",
+   "d": "item on agenda announcing people who are absent; apologies for absence"
+  },
+  {
+   "w": "ballot",
+   "p": "n",
+   "d": "a type of vote, usually in writing and usually secret- secret ballot n."
+  },
+  {
+   "w": "casting vote",
+   "p": "n",
+   "d": "a deciding vote (usually by the chairman) when the votes are otherwise equal"
+  },
+  {
+   "w": "chairman",
+   "p": "n",
+   "d": "the person who leads or presides at a meeting; chairperson; chair"
+  },
+  {
+   "w": "conference",
+   "p": "n",
+   "d": "formal meeting for discussion, esp. a regular one held by an organisation"
+  },
+  {
+   "w": "conference call",
+   "p": "n",
+   "d": "telephone call between three or more people in different locations"
+  },
+  {
+   "w": "consensus",
+   "p": "n",
+   "d": "general agreement"
+  },
+  {
+   "w": "decision",
+   "p": "n",
+   "d": "a conclusion or resolution to do something - to decide v."
+  },
+  {
+   "w": "item",
+   "p": "n",
+   "d": "a separate point for discussion [as listed on an agenda]"
+  },
+  {
+   "w": "matters arising",
+   "p": "n",
+   "d": "item on agenda for discussion of what has happened as a result of last meeting"
+  },
+  {
+   "w": "minutes",
+   "p": "n",
+   "d": "a written record of everything said at a meeting"
+  },
+  {
+   "w": "proxy vote",
+   "p": "n",
+   "d": "a vote cast by one person for or in place of another"
+  },
+  {
+   "w": "show of hands",
+   "p": "n",
+   "d": "raised hands to express an opinion in a vote"
+  },
+  {
+   "w": "unanimous",
+   "p": "adj",
+   "d": "in complete agreement; united in opinion"
+  },
+  {
+   "w": "videoconference n. conference of people in different locations linked by satellite, TV etc",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "vote",
+   "p": "v",
+   "d": "to express opinion in a group by voice or hand etc - also n. - to cast a vote v."
+  }
+ ],
+ "Money": [
+  {
+   "w": "A.T.M.",
+   "p": "abbr",
+   "d": "Automated Teller Machine; cash dispenserUK"
+  },
+  {
+   "w": "banknote",
+   "p": "",
+   "d": "n: a piece of paper money; billUS"
+  },
+  {
+   "w": "billUS",
+   "p": "n",
+   "d": "a banknote; a piece of paper money"
+  },
+  {
+   "w": "black market",
+   "p": "n",
+   "d": "illegal traffic in officially controlled commodities such as foreign currency"
+  },
+  {
+   "w": "bureau de change n. establishment where currencies of different countries may be exchanged",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "cash",
+   "p": "n",
+   "d": "1 coins or bank notes (not cheques); 2 actual money paid as opposed to credit"
+  },
+  {
+   "w": "cash dispenserUK n: automatic machine from which clients of a bank may withdraw money;",
+   "p": "",
+   "d": "ATM"
+  },
+  {
+   "w": "cashier",
+   "p": "n",
+   "d": "person dealing with cash transactions in a bank, store etc"
+  },
+  {
+   "w": "coin",
+   "p": "",
+   "d": "n: a piece of metal money"
+  },
+  {
+   "w": "currency",
+   "p": "n",
+   "d": "the money in general use or circulation in any country"
+  },
+  {
+   "w": "debt",
+   "p": "n",
+   "d": "money etc owed by one person to another"
+  },
+  {
+   "w": "exchange rate",
+   "p": "n",
+   "d": "the rate at which one currency can be exchanged for another"
+  },
+  {
+   "w": "foreign exchange",
+   "p": "",
+   "d": "n: the currency of other countries"
+  },
+  {
+   "w": "hard currency",
+   "p": "n",
+   "d": "currency that will probably not fall in value and is readily accepted"
+  },
+  {
+   "w": "invest",
+   "p": "v",
+   "d": "to put money for profit into business, land etc - investment n."
+  },
+  {
+   "w": "legal tender",
+   "p": "",
+   "d": "n: currency that cannot legally be refused in payment of a debt"
+  },
+  {
+   "w": "petty cashUK",
+   "p": "n",
+   "d": "a cash fund for small, everyday expenses"
+  },
+  {
+   "w": "soft currency",
+   "p": "n",
+   "d": "currency that will probably fall in value and is not readily accepted"
+  },
+  {
+   "w": "speculate",
+   "p": "v",
+   "d": "(risky) buying of foreign currency, land etc for rapid gain - speculation n."
+  },
+  {
+   "w": "transaction",
+   "p": "n",
+   "d": "a (usually commercial) exchange; a deal - to transact v."
+  }
+ ],
+ "Presentations": [
+  {
+   "w": "audience rapport",
+   "p": "n",
+   "d": "relationship of presenter with audience, esp. when good"
+  },
+  {
+   "w": "body language",
+   "p": "n",
+   "d": "non-verbal communication through facial expressions, body movements etc"
+  },
+  {
+   "w": "Finally . . .",
+   "p": "",
+   "d": "Typical word used to signal the last of several points or subjects"
+  },
+  {
+   "w": "flip chart",
+   "p": "n",
+   "d": "a pad of large paper sheets on a stand for presenting information"
+  },
+  {
+   "w": "For example . . .",
+   "p": "",
+   "d": "Typical phrase used to signal an illustration or sample of a particular point"
+  },
+  {
+   "w": "handout",
+   "p": "n",
+   "d": "anything (report, sample etc) handed or given to people at a presentation"
+  },
+  {
+   "w": "In conclusion . . .",
+   "p": "",
+   "d": "Typical phrase used to signal the summing up or final part of a presentation"
+  },
+  {
+   "w": "ladies & gentlemen Polite phrase often used to address an audience of men and women",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "marker",
+   "p": "n",
+   "d": "whiteboard marker a pen with a broad, felt tip for writing on whiteboards"
+  },
+  {
+   "w": "microphone",
+   "p": "n",
+   "d": "electrical instrument that one speaks into for amplification of the voice etc"
+  },
+  {
+   "w": "O.H.T.",
+   "p": "abbr",
+   "d": "overhead transparency; sheet of film with image for overhead projector"
+  },
+  {
+   "w": "overhead projector n. device that projects an o.h.t. onto a screen - O.H.P. abbr.",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "pointer",
+   "p": "n",
+   "d": "device (rod or electric torch etc) for indicating things on a map, screen etc"
+  },
+  {
+   "w": "screen",
+   "p": "n",
+   "d": "large, flat, reflective white surface on which films, slides etc are projected"
+  },
+  {
+   "w": "signal",
+   "p": "v",
+   "d": "to help the audience understand where one is in a presentation - signalling n."
+  },
+  {
+   "w": "slide",
+   "p": "n",
+   "d": "small (usually 35mm) photographic transparency - slide projector n."
+  },
+  {
+   "w": "To start with . . .",
+   "p": "",
+   "d": "Typical phrase used to signal the beginning of a particular subject or topic"
+  },
+  {
+   "w": "Turning now to . . . Typical phrase used to signal a change from one subject or topic to another",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "visual aids",
+   "p": "n",
+   "d": "things that one can look at in a presentation [eg: films, maps, charts etc]"
+  },
+  {
+   "w": "whiteboard",
+   "p": "n",
+   "d": "large, flat, white surface or board on which to write or draw with markers"
+  }
+ ],
+ "Selling": [
+  {
+   "w": "after-sales service n. service that continues after a product has been sold [eg: repairs etc]",
+   "p": "",
+   "d": ""
+  },
+  {
+   "w": "buyer",
+   "p": "n",
+   "d": "1 any person who buys anything 2 a person employed by a firm to buy"
+  },
+  {
+   "w": "client",
+   "p": "n",
+   "d": "a person who buys services from a lawyer, architect or other professionals"
+  },
+  {
+   "w": "close",
+   "p": "v",
+   "d": "to finalise a deal or sale; to make a sale"
+  },
+  {
+   "w": "cold call",
+   "p": "v",
+   "d": "to telephone a prospect without previous contact - also n."
+  },
+  {
+   "w": "customer",
+   "p": "n",
+   "d": "a person who buys goods or services from a shop or business"
+  },
+  {
+   "w": "deal",
+   "p": "n",
+   "d": "a business transaction - also v. dealer n."
+  },
+  {
+   "w": "discount",
+   "p": "n",
+   "d": "a reduction in the price; a deduction [usually expressed as a percentage (%)]"
+  },
+  {
+   "w": "follow up",
+   "p": "v",
+   "d": "to continue to follow persistently; to maintain contact [eg: after a lead]"
+  },
+  {
+   "w": "guarantee",
+   "p": "n",
+   "d": "a promise that a product will be repaired or replaced etc if faulty - also v."
+  },
+  {
+   "w": "in bulk",
+   "p": "",
+   "d": "in large quantity, usually at a lower price"
+  },
+  {
+   "w": "lead",
+   "p": "n",
+   "d": "useful indication of a possible customer to be followed up"
+  },
+  {
+   "w": "objection",
+   "p": "n",
+   "d": "a reason given by a prospect for not buying - to object v. see overcome"
+  },
+  {
+   "w": "overcome",
+   "p": "v",
+   "d": "[-came, -come] to overcome an objection to show an objection is invalid"
+  },
+  {
+   "w": "product",
+   "p": "n",
+   "d": "something made and usually for sale - to produce v. see service"
+  },
+  {
+   "w": "prospect",
+   "p": "n",
+   "d": "a possible or probable customer; prospective customer"
+  },
+  {
+   "w": "representative",
+   "p": "n",
+   "d": "sales representative person who represents & sells for a firm; salesperson"
+  },
+  {
+   "w": "retail",
+   "p": "v",
+   "d": "to sell in small quantities (as in a shop to the public) - also n. see wholesale"
+  },
+  {
+   "w": "service",
+   "p": "n",
+   "d": "work done usually in return for payment - to serve v. see product"
+  },
+  {
+   "w": "wholesale",
+   "p": "v",
+   "d": "to sell in bulk (as to a shop for resale to the public) - also n. see retail"
+  }
+ ],
+ "British/American Financial Terms": [
+  {
+   "w": "Annual General Meeting (AGM)",
+   "p": "",
+   "d": "American English: Annual Stockholders Meeting"
+  },
+  {
+   "w": "Articles of Association",
+   "p": "",
+   "d": "American English: Bylaws"
+  },
+  {
+   "w": "authorised share capital",
+   "p": "",
+   "d": "American English: authorized capital stock"
+  },
+  {
+   "w": "barometer stock",
+   "p": "",
+   "d": "American English: bellwether stock"
+  },
+  {
+   "w": "base rate",
+   "p": "",
+   "d": "American English: prime rate"
+  },
+  {
+   "w": "bonus or capitalisation issue",
+   "p": "",
+   "d": "American English: stock dividend or stock split"
+  },
+  {
+   "w": "bridging loan",
+   "p": "",
+   "d": "American English: bridge loan"
+  },
+  {
+   "w": "building society",
+   "p": "",
+   "d": "American English: savings and loan association"
+  },
+  {
+   "w": "cheque",
+   "p": "",
+   "d": "American English: check"
+  },
+  {
+   "w": "company",
+   "p": "",
+   "d": "American English: corporation"
+  },
+  {
+   "w": "creditors",
+   "p": "",
+   "d": "American English: accounts payable"
+  },
+  {
+   "w": "current account",
+   "p": "",
+   "d": "American English: checking account"
+  },
+  {
+   "w": "debtors",
+   "p": "",
+   "d": "American English: accounts receivable"
+  },
+  {
+   "w": "gilt-edged stock (gilts)",
+   "p": "",
+   "d": "American English: Treasury bonds"
+  },
+  {
+   "w": "labour",
+   "p": "",
+   "d": "American English: labor"
+  },
+  {
+   "w": "Memorandum of Association",
+   "p": "",
+   "d": "American English: Certificate of Incorporation"
+  },
+  {
+   "w": "merchant bank",
+   "p": "",
+   "d": "American English: investment bank"
+  },
+  {
+   "w": "ordinary share",
+   "p": "",
+   "d": "American English: common stock"
+  },
+  {
+   "w": "overheads",
+   "p": "",
+   "d": "American English: overhead"
+  },
+  {
+   "w": "profit and loss account",
+   "p": "",
+   "d": "American English: income statement"
+  },
+  {
+   "w": "property",
+   "p": "",
+   "d": "American English: real estate"
+  },
+  {
+   "w": "quoted company",
+   "p": "",
+   "d": "American English: listed company"
+  },
+  {
+   "w": "retail price index (RPI)",
+   "p": "",
+   "d": "American English: consumer price index (CPI)"
+  },
+  {
+   "w": "share",
+   "p": "",
+   "d": "American English: stock"
+  },
+  {
+   "w": "share premium",
+   "p": "",
+   "d": "American English: paid-in surplus"
+  },
+  {
+   "w": "shareholder",
+   "p": "",
+   "d": "American English: stockholder"
+  },
+  {
+   "w": "shareholders' equity",
+   "p": "",
+   "d": "American English: stockholders' equity"
+  },
+  {
+   "w": "stock",
+   "p": "",
+   "d": "American English: inventory"
+  },
+  {
+   "w": "trade union",
+   "p": "",
+   "d": "American English: labor union"
+  },
+  {
+   "w": "unit trusts",
+   "p": "",
+   "d": "American English: mutual funds"
+  },
+  {
+   "w": "visible trade",
+   "p": "",
+   "d": "American English: merchandise trade"
+  }
+ ]
+};
+        const POS_LABEL = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', abbr: 'abbreviation', conj: 'conjunction', prep: 'preposition' };
+        const SECTION_ICONS = {
+            'Advertising': '📣', 'Banking': '🏦', 'Company Structure': '🏢', 'Contracts': '📜',
+            'Employment': '👔', 'Import/Export': '🚢', 'Insurance': '🛡️', 'Law': '⚖️',
+            'Marketing': '📊', 'Meetings': '🗓️', 'Money': '💰', 'Presentations': '🎤',
+            'Selling': '🤝', 'British/American Financial Terms': '🇬🇧'
+        };
+
+        let currentSection = null;
+
+        function esc(s) {
+            return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function shuffleArray(array) {
+            const a = [...array];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+        function posLabel(p) { return p ? (POS_LABEL[p] || p) : ''; }
+
+        /* ---------- SECTION PICKER ---------- */
+        function renderSections() {
+            const list = document.getElementById('section-list');
+            list.innerHTML = Object.keys(VOCAB).map(name => `
+                <button onclick="openSection('${esc(name).replace(/'/g, "\\'")}')"
+                        class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 text-left active:scale-95 transition hover:border-blue-300">
+                    <div class="text-2xl mb-2">${SECTION_ICONS[name] || '📘'}</div>
+                    <div class="font-bold text-slate-800 text-sm leading-snug">${esc(name)}</div>
+                    <div class="text-xs text-slate-400 mt-1">${VOCAB[name].length} words</div>
+                </button>`).join('');
+        }
+
+        function showSections() {
+            currentSection = null;
+            document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-sections').classList.remove('hidden');
+            document.getElementById('bottom-nav').classList.add('hidden');
+            document.getElementById('back-btn').classList.add('hidden');
+            document.getElementById('header-sub').innerText = 'Top 20 Business Vocabulary';
+        }
+
+        function openSection(name) {
+            currentSection = name;
+            document.getElementById('header-sub').innerText = name;
+            document.getElementById('back-btn').classList.remove('hidden');
+            document.getElementById('bottom-nav').classList.remove('hidden');
+            document.getElementById('searchInput').value = '';
+            flashcardData = shuffleArray(VOCAB[name]);
+            currentFlashcardIndex = 0;
+            isFlipped = false;
+            resetQuiz();
+            switchTab('learn');
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        function globalSearch() {
+            const q = document.getElementById('globalSearch').value.trim().toLowerCase();
+            const results = document.getElementById('global-results');
+            const sections = document.getElementById('section-list');
+            if (q.length < 2) {
+                results.classList.add('hidden');
+                sections.classList.remove('hidden');
+                return;
+            }
+            const hits = [];
+            Object.keys(VOCAB).forEach(sec => {
+                VOCAB[sec].forEach(item => {
+                    if (item.w.toLowerCase().includes(q) || item.d.toLowerCase().includes(q)) hits.push({ sec, item });
+                });
+            });
+            sections.classList.add('hidden');
+            results.classList.remove('hidden');
+            results.innerHTML = hits.length === 0
+                ? '<p class="text-center text-slate-500 mt-6">No words found.</p>'
+                : hits.slice(0, 60).map(h => `
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                        <div class="flex items-baseline justify-between gap-2">
+                            <h3 class="text-lg font-bold text-slate-800">${esc(h.item.w)}</h3>
+                            <span class="text-[10px] uppercase tracking-wide text-blue-600 font-bold">${esc(h.sec)}</span>
+                        </div>
+                        ${h.item.p ? `<p class="text-xs text-slate-400 italic">${esc(posLabel(h.item.p))}</p>` : ''}
+                        <p class="text-sm font-medium text-slate-600 border-l-2 border-blue-400 pl-3 py-1 bg-slate-50 rounded-r-md mt-2">${esc(h.item.d)}</p>
+                    </div>`).join('');
+        }
+
+        /* ---------- TABS ---------- */
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            ['learn', 'flashcards', 'quiz'].forEach(id => {
+                const btn = document.getElementById(`nav-${id}`);
+                btn.classList.toggle('text-blue-600', id === tabId);
+                btn.classList.toggle('text-slate-400', id !== tabId);
+            });
+            if (tabId === 'learn') renderDictionary(VOCAB[currentSection]);
+            if (tabId === 'flashcards') loadFlashcard(currentFlashcardIndex);
+        }
+
+        /* ---------- DICTIONARY ---------- */
+        function renderDictionary(data) {
+            const list = document.getElementById('dictionary-list');
+            const sorted = [...data].sort((a, b) => a.w.localeCompare(b.w));
+            list.innerHTML = sorted.length === 0
+                ? '<p class="text-center text-slate-500 mt-6">No words found.</p>'
+                : sorted.map(item => `
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex flex-col gap-2">
+                        <div class="flex items-baseline gap-2 flex-wrap">
+                            <h3 class="text-xl font-bold text-slate-800">${esc(item.w)}</h3>
+                            ${item.p ? `<span class="text-xs text-slate-400 italic">${esc(posLabel(item.p))}</span>` : ''}
+                        </div>
+                        <p class="text-sm font-medium text-slate-600 border-l-2 border-blue-400 pl-3 py-1 bg-slate-50 rounded-r-md">${esc(item.d)}</p>
+                    </div>`).join('');
+        }
+
+        function filterDictionary() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            renderDictionary(VOCAB[currentSection].filter(v => v.w.toLowerCase().includes(q) || v.d.toLowerCase().includes(q)));
+        }
+
+        /* ---------- FLASHCARDS ---------- */
+        let currentFlashcardIndex = 0;
+        let isFlipped = false;
+        let flashcardData = [];
+
+        function loadFlashcard(index) {
+            if (!flashcardData.length) return;
+            const item = flashcardData[index];
+            document.getElementById('fc-front-word').innerText = item.w;
+            document.getElementById('fc-back-meaning').innerText = item.d;
+            document.getElementById('fc-back-example').innerText = item.p ? posLabel(item.p) : currentSection;
+            document.getElementById('flashcard-counter').innerText = `Card ${index + 1} / ${flashcardData.length}`;
+            if (isFlipped) {
+                isFlipped = false;
+                document.getElementById('flashcard-inner').classList.remove('flipped');
+            }
+        }
+        function flipCard() {
+            isFlipped = !isFlipped;
+            document.getElementById('flashcard-inner').classList.toggle('flipped', isFlipped);
+        }
+        function nextCard() {
+            currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcardData.length;
+            loadFlashcard(currentFlashcardIndex);
+        }
+        function prevCard() {
+            currentFlashcardIndex = (currentFlashcardIndex - 1 + flashcardData.length) % flashcardData.length;
+            loadFlashcard(currentFlashcardIndex);
+        }
+
+        /* ---------- QUIZ ---------- */
+        let quizQuestions = [];
+        let quizIndex = 0;
+        let quizScore = 0;
+        let quizLocked = false;
+
+        function resetQuiz() {
+            document.getElementById('quiz-intro').classList.remove('hidden');
+            document.getElementById('quiz-game').classList.add('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+        }
+
+        function startQuiz() {
+            const pool = VOCAB[currentSection];
+            quizQuestions = shuffleArray(pool).slice(0, Math.min(10, pool.length));
+            quizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-game').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            quizLocked = false;
+            const q = quizQuestions[quizIndex];
+            const pool = VOCAB[currentSection].filter(v => v.w !== q.w);
+            const options = shuffleArray([q, ...shuffleArray(pool).slice(0, 3)]);
+            document.getElementById('quiz-progress').innerText = `Question ${quizIndex + 1} / ${quizQuestions.length}`;
+            document.getElementById('quiz-score-display').innerText = `Score: ${quizScore}`;
+            document.getElementById('quiz-pos').innerText = q.p ? posLabel(q.p) : currentSection;
+            document.getElementById('quiz-sentence').innerText = q.d;
+            document.getElementById('quiz-options').innerHTML = options.map((o, i) => `
+                <button data-idx="${i}" onclick="checkAnswer(this, ${o.w === q.w})"
+                        class="w-full text-left bg-white border border-slate-200 p-4 rounded-xl font-medium text-slate-700 shadow-sm active:scale-[0.99] transition hover:border-blue-300">
+                    ${esc(o.w)}
+                </button>`).join('');
+        }
+
+        function checkAnswer(btn, correct) {
+            if (quizLocked) return;
+            quizLocked = true;
+            const buttons = document.querySelectorAll('#quiz-options button');
+            const answer = quizQuestions[quizIndex].w;
+            buttons.forEach(b => {
+                if (b.innerText.trim() === answer) {
+                    b.className = "w-full text-left bg-emerald-50 border-2 border-emerald-500 p-4 rounded-xl font-semibold text-emerald-800 shadow-sm";
+                } else if (b === btn) {
+                    b.className = "w-full text-left bg-red-50 border-2 border-red-400 p-4 rounded-xl font-semibold text-red-700 shadow-sm";
+                } else {
+                    b.className = "w-full text-left bg-white border border-slate-200 p-4 rounded-xl font-medium text-slate-400 shadow-sm";
+                }
+            });
+            if (correct) quizScore++;
+            document.getElementById('quiz-score-display').innerText = `Score: ${quizScore}`;
+            setTimeout(() => {
+                quizIndex++;
+                if (quizIndex < quizQuestions.length) {
+                    loadQuestion();
+                } else {
+                    document.getElementById('quiz-game').classList.add('hidden');
+                    document.getElementById('quiz-result').classList.remove('hidden');
+                    document.getElementById('final-score').innerText = quizScore;
+                    document.getElementById('final-total').innerText = quizQuestions.length;
+                    document.getElementById('result-icon').innerText = quizScore >= quizQuestions.length * 0.8 ? '🏆' : (quizScore >= quizQuestions.length * 0.5 ? '👍' : '📚');
+                }
+            }, 1100);
+        }
+
+        renderSections();
+        showSections();
+    </script>
+</body>
+</html>
