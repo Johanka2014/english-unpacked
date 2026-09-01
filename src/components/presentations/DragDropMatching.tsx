@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface MatchingPair {
   id: number;
@@ -17,6 +18,7 @@ interface DragDropMatchingProps {
 }
 
 const DragDropMatching = ({ title, instruction, pairs, extraWords = [] }: DragDropMatchingProps) => {
+  const track = useActivityTracking();
   const [matches, setMatches] = useState<Record<number, string>>({});
   const [draggedWord, setDraggedWord] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -106,7 +108,15 @@ const DragDropMatching = ({ title, instruction, pairs, extraWords = [] }: DragDr
     [draggedWord, checked, matches]
   );
 
-  const handleCheck = () => setChecked(true);
+  const handleCheck = () => {
+    setChecked(true);
+    track({
+      activityTitle: title,
+      activityType: "drag-matching",
+      score: pairs.filter((p) => matches[p.id]?.toLowerCase() === p.right.toLowerCase()).length,
+      total: pairs.length,
+    });
+  };
 
   const handleReset = () => {
     setMatches({});

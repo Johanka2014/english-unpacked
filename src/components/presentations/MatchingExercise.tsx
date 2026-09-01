@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface MatchPair {
   id: number;
@@ -32,6 +33,8 @@ const MatchingExercise = ({
   const [feedbackType, setFeedbackType] = useState<"correct" | "incorrect" | null>(null);
   const [shuffleSeed, setShuffleSeed] = useState(0);
   const [revealedHints, setRevealedHints] = useState<Set<number>>(new Set());
+  const wrongAttempts = useRef(0);
+  const track = useActivityTracking();
 
   const hasHints = useMemo(() => pairs.some((p) => p.hint), [pairs]);
 
@@ -52,11 +55,18 @@ const MatchingExercise = ({
       setSelectedLeft(null);
       if (next.size === pairs.length) {
         setFeedback("Congratulations! You have matched all items.");
+        track({
+          activityTitle: title,
+          activityType: "matching",
+          score: Math.max(0, pairs.length - wrongAttempts.current),
+          total: pairs.length,
+        });
       } else {
         setFeedback("Correct match!");
       }
       setFeedbackType("correct");
     } else {
+      wrongAttempts.current += 1;
       setFeedback("Incorrect, try again.");
       setFeedbackType("incorrect");
       setSelectedLeft(null);
@@ -76,6 +86,7 @@ const MatchingExercise = ({
     setSelectedLeft(null);
     setMatched(new Set());
     setRevealedHints(new Set());
+    wrongAttempts.current = 0;
     setFeedback(null);
   };
 

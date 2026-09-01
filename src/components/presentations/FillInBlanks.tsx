@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface Sentence {
   id: number;
@@ -15,12 +16,14 @@ interface PresentationGroup {
 }
 
 interface FillInBlanksProps {
+  title?: string;
   data: PresentationGroup[];
   audioSources?: string[];
   audioLabels?: string[];
 }
 
-const FillInBlanks = ({ data, audioSources, audioLabels }: FillInBlanksProps) => {
+const FillInBlanks = ({ title = "Gap-fill", data, audioSources, audioLabels }: FillInBlanksProps) => {
+  const track = useActivityTracking();
   const [results, setResults] = useState<Record<number, "correct" | "incorrect" | null>>({});
   const inputRefs = useRef<Record<number, HTMLInputElement | null>>({});
 
@@ -34,6 +37,12 @@ const FillInBlanks = ({ data, audioSources, audioLabels }: FillInBlanksProps) =>
       });
     });
     setResults(newResults);
+    track({
+      activityTitle: title,
+      activityType: "fill-in-blanks",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: Object.keys(newResults).length,
+    });
   };
 
   const renderSentence = (sentence: Sentence) => {

@@ -1,6 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface OrderItem {
   id: string | number;
@@ -17,6 +18,7 @@ interface OrderingExerciseProps {
 }
 
 const OrderingExercise = ({ title, description, items, tip, audioSrc }: OrderingExerciseProps) => {
+  const track = useActivityTracking();
   const shuffled = useMemo(() => [...items].sort(() => Math.random() - 0.5), [items]);
   const [orderedItems, setOrderedItems] = useState(shuffled);
   const [results, setResults] = useState<Record<string | number, "correct" | "incorrect" | null>>({});
@@ -55,6 +57,12 @@ const OrderingExercise = ({ title, description, items, tip, audioSrc }: Ordering
     setResults(newResults);
     setFeedback(allCorrect ? "Perfect! The order is correct." : "Not quite right. Please reorder the highlighted items.");
     setFeedbackType(allCorrect ? "correct" : "incorrect");
+    track({
+      activityTitle: title,
+      activityType: "ordering",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: orderedItems.length,
+    });
   };
 
   return (

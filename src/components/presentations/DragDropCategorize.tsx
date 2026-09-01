@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface Phrase {
   id: string;
@@ -24,6 +25,7 @@ interface DragDropCategorizeProps {
 }
 
 const DragDropCategorize = ({ phrases, categories, title, description, imageUrl, imageAlt, centered = false }: DragDropCategorizeProps) => {
+  const track = useActivityTracking();
   const [bank, setBank] = useState(() => [...phrases].sort(() => Math.random() - 0.5));
   const [categoryItems, setCategoryItems] = useState<Record<string, Phrase[]>>(() => {
     const init: Record<string, Phrase[]> = {};
@@ -74,10 +76,18 @@ const DragDropCategorize = ({ phrases, categories, title, description, imageUrl,
 
   const checkAnswers = () => {
     let allCorrect = true;
+    let placedCorrect = 0;
     Object.entries(categoryItems).forEach(([catId, items]) => {
       items.forEach((item) => {
         if (item.category !== catId) allCorrect = false;
+        else placedCorrect += 1;
       });
+    });
+    track({
+      activityTitle: title,
+      activityType: "categorise",
+      score: placedCorrect,
+      total: phrases.length,
     });
     if (bank.length > 0) allCorrect = false;
     setFeedback(allCorrect ? "Perfect! All phrases are correctly categorized." : "Not quite right. Check the highlighted phrases.");

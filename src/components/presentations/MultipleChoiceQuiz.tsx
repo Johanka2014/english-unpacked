@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface Question {
   id: number;
@@ -18,6 +19,7 @@ interface MultipleChoiceQuizProps {
 const MultipleChoiceQuiz = ({ title, description, questions }: MultipleChoiceQuizProps) => {
   const [selected, setSelected] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, "correct" | "incorrect" | null>>({});
+  const track = useActivityTracking();
 
   const handleSelect = (questionId: number, option: string) => {
     if (results[questionId]) return;
@@ -31,6 +33,12 @@ const MultipleChoiceQuiz = ({ title, description, questions }: MultipleChoiceQui
       newResults[q.id] = sel === q.answer ? "correct" : "incorrect";
     });
     setResults(newResults);
+    track({
+      activityTitle: title,
+      activityType: "multiple-choice",
+      score: Object.values(newResults).filter((r) => r === "correct").length,
+      total: questions.length,
+    });
   };
 
   return (
