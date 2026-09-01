@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import InfoSection from '@/components/presentations/InfoSection';
 import MatchingExercise from '@/components/presentations/MatchingExercise';
 import MultipleChoiceQuiz from '@/components/presentations/MultipleChoiceQuiz';
+import { useActivityTracking } from '@/hooks/useActivityTracking';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react';
@@ -67,6 +68,7 @@ const EmbedActivity = ({ activity }: { activity: Activity }) => {
 };
 
 const FillBlanks = ({ activity }: { activity: Activity }) => {
+  const track = useActivityTracking();
   const [reveal, setReveal] = useState(false);
   const [values, setValues] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, 'correct' | 'incorrect' | null>>({});
@@ -79,6 +81,12 @@ const FillBlanks = ({ activity }: { activity: Activity }) => {
       r[i] = typed === expected ? 'correct' : 'incorrect';
     });
     setResults(r);
+    track({
+      activityTitle: activity.title || 'Fill in the blanks',
+      activityType: 'fill-blanks',
+      score: Object.values(r).filter((v) => v === 'correct').length,
+      total: activity.blanks?.length || 0,
+    });
   };
 
   return (
@@ -365,6 +373,7 @@ const Task = ({ activity }: { activity: Activity }) => {
 
 
 const GappedSentences = ({ activity }: { activity: Activity }) => {
+  const track = useActivityTracking();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
   const key = (g: string) => activity.gapAnswers?.find((a) => a.gap === g)?.letter;
@@ -429,7 +438,20 @@ const GappedSentences = ({ activity }: { activity: Activity }) => {
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-2 mt-4">
-        <Button size="sm" onClick={() => setChecked(true)}>Check answers</Button>
+        <Button
+          size="sm"
+          onClick={() => {
+            setChecked(true);
+            track({
+              activityTitle: activity.title || 'Gapped text',
+              activityType: 'gapped-sentences',
+              score: activity.gapAnswers?.filter((a) => answers[a.gap] === a.letter).length || 0,
+              total: activity.gapAnswers?.length || 0,
+            });
+          }}
+        >
+          Check answers
+        </Button>
         <Button variant="outline" size="sm" onClick={() => { setAnswers({}); setChecked(false); }}>Reset</Button>
         {checked && (
           <span className="text-sm text-muted-foreground">

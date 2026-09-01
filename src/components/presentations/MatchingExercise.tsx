@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
 import { useActivityTracking } from "@/hooks/useActivityTracking";
