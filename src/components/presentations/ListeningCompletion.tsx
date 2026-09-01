@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface InputPart {
   type: "input";

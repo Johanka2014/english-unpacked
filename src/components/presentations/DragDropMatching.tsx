@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, RotateCcw } from "lucide-react";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface MatchingPair {
   id: number;

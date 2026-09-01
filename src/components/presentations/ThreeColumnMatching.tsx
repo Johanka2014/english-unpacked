@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useActivityTracking } from "@/hooks/useActivityTracking";
 
 interface MatchItem {
   id: number;
@@ -20,6 +21,8 @@ const ThreeColumnMatching = ({ title, description, items }: ThreeColumnMatchingP
   const [matched, setMatched] = useState<Set<number>>(new Set());
   const [feedback, setFeedback] = useState<string | null>(null);
   const [feedbackType, setFeedbackType] = useState<"correct" | "incorrect" | null>(null);
+  const wrongAttempts = useRef(0);
+  const track = useActivityTracking();
 
   const shuffledCol2 = useMemo(() => [...items].sort(() => Math.random() - 0.5), [items]);
   const shuffledCol3 = useMemo(() => [...items].sort(() => Math.random() - 0.5), [items]);
@@ -39,8 +42,15 @@ const ThreeColumnMatching = ({ title, description, items }: ThreeColumnMatchingP
         setFeedbackType("correct");
         if (matched.size + 1 === items.length) {
           setFeedback("Congratulations! You have matched all the openings.");
+          track({
+            activityTitle: title,
+            activityType: "three-column-matching",
+            score: Math.max(0, items.length - wrongAttempts.current),
+            total: items.length,
+          });
         }
       } else {
+        wrongAttempts.current += 1;
         setFeedback("Incorrect, try again.");
         setFeedbackType("incorrect");
       }

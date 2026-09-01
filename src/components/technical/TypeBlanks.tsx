@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useActivityTracking } from '@/hooks/useActivityTracking';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
@@ -34,6 +35,7 @@ const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
   const [values, setValues] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, 'correct' | 'incorrect' | null>>({});
   const lastFocused = useRef<number | null>(null);
+  const track = useActivityTracking();
 
   const check = () => {
     const r: Record<number, 'correct' | 'incorrect'> = {};
@@ -50,6 +52,12 @@ const TypeBlanks = ({ title, body, blanks, showPhraseBank = false }: Props) => {
       r[i] = typed === expectedFull || typed === expectedRest ? 'correct' : 'incorrect';
     });
     setResults(r);
+    track({
+      activityTitle: title,
+      activityType: 'type-blanks',
+      score: Object.values(r).filter((v) => v === 'correct').length,
+      total: blanks.length,
+    });
   };
 
   const reset = () => {

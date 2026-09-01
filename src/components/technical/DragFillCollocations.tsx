@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { RotateCcw, Shuffle, CheckCircle2, XCircle } from 'lucide-react';
 import type { FillBlanksItem } from '@/data/engineeringData';
+import { useActivityTracking } from '@/hooks/useActivityTracking';
 
 interface Props {
   title: string;
@@ -28,6 +29,7 @@ const DragFillCollocations = ({ title, body, blanks }: Props) => {
   const [seed, setSeed] = useState(() => Math.floor(Math.random() * 10000) + 1);
   const [filled, setFilled] = useState<Record<number, string | null>>({});
   const [results, setResults] = useState<Record<number, 'correct' | 'incorrect' | null>>({});
+  const track = useActivityTracking();
   const [dragged, setDragged] = useState<{ word: string; from: 'bank' | number } | null>(null);
 
   const allWords = useMemo(() => shuffle(blanks.map((b) => b.answer), seed), [blanks, seed]);
@@ -64,6 +66,12 @@ const DragFillCollocations = ({ title, body, blanks }: Props) => {
       r[i] = (filled[i] || '').toLowerCase() === b.answer.toLowerCase() ? 'correct' : 'incorrect';
     });
     setResults(r);
+    track({
+      activityTitle: title,
+      activityType: 'drag-fill-collocations',
+      score: Object.values(r).filter((v) => v === 'correct').length,
+      total: blanks.length,
+    });
   };
 
   const reset = () => {
