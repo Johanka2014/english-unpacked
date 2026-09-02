@@ -45,7 +45,11 @@ const ThreeColumnMatching = ({ title, description, items }: ThreeColumnMatchingP
           track({
             activityTitle: title,
             activityType: "three-column-matching",
-            score: Math.max(0, items.length - wrongAttempts.current),
+            // Accuracy-based: correct matches vs total attempts, never below 1 point
+            score: Math.max(
+              1,
+              Math.round((items.length * items.length) / (items.length + wrongAttempts.current)),
+            ),
             total: items.length,
           });
         }
