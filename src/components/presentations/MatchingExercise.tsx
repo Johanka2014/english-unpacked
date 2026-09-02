@@ -58,7 +58,11 @@ const MatchingExercise = ({
         track({
           activityTitle: title,
           activityType: "matching",
-          score: Math.max(0, pairs.length - wrongAttempts.current),
+          // Accuracy-based: correct matches vs total clicks, never below 1 point
+          score: Math.max(
+            1,
+            Math.round((pairs.length * pairs.length) / (pairs.length + wrongAttempts.current)),
+          ),
           total: pairs.length,
         });
       } else {
