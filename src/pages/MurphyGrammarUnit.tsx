@@ -17,37 +17,54 @@ import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectives
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
-    {(sections ?? []).map((s, i) => (
-      <Card key={i} className="service-card">
-        <CardContent className="p-6">
-          <h3 className="text-xl font-semibold mb-4 font-merriweather text-foreground">{s.heading}</h3>
-          <div className={s.image ? 'grid gap-6 md:grid-cols-[1fr_260px] items-start' : undefined}>
+    {(sections ?? []).map((s, i) => {
+      const imageLeft = s.imagePosition === 'left';
+      return (
+        <Card key={i} className="service-card">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold mb-4 font-merriweather text-foreground">{s.heading}</h3>
             <div
-              className="prose prose-sm max-w-none text-muted-foreground prose-strong:text-foreground"
-              dangerouslySetInnerHTML={{ __html: s.content }}
-            />
-            {s.image && (
-              <img
-                src={s.image}
-                alt={s.imageAlt ?? s.heading}
-                loading="lazy"
-                className="w-full rounded-lg border border-border"
+              className={
+                s.image
+                  ? `grid gap-6 items-start ${imageLeft ? 'md:grid-cols-[260px_1fr]' : 'md:grid-cols-[1fr_260px]'}`
+                  : undefined
+              }
+            >
+              {s.image && imageLeft && (
+                <img
+                  src={s.image}
+                  alt={s.imageAlt ?? s.heading}
+                  loading="lazy"
+                  className="w-full rounded-lg border border-border"
+                />
+              )}
+              <div
+                className="prose prose-sm max-w-none text-muted-foreground prose-strong:text-foreground"
+                dangerouslySetInnerHTML={{ __html: s.content }}
               />
-            )}
-          </div>
-          {s.notes && s.notes.length > 0 && (
-            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-              <p className="font-semibold text-sm text-blue-800 dark:text-blue-300 mb-2">📝 Note:</p>
-              <ul className="list-disc list-inside space-y-1 text-sm text-blue-700 dark:text-blue-400">
-                {s.notes.map((n, j) => (
-                  <li key={j} dangerouslySetInnerHTML={{ __html: n }} />
-                ))}
-              </ul>
+              {s.image && !imageLeft && (
+                <img
+                  src={s.image}
+                  alt={s.imageAlt ?? s.heading}
+                  loading="lazy"
+                  className="w-full rounded-lg border border-border"
+                />
+              )}
             </div>
-          )}
-        </CardContent>
-      </Card>
-    ))}
+            {s.notes && s.notes.length > 0 && (
+              <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="font-semibold text-sm text-blue-800 dark:text-blue-300 mb-2">📝 Note:</p>
+                <ul className="list-disc list-inside space-y-1 text-sm text-blue-700 dark:text-blue-400">
+                  {s.notes.map((n, j) => (
+                    <li key={j} dangerouslySetInnerHTML={{ __html: n }} />
+                  ))}
+                </ul>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      );
+    })}
   </div>
 );
 

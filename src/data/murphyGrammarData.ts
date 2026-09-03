@@ -10,6 +10,7 @@ import conditionalsImg from '@/assets/b1-conditionals.jpg';
 import advancedImg from '@/assets/b1-advanced-structures.jpg';
 import wordFormationImg from '@/assets/b1-word-formation.jpg';
 import unit1DrivingImg from '@/assets/murphy/unit1-driving.png.asset.json';
+import unit1ReadingPhoneImg from '@/assets/murphy/unit1-reading-phone.png.asset.json';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -19,6 +20,7 @@ export interface MurphyTheorySection {
   notes?: string[];
   image?: string;
   imageAlt?: string;
+  imagePosition?: 'left' | 'right';
 }
 
 export interface MurphyExerciseItem {
@@ -98,6 +100,9 @@ const unit1Theory: MurphyTheorySection[] = [
   },
   {
     heading: 'B · I am doing = I am in the middle of doing it',
+    image: unit1ReadingPhoneImg.url,
+    imageAlt: 'Steve talking on the phone about a book he is currently reading',
+    imagePosition: 'left',
     content: `
       <p>I've started doing it and I haven't finished:</p>
       <ul>
