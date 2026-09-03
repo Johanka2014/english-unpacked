@@ -11,6 +11,7 @@ import advancedImg from '@/assets/b1-advanced-structures.jpg';
 import wordFormationImg from '@/assets/b1-word-formation.jpg';
 import unit1DrivingImg from '@/assets/murphy/unit1-driving.png.asset.json';
 import unit1ReadingPhoneImg from '@/assets/murphy/unit1-reading-phone.png.asset.json';
+import unit1CafeImg from '@/assets/murphy/unit1-cafe-conversation.png.asset.json';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -41,6 +42,11 @@ export interface MurphyExercise {
   type: 'gap-fill' | 'choice' | 'matching';
   items: MurphyExerciseItem[];
   wordBank?: string[];
+  /** Visual theme for the exercise card. */
+  layout?: 'default' | 'conversation';
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: 'left' | 'right';
 }
 
 export interface MurphyUnit {
@@ -152,6 +158,10 @@ const unit1Exercises: MurphyExercise[] = [
     title: 'Exercise 1.1',
     instruction: 'The sentences on the right follow those on the left. Which sentence goes with which?',
     type: 'matching',
+    layout: 'conversation',
+    image: unit1CafeImg.url,
+    imageAlt: 'Two people chatting over coffee in a cafe',
+    imagePosition: 'right',
     items: [
       { id: 1, prompt: "Please don't make so much noise.", answer: "I'm trying to work." },
       { id: 2, prompt: 'I need to eat something soon.', answer: "I'm getting hungry." },
@@ -168,6 +178,10 @@ const unit1Exercises: MurphyExercise[] = [
     title: 'Exercise 1.2',
     instruction: 'Complete the conversations. Use the present continuous.',
     type: 'gap-fill',
+    layout: 'conversation',
+    image: unit1CafeImg.url,
+    imageAlt: 'Two people chatting over coffee in a cafe',
+    imagePosition: 'right',
     items: [
       { id: 1, context: 'A: I saw Brian a few days ago.', prompt: "B: Oh, did you? ___ these days?", answer: "What is he doing|What's he doing", hint: 'what / he / do' },
       { id: 2, context: "A: He's at university.", prompt: 'B: ___?', answer: 'What is he studying|What’s he studying', hint: 'what / he / study' },
