@@ -555,6 +555,7 @@ const unit3Exercises: MurphyExercise[] = [
     title: 'Exercise 3.3',
     instruction: "Finish B's sentences. Use always + -ing.",
     type: 'gap-fill',
+    layout: 'conversation',
     items: [
       { id: 1, context: "A: I've lost my phone again.", prompt: "B: Not again! You're ___.", answer: 'always losing your phone' },
       { id: 2, context: 'A: The car has broken down again.', prompt: "B: That car is useless. It's ___.", answer: 'always breaking down' },
@@ -570,6 +571,7 @@ const unit3Supplementary: MurphyExercise[] = [
     title: 'Supplementary — Adam and Mike',
     instruction: 'Choose the correct form of the verbs in the conversation.',
     type: 'choice',
+    layout: 'conversation',
     items: [
       { id: 1, prompt: 'ADAM: Hello, Mike. What (1) ___ in this part of London?', answer: 'are you doing', options: ['are you doing', 'do you do'] },
       { id: 2, prompt: "MIKE: Well, actually, (2) ___ at flats round here.", answer: "I'm looking", options: ["I'm looking", 'I look'] },
