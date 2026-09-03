@@ -16,6 +16,8 @@ export interface MurphyTheorySection {
   heading: string;
   content: string; // HTML
   notes?: string[];
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface MurphyExerciseItem {

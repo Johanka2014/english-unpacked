@@ -21,10 +21,20 @@ const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof find
       <Card key={i} className="service-card">
         <CardContent className="p-6">
           <h3 className="text-xl font-semibold mb-4 font-merriweather text-foreground">{s.heading}</h3>
-          <div
-            className="prose prose-sm max-w-none text-muted-foreground prose-strong:text-foreground"
-            dangerouslySetInnerHTML={{ __html: s.content }}
-          />
+          <div className={s.image ? 'grid gap-6 md:grid-cols-[1fr_260px] items-start' : undefined}>
+            <div
+              className="prose prose-sm max-w-none text-muted-foreground prose-strong:text-foreground"
+              dangerouslySetInnerHTML={{ __html: s.content }}
+            />
+            {s.image && (
+              <img
+                src={s.image}
+                alt={s.imageAlt ?? s.heading}
+                loading="lazy"
+                className="w-full rounded-lg border border-border"
+              />
+            )}
+          </div>
           {s.notes && s.notes.length > 0 && (
             <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
               <p className="font-semibold text-sm text-blue-800 dark:text-blue-300 mb-2">📝 Note:</p>
