@@ -11,6 +11,7 @@ import advancedImg from '@/assets/b1-advanced-structures.jpg';
 import wordFormationImg from '@/assets/b1-word-formation.jpg';
 import unit1DrivingImg from '@/assets/murphy/unit1-driving.png.asset.json';
 import unit1ReadingPhoneImg from '@/assets/murphy/unit1-reading-phone.png.asset.json';
+import unit1CafeImg from '@/assets/murphy/unit1-cafe-conversation.png.asset.json';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
