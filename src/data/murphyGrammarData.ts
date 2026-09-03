@@ -158,6 +158,10 @@ const unit1Exercises: MurphyExercise[] = [
     title: 'Exercise 1.1',
     instruction: 'The sentences on the right follow those on the left. Which sentence goes with which?',
     type: 'matching',
+    layout: 'conversation',
+    image: unit1CafeImg.url,
+    imageAlt: 'Two people chatting over coffee in a cafe',
+    imagePosition: 'right',
     items: [
       { id: 1, prompt: "Please don't make so much noise.", answer: "I'm trying to work." },
       { id: 2, prompt: 'I need to eat something soon.', answer: "I'm getting hungry." },
