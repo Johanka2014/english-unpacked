@@ -178,6 +178,10 @@ const unit1Exercises: MurphyExercise[] = [
     title: 'Exercise 1.2',
     instruction: 'Complete the conversations. Use the present continuous.',
     type: 'gap-fill',
+    layout: 'conversation',
+    image: unit1CafeImg.url,
+    imageAlt: 'Two people chatting over coffee in a cafe',
+    imagePosition: 'right',
     items: [
       { id: 1, context: 'A: I saw Brian a few days ago.', prompt: "B: Oh, did you? ___ these days?", answer: "What is he doing|What's he doing", hint: 'what / he / do' },
       { id: 2, context: "A: He's at university.", prompt: 'B: ___?', answer: 'What is he studying|What’s he studying', hint: 'what / he / study' },
