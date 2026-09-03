@@ -300,6 +300,54 @@ const MurphyExercise = ({ exercise }: { exercise: MurphyExerciseType }) => {
             );
           }
 
+          // multiple-choice conversation (e.g. "ADAM: What ___ here?")
+          if (exercise.type === 'choice' && item.options) {
+            const speakerMatch = item.prompt.match(/^([A-Za-z]+):\s*/);
+            const speaker = speakerMatch?.[1] ?? (item.id % 2 === 1 ? 'A' : 'B');
+            const text = speakerMatch ? item.prompt.slice(speakerMatch[0].length) : item.prompt;
+            const side = /^(a|adam)/i.test(speaker) ? 'left' : 'right';
+            return (
+              <div key={item.id} className="space-y-2">
+                <ConversationBubble speaker={speaker} side={side}>
+                  <p className="text-sm text-foreground leading-relaxed mb-2">{text}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {item.options.map((option) => {
+                      const selected = value === option;
+                      const optionCorrect = checked && isCorrect(option, item.answer);
+                      return (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => setAnswer(item.id, option)}
+                          disabled={checked}
+                          className={`px-3 py-1.5 rounded-md border text-sm transition-colors ${
+                            checked
+                              ? optionCorrect
+                                ? 'border-green-500 bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 font-semibold'
+                                : selected
+                                  ? 'border-red-500 bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 line-through'
+                                  : 'border-border bg-background text-muted-foreground'
+                              : selected
+                                ? 'border-primary bg-primary/10 text-foreground font-medium'
+                                : 'border-border bg-background text-foreground hover:bg-muted'
+                          }`}
+                        >
+                          {option}
+                        </button>
+                      );
+                    })}
+                    {statusIcon(item.id, item)}
+                  </div>
+                </ConversationBubble>
+                {checked && !correct && (
+                  <p className="text-xs text-green-700 dark:text-green-400 mt-1">
+                    Answer: {item.answer.split('|')[0]}
+                  </p>
+                )}
+              </div>
+            );
+          }
+
           // gap-fill conversation
           const parts = promptParts(item.prompt);
           return (
