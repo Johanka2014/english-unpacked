@@ -151,9 +151,11 @@ const App = () => (
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
               <Route path="/cae-word-quest" element={<ProtectedRoute><CAEWordQuest /></ProtectedRoute>} />
-              <Route path="/b1-grammar" element={<ProtectedRoute><B1Grammar /></ProtectedRoute>} />
-              <Route path="/b1-grammar/:sectionId" element={<ProtectedRoute><B1GrammarSection /></ProtectedRoute>} />
-              <Route path="/b1-grammar/:sectionId/:moduleId" element={<ProtectedRoute><B1GrammarTopic /></ProtectedRoute>} />
+              <Route path="/grammar" element={<ProtectedRoute><MurphyGrammar /></ProtectedRoute>} />
+              <Route path="/grammar/:sectionId" element={<ProtectedRoute><MurphyGrammarSection /></ProtectedRoute>} />
+              <Route path="/grammar/:sectionId/:unitId" element={<ProtectedRoute><MurphyGrammarUnit /></ProtectedRoute>} />
+              <Route path="/b1-grammar" element={<Navigate to="/grammar" replace />} />
+              <Route path="/b1-grammar/*" element={<Navigate to="/grammar" replace />} />
               <Route path="/starters-practice" element={<ProtectedRoute><StartersPractice /></ProtectedRoute>} />
               <Route path="/starters-practice/:testId" element={<ProtectedRoute><StartersTest /></ProtectedRoute>} />
               <Route path="/hr-english" element={<ProtectedRoute><HREnglish /></ProtectedRoute>} />
