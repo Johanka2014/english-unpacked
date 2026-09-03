@@ -20,6 +20,7 @@ export interface MurphyTheorySection {
   notes?: string[];
   image?: string;
   imageAlt?: string;
+  imagePosition?: 'left' | 'right';
 }
 
 export interface MurphyExerciseItem {
