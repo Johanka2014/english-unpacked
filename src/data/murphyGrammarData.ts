@@ -586,6 +586,434 @@ const unit3Supplementary: MurphyExercise[] = [
   },
 ];
 
+// ── Unit 4 — Present continuous and present simple 2 ───────────────────
+
+const unit4Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · State verbs',
+    content: `
+      <p>We use continuous forms for actions and happenings that have started and not finished (<em>they are eating</em> / <em>it is raining</em> etc.).</p>
+      <p>Some verbs (for example, <strong>know</strong> and <strong>like</strong>) are not normally used in this way. We don't say 'I am knowing' or 'they are liking'; we say 'I know', 'they like'.</p>
+      <p>The following verbs are not normally used in continuous forms:</p>
+      <div class="p-4 rounded-lg border border-border bg-muted/30">
+        <p class="font-medium">like &nbsp; love &nbsp; hate &nbsp; want &nbsp; need &nbsp; prefer</p>
+        <p class="font-medium">know &nbsp; realise &nbsp; suppose &nbsp; mean &nbsp; understand &nbsp; believe &nbsp; remember</p>
+        <p class="font-medium">belong &nbsp; fit &nbsp; contain &nbsp; consist &nbsp; seem</p>
+      </div>
+      <ul>
+        <li>I<strong>'m hungry</strong>. <strong>I want</strong> something to eat. <em>(not I'm wanting)</em></li>
+        <li><strong>Do you understand</strong> what I mean?</li>
+        <li>Anna <strong>doesn't seem</strong> very happy at the moment.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B · Think',
+    content: `
+      <p>When <strong>think</strong> means 'believe' or 'have an opinion', we do not use the continuous:</p>
+      <ul>
+        <li><strong>I think</strong> Mary is Canadian, but I'm not sure. <em>(not I'm thinking)</em></li>
+        <li>What <strong>do you think</strong> of my plan? (= What is your opinion?)</li>
+      </ul>
+      <p>When <strong>think</strong> means 'consider', the continuous is possible:</p>
+      <ul>
+        <li><strong>I'm thinking</strong> about what happened. I often think about it.</li>
+        <li>Nicky <strong>is thinking of</strong> giving up her job. (= she is considering it)</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · He is selfish and He is being selfish',
+    content: `
+      <p><strong>He's being</strong> = he's behaving / he's acting. Compare:</p>
+      <ul>
+        <li>I can't understand why <strong>he's being</strong> so selfish. He isn't usually like that. (= he is behaving selfishly <em>now</em>)</li>
+        <li><strong>He is</strong> selfish. (= he is selfish generally, not only now)</li>
+      </ul>
+      <p>We use <strong>am/is/are being</strong> to say how somebody is behaving. It is not usually possible in other sentences:</p>
+      <ul>
+        <li><strong>It's hot</strong> today. <em>(not It's being hot)</em></li>
+        <li>Sarah <strong>is</strong> very tired. <em>(not is being tired)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · See, hear, smell, taste, look, feel',
+    content: `
+      <p>We normally use the present simple (not continuous) with these verbs:</p>
+      <ul>
+        <li><strong>Do you see</strong> that man over there? <em>(not Are you seeing)</em></li>
+        <li>This room <strong>smells</strong>. Let's open a window.</li>
+      </ul>
+      <p>We often use <strong>can</strong> + see / hear / smell / taste:</p>
+      <ul><li><strong>I can hear</strong> a strange noise. Can you hear it?</li></ul>
+      <p>You can use the present simple <em>or</em> continuous to say how somebody looks or feels <em>now</em>:</p>
+      <ul>
+        <li>You <strong>look</strong> well today. <em>or</em> You<strong>'re looking</strong> well today.</li>
+        <li>How <strong>do you feel</strong> now? <em>or</em> How <strong>are you feeling</strong> now?</li>
+      </ul>
+    `,
+    notes: ['But: I usually <strong>feel</strong> tired in the morning. <em>(not I\'m usually feeling)</em>', 'Present continuous and simple 1 → Unit 3.'],
+  },
+];
+
+const unit4Exercises: MurphyExercise[] = [
+  {
+    id: '4-1',
+    title: 'Exercise 4.1',
+    instruction: 'Put the verb into the correct form: present continuous or present simple.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'Are you hungry? ___ something to eat?', answer: 'Do you want', hint: 'you / want' },
+      { id: 2, prompt: "Don't put the dictionary away. ___ it.", answer: "I'm using|I am using", hint: 'I / use' },
+      { id: 3, prompt: "Don't put the dictionary away. ___ it very often.", answer: 'I use', hint: 'I / use' },
+      { id: 4, prompt: 'Who is that man? What ___?', answer: 'does he want', hint: 'he / want' },
+      { id: 5, prompt: 'Who is that man? Why ___ at us?', answer: 'is he looking', hint: 'he / look' },
+      { id: 6, prompt: "George says he's 80 years old, but nobody ___ him.", answer: 'believes', hint: 'believe' },
+      { id: 7, prompt: 'She told me her name, but ___ it now.', answer: "I don't remember|I do not remember", hint: 'I / not / remember' },
+      { id: 8, prompt: "I ___ of selling my car. Would you be interested in buying it?", answer: "'m thinking|am thinking", hint: 'I / think' },
+      { id: 9, prompt: 'I ___ you should sell your car. You don\'t use it very often.', answer: 'think', hint: 'think' },
+      { id: 10, prompt: 'Air ___ mainly of nitrogen and oxygen.', answer: 'consists', hint: 'consist' },
+    ],
+  },
+  {
+    id: '4-2',
+    title: 'Exercise 4.2',
+    instruction: 'Complete the conversation. Use the present continuous or present simple.',
+    type: 'gap-fill',
+    layout: 'conversation',
+    items: [
+      { id: 1, context: "TOM: You look worried.", prompt: "SAM: I am. ___ about the exam tomorrow.", answer: "I'm thinking|I am thinking", hint: 'I / think' },
+      { id: 2, context: 'TOM: Do you feel ready for it?', prompt: "SAM: No. ___ I need another week.", answer: 'I think', hint: 'I / think' },
+      { id: 3, context: "TOM: Come on, you're better than you think.", prompt: 'SAM: Thanks, but ___ that at all.', answer: "I don't believe|I do not believe", hint: 'I / not / believe' },
+      { id: 4, context: 'TOM: Have some coffee. It will help.', prompt: 'SAM: No thanks. ___ coffee in the evening.', answer: "I don't like|I do not like", hint: 'I / not / like' },
+      { id: 5, context: 'TOM: OK. What are your plans for tonight?', prompt: 'SAM: ___ to revise until midnight.', answer: "I'm going|I am going", hint: 'I / go' },
+    ],
+  },
+  {
+    id: '4-3',
+    title: 'Exercise 4.3',
+    instruction: 'Complete the sentences using being where necessary. Type the correct form.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: "I can't understand why ___ so selfish. He isn't usually like that.", answer: "he's being|he is being" },
+      { id: 2, prompt: 'The weather ___ very hot at the moment. Let\'s stay inside.', answer: 'is' },
+      { id: 3, prompt: 'Sarah ___ very nice to me at the moment. I wonder why.', answer: 'is being' },
+      { id: 4, prompt: "You normally have plenty to say. Why ___ so quiet today?", answer: 'are you being' },
+      { id: 5, prompt: 'I ___ tired. I think I will go to bed.', answer: 'am|feel' },
+    ],
+  },
+  {
+    id: '4-4',
+    title: 'Exercise 4.4',
+    instruction: 'Choose the correct form.',
+    type: 'choice',
+    items: [
+      { id: 1, prompt: 'Nicky ___ of giving up her job.', answer: 'is thinking', options: ['thinks', 'is thinking'] },
+      { id: 2, prompt: 'I ___ this soup. It tastes wonderful.', answer: 'love', options: ['love', 'am loving'] },
+      { id: 3, prompt: 'You ___ well today. Have you had a good rest?', answer: 'are looking', options: ['are looking', 'look'] },
+      { id: 4, prompt: 'This bag ___ to Rachel — her name is on it.', answer: 'belongs', options: ['belongs', 'is belonging'] },
+      { id: 5, prompt: 'What ___? It smells great!', answer: 'are you cooking', options: ['do you cook', 'are you cooking'] },
+      { id: 6, prompt: 'I ___ what you mean, but I disagree.', answer: 'understand', options: ['understand', 'am understanding'] },
+    ],
+  },
+];
+
+const unit4Supplementary: MurphyExercise[] = [
+  {
+    id: 's4-1',
+    title: 'Supplementary — At the restaurant',
+    instruction: 'Choose the correct verb form in the conversation.',
+    type: 'choice',
+    layout: 'conversation',
+    items: [
+      { id: 1, prompt: 'WAITER: Good evening. (1) ___ a table for two?', answer: 'Do you want', options: ['Are you wanting', 'Do you want'] },
+      { id: 2, prompt: 'ANNA: Yes, please. Something near the window, if possible.', answer: 'RIGHT', options: ['RIGHT'] },
+      { id: 3, prompt: 'BEN: Mmm, something (3) ___ delicious in here.', answer: 'smells', options: ['smells', 'is smelling'] },
+      { id: 4, prompt: 'ANNA: (4) ___ of having the fish. What about you?', answer: "I'm thinking", options: ["I'm thinking", 'I think'] },
+      { id: 5, prompt: "BEN: (5) ___ fish very much, so I'll take the pasta.", answer: "I don't like", options: ["I'm not liking", "I don't like"] },
+      { id: 6, prompt: 'ANNA: The waiter (6) ___ very patient tonight — we have taken ages.', answer: 'is being', options: ['is being', 'is'] },
+      { id: 7, prompt: 'BEN: True. (7) ___ he wants us to order now.', answer: 'I think', options: ["I'm thinking", 'I think'] },
+    ],
+  },
+];
+
+// ── Unit 5 — Past simple ───────────────────────────────────────────────
+
+const unit5Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Study this example',
+    content: `
+      <p>Wolfgang Amadeus Mozart <strong>was</strong> an Austrian musician and composer. He <strong>lived</strong> from 1756 to 1791. He <strong>started</strong> composing at the age of five and <strong>wrote</strong> more than 600 pieces of music.</p>
+      <p><strong>lived / started / wrote</strong> are all past simple.</p>
+    `,
+  },
+  {
+    heading: 'B · Regular and irregular verbs',
+    content: `
+      <p>Very often the past simple ends in <strong>-ed</strong> (regular verbs):</p>
+      <ul>
+        <li>I <strong>work</strong> in a travel agency now. Before that I <strong>worked</strong> in a shop.</li>
+        <li>We <strong>invited</strong> them to our party, but they <strong>decided</strong> not to come.</li>
+      </ul>
+      <p>But many verbs are irregular. The past simple does not end in -ed:</p>
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2">write</td><td class="p-2">→ wrote</td><td class="p-2">Mozart <strong>wrote</strong> more than 600 pieces of music.</td></tr>
+          <tr class="border-b border-border"><td class="p-2">see</td><td class="p-2">→ saw</td><td class="p-2">We <strong>saw</strong> Rose in town a few days ago.</td></tr>
+          <tr class="border-b border-border"><td class="p-2">go</td><td class="p-2">→ went</td><td class="p-2">I <strong>went</strong> to the cinema three times last week.</td></tr>
+          <tr><td class="p-2">shut</td><td class="p-2">→ shut</td><td class="p-2">It was cold, so I <strong>shut</strong> the window.</td></tr>
+        </tbody>
+      </table>
+    `,
+  },
+  {
+    heading: 'C · Negatives and questions: did',
+    content: `
+      <p>In questions and negatives we use <strong>did / didn't</strong> + infinitive (<em>enjoy / see / go</em> etc.):</p>
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2">I <strong>enjoyed</strong></td><td class="p-2">did I <strong>enjoy</strong>?</td><td class="p-2">I <strong>didn't enjoy</strong></td></tr>
+          <tr class="border-b border-border"><td class="p-2">she <strong>saw</strong></td><td class="p-2">did she <strong>see</strong>?</td><td class="p-2">she <strong>didn't see</strong></td></tr>
+          <tr><td class="p-2">they <strong>went</strong></td><td class="p-2">did they <strong>go</strong>?</td><td class="p-2">they <strong>didn't go</strong></td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>A: <strong>Did you go</strong> out last night? B: Yes, I went to the cinema.</li>
+        <li>I <strong>didn't stay</strong> at home. <em>(not I didn't stayed)</em></li>
+        <li>Why <strong>did Nick leave</strong> early?</li>
+      </ul>
+    `,
+    notes: ['Sometimes <strong>do</strong> is the main verb: What <strong>did you do</strong> at the weekend?'],
+  },
+  {
+    heading: 'D · The past of be: was / were',
+    content: `
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2">I / he / she / it</td><td class="p-2"><strong>was / wasn't</strong></td><td class="p-2">was I / he / she / it?</td></tr>
+          <tr><td class="p-2">we / you / they</td><td class="p-2"><strong>were / weren't</strong></td><td class="p-2">were we / you / they?</td></tr>
+        </tbody>
+      </table>
+      <p>We do <em>not</em> use did with was/were:</p>
+      <ul>
+        <li><strong>Was</strong> the weather good when you were away? <em>(not Did the weather be)</em></li>
+        <li>They <strong>weren't</strong> able to come because they were busy.</li>
+      </ul>
+    `,
+    notes: ['Past continuous → Unit 6.', 'Present perfect and past → Units 13–14.'],
+  },
+];
+
+const unit5Exercises: MurphyExercise[] = [
+  {
+    id: '5-1',
+    title: 'Exercise 5.1',
+    instruction: 'Read what Laura says about a typical working day, then write about yesterday.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'I usually get up at 7 o\'clock. Yesterday ___ at 7 o\'clock.', answer: 'I got up|she got up' },
+      { id: 2, prompt: 'I have a cup of coffee and some toast. Yesterday ___ a cup of coffee and some toast.', answer: 'I had|she had' },
+      { id: 3, prompt: 'I leave home at 8 o\'clock. Yesterday ___ home at 8 o\'clock.', answer: 'I left|she left' },
+      { id: 4, prompt: 'I\'m never late for work. Yesterday ___ late for work.', answer: "I wasn't|I was not" },
+      { id: 5, prompt: 'I have lunch at 12.30. Yesterday ___ lunch at 12.30.', answer: 'I had' },
+      { id: 6, prompt: 'I finish work at 5 o\'clock. Yesterday ___ work at 5 o\'clock.', answer: 'I finished' },
+      { id: 7, prompt: 'I go straight home. Yesterday ___ straight home.', answer: 'I went' },
+      { id: 8, prompt: 'I go to bed at 11 o\'clock. Yesterday ___ to bed at 11 o\'clock.', answer: 'I went' },
+    ],
+  },
+  {
+    id: '5-2',
+    title: 'Exercise 5.2',
+    instruction: 'Put the verb into the correct form: past simple.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'It was warm, so I ___ off my coat.', answer: 'took', hint: 'take' },
+      { id: 2, prompt: "The film wasn't very good. I ___ it very much.", answer: "didn't enjoy|did not enjoy", hint: 'not / enjoy' },
+      { id: 3, prompt: 'I knew Sarah was very busy, so I ___ her.', answer: "didn't disturb|did not disturb", hint: 'not / disturb' },
+      { id: 4, prompt: 'The window was open and a bird ___ into the room.', answer: 'flew', hint: 'fly' },
+      { id: 5, prompt: 'The hotel wasn\'t expensive. It ___ very much.', answer: "didn't cost|did not cost", hint: 'not / cost' },
+      { id: 6, prompt: 'I was very tired, so I ___ the party early.', answer: 'left', hint: 'leave' },
+      { id: 7, prompt: 'It was hard work carrying the bags. They ___ very heavy.', answer: 'were', hint: 'be' },
+      { id: 8, prompt: 'The bed was very uncomfortable. I ___ very well.', answer: "didn't sleep|did not sleep", hint: 'not / sleep' },
+      { id: 9, prompt: 'The bus and the taxi arrived at the same time, so we ___ the bus.', answer: 'took', hint: 'take' },
+      { id: 10, prompt: 'I ___ what to do, so I asked for advice.', answer: "didn't know|did not know", hint: 'not / know' },
+    ],
+  },
+  {
+    id: '5-3',
+    title: 'Exercise 5.3',
+    instruction: 'Complete the questions. Type the whole question.',
+    type: 'gap-fill',
+    layout: 'conversation',
+    items: [
+      { id: 1, context: 'A: I had a really good holiday.', prompt: 'B: Oh, good. Where ___?', answer: 'did you go' },
+      { id: 2, context: 'A: We stayed at a small hotel by the sea.', prompt: 'B: Nice. How much ___?', answer: 'did it cost' },
+      { id: 3, context: 'A: We went there by train.', prompt: 'B: Really? How long ___ the journey ___?', answer: 'did the journey take|did it take' },
+      { id: 4, context: 'A: We met some lovely people.', prompt: 'B: That\'s great. Who ___?', answer: 'did you meet' },
+      { id: 5, context: 'A: The weather was perfect.', prompt: 'B: Lucky you. ___ hot every day?', answer: 'Was it' },
+    ],
+  },
+];
+
+const unit5Supplementary: MurphyExercise[] = [
+  {
+    id: 's5-1',
+    title: 'Supplementary — A short biography',
+    instruction: 'Put the verbs into the past simple.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'Agatha Christie ___ born in Devon in 1890.', answer: 'was', hint: 'be' },
+      { id: 2, prompt: 'She ___ to school, but studied at home with her mother.', answer: "didn't go|did not go", hint: 'not / go' },
+      { id: 3, prompt: 'She ___ her first detective novel in 1920.', answer: 'wrote|published', hint: 'write' },
+      { id: 4, prompt: 'Readers ___ the character of Hercule Poirot immediately.', answer: 'loved|liked', hint: 'love' },
+      { id: 5, prompt: 'In 1926 she ___ for eleven days and nobody knew where she was.', answer: 'disappeared', hint: 'disappear' },
+      { id: 6, prompt: 'Later she ___ an archaeologist and travelled to the Middle East.', answer: 'married', hint: 'marry' },
+      { id: 7, prompt: 'Her novels ___ more than two billion copies worldwide.', answer: 'sold|have sold', hint: 'sell' },
+      { id: 8, prompt: 'She ___ in 1976 at the age of 85.', answer: 'died', hint: 'die' },
+    ],
+  },
+];
+
+// ── Unit 6 — Past continuous ───────────────────────────────────────────
+
+const unit6Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Study this example situation',
+    content: `
+      <p>Yesterday Karen and Jim <strong>played</strong> tennis. They began at 10 o'clock and finished at 11.30.</p>
+      <p>So, at 10.30 they <strong>were playing</strong> tennis.</p>
+      <p><strong>They were playing</strong> = they were in the middle of playing. They had not finished.</p>
+    `,
+  },
+  {
+    heading: 'B · was/were + -ing = past continuous',
+    content: `
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2 font-medium">I / he / she / it</td><td class="p-2">was</td><td class="p-2" rowspan="2">playing<br/>doing<br/>working etc.</td></tr>
+          <tr><td class="p-2 font-medium">we / you / they</td><td class="p-2">were</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>This time last year I <strong>was living</strong> in Brazil.</li>
+        <li>What <strong>were you doing</strong> at 10 o'clock last night?</li>
+        <li>I waved to Helen, but she <strong>wasn't looking</strong>.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · Past continuous and past simple',
+    content: `
+      <p>We often use the past simple and past continuous together to say that something happened in the middle of something else:</p>
+      <ul>
+        <li>Matt <strong>phoned</strong> while we <strong>were having</strong> dinner.</li>
+        <li>It <strong>was raining</strong> when I <strong>got up</strong>.</li>
+        <li>I <strong>saw</strong> you in the park yesterday. You <strong>were sitting</strong> on the grass and <strong>reading</strong> a book.</li>
+        <li>I <strong>hurt</strong> my back while I <strong>was working</strong> in the garden.</li>
+      </ul>
+      <p>But we use the past simple for complete events, one after the other:</p>
+      <ul>
+        <li>I <strong>walked</strong> home after the party last night. (= the complete walk)</li>
+        <li>Kate <strong>was walking</strong> home when she met Joe. (= in the middle of the walk)</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · State verbs again',
+    content: `
+      <p>Some verbs (for example, <strong>know</strong>, <strong>want</strong>, <strong>believe</strong>) are not normally used in continuous forms:</p>
+      <ul>
+        <li>We were good friends. We <strong>knew</strong> each other well. <em>(not we were knowing)</em></li>
+        <li>I was enjoying the party, but Chris <strong>wanted</strong> to go home. <em>(not was wanting)</em></li>
+      </ul>
+    `,
+    notes: ['Past simple → Unit 5.', 'Past perfect continuous → Unit 16.'],
+  },
+];
+
+const unit6Exercises: MurphyExercise[] = [
+  {
+    id: '6-1',
+    title: 'Exercise 6.1',
+    instruction: 'What were you doing at these times? Put the verb into the past continuous.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'At 8 o\'clock yesterday evening I ___ dinner with friends.', answer: 'was having|was eating' },
+      { id: 2, prompt: 'At 5 o\'clock last Monday we ___ still ___ in the office.', answer: 'were working|were still working' },
+      { id: 3, prompt: 'This time last year they ___ in Spain.', answer: 'were living' },
+      { id: 4, prompt: 'At 11 o\'clock last night she ___ to music.', answer: 'was listening' },
+      { id: 5, prompt: 'When the phone rang, I ___ a shower.', answer: 'was having|was taking' },
+    ],
+  },
+  {
+    id: '6-2',
+    title: 'Exercise 6.2',
+    instruction: 'Put the verb into the past continuous or past simple.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'Jane ___ for the bus when it started to rain.', answer: 'was waiting', hint: 'wait' },
+      { id: 2, prompt: 'It ___ hard when I left the house this morning.', answer: 'was raining', hint: 'rain' },
+      { id: 3, prompt: 'I ___ my leg while I was playing football.', answer: 'hurt', hint: 'hurt' },
+      { id: 4, prompt: 'We ___ television when the lights went out.', answer: 'were watching', hint: 'watch' },
+      { id: 5, prompt: 'The car ___ down while we were driving to the airport.', answer: 'broke', hint: 'break' },
+      { id: 6, prompt: 'I ___ the dishes when I heard a loud noise outside.', answer: 'was washing|was doing', hint: 'wash' },
+      { id: 7, prompt: 'When I got to the café, my friends ___ for me.', answer: 'were waiting', hint: 'wait' },
+      { id: 8, prompt: 'Amy ___ off her bike because she was going too fast.', answer: 'fell', hint: 'fall' },
+      { id: 9, prompt: 'I ___ my old teacher while I was shopping yesterday.', answer: 'met|saw', hint: 'meet' },
+      { id: 10, prompt: 'We ___ each other well, so we became friends quickly.', answer: 'knew', hint: 'know' },
+    ],
+  },
+  {
+    id: '6-3',
+    title: 'Exercise 6.3',
+    instruction: 'Complete the conversation with the past simple or past continuous.',
+    type: 'gap-fill',
+    layout: 'conversation',
+    items: [
+      { id: 1, context: 'BEN: I saw you in the park yesterday afternoon.', prompt: 'LILY: Really? What ___ I ___?', answer: 'was I doing', hint: 'I / do' },
+      { id: 2, context: 'BEN: You were sitting on the grass with a book.', prompt: 'LILY: Ah yes. ___ my exam notes.', answer: 'I was reading', hint: 'I / read' },
+      { id: 3, context: "BEN: I waved, but you didn't see me.", prompt: 'LILY: Sorry! ___ at all.', answer: "I wasn't looking up|I wasn't looking", hint: 'I / not / look' },
+      { id: 4, context: 'BEN: Then it started to rain, didn\'t it?', prompt: 'LILY: It did. ___ home immediately.', answer: 'I ran|I went', hint: 'I / run' },
+      { id: 5, context: 'BEN: I stayed under a tree until it stopped.', prompt: 'LILY: Poor you! How long ___ there?', answer: 'did you wait', hint: 'you / wait' },
+    ],
+  },
+  {
+    id: '6-4',
+    title: 'Exercise 6.4',
+    instruction: 'Choose the correct form.',
+    type: 'choice',
+    items: [
+      { id: 1, prompt: 'Matt phoned while we ___ dinner.', answer: 'were having', options: ['had', 'were having'] },
+      { id: 2, prompt: 'I ___ home after the party last night.', answer: 'walked', options: ['walked', 'was walking'] },
+      { id: 3, prompt: 'Kate ___ home when she met Joe.', answer: 'was walking', options: ['walked', 'was walking'] },
+      { id: 4, prompt: 'We were good friends. We ___ each other well.', answer: 'knew', options: ['knew', 'were knowing'] },
+      { id: 5, prompt: 'When I arrived, everybody ___ around the table.', answer: 'was sitting', options: ['sat', 'was sitting'] },
+      { id: 6, prompt: 'The bell rang, so everybody ___ up and left.', answer: 'stood', options: ['stood', 'was standing'] },
+    ],
+  },
+];
+
+const unit6Supplementary: MurphyExercise[] = [
+  {
+    id: 's6-1',
+    title: 'Supplementary — What happened?',
+    instruction: 'Choose the correct verb form in the conversation.',
+    type: 'choice',
+    layout: 'conversation',
+    items: [
+      { id: 1, prompt: 'POLICE OFFICER: What (1) ___ when the accident happened?', answer: 'were you doing', options: ['did you do', 'were you doing'] },
+      { id: 2, prompt: 'WITNESS: (2) ___ at the bus stop opposite the bank.', answer: 'I was standing', options: ['I stood', 'I was standing'] },
+      { id: 3, prompt: 'POLICE OFFICER: And the red car — how fast (3) ___?', answer: 'was it going', options: ['did it go', 'was it going'] },
+      { id: 4, prompt: 'WITNESS: Very fast. Then it (4) ___ into the wall.', answer: 'crashed', options: ['crashed', 'was crashing'] },
+      { id: 5, prompt: 'POLICE OFFICER: (5) ___ anybody else at that moment?', answer: 'Did you see', options: ['Did you see', 'Were you seeing'] },
+      { id: 6, prompt: 'WITNESS: Yes, a woman (6) ___ across the road at the time.', answer: 'was walking', options: ['walked', 'was walking'] },
+      { id: 7, prompt: 'POLICE OFFICER: Thank you. (7) ___ her name?', answer: 'Did you know', options: ['Were you knowing', 'Did you know'] },
+    ],
+  },
+];
+
+
 // ── Sections ───────────────────────────────────────────────────────────
 
 export const murphyGrammarSections: MurphySection[] = [
