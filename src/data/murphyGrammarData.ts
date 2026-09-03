@@ -42,6 +42,11 @@ export interface MurphyExercise {
   type: 'gap-fill' | 'choice' | 'matching';
   items: MurphyExerciseItem[];
   wordBank?: string[];
+  /** Visual theme for the exercise card. */
+  layout?: 'default' | 'conversation';
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: 'left' | 'right';
 }
 
 export interface MurphyUnit {
