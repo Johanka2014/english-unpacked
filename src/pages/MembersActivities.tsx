@@ -40,9 +40,9 @@ const TABS: TabDef[] = [
     activities: [
       {
         title: 'Grammar',
-        description: 'Master English grammar across 30+ modules — adjectives, tenses, modals, conditionals, verb patterns, prepositions and more',
+        description: "Murphy's English Grammar in Use — 145 units of theory, book exercises and supplementary practice",
         icon: FileText,
-        path: '/b1-grammar',
+        path: '/grammar',
         color: 'text-rose-600',
       },
     ],
