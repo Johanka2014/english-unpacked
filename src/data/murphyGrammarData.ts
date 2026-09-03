@@ -9,6 +9,7 @@ import verbPatternsImg from '@/assets/b1-verb-patterns.jpg';
 import conditionalsImg from '@/assets/b1-conditionals.jpg';
 import advancedImg from '@/assets/b1-advanced-structures.jpg';
 import wordFormationImg from '@/assets/b1-word-formation.jpg';
+import unit1DrivingImg from '@/assets/murphy/unit1-driving.png.asset.json';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -80,6 +81,8 @@ const u = (number: number, title: string, subtitle?: string): MurphyUnit => ({
 const unit1Theory: MurphyTheorySection[] = [
   {
     heading: 'A · Study this example situation',
+    image: unit1DrivingImg.url,
+    imageAlt: 'Sarah is driving to work — a woman at the wheel of her car in busy traffic',
     content: `
       <p>Sarah is in her car. She is on her way to work. <strong>She is driving to work.</strong></p>
       <p>This means: she is driving <em>now</em>, at the time of speaking. The action is not finished.</p>
