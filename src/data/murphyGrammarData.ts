@@ -100,6 +100,9 @@ const unit1Theory: MurphyTheorySection[] = [
   },
   {
     heading: 'B · I am doing = I am in the middle of doing it',
+    image: unit1ReadingPhoneImg.url,
+    imageAlt: 'Steve talking on the phone about a book he is currently reading',
+    imagePosition: 'left',
     content: `
       <p>I've started doing it and I haven't finished:</p>
       <ul>
