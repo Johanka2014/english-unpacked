@@ -849,7 +849,7 @@ const unit5Exercises: MurphyExercise[] = [
     items: [
       { id: 1, context: 'A: I had a really good holiday.', prompt: 'B: Oh, good. Where ___?', answer: 'did you go' },
       { id: 2, context: 'A: We stayed at a small hotel by the sea.', prompt: 'B: Nice. How much ___?', answer: 'did it cost' },
-      { id: 3, context: 'A: We went there by train.', prompt: 'B: Really? How long ___ the journey ___?', answer: 'did the journey take|did it take' },
+      { id: 3, context: 'A: We went there by train.', prompt: 'B: Really? How long ___?', answer: 'did the journey take|did it take' },
       { id: 4, context: 'A: We met some lovely people.', prompt: 'B: That\'s great. Who ___?', answer: 'did you meet' },
       { id: 5, context: 'A: The weather was perfect.', prompt: 'B: Lucky you. ___ hot every day?', answer: 'Was it' },
     ],
@@ -940,7 +940,7 @@ const unit6Exercises: MurphyExercise[] = [
     type: 'gap-fill',
     items: [
       { id: 1, prompt: 'At 8 o\'clock yesterday evening I ___ dinner with friends.', answer: 'was having|was eating' },
-      { id: 2, prompt: 'At 5 o\'clock last Monday we ___ still ___ in the office.', answer: 'were working|were still working' },
+      { id: 2, prompt: 'At 5 o\'clock last Monday we ___ in the office.', answer: 'were still working|were working' },
       { id: 3, prompt: 'This time last year they ___ in Spain.', answer: 'were living' },
       { id: 4, prompt: 'At 11 o\'clock last night she ___ to music.', answer: 'was listening' },
       { id: 5, prompt: 'When the phone rang, I ___ a shower.', answer: 'was having|was taking' },
@@ -971,7 +971,7 @@ const unit6Exercises: MurphyExercise[] = [
     type: 'gap-fill',
     layout: 'conversation',
     items: [
-      { id: 1, context: 'BEN: I saw you in the park yesterday afternoon.', prompt: 'LILY: Really? What ___ I ___?', answer: 'was I doing', hint: 'I / do' },
+      { id: 1, context: 'BEN: I saw you in the park yesterday afternoon.', prompt: 'LILY: Really? What ___?', answer: 'was I doing', hint: 'I / do' },
       { id: 2, context: 'BEN: You were sitting on the grass with a book.', prompt: 'LILY: Ah yes. ___ my exam notes.', answer: 'I was reading', hint: 'I / read' },
       { id: 3, context: "BEN: I waved, but you didn't see me.", prompt: 'LILY: Sorry! ___ at all.', answer: "I wasn't looking up|I wasn't looking", hint: 'I / not / look' },
       { id: 4, context: 'BEN: Then it started to rain, didn\'t it?', prompt: 'LILY: It did. ___ home immediately.', answer: 'I ran|I went', hint: 'I / run' },
