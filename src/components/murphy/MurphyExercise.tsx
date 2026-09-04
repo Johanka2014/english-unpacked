@@ -19,7 +19,19 @@ const isCorrect = (given: string, answer: string) =>
     .map((a) => normalise(a))
     .includes(normalise(given));
 
-const promptParts = (prompt: string) => prompt.split('___');
+// A prompt can contain more than one "___" marker, but each item has a single
+// answer, so we always render exactly ONE input: text before the first gap,
+// then the input, then the remaining text with any extra markers removed.
+const promptParts = (prompt: string) => {
+  const first = prompt.indexOf('___');
+  if (first === -1) return [prompt];
+  const before = prompt.slice(0, first);
+  const after = prompt
+    .slice(first + 3)
+    .replace(/_{3,}/g, ' ')
+    .replace(/\s+/g, ' ');
+  return [before, after];
+};
 
 const ConversationBubble = ({
   children,
