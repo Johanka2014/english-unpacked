@@ -84,6 +84,9 @@ const CAEWordQuest = lazyWithRetry(() => import("./pages/CAEWordQuest"));
 const EnglishFileIntermediate = lazyWithRetry(() => import("./pages/EnglishFileIntermediate"));
 const EnglishFileUnit = lazyWithRetry(() => import("./pages/EnglishFileUnit"));
 const EnglishFileLesson = lazyWithRetry(() => import("./pages/EnglishFileLesson"));
+const SolutionsIntermediate = lazyWithRetry(() => import("./pages/SolutionsIntermediate"));
+const SolutionsIntermediateUnit = lazyWithRetry(() => import("./pages/SolutionsIntermediateUnit"));
+const SolutionsIntermediateLesson = lazyWithRetry(() => import("./pages/SolutionsIntermediateLesson"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
