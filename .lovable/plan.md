@@ -43,7 +43,7 @@ All scored activities record results to the student dashboard the same way the r
 ## Notes and limits
 
 - The books you sent are scanned page images, so the text is read out page by page during the build. This is slower than usual, which is why three units at a time is the right pace.
-- Listening activities are built in full (tasks, questions, answer checking, transcripts) with an audio player in place waiting for the recording. Send the Solutions audio whenever you have it and I'll drop each track straight in — no rebuilding needed.
+- Listening activities are built in full: real players, tasks, answer checking and transcripts. The nine Unit 1 tracks you sent (1.01–1.09) will be compressed and hosted on the CDN, so they add almost nothing to site size. Units 2 and 3 get the same listening activities with players ready and waiting — send those tracks and I'll slot them in without rebuilding anything.
 - Answers come from the Workbook Key and Teacher's Book you supplied.
 - No book pages are reproduced as scans; everything is rebuilt as interactive content.
 
