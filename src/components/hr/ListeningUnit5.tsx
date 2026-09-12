@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import track9Asset from "@/assets/audio/hr/unit5-9.mp3.asset.json";
+import track10Asset from "@/assets/audio/hr/unit5-10.mp3.asset.json";
+
+const AUDIO_9 = track9Asset.url;
+const AUDIO_10 = track10Asset.url;
 
 const benefitMatching = [
   { person: "Sophie", answer: "c", correctLabel: "profit-sharing bonus" },

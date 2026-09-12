@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import track17Asset from "@/assets/audio/hr/unit6-17.mp3.asset.json";
+import track18Asset from "@/assets/audio/hr/unit6-18.mp3.asset.json";
+
+const AUDIO_17 = track17Asset.url;
+const AUDIO_18 = track18Asset.url;
 
 const multipleChoiceQ1 = [
   { id: 1, text: "What is the situation regarding the pay increase?",
