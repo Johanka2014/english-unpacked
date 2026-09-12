@@ -77,11 +77,11 @@ const ListeningUnit5 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="font-semibold text-foreground text-sm">Audio 9</label>
-              <audio controls className="w-full mt-1"><source src="/audio/hr-unit5-track9.mp3" /></audio>
+              <audio controls className="w-full mt-1"><source src={AUDIO_9} /></audio>
             </div>
             <div>
               <label className="font-semibold text-foreground text-sm">Audio 10</label>
-              <audio controls className="w-full mt-1"><source src="/audio/hr-unit5-track10.mp3" /></audio>
+              <audio controls className="w-full mt-1"><source src={AUDIO_10} /></audio>
             </div>
           </div>
         </CardContent>
