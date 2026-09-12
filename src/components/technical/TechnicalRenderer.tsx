@@ -496,6 +496,18 @@ const renderActivity = (a: Activity, idx: number) => {
         />
       );
     case 'audio':
+      if (a.audioSrc) {
+        return (
+          <div className="space-y-4">
+            <AudioWithTranscript
+              src={a.audioSrc}
+              label={a.title || (a.track ? `Track ${a.track}` : 'Listen')}
+              transcript={a.transcript}
+            />
+            {(a.body || a.bullets) && <Discussion activity={a} />}
+          </div>
+        );
+      }
       return a.body || a.bullets ? <Discussion activity={a} /> : null;
 
     case 'fill-blanks':

@@ -234,6 +234,14 @@ const TABS: TabDef[] = [
         color: 'text-red-600',
         group: 'Maturita',
       },
+      {
+        title: 'Solutions Intermediate — Maturita Practice',
+        description: 'Interactive practice built from the Solutions Intermediate (3rd edition) coursebook — ten units of vocabulary, grammar, listening, reading, speaking and writing',
+        icon: GraduationCap,
+        path: '/solutions-intermediate',
+        color: 'text-red-600',
+        group: 'Maturita',
+      },
     ],
   },
 
