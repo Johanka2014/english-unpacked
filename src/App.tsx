@@ -175,6 +175,9 @@ const App = () => (
               <Route path="/english-file-intermediate" element={<ProtectedRoute><EnglishFileIntermediate /></ProtectedRoute>} />
               <Route path="/english-file-intermediate/:fileId" element={<ProtectedRoute><EnglishFileUnit /></ProtectedRoute>} />
               <Route path="/english-file-intermediate/:fileId/:lessonId" element={<ProtectedRoute><EnglishFileLesson /></ProtectedRoute>} />
+              <Route path="/solutions-intermediate" element={<ProtectedRoute><SolutionsIntermediate /></ProtectedRoute>} />
+              <Route path="/solutions-intermediate/:unitId" element={<ProtectedRoute><SolutionsIntermediateUnit /></ProtectedRoute>} />
+              <Route path="/solutions-intermediate/:unitId/:lessonId" element={<ProtectedRoute><SolutionsIntermediateLesson /></ProtectedRoute>} />
 
               <Route path="/pronunciation" element={<ProtectedRoute><PronunciationCourse /></ProtectedRoute>} />
               <Route path="/pronunciation/:sectionId" element={<ProtectedRoute><PronunciationSection /></ProtectedRoute>} />
