@@ -6,7 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle2, XCircle, RotateCcw, Headphones } from "lucide-react";
 import scotlandMap from "@/assets/bb-upper/scotland-map.png";
 
-const AUDIO_SRC = "/audio/bb-upper/20_unit_11.mp3";
+const AUDIO_SRC = "/__l5e/assets-v1/143dcd0b-9314-4242-a377-a7a0d7a24406/20_unit_11.mp3";
 
 interface GapNote {
   prefix: string;

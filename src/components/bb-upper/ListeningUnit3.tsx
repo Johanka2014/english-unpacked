@@ -5,7 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit3-listening.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/2a47a4fd-d72e-4cd4-aaf6-aa82b9c5ae31/unit3-listening.mp3";
 
 const advice = [
   { letter: "a", text: "Include a photograph with your application.", reason: "Attach a picture to your letter or email so they can see what you look like." },

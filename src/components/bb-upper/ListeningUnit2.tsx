@@ -6,7 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { CheckCircle2, XCircle } from "lucide-react";
 import workersLineup from "@/assets/workers-lineup.jpg";
 
-const AUDIO_URL = "/audio/bb-upper/unit2-listening.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/878441bd-3588-4548-858e-826eb56ce459/unit2-listening.mp3";
 
 const reasons = [
   { letter: "a", text: "building customer relationships" },

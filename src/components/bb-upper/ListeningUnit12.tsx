@@ -89,7 +89,7 @@ const ListeningUnit12 = () => {
           </p>
 
           {/* Audio player */}
-          <audio controls src="/audio/bb-upper/21_unit_12.mp3" className="w-full" />
+          <audio controls src="/__l5e/assets-v1/3e2ba536-dda1-4a78-8359-d00cdeb6596f/21_unit_12.mp3" className="w-full" />
         </CardContent>
       </Card>
 

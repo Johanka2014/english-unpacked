@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit4-listening-2.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/bd9d23a0-0cd6-48e8-b8b0-306b3376e182/unit4-listening-2.mp3";
 
 // Selected phrases that actually appear in the call (subset of the quiz options the SB references)
 const phrases = [
