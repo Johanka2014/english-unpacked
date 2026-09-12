@@ -81,7 +81,7 @@ const ListeningCompanyHistoryExercise = () => {
         </CardHeader>
         <CardContent>
           <audio controls className="w-full" preload="metadata">
-            <source src="/audio/bb-company-history-listening.mp3" type="audio/mpeg" />
+            <source src="/__l5e/assets-v1/673c7beb-8593-46a8-9430-8c51c79821ed/bb-company-history-listening.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
         </CardContent>

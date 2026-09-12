@@ -35,7 +35,7 @@ import speakingScene from "@/assets/starters/t3-speaking-scene.jpg";
 import speakingObjects from "@/assets/starters/t3-speaking-objects.jpg";
 
 export const test3ListeningPart1: ListeningPart1Data = {
-  audio: "/audio/starters/test3-listening-part1.mp3",
+  audio: "/__l5e/assets-v1/694669a4-9118-4ff8-94a3-5f840855277f/test3-listening-part1.mp3",
   sceneImage: l1Scene.url,
   names: ["Alex", "Ben", "Mark", "Sam", "May", "Jill", "Ann"],
   people: [
@@ -58,7 +58,7 @@ export const test3ListeningPart1: ListeningPart1Data = {
 };
 
 export const test3ListeningPart2: ListeningPart2Data = {
-  audio: "/audio/starters/test3-listening-part2.mp3",
+  audio: "/__l5e/assets-v1/595f333a-9c71-4e26-89ba-a4ccc4b1ac8b/test3-listening-part2.mp3",
   sceneImage: l2Scene,
   examples: [
     { question: "How old is May?", answer: "7" },
@@ -74,7 +74,7 @@ export const test3ListeningPart2: ListeningPart2Data = {
 };
 
 export const test3ListeningPart3: ListeningPart3Data = {
-  audio: "/audio/starters/test3-listening-part3.mp3",
+  audio: "/__l5e/assets-v1/bf670905-a5bf-4c99-9803-2963e4dd07f7/test3-listening-part3.mp3",
   images: [l3Example],
   questions: [
     {
@@ -136,7 +136,7 @@ export const test3ListeningPart3: ListeningPart3Data = {
 };
 
 export const test3ListeningPart4: ListeningPart4Data = {
-  audio: "/audio/starters/test3-listening-part4.mp3",
+  audio: "/__l5e/assets-v1/014e1316-0f1f-4650-af91-517ccb13b5ba/test3-listening-part4.mp3",
   sceneImage: l4Scene,
   instructions:
     "Listen and colour the shells in the bedroom. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (Example: the shell on the floor is blue.)",
@@ -218,7 +218,7 @@ export const test3ReadingPart5: ReadingPart5Data = {
 };
 
 export const test3Speaking: SpeakingData = {
-  audio: "/audio/starters/test3-speaking.mp3",
+  audio: "/__l5e/assets-v1/e43c20fc-6f48-4c9b-900d-db9448dabf41/test3-speaking.mp3",
   sceneImage: speakingScene,
   objectCardsImage: speakingObjects,
   wordwallLink: "https://wordwall.net/resource/117827523/collins-test-3-speaking?wwmethod=link",

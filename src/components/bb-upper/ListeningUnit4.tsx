@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit4-listening-1.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/beaa87b7-dee4-4959-847d-2bc9fdf0ccee/unit4-listening-1.mp3";
 
 // Hotel reservation form fields the student must complete from the call
 // Each row mirrors the printed Flemings Hotel form: a label on the left and

@@ -146,7 +146,7 @@ export interface SpeakingData {
 // ─── Test 1 Data ───
 
 export const test1ListeningPart1: ListeningPart1Data = {
-  audio: "/audio/starters/test1-listening-part1.mp3",
+  audio: "/__l5e/assets-v1/18213d32-c051-4357-a051-ea701780d499/test1-listening-part1.mp3",
   sceneImage: listeningPart1Scene,
   names: ["Alice", "Eva", "Matt", "Nick", "Hugo", "Grace", "Mark"],
   people: [
@@ -170,7 +170,7 @@ export const test1ListeningPart1: ListeningPart1Data = {
 };
 
 export const test1ListeningPart2: ListeningPart2Data = {
-  audio: "/audio/starters/test1-listening-part2.mp3",
+  audio: "/__l5e/assets-v1/10a7cedf-e607-495a-9d35-80a391c53e98/test1-listening-part2.mp3",
   sceneImage: listeningPart2Scene,
   examples: [
     { question: "What's the number of Lucy's house?", answer: "18" },
@@ -186,7 +186,7 @@ export const test1ListeningPart2: ListeningPart2Data = {
 };
 
 export const test1ListeningPart3: ListeningPart3Data = {
-  audio: "/audio/starters/test1-listening-part3.mp3",
+  audio: "/__l5e/assets-v1/b3b83acc-4e8b-4c79-b583-37b6f57c1d89/test1-listening-part3.mp3",
   images: [listeningPart3Example],
   questions: [
     {
@@ -259,7 +259,7 @@ export const test1ListeningPart3: ListeningPart3Data = {
 };
 
 export const test1ListeningPart4: ListeningPart4Data = {
-  audio: "/audio/starters/test1-listening-part4.mp3",
+  audio: "/__l5e/assets-v1/28d556c8-9747-4544-ab16-d705c8881ab8/test1-listening-part4.mp3",
   sceneImage: listeningPart4Scene,
   instructions:
     "Listen to the audio and colour the picture. You'll need coloured pencils or crayons for this activity. Print or draw the picture, then colour it as you listen!",
@@ -340,7 +340,7 @@ export const test1ReadingPart5: ReadingPart5Data = {
 };
 
 export const test1Speaking: SpeakingData = {
-  audio: "/audio/starters/test1-speaking.mp3",
+  audio: "/__l5e/assets-v1/89cab287-baeb-4bb6-8531-3b887e922028/test1-speaking.mp3",
   sceneImage: speakingScene,
   objectCardsImage: speakingObjects,
   instructions: [

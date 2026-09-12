@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const AUDIO_URL = "/audio/bb-upper/unit8-listening-3.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/13f13132-bb78-4634-b586-e8136492b09d/unit8-listening-3.mp3";
 
 const fields = [
   { id: "quantity", label: "Quantity", placeholder: "e.g. 3,000" },

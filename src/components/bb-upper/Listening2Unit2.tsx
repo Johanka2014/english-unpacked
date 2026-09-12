@@ -177,7 +177,7 @@ const Listening2Unit2 = () => {
             </Button>
             <audio
               ref={audioRef}
-              src="/audio/bb-upper/unit2-listening2.mp3"
+              src="/__l5e/assets-v1/ea539c54-8d0d-4ea4-b4b6-09116774c408/unit2-listening2.mp3"
               onEnded={() => setIsPlaying(false)}
               onPause={() => setIsPlaying(false)}
               onPlay={() => setIsPlaying(true)}

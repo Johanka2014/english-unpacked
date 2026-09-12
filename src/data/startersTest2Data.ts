@@ -36,7 +36,7 @@ import speakingScene from "@/assets/starters/t2-speaking-scene.jpg";
 import speakingObjects from "@/assets/starters/t2-speaking-objects.jpg";
 
 export const test2ListeningPart1: ListeningPart1Data = {
-  audio: "/audio/starters/test2-listening-part1.mp3",
+  audio: "/__l5e/assets-v1/546bf5e9-2cba-4f4c-beaf-95b73e9c55ca/test2-listening-part1.mp3",
   sceneImage: l1Scene,
   names: ["Sue", "Anna", "Lucy", "Bill", "Dan", "Tom"],
   people: [
@@ -58,7 +58,7 @@ export const test2ListeningPart1: ListeningPart1Data = {
 };
 
 export const test2ListeningPart2: ListeningPart2Data = {
-  audio: "/audio/starters/test2-listening-part2.mp3",
+  audio: "/__l5e/assets-v1/c628d783-2e32-44d1-8118-233f27479d8b/test2-listening-part2.mp3",
   sceneImage: l2Scene,
   examples: [
     { question: "What's the girl's name?", answer: "Jill" },
@@ -74,7 +74,7 @@ export const test2ListeningPart2: ListeningPart2Data = {
 };
 
 export const test2ListeningPart3: ListeningPart3Data = {
-  audio: "/audio/starters/test2-listening-part3.mp3",
+  audio: "/__l5e/assets-v1/49da851c-d09a-46df-a2c8-53d1f10345b5/test2-listening-part3.mp3",
   images: [l3Example],
   questions: [
     {
@@ -136,7 +136,7 @@ export const test2ListeningPart3: ListeningPart3Data = {
 };
 
 export const test2ListeningPart4: ListeningPart4Data = {
-  audio: "/audio/starters/test2-listening-part4.mp3",
+  audio: "/__l5e/assets-v1/41a3e016-55bb-4679-a5b5-2cdb2666e7bb/test2-listening-part4.mp3",
   sceneImage: l4Scene,
   instructions:
     "Listen and colour the lorries in the playground. You'll need coloured pencils or crayons. Print the picture, then colour it as you listen! (Example: the lorry next to the tree is red.)",
@@ -218,7 +218,7 @@ export const test2ReadingPart5: ReadingPart5Data = {
 };
 
 export const test2Speaking: SpeakingData = {
-  audio: "/audio/starters/test2-speaking.mp3",
+  audio: "/__l5e/assets-v1/d4af5a2f-b443-4f26-829d-ddac3fa87777/test2-speaking.mp3",
   sceneImage: speakingScene,
   objectCardsImage: speakingObjects,
   instructions: [

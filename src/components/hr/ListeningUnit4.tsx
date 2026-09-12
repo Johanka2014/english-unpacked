@@ -11,7 +11,7 @@ const staffProblems = [
   {
     num: 1,
     name: 'Natasha — Shop floor team leader',
-    audio: '/audio/hr/unit4-10.mp3',
+    audio: '/__l5e/assets-v1/29b91a6c-44e3-467b-b782-29263b3143a2/unit4-10.mp3',
     parts: [
       '"I only started here four months ago but I\'m already thinking about leaving. Gerry, the shop floor ',
       { answer: 'manager' },
@@ -23,7 +23,7 @@ const staffProblems = [
   {
     num: 2,
     name: 'Miguel — Marketing director',
-    audio: '/audio/hr/unit4-11.mp3',
+    audio: '/__l5e/assets-v1/d5521740-2987-45be-a1c9-e2347f8bac77/unit4-11.mp3',
     parts: [
       '"I\'m having ',
       { answer: 'problems' },
@@ -35,7 +35,7 @@ const staffProblems = [
   {
     num: 3,
     name: 'Janet — Departmental manager',
-    audio: '/audio/hr/unit4-12.mp3',
+    audio: '/__l5e/assets-v1/14422dc4-dae2-4041-9d0c-d14538cf955e/unit4-12.mp3',
     parts: [
       '"I need help with a problem employee. He\'s making a lot of mistakes and is argumentative with ',
       { answer: 'colleagues' },
@@ -47,7 +47,7 @@ const staffProblems = [
   {
     num: 4,
     name: 'Holger — Project manager',
-    audio: '/audio/hr/unit4-13.mp3',
+    audio: '/__l5e/assets-v1/9c428acc-4b5d-410b-b760-750992fdb3c1/unit4-13.mp3',
     parts: [
       '"I\'ve been here seven years and I desperately need training on the latest ',
       { answer: 'software' },
@@ -163,7 +163,7 @@ const ListeningUnit4 = () => {
               <p className="text-muted-foreground mb-4">
                 Gaby Meyer, a line manager at Aus-pharma, is carrying out an appraisal interview with Peter Grahame, an employee from Edinburgh on secondment in Vienna for two years.
               </p>
-              <audio controls src="/audio/hr/unit4-14.mp3" className="w-full" />
+              <audio controls src="/__l5e/assets-v1/8f7fdc5a-8ef6-4976-88ce-112f4f1903eb/unit4-14.mp3" className="w-full" />
             </div>
             <div>
               <img

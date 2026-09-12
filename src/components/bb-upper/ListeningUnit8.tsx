@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit8-listening-1.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/b92afca6-ecb2-4406-b35b-f5cf6acfdb69/unit8-listening-1.mp3";
 
 const topics = [
   { id: 1, text: "Asking about the other person's journey", who: "S", order: 3 },
