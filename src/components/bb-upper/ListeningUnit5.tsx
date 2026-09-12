@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2 } from "lucide-react";
 
-const AUDIO_URL = "/audio/bb-upper/unit5-listening.mp3";
+const AUDIO_URL = "/__l5e/assets-v1/640cd4f9-9e22-4b17-b6dc-da2f2fe39e2b/unit5-listening.mp3";
 
 const questions = [
   {
