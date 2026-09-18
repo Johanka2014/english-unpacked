@@ -26,6 +26,11 @@ import SpeakingCompanyHistoryExercise from '@/components/business-benchmark/Spea
 import ListeningCompanyHistoryExercise from '@/components/business-benchmark/ListeningCompanyHistoryExercise';
 import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
 import CorporateCultureGettingStarted from '@/components/business-benchmark/CorporateCultureGettingStarted';
+import ReadingInternetExercise from '@/components/business-benchmark/ReadingInternetExercise';
+import ListeningInternetExercise from '@/components/business-benchmark/ListeningInternetExercise';
+import WritingInternetExercise from '@/components/business-benchmark/WritingInternetExercise';
+import SpeakingInternetExercise from '@/components/business-benchmark/SpeakingInternetExercise';
+import VocabularyInternetExercise from '@/components/business-benchmark/VocabularyInternetExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();

@@ -56,11 +56,11 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     number: 4,
     title: 'The Internet',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Designing your website: an article' },
-      { id: 'listening', title: 'Listening', description: 'Email addresses' },
-      { id: 'writing', title: 'Writing', description: 'Set phrases for emails and letters; Writing emails: formal and informal style' },
-      { id: 'speaking', title: 'Speaking', description: 'Discussion: how to design a website' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Email and website terms' },
+      { id: 'reading', title: 'Reading', description: 'Designing your website: an article', content: { type: 'reading-the-internet' } },
+      { id: 'listening', title: 'Listening', description: 'Email addresses', content: { type: 'listening-the-internet' } },
+      { id: 'writing', title: 'Writing', description: 'Set phrases for emails and letters; Writing emails: formal and informal style', content: { type: 'writing-the-internet' } },
+      { id: 'speaking', title: 'Speaking', description: 'Discussion: how to design a website', content: { type: 'speaking-the-internet' } },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Email and website terms', content: { type: 'vocabulary-the-internet' } },
     ],
   },
   {
