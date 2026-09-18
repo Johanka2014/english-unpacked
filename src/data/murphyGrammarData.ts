@@ -1483,7 +1483,6 @@ export const murphyGrammarSections: MurphySection[] = [
       u(110, 'Word order 2: adverbs with the verb'),
       u(111, 'Still, yet and already · Any more / any longer / no longer'),
       u(112, 'Even'),
-      { id: 'so-such-mastery', number: 901, title: 'So & Such Mastery', subtitle: 'interactive lesson on so, such, too and enough', soSuchLesson: true },
       { id: 'compound-adjectives', number: 902, title: 'Compound Adjectives', subtitle: 'well-known, short-sighted, open-minded and more', compoundAdjectivesLesson: true },
     ],
   },
