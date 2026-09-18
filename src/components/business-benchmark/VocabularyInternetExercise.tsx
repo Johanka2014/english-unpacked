@@ -87,9 +87,9 @@ const VocabularyInternetExercise = () => {
   const track = useActivityTracking();
   const [gsAnswers, setGsAnswers] = useState<Record<string, string>>({});
   const [checkedGs, setCheckedGs] = useState(false);
-  const [symSel, setSymSel] = useState<Record<number, string>>({});
+  const [symSel, setSymSel] = useState<Record<number, string>>({ 1: "e" });
   const [checkedSym, setCheckedSym] = useState(false);
-  const [vocabSel, setVocabSel] = useState<Record<number, string>>({});
+  const [vocabSel, setVocabSel] = useState<Record<number, string>>({ 1: "d" });
   const [checkedVocab, setCheckedVocab] = useState(false);
   const [circleSel, setCircleSel] = useState<Record<string, string>>({});
   const [checkedCircle, setCheckedCircle] = useState(false);
