@@ -76,6 +76,11 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'reading-hongdou') return <ReadingHongdouExercise />;
     if (contentType === 'speaking-company-history') return <SpeakingCompanyHistoryExercise />;
     if (contentType === 'listening-company-history') return <ListeningCompanyHistoryExercise />;
+    if (contentType === 'reading-the-internet') return <ReadingInternetExercise />;
+    if (contentType === 'listening-the-internet') return <ListeningInternetExercise />;
+    if (contentType === 'writing-the-internet') return <WritingInternetExercise />;
+    if (contentType === 'speaking-the-internet') return <SpeakingInternetExercise />;
+    if (contentType === 'vocabulary-the-internet') return <VocabularyInternetExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
