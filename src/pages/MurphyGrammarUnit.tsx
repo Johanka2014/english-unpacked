@@ -35,6 +35,8 @@ const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof find
                   src={s.image}
                   alt={s.imageAlt ?? s.heading}
                   loading="lazy"
+                  width={1024}
+                  height={768}
                   className="w-full rounded-lg border border-border"
                 />
               )}
@@ -47,6 +49,8 @@ const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof find
                   src={s.image}
                   alt={s.imageAlt ?? s.heading}
                   loading="lazy"
+                  width={1024}
+                  height={768}
                   className="w-full rounded-lg border border-border"
                 />
               )}

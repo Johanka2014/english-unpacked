@@ -12,6 +12,10 @@ import wordFormationImg from '@/assets/b1-word-formation.jpg';
 import unit1DrivingImg from '@/assets/murphy/unit1-driving.png.asset.json';
 import unit1ReadingPhoneImg from '@/assets/murphy/unit1-reading-phone.png.asset.json';
 import unit1CafeImg from '@/assets/murphy/unit1-cafe-conversation.png.asset.json';
+import unit102CouplesMeetingImg from '@/assets/murphy/unit102-couples-meeting.jpg';
+import unit102BeachCoupleImg from '@/assets/murphy/unit102-beach-couple.jpg';
+import unit102ReadingArmchairImg from '@/assets/murphy/unit102-reading-armchair.jpg';
+import unit102OldHouseImg from '@/assets/murphy/unit102-old-house.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -1018,6 +1022,9 @@ const unit6Supplementary: MurphyExercise[] = [
 const unit102Theory: MurphyTheorySection[] = [
   {
     heading: 'A · so + adjective/adverb and such + noun',
+    image: unit102CouplesMeetingImg,
+    imageAlt: 'Two couples smiling and shaking hands as they meet in a street',
+    imagePosition: 'right',
     content: `
       <p>Compare <strong>so</strong> and <strong>such</strong>:</p>
       <p>We use <strong>so + adjective/adverb</strong>:</p>
@@ -1040,6 +1047,9 @@ const unit102Theory: MurphyTheorySection[] = [
   },
   {
     heading: 'B · So and such make the meaning stronger',
+    image: unit102BeachCoupleImg,
+    imageAlt: 'A couple relaxing on a beach with cocktails and looking out to sea',
+    imagePosition: 'left',
     content: `
       <ul class="list-disc list-inside space-y-2">
         <li>It's a beautiful day, isn't it? It's <strong>so warm</strong>. <em>(= really warm)</em></li>
@@ -1051,6 +1061,9 @@ const unit102Theory: MurphyTheorySection[] = [
   },
   {
     heading: 'C · so … that and such … that',
+    image: unit102ReadingArmchairImg,
+    imageAlt: 'A woman sitting comfortably in an armchair and reading a book',
+    imagePosition: 'right',
     content: `
       <p>You can use <strong>so … that</strong>:</p>
       <ul class="list-disc list-inside space-y-1">
@@ -1071,6 +1084,9 @@ const unit102Theory: MurphyTheorySection[] = [
   },
   {
     heading: "D · so and such with the meaning 'like this'",
+    image: unit102OldHouseImg,
+    imageAlt: 'A detached house that is more than one hundred years old',
+    imagePosition: 'left',
     content: `
       <ul class="list-disc list-inside space-y-2">
         <li>Somebody told me the house was built 100 years ago. I didn't realise it was <strong>so old</strong>. <em>(= as old as it is)</em></li>
