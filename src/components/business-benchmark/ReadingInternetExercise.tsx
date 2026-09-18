@@ -73,8 +73,8 @@ const ReadingInternetExercise = () => {
   const track = useActivityTracking();
   const [adviceSel, setAdviceSel] = useState<Record<string, string>>({});
   const [checked1, setChecked1] = useState(false);
-  const [findWords, setFindWords] = useState<Record<string, string>>({});
-  const [sentences, setSentences] = useState<Record<string, string>>({});
+  const [findWords, setFindWords] = useState<Record<string, string>>({ f1: "user friendly" });
+  const [sentences, setSentences] = useState<Record<string, string>>({ s1: "time-consuming" });
   const [checked2, setChecked2] = useState(false);
   const [checked3, setChecked3] = useState(false);
 
