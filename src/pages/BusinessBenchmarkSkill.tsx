@@ -26,6 +26,11 @@ import SpeakingCompanyHistoryExercise from '@/components/business-benchmark/Spea
 import ListeningCompanyHistoryExercise from '@/components/business-benchmark/ListeningCompanyHistoryExercise';
 import OrganigramExercise from '@/components/business-benchmark/OrganigramExercise';
 import CorporateCultureGettingStarted from '@/components/business-benchmark/CorporateCultureGettingStarted';
+import ReadingInternetExercise from '@/components/business-benchmark/ReadingInternetExercise';
+import ListeningInternetExercise from '@/components/business-benchmark/ListeningInternetExercise';
+import WritingInternetExercise from '@/components/business-benchmark/WritingInternetExercise';
+import SpeakingInternetExercise from '@/components/business-benchmark/SpeakingInternetExercise';
+import VocabularyInternetExercise from '@/components/business-benchmark/VocabularyInternetExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -71,6 +76,11 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'reading-hongdou') return <ReadingHongdouExercise />;
     if (contentType === 'speaking-company-history') return <SpeakingCompanyHistoryExercise />;
     if (contentType === 'listening-company-history') return <ListeningCompanyHistoryExercise />;
+    if (contentType === 'reading-the-internet') return <ReadingInternetExercise />;
+    if (contentType === 'listening-the-internet') return <ListeningInternetExercise />;
+    if (contentType === 'writing-the-internet') return <WritingInternetExercise />;
+    if (contentType === 'speaking-the-internet') return <SpeakingInternetExercise />;
+    if (contentType === 'vocabulary-the-internet') return <VocabularyInternetExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
