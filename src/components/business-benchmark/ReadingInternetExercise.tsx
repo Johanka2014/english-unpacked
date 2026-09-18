@@ -85,48 +85,66 @@ const ReadingInternetExercise = () => {
   return (
     <div className="space-y-8">
       {/* ── The article ── */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-serif text-2xl">Designing YOUR Website</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4 text-foreground">
-          <p className="italic text-muted-foreground">
-            Every business needs a website these days. Here, James Kerr offers a few tips on how to make your
-            website easy for customers to use.
-          </p>
-          <p>
-            It can be a good idea to collect a few comments from satisfied customers and ask their permission to
-            post them on the home page as well. Photos of customers or staff, however, are not recommended.
-          </p>
-          <p>
-            The main reason for keeping the home page simple is that this means it will load quickly. Photos and
-            gimmicks or just too much information will cause the page to load too slowly and if visitors get bored,
-            they will click the mouse and go elsewhere.
-          </p>
-          <p>
-            Some websites feature a 'splash page' to welcome the visitor to the site, but these are{" "}
-            <strong>usually</strong> a waste of time. Most visitors will come to your site to find specific
-            information and a splash page will just create another layer between them and the information they want.
-          </p>
-          <p>
-            Finally, attempts at humour are best avoided. They can get the visitor's attention but they can also
-            backfire and visitors from overseas may not understand them.
-          </p>
-          {[
+      <Card className="overflow-hidden rounded-sm">
+        <article>
+          <CardHeader className="border-b border-foreground/20 pb-6 text-center">
+            <p className="text-xs font-semibold uppercase text-primary">Business &amp; Technology</p>
+            <CardTitle className="font-serif text-3xl leading-tight sm:text-4xl">Designing your website</CardTitle>
+            <p className="mx-auto max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
+              How to build a website that customers can navigate quickly, understand easily and trust.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-foreground/20 pt-4 text-xs text-muted-foreground">
+              <span className="font-semibold uppercase text-foreground">By James Kerr</span>
+              <span aria-hidden="true">•</span>
+              <span>Business Benchmark</span>
+              <span aria-hidden="true">•</span>
+              <span>First published 2006</span>
+            </div>
+          </CardHeader>
+          <CardContent className="pt-7 text-foreground">
+            <p className="mb-7 border-b border-foreground/20 pb-6 font-serif text-xl leading-relaxed">
+              Every business needs a website these days. Here, James Kerr offers a few tips on how to make your
+              website easy for customers to use.
+            </p>
+            <div className="space-y-5 text-[15px] leading-7 lg:columns-2 lg:gap-10 lg:space-y-0">
+              <div className="mb-5 break-inside-avoid">
+                <p className="first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-5xl first-letter:font-bold first-letter:leading-none">
+                  It can be a good idea to collect a few comments from satisfied customers and ask their permission to
+                  post them on the home page as well. Photos of customers or staff, however, are not recommended.
+                </p>
+              </div>
+              <div className="mb-5 break-inside-avoid space-y-4">
+                <p>
+                  The main reason for keeping the home page simple is that this means it will load quickly. Photos and
+                  gimmicks or just too much information will cause the page to load too slowly and if visitors get bored,
+                  they will click the mouse and go elsewhere.
+                </p>
+                <p>
+                  Some websites feature a 'splash page' to welcome the visitor to the site, but these are{" "}
+                  <strong>usually</strong> a waste of time. Most visitors will come to your site to find specific
+                  information and a splash page will just create another layer between them and the information they want.
+                </p>
+                <p>
+                  Finally, attempts at humour are best avoided. They can get the visitor's attention but they can also
+                  backfire and visitors from overseas may not understand them.
+                </p>
+              </div>
+              {[
             { h: "A — FINDING YOUR WAY AROUND", t: "First of all, a good website has to be easy to navigate. If visitors can't find what they want quickly, they can leave and go to a competitor's website with just a few clicks of the mouse. Make sure that your home page directs visitors to where they want to go and that the buttons are clearly labelled. Remember that a visitor may enter in the middle of the site so make it clear how to get to the home page from any point. You can check whether your website is user friendly by inviting an outsider to see if they can navigate through it without problems." },
             { h: "B — GRAPHICS", t: "Choose the background and the colour of your text carefully. Don't use colours which can be difficult for the eyes like white text on a grey background. Flashing or spinning text is also irritating to the eyes." },
             { h: "C — WHAT TO PUT IN, WHAT TO LEAVE OUT", t: "Your home page should not look too cluttered. Your company's name, logo, location and a clear description of your product or services is usually enough." },
             { h: "D — OVERSEAS VISITORS", t: "Research has shown that customers are four times more likely to buy a product online if the site is in their own language. If you are expecting customers to access your site from abroad, it is worth translating some of the pages or even creating a local version of the site. However, remember that there are a whole range of issues to consider with regard to charging the overseas customer, such as the exchange rate and handling charges." },
             { h: "E — SEARCH ENGINES", t: "Once your website is completed, it is worth getting it listed on the major search engines such as Alta Vista and Google. This can significantly expand your market. However, it can be a time-consuming process and requires a lot of knowledge about search engines and how they work. If it sounds like too much time and trouble, there are companies who you can pay to submit your site for you." },
             { h: "F — KEEPING IT UP TO DATE", t: "Finally, make sure your website is kept up to date. It is best to avoid time-sensitive information unless you have the time to change it regularly. Don't be like the clothing chain store who were still advertising their summerwear in the middle of winter!" },
-          ].map((p) => (
-            <div key={p.h}>
-              <h4 className="font-semibold text-primary">{p.h}</h4>
-              <p>{p.t}</p>
+              ].map((p) => (
+                <section key={p.h} className="mb-5 break-inside-avoid border-t border-foreground/20 pt-3">
+                  <h4 className="mb-2 font-serif text-lg font-bold text-primary">{p.h}</h4>
+                  <p>{p.t}</p>
+                </section>
+              ))}
             </div>
-          ))}
 
-          <div className="rounded-lg border border-amber-300/60 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800/40 p-4 text-sm space-y-2">
+          <aside className="mt-7 space-y-2 border-y border-primary/40 bg-muted p-4 text-sm sm:p-5">
             <p className="font-semibold flex items-center gap-2">
               <Lightbulb className="h-4 w-4" /> Then and now — reading this in the 2020s
             </p>
@@ -141,8 +159,9 @@ const ReadingInternetExercise = () => {
               the home page simple, use real customer reviews, translate for overseas customers, keep the content up
               to date — and get found on search engines (today we call it <em>SEO</em>).
             </p>
-          </div>
-        </CardContent>
+          </aside>
+          </CardContent>
+        </article>
       </Card>
 
       {/* ── Exercise 1 ── */}
