@@ -1013,6 +1013,167 @@ const unit6Supplementary: MurphyExercise[] = [
   },
 ];
 
+// ── Unit 102 — So and such ─────────────────────────────────────────────
+
+const unit102Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · so + adjective/adverb and such + noun',
+    content: `
+      <p>Compare <strong>so</strong> and <strong>such</strong>:</p>
+      <p>We use <strong>so + adjective/adverb</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>so</strong> stupid &nbsp;·&nbsp; <strong>so</strong> nice &nbsp;·&nbsp; <strong>so</strong> quick &nbsp;·&nbsp; <strong>so</strong> quickly</li>
+        <li>I didn't like the book. The story was <strong>so stupid</strong>.</li>
+        <li>I like Liz and Joe. They are <strong>so nice</strong>.</li>
+      </ul>
+      <p>We use <strong>such + noun</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>such a</strong> story &nbsp;·&nbsp; <strong>such</strong> people</li>
+      </ul>
+      <p>We also use <strong>such + adjective + noun</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>I didn't like the book. It was <strong>such a stupid story</strong>. <em>(not a so stupid story)</em></li>
+        <li>I like Liz and Joe. They are <strong>such nice people</strong>. <em>(not so nice people)</em></li>
+      </ul>
+      <p>We say <strong>such a …</strong> <em>(not a such)</em>: <strong>such a big dog</strong> <em>(not a such big dog)</em>.</p>
+    `,
+  },
+  {
+    heading: 'B · So and such make the meaning stronger',
+    content: `
+      <ul class="list-disc list-inside space-y-2">
+        <li>It's a beautiful day, isn't it? It's <strong>so warm</strong>. <em>(= really warm)</em></li>
+        <li>It's difficult to understand him because he talks <strong>so quietly</strong>.</li>
+        <li>It was a great holiday. We had <strong>such a good time</strong>. <em>(= a really good time)</em></li>
+        <li>You always think good things are going to happen. You're <strong>such an optimist</strong>.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · so … that and such … that',
+    content: `
+      <p>You can use <strong>so … that</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>The book was <strong>so</strong> good <strong>that</strong> I couldn't put it down.</li>
+        <li>I was <strong>so</strong> tired <strong>that</strong> I fell asleep in the armchair.</li>
+      </ul>
+      <p>You can use <strong>such … that</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>It was <strong>such a</strong> good book <strong>that</strong> I couldn't put it down.</li>
+        <li>It was <strong>such</strong> nice weather <strong>that</strong> we spent the whole day on the beach.</li>
+      </ul>
+      <p>We usually leave out <strong>that</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>I was <strong>so</strong> tired I fell asleep.</li>
+        <li>It was <strong>such</strong> nice weather we spent the whole day on the beach.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: "D · so and such with the meaning 'like this'",
+    content: `
+      <ul class="list-disc list-inside space-y-2">
+        <li>Somebody told me the house was built 100 years ago. I didn't realise it was <strong>so old</strong>. <em>(= as old as it is)</em></li>
+        <li>I'm tired because I got up at six. I don't usually get up <strong>so early</strong>.</li>
+        <li>I expected the weather to be cooler. I'm surprised it is <strong>so warm</strong>.</li>
+        <li>I didn't realise it was <strong>such an old house</strong>.</li>
+        <li>You know it's not true. How can you say <strong>such a thing</strong>?</li>
+      </ul>
+      <p>Note the expression <strong>no such …</strong>:</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li>You won't find the word 'blid' in the dictionary. <strong>There's no such word</strong>. <em>(= this word does not exist)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'E · Compare: so long / such a long time',
+    content: `
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border bg-muted/50"><td class="p-2 font-semibold w-1/2">so</td><td class="p-2 font-semibold">such</td></tr>
+          <tr class="border-b border-border">
+            <td class="p-2">I haven't seen her for <strong>so long</strong> I've forgotten what she looks like.</td>
+            <td class="p-2">I haven't seen her for <strong>such a long time</strong>. <em>(not so long time)</em></td>
+          </tr>
+          <tr class="border-b border-border">
+            <td class="p-2">I didn't know it was <strong>so far</strong>.</td>
+            <td class="p-2">I didn't know it was <strong>such a long way</strong>.</td>
+          </tr>
+          <tr>
+            <td class="p-2">I'm sorry I'm late — there was <strong>so much</strong> traffic / <strong>so many</strong> cars.</td>
+            <td class="p-2">I'm sorry I'm late — there was <strong>such a lot (of)</strong> traffic.</td>
+          </tr>
+        </tbody>
+      </table>
+    `,
+    notes: ['not so … as → Unit 107A', 'such as → Unit 117A'],
+  },
+];
+
+const unit102Exercises: MurphyExercise[] = [
+  {
+    id: '102-1',
+    title: 'Exercise 102.1',
+    instruction: 'Put in so, such or such a.',
+    type: 'gap-fill',
+    wordBank: ['so', 'such', 'such a'],
+    items: [
+      { id: 1, prompt: "It's difficult to understand him because he speaks ___ quietly.", answer: 'so' },
+      { id: 2, prompt: "I like Liz and Joe. They're ___ nice people.", answer: 'such' },
+      { id: 3, prompt: 'It was a great holiday. We had ___ good time.', answer: 'such a' },
+      { id: 4, prompt: 'I was surprised that he looked ___ well after his recent illness.', answer: 'so' },
+      { id: 5, prompt: "Everything is ___ expensive these days, isn't it?", answer: 'so' },
+      { id: 6, prompt: "The weather is beautiful, isn't it? I didn't expect it to be ___ nice day.", answer: 'such a' },
+      { id: 7, prompt: 'I think she works too hard. She looks ___ tired all the time.', answer: 'so' },
+      { id: 8, prompt: 'He always looks good. He wears ___ nice clothes.', answer: 'such' },
+      { id: 9, prompt: 'It was ___ boring movie that I fell asleep while I was watching it.', answer: 'such a' },
+      { id: 10, prompt: 'I could not believe the news. It was ___ shock.', answer: 'such a' },
+      { id: 11, prompt: "I have to go. I didn't realise it was ___ late.", answer: 'so' },
+      { id: 12, prompt: 'The food at the hotel was ___ awful.', answer: 'so' },
+      { id: 13, prompt: "I've never eaten ___ awful food.", answer: 'such' },
+      { id: 14, prompt: "They've got ___ much money they don't know what to do with it.", answer: 'so' },
+      { id: 15, prompt: "I didn't realise you lived ___ long way from the city centre.", answer: 'such a' },
+      { id: 16, prompt: "The party was really great. It was ___ shame you could not come.", answer: 'such a' },
+    ],
+  },
+  {
+    id: '102-2',
+    title: 'Exercise 102.2',
+    instruction: 'Make one sentence from two. Use so or such. Write the whole new sentence.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: 'She worked hard. → She made herself ill.', prompt: '___', answer: 'She worked so hard she made herself ill|She worked so hard that she made herself ill', hint: 'so hard (that) …' },
+      { id: 2, context: 'It was a beautiful day. → We decided to go to the beach.', prompt: '___', answer: 'It was such a beautiful day we decided to go to the beach|It was such a beautiful day that we decided to go to the beach', hint: 'such a beautiful day (that) …' },
+      { id: 3, context: "I was tired. → I couldn't keep my eyes open.", prompt: '___', answer: "I was so tired I couldn't keep my eyes open|I was so tired that I couldn't keep my eyes open", hint: 'so tired (that) …' },
+      { id: 4, context: "We had a good time on holiday. → We didn't want to come home.", prompt: '___', answer: "We had such a good time on holiday we didn't want to come home|We had such a good time on holiday that we didn't want to come home", hint: 'such a good time (that) …' },
+      { id: 5, context: 'She speaks English well. → You would think it was her native language.', prompt: '___', answer: 'She speaks English so well you would think it was her native language|She speaks English so well that you would think it was her native language', hint: 'so well (that) …' },
+      { id: 6, context: "I've got a lot to do. → I don't know where to begin.", prompt: '___', answer: "I've got such a lot to do I don't know where to begin|I've got such a lot to do that I don't know where to begin|I've got so much to do I don't know where to begin|I've got so much to do that I don't know where to begin", hint: 'such a lot / so much …' },
+      { id: 7, context: 'The music was loud. → You could hear it from miles away.', prompt: '___', answer: 'The music was so loud you could hear it from miles away|The music was so loud that you could hear it from miles away', hint: 'so loud (that) …' },
+      { id: 8, context: "I had a big breakfast. → I didn't eat anything else for the rest of the day.", prompt: '___', answer: "I had such a big breakfast I didn't eat anything else for the rest of the day|I had such a big breakfast that I didn't eat anything else for the rest of the day", hint: 'such a big breakfast (that) …' },
+      { id: 9, context: 'It was horrible weather. → We spent the whole day indoors.', prompt: '___', answer: 'It was such horrible weather we spent the whole day indoors|It was such horrible weather that we spent the whole day indoors|The weather was so horrible we spent the whole day indoors|The weather was so horrible that we spent the whole day indoors', hint: 'such horrible weather (that) …' },
+      { id: 10, context: "I was surprised. → I didn't know what to say.", prompt: '___', answer: "I was so surprised I didn't know what to say|I was so surprised that I didn't know what to say", hint: 'so surprised (that) …' },
+    ],
+  },
+  {
+    id: '102-3',
+    title: 'Exercise 102.3',
+    instruction: 'Use your own ideas to complete these pairs of sentences. Type anything that is true for you — example answers are given behind each check.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: 'a) We enjoyed our holiday.', prompt: 'It was so ___.', answer: 'relaxing|enjoyable|warm|nice', hint: 'example: relaxing' },
+      { id: 2, context: 'b) We enjoyed our holiday.', prompt: 'We had such ___.', answer: 'a good time|a great time|a wonderful time|an amazing time', hint: 'example: a good time' },
+      { id: 3, context: 'a) I like Catherine.', prompt: "She's so ___.", answer: 'friendly|nice|kind|funny', hint: 'example: friendly' },
+      { id: 4, context: 'b) I like Catherine.', prompt: "She's such ___.", answer: 'a friendly person|a nice person|a kind person', hint: 'example: a friendly person' },
+      { id: 5, context: 'a) I like New York.', prompt: "It's so ___.", answer: 'exciting|big|interesting|lively', hint: 'example: exciting' },
+      { id: 6, context: 'b) I like New York.', prompt: "It's such ___.", answer: 'an exciting city|an interesting city|an exciting place|a lively city', hint: 'example: an exciting city' },
+      { id: 7, context: "a) I wouldn't like to be a teacher.", prompt: "It's so ___.", answer: 'stressful|tiring|hard|difficult', hint: 'example: stressful' },
+      { id: 8, context: "b) I wouldn't like to be a teacher.", prompt: "It's such ___.", answer: 'a stressful job|a tiring job|a hard job|a difficult job', hint: 'example: a stressful job' },
+      { id: 9, context: "a) It's great to see you again!", prompt: "I haven't seen you for so ___.", answer: 'long|many years', hint: 'example: long' },
+      { id: 10, context: "b) It's great to see you again!", prompt: "I haven't seen you for such ___.", answer: 'a long time|ages', hint: 'example: a long time' },
+    ],
+  },
+];
+
 
 // ── Sections ───────────────────────────────────────────────────────────
 
@@ -1303,7 +1464,15 @@ export const murphyGrammarSections: MurphySection[] = [
       u(99, 'Adjectives: a nice new house, you look tired'),
       u(100, 'Adjectives and adverbs 1 (quick / quickly)'),
       u(101, 'Adjectives and adverbs 2 (well / fast / late, hard / hardly)'),
-      u(102, 'So and such'),
+      {
+        id: 'unit-102',
+        number: 102,
+        title: 'So and such',
+        subtitle: 'so nice / such nice people · so … that / such … that · such a long time',
+        theory: unit102Theory,
+        exercises: unit102Exercises,
+        soSuchLesson: true,
+      },
       u(103, 'Enough and too'),
       u(104, 'Quite, pretty, rather and fairly'),
       u(105, 'Comparison 1 (cheaper, more expensive etc.)'),
@@ -1314,7 +1483,6 @@ export const murphyGrammarSections: MurphySection[] = [
       u(110, 'Word order 2: adverbs with the verb'),
       u(111, 'Still, yet and already · Any more / any longer / no longer'),
       u(112, 'Even'),
-      { id: 'so-such-mastery', number: 901, title: 'So & Such Mastery', subtitle: 'interactive lesson on so, such, too and enough', soSuchLesson: true },
       { id: 'compound-adjectives', number: 902, title: 'Compound Adjectives', subtitle: 'well-known, short-sighted, open-minded and more', compoundAdjectivesLesson: true },
     ],
   },
