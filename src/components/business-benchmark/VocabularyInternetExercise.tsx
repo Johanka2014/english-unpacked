@@ -124,12 +124,13 @@ const VocabularyInternetExercise = () => {
                 <div key={g.id} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
                   <div className="flex-1 text-sm text-foreground">
                     <span className="font-semibold text-primary mr-1">{i + 1}.</span>
+                    <span>{g.text.split("____")[0]}</span>
                     <Input
                       value={gsAnswers[g.id] || ""}
                       onChange={(e) => setGsAnswers((p) => ({ ...p, [g.id]: e.target.value }))}
                       className={`inline-block w-36 mx-1 ${correct ? "border-green-500 bg-green-50 dark:bg-green-950/20" : wrong ? "border-destructive bg-destructive/10" : ""}`}
                     />
-                    {g.text}
+                    <span>{g.text.split("____").slice(1).join("____")}</span>
                   </div>
                 </div>
               );

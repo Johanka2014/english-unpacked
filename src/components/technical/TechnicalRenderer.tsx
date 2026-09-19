@@ -573,7 +573,7 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
     <div className="space-y-6">
       {activities.map((a, idx) => (
         <div key={idx} className="space-y-3">
-          {a.audioSrc && (
+          {a.audioSrc && a.type !== 'audio' && (
             <AudioWithTranscript
               src={a.audioSrc}
               label={a.track ? `Audio ${a.track}` : a.title}

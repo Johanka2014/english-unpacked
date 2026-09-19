@@ -22,7 +22,7 @@ const ADVICE = [
 ];
 
 const ADVICE_ANSWERS: Record<string, string> = {
-  a1: "A", a2: "C", a3: "X", a4: "X", a5: "X", a6: "F", a7a: "C", a7b: "X", a8: "D", a9: "E",
+  a1: "A", a2: "C", a3: "X", a4: "X", a5: "X", a6: "F", a7a: "X", a7b: "X", a8: "D", a9: "E",
 };
 const ADVICE_HINTS: Record<string, string> = {
   a1: "Section A — finding your way around.",
@@ -31,7 +31,7 @@ const ADVICE_HINTS: Record<string, string> = {
   a4: "Read the last paragraph before section A.",
   a5: "Look at section B: what does it say about flashing text?",
   a6: "Section F — keeping it up to date.",
-  a7a: "The paragraph just before section A talks about comments.",
+  a7a: "Comments from customers appear in the opening paragraph, before the lettered sections.",
   a7b: "Same paragraph — what does it say about photos?",
   a8: "Section D — overseas visitors.",
   a9: "Section E — search engines.",
