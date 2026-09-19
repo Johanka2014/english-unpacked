@@ -182,7 +182,7 @@ const WordOrderSentence = ({ sentence, index }: { sentence: string; index: numbe
     setResult(null);
   };
 
-  const check = () => setResult(picked.join(' ') === sentence ? 'correct' : 'incorrect');
+  const check = () => setResult(picked.join(' ') === tokenize(sentence).join(' ') ? 'correct' : 'incorrect');
   const reset = () => {
     setPool(shuffleWords(sentence));
     setPicked([]);
