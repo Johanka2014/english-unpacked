@@ -144,15 +144,22 @@ const FillBlanks = ({ activity }: { activity: Activity }) => {
   );
 };
 
+// Sentences may use "|" to group several words into one draggable chunk.
+const tokenize = (sentence: string) =>
+  sentence.includes('|')
+    ? sentence.split('|').map((c) => c.trim()).filter(Boolean)
+    : sentence.split(/\s+/);
+
 const shuffleWords = (sentence: string) => {
-  const words = sentence.split(/\s+/);
+  const words = tokenize(sentence);
+  const target = words.join(' ');
   const shuffled = [...words];
   do {
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-  } while (shuffled.join(' ') === sentence);
+  } while (shuffled.length > 1 && shuffled.join(' ') === target);
   return shuffled;
 };
 
@@ -175,7 +182,7 @@ const WordOrderSentence = ({ sentence, index }: { sentence: string; index: numbe
     setResult(null);
   };
 
-  const check = () => setResult(picked.join(' ') === sentence ? 'correct' : 'incorrect');
+  const check = () => setResult(picked.join(' ') === tokenize(sentence).join(' ') ? 'correct' : 'incorrect');
   const reset = () => {
     setPool(shuffleWords(sentence));
     setPicked([]);
@@ -566,7 +573,7 @@ const TechnicalRenderer = ({ activities }: { activities: Activity[] }) => {
     <div className="space-y-6">
       {activities.map((a, idx) => (
         <div key={idx} className="space-y-3">
-          {a.audioSrc && (
+          {a.audioSrc && a.type !== 'audio' && (
             <AudioWithTranscript
               src={a.audioSrc}
               label={a.track ? `Audio ${a.track}` : a.title}

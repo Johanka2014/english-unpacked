@@ -69,7 +69,7 @@ const unit1Lessons: SolLesson[] = [
             title: '2 · Put the stages of life in order',
             body: 'Number the stages of life in the order that people reach them, then listen and check.',
             sentences: [
-              'be an infant be a toddler be a young child be in your teens be in your twenties be an adult be middle-aged be elderly be a centenarian',
+              'be an infant | be a toddler | be a young child | be in your teens | be in your twenties | be an adult | be middle-aged | be elderly | be a centenarian',
             ],
           },
           {
