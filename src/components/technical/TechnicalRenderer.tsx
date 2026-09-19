@@ -144,15 +144,22 @@ const FillBlanks = ({ activity }: { activity: Activity }) => {
   );
 };
 
+// Sentences may use "|" to group several words into one draggable chunk.
+const tokenize = (sentence: string) =>
+  sentence.includes('|')
+    ? sentence.split('|').map((c) => c.trim()).filter(Boolean)
+    : sentence.split(/\s+/);
+
 const shuffleWords = (sentence: string) => {
-  const words = sentence.split(/\s+/);
+  const words = tokenize(sentence);
+  const target = words.join(' ');
   const shuffled = [...words];
   do {
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-  } while (shuffled.join(' ') === sentence);
+  } while (shuffled.length > 1 && shuffled.join(' ') === target);
   return shuffled;
 };
 
