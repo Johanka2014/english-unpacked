@@ -15,14 +15,13 @@ const ADVICE = [
   { id: "a4", n: 4, text: "Humour can be a good way of making your website different from your competitors'." },
   { id: "a5", n: 5, text: "Use interesting graphics like flashing text to attract the visitor's attention." },
   { id: "a6", n: 6, text: "Update the website regularly." },
-  { id: "a7a", n: 7, text: "Put some comments from satisfied customers on the site." },
-  { id: "a7b", n: 7, text: "If you can get their permission, put photos of the customers beside their comments." },
+  { id: "a7", n: 7, text: "Put some comments from satisfied customers on the site and, if you can get their permission, put photos of the customers beside their comments." },
   { id: "a8", n: 8, text: "If you are expecting visitors from overseas to your site, consider including some translations of the important pages." },
   { id: "a9", n: 9, text: "Get your website listed on the major search engines and check regularly to make sure your site is still there." },
 ];
 
 const ADVICE_ANSWERS: Record<string, string> = {
-  a1: "A", a2: "C", a3: "X", a4: "X", a5: "X", a6: "F", a7a: "X", a7b: "X", a8: "D", a9: "E",
+  a1: "A", a2: "C", a3: "X", a4: "X", a5: "X", a6: "F", a7: "X", a8: "D", a9: "E",
 };
 const ADVICE_HINTS: Record<string, string> = {
   a1: "Section A — finding your way around.",
@@ -31,8 +30,7 @@ const ADVICE_HINTS: Record<string, string> = {
   a4: "Read the last paragraph before section A.",
   a5: "Look at section B: what does it say about flashing text?",
   a6: "Section F — keeping it up to date.",
-  a7a: "Comments from customers appear in the opening paragraph, before the lettered sections.",
-  a7b: "Same paragraph — what does it say about photos?",
+  a7: "The opening paragraph welcomes customer comments — but what does it say about photos? The article agrees with only part of this advice.",
   a8: "Section D — overseas visitors.",
   a9: "Section E — search engines.",
 };
