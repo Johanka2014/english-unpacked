@@ -77,6 +77,7 @@ const Weddings = lazyWithRetry(() => import("./pages/Weddings"));
 const InsuranceLesson = lazyWithRetry(() => import("./pages/InsuranceLesson"));
 const DollyParton = lazyWithRetry(() => import("./pages/DollyParton"));
 const Recycling = lazyWithRetry(() => import("./pages/Recycling"));
+const Politics = lazyWithRetry(() => import("./pages/Politics"));
 const WordScramble = lazyWithRetry(() => import("./pages/WordScramble"));
 const PETWordQuest = lazyWithRetry(() => import("./pages/PETWordQuest"));
 const FCEWordQuest = lazyWithRetry(() => import("./pages/FCEWordQuest"));
@@ -150,6 +151,7 @@ const App = () => (
               <Route path="/topics/insurance" element={<ProtectedRoute><InsuranceLesson /></ProtectedRoute>} />
               <Route path="/topics/dolly-parton" element={<ProtectedRoute><DollyParton /></ProtectedRoute>} />
               <Route path="/topics/recycling" element={<ProtectedRoute><Recycling /></ProtectedRoute>} />
+              <Route path="/topics/politics" element={<ProtectedRoute><Politics /></ProtectedRoute>} />
               <Route path="/word-scramble" element={<ProtectedRoute><WordScramble /></ProtectedRoute>} />
               <Route path="/pet-word-quest" element={<ProtectedRoute><PETWordQuest /></ProtectedRoute>} />
               <Route path="/fce-word-quest" element={<ProtectedRoute><FCEWordQuest /></ProtectedRoute>} />
