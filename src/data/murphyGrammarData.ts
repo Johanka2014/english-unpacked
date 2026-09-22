@@ -16,6 +16,10 @@ import unit102CouplesMeetingImg from '@/assets/murphy/unit102-couples-meeting.jp
 import unit102BeachCoupleImg from '@/assets/murphy/unit102-beach-couple.jpg';
 import unit102ReadingArmchairImg from '@/assets/murphy/unit102-reading-armchair.jpg';
 import unit102OldHouseImg from '@/assets/murphy/unit102-old-house.jpg';
+import unit38DoorsImg from '@/assets/murphy/unit38-two-doors.jpg';
+import unit39DaydreamImg from '@/assets/murphy/unit39-daydreaming.jpg';
+import unit40MissedTrainImg from '@/assets/murphy/unit40-missed-train.jpg';
+import unit41RainImg from '@/assets/murphy/unit41-rain-window.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
@@ -1191,6 +1195,550 @@ const unit102Exercises: MurphyExercise[] = [
 ];
 
 
+// ── Unit 38 — If I do … and If I did … ─────────────────────────────────
+
+const unit38Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Compare these two situations',
+    image: unit38DoorsImg,
+    imageAlt: 'A woman in a hallway deciding between two doors',
+    imagePosition: 'right',
+    content: `
+      <p><strong>1.</strong> Lisa: 'Shall we go by bus or by train?' — Jess: '<strong>If we go</strong> by bus, it <strong>will be</strong> cheaper.'</p>
+      <p>For Jess it is possible that they will go by bus, so she says <em>If we go … it will be …</em></p>
+      <p><strong>2.</strong> Later, Lisa and Jess have decided to go by train. Jess says: '<strong>If we went</strong> by bus, it <strong>would be</strong> cheaper, but the train is quicker.'</p>
+      <p>Now Jess knows they are <em>not</em> going by bus, so she says <em>If we went … it would be …</em> <em>(not If we go)</em></p>
+    `,
+  },
+  {
+    heading: 'B · if + past for things we do not expect to happen',
+    content: `
+      <p>When we imagine something that will not happen, or we don't expect it to happen, we use <strong>if + past</strong> (<em>if we went / if there was / if you found</em>). But the meaning is not past:</p>
+      <ul>
+        <li>What <strong>would</strong> you <strong>do</strong> if you <strong>won</strong> a lot of money? <em>(we don't really expect this)</em></li>
+        <li>If there <strong>was</strong> (or <strong>were</strong>) an election tomorrow, who would you vote for?</li>
+      </ul>
+      <p>Compare:</p>
+      <ul>
+        <li>I think I left my watch at your house. If you <strong>find</strong> it, can you call me?</li>
+        <li>If you <strong>found</strong> a wallet in the street, what would you do with it?</li>
+      </ul>
+    `,
+    notes: ['For <em>if … was / were</em>, see Unit 39C.'],
+  },
+  {
+    heading: 'C · We do not normally use would in the if-part',
+    content: `
+      <ul>
+        <li>I'd be very scared if somebody <strong>pointed</strong> a gun at me. <em>(not if somebody would point)</em></li>
+        <li>If we <strong>went</strong> by bus, it would be cheaper. <em>(not If we would go)</em></li>
+      </ul>
+      <p>But you can use <em>if … would</em> when you ask somebody to do something:</p>
+      <ul>
+        <li><em>(from a formal letter)</em> I would be grateful if you <strong>would let</strong> me know your decision as soon as possible.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · would / could / might in the other part',
+    content: `
+      <ul>
+        <li>What <strong>would</strong> you do if you were bitten by a snake?</li>
+        <li>I'm not going to bed yet. If I went to bed now, I <strong>wouldn't</strong> sleep.</li>
+        <li>Would you mind if I used your phone?</li>
+      </ul>
+      <p><strong>could</strong> and <strong>might</strong> are also possible:</p>
+      <ul>
+        <li>If I won a lot of money, I <strong>might</strong> buy a house. <em>(= it is possible that I would buy one)</em></li>
+        <li>If it stopped raining, we <strong>could</strong> go out. <em>(= we would be able to go out)</em></li>
+      </ul>
+    `,
+  },
+];
+
+const unit38Exercises: MurphyExercise[] = [
+  {
+    id: '38-1',
+    title: 'Exercise 38.1',
+    instruction: 'What do you say in these situations? Choose a or b.',
+    type: 'choice',
+    items: [
+      {
+        id: 1,
+        prompt: "You're not going to sell your car because it's old and not worth much.",
+        options: ["If I sell my car, I won't get much money for it.", "If I sold my car, I wouldn't get much money for it."],
+        answer: "If I sold my car, I wouldn't get much money for it.",
+      },
+      {
+        id: 2,
+        prompt: 'You often see Sarah. A friend of yours wants to contact her.',
+        options: ["If I see Sarah, I'll tell her to call you.", "If I saw Sarah, I'd tell her to call you."],
+        answer: "If I see Sarah, I'll tell her to call you.",
+      },
+      {
+        id: 3,
+        prompt: "You don't expect that there will be a fire in the building.",
+        options: ['What will you do if there is a fire in the building?', 'What would you do if there was a fire in the building?'],
+        answer: 'What would you do if there was a fire in the building?',
+      },
+      {
+        id: 4,
+        prompt: "You've never lost your passport. You can only imagine it.",
+        options: ["I don't know what I'll do if I lose my passport.", "I don't know what I'd do if I lost my passport."],
+        answer: "I don't know what I'd do if I lost my passport.",
+      },
+      {
+        id: 5,
+        prompt: 'Somebody stops you and asks the way to a bank.',
+        options: ["If you go right at the end of this street, you'll see a bank on your left.", "If you went right at the end of this street, you'd see a bank on your left."],
+        answer: "If you go right at the end of this street, you'll see a bank on your left.",
+      },
+      {
+        id: 6,
+        prompt: "You're in a lift. There is an emergency button. Nobody is going to press it.",
+        options: ['What will happen if somebody presses that button?', 'What would happen if somebody pressed that button?'],
+        answer: 'What would happen if somebody pressed that button?',
+      },
+    ],
+  },
+  {
+    id: '38-2',
+    title: 'Exercise 38.2',
+    instruction: 'Put the verb into the correct form.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: "I can't afford to buy a car. If I ___ a car, I'd have to borrow the money.", answer: 'bought', hint: 'buy' },
+      { id: 2, prompt: "Don't lend Amy your car. If she ___ me, I wouldn't lend her mine.", answer: 'asked', hint: 'ask' },
+      { id: 3, prompt: 'If the computer factory closed down, many people ___ their jobs.', answer: 'would lose|would lose|d lose', hint: 'lose' },
+      { id: 4, prompt: "I don't think Gary and Emma will get married. I ___ amazed if they did.", answer: 'would be|d be', hint: 'be' },
+      { id: 5, context: 'What would you do if you were in a lift and it …', prompt: 'What would you do if you were in a lift and it ___ between floors?', answer: 'stopped', hint: 'stop' },
+      { id: 6, prompt: 'If somebody gave me £10,000, I ___ a very long holiday.', answer: 'would have|d have', hint: 'have' },
+      { id: 7, prompt: "If I ___ in your position, I'd accept the offer.", answer: 'was|were', hint: 'be' },
+    ],
+  },
+  {
+    id: '38-3',
+    title: 'Exercise 38.3',
+    instruction: 'Write sentences beginning If …. Use the idea in brackets.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "Kevin is not going to do his driving test now. (fail)", prompt: 'If he ___', answer: 'did it now he would fail|did it now, he would fail|did his driving test now he would fail|did his driving test now, he would fail|took it now he would fail|took it now, he would fail', hint: 'If he did it now, he …' },
+      { id: 2, context: "We've decided not to stay at a hotel. (cost too much)", prompt: 'If we ___', answer: 'stayed at a hotel it would cost too much|stayed at a hotel, it would cost too much', hint: 'If we stayed at a hotel, it …' },
+      { id: 3, context: "Sally isn't going to leave her job. (not / get another one)", prompt: 'If she ___', answer: "left her job she wouldn't get another one|left her job, she wouldn't get another one", hint: 'If she left her job, she …' },
+      { id: 4, context: "We've decided not to invite Ben to the party. (have to invite his friends too)", prompt: 'If we ___', answer: 'invited Ben to the party we would have to invite his friends too|invited Ben to the party, we would have to invite his friends too|invited Ben we would have to invite his friends too|invited Ben, we would have to invite his friends too', hint: 'If we invited Ben, we …' },
+      { id: 5, context: "I'm not going to tell him what happened. (not / believe me)", prompt: 'If I ___', answer: "told him what happened he wouldn't believe me|told him what happened, he wouldn't believe me|told him he wouldn't believe me|told him, he wouldn't believe me", hint: 'If I told him, he …' },
+      { id: 6, context: "We've decided not to catch the 10.30 train. (arrive too early)", prompt: 'If we ___', answer: "caught the 10.30 train we would arrive too early|caught the 10.30 train, we would arrive too early|caught the 10.30 train we'd arrive too early", hint: 'If we caught the 10.30 train, we …' },
+    ],
+  },
+];
+
+const unit38Supplementary: MurphyExercise[] = [
+  {
+    id: '38-s1',
+    title: 'Supplementary A',
+    instruction: 'Choose the correct form of the verbs.',
+    type: 'choice',
+    items: [
+      { id: 1, prompt: "If I ___ the bus this afternoon, I'll get a taxi instead.", options: ['miss', "'ll miss"], answer: 'miss' },
+      { id: 2, prompt: "We'll have to go without John if he ___ soon.", options: ["doesn't arrive", "won't arrive"], answer: "doesn't arrive" },
+      { id: 3, prompt: "They ___ your money if you haven't kept your receipt.", options: ["won't refund", "didn't refund"], answer: "won't refund" },
+      { id: 4, prompt: 'Will you send me a postcard when ___ Mexico?', options: ['you reach', "you'll reach"], answer: 'you reach' },
+      { id: 5, prompt: 'If I make some coffee, ___ the cake?', options: ['do you cut', 'will you cut'], answer: 'will you cut' },
+      { id: 6, prompt: '___ harder if you were better paid?', options: ['Did you work', 'Would you work'], answer: 'Would you work' },
+      { id: 7, prompt: 'If you ___ so much, you might be more popular.', options: ["don't complain", "didn't complain"], answer: "didn't complain" },
+      { id: 8, prompt: "Please don't sign any contracts before ___ them.", options: ["I'm checking", "I've checked"], answer: "I've checked" },
+      { id: 9, prompt: '___ be envious if they could only see me now!', options: ["Weren't my friends", "Wouldn't my friends"], answer: "Wouldn't my friends" },
+    ],
+  },
+  {
+    id: '38-s2',
+    title: 'Supplementary B',
+    instruction: 'Fill the gaps in the sentences, using the words given.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'If I had more money, ___ me?', answer: 'would you marry', hint: 'you / marry' },
+      { id: 2, prompt: "He wouldn't help you if ___ you.", answer: "he didn't like", hint: 'he / not / like' },
+      { id: 3, prompt: 'Once ___ it, the machine is quite simple to operate.', answer: 'you find', hint: 'you / find' },
+      { id: 4, prompt: '___ proud if they could see you now?', answer: "Wouldn't your parents be", hint: 'your parents / not / be' },
+      { id: 5, prompt: 'If ___ thoroughly, I may fail my test.', answer: "I don't revise", hint: 'I / not / revise' },
+      { id: 6, prompt: 'If you wanted to buy someone a really good present, what sort of thing ___?', answer: 'would you look for', hint: 'you / look for' },
+      { id: 7, prompt: "You'd have more friends if ___ so mean.", answer: "you weren't|you wasn't", hint: 'you / not / be' },
+      { id: 8, prompt: 'How ___ if you were in my position?', answer: 'would you feel', hint: 'you / feel' },
+      { id: 9, prompt: 'Would you change your job if ___?', answer: 'you could', hint: 'you / can' },
+    ],
+  },
+];
+
+// ── Unit 39 — If I knew … · I wish I knew … ───────────────────────────
+
+const unit39Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Study this example situation',
+    image: unit39DaydreamImg,
+    imageAlt: 'A man sitting by a window, daydreaming',
+    imagePosition: 'left',
+    content: `
+      <p>Sarah wants to phone Paul, but she can't because she doesn't know his number. She says:</p>
+      <p><strong>If I knew his number, I would phone him.</strong></p>
+      <p>Sarah says <em>If I knew his number …</em>, which tells us she <em>doesn't</em> know it. She is imagining the situation.</p>
+    `,
+  },
+  {
+    heading: 'B · if + past = imagining a present situation',
+    content: `
+      <p>When we imagine a situation like this we use <strong>if + past</strong> (<em>if I knew / if you were / if we didn't</em>), but the meaning is present, not past:</p>
+      <ul>
+        <li>There are many things I'd like to do if I <strong>had</strong> more time. <em>(but I don't have time)</em></li>
+        <li>If I <strong>didn't want</strong> to go to the party, I wouldn't go. <em>(but I want to go)</em></li>
+        <li>We wouldn't have any money if we <strong>didn't work</strong>. <em>(but we work)</em></li>
+        <li>If you <strong>were</strong> in my position, what would you do?</li>
+      </ul>
+      <p>We use the past in the same way after <strong>wish</strong>, to say that we regret something — that something is not as we would like it to be:</p>
+      <ul>
+        <li>I <strong>wish I knew</strong> Paul's phone number. <em>(= I don't know it and I regret this)</em></li>
+        <li>It rains a lot here. I <strong>wish it didn't rain</strong> so much.</li>
+        <li>I <strong>wish I didn't have</strong> to work tomorrow, but unfortunately I do.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · if I were / if I was',
+    content: `
+      <p>After <em>if</em> and <em>wish</em> you can use <strong>were</strong> instead of <strong>was</strong>. Both are possible:</p>
+      <ul>
+        <li>If I <strong>were</strong> you, I wouldn't buy that coat. <em>or</em> If I <strong>was</strong> you, …</li>
+        <li>I'd go for a walk if it <strong>weren't</strong> so cold. <em>or</em> … if it <strong>wasn't</strong> so cold.</li>
+        <li>I wish she <strong>were</strong> here. <em>or</em> I wish she <strong>was</strong> here.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · No would in the if-part or after wish',
+    content: `
+      <ul>
+        <li>If I <strong>were</strong> rich, I would travel a lot. <em>(not If I would be rich)</em></li>
+        <li>Who would you ask if you <strong>needed</strong> help? <em>(not if you would need)</em></li>
+        <li>I wish I <strong>had</strong> something to read. <em>(not I wish I would have)</em></li>
+      </ul>
+    `,
+    notes: ['Sometimes <em>wish … would</em> is possible: <em>I wish you would listen.</em> See Unit 41.'],
+  },
+  {
+    heading: 'E · could = would be able to / was able to',
+    content: `
+      <ul>
+        <li>She <strong>could get</strong> a better job if she <strong>could speak</strong> English. <em>(could get = would be able to get; could speak = was/were able to speak)</em></li>
+        <li>I wish I <strong>could</strong> help you. <em>(= I wish I was able to)</em></li>
+      </ul>
+    `,
+  },
+];
+
+const unit39Exercises: MurphyExercise[] = [
+  {
+    id: '39-1',
+    title: 'Exercise 39.1',
+    instruction: 'Put the verb into the correct form.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: '___ that coat if I were you.', answer: "I wouldn't buy", hint: 'I / not / buy' },
+      { id: 2, prompt: "___ you if I could, but I'm afraid I can't.", answer: "I would help|I'd help", hint: 'I / help' },
+      { id: 3, prompt: 'We don\'t need a car at present, but we would need one if ___ in the country.', answer: 'we lived', hint: 'we / live' },
+      { id: 4, prompt: 'If we had the choice, ___ in the country.', answer: "we would live|we'd live", hint: 'we / live' },
+      { id: 5, prompt: "This soup isn't very good. ___ better if it wasn't so salty.", answer: 'it would taste', hint: 'it / taste' },
+      { id: 6, prompt: "I wouldn't mind living in England if the weather ___ better.", answer: 'was|were', hint: 'be' },
+      { id: 7, prompt: 'If I were you, ___. I would go now.', answer: "I wouldn't wait", hint: 'I / not / wait' },
+      { id: 8, prompt: "You're always tired. If ___ to bed so late every night, you wouldn't be tired all the time.", answer: "you didn't go", hint: 'you / not / go' },
+      { id: 9, prompt: "I think there are too many cars. If there weren't so many cars, ___ so much pollution.", answer: "there wouldn't be", hint: 'there / not / be' },
+    ],
+  },
+  {
+    id: '39-2',
+    title: 'Exercise 39.2',
+    instruction: 'Write a sentence with if … for each situation.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "It's a nice book but it's too expensive, so I'm not going to buy it.", prompt: 'I ___', answer: "would buy it if it wasn't so expensive|would buy it if it weren't so expensive|'d buy it if it wasn't so expensive|'d buy it if it weren't so expensive", hint: "I'd buy it if …" },
+      { id: 2, context: "We don't go out very often — we can't afford it.", prompt: 'We ___', answer: 'would go out more often if we could afford it|would go out more often if we could afford to', hint: "We'd go out more often if …" },
+      { id: 3, context: "I can't meet you tomorrow — I have to work late.", prompt: 'If ___', answer: "I didn't have to work late I could meet you tomorrow|I didn't have to work late, I could meet you tomorrow|I didn't have to work late I would meet you tomorrow|I didn't have to work late, I would meet you tomorrow", hint: "If I didn't have to work late, …" },
+      { id: 4, context: 'It would be nice to have lunch outside but it\'s raining, so we can\'t.', prompt: 'We ___', answer: "could have lunch outside if it wasn't raining|could have lunch outside if it weren't raining|would have lunch outside if it wasn't raining|would have lunch outside if it weren't raining", hint: 'We could have lunch outside if …' },
+      { id: 5, context: "I don't want his advice, and that's why I'm not going to ask for it.", prompt: 'If ___', answer: 'I wanted his advice I would ask for it|I wanted his advice, I would ask for it', hint: 'If I wanted his advice, …' },
+      { id: 6, context: "We don't see you very often because you live so far away.", prompt: 'If ___', answer: "you didn't live so far away we would see you more often|you didn't live so far away, we would see you more often", hint: "If you didn't live so far away, …" },
+    ],
+  },
+  {
+    id: '39-3',
+    title: 'Exercise 39.3',
+    instruction: 'Write sentences beginning I wish ….',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "I don't have a computer (and I need one).", prompt: 'I wish ___', answer: 'I had a computer', hint: 'I wish I had …' },
+      { id: 2, context: "Helen isn't here (and I need to see her).", prompt: 'I wish ___', answer: 'Helen was here|Helen were here|she was here|she were here', hint: 'I wish Helen …' },
+      { id: 3, context: "It's cold (and I hate cold weather).", prompt: 'I wish ___', answer: "it wasn't cold|it weren't cold|it was warmer|it were warmer", hint: 'I wish it …' },
+      { id: 4, context: "I live in a big city (and I don't like it).", prompt: 'I wish ___', answer: "I didn't live in a big city", hint: 'I wish I …' },
+      { id: 5, context: "I can't go to the party (and I'd like to).", prompt: 'I wish ___', answer: 'I could go to the party', hint: 'I wish I could …' },
+      { id: 6, context: "I have to get up early tomorrow (but I'd like to sleep late).", prompt: 'I wish ___', answer: "I didn't have to get up early tomorrow|I didn't have to get up early", hint: "I wish I didn't …" },
+      { id: 7, context: "I don't know anything about cars (and my car has just broken down).", prompt: 'I wish ___', answer: 'I knew something about cars|I knew about cars', hint: 'I wish I knew …' },
+      { id: 8, context: "I'm not feeling well (and it's not nice).", prompt: 'I wish ___', answer: 'I was feeling well|I were feeling well|I was feeling better|I felt better', hint: 'I wish I …' },
+      { id: 9, context: "I don't know many people (and I'm lonely).", prompt: 'I wish ___', answer: 'I knew more people', hint: 'I wish I knew …' },
+    ],
+  },
+];
+
+// ── Unit 40 — If I had known … · I wish I had known … ─────────────────
+
+const unit40Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Study this example situation',
+    image: unit40MissedTrainImg,
+    imageAlt: 'A woman on a platform watching a train leave without her',
+    imagePosition: 'right',
+    content: `
+      <p>Last month Gary was in hospital for a few days. Rachel didn't know this, so she didn't go to visit him. When they met, Rachel said:</p>
+      <p><strong>If I'd known you were in hospital, I would have gone to see you.</strong></p>
+      <p><em>If I'd known</em> (= If I had known) tells us that she <strong>didn't</strong> know.</p>
+    `,
+  },
+  {
+    heading: 'B · if + had … to talk about the past',
+    content: `
+      <ul>
+        <li>I didn't see you when you passed me in the street. If I'<strong>d seen</strong> you, of course I <strong>would have said</strong> hello. <em>(but I didn't see you)</em></li>
+        <li>I didn't go out last night. I <strong>would have gone</strong> out if I <strong>hadn't been</strong> so tired.</li>
+        <li>If he <strong>had been looking</strong> where he was going, he <strong>wouldn't have walked</strong> into the wall.</li>
+      </ul>
+      <p>Compare:</p>
+      <ul>
+        <li>I'm not hungry. If I <strong>was</strong> hungry, I <strong>would eat</strong> something. <em>(now)</em></li>
+        <li>I wasn't hungry. If I <strong>had been</strong> hungry, I <strong>would have eaten</strong> something. <em>(past)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: "C · No would in the if-part · 'd = had or would",
+    content: `
+      <ul>
+        <li>If I <strong>had seen</strong> you, I <strong>would have said</strong> hello. <em>(not If I would have seen)</em></li>
+        <li>If I'd seen you … <em>('d seen = had seen)</em> · I'd have said hello. <em>('d have said = would have said)</em></li>
+      </ul>
+      <p>We use <strong>had (done)</strong> in the same way after <strong>wish</strong>. <em>I wish something had happened</em> = I am sorry that it didn't happen:</p>
+      <ul>
+        <li>I <strong>wish I'd known</strong> that Gary was ill. I would have gone to see him.</li>
+        <li>I feel sick. I <strong>wish I hadn't eaten</strong> so much cake.</li>
+      </ul>
+      <p>Do not use <em>would have</em> after <em>wish</em>: I wish it <strong>had been</strong> warmer. <em>(not I wish it would have been)</em></p>
+    `,
+  },
+  {
+    heading: 'D · would have / could have / might have',
+    content: `
+      <p>Compare <em>would (do)</em> and <em>would have (done)</em>:</p>
+      <ul>
+        <li>If I'd gone to the party last night, I <strong>would be</strong> tired now. <em>(present)</em></li>
+        <li>If I'd gone to the party last night, I <strong>would have met</strong> lots of people. <em>(past)</em></li>
+      </ul>
+      <p>If the weather hadn't been so bad …</p>
+      <ul>
+        <li>… we <strong>would have gone</strong> out.</li>
+        <li>… we <strong>could have gone</strong> out. <em>(= we would have been able to)</em></li>
+        <li>… we <strong>might have gone</strong> out. <em>(= perhaps we would have)</em></li>
+      </ul>
+    `,
+  },
+];
+
+const unit40Exercises: MurphyExercise[] = [
+  {
+    id: '40-1',
+    title: 'Exercise 40.1',
+    instruction: 'Put the verb into the correct form.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: 'Sam got to the station just in time. If he had missed the train, ___ his flight too.', answer: 'he would have missed|he\'d have missed', hint: 'he / miss' },
+      { id: 2, prompt: "I'm glad that you reminded me about Rachel's birthday. ___ if you hadn't reminded me.", answer: "I would have forgotten|I'd have forgotten", hint: 'I / forget' },
+      { id: 3, prompt: "I wanted to send you an email, but I didn't have your address. If ___ your address, I would have sent you an email.", answer: "I had had|I'd had", hint: 'I / have' },
+      { id: 4, prompt: 'It was OK, but ___ it more if the weather had been better.', answer: "we would have enjoyed|we'd have enjoyed", hint: 'we / enjoy' },
+      { id: 5, prompt: 'I took a taxi to the hotel, but the traffic was bad. ___ quicker if I had walked.', answer: "It would have been|It'd have been", hint: 'it / be' },
+      { id: 6, prompt: "I'm not tired. If ___ tired, I'd go home now.", answer: 'I was|I were', hint: 'I / be' },
+      { id: 7, prompt: "I wasn't tired last night. If ___ tired, I would have gone home earlier.", answer: "I had been|I'd been", hint: 'I / be' },
+    ],
+  },
+  {
+    id: '40-2',
+    title: 'Exercise 40.2',
+    instruction: 'For each situation, write a sentence beginning with If.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "I wasn't hungry, so I didn't eat anything.", prompt: 'If ___', answer: 'I had been hungry I would have eaten something|I had been hungry, I would have eaten something|I\'d been hungry I would have eaten something|I\'d been hungry, I would have eaten something', hint: "If I'd been hungry, I …" },
+      { id: 2, context: 'The accident happened because the road was icy.', prompt: 'If ___', answer: "the road hadn't been icy the accident wouldn't have happened|the road hadn't been icy, the accident wouldn't have happened", hint: "If the road hadn't been icy, …" },
+      { id: 3, context: "I didn't know that Joe had to get up early, so I didn't wake him up.", prompt: 'If ___', answer: "I had known that he had to get up early I would have woken him up|I had known that he had to get up early, I would have woken him up|I'd known that he had to get up early I would have woken him up|I'd known that he had to get up early, I would have woken him up", hint: "If I'd known …, I …" },
+      { id: 4, context: "Unfortunately I lost my phone, so I couldn't call you.", prompt: 'If ___', answer: "I hadn't lost my phone I could have called you|I hadn't lost my phone, I could have called you|I hadn't lost my phone I would have called you|I hadn't lost my phone, I would have called you", hint: "If I hadn't lost my phone, …" },
+      { id: 5, context: "Karen wasn't injured in the crash because she was wearing a seat belt.", prompt: 'If ___', answer: "she hadn't been wearing a seat belt she would have been injured|she hadn't been wearing a seat belt, she would have been injured|Karen hadn't been wearing a seat belt she would have been injured|Karen hadn't been wearing a seat belt, she would have been injured", hint: "If she hadn't been wearing a seat belt, …" },
+      { id: 6, context: "You didn't have breakfast — that's why you're hungry now.", prompt: 'If ___', answer: 'you had had breakfast you wouldn\'t be hungry now|you had had breakfast, you wouldn\'t be hungry now|you\'d had breakfast you wouldn\'t be hungry now|you\'d had breakfast, you wouldn\'t be hungry now', hint: "If you'd had breakfast, you … now" },
+      { id: 7, context: "I didn't get a taxi because I didn't have enough money.", prompt: 'If ___', answer: "I had had enough money I would have got a taxi|I had had enough money, I would have got a taxi|I'd had enough money I would have got a taxi|I'd had enough money, I would have got a taxi", hint: "If I'd had enough money, I …" },
+    ],
+  },
+  {
+    id: '40-3',
+    title: 'Exercise 40.3',
+    instruction: 'Imagine that you are in these situations. For each one, write a sentence with I wish.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "You've eaten too much and now you feel sick.", prompt: 'I wish ___', answer: "I hadn't eaten so much", hint: "I wish I hadn't …" },
+      { id: 2, context: 'There was a job advertised in the paper. You decided not to apply for it. Now you think your decision was wrong.', prompt: 'I wish ___', answer: 'I had applied for it|I had applied for the job', hint: 'I wish I had …' },
+      { id: 3, context: 'When you were younger, you never learned to play a musical instrument. Now you regret this.', prompt: 'I wish ___', answer: 'I had learned to play a musical instrument|I had learnt to play a musical instrument|I had learned to play an instrument|I had learnt to play an instrument', hint: 'I wish I had …' },
+      { id: 4, context: "You've painted the gate red. Now you think that red was the wrong colour.", prompt: 'I wish ___', answer: "I hadn't painted the gate red|I hadn't painted it red", hint: "I wish I hadn't …" },
+      { id: 5, context: "You're walking in the country. You'd like to take some pictures, but you didn't bring your camera.", prompt: 'I wish ___', answer: 'I had brought my camera', hint: 'I wish I had …' },
+      { id: 6, context: "You have some unexpected guests. They didn't phone you first. You are very busy.", prompt: 'I wish ___', answer: 'they had phoned me|they had phoned|they had phoned first|they had called me', hint: 'I wish they had …' },
+    ],
+  },
+];
+
+// ── Unit 41 — Wish ─────────────────────────────────────────────────────
+
+const unit41Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · wish somebody something · wish and hope',
+    image: unit41RainImg,
+    imageAlt: 'Rain running down a window with a person looking out',
+    imagePosition: 'left',
+    content: `
+      <p>You can say <em>I wish you luck / all the best / a happy birthday</em>:</p>
+      <ul>
+        <li>I <strong>wish you</strong> all the best in the future.</li>
+        <li>I saw Mark before the exam and he <strong>wished me</strong> luck.</li>
+      </ul>
+      <p>But you cannot say <em>'I wish that something happens'</em>. We use <strong>hope</strong>:</p>
+      <ul>
+        <li>I'm sorry you're not well. I <strong>hope</strong> you feel better soon. <em>(not I wish you feel)</em></li>
+        <li>I <strong>wish</strong> you a pleasant stay here. / I <strong>hope</strong> you have a pleasant stay here.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B · wish + past = regret about now',
+    content: `
+      <ul>
+        <li>I <strong>wish I knew</strong> what to do about the problem. <em>(I don't know and I regret this)</em></li>
+        <li>I <strong>wish you didn't have</strong> to go so soon.</li>
+        <li>Do you <strong>wish you lived</strong> near the sea? <em>(you don't live near the sea)</em></li>
+      </ul>
+      <p>To say we regret something in the past we use <strong>wish + had …</strong>:</p>
+      <ul>
+        <li>I <strong>wish I'd known</strong> about the party. I would have gone if I'd known.</li>
+        <li>It was a stupid thing to say. I <strong>wish I hadn't said</strong> it.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · I wish I could (have)',
+    content: `
+      <ul>
+        <li>I'm sorry I have to go. I <strong>wish I could stay</strong> longer. <em>(but I can't)</em></li>
+        <li>I've met that man before. I <strong>wish I could remember</strong> his name.</li>
+        <li>I hear the party was great. I <strong>wish I could have gone</strong>. <em>(but I couldn't go)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · I wish … would',
+    content: `
+      <p>It's been raining all day. Tanya doesn't like it. She says: <strong>I wish it would stop raining.</strong></p>
+      <p>We use <em>I wish … would</em> when we would like something to happen or change — usually the speaker doesn't expect it. We often use it to complain:</p>
+      <ul>
+        <li>The phone has been ringing for five minutes. I <strong>wish somebody would answer</strong> it.</li>
+        <li>I wish you'<strong>d do</strong> (= you would do) something instead of just sitting there.</li>
+      </ul>
+      <p>Use <em>I wish … wouldn't …</em> to complain about things people do repeatedly:</p>
+      <ul>
+        <li>I <strong>wish you wouldn't keep</strong> interrupting me. <em>(= please don't interrupt me)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'E · I wish … would vs I wish … was',
+    content: `
+      <p>We use <em>I wish … would</em> to say we want something <strong>to happen</strong>, not to say how we would like things <strong>to be</strong>. Compare:</p>
+      <ul>
+        <li>I wish Sarah <strong>would come</strong>. <em>(= I want her to come)</em></li>
+        <li><em>but</em> I wish Sarah <strong>was</strong> (or <strong>were</strong>) here now. <em>(not I wish Sarah would be)</em></li>
+        <li>I wish somebody <strong>would buy</strong> me a car.</li>
+        <li><em>but</em> I wish I <strong>had</strong> a car. <em>(not I wish I would have)</em></li>
+      </ul>
+    `,
+  },
+];
+
+const unit41Exercises: MurphyExercise[] = [
+  {
+    id: '41-1',
+    title: 'Exercise 41.1',
+    instruction: 'Put in wish(ed) or hope(d).',
+    type: 'gap-fill',
+    wordBank: ['wish', 'wished', 'hope', 'hoped'],
+    items: [
+      { id: 1, prompt: 'Enjoy your holiday. I ___ you have a great time.', answer: 'hope' },
+      { id: 2, prompt: 'Goodbye. I ___ you all the best.', answer: 'wish' },
+      { id: 3, prompt: 'We said goodbye to each other and ___ each other luck.', answer: 'wished' },
+      { id: 4, prompt: "We're going to have a picnic tomorrow, so I ___ the weather is nice.", answer: 'hope' },
+      { id: 5, prompt: 'I ___ you luck in your new job.', answer: 'wish' },
+      { id: 6, prompt: 'I ___ it works out well for you.', answer: 'hope' },
+    ],
+  },
+  {
+    id: '41-2',
+    title: 'Exercise 41.2',
+    instruction: 'What do you say in these situations? Write sentences with I wish … would / wouldn\'t ….',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "You're waiting for Jane. She's late and you're getting impatient.", prompt: 'I wish ___', answer: 'she would come|Jane would come|she would hurry up|Jane would hurry up|she would arrive|Jane would arrive', hint: 'I wish she would …' },
+      { id: 2, context: "You're looking for a job — so far without success.", prompt: 'I wish somebody ___', answer: 'would give me a job|would offer me a job', hint: 'I wish somebody would …' },
+      { id: 3, context: "You can hear a baby crying. It's been crying for a long time and you're trying to study.", prompt: 'I wish ___', answer: 'the baby would stop crying|it would stop crying|somebody would stop the baby crying', hint: 'I wish the baby would …' },
+      { id: 4, context: 'Brian has been wearing the same clothes for years. You think he needs some new ones.', prompt: 'I wish you ___', answer: 'would buy some new clothes|would get some new clothes|would buy new clothes', hint: 'I wish you would …' },
+      { id: 5, context: "Your friend drives very fast. You don't like this.", prompt: 'I wish you ___', answer: "wouldn't drive so fast", hint: "I wish you wouldn't …" },
+      { id: 6, context: 'Joe leaves the door open all the time. This annoys you.', prompt: 'I wish you ___', answer: "wouldn't leave the door open", hint: "I wish you wouldn't …" },
+      { id: 7, context: "A lot of people drop litter in the street. You don't like this.", prompt: 'I wish people ___', answer: "wouldn't drop litter|wouldn't drop litter in the street", hint: "I wish people wouldn't …" },
+      { id: 8, context: "It's raining. You want to go out, but not in the rain.", prompt: 'I wish ___', answer: 'it would stop raining', hint: 'I wish it would …' },
+    ],
+  },
+  {
+    id: '41-3',
+    title: 'Exercise 41.3',
+    instruction: 'Are these sentences right or wrong? Write the correct sentence, or type right if there is no mistake.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: 'I wish Sarah would be here now.', prompt: '___', answer: 'I wish Sarah was here now|I wish Sarah were here now', hint: 'wish + was/were for how things are' },
+      { id: 2, context: 'I wish you would listen to me.', prompt: '___', answer: 'right', hint: 'no mistake?' },
+      { id: 3, context: 'I wish I would have more free time.', prompt: '___', answer: 'I wish I had more free time', hint: 'not would have' },
+      { id: 4, context: 'I wish our flat would be a bit bigger.', prompt: '___', answer: 'I wish our flat was a bit bigger|I wish our flat were a bit bigger', hint: 'how things are' },
+      { id: 5, context: 'I wish the weather would change.', prompt: '___', answer: 'right', hint: 'we want it to happen' },
+      { id: 6, context: "I wish you wouldn't complain all the time.", prompt: '___', answer: 'right', hint: 'a repeated action' },
+      { id: 7, context: "I wish everything wouldn't be so expensive.", prompt: '___', answer: "I wish everything wasn't so expensive|I wish everything weren't so expensive", hint: 'how things are' },
+    ],
+  },
+  {
+    id: '41-4',
+    title: 'Exercise 41.4',
+    instruction: 'Put the verb into the correct form.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: "I'm fed up with this rain. I wish ___. (it / stop)", answer: 'it would stop', hint: 'it / stop' },
+      { id: 2, prompt: "It's a difficult question. I wish ___ the answer. (I / know)", answer: 'I knew', hint: 'I / know' },
+      { id: 3, prompt: 'I should have listened to you. I wish ___ your advice. (I / take)', answer: "I had taken|I'd taken", hint: 'I / take' },
+      { id: 4, prompt: "You're lucky to be going away. I wish ___ with you. (I / can / come)", answer: 'I could come', hint: 'I / can / come' },
+      { id: 5, prompt: 'I have no energy at the moment. I wish ___ so tired. (I / not / be)', answer: "I wasn't|I weren't", hint: 'I / not / be' },
+      { id: 6, prompt: "Aren't they ready yet? I wish ___. (they / hurry up)", answer: 'they would hurry up', hint: 'they / hurry up' },
+      { id: 7, prompt: 'It would be nice to stay here longer. I wish ___ to go now. (we / not / have)', answer: "we didn't have", hint: 'we / not / have' },
+      { id: 8, prompt: "When we were in London we didn't have time to see everything. I wish ___ longer. (we / can / stay)", answer: 'we could have stayed', hint: 'we / can / stay' },
+      { id: 9, prompt: "It's freezing today. I wish ___ so cold. (it / not / be)", answer: "it wasn't|it weren't", hint: 'it / not / be' },
+      { id: 10, prompt: "Joe still doesn't know what he wants to do. I wish ___. (he / decide)", answer: 'he would decide', hint: 'he / decide' },
+      { id: 11, prompt: "I really didn't enjoy the party. I wish ___. (we / not / go)", answer: "we hadn't gone", hint: 'we / not / go' },
+      { id: 12, prompt: 'It was a stupid thing to say. I wish ___ it. (I / not / say)', answer: "I hadn't said", hint: 'I / not / say' },
+    ],
+  },
+];
+
+
 // ── Sections ───────────────────────────────────────────────────────────
 
 export const murphyGrammarSections: MurphySection[] = [
@@ -1335,10 +1883,39 @@ export const murphyGrammarSections: MurphySection[] = [
     icon: GitBranch,
     image: conditionalsImg,
     units: [
-      u(38, 'If I do … and If I did …'),
-      u(39, 'If I knew … · I wish I knew …'),
-      u(40, 'If I had known … · I wish I had known …'),
-      u(41, 'Wish'),
+      {
+        id: 'unit-38',
+        number: 38,
+        title: 'If I do … and If I did …',
+        subtitle: 'real and imagined situations in the future',
+        theory: unit38Theory,
+        exercises: unit38Exercises,
+        supplementary: unit38Supplementary,
+      },
+      {
+        id: 'unit-39',
+        number: 39,
+        title: 'If I knew … · I wish I knew …',
+        subtitle: 'imagining a different present; regrets about now',
+        theory: unit39Theory,
+        exercises: unit39Exercises,
+      },
+      {
+        id: 'unit-40',
+        number: 40,
+        title: 'If I had known … · I wish I had known …',
+        subtitle: 'imagining a different past; regrets about the past',
+        theory: unit40Theory,
+        exercises: unit40Exercises,
+      },
+      {
+        id: 'unit-41',
+        number: 41,
+        title: 'Wish',
+        subtitle: 'wish and hope; I wish … would; I wish I could',
+        theory: unit41Theory,
+        exercises: unit41Exercises,
+      },
     ],
   },
   {
