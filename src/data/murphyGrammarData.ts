@@ -16,6 +16,10 @@ import unit102CouplesMeetingImg from '@/assets/murphy/unit102-couples-meeting.jp
 import unit102BeachCoupleImg from '@/assets/murphy/unit102-beach-couple.jpg';
 import unit102ReadingArmchairImg from '@/assets/murphy/unit102-reading-armchair.jpg';
 import unit102OldHouseImg from '@/assets/murphy/unit102-old-house.jpg';
+import unit38DoorsImg from '@/assets/murphy/unit38-two-doors.jpg';
+import unit39DaydreamImg from '@/assets/murphy/unit39-daydreaming.jpg';
+import unit40MissedTrainImg from '@/assets/murphy/unit40-missed-train.jpg';
+import unit41RainImg from '@/assets/murphy/unit41-rain-window.jpg';
 
 // ── Types ──────────────────────────────────────────────────────────────
 
