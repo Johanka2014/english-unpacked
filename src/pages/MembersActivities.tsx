@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, ShieldCheck, Recycle, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, ShieldCheck, Recycle, Landmark, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -298,6 +298,13 @@ const TABS: TabDef[] = [
         icon: Recycle,
         path: '/topics/recycling',
         color: 'text-green-600',
+      },
+      {
+        title: 'Politics: Power and Participation',
+        description: 'B2 lesson on political systems and elections — vocabulary flashcards, global voting and misinformation, UK election night, second conditional policies, media literacy, a manifesto builder, roleplay and opinion writing',
+        icon: Landmark,
+        path: '/topics/politics',
+        color: 'text-blue-700',
       },
     ],
   },
