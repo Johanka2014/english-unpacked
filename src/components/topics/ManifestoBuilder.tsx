@@ -7,7 +7,12 @@ import { RotateCcw } from 'lucide-react';
 
 const STORAGE_KEY = 'politics-manifesto-builder';
 
-const fields = [
+const fields: ReadonlyArray<{
+  id: 'party' | 'slogan' | 'tax' | 'spending' | 'education' | 'health' | 'jobs' | 'law' | 'other';
+  label: string;
+  placeholder: string;
+  short?: boolean;
+}> = [
   { id: 'party', label: 'Party name', placeholder: 'The Forward Together Party', short: true },
   { id: 'slogan', label: 'Campaign slogan', placeholder: 'A fair voice for every community', short: true },
   { id: 'tax', label: 'Tax', placeholder: 'If we were elected, we would…' },
