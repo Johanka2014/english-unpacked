@@ -1205,7 +1205,7 @@ const unit38Theory: MurphyTheorySection[] = [
     imagePosition: 'right',
     content: `
       <p><strong>1.</strong> Lisa: 'Shall we go by bus or by train?' — Jess: '<strong>If we go</strong> by bus, it <strong>will be</strong> cheaper.'</p>
-      <p>For Jess it is possible that they will go by bus, so she says <em>If we go … it will be …</em></p>
+      <p>For Jess it is possible that they will go by bus, so she says <em>If we go … it will be …</em>\n\n</p>
       <p><strong>2.</strong> Later, Lisa and Jess have decided to go by train. Jess says: '<strong>If we went</strong> by bus, it <strong>would be</strong> cheaper, but the train is quicker.'</p>
       <p>Now Jess knows they are <em>not</em> going by bus, so she says <em>If we went … it would be …</em> <em>(not If we go)</em></p>
     `,
