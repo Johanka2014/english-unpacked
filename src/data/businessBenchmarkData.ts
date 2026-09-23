@@ -68,11 +68,11 @@ export const businessBenchmarkModules: BusinessBenchmarkModule[] = [
     number: 5,
     title: 'Describing Equipment',
     skills: [
-      { id: 'reading', title: 'Reading', description: 'Leasing equipment: a web page; Problems with equipment: emails and headings on a form' },
-      { id: 'listening', title: 'Listening', description: 'Listening to descriptions of gadgets' },
-      { id: 'writing', title: 'Writing', description: 'Filling in a form' },
-      { id: 'speaking', title: 'Speaking', description: 'Describing objects when you don\'t know the name' },
-      { id: 'vocabulary', title: 'Vocabulary', description: 'Vocabulary to describe objects: component parts, shapes, materials; Office equipment; Describing problems with equipment' },
+      { id: 'reading', title: 'Reading', description: 'Leasing equipment and reporting workplace repairs', content: { type: 'reading-equipment' } },
+      { id: 'listening', title: 'Listening', description: 'The gizmo game: listening to descriptions of unfamiliar tools', content: { type: 'listening-equipment' } },
+      { id: 'writing', title: 'Writing', description: 'Repair requests, complaint emails and support tickets', content: { type: 'writing-equipment' } },
+      { id: 'speaking', title: 'Speaking', description: 'Describing objects when you don\'t know the name', content: { type: 'speaking-equipment' } },
+      { id: 'vocabulary', title: 'Vocabulary', description: 'Parts, shapes, materials and problems with modern equipment', content: { type: 'vocabulary-equipment' } },
     ],
   },
   {
