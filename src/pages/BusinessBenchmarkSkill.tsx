@@ -31,6 +31,11 @@ import ListeningInternetExercise from '@/components/business-benchmark/Listening
 import WritingInternetExercise from '@/components/business-benchmark/WritingInternetExercise';
 import SpeakingInternetExercise from '@/components/business-benchmark/SpeakingInternetExercise';
 import VocabularyInternetExercise from '@/components/business-benchmark/VocabularyInternetExercise';
+import ReadingEquipmentExercise from '@/components/business-benchmark/ReadingEquipmentExercise';
+import ListeningEquipmentExercise from '@/components/business-benchmark/ListeningEquipmentExercise';
+import WritingEquipmentExercise from '@/components/business-benchmark/WritingEquipmentExercise';
+import SpeakingEquipmentExercise from '@/components/business-benchmark/SpeakingEquipmentExercise';
+import VocabularyEquipmentExercise from '@/components/business-benchmark/VocabularyEquipmentExercise';
 
 const BusinessBenchmarkSkill = () => {
   const { moduleId, skillId } = useParams();
@@ -81,6 +86,11 @@ const BusinessBenchmarkSkill = () => {
     if (contentType === 'writing-the-internet') return <WritingInternetExercise />;
     if (contentType === 'speaking-the-internet') return <SpeakingInternetExercise />;
     if (contentType === 'vocabulary-the-internet') return <VocabularyInternetExercise />;
+    if (contentType === 'reading-equipment') return <ReadingEquipmentExercise />;
+    if (contentType === 'listening-equipment') return <ListeningEquipmentExercise />;
+    if (contentType === 'writing-equipment') return <WritingEquipmentExercise />;
+    if (contentType === 'speaking-equipment') return <SpeakingEquipmentExercise />;
+    if (contentType === 'vocabulary-equipment') return <VocabularyEquipmentExercise />;
     return (
       <div className="max-w-3xl mx-auto text-center py-16">
         <p className="text-lg text-muted-foreground">
