@@ -1977,10 +1977,10 @@ const unit8Exercises: MurphyExercise[] = [
     instruction: 'Read the situations and write sentences as shown in the example.',
     type: 'gap-fill',
     items: [
-      { id: 1, context: "Jack is driving a car, but he's very nervous and not sure what to do.", prompt: 'You ask: ___? — He says: No, this is the first time I ___ a car.', answer: "Have you ever driven a car before;'ve driven|Have you ever driven a car before;have driven", hint: 'drive (two gaps: question, then answer)' },
+      { id: 1, context: "Jack is driving a car, but he's very nervous and not sure what to do.", prompt: 'You ask: ___?', answer: 'Have you ever driven a car before', hint: 'drive' },
       { id: 2, context: "Ben is playing tennis. He's not good at it and he doesn't know the rules.", prompt: 'You ask: Have you ever played tennis before? — He says: No, this is the first time I ___ tennis.', answer: "'ve played|have played", hint: 'play' },
-      { id: 3, context: "Sue is riding a horse. She doesn't look very confident or comfortable.", prompt: 'You ask: ___? — She says: No, this is the first time I ___ a horse.', answer: "Have you ever ridden a horse before;'ve ridden|Have you ever ridden a horse before;have ridden", hint: 'ride (two gaps: question, then answer)' },
-      { id: 4, context: "Maria is in Japan. She has just arrived and it's very new for her.", prompt: 'You ask: ___? — She says: No, this is the first time I ___ to Japan.', answer: "Have you ever been to Japan before;'ve been|Have you ever been to Japan before;have been", hint: 'be (two gaps: question, then answer)' },
+      { id: 3, context: "Sue is riding a horse. She doesn't look very confident or comfortable.", prompt: 'You ask: ___?', answer: 'Have you ever ridden a horse before', hint: 'ride' },
+      { id: 4, context: "Maria is in Japan. She has just arrived and it's very new for her.", prompt: 'You ask: Have you ever been to Japan before? — She says: No, this is the first time I ___ to Japan.', answer: "'ve been|have been", hint: 'be' },
     ],
   },
 ];
