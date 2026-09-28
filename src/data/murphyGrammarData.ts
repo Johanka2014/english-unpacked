@@ -1739,6 +1739,352 @@ const unit41Exercises: MurphyExercise[] = [
 ];
 
 
+// ── Unit 7 — Present perfect 1 (I have done) ───────────────────────────
+
+const unit7Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · Study this example situation',
+    content: `
+      <p>Tom is looking for his key. He can't find it. <strong>He has lost his key.</strong></p>
+      <p>He has lost his key = he lost it recently, and he still doesn't have it.</p>
+      <p><strong>have/has + past participle</strong> is the present perfect simple:</p>
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2 font-medium">I / we / they / you</td><td class="p-2">have (= I've etc.)</td><td class="p-2" rowspan="2">lost<br/>done<br/>been etc.</td></tr>
+          <tr><td class="p-2 font-medium">he / she / it</td><td class="p-2">has (= he's etc.)</td></tr>
+        </tbody>
+      </table>
+      <p>The past participle often ends in <strong>-ed</strong> (finished, decided), but many important verbs are irregular (lost, done, written). For a list of irregular verbs, see Appendix 1.</p>
+    `,
+  },
+  {
+    heading: 'B · A connection with now',
+    content: `
+      <p>When we say that 'something has happened', this is usually new information:</p>
+      <ul>
+        <li>Ow! <strong>I've cut</strong> my finger.</li>
+        <li>The road is closed. <strong>There's been</strong> an accident.</li>
+        <li>(from the news) Police <strong>have arrested</strong> two men in connection with the robbery.</li>
+      </ul>
+      <p>When we use the present perfect, there is a connection with <strong>now</strong>. The action in the past has a result now:</p>
+      <ul>
+        <li>'Where's your key?' 'I don't know. <strong>I've lost it</strong>.' <em>(= I don't have it now)</em></li>
+        <li>He told me his name, but <strong>I've forgotten</strong> it. <em>(= I can't remember it now)</em></li>
+        <li>'Is Sally here?' 'No, <strong>she's gone</strong> out.' <em>(= she is out now)</em></li>
+        <li>I can't find my bag. <strong>Have you seen</strong> it? <em>(= do you know where it is now?)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · Gone to and been to',
+    content: `
+      <p>Note the difference between <strong>gone (to)</strong> and <strong>been (to)</strong>:</p>
+      <ul>
+        <li>James is on holiday. He <strong>has gone to</strong> Italy. <em>(= he is there now or on his way there)</em></li>
+        <li>Jane is back home now. She <strong>has been to</strong> Italy. <em>(= she has now come back)</em></li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'D · Just, already and yet',
+    content: `
+      <p>You can use the present perfect with <strong>just</strong>, <strong>already</strong> and <strong>yet</strong>.</p>
+      <p><strong>just</strong> = a short time ago:</p>
+      <ul>
+        <li>'Are you hungry?' 'No, I've <strong>just</strong> had lunch.'</li>
+        <li>Hello. Have you <strong>just</strong> arrived?</li>
+      </ul>
+      <p>We use <strong>already</strong> to say that something happened sooner than expected:</p>
+      <ul>
+        <li>'Don't forget to pay your electricity bill.' 'I've <strong>already</strong> paid it.'</li>
+        <li>'What time is Mark leaving?' 'He's <strong>already</strong> left.'</li>
+      </ul>
+      <p><strong>yet</strong> = until now. Yet shows that the speaker is expecting something to happen. Use yet only in <strong>questions and negative sentences</strong>:</p>
+      <ul>
+        <li>Has it stopped raining <strong>yet</strong>?</li>
+        <li>I've written the email, but I haven't sent it <strong>yet</strong>.</li>
+      </ul>
+    `,
+    notes: ['See Unit 8 for more present perfect.', 'See Units 12–14 for present perfect and past.', 'See Unit 111 for yet and already.'],
+  },
+];
+
+const unit7Exercises: MurphyExercise[] = [
+  {
+    id: '7-1',
+    title: 'Exercise 7.1',
+    instruction: 'Read the situations and complete the sentences. Use the verbs in the box.',
+    type: 'gap-fill',
+    wordBank: ['break', 'fall', 'go up', 'grow', 'improve', 'lose', 'arrive'],
+    items: [
+      { id: 1, context: "Tom is looking for his key. He can't find it.", prompt: 'Tom ___ his key.', answer: 'has lost', hint: 'lose' },
+      { id: 2, context: 'Lisa can’t walk and her leg is in plaster.', prompt: 'Lisa ___ her leg.', answer: 'has broken', hint: 'break' },
+      { id: 3, context: 'Last week the bus fare was £1.80. Now it is £2.', prompt: 'The bus fare ___.', answer: 'has gone up', hint: 'go up' },
+      { id: 4, context: "Maria's English wasn't very good. Now it is better.", prompt: 'Her English ___.', answer: 'has improved', hint: 'improve' },
+      { id: 5, context: "Dan didn't have a beard before. Now he has a beard.", prompt: 'Dan ___ a beard.', answer: 'has grown', hint: 'grow' },
+      { id: 6, context: 'This morning I was expecting a letter. Now I have it.', prompt: 'The letter ___.', answer: 'has arrived', hint: 'arrive' },
+      { id: 7, context: 'The temperature was 20 degrees. Now it is only 12.', prompt: 'The temperature ___.', answer: 'has fallen', hint: 'fall' },
+    ],
+  },
+  {
+    id: '7-2',
+    title: 'Exercise 7.2',
+    instruction: 'Put in been or gone.',
+    type: 'choice',
+    items: [
+      { id: 1, prompt: "James is on holiday. He's ___ to Italy.", answer: 'gone', options: ['been', 'gone'], hint: 'He is there now.' },
+      { id: 2, prompt: "Hello! I've just ___ to the shops. I've bought lots of things.", answer: 'been', options: ['been', 'gone'], hint: 'I am back now.' },
+      { id: 3, prompt: "Alice isn't here at the moment. She's ___ to the shop to get a newspaper.", answer: 'gone', options: ['been', 'gone'], hint: 'She is not here.' },
+      { id: 4, prompt: "Tom has ___ out. He'll be back in about an hour.", answer: 'gone', options: ['been', 'gone'], hint: 'He is not here.' },
+      { id: 5, prompt: "'Are you going to the bank?' 'No, I've already ___ to the bank.'", answer: 'been', options: ['been', 'gone'], hint: 'I went and came back.' },
+    ],
+  },
+  {
+    id: '7-3',
+    title: 'Exercise 7.3',
+    instruction: "Complete B's sentences. Make sentences from the words in brackets.",
+    type: 'gap-fill',
+    layout: 'conversation',
+    items: [
+      { id: 1, context: 'A: Would you like something to eat?', prompt: "B: No, thanks. ___.", answer: "I've just had lunch|I have just had lunch", hint: 'I / just / have / lunch' },
+      { id: 2, context: 'A: Do you know where Julia is?', prompt: 'B: Yes, ___.', answer: "I've just seen her|I have just seen her", hint: 'I / just / see / her' },
+      { id: 3, context: 'A: What time is David leaving?', prompt: 'B: ___.', answer: "He's already left|He has already left", hint: 'he / already / leave' },
+      { id: 4, context: "A: What's in the newspaper today?", prompt: "B: I don't know. ___.", answer: "I haven't read it yet|I have not read it yet", hint: 'I / not / read / it yet' },
+      { id: 5, context: 'A: Is Sue coming to the cinema with us?', prompt: 'B: No, ___.', answer: "she's already seen the film|she has already seen the film", hint: 'she / already / see / the film' },
+      { id: 6, context: 'A: Are your friends here yet?', prompt: 'B: Yes, ___.', answer: "they've just arrived|they have just arrived", hint: 'they / just / arrive' },
+      { id: 7, context: 'A: What does Tim think about your plan?', prompt: 'B: ___.', answer: "We haven't told him yet|We have not told him yet", hint: 'we / not / tell / him yet' },
+    ],
+  },
+  {
+    id: '7-4',
+    title: 'Exercise 7.4',
+    instruction: 'Read the situations and write sentences with just, already or yet.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "After lunch you go to see a friend at her house. She says, 'Would you like something to eat?'", prompt: 'You say: No thank you. ___.', answer: "I've just had lunch|I have just had lunch", hint: 'have lunch' },
+      { id: 2, context: "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?'", prompt: "You say: I'm afraid ___.", answer: "he's just gone out|he has just gone out", hint: 'go out' },
+      { id: 3, context: 'You are eating in a restaurant. The waiter thinks you have finished and starts to take your plate away.', prompt: 'You say: Wait a minute! ___.', answer: "I haven't finished yet|I have not finished yet", hint: 'not / finish' },
+      { id: 4, context: "You plan to eat at a restaurant tonight. You phoned to reserve a table. Later your friend says, 'Shall I phone to reserve a table?'", prompt: 'You say: No, ___.', answer: "I've already done it|I have already done it", hint: 'do it' },
+      { id: 5, context: 'You know that a friend of yours is looking for a place to live. Perhaps she has been successful. Ask her.', prompt: 'You say: ___?', answer: 'Have you found a place to live yet', hint: 'find' },
+      { id: 6, context: "You are still thinking about where to go for your holiday. A friend asks, 'Where are you going for your holiday?'", prompt: 'You say: ___.', answer: "I haven't decided yet|I have not decided yet", hint: 'not / decide' },
+      { id: 7, context: "Linda went shopping, but a few minutes ago she returned. Somebody asks, 'Is Linda still out shopping?'", prompt: 'You say: No, ___.', answer: "she's just come back|she has just come back", hint: 'come back' },
+    ],
+  },
+];
+
+// ── Unit 8 — Present perfect 2 (I have done) ───────────────────────────
+
+const unit8Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · A period until now',
+    content: `
+      <blockquote>
+        <p>DAVE: <strong>Have you travelled</strong> a lot, Jane?</p>
+        <p>JANE: Yes, <strong>I've been</strong> to lots of places.</p>
+        <p>DAVE: Really? <strong>Have you ever been</strong> to China?</p>
+        <p>JANE: Yes, <strong>I've been</strong> to China twice.</p>
+        <p>DAVE: What about India?</p>
+        <p>JANE: No, I <strong>haven't been</strong> to India.</p>
+      </blockquote>
+      <p>When we talk about a period of time that continues from the past until now, we use the present perfect (have been / have travelled etc.). Here, Dave and Jane are talking about the places Jane has visited <strong>in her life</strong>, which is a period that continues until now.</p>
+      <ul>
+        <li><strong>Have you ever eaten</strong> caviar?</li>
+        <li><strong>We've never had</strong> a car.</li>
+        <li>'Have you read Hamlet?' 'No, I haven't read any of Shakespeare's plays.'</li>
+        <li>Susan really loves that film. <strong>She's seen</strong> it eight times!</li>
+        <li>What a boring film! It's the most boring film <strong>I've ever seen</strong>.</li>
+      </ul>
+      <p><strong>Been (to)</strong> = visited: I've never been to China. Have you been there?</p>
+    `,
+  },
+  {
+    heading: 'B · Recently, in the last few days, so far, since breakfast',
+    content: `
+      <p>In the following examples too, the speakers are talking about a period that continues until now (<strong>recently / in the last few days / so far / since breakfast</strong> etc.):</p>
+      <ul>
+        <li>Have you heard anything from Brian <strong>recently</strong>?</li>
+        <li>I've met a lot of people <strong>in the last few days</strong>.</li>
+        <li>Everything is going well. We haven't had any problems <strong>so far</strong>.</li>
+        <li>I'm hungry. I haven't eaten anything <strong>since breakfast</strong>. <em>(= from breakfast until now)</em></li>
+        <li>It's good to see you again. We haven't seen each other <strong>for a long time</strong>.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · Today, this evening, this year',
+    content: `
+      <p>In the same way we use the present perfect with <strong>today / this evening / this year</strong> etc. when these periods are not finished at the time of speaking:</p>
+      <ul>
+        <li>I've drunk four cups of coffee <strong>today</strong>.</li>
+        <li>Have you had a holiday <strong>this year</strong>?</li>
+        <li>I haven't seen Tom <strong>this morning</strong>. Have you?</li>
+        <li>Rob hasn't worked very hard <strong>this term</strong>.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: "D · It's the first time something has happened",
+    content: `
+      <p>We say: <strong>It's the (first) time something has happened</strong>. For example:</p>
+      <ul>
+        <li>Don is having a driving lesson. It's his first one. <strong>It's the first time he has driven</strong> a car. <em>(not drives)</em> — or: He has never driven a car before.</li>
+        <li>Sarah has lost her passport again. This is the second time this <strong>has happened</strong>. <em>(not happens)</em></li>
+        <li>Bill is phoning his girlfriend again. That's the third time <strong>he's phoned</strong> her this evening.</li>
+      </ul>
+    `,
+    notes: ['See Unit 7 for present perfect 1.', 'See Units 11–12 for present perfect + for/since.', 'See Units 12–14 for present perfect and past.'],
+  },
+];
+
+const unit8Exercises: MurphyExercise[] = [
+  {
+    id: '8-1',
+    title: 'Exercise 8.1',
+    instruction: 'You ask people about things they have done. Write questions with ever.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: '___? (ride / horse)', answer: 'Have you ever ridden a horse', hint: 'ever' },
+      { id: 2, prompt: '___? (be / California)', answer: 'Have you ever been to California', hint: 'ever' },
+      { id: 3, prompt: '___? (run / marathon)', answer: 'Have you ever run a marathon', hint: 'ever' },
+      { id: 4, prompt: '___? (speak / famous person)', answer: 'Have you ever spoken to a famous person', hint: 'ever' },
+      { id: 5, prompt: "What's ___? (most beautiful place / visit)", answer: "the most beautiful place you've ever visited|the most beautiful place you have ever visited", hint: 'ever' },
+    ],
+  },
+  {
+    id: '8-2',
+    title: 'Exercise 8.2',
+    instruction: "Complete B's answers. Some sentences are positive and some negative. Use the verbs in the box.",
+    type: 'gap-fill',
+    layout: 'conversation',
+    wordBank: ['be', 'be', 'eat', 'happen', 'have', 'have', 'meet', 'play', 'read', 'see', 'try'],
+    items: [
+      { id: 1, context: "A: What's Mark's sister like?", prompt: "B: I've no idea. I ___ her.", answer: "'ve never met|have never met", hint: 'meet' },
+      { id: 2, context: 'A: Is everything going well?', prompt: "B: Yes, we ___ any problems so far.", answer: "haven't had|have not had", hint: 'have' },
+      { id: 3, context: 'A: Are you hungry?', prompt: 'B: Yes. I ___ much today.', answer: "haven't eaten|have not eaten", hint: 'eat' },
+      { id: 4, context: 'A: Can you play chess?', prompt: 'B: Yes, but I ___ for ages.', answer: "haven't played|have not played", hint: 'play' },
+      { id: 5, context: 'A: Are you enjoying your holiday?', prompt: "B: Yes, it's the best holiday I ___ for a long time.", answer: "'ve had|have had", hint: 'have' },
+      { id: 6, context: "A: What's that book like?", prompt: "B: I don't know. I ___ it.", answer: "haven't read|have not read", hint: 'read' },
+      { id: 7, context: 'A: Is Brussels an interesting place?', prompt: "B: I've no idea. I ___ there.", answer: "'ve never been|have never been", hint: 'be' },
+      { id: 8, context: 'A: I hear your car broke down again yesterday.', prompt: "B: Yes, it's the second time it ___ this month.", answer: 'has happened|’s happened', hint: 'happen' },
+      { id: 9, context: 'A: Do you like caviar?', prompt: "B: I don't know. I ___ it.", answer: "haven't tried|have not tried|'ve never tried|have never tried", hint: 'try' },
+      { id: 10, context: 'A: Mike was late for work again today.', prompt: 'B: Again? He ___ late every day this week.', answer: 'has been|’s been', hint: 'be' },
+      { id: 11, context: "A: Who's that woman by the door?", prompt: "B: I don't know. I ___ her before.", answer: "haven't seen|have not seen|'ve never seen|have never seen", hint: 'see' },
+    ],
+  },
+  {
+    id: '8-3',
+    title: 'Exercise 8.3',
+    instruction: 'Read the situations and write sentences as shown in the example.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "Jack is driving a car, but he's very nervous and not sure what to do.", prompt: 'You ask: ___?', answer: 'Have you ever driven a car before', hint: 'drive' },
+      { id: 2, context: "Ben is playing tennis. He's not good at it and he doesn't know the rules.", prompt: 'You ask: Have you ever played tennis before? — He says: No, this is the first time I ___ tennis.', answer: "'ve played|have played", hint: 'play' },
+      { id: 3, context: "Sue is riding a horse. She doesn't look very confident or comfortable.", prompt: 'You ask: ___?', answer: 'Have you ever ridden a horse before', hint: 'ride' },
+      { id: 4, context: "Maria is in Japan. She has just arrived and it's very new for her.", prompt: 'You ask: Have you ever been to Japan before? — She says: No, this is the first time I ___ to Japan.', answer: "'ve been|have been", hint: 'be' },
+    ],
+  },
+];
+
+// ── Unit 9 — Present perfect continuous (I have been doing) ────────────
+
+const unit9Theory: MurphyTheorySection[] = [
+  {
+    heading: 'A · It has been raining',
+    content: `
+      <p>Is it raining? No, but the ground is wet. <strong>It has been raining.</strong></p>
+      <p><strong>have/has been + -ing</strong> is the present perfect continuous:</p>
+      <table class="w-full text-sm border border-border rounded-md overflow-hidden">
+        <tbody>
+          <tr class="border-b border-border"><td class="p-2 font-medium">I / we / they / you</td><td class="p-2">have (= I've etc.)</td><td class="p-2" rowspan="2">been doing<br/>been waiting<br/>been playing etc.</td></tr>
+          <tr><td class="p-2 font-medium">he / she / it</td><td class="p-2">has (= he's etc.)</td></tr>
+        </tbody>
+      </table>
+      <p>We use the present perfect continuous for an activity that has <strong>recently stopped or just stopped</strong>. There is a connection with now:</p>
+      <ul>
+        <li>You're out of breath. <strong>Have you been running?</strong> <em>(= you're out of breath now)</em></li>
+        <li>Paul is very tired. <strong>He's been working</strong> very hard. <em>(= he's tired now)</em></li>
+        <li>Why are your clothes so dirty? What <strong>have you been doing</strong>?</li>
+        <li><strong>I've been talking</strong> to Amanda about the problem and she agrees with me.</li>
+        <li>Where have you been? <strong>I've been looking</strong> for you everywhere.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'B · It has been raining for two hours',
+    content: `
+      <p>It began raining two hours ago and it is still raining. How long has it been raining? <strong>It has been raining for two hours.</strong></p>
+      <p>We use the present perfect continuous in this way especially with <strong>how long</strong>, <strong>for …</strong> and <strong>since …</strong>. The activity is still happening or has just stopped:</p>
+      <ul>
+        <li>How long <strong>have you been learning</strong> English? <em>(= you're still learning English)</em></li>
+        <li>Tim is still watching TV. <strong>He's been watching</strong> TV all day.</li>
+        <li>Where have you been? <strong>I've been looking</strong> for you for the last half hour.</li>
+        <li>Chris <strong>hasn't been feeling</strong> well recently.</li>
+      </ul>
+      <p>You can use the present perfect continuous for actions <strong>repeated over a period of time</strong>:</p>
+      <ul>
+        <li>Silvia is a very good tennis player. <strong>She's been playing</strong> since she was eight.</li>
+        <li>Every morning they meet in the same café. <strong>They've been going</strong> there for years.</li>
+      </ul>
+    `,
+  },
+  {
+    heading: 'C · I am doing and I have been doing',
+    content: `
+      <p>Compare <strong>I am doing</strong> (present continuous) and <strong>I have been doing</strong> (present perfect continuous):</p>
+      <ul>
+        <li>Don't disturb me now. <strong>I'm working</strong>. → <strong>I've been working</strong> hard. Now I'm going to have a break.</li>
+        <li>We need an umbrella. <strong>It's raining</strong>. → The ground is wet. <strong>It's been raining</strong>.</li>
+        <li>Hurry up! <strong>We're waiting</strong>. → <strong>We've been waiting</strong> for an hour.</li>
+      </ul>
+    `,
+    notes: ['See Units 10–11 for present perfect continuous and simple.', 'See Units 11–12 for present perfect + for/since.'],
+  },
+];
+
+const unit9Exercises: MurphyExercise[] = [
+  {
+    id: '9-1',
+    title: 'Exercise 9.1',
+    instruction: 'Write a question for each situation.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: 'You meet Paul as he is leaving the swimming pool.', prompt: 'You ask: ___? (you / swim)', answer: 'Have you been swimming', hint: 'present perfect continuous' },
+      { id: 2, context: 'You have just arrived to meet a friend who is waiting for you.', prompt: 'You ask: ___? (you / wait / long)', answer: 'Have you been waiting long', hint: 'present perfect continuous' },
+      { id: 3, context: 'You meet a friend in the street. His face and hands are very dirty.', prompt: 'You ask: ___? (what / you / do)', answer: 'What have you been doing', hint: 'present perfect continuous' },
+      { id: 4, context: 'A friend of yours is now working in a shop. You want to know how long.', prompt: 'You ask: ___? (how long / you / work / there)', answer: 'How long have you been working there', hint: 'present perfect continuous' },
+      { id: 5, context: 'A friend tells you about his job — he sells mobile phones. You want to know how long.', prompt: 'You ask: ___? (how long / you / sell / mobile phones)', answer: 'How long have you been selling mobile phones', hint: 'present perfect continuous' },
+    ],
+  },
+  {
+    id: '9-2',
+    title: 'Exercise 9.2',
+    instruction: 'Read the situations and complete the sentences.',
+    type: 'gap-fill',
+    items: [
+      { id: 1, context: "It's raining. The rain started two hours ago.", prompt: 'It ___ for two hours.', answer: 'has been raining|’s been raining', hint: 'rain' },
+      { id: 2, context: 'We are waiting for the bus. We started waiting 20 minutes ago.', prompt: 'We ___ for 20 minutes.', answer: 'have been waiting|’ve been waiting', hint: 'wait' },
+      { id: 3, context: "I'm learning Spanish. I started classes in December.", prompt: 'I ___ Spanish since December.', answer: 'have been learning|’ve been learning', hint: 'learn' },
+      { id: 4, context: 'Jessica is working in a supermarket. She started working there on 18 January.', prompt: 'Jessica ___ in a supermarket since 18 January.', answer: 'has been working|’s been working', hint: 'work' },
+      { id: 5, context: 'Our friends always spend their holidays in Italy. They started going there years ago.', prompt: 'They ___ to Italy for years.', answer: 'have been going|’ve been going', hint: 'go' },
+    ],
+  },
+  {
+    id: '9-3',
+    title: 'Exercise 9.3',
+    instruction: 'Put the verb into the present continuous (I am -ing) or present perfect continuous (I have been -ing).',
+    type: 'gap-fill',
+    items: [
+      { id: 1, prompt: '___ English for two years. (Maria / learn)', answer: 'Maria has been learning', hint: 'for two years → continuous, still happening' },
+      { id: 2, prompt: 'Hello, Tom. ___ for you. Where have you been? (I / look)', answer: "I've been looking|I have been looking", hint: 'looking until now' },
+      { id: 3, prompt: 'Why ___ at me like that? Stop it! (you / look)', answer: 'are you looking', hint: 'happening now' },
+      { id: 4, prompt: 'Linda is a teacher. ___ for ten years. (she / teach)', answer: 'She has been teaching|She’s been teaching', hint: 'for ten years' },
+      { id: 5, prompt: "___ about what you said and I've decided to take your advice. (I / think)", answer: "I've been thinking|I have been thinking", hint: 'thinking until now' },
+      { id: 6, prompt: "'Is Paul on holiday this week?' 'No, ___.' (he / work)", answer: "he's working|he is working", hint: 'happening now, this week' },
+      { id: 7, prompt: 'Sarah is very tired. ___ very hard recently. (she / work)', answer: 'She has been working|She’s been working', hint: 'recently' },
+    ],
+  },
+];
+
 // ── Sections ───────────────────────────────────────────────────────────
 
 export const murphyGrammarSections: MurphySection[] = [
@@ -1818,9 +2164,30 @@ export const murphyGrammarSections: MurphySection[] = [
     icon: History,
     image: tensesImg,
     units: [
-      u(7, 'Present perfect 1 (I have done)'),
-      u(8, 'Present perfect 2 (I have done)'),
-      u(9, 'Present perfect continuous (I have been doing)'),
+      {
+        id: 'unit-7',
+        number: 7,
+        title: 'Present perfect 1 (I have done)',
+        subtitle: 'a result now; been to and gone to; just, already and yet',
+        theory: unit7Theory,
+        exercises: unit7Exercises,
+      },
+      {
+        id: 'unit-8',
+        number: 8,
+        title: 'Present perfect 2 (I have done)',
+        subtitle: 'ever and never; recently, so far, today; it’s the first time',
+        theory: unit8Theory,
+        exercises: unit8Exercises,
+      },
+      {
+        id: 'unit-9',
+        number: 9,
+        title: 'Present perfect continuous (I have been doing)',
+        subtitle: 'recently stopped activities; how long, for and since',
+        theory: unit9Theory,
+        exercises: unit9Exercises,
+      },
       u(10, 'Present perfect continuous and simple'),
       u(11, 'How long have you (been) …?'),
       u(12, 'For and since · When …? and How long …?'),
