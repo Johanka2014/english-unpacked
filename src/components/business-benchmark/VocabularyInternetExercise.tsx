@@ -282,33 +282,35 @@ const VocabularyInternetExercise = () => {
               book was published in 2006. Match each word (1–6) with its definition (a–f).
             </p>
           </div>
-          <div className="rounded-md bg-muted/40 p-4 space-y-3">
-            {MODERN.map((m) => {
-              const correct = checkedModern && modernSel[m.n] === m.answer;
-              const wrong = checkedModern && modernSel[m.n] !== m.answer;
-              return (
-                <div key={m.n} className="flex items-center gap-3">
-                  <span className="w-5 font-semibold text-primary shrink-0">{m.n}</span>
-                  <p className={`flex-1 text-sm font-medium ${correct ? "text-green-700 dark:text-green-400" : wrong ? "text-destructive" : "text-foreground"}`}>{m.word}</p>
-                  <select
-                    value={modernSel[m.n] || ""}
-                    onChange={(e) => setModernSel((p) => ({ ...p, [m.n]: e.target.value }))}
-                    className={`rounded-md border px-2 py-1 bg-background w-20 ${correct ? "border-green-500" : wrong ? "border-destructive" : "border-input"}`}
-                  >
-                    <option value="">—</option>
-                    {MODERN_DEFS.map((d) => (
-                      <option key={d} value={d.split(" ")[0]}>{d.split(" ")[0]}</option>
-                    ))}
-                  </select>
-                  {checkedModern && (correct ? <CheckCircle2 className="h-4 w-4 text-green-600" /> : wrong ? <XCircle className="h-4 w-4 text-destructive" /> : null)}
-                </div>
-              );
-            })}
-          </div>
-          <div className="rounded-md border p-4 bg-background text-sm space-y-1">
-            {MODERN_DEFS.map((d) => (
-              <p key={d} className="text-muted-foreground">{d}</p>
-            ))}
+          <div className="grid gap-4 md:grid-cols-2 md:items-start">
+            <div className="rounded-md bg-muted/40 p-4 space-y-3">
+              {MODERN.map((m) => {
+                const correct = checkedModern && modernSel[m.n] === m.answer;
+                const wrong = checkedModern && modernSel[m.n] !== m.answer;
+                return (
+                  <div key={m.n} className="flex items-center gap-3">
+                    <span className="w-5 font-semibold text-primary shrink-0">{m.n}</span>
+                    <p className={`flex-1 min-w-0 text-sm font-medium ${correct ? "text-green-700 dark:text-green-400" : wrong ? "text-destructive" : "text-foreground"}`}>{m.word}</p>
+                    <select
+                      value={modernSel[m.n] || ""}
+                      onChange={(e) => setModernSel((p) => ({ ...p, [m.n]: e.target.value }))}
+                      className={`rounded-md border px-2 py-1 bg-background w-16 shrink-0 ${correct ? "border-green-500" : wrong ? "border-destructive" : "border-input"}`}
+                    >
+                      <option value="">—</option>
+                      {MODERN_DEFS.map((d) => (
+                        <option key={d} value={d.split(" ")[0]}>{d.split(" ")[0]}</option>
+                      ))}
+                    </select>
+                    {checkedModern && (correct ? <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" /> : wrong ? <XCircle className="h-4 w-4 text-destructive shrink-0" /> : null)}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="rounded-md border p-4 bg-background text-sm space-y-2">
+              {MODERN_DEFS.map((d) => (
+                <p key={d} className="text-muted-foreground">{d}</p>
+              ))}
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <Button onClick={() => { setCheckedModern(true); track({ activityTitle: "BB Mod 4 Vocab — modern internet terms", activityType: "matching", score: scoreModern, total: MODERN.length }); }}>
