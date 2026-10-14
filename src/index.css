@@ -32,6 +32,9 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
+    --movers-success: 152 65% 30%;
+    --movers-success-surface: 152 60% 96%;
+
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 221 83% 53%;
@@ -72,6 +75,8 @@ All colors MUST be HSL.
   }
 
   .dark {
+    --movers-success: 152 60% 65%;
+    --movers-success-surface: 152 35% 15%;
     --background: 220 25% 8%;
     --foreground: 0 0% 98%;
 
@@ -131,6 +136,13 @@ All colors MUST be HSL.
 }
 
 @layer components {
+  .movers-correct {
+    border-color: hsl(var(--movers-success));
+    background-color: hsl(var(--movers-success-surface));
+  }
+  .movers-success-text {
+    color: hsl(var(--movers-success));
+  }
   .hero-button {
     @apply bg-white/90 text-[hsl(var(--brand-navy))] hover:bg-white hover:shadow-lg 
            transition-all duration-300 font-semibold px-8 py-3 rounded-full

@@ -314,6 +314,13 @@ const TABS: TabDef[] = [
     icon: Star,
     activities: [
       {
+        title: 'Get Ready for Movers',
+        description: 'Cambridge A1 Movers — numbers, addresses, action words and language practice',
+        icon: BookOpen,
+        path: '/movers-practice',
+        color: 'text-brand-royal',
+      },
+      {
         title: 'Practice Tests for Starters',
         description: 'Fun practice tests for the Cambridge Pre A1 Starters exam with Listening, Reading & Writing, and Speaking',
         icon: Star,
