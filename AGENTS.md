@@ -1,0 +1,2 @@
+# Architecture
+- Keep Movers curriculum in typed data with shared React exercise components and protected lazy-loaded course/lesson pages; this allows later units and media to be added without duplicating exercise logic.

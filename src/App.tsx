@@ -55,6 +55,8 @@ const MurphyGrammarSection = lazyWithRetry(() => import("./pages/MurphyGrammarSe
 const MurphyGrammarUnit = lazyWithRetry(() => import("./pages/MurphyGrammarUnit"));
 const StartersPractice = lazyWithRetry(() => import("./pages/StartersPractice"));
 const StartersTest = lazyWithRetry(() => import("./pages/StartersTest"));
+const MoversPractice = lazyWithRetry(() => import("./pages/MoversPractice"));
+const MoversUnit = lazyWithRetry(() => import("./pages/MoversUnit"));
 const HREnglish = lazyWithRetry(() => import("./pages/HREnglish"));
 const HREnglishUnit = lazyWithRetry(() => import("./pages/HREnglishUnit"));
 const HREnglishSkill = lazyWithRetry(() => import("./pages/HREnglishSkill"));
@@ -165,6 +167,8 @@ const App = () => (
               <Route path="/b1-grammar/*" element={<Navigate to="/grammar" replace />} />
               <Route path="/starters-practice" element={<ProtectedRoute><StartersPractice /></ProtectedRoute>} />
               <Route path="/starters-practice/:testId" element={<ProtectedRoute><StartersTest /></ProtectedRoute>} />
+              <Route path="/movers-practice" element={<ProtectedRoute><MoversPractice /></ProtectedRoute>} />
+              <Route path="/movers-practice/:unitId" element={<ProtectedRoute><MoversUnit /></ProtectedRoute>} />
               <Route path="/hr-english" element={<ProtectedRoute><HREnglish /></ProtectedRoute>} />
               <Route path="/hr-english/:unitId" element={<ProtectedRoute><HREnglishUnit /></ProtectedRoute>} />
               <Route path="/hr-english/:unitId/:skillId" element={<ProtectedRoute><HREnglishSkill /></ProtectedRoute>} />
