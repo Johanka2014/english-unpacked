@@ -4,5 +4,5 @@
 - [x] Verify signed-in navigation, answers, score readback and narrow/wide layouts.
 
 # Module 5 reading texts
-- [ ] Restore full leasing article, Fastequip advertisement and repair emails; align Fastequip answers with the source.
-- [ ] Verify signed-in reading, checking and large/small screen layouts.
+- [x] Restore full leasing article, Fastequip advertisement and repair emails; align Fastequip answers with the source.
+- [x] Verify signed-in reading, checking and large/small screen layouts.
