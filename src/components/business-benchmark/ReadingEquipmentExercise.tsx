@@ -61,7 +61,7 @@ const ReadingEquipmentExercise = () => (
     <EquipmentActivity title="1. Fastequip — right, wrong or doesn’t say?" instructions="Read the Fastequip advertisement above, then decide what it tells you. There are two statements where the answer is ‘doesn’t say’." questions={FASTEQUIP} activityType="reading" />
     <section aria-labelledby="repair-emails-title" className="space-y-5">
       <header className="space-y-2"><p className="text-xs font-semibold uppercase text-primary">Student’s Book, page 29</p><h2 id="repair-emails-title" className="font-serif text-2xl font-bold">Office repairs — two emails</h2></header>
-      <div className="grid items-start gap-6 lg:grid-cols-2">
+      <div className="grid items-stretch gap-4 md:grid-cols-2 lg:gap-6">
         <article aria-label="Email from Richard Parker" className="min-w-0 rounded-md border border-border">
           <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-b border-border bg-muted p-5 text-sm"><dt className="font-semibold">To:</dt><dd>Maria Hawkins</dd><dt className="font-semibold">From:</dt><dd>Richard Parker</dd><dt className="font-semibold">Sent:</dt><dd>10 April</dd><dt className="font-semibold">Subject:</dt><dd>Training session</dd></dl>
           <div className="space-y-4 p-5 text-[15px] leading-7"><p>Dear Maria,</p><p>I’m afraid my training session today was a bit of a disaster. We were moved from seminar room 1 to seminar room 2 because of the last-minute board meeting but space was a real problem. There were three desks missing. However, the worst thing was the PowerPoint presentation. I couldn’t use the projector at all because the bulb needs changing. Who should I report this to?</p><p>Richard</p></div>
