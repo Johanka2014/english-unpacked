@@ -23,7 +23,7 @@ const REPAIR = [
 
 const ReadingEquipmentExercise = () => (
   <div className="space-y-8">
-    <Card className="overflow-hidden rounded-sm">
+    <Card className="mx-auto w-full max-w-4xl overflow-hidden rounded-sm">
       <article>
         <CardHeader className="border-b border-foreground/20 text-center">
           <p className="text-xs font-semibold uppercase text-primary">Workplace Technology</p>
@@ -45,7 +45,7 @@ const ReadingEquipmentExercise = () => (
         </CardContent>
       </article>
     </Card>
-    <section aria-labelledby="fastequip-title" className="space-y-5 border-y border-border py-8">
+    <section aria-labelledby="fastequip-title" className="mx-auto w-full max-w-4xl space-y-5 border-y border-border py-8">
       <header className="space-y-2">
         <p className="text-xs font-semibold uppercase text-primary">An advertisement · Teacher’s Book, page 32</p>
         <h2 id="fastequip-title" className="font-serif text-3xl font-bold">FASTEQUIP</h2>
@@ -59,7 +59,7 @@ const ReadingEquipmentExercise = () => (
       </div>
     </section>
     <EquipmentActivity title="1. Fastequip — right, wrong or doesn’t say?" instructions="Read the Fastequip advertisement above, then decide what it tells you. There are two statements where the answer is ‘doesn’t say’." questions={FASTEQUIP} activityType="reading" />
-    <section aria-labelledby="repair-emails-title" className="space-y-5">
+    <section aria-labelledby="repair-emails-title" className="mx-auto w-full max-w-5xl space-y-5">
       <header className="space-y-2"><p className="text-xs font-semibold uppercase text-primary">Student’s Book, page 29</p><h2 id="repair-emails-title" className="font-serif text-2xl font-bold">Office repairs — two emails</h2></header>
       <div className="grid items-stretch gap-4 md:grid-cols-2 lg:gap-6">
         <article aria-label="Email from Richard Parker" className="min-w-0 rounded-md border border-border">
