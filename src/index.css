@@ -132,6 +132,12 @@ All colors MUST be HSL.
   
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  body[data-scroll-locked] {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
   }
 }
 

@@ -46,7 +46,7 @@ const DepartmentMatchingExercise = () => {
   const score = checked ? situations.filter((s) => answers[s.id] === s.correctDept).length : 0;
 
   return (
-    <Card>
+    <Card className="max-w-3xl mx-auto">
       <CardHeader>
         <CardTitle className="text-xl">Company Departments</CardTitle>
         <p className="text-sm text-muted-foreground">
@@ -75,7 +75,7 @@ const DepartmentMatchingExercise = () => {
             return (
               <div
                 key={s.id}
-                className={`flex flex-col sm:flex-row sm:items-center gap-3 rounded-lg border-2 p-3 transition-colors ${
+                className={`flex flex-col sm:flex-row sm:items-center gap-2 rounded-lg border-2 px-3 py-2 transition-colors ${
                   isCorrect
                     ? 'border-green-500 bg-green-50 dark:bg-green-950/30'
                     : isWrong
@@ -90,10 +90,10 @@ const DepartmentMatchingExercise = () => {
                     value={answers[s.id] || ''}
                     onValueChange={(v) => handleSelect(s.id, v)}
                   >
-                    <SelectTrigger className="h-8 w-20 text-sm">
-                      <SelectValue placeholder="..." />
+                    <SelectTrigger className="h-8 w-16 shrink-0 text-sm">
+                      <SelectValue placeholder="...">{answers[s.id] || undefined}</SelectValue>
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent position="popper" align="end" className="w-56">
                       {departments.map((d) => (
                         <SelectItem key={d.letter} value={d.letter}>
                           {d.letter} – {d.name}
