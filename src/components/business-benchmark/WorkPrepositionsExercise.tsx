@@ -63,7 +63,7 @@ const WorkPrepositionsExercise = () => {
   let globalGapIdx = 0;
 
   return (
-    <Card className="bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
+    <Card className="max-w-3xl mx-auto bg-gradient-to-br from-card via-orange-50 dark:via-orange-950/10 to-card border-brand-accent/20">
       <CardHeader className="pb-3 border-b border-brand-accent/20">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -103,7 +103,7 @@ const WorkPrepositionsExercise = () => {
                     disabled={checked}
                   >
                     <SelectTrigger
-                      className={`w-[100px] h-8 text-sm inline-flex ${
+                      className={`w-[100px] shrink-0 h-8 text-sm inline-flex ${
                         checked
                           ? isCorrect
                             ? 'border-green-500 bg-green-50 dark:bg-green-950/20'
@@ -113,7 +113,7 @@ const WorkPrepositionsExercise = () => {
                     >
                       <SelectValue placeholder="—" />
                     </SelectTrigger>
-                    <SelectContent className="bg-card border border-border shadow-lg z-50">
+                    <SelectContent position="popper" className="bg-card border border-border shadow-lg z-50">
                       {OPTIONS.map((opt) => (
                         <SelectItem key={opt} value={opt}>
                           {opt}

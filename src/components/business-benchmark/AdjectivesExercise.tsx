@@ -81,7 +81,7 @@ const AdjectivesExercise = () => {
   };
 
   return (
-    <Card className="service-card">
+    <Card className="service-card max-w-3xl mx-auto">
       <CardContent className="p-6">
         <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
           Adjectives
@@ -107,10 +107,10 @@ const AdjectivesExercise = () => {
                 <span className="text-lg text-foreground">
                   {sentence.id}. {sentence.text.split("____")[0]}
                   <Select value={selected[sentence.id] || ""} onValueChange={(value) => setSelected((prev) => ({ ...prev, [sentence.id]: value }))}>
-                    <SelectTrigger className="inline-block w-40 mx-2 h-8">
+                    <SelectTrigger className="inline-flex w-40 shrink-0 mx-2 h-8 align-middle">
                       <SelectValue placeholder="Select..." />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent position="popper">
                       {adjectives.map((adj) => (
                         <SelectItem key={adj} value={adj}>
                           {adj}
