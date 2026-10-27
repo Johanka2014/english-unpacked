@@ -10,6 +10,7 @@ import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResp
 import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
 import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExercise';
 import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
+import DescribingJobPairwork from '@/components/business-benchmark/DescribingJobPairwork';
 import ListeningPAExercise from '@/components/business-benchmark/ListeningPAExercise';
 import ReadingChangingPlacesExercise from '@/components/business-benchmark/ReadingChangingPlacesExercise';
 import GrammarWorkshopExercise from '@/components/business-benchmark/GrammarWorkshopExercise';
@@ -62,6 +63,7 @@ const BusinessBenchmarkSkill = () => {
       <div className="space-y-8">
         <DepartmentMatchingExercise />
         <JobResponsibilitiesExercise />
+        <DescribingJobPairwork />
         <WorkPrepositionsExercise />
         <AdjectivesExercise />
         <YourTurnExercise />
