@@ -21,7 +21,7 @@ The PDF has three groups of activities. Each goes into the matching existing sec
 - Ex 3: pairwork prompt to compare sentences.
 
 ## Notes
-- The answer keys aren't in this PDF, so I'll write them from the article. Please check them afterwards.
+- Marking uses your uploaded answer key (Photocopiable activity 2). Ex 1 shows "organised, hectic" as suggested answers. Ex 5 accepts the key's verbs (meets, visits / is visiting, is still waiting, checks) plus close alternatives such as "has a meeting with" and "plans".
 - Marked activities record right/wrong on the student dashboard like the rest of the module.
 - Two-column layouts on computers stack on phones.
 
