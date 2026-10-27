@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
 import DragDropCategorize from "@/components/presentations/DragDropCategorize";
+import RadioHeartbeatQuestions from "./RadioHeartbeatQuestions";
 
 /* ── Exercise 1: Complete the interview ── */
 interface GapPart {
@@ -247,11 +248,13 @@ const GrammarWorkshopExercise = () => {
         </CardContent>
       </Card>
 
-      {/* Exercise 4 – Pair work */}
+      <RadioHeartbeatQuestions />
+
+      {/* Exercise 5 – Pair work */}
       <Card className="service-card">
         <CardContent className="p-6">
           <h3 className="text-2xl font-semibold mb-4 font-merriweather text-foreground">
-            4. Pair work
+            5. Pair work
           </h3>
           <p className="text-foreground">
             Work in pairs. Read your sentences to each other to see if any of your sentences match your partner's.
