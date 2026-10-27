@@ -17,9 +17,10 @@ interface EquipmentActivityProps {
   instructions: ReactNode;
   questions: EquipmentQuestion[];
   activityType?: string;
+  modulePrefix?: string;
 }
 
-const EquipmentActivity = ({ title, instructions, questions, activityType = "multiple-choice" }: EquipmentActivityProps) => {
+const EquipmentActivity = ({ title, instructions, questions, activityType = "multiple-choice", modulePrefix = "BB Module 5" }: EquipmentActivityProps) => {
   const track = useActivityTracking();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
@@ -57,7 +58,7 @@ const EquipmentActivity = ({ title, instructions, questions, activityType = "mul
           })}
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <Button onClick={() => { setChecked(true); track({ activityTitle: `BB Module 5 — ${title}`, activityType, score, total: questions.length }); }}>Check answers</Button>
+          <Button onClick={() => { setChecked(true); track({ activityTitle: `${modulePrefix} — ${title}`, activityType, score, total: questions.length }); }}>Check answers</Button>
           {checked && <span className="text-sm text-muted-foreground">{score} / {questions.length} correct</span>}
         </div>
       </CardContent>

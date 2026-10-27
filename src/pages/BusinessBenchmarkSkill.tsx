@@ -10,6 +10,9 @@ import JobResponsibilitiesExercise from '@/components/business-benchmark/JobResp
 import WorkPrepositionsExercise from '@/components/business-benchmark/WorkPrepositionsExercise';
 import AdjectivesExercise from '@/components/business-benchmark/AdjectivesExercise';
 import YourTurnExercise from '@/components/business-benchmark/YourTurnExercise';
+import GettingStartedTalkingPoints from '@/components/business-benchmark/GettingStartedTalkingPoints';
+import TravelstopReading from '@/components/business-benchmark/TravelstopReading';
+import LikesDislikesVocabulary from '@/components/business-benchmark/LikesDislikesVocabulary';
 import DescribingJobPairwork from '@/components/business-benchmark/DescribingJobPairwork';
 import ListeningPAExercise from '@/components/business-benchmark/ListeningPAExercise';
 import ReadingChangingPlacesExercise from '@/components/business-benchmark/ReadingChangingPlacesExercise';
@@ -57,7 +60,7 @@ const BusinessBenchmarkSkill = () => {
 
   const renderContent = () => {
     const contentType = skill.content?.type;
-    if (contentType === 'organigram-working-day') return <OrganigramExercise />;
+    if (contentType === 'organigram-working-day') return <div className="space-y-8"><OrganigramExercise /><GettingStartedTalkingPoints /></div>;
     if (contentType === 'getting-started-corporate-culture') return <CorporateCultureGettingStarted />;
     if (contentType === 'department-matching') return (
       <div className="space-y-8">
@@ -67,10 +70,11 @@ const BusinessBenchmarkSkill = () => {
         <WorkPrepositionsExercise />
         <AdjectivesExercise />
         <YourTurnExercise />
+        <LikesDislikesVocabulary />
       </div>
     );
     if (contentType === 'listening-pa') return <ListeningPAExercise />;
-    if (contentType === 'reading-changing-places') return <ReadingChangingPlacesExercise />;
+    if (contentType === 'reading-changing-places') return <div className="space-y-8"><ReadingChangingPlacesExercise /><TravelstopReading /></div>;
     if (contentType === 'grammar-workshop') return <GrammarWorkshopExercise />;
     if (contentType === 'reading-corporate-culture') return <ReadingCorporateCultureExercise />;
     if (contentType === 'vocab-corporate-culture') return <VocabCorporateCultureExercise />;
