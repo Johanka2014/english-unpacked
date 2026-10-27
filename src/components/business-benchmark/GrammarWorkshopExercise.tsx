@@ -148,7 +148,9 @@ const GrammarWorkshopExercise = () => {
               <p className="text-foreground text-sm italic mb-1">
                 Alex Jennings <strong>runs</strong> a chain of steak bars.
               </p>
-              <p className="text-muted-foreground text-xs">(He does this as part of everyday life.)</p>
+              <p className="text-muted-foreground text-xs mb-3">(He does this as part of everyday life.)</p>
+              <p className="text-foreground text-sm mb-1">Question: <em><strong>Does</strong> he <strong>run</strong> a chain of steak bars?</em></p>
+              <p className="text-foreground text-sm">Negative: <em>He <strong>doesn't run</strong> a chain of steak bars.</em></p>
             </div>
 
             <div className="bg-muted/30 rounded-lg p-4 border border-border">
@@ -159,7 +161,10 @@ const GrammarWorkshopExercise = () => {
               <p className="text-foreground text-sm italic mb-1">
                 They <strong>are redesigning</strong> the staff uniforms.
               </p>
-              <p className="text-muted-foreground text-xs">(This is true only in this period of time.)</p>
+              <p className="text-muted-foreground text-xs mb-3">(This is true only in this period of time.)</p>
+              <p className="text-foreground text-sm mb-1">Question: <em><strong>Are</strong> they <strong>redesigning</strong> the staff uniforms?</em></p>
+              <p className="text-foreground text-sm mb-3">Negative: <em>They <strong>aren't redesigning</strong> the staff uniforms.</em></p>
+              <p className="text-muted-foreground text-xs">(Formed with <strong><em>am/is/are</em></strong> + <em>redesign<strong>ing</strong>/mak<strong>ing</strong></em>, etc.)</p>
             </div>
           </div>
         </CardContent>
