@@ -17,9 +17,17 @@ import budapestHero from '@/assets/topics/budapest-hero.jpg';
 
 const PhotoGallery = ({ section }: { section: BudapestSection }) => {
   // Group places by photo frame shape so each row of cards lines up.
-  // Wide panoramas get a full-width row so they stay big enough to see.
-  const columnsFor = (aspect: string) =>
-    aspect === 'aspect-[16/9]' ? 'grid-cols-1' : aspect === 'aspect-[3/4]' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-3';
+  // Wide panoramas get a full-width row; a lone portrait is shown centred.
+  const ratioOf = (a: string) => {
+    const m = a.match(/aspect-\[(\d+)\/(\d+)\]/);
+    return m ? Number(m[1]) / Number(m[2]) : 4 / 3;
+  };
+  const columnsFor = (a: string) => {
+    const r = ratioOf(a);
+    if (r >= 1.4) return 'grid-cols-1';
+    if (r < 1) return 'grid-cols-1 md:grid-cols-3';
+    return 'grid-cols-2 md:grid-cols-3';
+  };
   const groups: { aspect: string; items: BudapestPlace[] }[] = [];
   for (const p of section.places) {
     const aspect = p.aspect ?? 'aspect-[4/3]';
@@ -29,29 +37,32 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => {
   }
   return (
     <div className="space-y-3">
-      {groups.map((g) => (
-        <div key={g.aspect} className={`grid gap-3 ${columnsFor(g.aspect)}`}>
-          {g.items.map((p) => (
-            <figure key={p.id} className="rounded-lg border border-border overflow-hidden bg-card self-start">
-              {p.photo ? (
-                <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${g.aspect} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
-              ) : (
-                <div className={`w-full ${g.aspect} flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground`}>
-                  <Camera className="h-7 w-7" />
-                  <span className="text-xs">Photo coming soon</span>
-                </div>
-              )}
-              <figcaption className="p-2.5">
-                <p className="text-sm font-semibold text-foreground leading-tight">{p.name}</p>
-                <p className="text-xs text-muted-foreground">{p.caption}</p>
-                {p.credit && (
-                  <p className="text-[10px] text-muted-foreground mt-1">Image by <a href={p.credit.url} target="_blank" rel="noopener noreferrer" className="underline">{p.credit.name}</a></p>
+      {groups.map((g) => {
+        const lonePortrait = g.items.length === 1 && ratioOf(g.aspect) < 1;
+        return (
+          <div key={g.aspect} className={lonePortrait ? 'flex justify-center' : `grid gap-3 ${columnsFor(g.aspect)}`}>
+            {g.items.map((p) => (
+              <figure key={p.id} className={`rounded-lg border border-border overflow-hidden bg-card self-start ${lonePortrait ? 'w-full max-w-[300px]' : ''}`}>
+                {p.photo ? (
+                  <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${g.aspect} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
+                ) : (
+                  <div className={`w-full ${g.aspect} flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground`}>
+                    <Camera className="h-7 w-7" />
+                    <span className="text-xs">Photo coming soon</span>
+                  </div>
                 )}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      ))}
+                <figcaption className="p-2.5">
+                  <p className="text-sm font-semibold text-foreground leading-tight">{p.name}</p>
+                  <p className="text-xs text-muted-foreground">{p.caption}</p>
+                  {p.credit && (
+                    <p className="text-[10px] text-muted-foreground mt-1">Image by <a href={p.credit.url} target="_blank" rel="noopener noreferrer" className="underline">{p.credit.name}</a></p>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };

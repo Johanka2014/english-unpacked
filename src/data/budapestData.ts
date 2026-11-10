@@ -14,6 +14,10 @@ import shoesPhoto from '@/assets/topics/budapest-shoes.jpg.asset.json';
 import sovietPhoto from '@/assets/topics/budapest-soviet.jpg.asset.json';
 import reaganPhoto from '@/assets/topics/budapest-reagan.jpg.asset.json';
 import martyrsPhoto from '@/assets/topics/budapest-martyrs.jpg.asset.json';
+import chainBridgePhoto from '@/assets/topics/budapest-chain-bridge.jpg.asset.json';
+import funicularPhoto from '@/assets/topics/budapest-funicular.jpg.asset.json';
+import budaCastlePhoto from '@/assets/topics/budapest-castle.jpg.asset.json';
+import bastionPhoto from '@/assets/topics/budapest-bastion.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {
@@ -215,10 +219,10 @@ export const historySection: BudapestSection = {
 export const budaSection: BudapestSection = {
   id: 'buda',
   places: [
-    { id: 'chain-bridge', name: 'Széchenyi Chain Bridge', caption: 'Crossing from Pest to Buda' },
-    { id: 'funicular', name: 'Buda Castle Funicular', caption: 'Going up Castle Hill' },
-    { id: 'buda-castle', name: 'Buda Castle', caption: 'The royal palace' },
-    { id: 'bastion', name: "Fisherman's Bastion", caption: 'The best view of the city' },
+    { id: 'chain-bridge', name: 'Széchenyi Chain Bridge', caption: 'Crossing from Pest to Buda', photo: chainBridgePhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
+    { id: 'funicular', name: 'Buda Castle Funicular', caption: 'Going up Castle Hill', photo: funicularPhoto.url, fitWhole: true, aspect: 'aspect-[9/20]' },
+    { id: 'buda-castle', name: 'Buda Castle', caption: 'The royal palace', photo: budaCastlePhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
+    { id: 'bastion', name: "Fisherman's Bastion", caption: 'The best view of the city', photo: bastionPhoto.url, fitWhole: true, aspect: 'aspect-[3/2]', credit: { name: 'ozsvathcsilla from Pixabay', url: 'https://pixabay.com/users/ozsvathcsilla-13011966/' } },
   ],
   activities: [
     {
