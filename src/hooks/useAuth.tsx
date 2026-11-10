@@ -28,6 +28,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       (event, session) => {
         setSession(session);
         setUser(session?.user ?? null);
+        // The listener fires INITIAL_SESSION on start-up, so loading can finish here
+        // even if getSession() is slow to resolve.
+        setIsLoading(false);
         
         // Check admin role after setting user
         if (session?.user) {
@@ -40,6 +43,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     );
 
+    // Safety net: never leave the app stuck on the loading screen.
+    const loadingTimeout = setTimeout(() => setIsLoading(false), 8000);
+
     // Then check for existing session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -48,9 +54,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         checkAdminRole(session.user.id);
       }
       setIsLoading(false);
-    });
+    }).catch(() => setIsLoading(false));
 
-    return () => subscription.unsubscribe();
+    return () => {
+      clearTimeout(loadingTimeout);
+      subscription.unsubscribe();
+    };
   }, []);
 
   const checkAdminRole = async (userId: string) => {

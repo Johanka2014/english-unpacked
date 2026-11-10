@@ -109,6 +109,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
+              <Route path="/login" element={<Navigate to="/auth" replace />} />
               <Route path="/business-english" element={<BusinessEnglish />} />
               <Route path="/business-travel" element={<BusinessTravel />} />
               <Route path="/conversational-english" element={<ConversationalEnglish />} />
