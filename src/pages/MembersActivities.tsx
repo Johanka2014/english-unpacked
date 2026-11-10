@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   BookOpen, GraduationCap, Shield, FileText, Briefcase, Star, Mic,
-  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, ShieldCheck, Recycle, Landmark, type LucideIcon,
+  Megaphone, Wrench, Trophy, Award, Compass, Search, History, X, Presentation, Smartphone, Shuffle, Gamepad2, ArrowLeft, ScrollText, Moon, Music, Heart, Library, ShieldCheck, Recycle, Landmark, Castle, type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -305,6 +305,13 @@ const TABS: TabDef[] = [
         icon: Landmark,
         path: '/topics/politics',
         color: 'text-blue-700',
+      },
+      {
+        title: 'A Trip to Budapest',
+        description: 'B1 lesson mixing Budapest history with places visited — statues, City Park, the Danube memorials, Buda Castle, Hungarian food and thermal baths, with reading, comprehension and vocabulary',
+        icon: Castle,
+        path: '/topics/budapest',
+        color: 'text-red-700',
       },
     ],
   },
