@@ -1,6 +1,7 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 import globePhoto from '@/assets/topics/budapest-globe.jpg.asset.json';
+import budaPestMap from '@/assets/topics/budapest-buda-pest-map.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {

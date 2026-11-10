@@ -53,6 +53,7 @@ export interface Activity {
   imageCreditUrl?: string;      // link to the photographer's profile
   imageCreditSource?: string;   // e.g. "Pixabay"
   imageCreditSourceUrl?: string;
+  imageSide?: 'left' | 'right';  // which column the image sits in (default right)
   imageSize?: 'sm' | 'md' | 'lg'; // controls image height relative to adjacent text
   newspaper?: boolean;      // render a reading passage styled as a news article
   sentences?: string[];     // word-order: target sentences to rebuild from shuffled words
