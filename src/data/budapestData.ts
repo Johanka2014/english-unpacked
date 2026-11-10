@@ -8,6 +8,12 @@ import anonymusPhoto from '@/assets/topics/budapest-anonymus.jpg.asset.json';
 import vajdahunyadPhoto from '@/assets/topics/budapest-vajdahunyad.jpg.asset.json';
 import streetArtPhoto from '@/assets/topics/budapest-street-art.jpg.asset.json';
 import budaPestMap from '@/assets/topics/budapest-buda-pest-map.jpg.asset.json';
+import boatPhoto from '@/assets/topics/budapest-boat.jpg.asset.json';
+import parliamentPhoto from '@/assets/topics/budapest-parliament.jpg.asset.json';
+import shoesPhoto from '@/assets/topics/budapest-shoes.jpg.asset.json';
+import sovietPhoto from '@/assets/topics/budapest-soviet.jpg.asset.json';
+import reaganPhoto from '@/assets/topics/budapest-reagan.jpg.asset.json';
+import martyrsPhoto from '@/assets/topics/budapest-martyrs.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {
@@ -18,6 +24,8 @@ export interface BudapestPlace {
   credit?: { name: string; url: string };
   /** Show the whole photo instead of cropping it to fill the frame. */
   fitWhole?: boolean;
+  /** Tailwind aspect-ratio class for the photo frame, e.g. 'aspect-[3/4]'. */
+  aspect?: string;
 }
 
 export interface BudapestSection {
