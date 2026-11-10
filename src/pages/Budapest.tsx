@@ -13,6 +13,7 @@ import {
   warmUp, budapestFlashcards, vocabActivities, pestSection, historySection, budaSection, foodSection,
   finalTasks, writingPrompt, type BudapestSection,
 } from '@/data/budapestData';
+import budapestHero from '@/assets/topics/budapest-hero.jpg';
 
 const PhotoGallery = ({ section }: { section: BudapestSection }) => (
   <div className="grid gap-3 grid-cols-2 md:grid-cols-3">
@@ -67,6 +68,13 @@ const Budapest = () => (
         <p className="text-base sm:text-lg text-muted-foreground mt-2">
           Statues, parks and street art, the Danube and its memorials, Buda Castle, Hungarian food and the famous thermal baths.
         </p>
+        <img
+          src={budapestHero}
+          alt="The Hungarian Parliament and the Chain Bridge over the Danube at sunset"
+          width={1600}
+          height={912}
+          className="w-full h-auto rounded-lg border border-border shadow-sm mt-4"
+        />
       </header>
 
       <Tabs defaultValue="warmup" className="w-full">
