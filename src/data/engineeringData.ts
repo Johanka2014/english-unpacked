@@ -49,6 +49,10 @@ export interface Activity {
   fields?: NoteField[];     // writable note boxes
   image?: string;           // optional illustration (two-column layout)
   imageAlt?: string;
+  imageCredit?: string;         // photographer / illustrator name shown under the image
+  imageCreditUrl?: string;      // link to the photographer's profile
+  imageCreditSource?: string;   // e.g. "Pixabay"
+  imageCreditSourceUrl?: string;
   imageSize?: 'sm' | 'md' | 'lg'; // controls image height relative to adjacent text
   newspaper?: boolean;      // render a reading passage styled as a news article
   sentences?: string[];     // word-order: target sentences to rebuild from shuffled words
