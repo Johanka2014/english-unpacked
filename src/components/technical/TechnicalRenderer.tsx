@@ -276,8 +276,8 @@ const Discussion = ({ activity }: { activity: Activity }) => {
     return (
       <InfoSection title={activity.title || 'Discussion'}>
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 items-center">
-          <div>{content}</div>
-          <figure className="m-0">
+          <div className={activity.imageSide === 'left' ? 'md:order-2' : undefined}>{content}</div>
+          <figure className={`m-0 ${activity.imageSide === 'left' ? 'md:order-1' : ''}`}>
             <img
               src={activity.image}
               alt={activity.imageAlt || ''}
