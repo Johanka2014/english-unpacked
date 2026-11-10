@@ -1,5 +1,6 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
+import globePhoto from '@/assets/topics/budapest-globe.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {
@@ -26,6 +27,12 @@ export const warmUp: Activity[] = [
       'When you visit a new city, do you like museums, food, parks or nightlife best?',
       'Have you ever been on a boat trip or to a thermal spa?',
     ],
+    image: globePhoto.url,
+    imageAlt: 'Close-up photograph of a globe focused on Central and Eastern Europe, with Budapest visible',
+    imageCredit: 'pavellllllll',
+    imageCreditUrl: 'https://pixabay.com/users/pavellllllll-11915497/',
+    imageCreditSource: 'Pixabay',
+    imageCreditSourceUrl: 'https://pixabay.com/',
   },
   {
     type: 'intro',

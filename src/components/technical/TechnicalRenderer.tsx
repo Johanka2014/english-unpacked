@@ -277,14 +277,40 @@ const Discussion = ({ activity }: { activity: Activity }) => {
       <InfoSection title={activity.title || 'Discussion'}>
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 items-center">
           <div>{content}</div>
-          <img
-            src={activity.image}
-            alt={activity.imageAlt || ''}
-            loading="lazy"
-            width={1024}
-            height={768}
-            className="w-full h-auto rounded-xl object-cover shadow-sm"
-          />
+          <figure className="m-0">
+            <img
+              src={activity.image}
+              alt={activity.imageAlt || ''}
+              loading="lazy"
+              className="w-full max-h-[440px] object-cover rounded-xl shadow-sm"
+            />
+            {activity.imageCredit && (
+              <figcaption className="mt-1.5 text-[0.7rem] leading-snug text-muted-foreground">
+                Image by{' '}
+                <a
+                  href={activity.imageCreditUrl || activity.imageCredit}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-foreground"
+                >
+                  {activity.imageCredit}
+                </a>
+                {activity.imageCreditSource && (
+                  <>
+                    {' '}from{' '}
+                    <a
+                      href={activity.imageCreditSourceUrl || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-foreground"
+                    >
+                      {activity.imageCreditSource}
+                    </a>
+                  </>
+                )}
+              </figcaption>
+            )}
+          </figure>
         </div>
       </InfoSection>
     );
