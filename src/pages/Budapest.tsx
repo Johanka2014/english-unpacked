@@ -22,32 +22,37 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => {
     const m = a.match(/aspect-\[(\d+)\/(\d+)\]/);
     return m ? Number(m[1]) / Number(m[2]) : 4 / 3;
   };
-  const columnsFor = (a: string, count: number) => {
+  // Photos sit in rows by shape: wide panoramas together, portraits together, the rest together.
+  const orientationOf = (a: string) => {
     const r = ratioOf(a);
-    if (r >= 1.4) return 'grid-cols-1';
-    if (r < 1) return 'grid-cols-1 md:grid-cols-3';
+    return r >= 1.4 ? 'wide' : r < 1 ? 'tall' : 'standard';
+  };
+  const columnsFor = (key: string, count: number) => {
+    if (key === 'wide') return count >= 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1';
+    if (key === 'tall') return 'grid-cols-1 md:grid-cols-3';
     // Square-ish frames: even counts sit 2-up on phones, odd counts stack so no empty gap is left.
     return count % 2 === 0 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-3';
   };
-  const groups: { aspect: string; items: BudapestPlace[] }[] = [];
+  const groups: { key: string; items: { place: BudapestPlace; aspect: string }[] }[] = [];
   for (const p of section.places) {
     const aspect = p.aspect ?? 'aspect-[4/3]';
-    const existing = groups.find((g) => g.aspect === aspect);
-    if (existing) existing.items.push(p);
-    else groups.push({ aspect, items: [p] });
+    const key = orientationOf(aspect);
+    const existing = groups.find((g) => g.key === key);
+    if (existing) existing.items.push({ place: p, aspect });
+    else groups.push({ key, items: [{ place: p, aspect }] });
   }
   return (
     <div className="space-y-3">
       {groups.map((g) => {
-        const lonePortrait = g.items.length === 1 && ratioOf(g.aspect) < 1;
+        const lonePortrait = g.key === 'tall' && g.items.length === 1;
         return (
-          <div key={g.aspect} className={lonePortrait ? 'flex justify-center' : `grid gap-3 ${columnsFor(g.aspect, g.items.length)}`}>
-            {g.items.map((p) => (
+          <div key={g.key} className={lonePortrait ? 'flex justify-center' : `grid gap-3 ${columnsFor(g.key, g.items.length)}`}>
+            {g.items.map(({ place: p, aspect }) => (
               <figure key={p.id} className={`rounded-lg border border-border overflow-hidden bg-card self-start ${lonePortrait ? 'w-full max-w-[300px]' : ''}`}>
                 {p.photo ? (
-                  <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${g.aspect} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
+                  <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${aspect} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
                 ) : (
-                  <div className={`w-full ${g.aspect} flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground`}>
+                  <div className={`w-full ${aspect} flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground`}>
                     <Camera className="h-7 w-7" />
                     <span className="text-xs">Photo coming soon</span>
                   </div>
