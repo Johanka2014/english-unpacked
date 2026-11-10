@@ -306,6 +306,13 @@ const TABS: TabDef[] = [
         path: '/topics/politics',
         color: 'text-blue-700',
       },
+      {
+        title: 'A Trip to Budapest',
+        description: 'B1 lesson mixing Budapest history with places visited — statues, City Park, the Danube memorials, Buda Castle, Hungarian food and thermal baths, with reading, comprehension and vocabulary',
+        icon: Castle,
+        path: '/topics/budapest',
+        color: 'text-red-700',
+      },
     ],
   },
   {
