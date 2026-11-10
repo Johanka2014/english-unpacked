@@ -39,6 +39,9 @@ export const warmUp: Activity[] = [
     type: 'intro',
     title: '1b · One city, two sides',
     body: 'Budapest is the capital of Hungary. The River Danube divides the city into two parts. On the west bank is Buda, which is hilly and old, with the castle and quiet streets. On the east bank is Pest, which is flat and busy, with shops, restaurants, the Parliament and the big park. In 1873 Buda, Pest and a third town, Óbuda, joined together to become one city: Budapest.',
+    image: budaPestMap.url,
+    imageAlt: 'Map of Budapest showing the River Danube dividing the city, with Buda highlighted on the west bank and Pest on the east bank',
+    imageSide: 'left',
   },
   {
     type: 'multiple-choice',
