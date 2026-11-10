@@ -1,6 +1,12 @@
 import type { Activity } from './engineeringData';
 import type { FlashcardItem } from '@/components/presentations/Flashcards';
 import globePhoto from '@/assets/topics/budapest-globe.jpg.asset.json';
+import hofiPhoto from '@/assets/topics/budapest-hofi.jpg.asset.json';
+import kalmanPhoto from '@/assets/topics/budapest-kalman.jpg.asset.json';
+import varosligetPhoto from '@/assets/topics/budapest-varosliget.jpg.asset.json';
+import anonymusPhoto from '@/assets/topics/budapest-anonymus.jpg.asset.json';
+import vajdahunyadPhoto from '@/assets/topics/budapest-vajdahunyad.jpg.asset.json';
+import streetArtPhoto from '@/assets/topics/budapest-street-art.jpg.asset.json';
 import budaPestMap from '@/assets/topics/budapest-buda-pest-map.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
@@ -9,6 +15,7 @@ export interface BudapestPlace {
   name: string;
   caption: string;
   photo?: string;
+  credit?: { name: string; url: string };
 }
 
 export interface BudapestSection {
@@ -87,12 +94,12 @@ export const vocabActivities: Activity[] = [
 export const pestSection: BudapestSection = {
   id: 'pest',
   places: [
-    { id: 'hofi', name: 'Statue of Géza Hofi', caption: 'The comedian sitting on a bench' },
-    { id: 'kalman', name: 'Kálmán Imre statue', caption: 'The composer near the theatre district' },
-    { id: 'varosliget', name: 'Városliget (City Park)', caption: 'Walking in the City Park' },
-    { id: 'anonymus', name: 'Statue of Anonymus', caption: 'The writer with no face' },
-    { id: 'vajdahunyad', name: 'Vajdahunyad Castle', caption: 'The castle by the lake' },
-    { id: 'street-art', name: 'Street art', caption: 'Murals on the city walls' },
+    { id: 'hofi', name: 'Statue of Géza Hofi', caption: 'The comedian sitting on a bench', photo: hofiPhoto.url },
+    { id: 'kalman', name: 'Kálmán Imre statue', caption: 'The composer near the theatre district', photo: kalmanPhoto.url, credit: { name: 'irenne56 from Pixabay', url: 'https://pixabay.com/users/irenne56-20651/' } },
+    { id: 'varosliget', name: 'Városliget (City Park)', caption: 'Walking in the City Park', photo: varosligetPhoto.url },
+    { id: 'anonymus', name: 'Statue of Anonymus', caption: 'The writer with no face', photo: anonymusPhoto.url },
+    { id: 'vajdahunyad', name: 'Vajdahunyad Castle', caption: 'The castle by the lake', photo: vajdahunyadPhoto.url },
+    { id: 'street-art', name: 'Street art', caption: 'Murals on the city walls', photo: streetArtPhoto.url },
   ],
   activities: [
     {

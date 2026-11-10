@@ -30,6 +30,9 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => (
         <figcaption className="p-2.5">
           <p className="text-sm font-semibold text-foreground leading-tight">{p.name}</p>
           <p className="text-xs text-muted-foreground">{p.caption}</p>
+          {p.credit && (
+            <p className="text-[10px] text-muted-foreground mt-1">Image by <a href={p.credit.url} target="_blank" rel="noopener noreferrer" className="underline">{p.credit.name}</a></p>
+          )}
         </figcaption>
       </figure>
     ))}
