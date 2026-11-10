@@ -17,6 +17,9 @@ import budapestHero from '@/assets/topics/budapest-hero.jpg';
 
 const PhotoGallery = ({ section }: { section: BudapestSection }) => {
   // Group places by photo frame shape so each row of cards lines up.
+  // Wide panoramas get a full-width row so they stay big enough to see.
+  const columnsFor = (aspect: string) =>
+    aspect === 'aspect-[16/9]' ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-3';
   const groups: { aspect: string; items: BudapestPlace[] }[] = [];
   for (const p of section.places) {
     const aspect = p.aspect ?? 'aspect-[4/3]';
@@ -27,7 +30,7 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => {
   return (
     <div className="space-y-3">
       {groups.map((g) => (
-        <div key={g.aspect} className="grid gap-3 grid-cols-2 md:grid-cols-3">
+        <div key={g.aspect} className={`grid gap-3 ${columnsFor(g.aspect)}`}>
           {g.items.map((p) => (
             <figure key={p.id} className="rounded-lg border border-border overflow-hidden bg-card self-start">
               {p.photo ? (
