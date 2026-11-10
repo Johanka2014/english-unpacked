@@ -164,12 +164,12 @@ export const pestSection: BudapestSection = {
 export const historySection: BudapestSection = {
   id: 'history',
   places: [
-    { id: 'boat', name: 'Evening boat trip', caption: 'The Danube at night', photo: boatPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
-    { id: 'parliament', name: 'Hungarian Parliament Building', caption: 'Lit up beside the river', photo: parliamentPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
-    { id: 'shoes', name: 'Shoes on the Danube Bank', caption: 'A memorial to remember', photo: shoesPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
-    { id: 'soviet', name: 'Soviet War Memorial', caption: 'Liberty Square', photo: sovietPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
-    { id: 'reagan', name: 'Statue of Ronald Reagan', caption: 'Liberty Square', photo: reaganPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
-    { id: 'martyrs', name: 'Monument of National Martyrs', caption: 'Remembering 1956', photo: martyrsPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
+    { id: 'boat', name: 'Evening boat trip', caption: 'The Danube at night', photo: boatPhoto.url, aspect: 'aspect-[20/9]' },
+    { id: 'parliament', name: 'Hungarian Parliament Building', caption: 'Lit up beside the river', photo: parliamentPhoto.url, aspect: 'aspect-[19/9]' },
+    { id: 'shoes', name: 'Shoes on the Danube Bank', caption: 'A memorial to remember', photo: shoesPhoto.url, aspect: 'aspect-[2/3]' },
+    { id: 'soviet', name: 'Soviet War Memorial', caption: 'Liberty Square', photo: sovietPhoto.url, aspect: 'aspect-[20/9]' },
+    { id: 'reagan', name: 'Statue of Ronald Reagan', caption: 'Liberty Square', photo: reaganPhoto.url, aspect: 'aspect-[9/20]' },
+    { id: 'martyrs', name: 'Monument of National Martyrs', caption: 'Remembering 1956', photo: martyrsPhoto.url, aspect: 'aspect-[9/20]' },
   ],
   activities: [
     {
