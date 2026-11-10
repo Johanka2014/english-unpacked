@@ -27,6 +27,12 @@ export const warmUp: Activity[] = [
       'When you visit a new city, do you like museums, food, parks or nightlife best?',
       'Have you ever been on a boat trip or to a thermal spa?',
     ],
+    image: globePhoto.url,
+    imageAlt: 'Close-up photograph of a globe focused on Central and Eastern Europe, with Budapest visible',
+    imageCredit: 'pavellllllll',
+    imageCreditUrl: 'https://pixabay.com/users/pavellllllll-11915497/',
+    imageCreditSource: 'Pixabay',
+    imageCreditSourceUrl: 'https://pixabay.com/',
   },
   {
     type: 'intro',
