@@ -15,29 +15,43 @@ import {
 } from '@/data/budapestData';
 import budapestHero from '@/assets/topics/budapest-hero.jpg';
 
-const PhotoGallery = ({ section }: { section: BudapestSection }) => (
-  <div className="grid gap-3 grid-cols-2 md:grid-cols-3">
-    {section.places.map((p) => (
-      <figure key={p.id} className="rounded-lg border border-border overflow-hidden bg-card self-start">
-        {p.photo ? (
-          <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${p.aspect ?? 'aspect-[4/3]'} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
-        ) : (
-          <div className="w-full aspect-[4/3] flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground">
-            <Camera className="h-7 w-7" />
-            <span className="text-xs">Photo coming soon</span>
-          </div>
-        )}
-        <figcaption className="p-2.5">
-          <p className="text-sm font-semibold text-foreground leading-tight">{p.name}</p>
-          <p className="text-xs text-muted-foreground">{p.caption}</p>
-          {p.credit && (
-            <p className="text-[10px] text-muted-foreground mt-1">Image by <a href={p.credit.url} target="_blank" rel="noopener noreferrer" className="underline">{p.credit.name}</a></p>
-          )}
-        </figcaption>
-      </figure>
-    ))}
-  </div>
-);
+const PhotoGallery = ({ section }: { section: BudapestSection }) => {
+  // Group places by photo frame shape so each row of cards lines up.
+  const groups: { aspect: string; items: BudapestPlace[] }[] = [];
+  for (const p of section.places) {
+    const aspect = p.aspect ?? 'aspect-[4/3]';
+    const existing = groups.find((g) => g.aspect === aspect);
+    if (existing) existing.items.push(p);
+    else groups.push({ aspect, items: [p] });
+  }
+  return (
+    <div className="space-y-3">
+      {groups.map((g) => (
+        <div key={g.aspect} className="grid gap-3 grid-cols-2 md:grid-cols-3">
+          {g.items.map((p) => (
+            <figure key={p.id} className="rounded-lg border border-border overflow-hidden bg-card self-start">
+              {p.photo ? (
+                <img src={p.photo} alt={p.name} loading="lazy" className={`w-full ${g.aspect} ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
+              ) : (
+                <div className={`w-full ${g.aspect} flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground`}>
+                  <Camera className="h-7 w-7" />
+                  <span className="text-xs">Photo coming soon</span>
+                </div>
+              )}
+              <figcaption className="p-2.5">
+                <p className="text-sm font-semibold text-foreground leading-tight">{p.name}</p>
+                <p className="text-xs text-muted-foreground">{p.caption}</p>
+                {p.credit && (
+                  <p className="text-[10px] text-muted-foreground mt-1">Image by <a href={p.credit.url} target="_blank" rel="noopener noreferrer" className="underline">{p.credit.name}</a></p>
+                )}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Section = ({ section, intro }: { section: BudapestSection; intro: string }) => (
   <>
