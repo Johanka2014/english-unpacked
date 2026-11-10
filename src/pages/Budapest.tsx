@@ -20,7 +20,7 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => (
     {section.places.map((p) => (
       <figure key={p.id} className="rounded-lg border border-border overflow-hidden bg-card">
         {p.photo ? (
-          <img src={p.photo} alt={p.name} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+          <img src={p.photo} alt={p.name} loading="lazy" className={`w-full aspect-[4/3] ${p.fitWhole ? 'object-contain bg-muted' : 'object-cover'}`} />
         ) : (
           <div className="w-full aspect-[4/3] flex flex-col items-center justify-center gap-2 bg-muted/50 border-b border-dashed border-border text-muted-foreground">
             <Camera className="h-7 w-7" />
