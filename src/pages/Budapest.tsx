@@ -19,7 +19,7 @@ const PhotoGallery = ({ section }: { section: BudapestSection }) => {
   // Group places by photo frame shape so each row of cards lines up.
   // Wide panoramas get a full-width row so they stay big enough to see.
   const columnsFor = (aspect: string) =>
-    aspect === 'aspect-[16/9]' ? 'grid-cols-1' : aspect === 'aspect-[3/4]' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-3';
+    aspect === 'aspect-[16/9]' ? 'grid-cols-1' : aspect === 'aspect-[3/2]' ? 'grid-cols-1' : aspect === 'aspect-[3/4]' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-3';
   const groups: { aspect: string; items: BudapestPlace[] }[] = [];
   for (const p of section.places) {
     const aspect = p.aspect ?? 'aspect-[4/3]';

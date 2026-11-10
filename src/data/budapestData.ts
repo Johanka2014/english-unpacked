@@ -222,7 +222,7 @@ export const budaSection: BudapestSection = {
     { id: 'chain-bridge', name: 'Széchenyi Chain Bridge', caption: 'Crossing from Pest to Buda', photo: chainBridgePhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
     { id: 'funicular', name: 'Buda Castle Funicular', caption: 'Going up Castle Hill', photo: funicularPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
     { id: 'buda-castle', name: 'Buda Castle', caption: 'The royal palace', photo: budaCastlePhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
-    { id: 'bastion', name: "Fisherman's Bastion", caption: 'The best view of the city', photo: bastionPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]', credit: { name: 'ozsvathcsilla from Pixabay', url: 'https://pixabay.com/users/ozsvathcsilla-13011966/' } },
+    { id: 'bastion', name: "Fisherman's Bastion", caption: 'The best view of the city', photo: bastionPhoto.url, fitWhole: true, aspect: 'aspect-[3/2]', credit: { name: 'ozsvathcsilla from Pixabay', url: 'https://pixabay.com/users/ozsvathcsilla-13011966/' } },
   ],
   activities: [
     {
