@@ -16,6 +16,8 @@ export interface BudapestPlace {
   caption: string;
   photo?: string;
   credit?: { name: string; url: string };
+  /** Show the whole photo instead of cropping it to fill the frame. */
+  fitWhole?: boolean;
 }
 
 export interface BudapestSection {
@@ -94,7 +96,7 @@ export const vocabActivities: Activity[] = [
 export const pestSection: BudapestSection = {
   id: 'pest',
   places: [
-    { id: 'hofi', name: 'Statue of Géza Hofi', caption: 'The comedian sitting on a bench', photo: hofiPhoto.url },
+    { id: 'hofi', name: 'Statue of Géza Hofi', caption: 'The comedian sitting on a bench', photo: hofiPhoto.url, fitWhole: true },
     { id: 'kalman', name: 'Kálmán Imre statue', caption: 'The composer near the theatre district', photo: kalmanPhoto.url, credit: { name: 'irenne56 from Pixabay', url: 'https://pixabay.com/users/irenne56-20651/' } },
     { id: 'varosliget', name: 'Városliget (City Park)', caption: 'Walking in the City Park', photo: varosligetPhoto.url },
     { id: 'anonymus', name: 'Statue of Anonymus', caption: 'The writer with no face', photo: anonymusPhoto.url },
