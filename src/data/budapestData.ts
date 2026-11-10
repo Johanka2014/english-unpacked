@@ -8,6 +8,12 @@ import anonymusPhoto from '@/assets/topics/budapest-anonymus.jpg.asset.json';
 import vajdahunyadPhoto from '@/assets/topics/budapest-vajdahunyad.jpg.asset.json';
 import streetArtPhoto from '@/assets/topics/budapest-street-art.jpg.asset.json';
 import budaPestMap from '@/assets/topics/budapest-buda-pest-map.jpg.asset.json';
+import boatPhoto from '@/assets/topics/budapest-boat.jpg.asset.json';
+import parliamentPhoto from '@/assets/topics/budapest-parliament.jpg.asset.json';
+import shoesPhoto from '@/assets/topics/budapest-shoes.jpg.asset.json';
+import sovietPhoto from '@/assets/topics/budapest-soviet.jpg.asset.json';
+import reaganPhoto from '@/assets/topics/budapest-reagan.jpg.asset.json';
+import martyrsPhoto from '@/assets/topics/budapest-martyrs.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {
@@ -18,6 +24,8 @@ export interface BudapestPlace {
   credit?: { name: string; url: string };
   /** Show the whole photo instead of cropping it to fill the frame. */
   fitWhole?: boolean;
+  /** Tailwind aspect-ratio class for the photo frame, e.g. 'aspect-[3/4]'. */
+  aspect?: string;
 }
 
 export interface BudapestSection {
@@ -148,12 +156,12 @@ export const pestSection: BudapestSection = {
 export const historySection: BudapestSection = {
   id: 'history',
   places: [
-    { id: 'boat', name: 'Evening boat trip', caption: 'The Danube at night' },
-    { id: 'parliament', name: 'Hungarian Parliament Building', caption: 'Lit up beside the river' },
-    { id: 'shoes', name: 'Shoes on the Danube Bank', caption: 'A memorial to remember' },
-    { id: 'soviet', name: 'Soviet War Memorial', caption: 'Liberty Square' },
-    { id: 'reagan', name: 'Statue of Ronald Reagan', caption: 'Liberty Square' },
-    { id: 'martyrs', name: 'Monument of National Martyrs', caption: 'Remembering 1956' },
+    { id: 'boat', name: 'Evening boat trip', caption: 'The Danube at night', photo: boatPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
+    { id: 'parliament', name: 'Hungarian Parliament Building', caption: 'Lit up beside the river', photo: parliamentPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
+    { id: 'shoes', name: 'Shoes on the Danube Bank', caption: 'A memorial to remember', photo: shoesPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
+    { id: 'soviet', name: 'Soviet War Memorial', caption: 'Liberty Square', photo: sovietPhoto.url, fitWhole: true, aspect: 'aspect-[16/9]' },
+    { id: 'reagan', name: 'Statue of Ronald Reagan', caption: 'Liberty Square', photo: reaganPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
+    { id: 'martyrs', name: 'Monument of National Martyrs', caption: 'Remembering 1956', photo: martyrsPhoto.url, fitWhole: true, aspect: 'aspect-[3/4]' },
   ],
   activities: [
     {
