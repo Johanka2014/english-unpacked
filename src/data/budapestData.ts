@@ -18,6 +18,10 @@ import chainBridgePhoto from '@/assets/topics/budapest-chain-bridge.jpg.asset.js
 import funicularPhoto from '@/assets/topics/budapest-funicular.jpg.asset.json';
 import budaCastlePhoto from '@/assets/topics/budapest-castle.jpg.asset.json';
 import bastionPhoto from '@/assets/topics/budapest-bastion.jpg.asset.json';
+import langosPhoto from '@/assets/topics/budapest-langos.jpg.asset.json';
+import borschtPhoto from '@/assets/topics/budapest-borscht.jpg.asset.json';
+import schnitzelPhoto from '@/assets/topics/budapest-schnitzel.jpg.asset.json';
+import gellertPhoto from '@/assets/topics/budapest-gellert.jpg.asset.json';
 
 /** A place visited on the trip. Add a photo by importing it in Budapest.tsx and setting `photo`. */
 export interface BudapestPlace {
@@ -264,10 +268,10 @@ export const budaSection: BudapestSection = {
 export const foodSection: BudapestSection = {
   id: 'food',
   places: [
-    { id: 'langos', name: 'Lángos', caption: 'With sour cream and cheese' },
-    { id: 'borscht', name: 'Borscht', caption: 'A warming soup' },
-    { id: 'schnitzel', name: 'Schnitzel', caption: 'Crispy and golden' },
-    { id: 'gellert', name: 'Gellért Thermal Bath', caption: 'Relaxing in the hot water' },
+    { id: 'langos', name: 'Lángos', caption: 'With sour cream and cheese', photo: langosPhoto.url, aspect: 'aspect-[4/3]' },
+    { id: 'borscht', name: 'Borscht', caption: 'A warming soup', photo: borschtPhoto.url, aspect: 'aspect-[4/3]' },
+    { id: 'schnitzel', name: 'Schnitzel', caption: 'Crispy and golden', photo: schnitzelPhoto.url, fitWhole: true, aspect: 'aspect-[9/20]' },
+    { id: 'gellert', name: 'Gellért Thermal Bath', caption: 'Relaxing in the hot water', photo: gellertPhoto.url, aspect: 'aspect-[4/3]' },
   ],
   activities: [
     {
