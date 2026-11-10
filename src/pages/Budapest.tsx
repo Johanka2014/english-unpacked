@@ -11,7 +11,7 @@ import Flashcards from '@/components/presentations/Flashcards';
 import PoliticsWritingBox from '@/components/topics/PoliticsWritingBox';
 import {
   warmUp, budapestFlashcards, vocabActivities, pestSection, historySection, budaSection, foodSection,
-  finalTasks, writingPrompt, type BudapestSection,
+  finalTasks, writingPrompt, type BudapestSection, type BudapestPlace,
 } from '@/data/budapestData';
 import budapestHero from '@/assets/topics/budapest-hero.jpg';
 
