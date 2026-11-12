@@ -22,3 +22,11 @@
 # Module 5 object-description gap fill
 - [x] Add the original tool photo and interactive description at the top of Listening, removed from Vocabulary.
 - [x] Verify gap positions, answer checking, reset and desktop/phone layouts while signed in; confirm 5/5 reads back on the dashboard.
+
+# Module 5 gizmo pre-listening
+- [x] Add the uploaded introduction, verb matching and dialogue below Useful listening language and before Track 6.
+- [x] Verify answer keys, signed-in checking/reset, desktop/phone layout and dashboard score readback.
+
+# Module 5 final listening activity
+- [x] Add the newly uploaded activity at the end of Listening.
+- [x] Verify the activity's placement and student interactions.

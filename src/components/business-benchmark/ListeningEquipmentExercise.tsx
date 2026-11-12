@@ -3,6 +3,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import audioAsset from "@/assets/bb-preint-mod5-track6.mp3.asset.json";
 import EquipmentActivity from "./EquipmentActivity";
 import DescribingToolExercise from "./DescribingToolExercise";
+import GizmoPreparationExercise from "./GizmoPreparationExercise";
+import GizmoPartnerDiscussion from "./GizmoPartnerDiscussion";
 
 const QUESTIONS = [
   { id: "l1", prompt: "Which speaker is describing a real tool?", options: ["Speaker 1", "Speaker 2", "Speaker 3"], answer: "Speaker 2", hint: "It is used to hold two pieces of metal together temporarily." },
@@ -16,6 +18,7 @@ const ListeningEquipmentExercise = () => (
   <div className="space-y-8">
     <DescribingToolExercise />
     <Card><CardHeader><CardTitle className="font-serif text-xl">Useful listening language</CardTitle></CardHeader><CardContent className="grid gap-3 sm:grid-cols-2 text-sm"><p className="rounded-md bg-muted p-3"><strong>Parts:</strong> It has a handle / lever / metal ring.</p><p className="rounded-md bg-muted p-3"><strong>Purpose:</strong> It’s used for holding / fixing / cutting…</p><p className="rounded-md bg-muted p-3"><strong>Operation:</strong> You press / pull / fit it onto…</p><p className="rounded-md bg-muted p-3"><strong>Uncertainty:</strong> It looks like… / It could be…</p></CardContent></Card>
+    <GizmoPreparationExercise />
     <Card>
       <CardHeader><CardTitle className="font-serif text-xl">Track 6 — The gizmo game</CardTitle></CardHeader>
       <CardContent className="space-y-4">
@@ -31,6 +34,7 @@ const ListeningEquipmentExercise = () => (
       </CardContent>
     </Card>
     <EquipmentActivity title="Listen for purpose and detail" instructions="Choose the best answer. The exact name matters less than understanding what the object is for." questions={QUESTIONS} activityType="listening" />
+    <GizmoPartnerDiscussion />
   </div>
 );
 
