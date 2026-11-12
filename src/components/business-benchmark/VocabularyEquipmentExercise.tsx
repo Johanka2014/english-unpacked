@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
 import EquipmentActivity from "./EquipmentActivity";
+import GettingStartedEquipmentParts from "./GettingStartedEquipmentParts";
 
 const PARTS = [
   { id: "p1", prompt: "You press these to control a device.", options: ["buttons", "cover", "battery", "screen"], answer: "buttons" },
@@ -36,6 +37,7 @@ const PHRASAL = [
 
 const VocabularyEquipmentExercise = () => (
   <div className="space-y-8">
+    <GettingStartedEquipmentParts />
     <EquipmentActivity title="1. Component parts" instructions="Choose the correct name for each part or function." questions={PARTS} activityType="vocabulary" />
     <EquipmentActivity title="2. Materials and shapes" instructions="Match each definition with a material or shape adjective." questions={MATERIALS} activityType="vocabulary" />
     <EquipmentActivity title="3. Using electrical equipment" instructions="Choose the phrasal verb with the correct meaning." questions={PHRASAL} activityType="vocabulary" />
