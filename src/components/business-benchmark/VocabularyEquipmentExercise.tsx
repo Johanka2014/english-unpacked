@@ -38,8 +38,10 @@ const PHRASAL = [
 const VocabularyEquipmentExercise = () => (
   <div className="space-y-8">
     <GettingStartedEquipmentParts />
-    <EquipmentActivity title="1. Component parts" instructions="Choose the correct name for each part or function." questions={PARTS} activityType="vocabulary" />
-    <EquipmentActivity title="2. Materials and shapes" instructions="Match each definition with a material or shape adjective." questions={MATERIALS} activityType="vocabulary" />
+    <div className="grid gap-6 md:grid-cols-2">
+      <EquipmentActivity title="1. Component parts" instructions="Choose the correct name for each part or function." questions={PARTS} activityType="vocabulary" stacked />
+      <EquipmentActivity title="2. Materials and shapes" instructions="Match each definition with a material or shape adjective." questions={MATERIALS} activityType="vocabulary" stacked />
+    </div>
     <EquipmentActivity title="3. Using electrical equipment" instructions="Choose the phrasal verb with the correct meaning." questions={PHRASAL} activityType="vocabulary" />
     <EquipmentActivity title="4. Describing problems" instructions={<><p>Use <strong>keep + -ing</strong> for a repeated unwanted action: “It keeps freezing.”</p><p>Use <strong>need + -ing</strong> when something should be repaired or changed: “The battery needs replacing.”</p></>} questions={PROBLEMS} activityType="grammar" />
     <Card><CardHeader><CardTitle className="flex items-center gap-2 font-serif text-xl"><Lightbulb className="h-5 w-5 text-primary" />5. Equipment English for today</CardTitle></CardHeader><CardContent><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["USB-C hub — connects several devices through one port", "wireless charger — charges without plugging into the phone", "webcam — sends live video", "portable SSD — stores large files", "smart display — combines a screen with connected services", "noise-cancelling headset — reduces background noise"].map((item) => <p key={item} className="rounded-md border bg-muted/30 p-3 text-sm">{item}</p>)}</div></CardContent></Card>

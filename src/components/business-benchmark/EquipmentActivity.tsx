@@ -18,9 +18,10 @@ interface EquipmentActivityProps {
   questions: EquipmentQuestion[];
   activityType?: string;
   modulePrefix?: string;
+  stacked?: boolean;
 }
 
-const EquipmentActivity = ({ title, instructions, questions, activityType = "multiple-choice", modulePrefix = "BB Module 5" }: EquipmentActivityProps) => {
+const EquipmentActivity = ({ title, instructions, questions, activityType = "multiple-choice", modulePrefix = "BB Module 5", stacked = false }: EquipmentActivityProps) => {
   const track = useActivityTracking();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [checked, setChecked] = useState(false);
@@ -37,7 +38,7 @@ const EquipmentActivity = ({ title, instructions, questions, activityType = "mul
             const wrong = checked && !correct;
             return (
               <div key={question.id} className="rounded-md border bg-muted/30 p-3">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className={`flex flex-col gap-3 ${stacked ? "" : "sm:flex-row sm:items-center"}`}>
                   <p className="min-w-0 flex-1 text-sm text-foreground"><strong className="mr-2 text-primary">{index + 1}.</strong>{question.prompt}</p>
                   <div className="flex items-center gap-2">
                     <select
