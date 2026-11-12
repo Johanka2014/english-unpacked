@@ -10,3 +10,7 @@
 # Smaller-screen student menu
 - [x] Put Practice, Business and Dashboard first, with direct links to other Practice subjects.
 - [x] Add an accessible, scrollable menu and verify navigation on phones and smaller desktops.
+
+# Module 5 vocabulary language reference
+- [x] Place exercise 3 in two columns with the uploaded language reference on the right.
+- [x] Verify the desktop arrangement, phone layout and existing answer checking.
