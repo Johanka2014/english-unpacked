@@ -14,3 +14,7 @@
 # Module 5 vocabulary language reference
 - [x] Place exercise 3 in two columns with the uploaded language reference on the right.
 - [x] Verify the desktop arrangement, phone layout and existing answer checking.
+
+# Module 5 materials and shapes writing
+- [x] Add the uploaded vocabulary exercises before exercise 5 with free-writing answer boxes.
+- [x] Verify students can enter separate answers and the layout works on desktop and phones.
