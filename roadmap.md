@@ -16,5 +16,9 @@
 - [x] Verify the desktop arrangement, phone layout and existing answer checking.
 
 # Module 5 materials and shapes writing
-- [x] Add the uploaded vocabulary exercises before exercise 5 with free-writing answer boxes.
+- [x] Add the uploaded vocabulary exercises before exercise 4 with free-writing answer boxes.
 - [x] Verify students can enter separate answers and the layout works on desktop and phones.
+
+# Module 5 object-description gap fill
+- [x] Add the original tool photo and interactive description before exercise 4.
+- [x] Verify gap positions, answer checking, reset and desktop/phone layouts while signed in; confirm 5/5 reads back on the dashboard.
