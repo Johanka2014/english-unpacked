@@ -105,7 +105,7 @@ const App = () => (
         <AuthProvider>
           <ScrollToTop />
           <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-            <div className="pt-[73px]">
+            <div className="pt-[var(--nav-h,73px)]">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />

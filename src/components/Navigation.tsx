@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -8,6 +8,36 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const { user, isAdmin, signOut } = useAuth();
+  const barRef = useRef<HTMLDivElement>(null);
+  const menuOpenRef = useRef(false);
+
+  // Keep the page offset in sync with the real header height so the bar can
+  // wrap onto extra rows at mid desktop widths without covering content.
+  useLayoutEffect(() => {
+    menuOpenRef.current = isMenuOpen;
+  }, [isMenuOpen]);
+
+  useLayoutEffect(() => {
+    const bar = barRef.current;
+    if (!bar) return;
+    const publish = () => {
+      if (menuOpenRef.current) return; // mobile menu open: keep current offset
+      const nav = bar.closest("nav");
+      const container = nav?.firstElementChild;
+      if (!nav || !container) return;
+      const border = parseFloat(getComputedStyle(nav).borderBottomWidth) || 0;
+      const height = container.getBoundingClientRect().bottom - nav.getBoundingClientRect().top + border;
+      document.documentElement.style.setProperty("--nav-h", `${Math.round(height)}px`);
+    };
+    publish();
+    const observer = new ResizeObserver(publish);
+    observer.observe(bar);
+    window.addEventListener("resize", publish);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", publish);
+    };
+  }, []);
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -39,22 +69,25 @@ const Navigation = () => {
     ...(isAdmin ? [{ name: "Admin", href: "/admin" }] : []),
   ] : [];
 
+  // Signed-in members see their own links; the landing-page anchors stay in the footer.
+  const visibleNavItems = user ? navItems.filter((i) => i.name !== "About" && i.name !== "Contact") : navItems;
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+      <div className="mx-auto w-full max-w-[1400px] px-4 py-3">
+        <div ref={barRef} className="flex flex-nowrap items-center justify-between gap-x-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex shrink-0 items-center">
             <Link to="/" className="cursor-pointer" aria-label="English Unpacked home">
-              <span className="text-3xl font-bold text-brand-navy font-pacifico hover:text-brand-royal transition-colors duration-200 block">
+              <span className="block whitespace-nowrap text-2xl font-bold text-brand-navy font-pacifico hover:text-brand-royal transition-colors duration-200 lg:text-[26px] xl:text-[28px]">
                 English Unpacked
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden min-w-0 flex-wrap items-center justify-end gap-x-4 gap-y-1 text-sm xl:flex xl:text-[15px]">
+            {visibleNavItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -106,7 +139,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -122,9 +155,9 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border">
+          <div className="xl:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-4 pt-4">
-              {navItems.map((item) => (
+              {visibleNavItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}

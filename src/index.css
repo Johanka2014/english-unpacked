@@ -8,6 +8,9 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Header height, kept in sync by Navigation; used for the page top offset. */
+    --nav-h: 73px;
+
     --background: 0 0% 100%;
     --foreground: 220 25% 15%;
 
