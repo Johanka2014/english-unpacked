@@ -84,8 +84,8 @@ const VocabularyEquipmentExercise = () => (
         </CardContent>
       </Card>
     </div>
-    <EquipmentActivity title="4. Describing problems" instructions={<><p>Use <strong>keep + -ing</strong> for a repeated unwanted action: “It keeps freezing.”</p><p>Use <strong>need + -ing</strong> when something should be repaired or changed: “The battery needs replacing.”</p></>} questions={PROBLEMS} activityType="grammar" />
     <MaterialsAndShapesWriting />
+    <EquipmentActivity title="4. Describing problems" instructions={<><p>Use <strong>keep + -ing</strong> for a repeated unwanted action: “It keeps freezing.”</p><p>Use <strong>need + -ing</strong> when something should be repaired or changed: “The battery needs replacing.”</p></>} questions={PROBLEMS} activityType="grammar" />
     <Card><CardHeader><CardTitle className="flex items-center gap-2 font-serif text-xl"><Lightbulb className="h-5 w-5 text-primary" />5. Equipment English for today</CardTitle></CardHeader><CardContent><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["USB-C hub — connects several devices through one port", "wireless charger — charges without plugging into the phone", "webcam — sends live video", "portable SSD — stores large files", "smart display — combines a screen with connected services", "noise-cancelling headset — reduces background noise"].map((item) => <p key={item} className="rounded-md border bg-muted/30 p-3 text-sm">{item}</p>)}</div></CardContent></Card>
   </div>
 );
