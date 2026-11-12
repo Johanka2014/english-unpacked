@@ -1,2 +1,3 @@
 # Architecture
 - Keep Movers curriculum in typed data with shared React exercise components and protected lazy-loaded course/lesson pages; this allows later units and media to be added without duplicating exercise logic.
+- Keep smaller-screen navigation in StudentMobileMenu using the shared Sheet, with direct Practice category links; focus management, scroll containment and menu state stay independent of the measured header height.

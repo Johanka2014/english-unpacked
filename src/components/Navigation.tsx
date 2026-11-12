@@ -1,27 +1,19 @@
-import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
+import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import StudentMobileMenu from "@/components/StudentMobileMenu";
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const { user, isAdmin, signOut } = useAuth();
   const barRef = useRef<HTMLDivElement>(null);
-  const menuOpenRef = useRef(false);
-
-  // Keep the page offset in sync with the real header height so the bar can
-  // wrap onto extra rows at mid desktop widths without covering content.
-  useLayoutEffect(() => {
-    menuOpenRef.current = isMenuOpen;
-  }, [isMenuOpen]);
+  // The menu lives in a portal, so only the header bar contributes to the page offset.
 
   useLayoutEffect(() => {
     const bar = barRef.current;
     if (!bar) return;
     const publish = () => {
-      if (menuOpenRef.current) return; // mobile menu open: keep current offset
       const nav = bar.closest("nav");
       const container = nav?.firstElementChild;
       if (!nav || !container) return;
@@ -44,7 +36,6 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false); // Close mobile menu after clicking
   };
 
   useEffect(() => {
@@ -73,7 +64,7 @@ const Navigation = () => {
   const visibleNavItems = user ? navItems.filter((i) => i.name !== "About" && i.name !== "Contact") : navItems;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="mx-auto w-full max-w-[1400px] px-4 py-3">
         <div ref={barRef} className="flex flex-nowrap items-center justify-between gap-x-4">
           {/* Logo */}
@@ -138,82 +129,9 @@ const Navigation = () => {
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="xl:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-brand-navy"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          </div>
+          <StudentMobileMenu signedIn={Boolean(user)} isAdmin={isAdmin} onSignOut={signOut} />
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="xl:hidden mt-4 pb-4 border-t border-border">
-            <div className="flex flex-col space-y-4 pt-4">
-              {visibleNavItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={item.isKids 
-                    ? "bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-fredoka font-semibold px-4 py-1.5 rounded-full text-center hover:from-yellow-500 hover:to-orange-500 transition-all duration-200 shadow-sm"
-                    : "nav-link text-sm"
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-              {memberNavItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="nav-link text-sm"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              {user ? (
-                <Button 
-                  variant="default" 
-                  className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
-                  onClick={() => {
-                    signOut();
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  Logout
-                </Button>
-              ) : (
-                <>
-                  <Button 
-                    variant="default" 
-                    className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
-                    asChild
-                  >
-                    <Link to="/auth" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                  </Button>
-                  <Button 
-                    variant="default" 
-                    className="bg-brand-royal hover:bg-brand-navy transition-colors duration-200 w-full"
-                    asChild
-                  >
-                    <a href="https://calendly.com/english-unpacked/consultation" target="_blank" rel="noopener noreferrer">
-                      Book Consultation
-                    </a>
-                  </Button>
-                </>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );
