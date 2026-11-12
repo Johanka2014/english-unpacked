@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import audioAsset from "@/assets/bb-preint-mod5-track6.mp3.asset.json";
 import EquipmentActivity from "./EquipmentActivity";
+import DescribingToolExercise from "./DescribingToolExercise";
 
 const QUESTIONS = [
   { id: "l1", prompt: "Which speaker is describing a real tool?", options: ["Speaker 1", "Speaker 2", "Speaker 3"], answer: "Speaker 2", hint: "It is used to hold two pieces of metal together temporarily." },
@@ -13,6 +14,7 @@ const QUESTIONS = [
 
 const ListeningEquipmentExercise = () => (
   <div className="space-y-8">
+    <DescribingToolExercise />
     <Card>
       <CardHeader><CardTitle className="font-serif text-xl">Track 6 — The gizmo game</CardTitle></CardHeader>
       <CardContent className="space-y-4">

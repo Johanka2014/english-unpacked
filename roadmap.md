@@ -20,5 +20,5 @@
 - [x] Verify students can enter separate answers and the layout works on desktop and phones.
 
 # Module 5 object-description gap fill
-- [x] Add the original tool photo and interactive description before exercise 4.
+- [x] Add the original tool photo and interactive description at the top of Listening, removed from Vocabulary.
 - [x] Verify gap positions, answer checking, reset and desktop/phone layouts while signed in; confirm 5/5 reads back on the dashboard.
