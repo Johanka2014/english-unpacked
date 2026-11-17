@@ -73,6 +73,7 @@ export interface MurphyUnit {
   modalMasteryLesson?: boolean;
   soSuchLesson?: boolean;
   compoundAdjectivesLesson?: boolean;
+  negativePrefixesLesson?: boolean;
 }
 
 export interface MurphySection {
@@ -2444,6 +2445,7 @@ export const murphyGrammarSections: MurphySection[] = [
       u(111, 'Still, yet and already · Any more / any longer / no longer'),
       u(112, 'Even'),
       { id: 'compound-adjectives', number: 902, title: 'Compound Adjectives', subtitle: 'well-known, short-sighted, open-minded and more', compoundAdjectivesLesson: true },
+      { id: 'negative-prefixes', number: 903, title: 'Negative Prefixes', subtitle: 'un-, in-, im-, il-, ir-, dis-, mis- and more', negativePrefixesLesson: true },
     ],
   },
   {
@@ -2531,5 +2533,6 @@ export const unitHasContent = (unit: MurphyUnit) =>
     unit.cambridgeLesson ||
     unit.modalMasteryLesson ||
     unit.soSuchLesson ||
-    unit.compoundAdjectivesLesson
+    unit.compoundAdjectivesLesson ||
+    unit.negativePrefixesLesson
   );

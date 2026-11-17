@@ -14,6 +14,7 @@ import PastTensesCambridgeLesson from '@/components/b1-grammar/PastTensesCambrid
 import ModalVerbsMasterLesson from '@/components/b1-grammar/ModalVerbsMasterLesson';
 import SoSuchLesson from '@/components/b1-grammar/SoSuchLesson';
 import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectivesLesson';
+import NegativePrefixesLesson from '@/components/b1-grammar/NegativePrefixesLesson';
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
@@ -89,6 +90,7 @@ const MurphyGrammarUnit = () => {
     if (unit.modalMasteryLesson) list.push({ key: 'modal-master', label: 'Modal Verbs Master', icon: Sparkles });
     if (unit.soSuchLesson) list.push({ key: 'so-such', label: 'So & Such', icon: Sparkles });
     if (unit.compoundAdjectivesLesson) list.push({ key: 'compound-adjectives', label: 'Compound Adjectives', icon: Sparkles });
+    if (unit.negativePrefixesLesson) list.push({ key: 'negative-prefixes', label: 'Negative Prefixes', icon: Sparkles });
     return list;
   }, [unit]);
 
@@ -162,6 +164,7 @@ const MurphyGrammarUnit = () => {
             {activeTab === 'modal-master' && <ModalVerbsMasterLesson />}
             {activeTab === 'so-such' && <SoSuchLesson />}
             {activeTab === 'compound-adjectives' && <CompoundAdjectivesLesson />}
+            {activeTab === 'negative-prefixes' && <NegativePrefixesLesson />}
           </div>
         </div>
       </section>
