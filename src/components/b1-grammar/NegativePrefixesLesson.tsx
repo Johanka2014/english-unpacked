@@ -82,12 +82,15 @@ const NegativePrefixesLesson = () => (
     <GapSet title="4. Lost in translation" instructions="Exam practice: form a word from the word in CAPITALS to complete the story."
       items={ARTICLE.map(a => ({ label: <>{a.before} <strong className="text-primary">({a.base})</strong></>, answers: a.answers }))} />
 
-    <Card className="service-card"><CardContent className="p-6 space-y-3">
+    <div className="space-y-4">
       <h3 className="text-xl font-semibold font-merriweather text-foreground">5. Wordwall games</h3>
-      <div className="flex flex-wrap gap-3">
-        {WORDWALL.map(w => <Button key={w.url} asChild variant="outline"><a href={w.url} target="_blank" rel="noopener noreferrer">{w.title}<ExternalLink className="h-4 w-4 ml-2" /></a></Button>)}
-      </div>
-    </CardContent></Card>
+      {WORDWALL.map(w => (
+        <Card key={w.url} className="service-card"><CardContent className="p-6 flex flex-wrap items-center justify-between gap-4">
+          <p className="font-semibold text-foreground">{w.title}</p>
+          <Button asChild variant="outline"><a href={w.url} target="_blank" rel="noopener noreferrer">Open game<ExternalLink className="h-4 w-4 ml-2" /></a></Button>
+        </CardContent></Card>
+      ))}
+    </div>
   </div>
 );
 
