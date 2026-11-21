@@ -104,45 +104,47 @@ const ReadingUnit13 = () => {
         </article>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <div className="space-y-3">
-          <h4 className="font-semibold text-brand-royal">Your answers</h4>
+      <Card className="service-card">
+        <CardContent className="p-6 space-y-5">
+          <div>
+            <h4 className="font-semibold text-brand-royal">Choose a sentence for each gap</h4>
+            <p className="text-sm text-muted-foreground">
+              Click the sentence that best fits each gap in the article. Three sentences will not be used.
+            </p>
+          </div>
           {gaps.map((g) => (
-            <Card key={g.id} className="service-card">
-              <CardContent className="p-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="font-bold text-brand-royal">Gap {g.id}:</span>
-                  {res && (res[g.id]
-                    ? <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    : <span className="text-sm text-red-600">Correct: {g.answer}</span>)}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {sentences.map((s) => (
+            <div key={g.id} className="rounded-lg border border-border p-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-brand-royal">Gap {g.id}</span>
+                {res && (res[g.id]
+                  ? <CheckCircle2 className="h-5 w-5 text-green-600" />
+                  : <span className="text-sm text-red-600">Correct answer: {g.answer}</span>)}
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {sentences.map((s) => {
+                  const active = sel[g.id] === s.letter;
+                  return (
                     <button
                       key={s.letter}
                       onClick={() => { setSel((p) => ({ ...p, [g.id]: s.letter })); setRes(null); }}
-                      className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
-                        sel[g.id] === s.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
+                      className={`flex items-start gap-2 rounded-md border p-3 text-left text-sm leading-snug transition-colors ${
+                        active
+                          ? "border-brand-royal bg-brand-royal/10 text-foreground"
+                          : "border-border text-foreground hover:bg-accent"
                       }`}
-                    >{s.letter}</button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <Card className="service-card lg:sticky lg:top-24">
-          <CardContent className="p-6">
-            <h4 className="font-semibold text-brand-royal mb-3">Sentence options (A–H)</h4>
-            <div className="space-y-2 text-sm">
-              {sentences.map((s) => (
-                <p key={s.letter} className="text-foreground"><strong>{s.letter}</strong> — {s.text}</p>
-              ))}
+                    >
+                      <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-xs font-bold ${
+                        active ? "border-brand-royal bg-brand-royal text-white" : "border-border text-muted-foreground"
+                      }`}>{s.letter}</span>
+                      <span>{s.text}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          ))}
+        </CardContent>
+      </Card>
 
 
       <Button onClick={check} className="bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
