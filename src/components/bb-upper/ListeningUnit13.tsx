@@ -81,7 +81,10 @@ const ListeningUnit13 = () => {
         <CardContent className="p-6 space-y-3">
           <h3 className="text-2xl font-semibold font-merriweather text-foreground">Listening: Conference Problems</h3>
           <p className="text-muted-foreground">
-            <strong>1</strong> Read the list of things (A–I) which could go wrong at a conference. Then listen to five colleagues complaining about conferences they attended, and choose what each speaker is complaining about.
+            <strong>1</strong> Read this list of things (A–I) which could go wrong at a conference and discuss what the problem could be in each case.
+          </p>
+          <p className="text-muted-foreground">
+            <strong>2</strong> Listen to five colleagues complaining about conferences they attended, and choose what each speaker is complaining about.
           </p>
           <audio controls src={AUDIO_URL} className="w-full mt-2" />
         </CardContent>
