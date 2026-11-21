@@ -55,6 +55,12 @@ const Reading2Unit13 = () => {
         <CardContent className="p-6 space-y-2">
           <h3 className="text-2xl font-semibold font-merriweather text-foreground">Reading: Planning a Lively Sales Conference</h3>
           <p className="text-muted-foreground">Read the article below about how to plan a sales conference and choose the best word (A–D) to fill each gap.</p>
+          <aside className="border-t border-border pt-4 space-y-2">
+            <h4 className="font-semibold font-merriweather text-brand-royal">Company background — McCall Media &amp; Marketing</h4>
+            <p className="text-foreground leading-relaxed">
+              Kimberly L. McCall is the president of McCall Media &amp; Marketing Inc. (www.marketingangel.com), a business communications company in Durham, Maine, USA.
+            </p>
+          </aside>
         </CardContent>
       </Card>
 
