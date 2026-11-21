@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, XCircle } from "lucide-react";
 
@@ -59,6 +60,8 @@ const ListeningUnit13 = () => {
   const [matchRes, setMatchRes] = useState<Record<number, boolean> | null>(null);
   const [gap, setGap] = useState<Record<number, string>>({});
   const [gapRes, setGapRes] = useState<Record<number, boolean> | null>(null);
+  const [sentenceSpeakers, setSentenceSpeakers] = useState<Record<number, string>>({});
+  const [speakerRes, setSpeakerRes] = useState<Record<number, boolean> | null>(null);
 
   const checkMatch = () => {
     const r: Record<number, boolean> = {};
@@ -79,65 +82,56 @@ const ListeningUnit13 = () => {
     <div className="space-y-6">
       <Card className="service-card">
         <CardContent className="p-6 space-y-3">
-          <h3 className="text-2xl font-semibold font-merriweather text-foreground">Listening: Conference Problems</h3>
+          <h3 className="text-2xl font-semibold font-merriweather text-foreground">1. Possible problems</h3>
           <p className="text-muted-foreground">
-            <strong>1</strong> Read this list of things (A–I) which could go wrong at a conference and discuss what the problem could be in each case.
+            Read this list of things which could go wrong at a conference and discuss what the problem could be in each case.
           </p>
-          <p className="text-muted-foreground">
-            <strong>2</strong> Listen to five colleagues complaining about conferences they attended, and choose what each speaker is complaining about.
-          </p>
-          <audio controls src={AUDIO_URL} className="w-full mt-2" />
-        </CardContent>
-      </Card>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <Card className="service-card lg:sticky lg:top-24">
-          <CardContent className="p-4 sm:p-6">
-            <h4 className="font-semibold text-brand-royal mb-3">Possible problems</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {problems.map((p) => (
                 <div key={p.letter} className="px-3 py-2 rounded-md border border-border bg-muted/30 text-sm">
-                  <span className="font-bold text-brand-royal">{p.letter}</span> — {p.label}
+                  {p.label}
                 </div>
               ))}
             </div>
           </CardContent>
-        </Card>
+      </Card>
 
-        <div className="space-y-3">
+      <Card className="service-card">
+        <CardContent className="p-4 sm:p-6 space-y-4">
+          <h3 className="text-2xl font-semibold font-merriweather text-foreground">2. Listen and choose</h3>
+          <p className="text-muted-foreground">Listen to five colleagues complaining about conferences they attended, and choose what each speaker is complaining about.</p>
+          <audio controls src={AUDIO_URL} className="w-full" />
+          <div className="space-y-4">
           {speakers.map((s) => (
-            <Card key={s.id} className="service-card">
-              <CardContent className="p-4">
+            <div key={s.id}>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="font-bold text-brand-royal w-8">{s.id}.</span>
                   <span className="font-semibold text-foreground flex-1">{s.name}</span>
                   {matchRes && (matchRes[s.id]
                     ? <CheckCircle2 className="h-5 w-5 text-green-600" />
-                    : <span className="text-sm text-red-600">Correct: {s.answer}</span>)}
+                    : <span className="text-sm text-destructive">Correct: {problems.find((p) => p.letter === s.answer)?.label}</span>)}
                 </div>
-                <div className="flex flex-wrap gap-2 ml-11">
-                  {problems.map((p) => (
-                    <button
-                      key={p.letter}
-                      onClick={() => { setSel((x) => ({ ...x, [s.id]: p.letter })); setMatchRes(null); }}
-                      className={`w-10 h-10 rounded-md border font-semibold transition-colors ${
-                        sel[s.id] === p.letter ? "bg-brand-royal text-white border-brand-royal" : "border-border hover:bg-accent"
-                      }`}
-                    >{p.letter}</button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                <Select value={sel[s.id] || ""} onValueChange={(value) => { setSel((x) => ({ ...x, [s.id]: value })); setMatchRes(null); }}>
+                  <SelectTrigger aria-label={`Problem for ${s.name}`} className="w-full sm:max-w-sm">
+                    <SelectValue placeholder="Choose the problem" />
+                  </SelectTrigger>
+                  <SelectContent position="popper">
+                    {problems.map((p) => <SelectItem key={p.letter} value={p.letter}>{p.label}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+            </div>
           ))}
-          <Button onClick={checkMatch} className="bg-brand-royal hover:bg-brand-navy">Check Matching</Button>
-        </div>
-      </div>
+          </div>
+          <Button onClick={checkMatch} className="bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
 
 
       <Card className="service-card mt-8">
         <CardContent className="p-6 space-y-4">
+          <h3 className="text-2xl font-semibold font-merriweather text-foreground">3. Complete the sentences</h3>
           <p className="text-muted-foreground">
-            <strong>3</strong> Complete these sentences from the conversation. Then say which speaker said each sentence.
+            Complete these sentences from the conversation.
           </p>
           {sentences.map((s) => (
             <div key={s.id} className="space-y-1">
@@ -156,7 +150,7 @@ const ListeningUnit13 = () => {
                   : <XCircle className="h-4 w-4 text-red-500" />)}
               </div>
               {gapRes && !gapRes[s.id] && (
-                <p className="text-sm text-red-600 ml-7">Answer: "{s.answer[0]}" — said by {s.speaker}</p>
+                <p className="text-sm text-red-600 ml-7">Answer: "{s.answer[0]}"</p>
               )}
             </div>
           ))}
@@ -164,6 +158,27 @@ const ListeningUnit13 = () => {
         </CardContent>
       </Card>
 
+      <Card className="service-card">
+        <CardContent className="p-4 sm:p-6 space-y-4">
+          <h3 className="text-2xl font-semibold font-merriweather text-foreground">4. Who said it?</h3>
+          <p className="text-muted-foreground">Which speaker said which sentence?</p>
+          {sentences.map((s) => (
+            <div key={s.id} className="space-y-2">
+              <p className="text-foreground"><strong className="text-brand-royal">{s.id}.</strong> {s.before}{s.answer[0]}{s.after}</p>
+              <Select value={sentenceSpeakers[s.id] || ""} onValueChange={(value) => { setSentenceSpeakers((p) => ({ ...p, [s.id]: value })); setSpeakerRes(null); }}>
+                <SelectTrigger aria-label={`Speaker for sentence ${s.id}`} className="w-full sm:max-w-sm">
+                  <SelectValue placeholder="Choose the speaker" />
+                </SelectTrigger>
+                <SelectContent position="popper">
+                  {speakers.map((speaker) => <SelectItem key={speaker.id} value={speaker.name}>{speaker.name}</SelectItem>)}
+                </SelectContent>
+              </Select>
+              {speakerRes && <p className={speakerRes[s.id] ? "text-brand-royal text-sm" : "text-destructive text-sm"}>{speakerRes[s.id] ? "Correct" : `Correct answer: ${s.speaker}`}</p>}
+            </div>
+          ))}
+          <Button onClick={() => setSpeakerRes(Object.fromEntries(sentences.map((s) => [s.id, sentenceSpeakers[s.id] === s.speaker])))} className="bg-brand-royal hover:bg-brand-navy">Check Answers</Button>
+        </CardContent>
+      </Card>
 
       <Accordion type="single" collapsible>
         <AccordionItem value="t">

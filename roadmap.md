@@ -30,3 +30,8 @@
 # Module 5 final listening activity
 - [x] Add the newly uploaded activity at the end of Listening.
 - [x] Verify the activity's placement and student interactions.
+
+# Unit 13 listening order and choices
+- [x] Put Possible problems first, followed by Exercise 2 with audio and full-label dropdown choices.
+- [x] Recover and add Exercise 4 from the existing textbook.
+- [x] Verify signed-in answer checking and desktop/phone layouts.
