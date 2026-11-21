@@ -107,7 +107,12 @@ const WritingUnit13 = () => {
         onChange={(e) => { setAns((p) => ({ ...p, [id]: e.target.value })); setRes(null); }}
         className={`inline-block w-24 h-7 px-2 text-sm ${res ? (res[id] ? "border-green-600" : "border-red-500") : ""}`}
       />
-      {res && (res[id] ? <CheckCircle2 className="h-4 w-4 text-green-600" /> : <XCircle className="h-4 w-4 text-red-500" />)}
+      {res && (res[id] ? <CheckCircle2 className="h-4 w-4 text-green-600" /> : (
+        <span className="inline-flex items-center gap-1">
+          <XCircle className="h-4 w-4 text-red-500" />
+          <span className="text-sm font-semibold text-green-700">({gaps.find((g) => g.id === id)?.answer[0]})</span>
+        </span>
+      ))}
     </span>
   );
 
