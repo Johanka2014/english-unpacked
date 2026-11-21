@@ -161,6 +161,17 @@ const ListeningUnit12 = () => {
         </CardContent>
       </Card>
 
+      {/* Audio player repeat — keeps the recording next to exercise 2 */}
+      <Card>
+        <CardContent className="p-6 space-y-3">
+          <div className="flex items-center gap-2">
+            <Headphones className="h-5 w-5 text-primary" />
+            <h4 className="font-semibold text-foreground">Play the recording again</h4>
+          </div>
+          <audio controls src="/__l5e/assets-v1/3e2ba536-dda1-4a78-8359-d00cdeb6596f/21_unit_12.mp3" className="w-full" />
+        </CardContent>
+      </Card>
+
       {/* Notes gap fill */}
       <Card>
         <CardContent className="p-6 space-y-4">
