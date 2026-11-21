@@ -187,48 +187,56 @@ const ReadingUnit12 = () => {
             Read the paragraphs (A–D). Which paragraph does each piece of advice (1–8) refer to?
           </p>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {paragraphs.map((p) => (
-              <div key={p.letter} className="p-4 rounded-lg border border-border bg-card">
-                <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold mb-2">
-                  {p.letter}
+          <div className="grid md:grid-cols-3 gap-6 items-start">
+            {/* Texts A–D: two thirds */}
+            <div className="md:col-span-2 space-y-4">
+              {paragraphs.map((p) => (
+                <div key={p.letter} className="p-4 rounded-lg border border-border bg-card">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold mb-2">
+                    {p.letter}
+                  </div>
+                  <p className="text-sm text-foreground leading-relaxed">{p.text}</p>
                 </div>
-                <p className="text-sm text-foreground leading-relaxed">{p.text}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="space-y-2">
-            {advice.map((a) => (
-              <div key={a.n} className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card">
-                <span className="text-primary font-bold w-5">{a.n}</span>
-                <span className="flex-1 text-sm text-foreground">{a.text}</span>
-                <Select
-                  value={ans[a.n] || ""}
-                  onValueChange={(v) => setAns((p) => ({ ...p, [a.n]: v }))}
-                  disabled={res[a.n] === "correct"}
-                >
-                  <SelectTrigger
-                    className={`h-9 w-20 text-sm ${
-                      res[a.n] === "correct"
-                        ? "border-green-500 bg-green-50 dark:bg-green-950/30"
-                        : res[a.n] === "incorrect"
-                          ? "border-red-500 bg-red-50 dark:bg-red-950/30"
-                          : ""
-                    }`}
-                  >
-                    <SelectValue placeholder="?" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {["A", "B", "C", "D"].map((l) => (<SelectItem key={l} value={l}>{l}</SelectItem>))}
-                  </SelectContent>
-                </Select>
-                {res[a.n] === "correct" && <CheckCircle2 className="h-4 w-4 text-green-600" />}
-                {res[a.n] === "incorrect" && (
-                  <span className="text-xs text-red-600">→ {a.answer}</span>
-                )}
-              </div>
-            ))}
+            {/* Answer options: one third */}
+            <div className="space-y-2">
+              {advice.map((a) => (
+                <div key={a.n} className="p-3 rounded-lg border border-border bg-card">
+                  <div className="flex items-start gap-2">
+                    <span className="text-primary font-bold">{a.n}</span>
+                    <span className="flex-1 text-sm text-foreground">{a.text}</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2">
+                    <Select
+                      value={ans[a.n] || ""}
+                      onValueChange={(v) => setAns((p) => ({ ...p, [a.n]: v }))}
+                      disabled={res[a.n] === "correct"}
+                    >
+                      <SelectTrigger
+                        className={`h-9 w-20 text-sm ${
+                          res[a.n] === "correct"
+                            ? "border-green-500 bg-green-50 dark:bg-green-950/30"
+                            : res[a.n] === "incorrect"
+                              ? "border-red-500 bg-red-50 dark:bg-red-950/30"
+                              : ""
+                        }`}
+                      >
+                        <SelectValue placeholder="?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {["A", "B", "C", "D"].map((l) => (<SelectItem key={l} value={l}>{l}</SelectItem>))}
+                      </SelectContent>
+                    </Select>
+                    {res[a.n] === "correct" && <CheckCircle2 className="h-4 w-4 text-green-600" />}
+                    {res[a.n] === "incorrect" && (
+                      <span className="text-xs text-red-600">→ {a.answer}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {show && (
