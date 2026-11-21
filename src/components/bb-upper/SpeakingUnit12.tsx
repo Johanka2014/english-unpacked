@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle2, XCircle, RotateCcw, MessageCircle, Users, Lightbulb } from "lucide-react";
 import cafe from "@/assets/bb-upper/unit12-cafe-business.jpg";
 import tech from "@/assets/bb-upper/unit12-tech-store.jpg";
+import bikes from "@/assets/bb-upper/unit12-bike-workshop.jpg";
 
 const STAGES: { id: string; text: string; pos: number }[] = [
   { id: "a", text: "Conclude and invite questions.", pos: 7 },
@@ -160,9 +161,10 @@ const SpeakingUnit12 = () => {
             like yourselves. Your job is to prepare a presentation, rehearse it and give it to the angels.
           </p>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            <img src={cafe} alt="People in a cafe-style setting — a possible business idea" className="rounded-lg shadow-md w-full h-48 object-cover" loading="lazy" />
-            <img src={tech} alt="People in a tech store — a possible business idea" className="rounded-lg shadow-md w-full h-48 object-cover" loading="lazy" />
+          <div className="grid sm:grid-cols-3 gap-4">
+            <img src={cafe} alt="People in a cafe-style setting — a possible business idea" className="rounded-lg shadow-md w-full h-auto" loading="lazy" />
+            <img src={tech} alt="People in a tech store — a possible business idea" className="rounded-lg shadow-md w-full h-auto" loading="lazy" />
+            <img src={bikes} alt="A mechanic repairing a bicycle in a small bike shop — a possible business idea" className="rounded-lg shadow-md w-full h-auto" loading="lazy" />
           </div>
 
           <div className="rounded-lg border border-primary/20 bg-primary/5 p-5">
