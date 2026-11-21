@@ -56,29 +56,52 @@ const ReadingUnit13 = () => {
         </CardContent>
       </Card>
 
-      <Card className="service-card">
-        <CardContent className="p-6 space-y-4">
-          <h2 className="text-3xl font-bold font-merriweather text-foreground">Home Sweet Hotel</h2>
-          <p className="text-sm text-muted-foreground italic">By Christopher Palmieri</p>
-          {paragraphs.map((para, i) => (
-            <p key={i} className="text-foreground leading-relaxed">
-              {para.parts.map((p, j) => (
-                <span key={j}>
-                  {p.intro}
-                  {p.gapId && (
-                    <span className="inline-block px-2 py-1 mx-1 bg-yellow-100 dark:bg-yellow-900/30 border-2 border-dashed border-brand-orange rounded font-bold text-brand-royal">
-                      {p.gapId} {sel[p.gapId] ? `→ ${sel[p.gapId]}` : "____"}
-                      {res && (res[p.gapId]
-                        ? <CheckCircle2 className="inline h-4 w-4 ml-1 text-green-600" />
-                        : <XCircle className="inline h-4 w-4 ml-1 text-red-500" />)}
-                    </span>
-                  )}
-                  {p.after}
-                </span>
-              ))}
+      <Card className="overflow-hidden rounded-sm">
+        <article>
+          <div className="border-b border-foreground/20 p-6 pb-6 text-center space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-widest text-primary">Travel &amp; Business</p>
+            <h2 className="font-serif text-3xl leading-tight sm:text-4xl text-foreground">Home Sweet Hotel</h2>
+            <p className="mx-auto max-w-2xl font-serif text-lg leading-relaxed text-muted-foreground">
+              Our readers name the best places for the business traveller to stay — and the results were revealing.
             </p>
-          ))}
-        </CardContent>
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border-t border-foreground/20 pt-4 text-xs text-muted-foreground">
+              <span className="font-semibold uppercase text-foreground">By Christopher Palmieri</span>
+              <span aria-hidden="true">•</span>
+              <span>BusinessWeek.com</span>
+              <span aria-hidden="true">•</span>
+              <span>Hotel survey: nearly 1,200 subscribers took part</span>
+            </div>
+          </div>
+          <CardContent className="pt-7 text-foreground">
+            <div className="space-y-5 text-[15px] leading-7 lg:columns-2 lg:gap-10 lg:space-y-0">
+              {paragraphs.map((para, i) => (
+                <p
+                  key={i}
+                  className={`mb-5 break-inside-avoid text-foreground ${
+                    i === 0
+                      ? "first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-5xl first-letter:font-bold first-letter:leading-none"
+                      : ""
+                  }`}
+                >
+                  {para.parts.map((p, j) => (
+                    <span key={j}>
+                      {p.intro}
+                      {p.gapId && (
+                        <span className="inline-block px-2 py-1 mx-1 bg-yellow-100 dark:bg-yellow-900/30 border-2 border-dashed border-brand-orange rounded font-bold text-brand-royal">
+                          {p.gapId} {sel[p.gapId] ? `→ ${sel[p.gapId]}` : "____"}
+                          {res && (res[p.gapId]
+                            ? <CheckCircle2 className="inline h-4 w-4 ml-1 text-green-600" />
+                            : <XCircle className="inline h-4 w-4 ml-1 text-red-500" />)}
+                        </span>
+                      )}
+                      {p.after}
+                    </span>
+                  ))}
+                </p>
+              ))}
+            </div>
+          </CardContent>
+        </article>
       </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
