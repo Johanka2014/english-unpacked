@@ -120,14 +120,14 @@ const ReadingUnit13 = () => {
                   ? <CheckCircle2 className="h-5 w-5 text-green-600" />
                   : <span className="text-sm text-red-600">Correct answer: {g.answer}</span>)}
               </div>
-              <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {sentences.map((s) => {
                   const active = sel[g.id] === s.letter;
                   return (
                     <button
                       key={s.letter}
                       onClick={() => { setSel((p) => ({ ...p, [g.id]: s.letter })); setRes(null); }}
-                      className={`flex items-start gap-2 rounded-md border p-3 text-left text-sm leading-snug transition-colors ${
+                      className={`flex min-h-[44px] items-start gap-2.5 rounded-md border p-3.5 text-left text-[15px] leading-snug transition-colors sm:p-3 sm:text-sm ${
                         active
                           ? "border-brand-royal bg-brand-royal/10 text-foreground"
                           : "border-border text-foreground hover:bg-accent"
