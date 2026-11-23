@@ -75,6 +75,7 @@ export interface MurphyUnit {
   compoundAdjectivesLesson?: boolean;
   negativePrefixesLesson?: boolean;
   quantifiersApp?: boolean;
+  wheneverWhereverApp?: boolean;
 }
 
 export interface MurphySection {
@@ -2413,6 +2414,7 @@ export const murphyGrammarSections: MurphySection[] = [
       u(95, 'Relative clauses 4: extra information clauses (1)'),
       u(96, 'Relative clauses 5: extra information clauses (2)'),
       u(97, '-ing and -ed clauses (the woman talking to Tom …)'),
+      { id: 'whenever-wherever', number: 904, title: 'Whenever, Wherever', subtitle: 'whenever, wherever, whatever and whichever', wheneverWhereverApp: true },
     ],
   },
   {
@@ -2537,5 +2539,6 @@ export const unitHasContent = (unit: MurphyUnit) =>
     unit.soSuchLesson ||
     unit.compoundAdjectivesLesson ||
     unit.negativePrefixesLesson ||
-    unit.quantifiersApp
+    unit.quantifiersApp ||
+    unit.wheneverWhereverApp
   );

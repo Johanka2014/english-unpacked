@@ -16,6 +16,7 @@ import SoSuchLesson from '@/components/b1-grammar/SoSuchLesson';
 import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectivesLesson';
 import NegativePrefixesLesson from '@/components/b1-grammar/NegativePrefixesLesson';
 import QuantifiersPracticeApp from '@/components/grammar/QuantifiersPracticeApp';
+import WheneverWhereverApp from '@/components/grammar/WheneverWhereverApp';
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
@@ -93,6 +94,7 @@ const MurphyGrammarUnit = () => {
     if (unit.compoundAdjectivesLesson) list.push({ key: 'compound-adjectives', label: 'Compound Adjectives', icon: Sparkles });
     if (unit.negativePrefixesLesson) list.push({ key: 'negative-prefixes', label: 'Negative Prefixes', icon: Sparkles });
     if (unit.quantifiersApp) list.push({ key: 'quantifiers', label: 'Quantifier Practice', icon: Sparkles });
+    if (unit.wheneverWhereverApp) list.push({ key: 'whenever-wherever', label: 'Whenever, Wherever', icon: Sparkles });
     return list;
   }, [unit]);
 
@@ -102,14 +104,15 @@ const MurphyGrammarUnit = () => {
 
   const isExtra = unit.number > 500;
   const singleTab = tabs.length <= 1;
+  const isPhoneApp = !!(unit.quantifiersApp || unit.wheneverWhereverApp);
 
   return (
     <div className="min-h-screen bg-background">
       <SEO title={`${unit.title} - Grammar in Use`} description={unit.subtitle ?? section.description} />
       <Navigation />
 
-      <section className={unit.quantifiersApp ? 'relative bg-brand-navy py-6 text-primary-foreground' : 'relative py-16 text-white bg-gradient-to-br from-brand-navy to-brand-royal'}>
-        <div className={`container mx-auto px-4 text-center max-w-4xl ${unit.quantifiersApp ? '' : 'pt-8'}`}>
+      <section className={isPhoneApp ? 'relative bg-brand-navy py-6 text-primary-foreground' : 'relative py-16 text-white bg-gradient-to-br from-brand-navy to-brand-royal'}>
+        <div className={`container mx-auto px-4 text-center max-w-4xl ${isPhoneApp ? '' : 'pt-8'}`}>
           <p className="text-white/70 text-sm font-medium mb-2">{section.title}</p>
           <h1 className="text-3xl md:text-4xl font-bold mb-3 font-merriweather">
             {isExtra ? unit.title : `Unit ${unit.number} — ${unit.title}`}
@@ -118,7 +121,7 @@ const MurphyGrammarUnit = () => {
         </div>
       </section>
 
-      <section className={`${unit.quantifiersApp ? 'py-6' : 'py-12'} bg-background`}>
+      <section className={`${isPhoneApp ? 'py-6' : 'py-12'} bg-background`}>
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">
             <Link to={`/grammar/${section.id}`}>
@@ -168,6 +171,7 @@ const MurphyGrammarUnit = () => {
             {activeTab === 'compound-adjectives' && <CompoundAdjectivesLesson />}
             {activeTab === 'negative-prefixes' && <NegativePrefixesLesson />}
             {activeTab === 'quantifiers' && <QuantifiersPracticeApp />}
+            {activeTab === 'whenever-wherever' && <WheneverWhereverApp />}
           </div>
         </div>
       </section>
