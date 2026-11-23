@@ -17,6 +17,7 @@ import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectives
 import NegativePrefixesLesson from '@/components/b1-grammar/NegativePrefixesLesson';
 import QuantifiersPracticeApp from '@/components/grammar/QuantifiersPracticeApp';
 import WheneverWhereverApp from '@/components/grammar/WheneverWhereverApp';
+import ComparativesPractice from '@/components/grammar/ComparativesPractice';
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
@@ -95,6 +96,7 @@ const MurphyGrammarUnit = () => {
     if (unit.negativePrefixesLesson) list.push({ key: 'negative-prefixes', label: 'Negative Prefixes', icon: Sparkles });
     if (unit.quantifiersApp) list.push({ key: 'quantifiers', label: 'Quantifier Practice', icon: Sparkles });
     if (unit.wheneverWhereverApp) list.push({ key: 'whenever-wherever', label: 'Whenever, Wherever', icon: Sparkles });
+    if (unit.comparativesPractice) list.push({ key: 'comparatives', label: 'Comparatives and Superlatives', icon: Sparkles });
     return list;
   }, [unit]);
 
@@ -104,7 +106,7 @@ const MurphyGrammarUnit = () => {
 
   const isExtra = unit.number > 500;
   const singleTab = tabs.length <= 1;
-  const isPhoneApp = !!(unit.quantifiersApp || unit.wheneverWhereverApp);
+  const isPhoneApp = !!(unit.quantifiersApp || unit.wheneverWhereverApp || unit.comparativesPractice);
 
   return (
     <div className="min-h-screen bg-background">
@@ -172,6 +174,7 @@ const MurphyGrammarUnit = () => {
             {activeTab === 'negative-prefixes' && <NegativePrefixesLesson />}
             {activeTab === 'quantifiers' && <QuantifiersPracticeApp />}
             {activeTab === 'whenever-wherever' && <WheneverWhereverApp />}
+            {activeTab === 'comparatives' && <ComparativesPractice />}
           </div>
         </div>
       </section>

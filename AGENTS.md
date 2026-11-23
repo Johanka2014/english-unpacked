@@ -6,3 +6,4 @@
 - Keep the gizmo pre-listening tasks together in a dedicated component with typed, tested answers so matching and dialogue share consistent checking and tracking.
 - Keep the final gizmo partner discussion ungraded in a separate component so students choose a speaker and confirm with their teacher without automatic marking.
 - Keep the quantifiers practice as one self-contained phone-first grammar component with typed, tested answer data, so its three games share navigation and scoring.
+- Keep comparison practice in typed step data with one key per inline gap and a shared renderer, so multi-gap sentences and dialogue are checked independently.

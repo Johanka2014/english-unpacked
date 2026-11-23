@@ -38,3 +38,7 @@
 # Quantifier practice app
 - [x] Convert the uploaded app into Grammar → Pronouns and Determiners, phone first.
 - [x] Verify the games on a phone screen, answer reveals, reset and dashboard score readback.
+
+# Comparatives and superlatives
+- [x] Recreate the uploaded explanations and activities under Grammar → Adjectives and Adverbs using English Unpacked styling.
+- [x] Verify all gaps, answer checking/reset, score saving and phone/desktop layouts.

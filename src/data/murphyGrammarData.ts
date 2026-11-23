@@ -76,6 +76,7 @@ export interface MurphyUnit {
   negativePrefixesLesson?: boolean;
   quantifiersApp?: boolean;
   wheneverWhereverApp?: boolean;
+  comparativesPractice?: boolean;
 }
 
 export interface MurphySection {
@@ -2444,6 +2445,7 @@ export const murphyGrammarSections: MurphySection[] = [
       u(106, 'Comparison 2 (much better / any better / better and better)'),
       u(107, 'Comparison 3 (as … as / than)'),
       u(108, 'Superlatives (the longest, the most enjoyable etc.)'),
+      { id: 'comparatives-and-superlatives', number: 905, title: 'Comparatives and Superlatives', subtitle: 'Adjectives, adverbs, as … as, comparison and superlatives', comparativesPractice: true },
       u(109, 'Word order 1: verb + object; place and time'),
       u(110, 'Word order 2: adverbs with the verb'),
       u(111, 'Still, yet and already · Any more / any longer / no longer'),
@@ -2540,5 +2542,6 @@ export const unitHasContent = (unit: MurphyUnit) =>
     unit.compoundAdjectivesLesson ||
     unit.negativePrefixesLesson ||
     unit.quantifiersApp ||
-    unit.wheneverWhereverApp
+    unit.wheneverWhereverApp ||
+    unit.comparativesPractice
   );
