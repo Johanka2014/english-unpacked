@@ -74,6 +74,7 @@ export interface MurphyUnit {
   soSuchLesson?: boolean;
   compoundAdjectivesLesson?: boolean;
   negativePrefixesLesson?: boolean;
+  quantifiersApp?: boolean;
 }
 
 export interface MurphySection {
@@ -2395,6 +2396,7 @@ export const murphyGrammarSections: MurphySection[] = [
       u(89, 'Both / both of · neither / neither of · either / either of'),
       u(90, 'All, every and whole'),
       u(91, 'Each and every'),
+      { id: 'quantifier-practice', number: 901, title: 'Quantifier Practice', subtitle: 'much, many, few, little, some, any, every and each', quantifiersApp: true },
     ],
   },
   {
@@ -2534,5 +2536,6 @@ export const unitHasContent = (unit: MurphyUnit) =>
     unit.modalMasteryLesson ||
     unit.soSuchLesson ||
     unit.compoundAdjectivesLesson ||
-    unit.negativePrefixesLesson
+    unit.negativePrefixesLesson ||
+    unit.quantifiersApp
   );

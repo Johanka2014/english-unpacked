@@ -5,3 +5,4 @@
 - Keep the tool-description gap-fill in its own component with a separately tested answer validator, so valid alternative word orders are graded consistently.
 - Keep the gizmo pre-listening tasks together in a dedicated component with typed, tested answers so matching and dialogue share consistent checking and tracking.
 - Keep the final gizmo partner discussion ungraded in a separate component so students choose a speaker and confirm with their teacher without automatic marking.
+- Keep the quantifiers practice as one self-contained phone-first grammar component with typed, tested answer data, so its three games share navigation and scoring.

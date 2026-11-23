@@ -35,3 +35,6 @@
 - [x] Put Possible problems first, followed by Exercise 2 with audio and full-label dropdown choices.
 - [x] Recover and add Exercise 4 from the existing textbook.
 - [x] Verify signed-in answer checking and desktop/phone layouts.
+# Quantifier practice app
+- [x] Convert the uploaded app into Grammar → Pronouns and Determiners, phone first.
+- [x] Verify the games on a phone screen, answer reveals, reset and dashboard score readback.

@@ -15,6 +15,7 @@ import ModalVerbsMasterLesson from '@/components/b1-grammar/ModalVerbsMasterLess
 import SoSuchLesson from '@/components/b1-grammar/SoSuchLesson';
 import CompoundAdjectivesLesson from '@/components/b1-grammar/CompoundAdjectivesLesson';
 import NegativePrefixesLesson from '@/components/b1-grammar/NegativePrefixesLesson';
+import QuantifiersPracticeApp from '@/components/grammar/QuantifiersPracticeApp';
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
@@ -91,6 +92,7 @@ const MurphyGrammarUnit = () => {
     if (unit.soSuchLesson) list.push({ key: 'so-such', label: 'So & Such', icon: Sparkles });
     if (unit.compoundAdjectivesLesson) list.push({ key: 'compound-adjectives', label: 'Compound Adjectives', icon: Sparkles });
     if (unit.negativePrefixesLesson) list.push({ key: 'negative-prefixes', label: 'Negative Prefixes', icon: Sparkles });
+    if (unit.quantifiersApp) list.push({ key: 'quantifiers', label: 'Quantifier Practice', icon: Sparkles });
     return list;
   }, [unit]);
 
@@ -106,8 +108,8 @@ const MurphyGrammarUnit = () => {
       <SEO title={`${unit.title} - Grammar in Use`} description={unit.subtitle ?? section.description} />
       <Navigation />
 
-      <section className="relative py-16 text-white bg-gradient-to-br from-brand-navy to-brand-royal">
-        <div className="container mx-auto px-4 pt-8 text-center max-w-4xl">
+      <section className={unit.quantifiersApp ? 'relative bg-brand-navy py-6 text-primary-foreground' : 'relative py-16 text-white bg-gradient-to-br from-brand-navy to-brand-royal'}>
+        <div className={`container mx-auto px-4 text-center max-w-4xl ${unit.quantifiersApp ? '' : 'pt-8'}`}>
           <p className="text-white/70 text-sm font-medium mb-2">{section.title}</p>
           <h1 className="text-3xl md:text-4xl font-bold mb-3 font-merriweather">
             {isExtra ? unit.title : `Unit ${unit.number} — ${unit.title}`}
@@ -116,7 +118,7 @@ const MurphyGrammarUnit = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-background">
+      <section className={`${unit.quantifiersApp ? 'py-6' : 'py-12'} bg-background`}>
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">
             <Link to={`/grammar/${section.id}`}>
@@ -165,6 +167,7 @@ const MurphyGrammarUnit = () => {
             {activeTab === 'so-such' && <SoSuchLesson />}
             {activeTab === 'compound-adjectives' && <CompoundAdjectivesLesson />}
             {activeTab === 'negative-prefixes' && <NegativePrefixesLesson />}
+            {activeTab === 'quantifiers' && <QuantifiersPracticeApp />}
           </div>
         </div>
       </section>
