@@ -118,6 +118,14 @@ const TABS: TabDef[] = [
         group: 'Single lessons',
       },
       {
+        title: 'Pensions & Finance Vocabulary',
+        description: 'Learn 33 essential pension and financial product terms — flashcards, gap-fill, matching and multiple choice',
+        icon: Landmark,
+        path: '/pensions-finance',
+        color: 'text-brand-royal',
+        group: 'Single lessons',
+      },
+      {
         title: 'English for Presentations',
         description: 'Master the language of business presentations: welcoming audiences, structuring talks, attention-grabbing openings, and dealing with nervousness',
         icon: Presentation,

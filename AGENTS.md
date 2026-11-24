@@ -8,3 +8,4 @@
 - Keep the quantifiers practice as one self-contained phone-first grammar component with typed, tested answer data, so its three games share navigation and scoring.
 - Keep comparison practice in typed step data with one key per inline gap and a shared renderer, so multi-gap sentences and dialogue are checked independently.
 - Keep mixed conditionals guide and six interactive exercises in typed data with a shared answer normalizer, so all six tasks share navigation, grading and dashboard tracking.
+- Keep pensions and finance vocabulary in typed data with lifted section state on the protected page, so flashcards, three graded sections and the results summary share scores without resetting across tabs.
