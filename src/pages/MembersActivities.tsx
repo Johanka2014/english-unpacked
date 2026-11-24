@@ -142,6 +142,14 @@ const TABS: TabDef[] = [
         group: 'Single lessons',
       },
       {
+        title: 'Sports Idioms for Business',
+        description: 'Learn and practise 16 common sports idioms used at work — searchable study list, flashcards and sentence quiz',
+        icon: BookOpen,
+        path: '/business-idioms',
+        color: 'text-brand-royal',
+        group: 'Single lessons',
+      },
+      {
         title: 'Word Scramble',
         description: 'Timed letter-tile game — build as many words as you can in 60 seconds. Themed sets for everyday, travel and business English.',
         icon: Shuffle,
