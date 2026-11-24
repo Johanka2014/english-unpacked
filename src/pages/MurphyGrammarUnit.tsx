@@ -18,6 +18,7 @@ import NegativePrefixesLesson from '@/components/b1-grammar/NegativePrefixesLess
 import QuantifiersPracticeApp from '@/components/grammar/QuantifiersPracticeApp';
 import WheneverWhereverApp from '@/components/grammar/WheneverWhereverApp';
 import ComparativesPractice from '@/components/grammar/ComparativesPractice';
+import MixedConditionalsPractice from '@/components/grammar/MixedConditionalsPractice';
 
 const TheoryView = ({ sections }: { sections: NonNullable<ReturnType<typeof findMurphyUnit>>['theory'] }) => (
   <div className="space-y-8">
@@ -97,6 +98,7 @@ const MurphyGrammarUnit = () => {
     if (unit.quantifiersApp) list.push({ key: 'quantifiers', label: 'Quantifier Practice', icon: Sparkles });
     if (unit.wheneverWhereverApp) list.push({ key: 'whenever-wherever', label: 'Whenever, Wherever', icon: Sparkles });
     if (unit.comparativesPractice) list.push({ key: 'comparatives', label: 'Comparatives and Superlatives', icon: Sparkles });
+    if (unit.mixedConditionalsPractice) list.push({ key: 'mixed-conditionals', label: 'Mixed Conditionals', icon: Sparkles });
     return list;
   }, [unit]);
 
@@ -175,6 +177,7 @@ const MurphyGrammarUnit = () => {
             {activeTab === 'quantifiers' && <QuantifiersPracticeApp />}
             {activeTab === 'whenever-wherever' && <WheneverWhereverApp />}
             {activeTab === 'comparatives' && <ComparativesPractice />}
+            {activeTab === 'mixed-conditionals' && <MixedConditionalsPractice />}
           </div>
         </div>
       </section>

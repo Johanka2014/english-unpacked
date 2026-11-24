@@ -77,6 +77,7 @@ export interface MurphyUnit {
   quantifiersApp?: boolean;
   wheneverWhereverApp?: boolean;
   comparativesPractice?: boolean;
+  mixedConditionalsPractice?: boolean;
 }
 
 export interface MurphySection {
@@ -2287,6 +2288,13 @@ export const murphyGrammarSections: MurphySection[] = [
         theory: unit41Theory,
         exercises: unit41Exercises,
       },
+      {
+        id: 'mixed-conditionals',
+        number: 906,
+        title: 'Mixed Conditionals',
+        subtitle: 'mixing past, present and future unreal conditionals — guide and 6 practice exercises',
+        mixedConditionalsPractice: true,
+      },
     ],
   },
   {
@@ -2543,5 +2551,6 @@ export const unitHasContent = (unit: MurphyUnit) =>
     unit.negativePrefixesLesson ||
     unit.quantifiersApp ||
     unit.wheneverWhereverApp ||
-    unit.comparativesPractice
+    unit.comparativesPractice ||
+    unit.mixedConditionalsPractice
   );
